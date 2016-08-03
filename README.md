@@ -6,10 +6,10 @@ The majority of the samples you see here involves mixed projects (net451) that w
 
   Setup your most basic web app and enable the change+refresh development experience. 
   
-  We are using ```IApplicationBuilder.Run```.
+  We are using ```IApplicationBuilder Run```, an extension class for adding terminal middleware.
 
 * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
 
   ASPNetCore is built on top of pipelines of functions called middleware (yeah, it looks exactly like Node/Express). 
   
-  We are using ```IApplicationBuilder.Use``` and ```IApplicationBuilder.Run```.
+  We are using ```IApplicationBuilder Use``` and ```IApplicationBuilder Run```.
