@@ -4,8 +4,12 @@ The majority of the samples you see here involves mixed projects (net451) that w
 
 * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
-  Setup your most basic web app and enable the change+refresh development experience
+  Setup your most basic web app and enable the change+refresh development experience. 
+  
+  We are using ```IApplicationBuilder.Run```.
 
 * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
 
-  ASPNetCore is built on top of pipelines of functions called middleware (yeah, it looks exactly like Node/Express)
+  ASPNetCore is built on top of pipelines of functions called middleware (yeah, it looks exactly like Node/Express). \
+  
+  We are using ```IApplicationBuilder.Use``` and ```IApplicationBuilder.Run```.
