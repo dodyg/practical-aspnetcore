@@ -18,7 +18,7 @@
     },
     "tools": {
         "Microsoft.Dotnet.Watcher.Tools": {
-            "version": "1.0.0-*",
+            "version": "1.0.0-preview2-final",
             "imports": "portable-net451+win8"
         }
     }
