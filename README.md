@@ -1,4 +1,4 @@
-The majority of the samples you see here involves mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We ain't gonna port multi years systems to run on Linux. We want to improve the creaky .NET MVC 3.0 that we had lying around and bring it to aspnetcore MVC.
+The majority of the samples you see here involves mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We ain't gonna port multi years systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
 All these projects require the following dependencies
 
@@ -7,7 +7,7 @@ All these projects require the following dependencies
   "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
 ```
 
-If a sample require additional dependency, I will list them.
+If a sample require additional dependencies, I will list them.
 
 To run these samples, simply go each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
@@ -25,5 +25,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
-  Simply serve static files (html, css, images, etc) ```"Microsoft.AspNetCore.StaticFiles": "1.0.0"```. There are two static files being serve in this project, index.html and hello.css. 
+  Simply serve static files (html, css, images, etc). 
+  
+  This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.0.0"```. 
+  
+  There are two static files being serve in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
+  
   To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
