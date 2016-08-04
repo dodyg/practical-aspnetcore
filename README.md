@@ -3,9 +3,10 @@ The majority of the samples you see here involves mixed projects (net451) that w
 All these projects require the following dependencies
 
 ```
-  "Microsoft.AspNetCore.Hosting" : "1.0.0-*",
-  "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
+  "Microsoft.AspNetCore.Hosting" : "1.0.0-*"
 ```
+
+*This dependency pulls its own dependencies which you can check at project.lock.json. This allows us to not explicitly specify some dependencies ourselves.*
 
 If a sample require additional dependencies, I will list them.
 
