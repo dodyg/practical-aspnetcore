@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-namespace HelloWorldWithReload 
+namespace HelloWorldWithMiddleware 
 {
     public class Startup
     {
