@@ -36,6 +36,6 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
 * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
 
-  Serve markdown file as html files. You will see how you can create useful app using a few basic facilities in aspnetcore.
+  Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
   We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
