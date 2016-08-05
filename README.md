@@ -33,3 +33,9 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   There are two static files being serve in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
   
   To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
+
+* [Markdown server]((https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
+
+  Serve markdown file as html files. You will see how you can create useful app using a few basic facilities in aspnetcore.
+
+  We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
