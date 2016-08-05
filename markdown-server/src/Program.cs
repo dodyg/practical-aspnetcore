@@ -70,6 +70,4 @@ namespace MarkdownServer
             host.Run();
         }
     }
-
-
 }
