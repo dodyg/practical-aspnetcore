@@ -51,9 +51,11 @@ namespace MarkdownServer
                     context.Response.StatusCode = 404;
                     await context.Response.WriteAsync("File Not Found");
                     await _next.Invoke(context);
+                    //write here for post logic
                     return;
                 }
 
+                //no more processing. This code is shortcircuited.
                 context.Response.ContentType = "text/html";
                 await context.Response.WriteAsync(ProduceMarkdown(defaultMd));
                 return;
@@ -71,9 +73,11 @@ namespace MarkdownServer
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync("File Not Found");
                 await _next.Invoke(context);
+                //write here for post logic
                 return;
             }
 
+            //no more processing. This code is shortcircuited.
             context.Response.ContentType = "text/html";
             await context.Response.WriteAsync(ProduceMarkdown(md));
         }
