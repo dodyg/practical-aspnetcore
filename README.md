@@ -34,6 +34,17 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   
   To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
 
+* [Serve static files - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-middleware)
+
+  Simply serve static files (html, css, images, etc). The functionality is implemented in a middleware component. 
+  
+  This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.0.0"```. 
+  
+  There are two static files being serve in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
+  
+  To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
+
+
 * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
 
   Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
