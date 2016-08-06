@@ -46,3 +46,5 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server) but implemented using middleware component.
 
   We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
+
+  [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
