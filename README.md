@@ -10,6 +10,8 @@ All these projects require the following dependencies
 
 If a sample require additional dependencies, I will list them.
 
+I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples.
+
 To run these samples, simply go each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
 * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
@@ -23,7 +25,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   Setup a basic logging in your app and show it to console.
 
   We add the following dependencies ```"Microsoft.Extensions.Logging": "1.0.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.0.0"```
-    
+
   We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
 
