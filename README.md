@@ -18,6 +18,15 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   
   We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
+* [Hello World with console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
+
+  Setup a basic logging in your app and show it to console.
+
+  We add the following dependencies ```"Microsoft.Extensions.Logging": "1.0.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.0.0"```
+    
+  We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
+
+
 * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
 
   ASPNetCore is built on top of pipelines of functions called middleware. 
