@@ -1,0 +1,39 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+namespace HelloWorldWithReload 
+{
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+        {
+            //filter what level of logging you want to see
+            loggerFactory.AddConsole((str, level) => {
+                    return level >= LogLevel.Trace;
+            });
+
+            var log = loggerFactory.CreateLogger("Startup");
+            app.Run(context =>
+            {
+                log.LogTrace($"Request {context.Request.Path}");
+                log.LogDebug($"Debug info {context.Request.Path}");
+                return context.Response.WriteAsync($"Hello world at {context.Request.Path}");
+            });
+        }
+    }
+    
+   public class Program
+    {
+        public static void Main(string[] args)
+        {
+              var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
+        }
+    }
+}
