@@ -1,4 +1,4 @@
-The majority of the samples you see here involves mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We ain't gonna port multi years systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
+The majority of the samples you see here involve mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
 All these projects require the following dependencies
 
@@ -39,7 +39,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 * [Hello World with IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
 
   Respond to application startup and shutdown.
-  
+
   We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
