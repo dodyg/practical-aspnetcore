@@ -69,6 +69,6 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
 * [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/password-hasher)
 
-  Give it a string and it will generate a secure hash for you.
+  Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
   We add dependency ```"Microsoft.AspNetCore.Identity": "1.0.0-*"``` to enable this functionality.
