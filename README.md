@@ -66,3 +66,9 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
 
   [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
+
+* [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/password-hasher)
+
+  Give it a string and it will generate a secure hash for you.
+
+  We add dependency ```"Microsoft.AspNetCore.Identity": "1.0.0-*"``` to enable this functionality.
