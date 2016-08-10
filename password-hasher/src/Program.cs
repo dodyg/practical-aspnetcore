@@ -21,10 +21,13 @@ namespace HelloWorldWithReload
                 if (string.IsNullOrWhiteSpace(password))
                     password = "123456789";
 
+                var usr = new User();
                 var hasher = new PasswordHasher<User>();
-                var hashedPassword = hasher.HashPassword(new User(), password);
+                var hashedPassword = hasher.HashPassword(usr, password);
 
-                return context.Response.WriteAsync($"Append ?password at url to test your own password hashing. Password : {password} => Hashed : {hashedPassword}");
+                var isPasswordMatch = hasher.VerifyHashedPassword(usr, hashedPassword, password);
+
+                return context.Response.WriteAsync($"Append ?password at url to test your own password hashing.\nPassword : {password} => Hashed : {hashedPassword}.\nPassword Matched : {isPasswordMatch}");
             });
         }
     }
