@@ -42,6 +42,11 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
+  * [Hello World with cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
+
+  Simply read and write cookies.
+
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
