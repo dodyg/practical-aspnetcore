@@ -46,6 +46,18 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   Simply read and write cookies.
 
+* Hello world with routing.
+
+  We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.0.0-*"``` to enable routing facilities in your aspnetcore apps.
+  There are several samples to illuminate this powerful library.
+
+  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router)
+  
+    A single route handler that handles every path request.
+
+  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router2)
+  
+    Two route handler, one for home page (/) and the other takes the rest of the request using asterisk (*) in the url template.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
