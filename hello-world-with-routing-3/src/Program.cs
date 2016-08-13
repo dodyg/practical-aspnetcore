@@ -15,17 +15,27 @@ namespace HelloWorldWithReload
 
         public void Configure(IApplicationBuilder app)
         {
-            var routes = new RouteBuilder(app);
-            routes.MapGet("", (context) => {
-                return context.Response.WriteAsync($"Home Page. Try /good or /good/morning.");
+            var defaultHandler = new RouteHandler (context =>
+            {
+                var routeValues = context.GetRouteData().Values;
+                return context.Response.WriteAsync($"Route values: {string.Join(", ", routeValues)}");
             });
 
-            routes.MapGet("{*path}", (context) =>{
-                var routeData = context.GetRouteData();
-                var path = routeData.Values;
-                return context.Response.WriteAsync($"Path: {string.Join(",",path)}");
-            });
+            var routes = new RouteBuilder(app, defaultHandler);
+            routes.MapRoute(
+                name: "hello1",
+                template:"hello/{greetings}/from/{country}"
+            );
+            
+            routes.MapRoute(
+                name: "hello2",
+                template:"hello/{greetings}"
+            );
 
+            routes.MapRoute(
+                name: "Default", 
+                template: "{*path}"
+            );
             app.UseRouter(routes.Build());
         }
     }
