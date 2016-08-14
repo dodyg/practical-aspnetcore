@@ -55,15 +55,15 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   
     A single route handler that handles every path request.
 
-  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing)
+  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-2)
   
     Two route handler, one for home page (/) and the other takes the rest of the request using asterisk (*) in the url template.
 
-  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing3)
+  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-3)
 
     We are exploring default handler - this is the entry point to create your own framework.
     
-  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing4)
+  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-4)
 
     We are mixing optional route parameter, route parameter with default value and default handler.
 
