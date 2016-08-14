@@ -51,20 +51,19 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.0.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
 
-  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router)
+  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing)
   
     A single route handler that handles every path request.
 
-  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router2)
+  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing)
   
     Two route handler, one for home page (/) and the other takes the rest of the request using asterisk (*) in the url template.
 
-  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router3)
+  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing3)
 
     We are exploring default handler - this is the entry point to create your own framework.
-
     
-  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router4)
+  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing4)
 
     We are mixing optional route parameter, route parameter with default value and default handler.
 
