@@ -63,6 +63,11 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We are exploring default handler - this is the entry point to create your own framework.
 
+    
+  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-router4)
+
+    We are mixing optional route parameter, route parameter with default value and default handler.
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
