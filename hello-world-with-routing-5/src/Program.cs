@@ -18,13 +18,14 @@ namespace HelloWorldWithReload
         {
             var routes = new RouteBuilder(app);
             routes.Routes.Add(new Route(
-            target: new RouteHandler(async ctx => await ctx.Response.WriteAsync("hello world")),
-            routeName: "home",
-            routeTemplate: "",
-            constraints: new Dictionary<string, object>(),
-            defaults: new RouteValueDictionary(),
-            inlineConstraintResolver: resolver,
-            dataTokens: new RouteValueDictionary()));
+                target: new RouteHandler(async ctx => await ctx.Response.WriteAsync("hello world")),
+                routeName: "home",
+                routeTemplate: "",
+                constraints: new Dictionary<string, object>(),
+                defaults: new RouteValueDictionary(),
+                inlineConstraintResolver: resolver,
+                dataTokens: new RouteValueDictionary())
+            );
 
             IRouter routing = routes.Build();
             app.UseRouter(routing);
