@@ -8,20 +8,6 @@ using System.Threading.Tasks;
 
 namespace HelloWorldWithReload 
 {
-    public class DebuggerRouteHandler : IRouter
-    {
-        public VirtualPathData GetVirtualPath(VirtualPathContext context)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RouteAsync(RouteContext context)
-        {
-            var routeValues = context.HttpContext.GetRouteData().Values;
-            return context.HttpContext.Response.WriteAsync($"Hello {routeValues["name"]}");
-        }
-    }
-
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
@@ -39,16 +25,9 @@ namespace HelloWorldWithReload
 
             var routes = new RouteBuilder(app, defaultHandler);
             
-            routes.MapVerb("GET", "hello", (IApplicationBuilder app2) =>{
+            routes.MapGet("hello", (IApplicationBuilder app2) =>{
                 var routes2 = new RouteBuilder(app2);
-                routes2.MapGet("callme", (context) => {
-                    return context.Response.WriteAsync("call me");
-                });
-
-                routes2.MapGet("{name}", context => {
-                    var routeValues = context.GetRouteData().Values;
-                    return context.Response.WriteAsync($"hello {routeValues["name"]}");
-                });
+                routes2.MapGet("world", (context) => context.Response.WriteAsync("Hello World"));
 
                 app2.UseRouter(routes2.Build());
             });
