@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace HelloWorldWithReload 
 {
@@ -15,27 +14,17 @@ namespace HelloWorldWithReload
             services.AddRouting();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IInlineConstraintResolver resolver)
         {
-            var defaultHandler = new RouteHandler (context =>
-            {
-                var routeValues = context.GetRouteData().Values;
-                return context.Response.WriteAsync($"Route values: {string.Join(", ", routeValues)}");
-            });
-
-            var routes = new RouteBuilder(app, defaultHandler);
-            
-            routes.MapGet("hello", (IApplicationBuilder app2) =>{
-                var routes2 = new RouteBuilder(app2);
-                routes2.MapGet("world", (context) => context.Response.WriteAsync("Hello World"));
-
-                app2.UseRouter(routes2.Build());
-            });
-
-            routes.MapRoute(
-                name: "Default", 
-                template: "{*path}"
-            );
+            var routes = new RouteBuilder(app);
+            routes.Routes.Add(new Route(
+            target: new RouteHandler(async ctx => await ctx.Response.WriteAsync("hello world")),
+            routeName: "home",
+            routeTemplate: "",
+            constraints: new Dictionary<string, object>(),
+            defaults: new RouteValueDictionary(),
+            inlineConstraintResolver: resolver,
+            dataTokens: new RouteValueDictionary()));
 
             IRouter routing = routes.Build();
             app.UseRouter(routing);
