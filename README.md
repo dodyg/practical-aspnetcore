@@ -67,6 +67,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We are mixing optional route parameter, route parameter with default value and default handler.
 
+  * [Router 5](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-5)
+
+    We are using ```Route``` class to configure routing. Things start getting complicated.
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
