@@ -12,10 +12,6 @@ namespace HelloWorldWithReload
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
-
         public void Configure(IApplicationBuilder app, IInlineConstraintResolver resolver)
         {
             //We are building a url template from scratch, segment by segemtn, oldskool 
