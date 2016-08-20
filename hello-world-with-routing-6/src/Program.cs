@@ -14,7 +14,6 @@ namespace HelloWorldWithReload
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRouting();
         }
 
         public void Configure(IApplicationBuilder app, IInlineConstraintResolver resolver)
