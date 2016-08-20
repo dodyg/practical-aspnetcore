@@ -67,9 +67,16 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We are mixing optional route parameter, route parameter with default value and default handler.
 
-  * [Router 5](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-5)
+  * [Router 5]
+    
+    This is still broken. I am trying to figure out how to do nested routing. Wish me luck!
+  
+  * [Router 6](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-6)
 
-    We are using ```Route``` class to configure routing. Things start getting complicated.
+    We are building a template route segment by segment and parts by parts, oldskool. We are using ```TemplateMatcher```, ```TemplateSegment``` and ```TemplatePart```. 
+
+    Hold your mask, we are going deep.
+  
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
