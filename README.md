@@ -20,6 +20,12 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   
   We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
+
+* [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
+
+  This project contains all the available services available in Starup class constructor, ConfigureServices and Configure methods.
+
+
 * [Hello World with console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
 
   Setup a basic logging in your app and show it to console.
