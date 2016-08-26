@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}\\bin\\Debug\\net451\\startup.exe",
+            "program": "${workspaceRoot}\\bin\\Debug\\net451\\hello-world-startup-basic.exe",
             "args": [],
             "cwd": "${workspaceRoot}",
             "externalConsole": false,

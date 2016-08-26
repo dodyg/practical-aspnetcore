@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}\\bin\\Debug\\net451\\hello-world-with-routing-6.exe",
+            "program": "${workspaceRoot}\\bin\\Debug\\net451\\routing-6.exe",
             "args": [],
             "cwd": "${workspaceRoot}",
             "externalConsole": false,
