@@ -77,6 +77,9 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     Hold your mask, we are going deep.
   
+  * [Router 7](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-7)
+
+    We are creating a routing template with two segments, one with Literal part and the other Parameter part, e.g, "/page/{*title}"
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
@@ -108,3 +111,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
   We add dependency ```"Microsoft.AspNetCore.Identity": "1.0.0-*"``` to enable this functionality.
+
+
+## Other resources
+
+These are other aspnetcore resources with code samples
+
+* [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals)
