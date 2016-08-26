@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace HelloWorldWithReload 
+namespace HelloWorldWithLogging 
 {
     public class Startup
     {

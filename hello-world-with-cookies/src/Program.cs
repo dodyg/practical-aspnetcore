@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-namespace HelloWorldWithReload 
+
+namespace HelloWorldWithCookies 
 {
     public class Startup
     {

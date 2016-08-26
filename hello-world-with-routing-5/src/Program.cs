@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 
-namespace HelloWorldWithReload 
+namespace Routing5 
 {
     public class Startup
     {

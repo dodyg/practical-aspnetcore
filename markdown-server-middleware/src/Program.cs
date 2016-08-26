@@ -5,7 +5,7 @@ using System.IO;
 using CommonMark;
 using System.Threading.Tasks;
 
-namespace MarkdownServer
+namespace MarkdownServerWithMiddleware
 {
     public class Startup
     {

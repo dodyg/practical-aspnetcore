@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
 
-namespace HelloWorldWithReload 
+namespace MvcAcceptXml 
 {
     public class Startup
     {

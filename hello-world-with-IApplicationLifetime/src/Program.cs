@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-namespace HelloWorldWithMiddleware 
+namespace HelloWorldWithIApplicationLifetime 
 {
     public class Startup
     {
