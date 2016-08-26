@@ -3,18 +3,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Routing.Template;
 using System.Linq;
 using System;
 
-namespace Routing6 
+namespace Routing7 
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IInlineConstraintResolver resolver)
         {
-            //We are building a url template from scratch, segment by segment, oldskool 
+            //We are building a url template from scratch, segment by segemtn, oldskool 
             var segment = new TemplateSegment();
             segment.Parts.Add(
                 TemplatePart.CreateLiteral("hello")
@@ -32,11 +31,6 @@ namespace Routing6
 
             var template = new RouteTemplate("hello", segments.ToList());
             var templateMatcher = new TemplateMatcher(template, new RouteValueDictionary());
-
-            app.Use(async (context, next) => {
-                await context.Response.WriteAsync("We are building routing from scratch using a template segment consisted of two parts: 'hello' and 'world'.\n\n");
-                await next.Invoke();
-            });
 
             app.Use(async (context, next) =>{
                 var path1 = "hello/world";
@@ -66,10 +60,6 @@ namespace Routing6
                 var isMatch1 = templateMatcher.TryMatch(path1, new RouteValueDictionary());
                 await context.Response.WriteAsync($"{path1} is match? {isMatch1}\n");
                 await next.Invoke();    
-            });
-
-            app.Run(async context => {
-                await context.Response.WriteAsync("");
             });
         }
     }
