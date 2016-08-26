@@ -51,19 +51,19 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.0.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
 
-  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing)
+  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/routing)
   
     A single route handler that handles every path request.
 
-  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-2)
+  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-2)
   
     Two route handler, one for home page (/) and the other takes the rest of the request using asterisk (*) in the url template.
 
-  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-3)
+  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-3)
 
     We are exploring default handler - this is the entry point to create your own framework.
     
-  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-4)
+  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-4)
 
     We are mixing optional route parameter, route parameter with default value and default handler.
 
@@ -71,13 +71,13 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
     
     This is still broken. I am trying to figure out how to do nested routing. Wish me luck!
   
-  * [Router 6](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-6)
+  * [Router 6](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-6)
 
     We are building a template route segment by segment and parts by parts, oldskool. We are using ```TemplateMatcher```, ```TemplateSegment``` and ```TemplatePart```. 
 
     Hold your mask, we are going deep.
   
-  * [Router 7](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-routing-7)
+  * [Router 7](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-7)
 
     We are creating a routing template with two segments, one with Literal part and the other Parameter part, e.g, "/page/{*title}"
 
