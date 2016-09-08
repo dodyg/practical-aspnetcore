@@ -49,12 +49,6 @@ namespace Routing7
                 var routeData = new RouteValueDictionary();//This dictionary will be populated by the parameter template part (in this case "title")
                 var isMatch1 = templateMatcher.TryMatch(path1, routeData);
                 await context.Response.WriteAsync($"{path1} is match? {isMatch1} => route data value for 'title' is {routeData["title"]} \n");
-                await next.Invoke();      
-            });
-
-            app.Run(async context =>
-            {
-                await context.Response.WriteAsync("");
             });
         }
     }
