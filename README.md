@@ -87,6 +87,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We are creating a routing template with two segments, one with Literal part and the other Parameter part, e.g, "/page/{*title}"
 
+  * [Router 8](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-8)
+
+    We are creating a routing template with one segment consisted of two parts, one Literal adn one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
