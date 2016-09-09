@@ -89,7 +89,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   * [Router 8](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-8)
 
-    We are creating a routing template with one segment consisted of two parts, one Literal adn one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
+    We are creating a routing template with one segment consisted of two parts, one Literal and one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
 
   * Router 9
    
