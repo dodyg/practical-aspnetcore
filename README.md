@@ -91,6 +91,14 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We are creating a routing template with one segment consisted of two parts, one Literal adn one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
 
+  * Router 9
+   
+    I am still trying to determine whether TemplateMatcher uses the InlineConstraint information.
+ 
+  * [Router 10](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-10)    
+
+    We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
