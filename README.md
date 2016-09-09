@@ -93,7 +93,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   * Router 9
    
-    I am still trying to determine whether TemplateMatcher uses the InlineConstraint information.
+    I am still trying to determine whether `TemplateMatcher` uses the `InlineConstraint` information.
  
   * [Router 10](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-10)    
 
