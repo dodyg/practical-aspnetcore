@@ -103,7 +103,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
 * Middleware
 
-  * [Middleware 1](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-10)
+  * [Middleware 1](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-1)
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
 
