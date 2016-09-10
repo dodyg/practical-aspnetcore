@@ -49,13 +49,13 @@ namespace Routing7
                 await context.Response.WriteAsync($"{path1} is match? {isMatch1} => route data value for 'id' is {routeData["id"]} \n");
                 await next.Invoke();
             });
-
+            
             app.Use(async (context, next) =>
             {
                 var path = "/page/a";
                 var routeData = new RouteValueDictionary();//This dictionary will be populated by the parameter template part (in this case "title")
                 var isMatch1 = templateMatcher.TryMatch(path, routeData);
-                await context.Response.WriteAsync($"{path} is match? {isMatch1}\n");
+                await context.Response.WriteAsync($"{path} is match? {isMatch1} - as you can see TemplateMatcher does not give a damn about InlineConstraint. It is by design. \n");
             });
         }
     }
