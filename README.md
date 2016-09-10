@@ -91,9 +91,11 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We are creating a routing template with one segment consisted of two parts, one Literal and one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
 
-  * Router 9
+  * [Router 9](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-9)
    
     I am still trying to determine whether `TemplateMatcher` uses the `InlineConstraint` information.
+
+    Update: No, `TemplateMatcher` does not run constrants. [#362](https://github.com/aspnet/Routing/issues/362)
  
   * [Router 10](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-10)    
 
@@ -114,7 +116,6 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
   We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
-
   
 * [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server-middleware)
 
