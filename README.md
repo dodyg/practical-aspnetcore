@@ -52,7 +52,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   Simply read and write cookies.
 
-* Hello world with routing.
+* Routing.
 
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.0.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
@@ -102,6 +102,8 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
 * Middleware
+
+  We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
   * [Middleware 1](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-1)
    
