@@ -101,6 +101,12 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
+* Middleware
+
+  * [Middleware 1](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-10)
+   
+    This example shows how to pass information from one middleware to another using `HttpContext.Items`.
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
