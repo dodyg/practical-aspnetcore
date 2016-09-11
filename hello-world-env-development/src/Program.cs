@@ -20,7 +20,6 @@ namespace StartupBasic
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
-            //These are the three default services available at Configure
             if (env.IsDevelopment()){
                 app.Use(async (context, next) =>{
 

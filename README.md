@@ -25,6 +25,9 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   This project contains all the available services available in Starup class constructor, ConfigureServices and Configure methods.
 
+* [Hello World with environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
+
+  Set your application environment to `Development` or `Production` or other mode directly from code. 
 
 * [Hello World with console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
 
