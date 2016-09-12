@@ -1,4 +1,4 @@
-# 22 samples for aspnetcore fundamentals (updated daily)
+# 23 samples for aspnetcore fundamentals (updated daily)
 
 The majority of the samples you see here involve mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
