@@ -39,6 +39,9 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
   We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
+* [Hello World with console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging-filtered)
+
+  Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
 
 * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
 
