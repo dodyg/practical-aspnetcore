@@ -121,7 +121,7 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
-  * [features-server-addresses](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-addresses)
+  * [Server Addresses Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-addresses)
 
     Use this Feature to obtain a list of urls that your app is responding to.
 
