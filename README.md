@@ -1,4 +1,4 @@
-# 23 samples for aspnetcore fundamentals (updated daily)
+# 24 samples for aspnetcore fundamentals (updated daily)
 
 The majority of the samples you see here involve mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -116,6 +116,14 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   * [Middleware 1](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-1)
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
+
+* Features
+  
+  Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
+
+  * [features-server-addresses](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-addresses)
+
+    Use this Feature to obtain a list of urls that your app is responding to.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
