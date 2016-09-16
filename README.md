@@ -125,6 +125,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 
     Use this Feature to obtain a list of urls that your app is responding to.
 
+  * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-request)
+
+    Obtain details of a current request. It has some similarity to HttpContext.Request.  
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
