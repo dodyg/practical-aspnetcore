@@ -1,4 +1,4 @@
-# 26 samples for aspnetcore fundamentals (updated daily)
+# 27 samples for aspnetcore fundamentals (updated daily)
 
 The majority of the samples you see here involve mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -132,6 +132,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   * [Custom Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-custom)
 
     Create your own custom Feature and pass it along from a middleware. 
+
+  * [Custom Feature - Override](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-custom-override)
+
+    Shows how you can replace an implementation of a Feature with another within the request pipeline.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
