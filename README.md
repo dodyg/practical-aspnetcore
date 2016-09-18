@@ -1,4 +1,4 @@
-# 27 samples for aspnetcore fundamentals (updated daily)
+# 28 samples for aspnetcore fundamentals (updated daily)
 
 The majority of the samples you see here involve mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -55,6 +55,10 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
   Respond to application startup and shutdown.
 
   We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
+
+* [Hello World with IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
+
+  `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
 * [Hello World with cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
 
@@ -173,3 +177,6 @@ To run these samples, simply go each folder and execute ```dotnet restore``` and
 These are other aspnetcore resources with code samples
 
 * [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals)
+* [aspnetcore entropy](https://github.com/aspnet/entropy)
+  
+  "This repo is a chaotic experimental playground for new features and ideas. Check here for small and simple samples for individual features."
