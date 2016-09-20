@@ -1,6 +1,6 @@
 # 28 samples for aspnetcore fundamentals (updated daily)
 
-The majority of the samples you see here involve mixed projects (net451) that will run only in Windows. For most of us .NET developers, this is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
+Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
 All these projects require the following dependencies
 
@@ -12,9 +12,9 @@ All these projects require the following dependencies
 
 If a sample require additional dependencies, I will list them.
 
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples.
+I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. 
 
-To run these samples, simply go each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
+To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
 * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
