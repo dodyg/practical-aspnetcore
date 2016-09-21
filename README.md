@@ -143,7 +143,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * Dependency Injection
 
-  aspnetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as their own dependency.
+  aspnetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
 
   * [Dependency Injection 3 - Easy registration](https://github.com/dodyg/practical-aspnetcore/tree/master/dependency-injection-3)
   
