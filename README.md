@@ -149,7 +149,7 @@ To run these samples, simply open your command line console,  go to each folder 
   
     Register all objects configured by classes that implements a specific interface (`IBootstrap` in this example). This is useful when you have large amount of classes in your project that needs registration. You can register them near where they are (usually in the same folder) instead of registering them somewhere in a giant registration function.
 
-    Note: example 1 and 2 are forthcoming.
+    Note: example 1 and 2 are forthcoming. The inspiration has not arrived yet.
 
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
