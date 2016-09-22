@@ -25,7 +25,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
 
-  This project contains all the available services available in Starup class constructor, ConfigureServices and Configure methods.
+  This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
 * [Hello World with environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
 
