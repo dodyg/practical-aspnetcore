@@ -1,4 +1,4 @@
-# 30 samples for aspnetcore fundamentals (updated daily)
+# 31 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -132,6 +132,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-request)
 
     Obtain details of a current request. It has some similarity to HttpContext.Request.  
+
+  * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-connection)
+
+    Use `IHttpConnectionFeature` interface to obtain local ip/port and remote ip/port. 
 
   * [Custom Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-custom)
 
