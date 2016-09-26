@@ -131,9 +131,9 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-request)
 
-    Obtain details of a current request. It has some similarity to HttpContext.Request.  
+    Obtain details of a current request. It has some similarity to HttpContext.Request. They are not equal. `HttpContext.Request` has more properties.  
 
-  * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-connection)
+  * [Connection Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-connection)
 
     Use `IHttpConnectionFeature` interface to obtain local ip/port and remote ip/port. 
 
