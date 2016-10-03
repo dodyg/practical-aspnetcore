@@ -165,6 +165,13 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Add file dependency to your caching so when the file changes, your cache expires.
 
+    You need to put the cache file in your `project.json` so it gets copied over, e.g.
+
+    `"buildOptions": {
+        "emitEntryPoint": true,
+        "copyToOutput": ["cache-file.txt"]
+    }`
+
     Note: example 1 is forthcoming. The inspiration has not arrived yet.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
