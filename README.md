@@ -48,7 +48,6 @@ To run these samples, simply open your command line console,  go to each folder 
   
   We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
-
 * [Hello World with IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
 
   Respond to application startup and shutdown.
@@ -156,7 +155,7 @@ To run these samples, simply open your command line console,  go to each folder 
   
     Register all objects configured by classes that implements a specific interface (`IBootstrap` in this example). This is useful when you have large amount of classes in your project that needs registration. You can register them near where they are (usually in the same folder) instead of registering them somewhere in a giant registration function.
 
-    Note: example 1 and 2 are forthcoming. The inspiration has not arrived yet.
+    Note: example 2 is forthcoming. The inspiration has not arrived yet.
 
 * **In Memory Caching (a.k.a local cache)**
 
@@ -165,6 +164,8 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Caching 2 - File dependency](https://github.com/dodyg/practical-aspnetcore/tree/master/caching-2)
     
     Add file dependency to your caching so when the file changes, your cache expires.
+
+    Note: example 1 is forthcoming. The inspiration has not arrived yet.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
