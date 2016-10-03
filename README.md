@@ -22,7 +22,6 @@ To run these samples, simply open your command line console,  go to each folder 
   
   We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-
 * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
 
   This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
@@ -64,7 +63,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Simply read and write cookies.
 
-* Routing.
+* **Routing**
 
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.0.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
@@ -113,7 +112,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* Middleware
+* **Middleware**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -121,7 +120,7 @@ To run these samples, simply open your command line console,  go to each folder 
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
 
-* Features
+* **Features**
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
@@ -145,7 +144,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Shows how you can replace an implementation of a Feature with another within the request pipeline.
 
-* Dependency Injection
+* **Dependency Injection**
 
   aspnetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
 
@@ -159,7 +158,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Note: example 1 and 2 are forthcoming. The inspiration has not arrived yet.
 
-* In Memory Caching
+* **In Memory Caching (a.k.a local cache)**
 
   These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
 
