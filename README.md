@@ -1,4 +1,4 @@
-# 31 samples for aspnetcore fundamentals (updated daily)
+# 32 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -159,6 +159,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Note: example 1 and 2 are forthcoming. The inspiration has not arrived yet.
 
+* In Memory Caching
+
+  These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
+
+  * [Caching 2 - File dependency](https://github.com/dodyg/practical-aspnetcore/tree/master/caching-2)
+    
+    Add file dependency to your caching so when the file changes, your cache expires.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
