@@ -1,4 +1,4 @@
-# 33 samples for aspnetcore fundamentals (updated daily)
+# 34 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -177,6 +177,10 @@ To run these samples, simply open your command line console,  go to each folder 
     }`
 
     Note: example 1 is forthcoming. The inspiration has not arrived yet.
+
+  * [Caching 3 - Cache removal event](https://github.com/dodyg/practical-aspnetcore/tree/master/caching-3)
+
+    Register callback when a cached value is removed.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
