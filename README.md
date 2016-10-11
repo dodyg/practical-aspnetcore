@@ -1,4 +1,4 @@
-# 32 samples for aspnetcore fundamentals (updated daily)
+# 33 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -160,6 +160,10 @@ To run these samples, simply open your command line console,  go to each folder 
 * **In Memory Caching (a.k.a local cache)**
 
   These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
+
+  * [Caching - Absolute/Sliding expiration](https://github.com/dodyg/practical-aspnetcore/tree/master/caching)
+
+    This is the most basic caching you can use either by setting absolute or sliding expiration for your cache. Absolute expiration will remove your cache at a certain point in the future. Sliding expiration will remove your cache after period of inactivity.
 
   * [Caching 2 - File dependency](https://github.com/dodyg/practical-aspnetcore/tree/master/caching-2)
     
