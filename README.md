@@ -187,6 +187,9 @@ To run these samples, simply open your command line console,  go to each folder 
     Bind several cache entries to a single dependency that you can reset manually.
 
 * **Configuration**
+
+  This section is all about configuration, from memory configuration to INI, JSON and XML.
+
   * [Configuration](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration)
 
     This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
