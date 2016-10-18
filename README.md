@@ -1,4 +1,4 @@
-# 36 samples for aspnetcore fundamentals (updated daily)
+# 37 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -185,6 +185,11 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Caching 4 - CancellationChangeToken dependency](https://github.com/dodyg/practical-aspnetcore/tree/master/caching-4)
 
     Bind several cache entries to a single dependency that you can reset manually.
+
+* **Configuration**
+  * [Configuration](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration)
+
+    This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
