@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace StartupBasic 
 {
@@ -15,11 +16,11 @@ namespace StartupBasic
         {
             //This is the most basic configuration you can have
             var builder = new ConfigurationBuilder();
-            builder.AddInMemoryCollection(); //if you remove this, you are gonna get error 
-
+            builder
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddIniFile("settings.ini");
+                
             _config = builder.Build();
-            _config["message"] = "hello world";
-
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -29,9 +30,14 @@ namespace StartupBasic
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
-            app.Run(context =>
+            app.Run(async context =>
             {
-                return context.Response.WriteAsync($"{_config["message"]}");
+                foreach(var c in _config.AsEnumerable())
+                {
+                    await context.Response.WriteAsync($"{c.Key} = {c.Value}\n");
+                }
+
+                await context.Response.WriteAsync($"\nDatabase Port = {_config["database:port"]}");
             });
         }
     }
