@@ -1,0 +1,51 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+
+namespace StartupBasic 
+{
+    public class Startup
+    {
+        IConfigurationRoot _config;
+
+        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        {
+            //This is the most basic configuration you can have
+            var builder = new ConfigurationBuilder();
+            builder.AddInMemoryCollection(); //if you remove this, you are gonna get error 
+
+            _config = builder.Build();
+            _config["message"] = "hello world";
+
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //This is the only service available at ConfigureServices
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        {
+            app.Run(context =>
+            {
+                return context.Response.WriteAsync($"{_config["message"]}");
+            });
+        }
+    }
+    
+   public class Program
+    {
+        public static void Main(string[] args)
+        {
+              var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
+        }
+    }
+}
