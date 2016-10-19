@@ -196,8 +196,8 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Configuration](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-environment-variables)
 
-    Load environment variables and display all of them
-    
+    Load environment variables and display all of them.
+
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
   Simply serve static files (html, css, images, etc). 
