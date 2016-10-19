@@ -194,7 +194,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
 
-  * [Configuration](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-environment-variables)
+  * [Configuration - Environment variables](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-environment-variables)
 
     Load environment variables and display all of them.
 
