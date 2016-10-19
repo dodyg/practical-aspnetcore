@@ -1,4 +1,4 @@
-# 38 samples for aspnetcore fundamentals (updated daily)
+# 39 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -197,6 +197,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Configuration - Environment variables](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-environment-variables)
 
     Load environment variables and display all of them.
+
+  * [Configuration - INI file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini)
+
+    Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.0.0"`.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
