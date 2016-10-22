@@ -1,4 +1,4 @@
-# 39 samples for aspnetcore fundamentals (updated daily)
+# 40 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -201,6 +201,23 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Configuration - INI file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini)
 
     Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.0.0"`.
+
+  * [Configuration - XML file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml)
+
+    Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"`.
+
+    **Note**: This Xml Configuration provider does not support repeated element.
+
+    The following configuration settings will break:
+
+    ```
+    <appSettings>
+      <add key="webpages:Version" value="3.0.0.0" />
+      <add key="webpages:Enabled" value="false" />
+    </appSettings>
+    ```
+
+    On the other hand you can get unlimited nested elements and also attributes.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
