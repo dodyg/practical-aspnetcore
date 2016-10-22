@@ -1,0 +1,18 @@
+  <appSettings>
+    <!-- Bloody Microsoft.Extensions.Configuration.Xml does not suported repeated element -->
+    <webpages value="3.0.0.0" />
+    <config password="pwg" username="user" server="localhost" port="30"/>
+    <googleMap>XXXXXXXX</googleMap>
+    <app>
+        <password>secret</password>
+        <user>admin</user>
+        <priorities task="1" limit="100" />
+        <privacy>
+            <individual>
+                <sharedKey>1000</sharedKey>
+                <publicKey>300</publicKey>
+            </individual>
+            <organization></organization>
+        </privacy>
+    </app>
+  </appSettings>
