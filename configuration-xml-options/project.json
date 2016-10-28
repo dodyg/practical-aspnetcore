@@ -1,0 +1,26 @@
+{
+    "version": "1.0.0-*",
+    "buildOptions": {
+        "emitEntryPoint": true
+    },
+
+    "dependencies": {
+        "Microsoft.AspNetCore.Hosting" : "1.0.0-*"
+    },
+
+    "frameworks": {
+        "net451": {
+            "dependencies": {
+                "Microsoft.Extensions.Configuration.Xml" : "1.0.0",
+                "Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0",
+                "Microsoft.AspNetCore.Server.Kestrel": "1.0.0"
+            }
+        }
+    },
+    "tools": {
+        "Microsoft.Dotnet.Watcher.Tools": {
+            "version": "1.0.0-preview2-final",
+            "imports": "portable-net451+win8"
+        }
+    }
+}
