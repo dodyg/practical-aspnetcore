@@ -1,4 +1,4 @@
-# 40 samples for aspnetcore fundamentals (updated daily)
+# 42 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -194,6 +194,10 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
 
+  * [Configuration - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-options)
+
+    Use IOptions at the most basic.
+
   * [Configuration - Environment variables](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-environment-variables)
 
     Load environment variables and display all of them.
@@ -218,6 +222,10 @@ To run these samples, simply open your command line console,  go to each folder 
     ```
 
     On the other hand you can get unlimited nested elements and also attributes.
+
+  * [Configuration - XML file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml-options)
+
+    Read from XML file and use IOptions. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
