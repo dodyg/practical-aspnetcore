@@ -24,7 +24,8 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
+             services.AddOptions();
+            services.Configure<XmlOptions>(_config);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
