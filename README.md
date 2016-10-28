@@ -208,7 +208,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Configuration - INI file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini-options)
 
-    Read from INI file (with nested keys) and IOptions. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
+    Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
 
   * [Configuration - XML file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml)
 
@@ -229,7 +229,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Configuration - XML file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml-options)
 
-    Read from XML file and use IOptions. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
+    Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
