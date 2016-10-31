@@ -1,4 +1,4 @@
-# 43 samples for aspnetcore fundamentals (updated daily)
+# 44 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -142,6 +142,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Custom Feature - Override](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-custom-override)
 
     Shows how you can replace an implementation of a Feature with another within the request pipeline.
+
+  * [Request Culture Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-request-culture)
+
+    Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.0.0"`.
 
 * **Dependency Injection**
 
