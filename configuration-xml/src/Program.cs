@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace StartupBasic 
+namespace Configuration.Xml 
 {
     public class Startup
     {
