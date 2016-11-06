@@ -19,12 +19,14 @@ namespace Local
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization(options => options.ResourcesPath = "Resourcess");
+            services.AddLocalization(options => options.ResourcesPath = "resources");
             //This is the only service available at ConfigureServices
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IStringLocalizer<Startup> local)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IStringLocalizerFactory stringLocalizerFactory)
         {
+            var local = stringLocalizerFactory.Create("Common", null);
+
             var supportedCultures = new List<CultureInfo>
             {
                 new CultureInfo("fr-FR")
