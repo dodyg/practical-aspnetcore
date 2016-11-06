@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Hello">
+    <value>Bonjour</value>
+  </data>
+  <data name="Goodbye">
+    <value>Au Revoir</value>
+  </data>
+</root>
