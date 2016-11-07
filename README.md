@@ -1,4 +1,4 @@
-# 44 samples for aspnetcore fundamentals (updated daily)
+# 45 samples for aspnetcore fundamentals (updated daily)
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -234,6 +234,16 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Configuration - XML file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml-options)
 
     Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
+
+* **Localization and Globalization**
+
+  This section is all about languages, culture, etc.
+
+  * [Localization](https://github.com/dodyg/practical-aspnetcore/tree/master/localization)
+
+    Shows the most basic use of localization using a resource file. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.0.0"` and  `"Microsoft.Extensions.Localization": "1.0.0"`.
+
+    Please note that you cannot use ```dotnet watch run``` on this sample. It throws exception. Use ```dotnet run``` instead.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
