@@ -46,7 +46,7 @@ namespace Local
             {
                 var requestCulture = context.Features.Get<IRequestCultureFeature>();
 
-                await context.Response.WriteAsync($"{requestCulture.RequestCulture.Culture} - {local["Hello"]} {local["Goodbye"]}");
+                await context.Response.WriteAsync($"{requestCulture.RequestCulture.Culture} - {local["Hello"]} {local["Goodbye"]} {local["Yes"]} {local["No"]}");
             });
         }
     }
