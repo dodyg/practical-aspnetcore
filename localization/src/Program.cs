@@ -27,6 +27,7 @@ namespace Local
         {
             var local = stringLocalizerFactory.Create("Common", null);
 
+            //This section is important otherwise aspnet won't be able to pick up the resource
             var supportedCultures = new List<CultureInfo>
             {
                 new CultureInfo("fr-FR")
@@ -45,7 +46,6 @@ namespace Local
             app.Run(async context =>
             {
                 var requestCulture = context.Features.Get<IRequestCultureFeature>();
-
                 await context.Response.WriteAsync($"{requestCulture.RequestCulture.Culture} - {local["Hello"]} {local["Goodbye"]} {local["Yes"]} {local["No"]}");
             });
         }
