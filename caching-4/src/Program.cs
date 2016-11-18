@@ -6,11 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
-using System.IO;
 using System.Threading;
 using Microsoft.Extensions.Primitives;
 
-namespace Caching.Two
+namespace Caching.Four
 {
     public class Startup
     {
