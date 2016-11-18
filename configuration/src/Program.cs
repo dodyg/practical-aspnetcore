@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
-namespace StartupBasic 
+namespace Configuration 
 {
     public class Startup
     {
@@ -19,13 +19,10 @@ namespace StartupBasic
 
             _config = builder.Build();
             _config["message"] = "hello world";
-
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-             services.AddOptions();
-            services.Configure<XmlOptions>(_config);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
