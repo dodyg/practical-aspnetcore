@@ -6,9 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
-using System.IO;
 
-namespace Caching.Two
+namespace Caching.Three
 {
     public class Startup
     {
