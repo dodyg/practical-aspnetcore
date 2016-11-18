@@ -1,6 +1,7 @@
 # 45 samples for aspnetcore fundamentals (updated daily)
 
 **WARNING**: DO NOT UPGRADE / INSTALL [.NET Core Tools MSBuild “alpha”](https://blogs.msdn.microsoft.com/dotnet/2016/11/16/announcing-net-core-tools-msbuild-alpha/) right now. It breaks a lot of [stuffs](https://github.com/dotnet/core/issues/354). 
+**DO**: Do upgrade to .NET Core 1.1 (and [SDK 1.0.0 Preview2.1](https://github.com/dotnet/core/blob/master/release-notes/1.1/1.1.md)). It contains a lot of bug fixes and new features. I am converting all the samples to .NET Core 1.1.
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
