@@ -9,7 +9,7 @@
     },
 
     "frameworks": {
-        "net451": {
+        "net461": {
             "dependencies": {
                 "Microsoft.AspNetCore.Server.Kestrel": "1.1.0"
             }
