@@ -19,7 +19,7 @@
     },
     "tools": {
         "Microsoft.Dotnet.Watcher.Tools": {
-            "version": "1.1.0-preview4-final",
+            "version": "1.1.0-*",
             "imports": "portable-net451+win8"
         }
     }
