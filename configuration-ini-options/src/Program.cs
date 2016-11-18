@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
 
-namespace StartupBasic 
+namespace Configuration.IniOptions 
 {
     public class XmlOptions
     {
