@@ -7,7 +7,7 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
 
-namespace Caching.Two 
+namespace Caching
 {
     public class Startup
     {
