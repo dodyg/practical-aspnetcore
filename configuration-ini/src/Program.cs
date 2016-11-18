@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace StartupBasic 
+namespace Configuration.Ini 
 {
     public class Startup
     {
@@ -36,8 +36,6 @@ namespace StartupBasic
                 {
                     await context.Response.WriteAsync($"{c.Key} = {c.Value}\n");
                 }
-
-                await context.Response.WriteAsync($"\nDatabase Port = {_config["database:port"]}");
             });
         }
     }
