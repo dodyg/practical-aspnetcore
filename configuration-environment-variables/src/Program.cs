@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
-namespace StartupBasic 
+namespace Configuration.EnvVariables 
 {
     public class Startup
     {
