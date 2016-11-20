@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace HelloWorldWithReload 
+namespace Features.ServerRequest 
 {
     public class Startup
     {

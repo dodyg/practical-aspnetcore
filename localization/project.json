@@ -5,13 +5,13 @@
     },
 
     "dependencies": {
-        "Microsoft.AspNetCore.Hosting" : "1.0.0-*"
+        "Microsoft.AspNetCore.Hosting" : "1.1.0-*"
     },
 
     "frameworks": {
-        "net451": {
+        "net461": {
             "dependencies": {
-                "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+                "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
                 "Microsoft.AspNetCore.Localization": "1.0.0",
                 "Microsoft.Extensions.Localization" : "1.0.0"
             }

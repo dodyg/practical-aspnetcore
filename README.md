@@ -70,7 +70,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * **Routing**
 
-  We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.0.0-*"``` to enable routing facilities in your aspnetcore apps.
+  We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
 
   * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/routing)
