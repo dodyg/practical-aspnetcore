@@ -7,7 +7,7 @@ using System.Linq;
 using System;
 using System.Threading.Tasks;
 
-namespace StartupBasic
+namespace DI.One
 {
     public class Startup
     {
