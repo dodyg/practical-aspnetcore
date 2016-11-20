@@ -1,8 +1,14 @@
 # 45 samples for aspnetcore fundamentals (updated daily)
 
+## Welcome
+
+The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project (at least not yet). 
+
+Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
+
 **WARNING**: DO NOT UPGRADE / INSTALL [.NET Core Tools MSBuild “alpha”](https://blogs.msdn.microsoft.com/dotnet/2016/11/16/announcing-net-core-tools-msbuild-alpha/) right now. It breaks a lot of [stuffs](https://github.com/dotnet/core/issues/354). 
 
-**DO**: Do upgrade to .NET Core 1.1 (and [SDK 1.0.0 Preview2.1](https://github.com/dotnet/core/blob/master/release-notes/1.1/1.1.md)). It contains a lot of bug fixes and new features. I am converting all the samples to .NET Core 1.1.
+**DO**: Do upgrade to .NET Core 1.1 (and [SDK 1.0.0 Preview2.1](https://github.com/dotnet/core/blob/master/release-notes/1.1/1.1.md)). It contains a lot of bug fixes and new features. 
 
 **Hints**: If you type ```dotnet --version```, it should return the following string ```1.0.0-preview2-1-003177```.
 
@@ -40,7 +46,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Setup a basic logging in your app and show it to console.
 
-  We add the following dependencies ```"Microsoft.Extensions.Logging": "1.0.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.0.0"```
+  We add the following dependencies ```"Microsoft.Extensions.Logging": "1.1.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.1.0"```
 
   We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
@@ -151,7 +157,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Request Culture Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-request-culture)
 
-    Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.0.0"`.
+    Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"`.
 
 * **Dependency Injection**
 
@@ -214,15 +220,15 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Configuration - INI file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini)
 
-    Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.0.0"`.
+    Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.1.0"`.
 
   * [Configuration - INI file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini-options)
 
-    Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
+    Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
 
   * [Configuration - XML file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml)
 
-    Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"`.
+    Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"`.
 
     **Note**: This Xml Configuration provider does not support repeated element.
 
@@ -239,7 +245,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Configuration - XML file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml-options)
 
-    Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.0.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.0.0"`.
+    Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
 
 * **Localization and Globalization**
 
@@ -247,7 +253,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Localization](https://github.com/dodyg/practical-aspnetcore/tree/master/localization)
 
-    Shows the most basic use of localization using a resource file. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.0.0"` and  `"Microsoft.Extensions.Localization": "1.0.0"`.
+    Shows the most basic use of localization using a resource file. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"` and  `"Microsoft.Extensions.Localization": "1.1.0"`.
 
     Please note that you cannot use ```dotnet watch run``` on this sample. It throws exception. Use ```dotnet run``` instead.
 
@@ -255,7 +261,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Simply serve static files (html, css, images, etc). 
   
-  This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.0.0"```. 
+  This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
   
   There are two static files being serve in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
   
@@ -279,7 +285,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
-  We add dependency ```"Microsoft.AspNetCore.Identity": "1.0.0-*"``` to enable this functionality.
+  We add dependency ```"Microsoft.AspNetCore.Identity": "1.1.0-*"``` to enable this functionality.
 
 
 ## Other resources
