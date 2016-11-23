@@ -1,4 +1,4 @@
-# 45 samples for aspnetcore fundamentals (updated daily)
+# 46 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -158,6 +158,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Request Culture Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-request-culture)
 
     Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"`.
+
+  * [Session Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-session)
+
+    Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "1.1.0-*"`.
 
 * **Dependency Injection**
 
