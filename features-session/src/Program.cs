@@ -3,13 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Caching.Memory;
 using System;
-using System.IO;
 using Microsoft.AspNetCore.Http.Features;
-using System.Text;
 
-namespace Features.Connection 
+namespace Features.Connection
 {
     public class Startup
     {
