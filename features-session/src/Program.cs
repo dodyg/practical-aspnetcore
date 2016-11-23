@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace Features.Connection
+namespace Features.Session
 {
     public class Startup
     {
