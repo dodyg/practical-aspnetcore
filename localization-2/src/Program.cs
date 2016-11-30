@@ -19,8 +19,8 @@ namespace Local
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //put the resource files under resources folder
             services.AddLocalization(options => options.ResourcesPath = "resources");
-            //This is the only service available at ConfigureServices
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IStringLocalizerFactory stringLocalizerFactory)
@@ -54,7 +54,10 @@ namespace Local
                 else if (requestCulture.Culture.TwoLetterISOLanguageName != "en")
                     await context.Response.WriteAsync($"<a href=\"/?culture=en-US&ui-culture=en-US\">Switch to English</a><br/>");
                 
-                await context.Response.WriteAsync($"Request Culture: {requestCulture.Culture} - {local["Hello"]} {local["Goodbye"]} {local["Yes"]} {local["No"]}");
+                await context.Response.WriteAsync($@"
+                Request Culture: {requestCulture.Culture} <br/> 
+                Localized strings: {local["Hello"]} {local["Goodbye"]} {local["Yes"]} {local["No"]}
+                ");
             });
         }
     }
