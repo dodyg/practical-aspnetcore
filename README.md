@@ -1,4 +1,4 @@
-# 46 samples for aspnetcore fundamentals (updated daily)
+# 47 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -259,7 +259,9 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Shows the most basic use of localization using a resource file. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"` and  `"Microsoft.Extensions.Localization": "1.1.0"`.
 
-    Please note that you cannot use ```dotnet watch run``` on this sample. It throws exception. Use ```dotnet run``` instead.
+  * [Localization - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-2)
+
+    We build upon the previous sample and demonstrate how to switch request culture via query string using the built in `QueryStringRequestCultureProvider`.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
