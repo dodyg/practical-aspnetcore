@@ -257,11 +257,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Localization](https://github.com/dodyg/practical-aspnetcore/tree/master/localization)
 
-    Shows the most basic use of localization using a resource file. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"` and  `"Microsoft.Extensions.Localization": "1.1.0"`.
+    Shows the most basic use of localization using a resource file. This sample only supports French language (because we are fancy). It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"` and  `"Microsoft.Extensions.Localization": "1.1.0"`.
 
   * [Localization - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-2)
 
-    We build upon the previous sample and demonstrate how to switch request culture via query string using the built in `QueryStringRequestCultureProvider`.
+    We build upon the previous sample and demonstrate how to switch request culture via query string using the built in `QueryStringRequestCultureProvider`. This sample supports English and French.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
