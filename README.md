@@ -1,4 +1,4 @@
-# 47 samples for aspnetcore fundamentals (updated daily)
+# 48 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -262,6 +262,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Localization - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-2)
 
     We build upon the previous sample and demonstrate how to switch request culture via query string using the built in `QueryStringRequestCultureProvider`. This sample supports English and French.
+
+  * [Localization - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-3)
+
+    Demonstrate the difference between `Culture` and `UI Culture`.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
