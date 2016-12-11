@@ -119,7 +119,7 @@ To run these samples, simply open your command line console,  go to each folder 
    
     I am still trying to determine whether `TemplateMatcher` uses the `InlineConstraint` information.
 
-    Update: No, `TemplateMatcher` does not run constrants. [#362](https://github.com/aspnet/Routing/issues/362)
+    Update: No, `TemplateMatcher` does not run constraints. [#362](https://github.com/aspnet/Routing/issues/362)
  
   * [Router 10](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-10)    
 
