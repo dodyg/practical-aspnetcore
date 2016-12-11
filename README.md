@@ -1,4 +1,4 @@
-# 48 samples for aspnetcore fundamentals (updated daily)
+# 49 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -266,6 +266,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Localization - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-3)
 
     Demonstrate the difference between `Culture` and `UI Culture`.
+
+  * [Localization - 4](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-4)
+
+    Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
 * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
