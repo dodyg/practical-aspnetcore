@@ -1,4 +1,4 @@
-# 49 samples for aspnetcore fundamentals (updated daily)
+# 47 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -28,53 +28,55 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
+* **Hello World (9)**
 
-  Setup your most basic web app and enable the change+refresh development experience. 
-  
-  We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
+  * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
-* [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
+    Setup your most basic web app and enable the change+refresh development experience. 
+    
+    We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
+  * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
 
-* [Hello World with environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
+    This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
-  Set your application environment to `Development` or `Production` or other mode directly from code. 
+  * [Hello World with environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
 
-* [Hello World with console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
+    Set your application environment to `Development` or `Production` or other mode directly from code. 
 
-  Setup a basic logging in your app and show it to console.
+  * [Hello World with console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
 
-  We add the following dependencies ```"Microsoft.Extensions.Logging": "1.1.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.1.0"```
+    Setup a basic logging in your app and show it to console.
 
-  We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
+    We add the following dependencies ```"Microsoft.Extensions.Logging": "1.1.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.1.0"```
 
-* [Hello World with console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging-filtered)
+    We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
+  * [Hello World with console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging-filtered)
 
-* [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
+    Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
 
-  ASPNetCore is built on top of pipelines of functions called middleware. 
-  
-  We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
+  * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
 
-* [Hello World with IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
+    ASPNetCore is built on top of pipelines of functions called middleware. 
+    
+    We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
-  Respond to application startup and shutdown.
+  * [Hello World with IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
 
-  We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
+    Respond to application startup and shutdown.
 
-* [Hello World with IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
+    We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
-  `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
+  * [Hello World with IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
 
-* [Hello World with cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
+    `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
-  Simply read and write cookies.
+  * [Hello World with cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
 
-* **Routing**
+    Simply read and write cookies.
+
+* **Routing (9)**
 
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
@@ -123,7 +125,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware**
+* **Middleware (1)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -131,7 +133,7 @@ To run these samples, simply open your command line console,  go to each folder 
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
 
-* **Features**
+* **Features (7)**
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
@@ -163,7 +165,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "1.1.0-*"`.
 
-* **Dependency Injection**
+* **Dependency Injection (2)**
 
   aspnetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
 
@@ -177,7 +179,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Note: example 2 is forthcoming. The inspiration has not arrived yet.
 
-* **In Memory Caching (a.k.a local cache)**
+* **In Memory Caching (a.k.a local cache) (4)**
 
   These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
 
@@ -206,7 +208,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Bind several cache entries to a single dependency that you can reset manually.
 
-* **Configuration**
+* **Configuration (7)**
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 
@@ -251,7 +253,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
 
-* **Localization and Globalization**
+* **Localization and Globalization (4)**
 
   This section is all about languages, culture, etc.
 
@@ -271,35 +273,37 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
-* [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
+* **Misc (4)**
 
-  Simply serve static files (html, css, images, etc). 
-  
-  This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
-  
-  There are two static files being serve in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
-  
-  To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
+  * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
-* [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
+    Simply serve static files (html, css, images, etc). 
+    
+    This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
+    
+    There are two static files being serve in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
+    
+    To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
 
-  Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
+  * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
 
-  We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
-  
-* [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server-middleware)
+    Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
-  Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server) but implemented using middleware component.
+    We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
+    
+  * [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server-middleware)
 
-  We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
+    Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server) but implemented using middleware component.
 
-  [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
+    We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
 
-* [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/password-hasher)
+    [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
 
-  Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
+  * [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/password-hasher)
 
-  We add dependency ```"Microsoft.AspNetCore.Identity": "1.1.0-*"``` to enable this functionality.
+    Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
+
+    We add dependency ```"Microsoft.AspNetCore.Identity": "1.1.0-*"``` to enable this functionality.
 
 
 ## Other resources
