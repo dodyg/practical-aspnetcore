@@ -11,12 +11,13 @@ namespace HelloWorldWithCookies
         {
             app.Run(async context =>
             {
+                context.Response.Headers.Add("content-type","text/html");
                 var deleteCookie = context.Request.Query["delete"];
 
                 if(!string.IsNullOrWhiteSpace(deleteCookie))
                 {
                     context.Response.Cookies.Delete("MyCookie");
-                    await context.Response.WriteAsync($"Delete cookie");
+                    await context.Response.WriteAsync($@"Delete cookie. Click <a href=""\"">here</a> to go back to home page.");
                     return;
                 }
 
@@ -34,10 +35,14 @@ namespace HelloWorldWithCookies
                         }
                     );
 
-                    await context.Response.WriteAsync($"Writing a new cookie <br/>");
+                    await context.Response.WriteAsync($"Writing a new cookie <br/>Refresh page to see cookie value.<br/>");
+                }
+                else
+                {
+                    await context.Response.WriteAsync($@"Click <a href=""\?delete=1"">here</a> to delete cookie.<br/>");
                 }
 
-                await context.Response.WriteAsync($"Hello World Cookie: {cookie}. Refresh page to see cookie value.");
+                await context.Response.WriteAsync($"Content of Cookie: {cookie}.");
             });
         }
     }
