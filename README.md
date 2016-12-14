@@ -1,4 +1,4 @@
-# 48 samples for aspnetcore fundamentals (updated daily)
+# 49 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -28,7 +28,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (10)**
+* **Hello World (11)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -79,6 +79,11 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Hello World with removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
 
     Simply demonstrate on how to remove cookies.
+
+
+  * [Hello World with header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
+
+    This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
 * **Routing (9)**
 
