@@ -33,7 +33,7 @@ namespace StartupWithHeader
                 }
                 catch(Exception ex)
                 {
-                    context.Response.WriteAsync($"<br/><br/>You cannot modify header collections after the body is sent already. Exception: {ex.Message}");
+                    await context.Response.WriteAsync($"<br/><br/>You cannot modify header collections after the body is sent already. Exception: {ex.Message}");
                 }
             });
         }
