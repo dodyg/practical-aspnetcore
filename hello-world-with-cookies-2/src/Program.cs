@@ -23,7 +23,7 @@ namespace HelloWorldWithCookies
 
                 var cookie = context.Request.Cookies["MyCookie"];
 
-                if (string.IsNullOrWhiteSpace(cookie))
+                if (string.IsNullOrWhiteSpace(cookie) && context.Request.Path == "/")  //read https://github.com/aspnet/HttpAbstractions/issues/743
                 {
                     context.Response.Cookies.Append
                     (
