@@ -81,9 +81,9 @@ To run these samples, simply open your command line console,  go to each folder 
     Simply demonstrate on how to remove cookies.
 
 
-  * [Hello World with header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
+  * [Hello World with adding header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
 
-    This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
+    Demonstrate on how to add a response header and where is allowed place to do it.
 
 * **Routing (9)**
 
