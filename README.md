@@ -1,4 +1,4 @@
-# 49 samples for aspnetcore fundamentals (updated daily)
+# 50 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -281,6 +281,16 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Localization - 4](https://github.com/dodyg/practical-aspnetcore/tree/master/localization-4)
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
+
+* **URL Rewriting (1)**
+  
+  This section explore the dark arts of URL Rewriting
+
+  * [Rewrite](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite)
+    
+    Shows the most basic of URL rewriting. It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. 
+    
+    If you have used routing yet, I recommend of checking out the routing examples.
 
 * **Misc (4)**
 
