@@ -23,7 +23,7 @@ namespace StartupBasic
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {            
              var options = new RewriteOptions()
-                .AddRedirect("(.*)/$", "/"); //redirect when path ends with /
+                .AddRedirect("/$", "/"); //redirect when path ends with /
 
             app.UseRewriter(options);
 
