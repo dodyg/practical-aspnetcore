@@ -1,4 +1,4 @@
-# 50 samples for aspnetcore fundamentals (updated daily)
+# 51 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -282,15 +282,19 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
-* **URL Rewriting (1)**
+* **URL Rewriting (2)**
   
   This section explore the dark arts of URL Rewriting
 
   * [Rewrite](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite)
     
-    Shows the most basic of URL rewriting. It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. 
+    Shows the most basic of URL rewriting which will redirect anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. 
     
     If you have used routing yet, I recommend of checking out the routing examples.
+
+  * [Rewrite - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-2)
+    
+    Redirect anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
 
 * **Misc (4)**
 
