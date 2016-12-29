@@ -40,11 +40,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
-  * [Hello World with environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
+  * [Environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
 
     Set your application environment to `Development` or `Production` or other mode directly from code. 
 
-  * [Hello World with console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
+  * [Console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
 
     Setup a basic logging in your app and show it to console.
 
@@ -52,7 +52,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  * [Hello World with console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging-filtered)
+  * [Console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging-filtered)
 
     Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
 
@@ -62,26 +62,25 @@ To run these samples, simply open your command line console,  go to each folder 
     
     We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
-  * [Hello World with IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
+  * [IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
 
     Respond to application startup and shutdown.
 
     We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
-  * [Hello World with IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
+  * [IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
-  * [Hello World with cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
+  * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
 
     Simply read and write cookies.
 
-  * [Hello World with removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
+  * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
 
     Simply demonstrate on how to remove cookies.
 
-
-  * [Hello World with adding header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
+  * [Adding HTTP Response Header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
