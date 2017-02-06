@@ -6,11 +6,7 @@ The goal of this project is to enable .NET programmers to learn the new ASP.NET 
 
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
 
-**WARNING**: DO NOT UPGRADE / INSTALL [.NET Core Tools MSBuild “alpha”](https://blogs.msdn.microsoft.com/dotnet/2016/11/16/announcing-net-core-tools-msbuild-alpha/) right now. It breaks a lot of [stuffs](https://github.com/dotnet/core/issues/354). 
-
-**DO**: Do upgrade to .NET Core 1.1 (and [SDK 1.0.0 Preview2.1](https://github.com/dotnet/core/blob/master/release-notes/1.1/1.1.md)). It contains a lot of bug fixes and new features. 
-
-**Hints**: If you type ```dotnet --version```, it should return the following string ```1.0.0-preview2-1-003177```.
+All the samples require SDK version ```1.0.0-preview2-1-003177``` (they are pinned down at global.json on every single sample folder). I am aware of the RC3 SDK. I will convert all the project.json to msbuild soon.
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
