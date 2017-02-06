@@ -1,4 +1,4 @@
-# 51 samples for aspnetcore fundamentals (updated daily)
+# 52 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -288,14 +288,18 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Rewrite](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite)
     
-    Shows the most basic of URL rewriting which will redirect anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. 
+    Shows the most basic of URL rewriting which will **redirect** anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. 
     
     If you have used routing yet, I recommend of checking out the routing examples.
 
   * [Rewrite - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-2)
     
-    Redirect anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
+    **Redirect** anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
 
+  * [Rewrite - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-3)
+
+    **Rewrite** anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
+  
 * **Misc (4)**
 
   * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
