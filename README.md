@@ -277,7 +277,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
-* **URL Rewriting (2)**
+* **URL Redirect/Rewriting (3)**
   
   This section explore the dark arts of URL Rewriting
 
