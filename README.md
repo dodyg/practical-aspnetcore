@@ -1,4 +1,4 @@
-# 52 samples for aspnetcore fundamentals (updated daily)
+# 53 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -277,7 +277,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
-* **URL Redirect/Rewriting (3)**
+* **URL Redirect/Rewriting (4)**
   
   This section explore the dark arts of URL Rewriting
 
@@ -294,7 +294,11 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Rewrite - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-3)
 
     **Rewrite** anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
-  
+    
+  * [Rewrite - 4](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-4)
+    
+    **Permanent Redirect** (returns [HTTP 301](https://en.wikipedia.org/wiki/HTTP_301)) anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
+
 * **Misc (4)**
 
   * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
