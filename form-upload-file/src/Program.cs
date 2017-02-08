@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Routing;
+using System.IO;
 
 namespace StartupBasic 
 {
@@ -15,17 +17,63 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
+            services.AddRouting();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
-            app.Run(context =>
+            var routerBuilder = new RouteBuilder(app);
+       
+            routerBuilder.MapGet("", async context =>
             {
-                return context.Response.WriteAsync("Hello world");
+               context.Response.Headers.Add("content-type", "text/html");
+
+               var body = $@"
+               <h1>Upload File</h1>
+               <form action=""Upload"" method=""post"" enctype=""multipart/form-data"">
+                    <input type=""file"" name=""file"" />
+                    <input type=""submit"" value=""Upload"" />
+               </form>
+               ";
+
+               await context.Response.WriteAsync(body); 
             });
+
+            routerBuilder.MapPost("Upload", async context =>
+            {
+                if (context.Request.HasFormContentType)
+                {
+                    var form = await context.Request.ReadFormAsync();
+
+                    foreach(var f in form.Files)
+                    {
+                        using(var body = f.OpenReadStream())
+                        {
+                            var fileName = Path.Combine(env.ContentRootPath, f.FileName);
+                            File.WriteAllBytes(fileName, ReadFully(body));
+                            await context.Response.WriteAsync($"Uploaded file written to {fileName}");
+                        }
+                    }
+                }
+                await context.Response.WriteAsync("");
+            });
+
+            app.UseRouter(routerBuilder.Build());
+        }
+
+        public static byte[] ReadFully(Stream input)
+        {
+            byte[] buffer = new byte[16*1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
         }
     }
     
@@ -35,6 +83,7 @@ namespace StartupBasic
         {
               var host = new WebHostBuilder()
                 .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
 
