@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Routing;
+using System.Net;
 
 namespace StartupBasic 
 {
@@ -23,7 +24,7 @@ namespace StartupBasic
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {            
              var options = new RewriteOptions()
-                .AddRedirect("([/_0-9a-z-]+)+(.*)$", "/?path=$1&ext=$2", 301); //redirect any path that ends with .html 
+                .AddRedirect("([/_0-9a-z-]+)+(.*)$", "/?path=$1&ext=$2", (int) HttpStatusCode.MovedPermanently); //redirect any path that ends with .html 
 
             app.UseRewriter(options);
 
