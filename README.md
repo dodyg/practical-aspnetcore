@@ -1,4 +1,4 @@
-# 54 samples for aspnetcore fundamentals (updated daily)
+# 55 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -80,10 +80,15 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Form (1)**
+* **Form (2)**
   
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
-  
+
+  * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
+    
+    Handles the values submitted via a form.
+
+
   * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
     
     Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
