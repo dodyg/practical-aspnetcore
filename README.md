@@ -1,4 +1,4 @@
-# 55 samples for aspnetcore fundamentals (updated daily)
+# 56 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -24,7 +24,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (11)**
+* **Hello World (12)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -67,6 +67,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
+
+  * [Application Environemnt](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-application-environment)
+
+    Requires `Microsoft.Extensions.PlatformAbstractions" : "1.1.0-*` dependency. This sample shows how to obtain application environment information (target framework, etc).
 
   * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
 
