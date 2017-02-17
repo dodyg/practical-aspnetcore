@@ -1,4 +1,4 @@
-# 56 samples for aspnetcore fundamentals (updated daily)
+# 57 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -188,7 +188,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * **Dependency Injection (2)**
 
-  aspnetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
+  ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
 
   * [Dependency Injection 1 - The basic](https://github.com/dodyg/practical-aspnetcore/tree/master/dependency-injection-1)
 
@@ -199,6 +199,14 @@ To run these samples, simply open your command line console,  go to each folder 
     Register all objects configured by classes that implements a specific interface (`IBootstrap` in this example). This is useful when you have large amount of classes in your project that needs registration. You can register them near where they are (usually in the same folder) instead of registering them somewhere in a giant registration function.
 
     Note: example 2 is forthcoming. The inspiration has not arrived yet.
+
+* **File Provider (1)**
+  
+  We will deal with various types of file providers supported by ASP.NET Core
+
+  * [Physical File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-physical)
+
+  Access the file information on your Web and Content roots. 
 
 * **In Memory Caching (a.k.a local cache) (4)**
 
