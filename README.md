@@ -206,7 +206,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Physical File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-physical)
 
-  Access the file information on your Web and Content roots. 
+    Access the file information on your Web and Content roots. 
 
 * **In Memory Caching (a.k.a local cache) (4)**
 
