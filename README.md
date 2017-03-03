@@ -308,7 +308,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Rewrite](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite)
     
-    Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. 
+    Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. These two dependencies apply to the rest of the samples in this category.
     
     If you have used routing yet, I recommend of checking out the routing examples.
 
@@ -326,7 +326,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Rewrite - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-5)
   
-    Implement a custom redirect logic based on `IRule` implementation.
+    Implement a custom redirect logic based on `IRule` implementation. Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
 
 * **Misc (4)**
 
