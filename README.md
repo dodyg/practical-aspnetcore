@@ -328,6 +328,8 @@ To run these samples, simply open your command line console,  go to each folder 
   
     Implement a custom redirect logic based on `IRule` implementation. Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
 
+    This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
+
 * **Misc (4)**
 
   * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
