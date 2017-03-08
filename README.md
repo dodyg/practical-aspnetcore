@@ -2,7 +2,7 @@
 
 ## Notice
 
-Now that .NET Core SDK 1.0 has finally been released, I will convert all the existing projects to the MSBUILD project format. I will complete the process by the end of this weekend (March 11). Thank you for your patient.
+Now that .NET Core SDK 1.0 has finally been released, I will convert all the existing projects to the MSBUILD project format. I will complete the process by the end of this weekend (March 11). Thank you for your patience.
 
 ## Welcome
 
