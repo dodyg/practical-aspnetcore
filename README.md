@@ -1,5 +1,9 @@
 # 58 samples for aspnetcore fundamentals (updated daily)
 
+## Notice
+
+Now that .NET Core SDK 1.0 has finally been released, I will convert all the existing projects to the MSBUILD project format. I will complete the process by the end of this weekend (March 11). Thank you for your patient.
+
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project (at least not yet). 
