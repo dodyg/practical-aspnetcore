@@ -1,16 +1,12 @@
 # 58 samples for aspnetcore fundamentals (updated daily)
 
-## Notice
-
-Now that .NET Core SDK 1.0 has finally been released, I will convert all the existing projects to the MSBUILD project format. I will complete the process by the end of this weekend (March 11). Thank you for your patience.
-
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project (at least not yet). 
 
+You will need to download the latest [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
+ 
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
-
-All the samples require SDK version ```1.0.0-preview2-1-003177``` (they are pinned down at global.json on every single sample folder). I am aware of the RC3 SDK. I will convert all the project.json to msbuild soon.
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
@@ -24,7 +20,7 @@ All these projects require the following dependencies
 
 If a sample require additional dependencies, I will list them.
 
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. 
+I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
