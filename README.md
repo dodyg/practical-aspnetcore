@@ -1,4 +1,4 @@
-# 58 samples for aspnetcore fundamentals (updated daily)
+# 59 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -302,7 +302,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
-* **URL Redirect/Rewriting (5)**
+* **URL Redirect/Rewriting (6)**
   
   This section explore the dark arts of URL Rewriting
 
@@ -327,6 +327,12 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Rewrite - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-5)
   
     Implement a custom redirect logic based on `IRule` implementation. Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
+
+    This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
+
+  * [Rewrite - 6](https://github.com/dodyg/practical-aspnetcore/tree/master/rewrite-6)
+  
+    Implement a custom redirect logic using lambda (similar functionality to Rewrite - 5). Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
 
