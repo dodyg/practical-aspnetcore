@@ -4,8 +4,18 @@
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project (at least not yet). 
 
-You will need to download the latest [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
+You will need to download the **latest release version** [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
  
+If you are running **these samples on Linux**, change the target framework inside the csproj files from
+
+```
+<TargetFramework>net461</TargetFramework>
+```
+to
+```
+<TargetFramework>netcoreapp1.1</TargetFramework>
+```
+
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
 
 Some of the samples you see here involve mixed projects (net451) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
