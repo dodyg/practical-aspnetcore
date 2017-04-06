@@ -10,36 +10,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FileProviderPhysical 
+namespace FileProviderPhysical
 {
     public class CustomDirectoryContents : IDirectoryContents
     {
-        public bool Exists => throw new NotImplementedException();
+        readonly IEnumerable<IFileInfo> _entries;
 
-        public IEnumerator<IFileInfo> GetEnumerator()
+        public CustomDirectoryContents(IEnumerable<IFileInfo> files)
         {
-            throw new NotImplementedException();
+            _entries = files;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Exists => true;
+
+        public IEnumerator<IFileInfo> GetEnumerator() => _entries.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => _entries.GetEnumerator();
     }
 
     public class CustomFileInfo : IFileInfo
     {
-        public bool Exists => throw new NotImplementedException();
+        public bool Exists => true;
 
-        public long Length => throw new NotImplementedException();
+        public long Length { get; }
 
-        public string PhysicalPath => throw new NotImplementedException();
+        public string PhysicalPath => null;
 
-        public string Name => throw new NotImplementedException();
+        public string Name { get; }
 
-        public DateTimeOffset LastModified => throw new NotImplementedException();
+        public DateTimeOffset LastModified { get; }
 
-        public bool IsDirectory => throw new NotImplementedException();
+        public bool IsDirectory => false;
 
         public Stream CreateReadStream()
         {
@@ -47,16 +48,38 @@ namespace FileProviderPhysical
         }
     }
 
+    public class CustomDirectoryInfo : IFileInfo
+    {
+        public bool Exists => true;
+
+        public long Length => -1;
+
+        public string PhysicalPath => null;
+
+        public string Name { get; }
+
+        public DateTimeOffset LastModified { get; }
+
+        public bool IsDirectory => true;
+
+        public Stream CreateReadStream()
+        {
+            throw new InvalidOperationException("Create Stream is not applicable for directory");
+        }
+    }
+
     public class CustomFileProvider : IFileProvider
     {
         public IDirectoryContents GetDirectoryContents(string subpath)
         {
-            return new CustomDirectoryContents();
+            var list = new List<CustomFileInfo>();
+            var contents = new CustomDirectoryContents(list);
+            return contents;
         }
 
         public IFileInfo GetFileInfo(string subpath)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public IChangeToken Watch(string filter)
@@ -87,16 +110,16 @@ namespace FileProviderPhysical
             });
         }
     }
-    
-   public class Program
+
+    public class Program
     {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory()) //If you remove this, ContentRootFileProvider will return something different. Try it out.
-                .UseStartup<Startup>()
-                .Build();
+            var host = new WebHostBuilder()
+              .UseKestrel()
+              .UseContentRoot(Directory.GetCurrentDirectory()) //If you remove this, ContentRootFileProvider will return something different. Try it out.
+              .UseStartup<Startup>()
+              .Build();
 
             host.Run();
         }
