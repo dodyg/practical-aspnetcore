@@ -346,6 +346,25 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
 
+* **Compression (1)**
+
+  Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "1.0.1```.
+
+  * [Default Gzip Output Compression](https://github.com/dodyg/practical-aspnetcore/tree/master/compression-response) 
+   
+    Compress everything using the default Gzip compression.
+
+    _Everything_ means the following MIME output  
+    
+    * text/plain
+    * text/css
+    * application/javascript
+    * text/html
+    * application/xml
+    * text/xml
+    * application/json
+    * text/json 
+
 * **Misc (4)**
 
   * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
