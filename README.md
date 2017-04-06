@@ -1,4 +1,4 @@
-# 59 samples for aspnetcore fundamentals (updated daily)
+# 60 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
