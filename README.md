@@ -218,7 +218,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Access the file information on your Web and Content roots. 
 
-  * [Custom File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-custom)
+  * [Custom File Provider](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-custom)
 
     Implement a simple and largely nonsense file provider. It is a good starting point to implement your own proper File Provider.
     
