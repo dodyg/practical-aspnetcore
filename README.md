@@ -1,4 +1,4 @@
-# 60 samples for aspnetcore fundamentals (updated daily)
+# 61 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -78,7 +78,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
-  * [Application Environemnt](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-application-environment)
+  * [Application Environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-application-environment)
 
     Requires `Microsoft.Extensions.PlatformAbstractions" : "1.1.0-*` dependency. This sample shows how to obtain application environment information (target framework, etc).
 
@@ -210,13 +210,18 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Note: example 2 is forthcoming. The inspiration has not arrived yet.
 
-* **File Provider (1)**
+* **File Provider (2)**
   
   We will deal with various types of file providers supported by ASP.NET Core
 
   * [Physical File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-physical)
 
     Access the file information on your Web and Content roots. 
+
+  * [Custom File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-custom)
+
+    Implement a simple and largely nonsense file provider. It is a good starting point to implement your own proper File Provider.
+    
 
 * **In Memory Caching (a.k.a local cache) (4)**
 
