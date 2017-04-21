@@ -9,6 +9,7 @@ using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace FileProviderPhysical
 {
@@ -22,44 +23,36 @@ namespace FileProviderPhysical
         }
 
         public bool Exists => true;
-
         public IEnumerator<IFileInfo> GetEnumerator() => _entries.GetEnumerator();
-
         IEnumerator IEnumerable.GetEnumerator() => _entries.GetEnumerator();
     }
 
-    public class CustomFileInfo : IFileInfo
+    public class AlwaysTheSameFile : IFileInfo
     {
         public bool Exists => true;
-
         public long Length { get; }
-
         public string PhysicalPath => null;
-
         public string Name { get; }
-
         public DateTimeOffset LastModified { get; }
-
         public bool IsDirectory => false;
-
         public Stream CreateReadStream()
         {
-            throw new NotImplementedException();
+            var text = @"
+            Dhritarashtra said: O Sanjaya, after my sons and the sons of Pandu assembled in the place of pilgrimage at Kurukshetra, desiring to fight, what did they do?
+            ";
+
+            return new MemoryStream(Encoding.UTF8.GetBytes(text));
         }
     }
 
-    public class CustomDirectoryInfo : IFileInfo
+    //https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.extensions.fileproviders.ifileinfo#Microsoft_Extensions_FileProviders_IFileInfo
+    public class CustomDirectory : IFileInfo
     {
         public bool Exists => true;
-
-        public long Length => -1;
-
-        public string PhysicalPath => null;
-
+        public long Length => -1; // read the offical doc        
+        public string PhysicalPath => null; // read the offical doc
         public string Name { get; }
-
         public DateTimeOffset LastModified { get; }
-
         public bool IsDirectory => true;
 
         public Stream CreateReadStream()
@@ -72,32 +65,31 @@ namespace FileProviderPhysical
     {
         public IDirectoryContents GetDirectoryContents(string subpath)
         {
-            var list = new List<CustomFileInfo>();
+            var list = new List<AlwaysTheSameFile>
+            {
+                new AlwaysTheSameFile()    
+            };
+
             var contents = new CustomDirectoryContents(list);
             return contents;
         }
 
-        public IFileInfo GetFileInfo(string subpath)
-        {
-            return null;
-        }
-
-        public IChangeToken Watch(string filter)
-        {
-            return NullChangeToken.Singleton;
-        }
+        public IFileInfo GetFileInfo(string subpath) => new AlwaysTheSameFile();
+        public IChangeToken Watch(string filter) => NullChangeToken.Singleton;
     }
 
     public class Startup
     {
+        IHostingEnvironment _env;
+
         public Startup(IHostingEnvironment env, ILoggerFactory logger)
         {
-            //These are two services available at constructor
+            _env = env;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
+            _env.ContentRootFileProvider = new CustomFileProvider();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
@@ -106,7 +98,11 @@ namespace FileProviderPhysical
             {
                 context.Response.Headers.Add("content-type", "text/html");
 
-                await context.Response.WriteAsync("WIP");
+                using (var stream = _env.ContentRootFileProvider.GetFileInfo("").CreateReadStream())
+                {
+                    var reader = new StreamReader(stream);
+                    await context.Response.WriteAsync(reader.ReadToEnd());
+                }
             });
         }
     }
@@ -117,7 +113,6 @@ namespace FileProviderPhysical
         {
             var host = new WebHostBuilder()
               .UseKestrel()
-              .UseContentRoot(Directory.GetCurrentDirectory()) //If you remove this, ContentRootFileProvider will return something different. Try it out.
               .UseStartup<Startup>()
               .Build();
 
