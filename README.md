@@ -1,4 +1,4 @@
-# 61 samples for aspnetcore fundamentals (updated daily)
+# 62 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -34,7 +34,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (12)**
+* **Hello World (13)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -45,6 +45,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
 
     This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
+
+  * [Hello World with multiple startups](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple)
+
+    This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
 
   * [Environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
 
