@@ -1,4 +1,4 @@
-# 63 samples for aspnetcore fundamentals (updated daily)
+# 64 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -160,7 +160,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (2)**
+* **Middleware (3)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -171,6 +171,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Middleware 3](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-3)
    
     This is the simplest middleware class you can create. 
+
+  * [Middleware 4](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-4)
+   
+    Use `app.Map` to configure your middleware pipeline to respond only on specific url path.
 
 * **Features (7)**
   
