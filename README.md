@@ -1,4 +1,4 @@
-# 66 samples for aspnetcore fundamentals (updated daily)
+# 67 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -160,7 +160,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (5)**
+* **Middleware (6)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -183,6 +183,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Middleware 6](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-6)
    
     Use `app.MapWhen`(`MapWhenMiddleware`) and Nested `app.Map` (show `Request.Path` and `Request.PathBase`).
+
+  * [Middleware 7](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-7)
+   
+    Use `MapMiddleware` and `MapWhenMiddleware` directly without using extensions (show `Request.Path` and `Request.PathBase`).
 
 * **Features (7)**
   
