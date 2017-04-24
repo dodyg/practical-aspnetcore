@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
-    <AssemblyName>hello-world-connection-info</AssemblyName>
+    <AssemblyName>hello-world-with-connection-info</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>hello-world-connection-info</PackageId>
+    <PackageId>hello-world-with-connection-info</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
