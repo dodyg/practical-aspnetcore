@@ -1,4 +1,4 @@
-# 74 samples for aspnetcore fundamentals (updated daily)
+# 75 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -34,7 +34,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (18)**
+* **Hello World (19)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -42,10 +42,14 @@ To run these samples, simply open your command line console,  go to each folder 
     
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  * Startups
+  * Startup class
     * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
 
       This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
+
+    * [Hello World with custom startup class name](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-custom-name)
+
+      You don't have to call your startup class `Startup`. Any valid C# class will do.
 
     * [Hello World with responding to multiple urls](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-urls)
 
@@ -57,7 +61,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     * [Hello World with multiple startups using environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-environment)
 
-      This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs depending on your environment. 
+      This project highlights the fact that you can create multiple startup classes and choose them at start depending on your needs depending on your environment (You do have to name the startup class with Startup). 
 
     * [Hello World with multiple Configure methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment)
 
