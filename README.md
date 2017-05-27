@@ -1,4 +1,4 @@
-# 71 samples for aspnetcore fundamentals (updated daily)
+# 72 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -172,7 +172,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (7)**
+* **Middleware (8)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -202,7 +202,12 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Middleware 8](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-8)
    
-    Demonstrate the various ways you can inject dependency to your middleware class. It's so cool.
+    Demonstrate the various ways you can inject dependency to your middleware class *manually*. 
+
+  * [Middleware 9](https://github.com/dodyg/practical-aspnetcore/tree/master/middleware-9)
+   
+    Demonstrate how to ASP.NET Core built in DI (Dependency Injection) mechanism to provide dependency for your middleware.
+
 
 * **Features (7)**
   

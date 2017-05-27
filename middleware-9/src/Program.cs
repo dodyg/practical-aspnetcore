@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace HelloWorldWithMiddleware
 {
-
     public class Greeting
     {
         public string Greet() => "Good morning";
@@ -21,26 +20,22 @@ namespace HelloWorldWithMiddleware
         
         public void Configure(IApplicationBuilder app)
         {
-            //Pay attention to the order of the parameter passed.
-            //If your parameter is distinct, the order does not matter, As you can see here we put Greeting
-            //at the end of the parameter passing although in the constructor Greeting was the second on the parameter list.
-            //However if you pass multiple parameters of the same type, the order matters. 
             app.UseMiddleware(typeof(TerminalMiddleware));
         }
     }
 
     public class TerminalMiddleware
     {
+        Greeting _greet;
 
-        public TerminalMiddleware(RequestDelegate next)
+        public TerminalMiddleware(RequestDelegate next, Greeting greet)
         {
-            //We are not using the parameter next in this middleware since this middleware is terminal
+            _greet = greet;
         }
 
-        public string Greet(Greeting greet) => "hello";
         public async Task Invoke(HttpContext context)
         {
-            await context.Response.WriteAsync($"{Greet(null)}");
+            await context.Response.WriteAsync($"{_greet.Greet()}");
         }
     }
 
@@ -50,7 +45,6 @@ namespace HelloWorldWithMiddleware
         {
             var host = new WebHostBuilder()
               .UseKestrel()
-              .UseUrls("http://*:1000", "http://*:5000")
               .UseStartup<Startup>()
               .Build();
 
