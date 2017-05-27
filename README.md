@@ -69,11 +69,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
       This project demonstrates the ability to pick `ConfigureServices` method in a single Startup class based on environment.
 
-    * [Hello World with an implementation of IStartup interface]((https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartup)
+    * [Hello World with an implementation of IStartup interface](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartup)
 
       We are really getting into the weed of startup right now. This is an example on how to implement `IStartup` directly. 
 
-    * [Hello World without a startup class]((https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-no-startup)
+    * [Hello World without a startup class](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-no-startup)
 
       Why? just because we can.
 
