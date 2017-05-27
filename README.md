@@ -1,4 +1,4 @@
-# 73 samples for aspnetcore fundamentals (updated daily)
+# 74 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -34,7 +34,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (17)**
+* **Hello World (18)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -59,7 +59,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
       This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs depending on your environment. 
 
-    * [Hello World with multiple ConfigureServices based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment-services)
+    * [Hello World with multiple Configure methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment)
+
+      This project demonstrates the ability to pick `Configure` method in a single Startup class based on environment.
+
+    * [Hello World with multiple ConfigureServices methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment-services)
 
       This project demonstrates the ability to pick `ConfigureServices` method in a single Startup class based on environment.
 
