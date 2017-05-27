@@ -1,4 +1,4 @@
-# 77 samples for aspnetcore fundamentals (updated daily)
+# 78 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -32,7 +32,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (20)**
+* **Hello World (21)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -72,6 +72,10 @@ To run these samples, simply open your command line console,  go to each folder 
     * [Hello World with an implementation of IStartup interface]((https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartup)
 
       We are really getting into the weed of startup right now. This is an example on how to implement `IStartup` directly. 
+
+    * [Hello World without a startup class]((https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-no-startup)
+
+      Why? just because we can.
 
   * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
 
