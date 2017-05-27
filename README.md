@@ -1,4 +1,4 @@
-# 72 samples for aspnetcore fundamentals (updated daily)
+# 73 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -34,7 +34,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (16)**
+* **Hello World (17)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -42,21 +42,26 @@ To run these samples, simply open your command line console,  go to each folder 
     
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
+  * Startups
+    * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
 
-    This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
+      This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
-  * [Hello World with responding to multiple urls](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-urls)
+    * [Hello World with responding to multiple urls](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-urls)
 
-    Configure so that your web app responds to multiple urls.
+      Configure so that your web app responds to multiple urls.
 
-  * [Hello World with multiple startups](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple)
+    * [Hello World with multiple startups](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple)
 
-    This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
+      This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
 
-  * [Hello World with multiple startups using environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-environment)
+    * [Hello World with multiple startups using environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-environment)
 
-    This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs depending on your environment. 
+      This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs depending on your environment. 
+
+    * [Hello World with multiple ConfigureServices based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment-services)
+
+      This project demonstrates the ability to pick `ConfigureServices` method in a single Startup class based on environment.
 
   * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
 
