@@ -50,6 +50,7 @@ namespace HelloWorldWithMiddleware
         {
             var host = new WebHostBuilder()
               .UseKestrel()
+              .UseUrls("http://*:1000", "http://*:5000")
               .UseStartup<Startup>()
               .Build();
 
