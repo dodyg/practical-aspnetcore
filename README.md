@@ -1,4 +1,4 @@
-# 81 samples for aspnetcore fundamentals (updated daily)
+# 82 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -439,7 +439,7 @@ To run these samples, simply open your command line console,  go to each folder 
     * application/json
     * text/json 
 
-* **Diagnostics(2)**
+* **Diagnostics(3)**
 
   These samples take a dependency of ```"Microsoft.AspNetCore.Diagnostics":"1.1.1"```. 
 
@@ -450,6 +450,11 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Developer Exception Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-2)
 
     Show any unhandled exception in a nicely formatted page with error details. Only use this in development environment!
+
+
+  * [Custom Global Exception Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-3)
+
+    Use ```IExceptionHandlerFeature``` feature provided by ```Microsoft.AspNetCore.Diagnostics.Abstractions``` to create custom global exception page.
 
 * **Misc (4)**
 
