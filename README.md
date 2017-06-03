@@ -79,7 +79,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     * [Hello world with IStartupFilter](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartupfilter)
 
-      Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) is an attempt at explaining for `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
+      Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
       
 
   * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
