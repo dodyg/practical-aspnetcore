@@ -443,7 +443,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   These samples take a dependency of ```"Microsoft.AspNetCore.Diagnostics":"1.1.1"```. 
 
-  * [Welcome Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostic)
+  * [Welcome Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics)
 
     Simply show a welcome page to indicate that the app is working properly. This sample does not use a startup class simply because it's just a one line code.
 
