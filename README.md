@@ -1,4 +1,4 @@
-# 78 samples for aspnetcore fundamentals (updated daily)
+# 79 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -32,7 +32,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (21)**
+* **Hello World (22)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -76,6 +76,11 @@ To run these samples, simply open your command line console,  go to each folder 
     * [Hello World without a startup class](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-no-startup)
 
       Why? just because we can.
+
+    * [Hello world with IStartupFilter](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartupfilter)
+
+      Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) is an attempt at explaining for `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
+      
 
   * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
 
