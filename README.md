@@ -1,4 +1,4 @@
-# 80 samples for aspnetcore fundamentals (updated daily)
+# 81 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -439,13 +439,17 @@ To run these samples, simply open your command line console,  go to each folder 
     * application/json
     * text/json 
 
-* **Diagnostics(1)**
+* **Diagnostics(2)**
 
   These samples take a dependency of ```"Microsoft.AspNetCore.Diagnostics":"1.1.1"```. 
 
   * [Welcome Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics)
 
     Simply show a welcome page to indicate that the app is working properly. This sample does not use a startup class simply because it's just a one line code.
+
+  * [Developer Exception Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-2)
+
+    Show any unhandled exception in a nicely formatted page with error details. Only use this in development environment!
 
 * **Misc (4)**
 
