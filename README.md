@@ -32,7 +32,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (22)**
+* **Hello World (20)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -122,30 +122,36 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Requires `Microsoft.Extensions.PlatformAbstractions" : "1.1.0-*` dependency. This sample shows how to obtain application environment information (target framework, etc).
 
-  * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
-
-    Simply read and write cookies.
-
-  * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
-
-    Simply demonstrate on how to remove cookies.
-
   * [Adding HTTP Response Header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Form (2)**
+* **Input (4)**
   
-  We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
+  This section shows all the different ways you can capture input to your web application.
 
-  * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
+  * **Form (2)**
     
-    Handles the values submitted via a form.
+    We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
+
+    * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
+      
+      Handles the values submitted via a form.
 
 
-  * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
-    
-    Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
+    * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
+      
+      Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
+
+  * **Cookies (2)**
+          
+      * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
+
+        Read and write cookies.
+
+      * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
+
+        Simply demonstrates on how to remove cookies.
 
 * **Routing (9)**
 
@@ -462,7 +468,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Status Pages ](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-5)
 
-    Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
+    Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
 
 * **Misc (4)**
