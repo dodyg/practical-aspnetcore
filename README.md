@@ -131,7 +131,7 @@ To run these samples, simply open your command line console,  go to each folder 
   This section shows all the different ways you can capture input to your web application.
 
   * **Headers (1)**
-    * [Access Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-request-headers)
+    * [Access Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-basic-request-headers)
       
       Enumerate all the available headers in a request.
 
