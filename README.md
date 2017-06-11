@@ -30,8 +30,12 @@ If a sample require additional dependencies, I will list them.
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
+## How to run these samples
+
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
+
+## List
 * **Hello World (21)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
