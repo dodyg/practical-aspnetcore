@@ -1,4 +1,4 @@
-# 85 samples for aspnetcore fundamentals (updated daily)
+# 86 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -32,7 +32,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (20)**
+* **Hello World (21)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -82,7 +82,11 @@ To run these samples, simply open your command line console,  go to each folder 
       Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
       
 
-  * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
+  * [Show errors during startup](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-capture-errors)
+
+    Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
+
+  * [Show Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
 
     Enumerate the connection information of a HTTP request.
 
