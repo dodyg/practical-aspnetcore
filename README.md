@@ -136,7 +136,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * **Request(7)**
   
-  This section shows all the different ways you can capture input to your web application.
+  This section shows all the different ways you capture input and examine request to your web application.
 
   * **HTTP Verb (1)**
     * [Get request verb](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-verb)
@@ -150,7 +150,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     * [Type Safe Access to Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-headers-typed)
       
-      Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headeres.
+      Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
   * **Form (2)**
     
