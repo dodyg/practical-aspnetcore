@@ -51,7 +51,6 @@ namespace StartupBasicConfigureEnvironment
         {
               var host = new WebHostBuilder()
                 .UseKestrel()
-                .CaptureStartupErrors(true)
                 .UseStartup<Startup>()
                 .UseEnvironment("Development") //switch to "Production" to use StartupProduction
                 .Build();
