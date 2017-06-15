@@ -1,4 +1,4 @@
-# 86 samples for aspnetcore fundamentals (updated daily)
+# 87 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -134,9 +134,14 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Input (5)**
+* **Request(6)**
   
   This section shows all the different ways you can capture input to your web application.
+
+  * **HTTP Verb (1)**
+    * [Get request verb](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-verb)
+      
+      Detect the verb/method of the current request. 
 
   * **Headers (1)**
     * [Access Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-headers)
