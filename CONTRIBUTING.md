@@ -1,4 +1,4 @@
-##Contributor Guidelines
+## Contributor Guidelines
 
 * Put all the code inside Program.cs. It makes it easier for casual users to read the code online and learn something. Sometimes it is too cumbersome to chase down types using browser.
 * Keep your sample very simple and specific. Try to minimise the amount of concept that people need to know in order to understand your code.
