@@ -531,12 +531,9 @@ These are other aspnetcore resources with code samples
 
 * [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals)
 * [aspnetcore entropy](https://github.com/aspnet/entropy)
-  
-  "This repo is a chaotic experimental playground for new features and ideas. Check here for small and simple samples for individual features."
 
-# Contributor Guidelines
 
-- Put all the code inside Program.cs. It makes it easier for casual users to read the code online and learn something. Sometimes it is too cumbersome to chase down types using browser.
-- Keep your sample very simple and specific. Try to minimise the amount of concept that people need to know in order to understand your code.
-- There is no sample that is too small. If it shows one single interesting and useful knoweldge, add it in.
-- When you are ready, update this document and add the link to the project with a paragraph or two. Do not forget to increment the sample count at the beginning of this document.
+## Misc
+
+* [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
+* [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
