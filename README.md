@@ -1,4 +1,4 @@
-# 89 samples for aspnetcore fundamentals (updated daily)
+# 90 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -492,7 +492,7 @@ To run these samples, simply open your command line console,  go to each folder 
     Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
 
-* **Static Files(2)**
+* **Static Files(3)**
 
     This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
 
@@ -507,6 +507,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-2)
     
     Allow listing and browsing of your ```wwwroot``` folder.
+
+  * [Use File Server](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-3)
+    
+    Combines the functionality of ```UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser```.
 
 * **Misc (3)**
 
