@@ -1,4 +1,4 @@
-# 88 samples for aspnetcore fundamentals (updated daily)
+# 89 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -492,17 +492,23 @@ To run these samples, simply open your command line console,  go to each folder 
     Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
 
-* **Misc (4)**
+* **Static Files(2)**
+
+    This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
 
   * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
-    Simply serve static files (html, css, images, etc). 
-    
-    This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
+    Simply serve static files (html, css, images, etc).     
     
     There are two static files being served in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
     
     To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
+
+  * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-2)
+    
+    Allow listing and browsing of your ```wwwroot``` folder.
+
+* **Misc (3)**
 
   * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
 
