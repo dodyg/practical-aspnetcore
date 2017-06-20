@@ -29,9 +29,7 @@ namespace ServeStaticFiles
             foreach(var c in contents)
             {
                 if (c.Name.Contains(".png") || c.Name.Contains(".jpg"))
-                {
                     await context.Response.WriteAsync($@"<div class=""col""><img src=""{c.Name}""/></div>");
-                }
                 else
                     await context.Response.WriteAsync($@"<div class=""col"">{c.Name}</div>");
             }
