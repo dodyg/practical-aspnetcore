@@ -512,10 +512,10 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Combines the functionality of ```UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser```.
 
-
   * [Custom Directory Formatter](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-4)
     
-    Customize the way Directory Browsing is displayed. 
+    Customize the way Directory Browsing is displayed. In this sample the custom view only handles flat directory. We will deal with 
+    more complex scenario in the next sample.
 
 * **Misc (3)**
 
