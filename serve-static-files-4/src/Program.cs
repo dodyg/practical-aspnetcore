@@ -13,11 +13,11 @@ namespace ServeStaticFiles
 
     public class DirectoryFormatter : IDirectoryFormatter
     {
-        public Task GenerateContentAsync(HttpContext context, IEnumerable<Microsoft.Extensions.FileProviders.IFileInfo> contents)
+        public async Task GenerateContentAsync(HttpContext context, IEnumerable<Microsoft.Extensions.FileProviders.IFileInfo> contents)
         {
             context.Response.ContentType = "text/html";
 
-            context.Response.WriteAsync(@"
+            await context.Response.WriteAsync(@"
 <html>
 <head>
     <link href=""https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"" rel=""stylesheet"" integrity=""sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"" crossorigin=""anonymous"">
@@ -30,13 +30,13 @@ namespace ServeStaticFiles
             {
                 if (c.Name.Contains(".png") || c.Name.Contains(".jpg"))
                 {
-                    context.Response.WriteAsync($@"<div class=""col""><img src=""{c.Name}""/></div>");
+                    await context.Response.WriteAsync($@"<div class=""col""><img src=""{c.Name}""/></div>");
                 }
                 else
-                    context.Response.WriteAsync($@"<div class=""col"">{c.Name}</div>");
+                    await context.Response.WriteAsync($@"<div class=""col"">{c.Name}</div>");
             }
 
-            return context.Response.WriteAsync("</div></div></body></html>");
+            await context.Response.WriteAsync("</div></div></body></html>");
         }
     }
 
