@@ -1,4 +1,4 @@
-# 91 samples for aspnetcore fundamentals (updated daily)
+# 92 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -492,7 +492,7 @@ To run these samples, simply open your command line console,  go to each folder 
     Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
 
-* **Static Files(4)**
+* **Static Files(5)**
 
     This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
 
@@ -516,6 +516,10 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Customize the way Directory Browsing is displayed. In this sample the custom view only handles flat directory. We will deal with 
     more complex scenario in the next sample.
+
+  * [Custom Directory Formatter - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-5)
+    
+    Show custom Directory Browsing and handle directory listing as well as files.
 
 * **Misc (3)**
 
