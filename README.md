@@ -1,4 +1,4 @@
-# 93 samples for aspnetcore fundamentals (updated daily)
+# 94 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -466,7 +466,7 @@ To run these samples, simply open your command line console,  go to each folder 
     * application/json
     * text/json 
 
-* **Diagnostics(5)**
+* **Diagnostics(6)**
 
   These samples take a dependency of ```"Microsoft.AspNetCore.Diagnostics":"1.1.1"```. 
 
@@ -491,6 +491,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
+  * [Middleware Analysis](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-6)
+
+    Here we go into the weeds of analysing middlewares in your request pipeline. This is a bit complicated. It requires the following packages:
+
+    * ```Microsoft.AspNetCore.MiddlewareAnalysis```
+    * ```Microsoft.Extensions.DiagnosticAdapter```
+    * ```Microsoft.Extensions.Logging.Console```
 
 * **Static Files(6)**
 
