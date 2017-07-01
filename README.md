@@ -1,4 +1,4 @@
-# 94 samples for aspnetcore fundamentals (updated daily)
+# 95 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -531,6 +531,16 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-6)
     
     Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
+
+* **Web Sockets (1)**
+
+  We are going to explore websocket functionality provided by ASP.NET Core. All the samples here require ```Microsoft.AspNetCore.WebSockets```. 
+
+  **Warning**: These samples are low level websocket code. For production, use [SignalR](https://github.com/aspnet/signalr). Yes I will work on SignalR samples soon.
+
+  * [Echo Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets)
+
+    This is the simplest web socket code you can write. It simply returns what you sent.
 
 * **Misc (3)**
 
