@@ -540,7 +540,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Echo Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets)
 
-    This is the simplest web socket code you can write. It simply returns what you sent.
+    This is the simplest web socket code you can write. It simply returns what you sent. It does not handle the closing of the connection. It does not handle data that is larger than buffer.
 
 * **Misc (3)**
 
