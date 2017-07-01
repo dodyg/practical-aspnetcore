@@ -12,16 +12,6 @@ namespace StartupBasic
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             app.UseWebSockets();
