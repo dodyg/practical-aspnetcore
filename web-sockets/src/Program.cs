@@ -26,19 +26,22 @@ namespace StartupBasic
                 }
 
                 var socket = await context.WebSockets.AcceptWebSocketAsync();
-                while(socket.State == WebSocketState.Open)
-                {
-                    var buffer = new ArraySegment<byte>(new byte[1024 * 4]);
-                    var result = await socket.ReceiveAsync(buffer, CancellationToken.None);    
+                var bufferSize = new byte[1024 * 4];
+                var receiveBuffer = new ArraySegment<byte>(bufferSize);
+                var result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);    
 
+                while(!result.CloseStatus.HasValue)
+                {
                     if (result.MessageType == WebSocketMessageType.Text)
                     {
-                        var clientMessage = Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count); 
+                        var clientRequest = Encoding.UTF8.GetString(receiveBuffer.Array, receiveBuffer.Offset, receiveBuffer.Count); 
 
-                        var serverReply = Encoding.UTF8.GetBytes("Echo " + clientMessage);
-                        buffer = new ArraySegment<byte>(serverReply);
+                        var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
+                        var replyBuffer = new ArraySegment<byte>(serverReply);
+                        await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
 
-                        await socket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
+                        receiveBuffer = new ArraySegment<byte>(bufferSize);
+                        result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None); 
                     }
                 }
             });
