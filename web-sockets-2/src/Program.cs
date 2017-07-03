@@ -35,25 +35,29 @@ namespace StartupBasic
                 }
 
                 var socket = await context.WebSockets.AcceptWebSocketAsync();
-                var bufferSize = new byte[1024 * 4];
+                var bufferSize = new byte[4];
                 var receiveBuffer = new ArraySegment<byte>(bufferSize);
                 WebSocketReceiveResult result;
 
                 using (var ms = new MemoryStream())
                 {
+                    int count = 0;
                     do
                     {
                         result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
                         if (result.MessageType != WebSocketMessageType.Text)
                             throw new Exception("Unexpected Message");
 
-                        ms.Write(receiveBuffer.Array, receiveBuffer.Offset, receiveBuffer.Count);
+                        ms.Write(receiveBuffer.Array, receiveBuffer.Offset, result.Count);
+
+                        receiveBuffer = new ArraySegment<byte>(bufferSize);
+                        log.LogDebug($"Receive count {++count}");
                     }
-                    while (!result.EndOfMessage && !result.CloseStatus.HasValue);
+                    while (!result.EndOfMessage);
 
                     ms.Seek(0, SeekOrigin.Begin);
 
-                    string clientRequest = "";
+                    string clientRequest = string.Empty;
                     using (var reader = new StreamReader(ms, Encoding.UTF8))
                     {
                         clientRequest = await reader.ReadToEndAsync();
@@ -64,9 +68,6 @@ namespace StartupBasic
                     var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
                     var replyBuffer = new ArraySegment<byte>(serverReply);
                     await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
-
-                    receiveBuffer = new ArraySegment<byte>(bufferSize);
-                    result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
                 }
             });
 
