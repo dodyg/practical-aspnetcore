@@ -7,14 +7,16 @@ using System.Net.WebSockets;
 using System;
 using System.Threading;
 using System.Text;
+using System.IO;
 
-namespace StartupBasic 
+namespace StartupBasic
 {
     public class Startup
     {
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
-            logger.AddConsole((str, level) => {
+            logger.AddConsole((str, level) =>
+            {
                 //filter out framework log messages
                 return !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace;
             });
@@ -22,7 +24,7 @@ namespace StartupBasic
             var log = logger.CreateLogger("");
 
             app.UseWebSockets();
-            
+
             app.Use(async (context, next) =>
             {
                 if (!context.WebSockets.IsWebSocketRequest)
@@ -35,22 +37,36 @@ namespace StartupBasic
                 var socket = await context.WebSockets.AcceptWebSocketAsync();
                 var bufferSize = new byte[1024 * 4];
                 var receiveBuffer = new ArraySegment<byte>(bufferSize);
-                var result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);    
+                WebSocketReceiveResult result;
 
-                while(!result.CloseStatus.HasValue)
+                using (var ms = new MemoryStream())
                 {
-                    if (result.MessageType == WebSocketMessageType.Text)
+                    do
                     {
-                        var clientRequest = Encoding.UTF8.GetString(receiveBuffer.Array, receiveBuffer.Offset, receiveBuffer.Count); 
-                        log.LogDebug($"Receive: {clientRequest}");
+                        result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
+                        if (result.MessageType != WebSocketMessageType.Text)
+                            throw new Exception("Unexpected Message");
 
-                        var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
-                        var replyBuffer = new ArraySegment<byte>(serverReply);
-                        await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
-
-                        receiveBuffer = new ArraySegment<byte>(bufferSize);
-                        result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None); 
+                        ms.Write(receiveBuffer.Array, receiveBuffer.Offset, receiveBuffer.Count);
                     }
+                    while (!result.EndOfMessage && !result.CloseStatus.HasValue);
+
+                    ms.Seek(0, SeekOrigin.Begin);
+
+                    string clientRequest = "";
+                    using (var reader = new StreamReader(ms, Encoding.UTF8))
+                    {
+                        clientRequest = await reader.ReadToEndAsync();
+                    }
+
+                    log.LogDebug($"Receive: {clientRequest}");
+
+                    var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
+                    var replyBuffer = new ArraySegment<byte>(serverReply);
+                    await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+
+                    receiveBuffer = new ArraySegment<byte>(bufferSize);
+                    result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
                 }
             });
 
@@ -86,19 +102,19 @@ namespace StartupBasic
             });
         </script>
     </body>
-</html>");          
-             });
+</html>");
+            });
         }
     }
-    
-   public class Program
+
+    public class Program
     {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseStartup<Startup>()
-                .Build();
+            var host = new WebHostBuilder()
+              .UseKestrel()
+              .UseStartup<Startup>()
+              .Build();
 
             host.Run();
         }
