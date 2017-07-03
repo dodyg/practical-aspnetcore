@@ -39,35 +39,41 @@ namespace StartupBasic
                 var receiveBuffer = new ArraySegment<byte>(bufferSize);
                 WebSocketReceiveResult result;
 
-                using (var ms = new MemoryStream())
+                while (socket.State == WebSocketState.Open)
                 {
-                    int count = 0;
-                    do
+                    using (var ms = new MemoryStream())
                     {
-                        result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
-                        if (result.MessageType != WebSocketMessageType.Text)
-                            throw new Exception("Unexpected Message");
+                        int count = 0;
+                        do
+                        {
+                            result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
+                            if (result.MessageType != WebSocketMessageType.Text)
+                                throw new Exception("Unexpected Message");
 
-                        ms.Write(receiveBuffer.Array, receiveBuffer.Offset, result.Count);
+                            ms.Write(receiveBuffer.Array, receiveBuffer.Offset, result.Count);
 
-                        receiveBuffer = new ArraySegment<byte>(bufferSize);
-                        log.LogDebug($"Receive count {++count}");
+                            receiveBuffer = new ArraySegment<byte>(bufferSize);
+                            log.LogDebug($"Reading incoming data with buffer(size {bufferSize.Length}) {++count} times");
+                        }
+                        while (!result.EndOfMessage && !result.CloseStatus.HasValue);
+
+                        ms.Seek(0, SeekOrigin.Begin);
+
+                        string clientRequest = string.Empty;
+                        using (var reader = new StreamReader(ms, Encoding.UTF8))
+                        {
+                            clientRequest = await reader.ReadToEndAsync();
+                        }
+
+                        log.LogDebug($"Receive: {clientRequest}");
+
+                        var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
+                        var replyBuffer = new ArraySegment<byte>(serverReply);
+                        await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+
+                        if (result.CloseStatus.HasValue)
+                            break;
                     }
-                    while (!result.EndOfMessage);
-
-                    ms.Seek(0, SeekOrigin.Begin);
-
-                    string clientRequest = string.Empty;
-                    using (var reader = new StreamReader(ms, Encoding.UTF8))
-                    {
-                        clientRequest = await reader.ReadToEndAsync();
-                    }
-
-                    log.LogDebug($"Receive: {clientRequest}");
-
-                    var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
-                    var replyBuffer = new ArraySegment<byte>(serverReply);
-                    await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
                 }
             });
 
