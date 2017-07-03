@@ -1,4 +1,4 @@
-# 95 samples for aspnetcore fundamentals (updated daily)
+# 96 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -532,7 +532,7 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
 
-* **Web Sockets (1)**
+* **Web Sockets (2)**
 
   We are going to explore websocket functionality provided by ASP.NET Core. All the samples here require ```Microsoft.AspNetCore.WebSockets```. 
 
@@ -541,6 +541,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Echo Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets)
 
     This is the simplest web socket code you can write. It simply returns what you sent. It does not handle the closing of the connection. It does not handle data that is larger than buffer. It only handles text payload.
+
+  * [Echo Server 2](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-2)
+
+    We improve upon the previous sample by adding console logging (requiring ```Microsoft.Extensions.Logging.Console``` package) and handling data larger than the buffer. I set the buffer to be very small (4 bytes) so you can see how it works.
 
 * **Misc (3)**
 
