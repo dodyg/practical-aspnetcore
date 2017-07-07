@@ -18,37 +18,23 @@ namespace StartupBasic
     public class ConnectionManager
     {
         ConcurrentDictionary<string, WebSocket> _sockets = new ConcurrentDictionary<string, WebSocket>();
-        
-        public string AddSocket(WebSocket socket){
-           var id = Guid.NewGuid().ToString();
-            
+
+        public string AddSocket(WebSocket socket)
+        {
+            var id = Guid.NewGuid().ToString();
+
             if (!_sockets.TryAdd(id, socket))
                 throw new Exception($"Problem in adding socket with Id {id}");
-        
+
             return id;
         }
 
-        public WebSocket GetSocketById(string id) => _sockets.FirstOrDefault(x => x.Key == id).Value;
-
-        public string GetId(WebSocket socket) => _sockets.FirstOrDefault(p => p.Value == socket).Key;
-
         public List<(WebSocket socket, string id)> Other(string id) => _sockets.Where(x => x.Key != id).Select(x => (socket: x.Value, id: x.Key)).ToList();
-
-        public ConcurrentDictionary<string, WebSocket> GetAll() => _sockets;
-
-        public async Task RemoveAsync(string id)
-        {
-            if (_sockets.TryRemove(id, out WebSocket socket))
-            {
-                await socket.CloseAsync(closeStatus: WebSocketCloseStatus.NormalClosure, 
-                    statusDescription: "Closed by the Server", cancellationToken: CancellationToken.None);
-            }
-        }
     }
 
     public class Startup
     {
-        async Task ReceiveAsync(ILogger log, WebSocket socket, string socketId, Func<string, Task> responseHandler)
+        async Task ReceiveAsync(ILogger log, WebSocket socket, string socketId, Func<string, Task> responseHandlerAsync)
         {
             var bufferSize = new byte[4];
             var receiveBuffer = new ArraySegment<byte>(bufferSize);
@@ -80,7 +66,7 @@ namespace StartupBasic
 
                     log.LogDebug($"Socket Id {socketId} : Receive: {clientRequest}");
 
-                    await responseHandler(clientRequest);
+                    await responseHandlerAsync(clientRequest);
 
                     if (result.CloseStatus.HasValue)
                         break;
@@ -97,7 +83,6 @@ namespace StartupBasic
             });
 
             int count = 0;
-
             var log = logger.CreateLogger("");
 
             app.UseWebSockets();
@@ -116,7 +101,7 @@ namespace StartupBasic
                 var socket = await context.WebSockets.AcceptWebSocketAsync();
                 var socketId = cm.AddSocket(socket);
 
-                await ReceiveAsync(log, socket, socketId, async (clientRequest) => 
+                await ReceiveAsync(log, socket, socketId, async (clientRequest) =>
                 {
                     var serverReply = Encoding.UTF8.GetBytes($"Echo {++count} {clientRequest}");
                     var replyBuffer = new ArraySegment<byte>(serverReply);
@@ -125,7 +110,7 @@ namespace StartupBasic
                     var broadcastReply = Encoding.UTF8.GetBytes($"Broadcast {count} {clientRequest}");
                     var broadcastBuffer = new ArraySegment<byte>(broadcastReply);
 
-                    foreach(var (s, sid) in cm.Other(socketId))
+                    foreach (var (s, sid) in cm.Other(socketId))
                     {
                         await s.SendAsync(broadcastBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
                         log.LogDebug($"Broadcasting to : {sid}");
