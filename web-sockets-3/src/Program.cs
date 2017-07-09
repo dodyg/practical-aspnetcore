@@ -76,24 +76,19 @@ namespace StartupBasic
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
-            logger.AddConsole((str, level) =>
-            {
-                //filter out framework log messages
-                return !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace;
-            });
+            logger.AddConsole((str, level) => !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace);
 
-            int count = 0;
             var log = logger.CreateLogger("");
 
             app.UseWebSockets();
 
             var cm = new ConnectionManager();
 
+            int count = 0;
             app.Use(async (context, next) =>
             {
                 if (!context.WebSockets.IsWebSocketRequest)
                 {
-                    // Not a web socket request
                     await next();
                     return;
                 }
@@ -110,11 +105,15 @@ namespace StartupBasic
                     var broadcastReply = Encoding.UTF8.GetBytes($"Broadcast {count} {clientRequest}");
                     var broadcastBuffer = new ArraySegment<byte>(broadcastReply);
 
+                    var socketTasks = new List<Task>();
+
                     foreach (var (s, sid) in cm.Other(socketId))
                     {
-                        await s.SendAsync(broadcastBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+                        socketTasks.Add(s.SendAsync(broadcastBuffer, WebSocketMessageType.Text, true, CancellationToken.None));
                         log.LogDebug($"Broadcasting to : {sid}");
                     }
+
+                    await Task.WhenAll(socketTasks);
                 });
             });
 
