@@ -36,7 +36,7 @@ namespace StartupBasic
     {
         async Task ReceiveAsync(ILogger log, WebSocket socket, string socketId, Func<string, Task> responseHandlerAsync)
         {
-            var bufferSize = new byte[4];
+            var bufferSize = new byte[4]; //This is especially small just to exercise the code that handles data that is larger than buffer
             var receiveBuffer = new ArraySegment<byte>(bufferSize);
             WebSocketReceiveResult result;
 
@@ -51,9 +51,8 @@ namespace StartupBasic
                             throw new Exception("Unexpected Message");
 
                         ms.Write(receiveBuffer.Array, receiveBuffer.Offset, result.Count);
-
-                        receiveBuffer = new ArraySegment<byte>(bufferSize);
                     }
+
                     while (!result.EndOfMessage && !result.CloseStatus.HasValue);
 
                     ms.Seek(0, SeekOrigin.Begin);
@@ -61,7 +60,7 @@ namespace StartupBasic
                     string clientRequest = string.Empty;
                     using (var reader = new StreamReader(ms, Encoding.UTF8))
                     {
-                        clientRequest = await reader.ReadToEndAsync();
+                        clientRequest = reader.ReadToEnd();
                     }
 
                     log.LogDebug($"Socket Id {socketId} : Receive: {clientRequest}");
