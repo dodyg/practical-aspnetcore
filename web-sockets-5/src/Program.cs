@@ -62,12 +62,12 @@ namespace StartupBasic
                 {
                     var segment = cmd.Split(new [] { ' '});
 
-                    if (segment.Length > 2)
+                    if (segment.Length > 0)
                     {
-                        switch(segment[1])
+                        switch(segment[0])
                         {
-                            case "list" : return (true, new Command { Type = CommandType.List,  Data = ("", "","") });
-                            case "quit" : return (true, new Command { Type = CommandType.Quit, Data = ("", "", "")});
+                            case "#list" : return (true, new Command { Type = CommandType.List,  Data = ("", "","") });
+                            case "#quit" : return (true, new Command { Type = CommandType.Quit, Data = ("", "", "")});
                             default : return (false, null);
                         }
                     }
@@ -133,6 +133,8 @@ namespace StartupBasic
             }
         }
 
+        public ArraySegment<byte> Reply(string content ) => new ArraySegment<byte>(Encoding.UTF8.GetBytes(content));
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             logger.AddConsole((str, level) => !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace);
@@ -155,24 +157,60 @@ namespace StartupBasic
                 var socket = await context.WebSockets.AcceptWebSocketAsync();
                 var socketId = cm.AddSocket(socket);
 
+                var cmdHandler = new CommandHandler();
                 await ReceiveAsync(cm, log, socket, socketId, async (connectionManager, clientRequest) =>
                 {
-                    var serverReply = Encoding.UTF8.GetBytes($"Echo {++count} {clientRequest}");
-                    var replyBuffer = new ArraySegment<byte>(serverReply);
-                    await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+                    var (isOK, cmd) = cmdHandler.Parse(clientRequest);
 
-                    var broadcastReply = Encoding.UTF8.GetBytes($"Broadcast {count} {clientRequest}");
-                    var broadcastBuffer = new ArraySegment<byte>(broadcastReply);
-
-                    var socketTasks = new List<Task>();
-
-                    foreach (var (s, sid, nickname) in connectionManager.Other(socketId))
+                    if (isOK)
                     {
-                        socketTasks.Add(s.SendAsync(broadcastBuffer, WebSocketMessageType.Text, true, CancellationToken.None));
-                        log.LogDebug($"Broadcasting to : {sid}");
-                    }
+                        switch(cmd.Type)
+                        {
+                            case CommandType.List : 
+                            {
+                                var others = connectionManager.Other(socketId).Select(x => x.nickname).ToList();
+                                if (others.Count > 0)
+                                    await socket.SendAsync(Reply(string.Join(",", others)), WebSocketMessageType.Text, true, CancellationToken.None);
+                                else
+                                    await socket.SendAsync(Reply("No other user on this channel"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                break;
+                            }
 
-                    await Task.WhenAll(socketTasks);
+                            case CommandType.Quit :
+                            {
+                                connectionManager.RemoveSocket(socketId);
+                                await socket.SendAsync(Reply("Quitting chat"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
+                                break;
+                            }
+
+                            default :
+                            {
+                                await socket.SendAsync(Reply("Command not understood"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                break;
+                            }
+                        }
+                        var serverReply = Encoding.UTF8.GetBytes($"Echo {++count} {clientRequest}");
+                        var replyBuffer = new ArraySegment<byte>(serverReply);
+                        await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+
+                        var broadcastReply = Encoding.UTF8.GetBytes($"Broadcast {count} {clientRequest}");
+                        var broadcastBuffer = new ArraySegment<byte>(broadcastReply);
+
+                        var socketTasks = new List<Task>();
+
+                        foreach (var (s, sid, nickname) in connectionManager.Other(socketId))
+                        {
+                            socketTasks.Add(s.SendAsync(broadcastBuffer, WebSocketMessageType.Text, true, CancellationToken.None));
+                            log.LogDebug($"Broadcasting to : {sid}");
+                        }
+
+                        await Task.WhenAll(socketTasks);
+                    }
+                    else
+                    {
+                        await socket.SendAsync(Reply("Command not understood"), WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
                 });
 
                 if (socket.State != WebSocketState.Open)
