@@ -30,17 +30,49 @@ namespace StartupBasic
             return id;
         }
 
+        public bool SetNickName(string id, string nickname)
+        {
+            if (_sockets.TryGetValue(id, out var x))
+            {
+                _sockets[id] = (x.socket, nickname);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public (bool, string) GetNickNameById(string id)
+        {
+            if (_sockets.TryGetValue(id, out var x))
+                return (true, x.nickname);
+            else
+                return (false, null);
+        }
+
+        public (bool, WebSocket socket) GetByNick(string nickname)
+        {
+            var found = _sockets.Where(x => x.Value.nickname.Equals(nickname, StringComparison.CurrentCultureIgnoreCase)).Take(1).ToList();
+
+            if (found.Count == 0)
+                return (false, null);
+            else 
+                return (true, found[0].Value.socket);
+        }
+
         public bool RemoveSocket(string id) => _sockets.TryRemove(id, out (WebSocket, string) _);
 
         public List<(WebSocket socket, string id, string nickname)> Other(string id) => 
             _sockets.Where(x => x.Key != id)
             .Select(x => (x.Value.socket, x.Key, x.Value.nickname))
             .ToList();
+
     }
 
     public enum CommandType {
         List,
         Send,
+
+        Nick,
 
         Quit
     }
@@ -68,6 +100,8 @@ namespace StartupBasic
                         {
                             case "#list" : return (true, new Command { Type = CommandType.List,  Data = ("", "","") });
                             case "#quit" : return (true, new Command { Type = CommandType.Quit, Data = ("", "", "")});
+                            case "#nick" : return (true, new Command { Type = CommandType.Nick, Data = (segment[1], "", "")});
+                            case "#talk" : return (true, new Command { Type = CommandType.Send, Data = (segment[1], string.Join(" ", segment.Skip(2)), "")});
                             default : return (false, null);
                         }
                     }
@@ -145,7 +179,6 @@ namespace StartupBasic
 
             var cm = new ConnectionManager();
 
-            int count = 0;
             app.Use(async (context, next) =>
             {
                 if (!context.WebSockets.IsWebSocketRequest)
@@ -168,11 +201,46 @@ namespace StartupBasic
                         {
                             case CommandType.List : 
                             {
-                                var others = connectionManager.Other(socketId).Select(x => x.nickname).ToList();
+                                var others = connectionManager.Other(socketId).Select(x => string.IsNullOrWhiteSpace(x.nickname)? "NoNick" : x.nickname).ToList();
                                 if (others.Count > 0)
                                     await socket.SendAsync(Reply(string.Join(",", others)), WebSocketMessageType.Text, true, CancellationToken.None);
                                 else
                                     await socket.SendAsync(Reply("No other user on this channel"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                break;
+                            }
+
+                            case CommandType.Nick:
+                            {
+                                var isOk = connectionManager.SetNickName(socketId, cmd.Data.Item1);
+
+                                if (isOK)
+                                {
+                                    await socket.SendAsync(Reply($"Nickname now {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                }
+                                else
+                                {
+                                    await socket.SendAsync(Reply($"#nick fails"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                }
+                                break;
+                            }
+
+                            case CommandType.Send:
+                            {
+                                var (isFound, sck) = connectionManager.GetByNick(cmd.Data.Item1);
+                                if (isFound)
+                                {
+                                    var (isOk, sender) = connectionManager.GetNickNameById(socketId);
+                                    if (isOK)
+                                        await sck.SendAsync(Reply($"From {sender}: {cmd.Data.Item2}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    else
+                                        await sck.SendAsync(Reply($"From Unknown: {cmd.Data.Item2}"), WebSocketMessageType.Text, true, CancellationToken.None);
+
+                                    await socket.SendAsync(Reply($"Message sent to {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                }
+                                else
+                                {
+                                    await socket.SendAsync(Reply($"{cmd.Data.Item1} not found"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                }
                                 break;
                             }
 
@@ -190,22 +258,6 @@ namespace StartupBasic
                                 break;
                             }
                         }
-                        var serverReply = Encoding.UTF8.GetBytes($"Echo {++count} {clientRequest}");
-                        var replyBuffer = new ArraySegment<byte>(serverReply);
-                        await socket.SendAsync(replyBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
-
-                        var broadcastReply = Encoding.UTF8.GetBytes($"Broadcast {count} {clientRequest}");
-                        var broadcastBuffer = new ArraySegment<byte>(broadcastReply);
-
-                        var socketTasks = new List<Task>();
-
-                        foreach (var (s, sid, nickname) in connectionManager.Other(socketId))
-                        {
-                            socketTasks.Add(s.SendAsync(broadcastBuffer, WebSocketMessageType.Text, true, CancellationToken.None));
-                            log.LogDebug($"Broadcasting to : {sid}");
-                        }
-
-                        await Task.WhenAll(socketTasks);
                     }
                     else
                     {
@@ -229,7 +281,14 @@ namespace StartupBasic
     </head>
     <body>
         <h1>Web Socket (please open this page at 2 tabs at least)</h1>
-        <input type=""text"" length=""50"" id=""msg"" value=""hello world""/> 
+        <p>Commands<p>
+        <ul>
+            <li>#list</li> 
+            <li>#nick <i>nickname</i></li>
+            <li>#talk <i>nickname</i> <i>text</i></li>
+            <li>#quit</li>
+        </ul>
+        <input type=""text"" length=""50"" id=""msg"" value=""#nick anna""/> 
         <button type=""button"" id=""send"">Send</button>
         <button type=""button"" id=""close"">Close</button>
         <br/>
