@@ -12,7 +12,6 @@
     <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="System.ValueTuple" Version="4.3.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>
