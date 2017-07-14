@@ -1,4 +1,4 @@
-# 98 samples for aspnetcore fundamentals (updated daily)
+# 99 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -532,7 +532,7 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
 
-* **Web Sockets (4)**
+* **Web Sockets (5)**
 
   We are going to explore websocket functionality provided by ASP.NET Core. All the samples here require ```Microsoft.AspNetCore.WebSockets```. 
 
@@ -553,6 +553,11 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Echo Server 4](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-4)
 
     We improve upon the previous sample by handling closing event intiated by the web client.
+
+    
+  * [Chat Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-5)
+
+    Implement a rudimentary single channel chat server.
 
 * **Misc (3)**
 
