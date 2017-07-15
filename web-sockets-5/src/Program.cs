@@ -64,7 +64,6 @@ namespace StartupBasic
             _sockets.Where(x => x.Key != id)
             .Select(x => (x.Value.socket, x.Key, x.Value.nickname))
             .ToList();
-
     }
 
     public enum CommandType
