@@ -17,7 +17,7 @@ namespace StartupBasic
 {
     public class ConnectionManager
     {
-        ConcurrentDictionary<string, (WebSocket socket, string nickname)> _sockets = new ConcurrentDictionary<string, (WebSocket socket, string nickanme)>();
+        ConcurrentDictionary<string, (WebSocket socket, string nickname)> _sockets = new ConcurrentDictionary<string, (WebSocket, string)>();
 
         public string AddSocket(WebSocket socket)
         {
@@ -54,33 +54,32 @@ namespace StartupBasic
 
             if (found.Count == 0)
                 return (false, null);
-            else 
+            else
                 return (true, found[0].Value.socket);
         }
 
         public bool RemoveSocket(string id) => _sockets.TryRemove(id, out (WebSocket, string) _);
 
-        public List<(WebSocket socket, string id, string nickname)> Other(string id) => 
+        public List<(WebSocket socket, string id, string nickname)> Other(string id) =>
             _sockets.Where(x => x.Key != id)
             .Select(x => (x.Value.socket, x.Key, x.Value.nickname))
             .ToList();
 
     }
 
-    public enum CommandType {
+    public enum CommandType
+    {
         List,
         Send,
-
         Nick,
-
         Quit
     }
 
     public class Command
     {
-        public CommandType Type {get; set;}
+        public CommandType Type { get; set; }
 
-        public (string, string, string) Data { get; set;}
+        public (string, string, string) Data { get; set; }
     }
 
     public class CommandHandler
@@ -91,27 +90,27 @@ namespace StartupBasic
             {
                 if (cmd.StartsWith("#"))
                 {
-                    var segment = cmd.Split(new [] { ' '});
+                    var segment = cmd.Split(new[] { ' ' });
 
                     if (segment.Length > 0)
                     {
-                        switch(segment[0])
+                        switch (segment[0])
                         {
-                            case "#list" : return (true, new Command { Type = CommandType.List,  Data = ("", "","") });
-                            case "#quit" : return (true, new Command { Type = CommandType.Quit, Data = ("", "", "")});
-                            case "#nick" : return (true, new Command { Type = CommandType.Nick, Data = (segment[1], "", "")});
-                            case "#talk" : return (true, new Command { Type = CommandType.Send, Data = (segment[1], string.Join(" ", segment.Skip(2)), "")});
-                            default : return (false, null);
+                            case "#list": return (true, new Command { Type = CommandType.List, Data = ("", "", "") });
+                            case "#quit": return (true, new Command { Type = CommandType.Quit, Data = ("", "", "") });
+                            case "#nick": return (true, new Command { Type = CommandType.Nick, Data = (segment[1], "", "") });
+                            case "#talk": return (true, new Command { Type = CommandType.Send, Data = (segment[1], string.Join(" ", segment.Skip(2)), "") });
+                            default: return (false, null);
                         }
                     }
                 }
 
                 return (false, null);
-            }   
+            }
             catch
             {
                 return (false, null);
-            } 
+            }
         }
     }
 
@@ -130,8 +129,9 @@ namespace StartupBasic
                     do
                     {
                         result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
-                        
-                        if (result.MessageType == WebSocketMessageType.Close){
+
+                        if (result.MessageType == WebSocketMessageType.Close)
+                        {
                             log.LogDebug($"Socket Id {socketId} : Receive closing message.");
                             var removalStatus = cm.RemoveSocket(socketId);
                             log.LogDebug($"Socket Id {socketId} removal status {removalStatus}.");
@@ -159,14 +159,14 @@ namespace StartupBasic
 
                         await responseHandlerAsync(cm, clientRequest);
                     }
-                    
+
                     if (result.CloseStatus.HasValue)
                         break;
                 }
             }
         }
 
-        public ArraySegment<byte> Reply(string content ) => new ArraySegment<byte>(Encoding.UTF8.GetBytes(content));
+        public ArraySegment<byte> Reply(string content) => new ArraySegment<byte>(Encoding.UTF8.GetBytes(content));
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
@@ -196,66 +196,66 @@ namespace StartupBasic
 
                     if (isOK)
                     {
-                        switch(cmd.Type)
+                        switch (cmd.Type)
                         {
-                            case CommandType.List : 
-                            {
-                                var others = connectionManager.Other(socketId).Select(x => string.IsNullOrWhiteSpace(x.nickname)? "NoNick" : x.nickname).ToList();
-                                if (others.Count > 0)
-                                    await socket.SendAsync(Reply(string.Join(",", others)), WebSocketMessageType.Text, true, CancellationToken.None);
-                                else
-                                    await socket.SendAsync(Reply("No other user on this channel"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                break;
-                            }
+                            case CommandType.List:
+                                {
+                                    var others = connectionManager.Other(socketId).Select(x => string.IsNullOrWhiteSpace(x.nickname) ? "NoNick" : x.nickname).ToList();
+                                    if (others.Count > 0)
+                                        await socket.SendAsync(Reply(string.Join(",", others)), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    else
+                                        await socket.SendAsync(Reply("No other user on this channel"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    break;
+                                }
 
                             case CommandType.Nick:
-                            {
-                                var isOk = connectionManager.SetNickName(socketId, cmd.Data.Item1);
+                                {
+                                    var isOk = connectionManager.SetNickName(socketId, cmd.Data.Item1);
 
-                                if (isOK)
-                                {
-                                    await socket.SendAsync(Reply($"Nickname now {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    if (isOK)
+                                    {
+                                        await socket.SendAsync(Reply($"Nickname now {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    }
+                                    else
+                                    {
+                                        await socket.SendAsync(Reply($"#nick fails"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    }
+                                    break;
                                 }
-                                else
-                                {
-                                    await socket.SendAsync(Reply($"#nick fails"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                }
-                                break;
-                            }
 
                             case CommandType.Send:
-                            {
-                                var (isFound, sck) = connectionManager.GetByNick(cmd.Data.Item1);
-                                if (isFound)
                                 {
-                                    var (isOk, sender) = connectionManager.GetNickNameById(socketId);
-                                    if (isOK)
-                                        await sck.SendAsync(Reply($"From {sender}: {cmd.Data.Item2}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    var (isFound, sck) = connectionManager.GetByNick(cmd.Data.Item1);
+                                    if (isFound)
+                                    {
+                                        var (isOk, sender) = connectionManager.GetNickNameById(socketId);
+                                        if (isOK)
+                                            await sck.SendAsync(Reply($"From {sender}: {cmd.Data.Item2}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                        else
+                                            await sck.SendAsync(Reply($"From Unknown: {cmd.Data.Item2}"), WebSocketMessageType.Text, true, CancellationToken.None);
+
+                                        await socket.SendAsync(Reply($"Message sent to {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    }
                                     else
-                                        await sck.SendAsync(Reply($"From Unknown: {cmd.Data.Item2}"), WebSocketMessageType.Text, true, CancellationToken.None);
-
-                                    await socket.SendAsync(Reply($"Message sent to {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    {
+                                        await socket.SendAsync(Reply($"{cmd.Data.Item1} not found"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    }
+                                    break;
                                 }
-                                else
+
+                            case CommandType.Quit:
                                 {
-                                    await socket.SendAsync(Reply($"{cmd.Data.Item1} not found"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    connectionManager.RemoveSocket(socketId);
+                                    await socket.SendAsync(Reply("Quitting chat"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
+                                    break;
                                 }
-                                break;
-                            }
 
-                            case CommandType.Quit :
-                            {
-                                connectionManager.RemoveSocket(socketId);
-                                await socket.SendAsync(Reply("Quitting chat"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
-                                break;
-                            }
-
-                            default :
-                            {
-                                await socket.SendAsync(Reply("Command not understood"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                break;
-                            }
+                            default:
+                                {
+                                    await socket.SendAsync(Reply("Command not understood"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    break;
+                                }
                         }
                     }
                     else
@@ -287,7 +287,7 @@ namespace StartupBasic
             <li>#talk <i>nickname</i> <i>text</i></li>
             <li>#quit</li>
         </ul>
-        <input type=""text"" length=""50"" id=""msg"" value=""#nick anna""/> 
+        <input type=""text"" length=""50"" id=""msg"" value=""#nick anne""/> 
         <button type=""button"" id=""send"">Send</button>
         <button type=""button"" id=""close"">Close</button>
         <br/>
