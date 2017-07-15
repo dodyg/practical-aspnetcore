@@ -204,21 +204,18 @@ namespace StartupBasic
                                         await socket.SendAsync(Reply(string.Join(",", others)), WebSocketMessageType.Text, true, CancellationToken.None);
                                     else
                                         await socket.SendAsync(Reply("No other user on this channel"), WebSocketMessageType.Text, true, CancellationToken.None);
+                                    
                                     break;
                                 }
 
                             case CommandType.Nick:
                                 {
                                     var isOk = connectionManager.SetNickName(socketId, cmd.Data.Item1);
-
                                     if (isOK)
-                                    {
                                         await socket.SendAsync(Reply($"Nickname now {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                    }
                                     else
-                                    {
                                         await socket.SendAsync(Reply($"#nick fails"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                    }
+
                                     break;
                                 }
 
@@ -236,9 +233,8 @@ namespace StartupBasic
                                         await socket.SendAsync(Reply($"Message sent to {cmd.Data.Item1}"), WebSocketMessageType.Text, true, CancellationToken.None);
                                     }
                                     else
-                                    {
                                         await socket.SendAsync(Reply($"{cmd.Data.Item1} not found"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                    }
+
                                     break;
                                 }
 
@@ -247,26 +243,24 @@ namespace StartupBasic
                                     connectionManager.RemoveSocket(socketId);
                                     await socket.SendAsync(Reply("Quitting chat"), WebSocketMessageType.Text, true, CancellationToken.None);
                                     await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
+
                                     break;
                                 }
 
                             default:
                                 {
                                     await socket.SendAsync(Reply("Command not understood"), WebSocketMessageType.Text, true, CancellationToken.None);
+
                                     break;
                                 }
                         }
                     }
                     else
-                    {
                         await socket.SendAsync(Reply("Command not understood"), WebSocketMessageType.Text, true, CancellationToken.None);
-                    }
                 });
 
                 if (socket.State != WebSocketState.Open)
-                {
                     log.LogDebug($"Socket Id {socketId} with status {socket.State}");
-                }
             });
 
             app.Run(async context =>
