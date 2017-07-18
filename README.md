@@ -1,4 +1,4 @@
-# 99 samples for aspnetcore fundamentals (updated daily)
+# 100 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -558,6 +558,12 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Chat Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-5)
 
     Implement a rudimentary single channel chat server.
+
+* **Server Side Events (1)**
+
+  * [Forever Server](https://github.com/dodyg/practical-aspnetcore/tree/master/sse)
+
+    This server will send a 'hello world' greeting forever.
 
 * **Misc (3)**
 
