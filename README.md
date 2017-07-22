@@ -179,19 +179,19 @@ To run these samples, simply open your command line console,  go to each folder 
   We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities in your aspnetcore apps.
   There are several samples to illuminate this powerful library.
 
-  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/routing)
+  * [Router](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing)
   
     A single route handler that handles every path request.
 
-  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-2)
+  * [Router 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-2)
   
     Two route handler, one for home page (/) and the other takes the rest of the request using asterisk (*) in the url template.
 
-  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-3)
+  * [Router 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-3)
 
     We are exploring default handler - this is the entry point to create your own framework.
     
-  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-4)
+  * [Router 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-4)
 
     We are mixing optional route parameter, route parameter with default value and default handler.
 
@@ -199,27 +199,27 @@ To run these samples, simply open your command line console,  go to each folder 
     
     This is still broken. I am trying to figure out how to do nested routing. Wish me luck!
   
-  * [Router 6](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-6)
+  * [Router 6](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-6)
 
     We are building a template route segment by segment and parts by parts, oldskool. We are using ```TemplateMatcher```, ```TemplateSegment``` and ```TemplatePart```. 
 
     Hold your mask, we are going deep.
   
-  * [Router 7](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-7)
+  * [Router 7](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-7)
 
     We are creating a routing template with two segments, one with Literal part and the other Parameter part, e.g, "/page/{*title}"
 
-  * [Router 8](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-8)
+  * [Router 8](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-8)
 
     We are creating a routing template with one segment consisted of two parts, one Literal and one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
 
-  * [Router 9](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-9)
+  * [Router 9](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-9)
    
     I am still trying to determine whether `TemplateMatcher` uses the `InlineConstraint` information.
 
     Update: No, `TemplateMatcher` does not run constraints. [#362](https://github.com/aspnet/Routing/issues/362)
  
-  * [Router 10](https://github.com/dodyg/practical-aspnetcore/tree/master/routing-10)    
+  * [Router 10](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-10)    
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
