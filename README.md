@@ -567,13 +567,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * **Misc (3)**
 
-  * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
+  * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server)
 
     Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
     We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
     
-  * [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server-middleware)
+  * [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server-middleware)
 
     Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server) but implemented using middleware component.
 
@@ -581,7 +581,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
 
-  * [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/password-hasher)
+  * [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/password-hasher)
 
     Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
