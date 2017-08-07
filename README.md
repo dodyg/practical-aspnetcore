@@ -503,7 +503,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
 
-  * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
+  * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/serve-static-files)
 
     Simply serve static files (html, css, images, etc).     
     
@@ -511,7 +511,7 @@ To run these samples, simply open your command line console,  go to each folder 
     
     To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
 
-  * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-2)
+  * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/serve-static-files-2)
     
     Allow listing and browsing of your ```wwwroot``` folder.
 
@@ -519,16 +519,16 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Combines the functionality of ```UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser```.
 
-  * [Custom Directory Formatter](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-4)
+  * [Custom Directory Formatter](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/serve-static-files-4)
     
     Customize the way Directory Browsing is displayed. In this sample the custom view only handles flat directory. We will deal with 
     more complex scenario in the next sample.
 
-  * [Custom Directory Formatter - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-5)
+  * [Custom Directory Formatter - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/serve-static-files-5)
     
     Show custom Directory Browsing and handle directory listing as well as files.
 
-  * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-6)
+  * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/serve-static-files-6)
     
     Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
 
