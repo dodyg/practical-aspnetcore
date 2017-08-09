@@ -264,31 +264,31 @@ To run these samples, simply open your command line console,  go to each folder 
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
-  * [Server Addresses Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-addresses)
+  * [Server Addresses Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-addresses)
 
     Use this Feature to obtain a list of urls that your app is responding to.
 
-  * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-request)
+  * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-request)
 
     Obtain details of a current request. It has some similarity to HttpContext.Request. They are not equal. `HttpContext.Request` has more properties.  
 
-  * [Connection Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-connection)
+  * [Connection Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-connection)
 
     Use `IHttpConnectionFeature` interface to obtain local ip/port and remote ip/port. 
 
-  * [Custom Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-custom)
+  * [Custom Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-custom)
 
     Create your own custom Feature and pass it along from a middleware. 
 
-  * [Custom Feature - Override](https://github.com/dodyg/practical-aspnetcore/tree/master/features-server-custom-override)
+  * [Custom Feature - Override](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-custom-override)
 
     Shows how you can replace an implementation of a Feature with another within the request pipeline.
 
-  * [Request Culture Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-request-culture)
+  * [Request Culture Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-request-culture)
 
     Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"`.
 
-  * [Session Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/features-session)
+  * [Session Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-session)
 
     Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "1.1.0-*"`.
 
