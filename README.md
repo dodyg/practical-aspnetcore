@@ -57,7 +57,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
       Configure so that your web app responds to multiple urls.
 
-    * [Hello World with multiple startups](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple)
+    * [Hello World with multiple startups](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple)
 
       This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
 
@@ -592,7 +592,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 These are other aspnetcore resources with code samples
 
-* [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals)
+* [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/)
 * [aspnetcore entropy](https://github.com/aspnet/entropy)
 
 
