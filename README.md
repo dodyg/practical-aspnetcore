@@ -38,22 +38,22 @@ To run these samples, simply open your command line console,  go to each folder 
 ## List
 * **Hello World (21)**
 
-  * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
+  * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-reload)
 
     Setup your most basic web app and enable the change+refresh development experience. 
     
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
   * Startup class
-    * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic)
+    * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic)
 
       This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
-    * [Hello World with custom startup class name](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-custom-name)
+    * [Hello World with custom startup class name](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-custom-name)
 
       You don't have to call your startup class `Startup`. Any valid C# class will do.
 
-    * [Hello World with responding to multiple urls](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-urls)
+    * [Hello World with responding to multiple urls](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple-urls)
 
       Configure so that your web app responds to multiple urls.
 
@@ -61,44 +61,44 @@ To run these samples, simply open your command line console,  go to each folder 
 
       This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
 
-    * [Hello World with multiple startups using environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-multiple-environment)
+    * [Hello World with multiple startups using environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple-environment)
 
       This project highlights the fact that you can create multiple startup classes and choose them at start depending on your needs depending on your environment (You do have to name the startup class with Startup). 
 
-    * [Hello World with multiple Configure methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment)
+    * [Hello World with multiple Configure methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-multiple-configure-environment)
 
       This project demonstrates the ability to pick `Configure` method in a single Startup class based on environment.
 
-    * [Hello World with multiple ConfigureServices methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-multiple-configure-environment-services)
+    * [Hello World with multiple ConfigureServices methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-multiple-configure-environment-services)
 
       This project demonstrates the ability to pick `ConfigureServices` method in a single Startup class based on environment.
 
-    * [Hello World with an implementation of IStartup interface](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartup)
+    * [Hello World with an implementation of IStartup interface]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartup)
 
       We are really getting into the weed of startup right now. This is an example on how to implement `IStartup` directly. 
 
-    * [Hello World without a startup class](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-no-startup)
+    * [Hello World without a startup class]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-no-startup)
 
       Why? just because we can.
 
-    * [Hello world with IStartupFilter](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartupfilter)
+    * [Hello world with IStartupFilter]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartupfilter)
 
       Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
       
 
-  * [Show errors during startup](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-capture-errors)
+  * [Show errors during startup]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-capture-errors)
 
     Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
 
-  * [Show Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
+  * [Show Connection info]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-connection-info)
 
     Enumerate the connection information of a HTTP request.
 
-  * [Environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-env-development)
+  * [Environmental settings]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-env-development)
 
     Set your application environment to `Development` or `Production` or other mode directly from code. 
 
-  * [Console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging)
+  * [Console logging]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging)
 
     Setup a basic logging in your app and show it to console.
 
@@ -106,31 +106,31 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  * [Console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-logging-filtered)
+  * [Console logging - without framework log messages]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging-filtered)
 
     Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
 
-  * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-middleware)
+  * [Hello World with middlewares]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-middleware)
 
     ASPNetCore is built on top of pipelines of functions called middleware. 
     
     We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
-  * [IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IApplicationLifetime)
+  * [IApplicationLifetime]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IApplicationLifetime)
 
     Respond to application startup and shutdown.
 
     We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
-  * [IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-IHostingEnvironment)
+  * [IHostingEnvironment]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IHostingEnvironment)
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
-  * [Application Environment](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-application-environment)
+  * [Application Environment]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-application-environment)
 
     Requires `Microsoft.Extensions.PlatformAbstractions" : "1.1.0-*` dependency. This sample shows how to obtain application environment information (target framework, etc).
 
-  * [Adding HTTP Response Header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
+  * [Adding HTTP Response Header]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-header)
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
@@ -139,16 +139,16 @@ To run these samples, simply open your command line console,  go to each folder 
   This section shows all the different ways you capture input and examine request to your web application.
 
   * **HTTP Verb (1)**
-    * [Get request verb](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-verb)
+    * [Get request verb]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-verb)
       
       Detect the verb/method of the current request. 
 
   * **Headers (2)**
-    * [Access Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-headers)
+    * [Access Request Headers]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers)
       
       Enumerate all the available headers in a request.
 
-    * [Type Safe Access to Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-headers-typed)
+    * [Type Safe Access to Request Headers]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers-typed)
       
       Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
@@ -156,21 +156,21 @@ To run these samples, simply open your command line console,  go to each folder 
     
     We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
 
-    * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
+    * [Form Values]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/form-values) 
       
       Handles the values submitted via a form.
 
-    * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
+    * [Form Upload File]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/form-upload-file) 
       
       Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
 
   * **Cookies (2)**
           
-      * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
+      * [Cookies]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-cookies)
 
         Read and write cookies.
 
-      * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
+      * [Removing cookies]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-cookies-2)
 
         Simply demonstrates on how to remove cookies.
 
@@ -296,11 +296,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
   ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
 
-  * [Dependency Injection 1 - The basic](https://github.com/dodyg/practical-aspnetcore/tree/master/dependency-injection-1)
+  * [Dependency Injection 1 - The basic]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/dependency-injection-1)
 
     Demonstrate the three lifetime registrations for the out of the box DI functionality: singleton (one and only forever), scoped (one in every request) and transient (new everytime).
 
-  * [Dependency Injection 3 - Easy registration](https://github.com/dodyg/practical-aspnetcore/tree/master/dependency-injection-3)
+  * [Dependency Injection 3 - Easy registration]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/dependency-injection-3)
   
     Register all objects configured by classes that implements a specific interface (`IBootstrap` in this example). This is useful when you have large amount of classes in your project that needs registration. You can register them near where they are (usually in the same folder) instead of registering them somewhere in a giant registration function.
 
@@ -310,11 +310,11 @@ To run these samples, simply open your command line console,  go to each folder 
   
   We will deal with various types of file providers supported by ASP.NET Core
 
-  * [Physical File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-physical)
+  * [Physical File Provider - Content and Web roots]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/file-provider-physical)
 
     Access the file information on your Web and Content roots. 
 
-  * [Custom File Provider](https://github.com/dodyg/practical-aspnetcore/tree/master/file-provider-custom)
+  * [Custom File Provider]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/file-provider-custom)
 
     Implement a simple and largely nonsense file provider. It is a good starting point to implement your own proper File Provider.
     
@@ -352,27 +352,27 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 
-  * [Configuration](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration)
+  * [Configuration]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration)
 
     This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
 
-  * [Configuration - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-options)
+  * [Configuration - Options]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-options)
 
     Use IOptions at the most basic.
 
-  * [Configuration - Environment variables](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-environment-variables)
+  * [Configuration - Environment variables]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-environment-variables)
 
     Load environment variables and display all of them.
 
-  * [Configuration - INI file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini)
+  * [Configuration - INI file]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-ini)
 
     Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.1.0"`.
 
-  * [Configuration - INI file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-ini-options)
+  * [Configuration - INI file - Options]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-ini-options)
 
     Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
 
-  * [Configuration - XML file](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml)
+  * [Configuration - XML file]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-xml)
 
     Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"`.
 
@@ -389,7 +389,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     On the other hand you can get unlimited nested elements and also attributes.
 
-  * [Configuration - XML file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/configuration-xml-options)
+  * [Configuration - XML file - Options]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-xml-options)
 
     Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
 
@@ -451,7 +451,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "1.0.1```.
 
-  * [Default Gzip Output Compression](https://github.com/dodyg/practical-aspnetcore/tree/master/compression-response) 
+  * [Default Gzip Output Compression]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/compression-response) 
    
     Compress everything using the default Gzip compression.
 
@@ -515,7 +515,7 @@ To run these samples, simply open your command line console,  go to each folder 
     
     Allow listing and browsing of your ```wwwroot``` folder.
 
-  * [Use File Server](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-3)
+  * [Use File Server]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/serve-static-files-3)
     
     Combines the functionality of ```UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser```.
 
@@ -538,30 +538,30 @@ To run these samples, simply open your command line console,  go to each folder 
 
   **Warning**: These samples are low level websocket code. For production, use [SignalR](https://github.com/aspnet/signalr). Yes I will work on SignalR samples soon.
 
-  * [Echo Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets)
+  * [Echo Server]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets)
 
     This is the simplest web socket code you can write. It simply returns what you sent. It does not handle the closing of the connection. It does not handle data that is larger than buffer. It only handles text payload.
 
-  * [Echo Server 2](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-2)
+  * [Echo Server 2]((https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets-2)
 
     We improve upon the previous sample by adding console logging (requiring ```Microsoft.Extensions.Logging.Console``` package) and handling data larger than the buffer. I set the buffer to be very small (4 bytes) so you can see how it works.
 
-  * [Echo Server 3](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-3)
+  * [Echo Server 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets-3)
   
     We improve upon the previous sample by enabling broadcast. What you see here is a very crude chat functionality.
 
-  * [Echo Server 4](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-4)
+  * [Echo Server 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets-4)
 
     We improve upon the previous sample by handling closing event intiated by the web client.
 
     
-  * [Chat Server](https://github.com/dodyg/practical-aspnetcore/tree/master/web-sockets-5)
+  * [Chat Server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets-5)
 
     Implement a rudimentary single channel chat server.
 
 * **Server Side Events (1)**
 
-  * [Forever Server](https://github.com/dodyg/practical-aspnetcore/tree/master/sse)
+  * [Forever Server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/sse)
 
     This server will send a 'hello world' greeting forever.
 
@@ -575,7 +575,7 @@ To run these samples, simply open your command line console,  go to each folder 
     
   * [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server-middleware)
 
-    Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server) but implemented using middleware component.
+    Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server) but implemented using middleware component.
 
     We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
 
