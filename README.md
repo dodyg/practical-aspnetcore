@@ -41,7 +41,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
-  It also added the following packages
+  It also adds the following packages
 
   ```
   Installing Microsoft.IdentityModel.Logging 1.1.4.
