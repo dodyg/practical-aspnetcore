@@ -43,7 +43,7 @@ namespace HelloWorldWithLogging
 
             host.Run();
 
-            log.LogInformation("Host is shutting down");
+            log.LogInformation("Host is shut down");
         }
     }
 }
