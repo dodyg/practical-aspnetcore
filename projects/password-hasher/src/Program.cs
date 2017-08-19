@@ -27,7 +27,7 @@ namespace HelloWorldWithReload
 
                 var isPasswordMatch = hasher.VerifyHashedPassword(usr, hashedPassword, password);
 
-                return context.Response.WriteAsync($"Append ?password at url to test your own password hashing.\nPassword : {password} => Hashed : {hashedPassword}.\nPassword Matched : {isPasswordMatch}");
+                return context.Response.WriteAsync($"Append ?password at url to test your own password hashing.\nPassword : {password} => Hashed : {hashedPassword} \nPassword Matched : {isPasswordMatch}");
             });
         }
     }
