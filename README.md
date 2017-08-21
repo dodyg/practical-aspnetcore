@@ -37,7 +37,7 @@ To run these samples, simply open your command line console,  go to each folder 
 ## What's new in ASP.NET Core 2.0 (1)
   This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
 
-  * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-all-package)
+  * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
 
       If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
