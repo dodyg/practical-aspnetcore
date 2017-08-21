@@ -39,43 +39,43 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-all-package)
 
-    If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
+      If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
-    It also adds the following packages
+      It also adds the following packages
 
-    ```
-    Installing Microsoft.IdentityModel.Logging 1.1.4.
-    Installing Microsoft.IdentityModel.Tokens 5.1.4.
-    Installing runtime.win-x64.runtime.native.System.Data.SqlClient.sni 4.4.0.
-    Installing runtime.win-x86.runtime.native.System.Data.SqlClient.sni 4.4.0.
-    Installing runtime.win-arm64.runtime.native.System.Data.SqlClient.sni 4.4.0.
-    Installing System.IdentityModel.Tokens.Jwt 5.1.4.
-    Installing System.Text.Encoding.CodePages 4.4.0.
-    Installing runtime.native.System.Data.SqlClient.sni 4.4.0.
-    Installing Microsoft.Azure.KeyVault.WebKey 2.0.7.
-    Installing Microsoft.Rest.ClientRuntime.Azure 3.3.7.
-    Installing Microsoft.Rest.ClientRuntime 2.3.8.
-    Installing SQLitePCLRaw.lib.e_sqlite3.v110_xp 1.1.7.
-    Installing SQLitePCLRaw.lib.e_sqlite3.linux 1.1.7.
-    Installing SQLitePCLRaw.lib.e_sqlite3.osx 1.1.7.
-    Installing SQLitePCLRaw.provider.e_sqlite3.netstandard11 1.1.7.
-    Installing Microsoft.IdentityModel.Protocols 2.1.4.
-    Installing Microsoft.NETCore.App 2.0.0-preview2-25407-01.
-    Installing Microsoft.NETCore.DotNetHostPolicy 2.0.0-preview2-25407-01.
-    Installing Microsoft.NETCore.Platforms 2.0.0-preview2-25405-01.
-    Installing NETStandard.Library 2.0.0-preview2-25401-01.
-    Installing Microsoft.NETCore.DotNetHostResolver 2.0.0-preview2-25407-01.
-    Installing Microsoft.Packaging.Tools 1.0.0-preview2-25401-01.
-    Installing System.Interactive.Async 3.1.1.
-    Installing SQLitePCLRaw.core 1.1.7.
-    Installing Microsoft.IdentityModel.Protocols.OpenIdConnect 2.1.4.
-    Installing SQLitePCLRaw.bundle_green 1.1.7.
-    Installing Microsoft.Azure.KeyVault 2.3.2.
-    Installing Microsoft.IdentityModel.Clients.ActiveDirectory 3.14.1.
-    Installing WindowsAzure.Storage 8.1.4.
-    Installing System.Data.SqlClient 4.4.0.
-    Installing Microsoft.NETCore.DotNetAppHost 2.0.0-preview2-25407-01.
-    ```
+      ```
+      Installing Microsoft.IdentityModel.Logging 1.1.4.
+      Installing Microsoft.IdentityModel.Tokens 5.1.4.
+      Installing runtime.win-x64.runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing runtime.win-x86.runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing runtime.win-arm64.runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing System.IdentityModel.Tokens.Jwt 5.1.4.
+      Installing System.Text.Encoding.CodePages 4.4.0.
+      Installing runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing Microsoft.Azure.KeyVault.WebKey 2.0.7.
+      Installing Microsoft.Rest.ClientRuntime.Azure 3.3.7.
+      Installing Microsoft.Rest.ClientRuntime 2.3.8.
+      Installing SQLitePCLRaw.lib.e_sqlite3.v110_xp 1.1.7.
+      Installing SQLitePCLRaw.lib.e_sqlite3.linux 1.1.7.
+      Installing SQLitePCLRaw.lib.e_sqlite3.osx 1.1.7.
+      Installing SQLitePCLRaw.provider.e_sqlite3.netstandard11 1.1.7.
+      Installing Microsoft.IdentityModel.Protocols 2.1.4.
+      Installing Microsoft.NETCore.App 2.0.0-preview2-25407-01.
+      Installing Microsoft.NETCore.DotNetHostPolicy 2.0.0-preview2-25407-01.
+      Installing Microsoft.NETCore.Platforms 2.0.0-preview2-25405-01.
+      Installing NETStandard.Library 2.0.0-preview2-25401-01.
+      Installing Microsoft.NETCore.DotNetHostResolver 2.0.0-preview2-25407-01.
+      Installing Microsoft.Packaging.Tools 1.0.0-preview2-25401-01.
+      Installing System.Interactive.Async 3.1.1.
+      Installing SQLitePCLRaw.core 1.1.7.
+      Installing Microsoft.IdentityModel.Protocols.OpenIdConnect 2.1.4.
+      Installing SQLitePCLRaw.bundle_green 1.1.7.
+      Installing Microsoft.Azure.KeyVault 2.3.2.
+      Installing Microsoft.IdentityModel.Clients.ActiveDirectory 3.14.1.
+      Installing WindowsAzure.Storage 8.1.4.
+      Installing System.Data.SqlClient 4.4.0.
+      Installing Microsoft.NETCore.DotNetAppHost 2.0.0-preview2-25407-01.
+      ```
 
 ## List
 
