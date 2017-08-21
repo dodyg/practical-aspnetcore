@@ -1,20 +1,15 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace HelloWorldWithLogging 
+namespace HelloWorldWithLogging
 {
     public class Startup
     {
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            //filter what level of logging you want to see
-            loggerFactory.AddConsole((str, level) => {
-                    return level >= LogLevel.Trace;
-            });
-
-            var log = loggerFactory.CreateLogger("Startup");
+            var log = loggerFactory.CreateLogger<Startup>();
             app.Run(context =>
             {
                 log.LogTrace($"Request {context.Request.Path}");
@@ -23,17 +18,32 @@ namespace HelloWorldWithLogging
             });
         }
     }
-    
-   public class Program
+
+    public class Program
     {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
+            //filter what level of logging you want to see
+            var loggerFactory = new LoggerFactory().AddConsole((str, level) =>
+            {
+                return level >= LogLevel.Trace;
+            });
+
+            var log = loggerFactory.CreateLogger<Program>();
+
+            log.LogTrace("Before building host");
+
+            var host = new WebHostBuilder()
                 .UseKestrel()
+                .UseLoggerFactory(loggerFactory)
                 .UseStartup<Startup>()
                 .Build();
 
+            log.LogTrace("After building host");
+
             host.Run();
+
+            log.LogInformation("Host is shut down");
         }
     }
 }
