@@ -20,7 +20,6 @@ or to
 <TargetFramework>netcoreapp2.0</TargetFramework>
 ```
 
-
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
 
 Some of the samples you see here involve mixed projects (net461) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
