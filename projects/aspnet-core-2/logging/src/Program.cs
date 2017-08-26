@@ -22,9 +22,11 @@ namespace StartupBasic
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+            var log = logger.CreateLogger("Main");
+
             app.Run(context =>
             {
+                log.LogWarning("This is a test log");
                 return context.Response.WriteAsync("Hello world");
             });
         }
@@ -40,6 +42,11 @@ namespace StartupBasic
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .ConfigureLogging(builder =>
+                {
+                    builder.SetMinimumLevel(LogLevel.Warning);
+                    builder.AddConsole();
+                })
                 .UseEnvironment("Development")
                 .Build();
     }
