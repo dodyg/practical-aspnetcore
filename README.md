@@ -103,7 +103,7 @@ To run these samples, simply open your command line console,  go to each folder 
     Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
 
 
-#ASP.NET Core 1.1/2.0 Samples
+# ASP.NET Core 1.1/2.0 Samples
 
 All the samples below will run on ASP.NET Core 1.1 and ASP.NET Core 2.0. 
 
