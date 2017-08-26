@@ -1,4 +1,4 @@
-# 103 samples for aspnetcore fundamentals (updated daily)
+# 104 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -34,7 +34,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-## What's new in ASP.NET Core 2.0 (3)
+## What's new in ASP.NET Core 2.0 (4)
   
   This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/)
   
@@ -101,6 +101,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [A new way of configuring logging](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging)
 
     Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
+
+  * [Logging filtering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging-with-filter)
+
+    Now you can adjust what kind of logging information from various part of ASP.NET Core and your app you want show/stored.
 
   * [IConfiguration is now core](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/configuration)
 

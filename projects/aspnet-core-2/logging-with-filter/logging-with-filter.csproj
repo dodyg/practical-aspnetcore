@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>configuration-with-filter</AssemblyName>
+    <AssemblyName>logging-with-filter</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>configuration-with-filter</PackageId>
+    <PackageId>logging-with-filter</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
