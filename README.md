@@ -102,7 +102,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
 
-  * [IConfiguration is now core](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/configure)
+  * [IConfiguration is now core](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/configuration)
 
     ASP.NET Core 1.1
 
