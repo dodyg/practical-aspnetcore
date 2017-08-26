@@ -98,7 +98,7 @@ To run these samples, simply open your command line console,  go to each folder 
       }
       ```
 
-  * [A new way of configuring loggin](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging)
+  * [A new way of configuring logging](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging)
 
     Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
 
