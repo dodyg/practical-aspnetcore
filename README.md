@@ -100,7 +100,10 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [A new way of configuring loggin](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging)
 
-  Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
+    Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
+
+
+#ASP.NET Core 1.1/2.0 Samples
 
 All the samples below will run on ASP.NET Core 1.1 and ASP.NET Core 2.0. 
 
