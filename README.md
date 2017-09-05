@@ -1,4 +1,4 @@
-# 100 samples for aspnetcore fundamentals (updated daily)
+# 104 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -8,7 +8,7 @@ Now that .NET Core 2.0 and ASP.NET Core 2.0 have been released, I am going to up
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
 
-You will need to download the **latest release version** [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
+You should download the **latest release version** [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
  
 If you are running **these samples on Linux**, change the target framework inside the csproj files from
 
@@ -19,16 +19,15 @@ to
 ```
 <TargetFramework>netcoreapp1.1</TargetFramework>
 ```
+or to
+```
+<TargetFramework>netcoreapp2.0</TargetFramework>
+```
 
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
 
 Some of the samples you see here involve mixed projects (net461) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
-All these projects require the following dependencies
-
-```
-   "Microsoft.AspNetCore.Hosting" : "1.1.0-*"
-```
 
 If a sample require additional dependencies, I will list them.
 
@@ -38,8 +37,118 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
+## What's new in ASP.NET Core 2.0 (4)
+  
+  This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/)
+  
+  This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
+
+  * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
+
+      If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
+
+      It also adds the following packages
+
+      ```
+      Installing Microsoft.IdentityModel.Logging 1.1.4.
+      Installing Microsoft.IdentityModel.Tokens 5.1.4.
+      Installing runtime.win-x64.runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing runtime.win-x86.runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing runtime.win-arm64.runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing System.IdentityModel.Tokens.Jwt 5.1.4.
+      Installing System.Text.Encoding.CodePages 4.4.0.
+      Installing runtime.native.System.Data.SqlClient.sni 4.4.0.
+      Installing Microsoft.Azure.KeyVault.WebKey 2.0.7.
+      Installing Microsoft.Rest.ClientRuntime.Azure 3.3.7.
+      Installing Microsoft.Rest.ClientRuntime 2.3.8.
+      Installing SQLitePCLRaw.lib.e_sqlite3.v110_xp 1.1.7.
+      Installing SQLitePCLRaw.lib.e_sqlite3.linux 1.1.7.
+      Installing SQLitePCLRaw.lib.e_sqlite3.osx 1.1.7.
+      Installing SQLitePCLRaw.provider.e_sqlite3.netstandard11 1.1.7.
+      Installing Microsoft.IdentityModel.Protocols 2.1.4.
+      Installing Microsoft.NETCore.App 2.0.0-preview2-25407-01.
+      Installing Microsoft.NETCore.DotNetHostPolicy 2.0.0-preview2-25407-01.
+      Installing Microsoft.NETCore.Platforms 2.0.0-preview2-25405-01.
+      Installing NETStandard.Library 2.0.0-preview2-25401-01.
+      Installing Microsoft.NETCore.DotNetHostResolver 2.0.0-preview2-25407-01.
+      Installing Microsoft.Packaging.Tools 1.0.0-preview2-25401-01.
+      Installing System.Interactive.Async 3.1.1.
+      Installing SQLitePCLRaw.core 1.1.7.
+      Installing Microsoft.IdentityModel.Protocols.OpenIdConnect 2.1.4.
+      Installing SQLitePCLRaw.bundle_green 1.1.7.
+      Installing Microsoft.Azure.KeyVault 2.3.2.
+      Installing Microsoft.IdentityModel.Clients.ActiveDirectory 3.14.1.
+      Installing WindowsAzure.Storage 8.1.4.
+      Installing System.Data.SqlClient 4.4.0.
+      Installing Microsoft.NETCore.DotNetAppHost 2.0.0-preview2-25407-01.
+      ```
+
+      In ASP.NET Core 2.0, this is the recommended way to start your host
+
+      ```
+      public class Program
+      {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development")
+                .Build();
+      }
+      ```
+
+  * [A new way of configuring logging](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging)
+
+    Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
+
+  * [Logging filtering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging-with-filter)
+
+    Now you can adjust what kind of logging information from various part of ASP.NET Core and your app you want show/stored.
+
+  * [IConfiguration is now core](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/configuration)
+
+    ASP.NET Core 1.1
+
+    ```
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        {
+            //These are the three default services available at Configure
+            app.Run(context =>
+            {
+                return context.Response.WriteAsync('hello world');
+            });
+        }
+    ```
+
+    ASP.NET Core 2.0
+
+    ```
+      public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+      {
+          //These are the four default services available at Configure
+          app.Run(context =>
+          {
+              return context.Response.WriteAsync(configuration["greeting"]);
+          });
+      }
+    ```
+
+# ASP.NET Core 1.1/2.0 Samples
+
+All the samples below will run on ASP.NET Core 1.1 and ASP.NET Core 2.0. 
+
+All these projects require the following dependencies
+
+```
+   "Microsoft.AspNetCore.Hosting" : "1.1.0-*"
+```
 
 ## List
+
 * **Hello World (21)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-reload)
