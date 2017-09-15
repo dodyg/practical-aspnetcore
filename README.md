@@ -1,4 +1,4 @@
-# 106 samples for aspnetcore fundamentals (updated daily)
+# 107 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -37,7 +37,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-# What's new in ASP.NET Core 2.0 (6)
+# What's new in ASP.NET Core 2.0 (8)
   
   This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
   
@@ -142,6 +142,15 @@ To run these samples, simply open your command line console,  go to each folder 
     This shows how to use session with ```Redis``` store. We use ```BinaryFormatter``` which is only available at `.NET Core 2.0` to serialize and deserialize your object. *The better way is to serialize your object using Json - BinaryFormatter is SLOW*.
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
+
+
+  * [Session Feature with Redis using JSON Serialization](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/features-session-redis-2)
+
+    This shows how to use session with ```Redis``` store. Use this method instead of using ```BinaryFormatter```.
+
+    Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
+
+    Note: This method is already available since ASP.NET Core 1.0. I put it here so it is located next to the ```BinaryFormatter``` sample. 
 
   * [Anti Forgery on Form](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/anti-forgery)
 
