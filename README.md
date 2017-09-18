@@ -28,7 +28,6 @@ Every sample is designed specifically to demonstrate a single idea. We will go w
 
 Some of the samples you see here involve mixed projects (net461) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
 
-
 If a sample requires additional dependencies, I will list them.
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
@@ -158,7 +157,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Razor Pages Basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/razor-pages-basic)
 
-    This is the simplest example of the brand new `Razor Pages`. It show the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind. 
+    This is the simplest example of the brand new `Razor Pages`. It shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind. 
 
 # ASP.NET Core 1.1/2.0 Samples
 
