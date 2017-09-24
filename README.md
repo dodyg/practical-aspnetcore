@@ -157,7 +157,14 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [Razor Pages Basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/razor-pages-basic)
 
-    This is the simplest example of the brand new `Razor Pages`. It shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind. 
+    This is the simplest example of the brand new `Razor Pages`. It shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind.
+
+  * [Razor Pages and MVC Basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/razor-pages-mvc)
+
+    Compare and contrast on how the same task can be performed by using `Razor Pages` and `MVC`.
+
+    This sample also shows you how to us `Entity Framework Core` In-Memory Database.
+ 
 
 # ASP.NET Core 1.1/2.0 Samples
 
