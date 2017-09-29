@@ -37,7 +37,6 @@ namespace StartupBasic
                 {
                     var feedReader = new RssFeedReader(xmlReader);
 
-                    SyndicationItem current = null;
                     while (await feedReader.Read())
                     {
                         switch (feedReader.ElementType)
