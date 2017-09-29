@@ -1,4 +1,4 @@
-# 109 samples for aspnetcore fundamentals (updated daily)
+# 110 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -705,6 +705,14 @@ All these projects require the following dependencies
   * [Forever Server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/sse)
 
     This server will send a 'hello world' greeting forever.
+
+* **Syndications (1)**
+  We are using the brand new ```Microsoft.SyndicationFeed.ReaderWriter``` package to read RSS and ATOM feeds.
+
+  * [Syndication - Read RSS](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/syndication)
+
+    This is the shortest amount of code to read an RSS feed. This example read the feed from the inventor of RSS, Dave Winer at http://scripting.com/rss.xml. 
+  
 
 * **Misc (3)**
 
