@@ -16,16 +16,6 @@ namespace StartupBasic
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
             //These are the four default services available at Configure
