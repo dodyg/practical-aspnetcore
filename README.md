@@ -707,6 +707,7 @@ All these projects require the following dependencies
     This server will send a 'hello world' greeting forever.
 
 * **Syndications (1)**
+
   We are using the brand new ```Microsoft.SyndicationFeed.ReaderWriter``` package to read RSS and ATOM feeds.
 
   * [Syndication - Read RSS](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/syndication)
