@@ -1,0 +1,29 @@
+<h2>All Messages</h2>
+
+<ul id="msgs"></ul>
+
+<hr>
+
+<input type="text" id="msg" placeholder="Enter Message" />
+<input type="button" id="send" value="Send" />
+
+@section scripts {
+<script>
+    $(function () {
+
+        let hubUrl = 'http://localhost:5000/chatHub';
+        let httpConnection = new signalR.HttpConnection(hubUrl);
+        let hubConnection = new signalR.HubConnection(httpConnection);
+
+        $("#send").click(function () {
+            hubConnection.invoke('Send', $('#msg').val());
+        });
+
+        hubConnection.on('Send', data => {
+            $('#msgs').append($('<li>').text(data));
+        });
+
+        hubConnection.start();
+    });
+</script>
+}
