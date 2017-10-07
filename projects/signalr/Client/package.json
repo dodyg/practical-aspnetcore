@@ -1,0 +1,11 @@
+{
+  "name": "signalr-client",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@aspnet/signalr-client": "^1.0.0-alpha1-final",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}
