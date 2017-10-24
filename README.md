@@ -1,4 +1,4 @@
-# 111 samples for aspnetcore fundamentals (updated daily)
+# 112 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -739,6 +739,12 @@ All these projects require the following dependencies
 
 
 # ASP.NET Core 2.0 Samples
+
+* **Middleware (1)**
+  
+  [Response Buffering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
+
+  Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
 
 * **SignalR (1)**
 
