@@ -29,7 +29,7 @@ namespace StartupBasic
                     await context.Response.WriteAsync($"Hello world <br><a href=\"good-morning\">Greet good morning</a>");
                 });
                 r.MapGet("good-morning", async context => {
-                    context.Response.Headers.Add("Content Type", "text/html");
+                    context.Response.Headers.Add("Content-Type", "text/html");
                     await context.Response.WriteAsync("Good morning");  
                 });
             });
