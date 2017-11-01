@@ -2,7 +2,7 @@
 
 ## Note
 
-Now that .NET Core 2.0 and ASP.NET Core 2.0 have been released, I am going to update all the existing samples over time. All the new samples will rely on ASP.NET Core 2.0 immediatey.
+Now that .NET Core 2.0 and ASP.NET Core 2.0 have been released, I am going to update all the existing samples over time. All the new samples will rely on ASP.NET Core 2.0 immediately.
 
 ## Welcome
 
