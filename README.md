@@ -1,4 +1,4 @@
-# 114 samples for aspnetcore fundamentals (updated daily)
+# 115 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -753,6 +753,15 @@ All these projects require the following dependencies
   [Response Buffering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
 
   Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
+
+* **Owin (1)**
+
+  All these samples require ```Microsoft.AspNetCore.Owin``` package. These are low level samples and in most cases are not relevant to your day to day ASP.NET Core development.
+
+  * [Owin](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/owin)
+
+    Hello world the hard way.
+
 
 * **SignalR (1)**
 
