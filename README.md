@@ -1,4 +1,4 @@
-# 113 samples for aspnetcore fundamentals (updated daily)
+# 114 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -36,7 +36,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-# What's new in ASP.NET Core 2.0 (10)
+# What's new in ASP.NET Core 2.0 (11)
   
   This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
   
@@ -168,6 +168,10 @@ To run these samples, simply open your command line console,  go to each folder 
   * [UseRouter extension](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router)
 
     Use ```app.UseRouter()``` extension to create minimalistic HTTP services similar to Nancy.
+
+  * [UseRouter extension 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router-2)
+
+    Use ```app.UseRouter()``` with alternative lambda signature.
  
 
 # ASP.NET Core 1.1/2.0 Samples
