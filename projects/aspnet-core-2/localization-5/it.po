@@ -1,0 +1,2 @@
+msgid "greeting"
+msgstr "buon giorno"
