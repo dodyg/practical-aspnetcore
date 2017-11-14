@@ -10,6 +10,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Localization.PortableObject;
+using OrchardCore.Localization;
 
 namespace StartupBasic 
 {
@@ -23,32 +24,35 @@ namespace StartupBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();
+            services.AddLocalization();
             services.AddPortableObjectLocalization();
+            
+            services.Configure<RequestLocalizationOptions>(options =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en-US"),
+                        new CultureInfo("en"),
+                        new CultureInfo("it-IT"),
+                        new CultureInfo("it")
+                    };
+
+                    options.DefaultRequestCulture = new RequestCulture("it-IT");
+                    options.SupportedCultures = supportedCultures;
+                    options.SupportedUICultures = supportedCultures;
+                });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration, IStringLocalizerFactory localizer)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            var local = localizer.Create(string.Empty, string.Empty);
-            var supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo("en-US"),
-                new CultureInfo("en"),
-                new CultureInfo("it-it"),
-                new CultureInfo("it")
-            };
+            app.UseRequestLocalization();
 
-           var options = new RequestLocalizationOptions
-           {
-                DefaultRequestCulture = new RequestCulture("it-it"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-           };
-
-            app.UseRequestLocalization(options);  
-
-            //These are the four default services available at Configure
             app.Run(context =>
             {
+                var local = context.RequestServices.GetService<IStringLocalizer>();
+                if (local == null)
+                    throw new System.NullReferenceException("Local is null");
+                
                 return context.Response.WriteAsync($"{local["greeting"]}");
             });
         }
