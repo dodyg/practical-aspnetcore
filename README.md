@@ -1,4 +1,4 @@
-# 115 samples for aspnetcore fundamentals (updated daily)
+# 116 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -750,9 +750,18 @@ All these projects require the following dependencies
 
 * **Middleware (1)**
   
-  [Response Buffering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
+  * [Response Buffering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
 
-  Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
+    Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
+
+* **Device Detection (1)**
+  
+  The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
+
+  * [Device Detection](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/device-detection)
+
+    This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
+
 
 * **Owin (1)**
 
