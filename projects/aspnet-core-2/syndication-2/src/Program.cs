@@ -67,9 +67,7 @@ namespace StartupBasic
                                 //ISyndicationContent is a raw representation of the feed
                                 ISyndicationContent content = await feedReader.ReadContent();
 
-                                //Item is the more polished result
                                 ISyndicationItem item = parser.CreateItem(content);
-
                                 ISyndicationContent outline = content.Fields.FirstOrDefault(f => f.Name == "source:outline");
 
                                 items.Add(new OutlineSyndicationItem(item, outline));
