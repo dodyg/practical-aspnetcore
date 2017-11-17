@@ -9,10 +9,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
-using OrchardCore.Localization.PortableObject;
-using OrchardCore.Localization;
 
-namespace StartupBasic 
+namespace StartupBasic
 {
     public class Startup
     {
@@ -24,41 +22,42 @@ namespace StartupBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();
-            services.AddLocalization();
-            services.AddPortableObjectLocalization();
-            
-            services.Configure<RequestLocalizationOptions>(options =>
-                {
-                    var supportedCultures = new List<CultureInfo>
+            services.AddPortableObjectLocalization(options => options.ResourcesPath = "/");
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration, IStringLocalizerFactory fac)
+        {
+            var supportedCultures = new List<CultureInfo>
                     {
                         new CultureInfo("en-US"),
                         new CultureInfo("en"),
                         new CultureInfo("it-IT"),
-                        new CultureInfo("it")
+                        new CultureInfo("it"),
+                        new CultureInfo("fr-FR"),
+                        new CultureInfo("fr")
                     };
 
-                    options.DefaultRequestCulture = new RequestCulture("it-IT");
-                    options.SupportedCultures = supportedCultures;
-                    options.SupportedUICultures = supportedCultures;
-                });
-        }
+            var option = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("fr-FR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            app.UseRequestLocalization();
+            app.UseRequestLocalization(option);
 
             app.Run(context =>
             {
-                var local = context.RequestServices.GetService<IStringLocalizer>();
+                var local = fac.Create("/", "/");
                 if (local == null)
                     throw new System.NullReferenceException("Local is null");
-                
-                return context.Response.WriteAsync($"{local["greeting"]}");
+
+                return context.Response.WriteAsync($"{local["Hello world!"]}");
             });
         }
     }
-    
-   public class Program
+
+    public class Program
     {
         public static void Main(string[] args)
         {
