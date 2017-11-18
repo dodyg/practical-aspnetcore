@@ -25,7 +25,7 @@ namespace StartupBasic
             services.AddPortableObjectLocalization(options => options.ResourcesPath = "/");
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration, IStringLocalizerFactory fac)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
             var supportedCultures = new List<CultureInfo>
                     {
@@ -48,7 +48,8 @@ namespace StartupBasic
 
             app.Run(context =>
             {
-                var local = fac.Create("/", "/");
+                var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
+                var local = fac.Create("/", string.Empty);
                 if (local == null)
                     throw new System.NullReferenceException("Local is null");
 
