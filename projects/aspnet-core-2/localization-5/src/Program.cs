@@ -22,24 +22,22 @@ namespace StartupBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();
-            services.AddPortableObjectLocalization(options => options.ResourcesPath = "/");
+            services.AddPortableObjectLocalization();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
+            //We are limiting the supported culture here so this sample works in any browser from different culture setting.
+            //To make it pick up French or other language, simply change it-IT with something else or add more supported cultures
+            //I have added PO file for French and English
             var supportedCultures = new List<CultureInfo>
                     {
-                        new CultureInfo("en-US"),
-                        new CultureInfo("en"),
-                        new CultureInfo("it-IT"),
-                        new CultureInfo("it"),
-                        new CultureInfo("fr-FR"),
-                        new CultureInfo("fr")
+                        new CultureInfo("it-IT")
                     };
 
             var option = new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture("fr-FR"),
+                DefaultRequestCulture = new RequestCulture("it-IT"),
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             };
@@ -49,11 +47,11 @@ namespace StartupBasic
             app.Run(context =>
             {
                 var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
-                var local = fac.Create("/", string.Empty);
-                if (local == null)
-                    throw new System.NullReferenceException("Local is null");
+                var local = fac.Create(string.Empty, string.Empty);
 
-                return context.Response.WriteAsync($"{local["Hello world!"]}");
+                var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
+                
+                return context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
             });
         }
     }
