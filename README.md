@@ -706,7 +706,6 @@ All these projects require the following dependencies
   * [Echo Server 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets-4)
 
     We improve upon the previous sample by handling closing event intiated by the web client.
-
     
   * [Chat Server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-sockets-5)
 
