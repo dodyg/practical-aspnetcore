@@ -12,18 +12,16 @@ using System;
 
 namespace StartupBasic
 {
-    public abstract class HostedService : IHostedService
+    public abstract class HostedService : IHostedService, IDisposable
     {
-        // Example untested base class code kindly provided by David Fowler: https://gist.github.com/davidfowl/a7dd5064d9dcf35b6eae1a7953d615e3
-
+        //from https://blogs.msdn.microsoft.com/cesardelatorre/2017/11/18/implementing-background-tasks-in-microservices-with-ihostedservice-and-the-backgroundservice-class-net-core-2-x/
+        
         private Task _executingTask;
-        private CancellationTokenSource _cts;
+        private readonly CancellationTokenSource _stoppingCts = new CancellationTokenSource();
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-
-            _executingTask = ExecuteAsync(_cts.Token);
+            _executingTask = ExecuteAsync(_stoppingCts.Token);
 
             return _executingTask.IsCompleted ? _executingTask : Task.CompletedTask;
         }
@@ -35,17 +33,21 @@ namespace StartupBasic
                 return;
             }
 
-            // Signal cancellation to the executing method
-            _cts.Cancel();
-
-            // Wait until the task completes or the stop token triggers
-            await Task.WhenAny(_executingTask, Task.Delay(-1, cancellationToken));
-
-            // Throw if cancellation triggered
-            cancellationToken.ThrowIfCancellationRequested();
+            try
+            {
+                // Signal cancellation to the executing method
+                _stoppingCts.Cancel();
+            }
+            finally
+            {
+                // Wait until the task completes or the stop token triggers
+                await Task.WhenAny(_executingTask, Task.Delay(Timeout.Infinite, cancellationToken));
+            }
         }
 
         protected abstract Task ExecuteAsync(CancellationToken cancellationToken);
+
+        public virtual void Dispose() =>  _stoppingCts.Cancel();
     }
 
     public class GreeterUpdaterService : HostedService
