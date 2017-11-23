@@ -1,4 +1,4 @@
-# 118 samples for aspnetcore fundamentals (updated daily)
+# 119 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -173,6 +173,9 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Use ```app.UseRouter()``` with alternative lambda signature.
  
+  * [IHostedService](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/ihosted-service)
+
+    Implement background tasks using the new `IHostedService` interface.
 
 # ASP.NET Core 1.1/2.0 Samples
 
