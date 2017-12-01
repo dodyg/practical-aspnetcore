@@ -565,7 +565,7 @@ All these projects require the following dependencies
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
-  * [Localization - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-5)
+  * [Localization - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/localization-5)
 
     Demonstrate using Portable Object (PO) files to support localization instead of the cumbersome resx file. This sample requires ```OrchardCore.Localization.Core``` package. This sample requires ```ASPNET Core 2```.
 
