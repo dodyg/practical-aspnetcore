@@ -1,4 +1,4 @@
-# 119 samples for aspnetcore fundamentals (updated daily)
+# 120 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -548,7 +548,7 @@ All these projects require the following dependencies
 
     Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
 
-* **Localization and Globalization (5)**
+* **Localization and Globalization (6)**
 
   This section is all about languages, culture, etc.
 
@@ -571,6 +571,10 @@ All these projects require the following dependencies
   * [Localization - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/localization-5)
 
     Demonstrate using Portable Object (PO) files to support localization instead of the cumbersome resx file. This sample requires ```OrchardCore.Localization.Core``` package. This sample requires ```ASPNET Core 2```.
+
+  * [Localization - 6](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/localization-6)
+
+    This is a continuation of previous sample but with context, which allows the same translation key to return different strings.
 
 * **URL Redirect/Rewriting (6)**
   
