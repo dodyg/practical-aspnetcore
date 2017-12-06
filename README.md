@@ -4,6 +4,8 @@
 
 Now that .NET Core 2.0 and ASP.NET Core 2.0 have been released, I am going to update all the existing samples over time. All the new samples will rely on ASP.NET Core 2.0 immediately.
 
+If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
+
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
