@@ -1,2 +1,10 @@
 msgid "Hello"
 msgstr "Ciao"
+
+msgctxt  "Greet Friend"
+msgid "Hello"
+msgstr "Ciao Tesoro"
+
+msgctxt  "Greet Lover"
+msgid "Hello"
+msgstr "Ciao Amore"

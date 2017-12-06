@@ -1,2 +1,11 @@
 msgid "Hello"
 msgstr "Howdy"
+
+msgctxt  "Greet Friend"
+msgid "Hello"
+msgstr "Howdy friend"
+
+
+msgctxt  "Greet Lover"
+msgid "Hello"
+msgstr "Hello my darling"
