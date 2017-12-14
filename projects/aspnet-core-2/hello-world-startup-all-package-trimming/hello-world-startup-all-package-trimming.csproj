@@ -6,6 +6,7 @@
     <OutputType>Exe</OutputType>
     <PackageId>hello-world-startup-package-trimming</PackageId>
     <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
   </PropertyGroup>
 
   <ItemGroup>
