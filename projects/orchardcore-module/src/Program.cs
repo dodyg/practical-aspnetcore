@@ -19,18 +19,16 @@ namespace Module
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddModules(m => m.WithDefaultFeatures());
+            services.AddModules();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();    
+            }
             app.UseModules();
-
-            app.Run(async context => {
-                var greet =  context.RequestServices.GetService<Greet>();
-                await context.Response.WriteAsync($"{greet.Hello}");
-                await context.Response.WriteAsync("Hello");
-            });
         }
     }
     
