@@ -780,6 +780,8 @@ All these projects require the following dependencies
 
     Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
 
+    The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
+
 
 * **Middleware (1)**
   
