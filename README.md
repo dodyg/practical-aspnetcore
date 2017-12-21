@@ -1,4 +1,4 @@
-# 121 samples for aspnetcore fundamentals (updated daily)
+# 122 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -772,6 +772,14 @@ All these projects require the following dependencies
 
     Run ```dotnet publish``` or ```dotnet build``` and read the output in your terminal. It will read something similar to ```Trimmed 128 out of 180 files for a savings of 20.8 MB Final app size is 3.2 MB```. You can turn off the trimming by setting ```<TrimUnusedDependencies>true</TrimUnusedDependencies>``` to ```false``` at the project file.
   
+* ** Modules ** (1)**
+
+  This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
+
+  * [Modular Hello World](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/orchardcore-module)
+
+    Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
+
 
 * **Middleware (1)**
   
