@@ -764,7 +764,7 @@ All these projects require the following dependencies
 
 # ASP.NET Core 2.0 Samples
 
-* ** Trimming ** (1)**
+* **Trimming (1)**
   
   This section shows the various way on how to trim the size of your application by using [Microsoft.Packagin.Tools.Trimming](https://www.nuget.org/packages/Microsoft.Packaging.Tools.Trimming/1.1.0-preview1-25818-01)
 
@@ -772,7 +772,7 @@ All these projects require the following dependencies
 
     Run ```dotnet publish``` or ```dotnet build``` and read the output in your terminal. It will read something similar to ```Trimmed 128 out of 180 files for a savings of 20.8 MB Final app size is 3.2 MB```. You can turn off the trimming by setting ```<TrimUnusedDependencies>true</TrimUnusedDependencies>``` to ```false``` at the project file.
   
-* ** Modules ** (1)**
+* **Modules (1)**
 
   This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
 
