@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>module1</AssemblyName>
+    <PackageId>module1</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta1-3667" />
+  </ItemGroup>
+</Project>
