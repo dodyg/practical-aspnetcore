@@ -32,7 +32,8 @@ namespace StartupBasic
                 await context.Response.WriteAsync("<ul>");
                 foreach(var v in context.Request.Query)
                 {
-                    await context.Response.WriteAsync($"<li>{v.Key} - {v.Value}</li>");
+                    string str = v.Value; //implicit conversion from StringValues to String
+                    await context.Response.WriteAsync($"<li>{v.Key} - {str}</li>");
                 }
                 await context.Response.WriteAsync("</ul>");
                 await context.Response.WriteAsync("</body></html>");
