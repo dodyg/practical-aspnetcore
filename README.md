@@ -1,4 +1,4 @@
-# 122 samples for aspnetcore fundamentals (updated daily)
+# 123 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -289,7 +289,7 @@ All these projects require the following dependencies
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Request(7)**
+* **Request(8)**
   
   This section shows all the different ways you capture input and examine request to your web application.
 
@@ -306,6 +306,12 @@ All these projects require the following dependencies
     * [Type Safe Access to Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers-typed)
       
       Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
+
+  * **Query String (1)**
+    * [Single value query string](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string)
+
+      Access single value query string.
+  
 
   * **Form (2)**
     
