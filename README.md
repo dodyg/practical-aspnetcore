@@ -1,4 +1,4 @@
-# 123 samples for aspnetcore fundamentals (updated daily)
+# 125 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -311,6 +311,16 @@ All these projects require the following dependencies
     * [Single value query string](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string)
 
       Access single value query string.
+
+    * [Multiple values query string](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string-2)
+
+      Access multiples values query string.
+
+    * [List all query string values](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string-3)
+
+      List all query string values. Also shows the implicat conversion from ```StringValues``` to ```string```.
+
+      
   
 
   * **Form (2)**
