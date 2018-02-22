@@ -45,7 +45,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
 
-    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory`` via dependency injection.
+    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
 
 
 ## What's new in ASP.NET Core 2.0 (11)
