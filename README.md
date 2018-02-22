@@ -39,7 +39,11 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-# What's new in ASP.NET Core 2.0 (11)
+## What's new in ASP.NET Core 2.1 (0)
+
+  *Pre-requisite*: Make sure you download the daily build of the [.NET 2.1 SDK preview](https://github.com/dotnet/cli) otherwise below examples won't work.
+
+## What's new in ASP.NET Core 2.0 (11)
   
   This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
   
@@ -145,7 +149,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
 
-
   * [Session Feature with Redis using JSON Serialization](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/features-session-redis-2)
 
     This shows how to use session with ```Redis``` store. Use this method instead of using ```BinaryFormatter```.
@@ -175,12 +178,12 @@ To run these samples, simply open your command line console,  go to each folder 
   * [UseRouter extension 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router-2)
 
     Use ```app.UseRouter()``` with alternative lambda signature.
- 
+
   * [IHostedService](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/ihosted-service)
 
     Implement background tasks using the new `IHostedService` interface.
 
-# ASP.NET Core 1.1/2.0 Samples
+## ASP.NET Core 1.1/2.0 Samples
 
 All the samples below will run on ASP.NET Core 1.1 and ASP.NET Core 2.0. 
 
@@ -239,7 +242,6 @@ All these projects require the following dependencies
     * [Hello world with IStartupFilter](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartupfilter)
 
       Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
-      
 
   * [Show errors during startup](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-capture-errors)
 
@@ -778,7 +780,7 @@ All these projects require the following dependencies
     We add dependency ```"Microsoft.AspNetCore.Identity": "1.1.0-*"``` to enable this functionality.
 
 
-# ASP.NET Core 2.0 Samples
+## ASP.NET Core 2.0 Samples
 
 * **Trimming (1)**
   
