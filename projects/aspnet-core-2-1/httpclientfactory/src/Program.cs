@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Routing;
+using System.Net.Http;
 
 namespace StartupBasic 
 {
@@ -18,20 +19,19 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRouting();
+            services.AddHttpClient();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseRouter(r =>{
-                r.MapGet("", async context => {
-                    context.Response.Headers.Add("Content-Type", "text/html");
-                    await context.Response.WriteAsync($"Hello world <br><a href=\"good-morning\">Greet good morning</a>");
-                });
-                r.MapGet("good-morning", async context => {
-                    context.Response.Headers.Add("Content-Type", "text/html");
-                    await context.Response.WriteAsync("Good morning");  
-                });
+            app.Run(async context =>
+            {
+                var httpClient = context.RequestServices.GetService<IHttpClientFactory>();
+                var client = httpClient.CreateClient();
+                var result = await client.GetStringAsync("http://scripting.com/rss.xml");
+            
+                context.Response.Headers.Add("Content-Type", "application/rss+xml");
+                await context.Response.WriteAsync(result);
             });
         }
     }
