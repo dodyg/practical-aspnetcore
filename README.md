@@ -1,4 +1,4 @@
-# 125 samples for aspnetcore fundamentals (updated daily)
+# 126 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -39,9 +39,14 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-## What's new in ASP.NET Core 2.1 (0)
+## What's new in ASP.NET Core 2.1 (1)
 
   *Pre-requisite*: Make sure you download the daily build of the [.NET 2.1 SDK preview](https://github.com/dotnet/cli) otherwise below examples won't work.
+
+  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
+
+    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory`` via dependency injection.
+
 
 ## What's new in ASP.NET Core 2.0 (11)
   
