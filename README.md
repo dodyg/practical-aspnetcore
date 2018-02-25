@@ -1,4 +1,4 @@
-# 126 samples for aspnetcore fundamentals (updated daily)
+# 127 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -39,9 +39,17 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-## What's new in ASP.NET Core 2.1 (1)
+## What's new in ASP.NET Core 2.1 (2)
 
   *Pre-requisite*: Make sure you download the daily build of the [.NET 2.1 SDK preview](https://github.com/dotnet/cli) otherwise below examples won't work.
+
+  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
+
+    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
+
+    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
+
+    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
 
   * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
 
