@@ -57,9 +57,9 @@ To run these samples, simply open your command line console,  go to each folder 
 
 
 ## What's new in ASP.NET Core 2.0 (11)
-  
+
   This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
-  
+
   This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
 
   * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
