@@ -39,9 +39,11 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-## What's new in ASP.NET Core 2.1 (2)
+## What's new in ASP.NET Core 2.1 Preview 1(2)
 
-  *Pre-requisite*: Make sure you download the daily build of the [.NET 2.1 SDK preview](https://github.com/dotnet/cli) otherwise below examples won't work.
+  *Pre-requisite*: Make sure you download .NET Core SDK 2.1 Preview 1 [2.1.0-preview1-final](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1) otherwise below examples won't work.
+
+  All the examples below uses `2.1.0-preview1-final` version.
 
   * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
 
