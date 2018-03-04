@@ -66,6 +66,43 @@ To run these samples, simply open your command line console,  go to each folder 
 
   The samples use SDK `2.1.4`.
 
+  **New code based idiom to start your application for ASP.NET Core 2.1.**
+
+  It is recommended to use the following approach 
+
+  ```CSharp
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development");
+    }
+  ```
+
+  instead of
+
+  ```CSharp
+      public class Program
+      {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development")
+                .Build();
+      }
+  ```
+
   * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
 
       If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
