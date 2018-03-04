@@ -66,7 +66,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   The samples use SDK `2.1.4`.
 
-  **New code based idiom to start your application for ASP.NET Core 2.1.**
+  **New code based idiom to start your host for ASP.NET Core 2.1.**
 
   It is recommended to use the following approach 
 
