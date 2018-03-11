@@ -1,11 +1,8 @@
-# 127 samples for aspnetcore fundamentals (updated daily)
+# 126 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
-Now that .NET Core 2.0 and ASP.NET Core 2.0 have been released, I am going to update all the existing samples over time. All the new samples will rely on ASP.NET Core 2.0 immediately.
-
 If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
-
 
 ## Welcome
 
@@ -15,17 +12,11 @@ You should download the **latest release version** [.NET Core SDK](https://www.m
  
 If you are running **these samples on Linux**, change the target framework inside the csproj files from
 
-```
-<TargetFramework>net461</TargetFramework>
-```
+`<TargetFramework>net461</TargetFramework>`
 to
-```
-<TargetFramework>netcoreapp1.1</TargetFramework>
-```
+`<TargetFramework>netcoreapp1.1</TargetFramework>`
 or to
-```
-<TargetFramework>netcoreapp2.0</TargetFramework>
-```
+`<TargetFramework>netcoreapp2.0</TargetFramework>`
 
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
 
@@ -38,6 +29,10 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
+
+## MVC and SignalR
+
+There is a dedicated samples for ASP.NET Core MVC 2.1 [here](mvc) and ASP.NET Core Signal R 2.1 [here](signalr). The rest of projects here are for ASP.NET Core only.
 
 ## What's new in ASP.NET Core 2.1 Preview 1(2)
 
@@ -879,14 +874,6 @@ All these projects require the following dependencies
 
     Hello world the hard way.
 
-
-* **SignalR (1)**
-
-  SignalR is the real time communication library designed for ASP.NET Core. This library is still in `alpha 2` status at the moment. Check back this section often. We are going to be up to date with the latest SignalR revisions.
-  
-  * [Broadcast All Input](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/signalr)
-   
-    This sample demonstrate on how to broadcast received input to all connected clients.
   
 ## Other resources
 
