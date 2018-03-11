@@ -45,28 +45,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   All the examples below uses `2.1.0-preview1-final` version.
 
-  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
-
-    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
-
-    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
-
-    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
-
-  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
-
-    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
-
-
-## What's new in ASP.NET Core 2.0 (11)
-
-  This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
-
-  This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
-
-  The samples use SDK `2.1.4`.
-
-  **New code based idiom to start your host for ASP.NET Core 2.1.**
+    **New code based idiom to start your host for ASP.NET Core 2.1.**
 
   It is recommended to use the following approach 
 
@@ -102,6 +81,28 @@ To run these samples, simply open your command line console,  go to each folder 
                 .Build();
       }
   ```
+
+  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
+
+    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
+
+    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
+
+    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
+
+  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
+
+    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
+
+
+## What's new in ASP.NET Core 2.0 (11)
+
+  This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
+
+  This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
+
+  The samples use SDK `2.1.4`.
+
 
   * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
 
