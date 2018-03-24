@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc;
 
 namespace StartupBasic
 {
@@ -17,16 +18,30 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
+            services.AddMvcCore().
+                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            //These are the four default services available at Configure
-            app.Run(context =>
+            app.UseMvc(routes =>
+                routes.MapRoute(
+                    name: "default_route",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" })
+                );
+        }
+    }
+
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return new ContentResult
             {
-                return context.Response.WriteAsync("Hello world");
-            });
+                Content = "<html><body><b>Hello World</b></body></html>",
+                ContentType = "text/html"
+            };
         }
     }
 

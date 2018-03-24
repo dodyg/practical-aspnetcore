@@ -1,4 +1,4 @@
-# 126 samples for aspnetcore fundamentals (updated daily)
+# 127 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -32,7 +32,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 ## MVC and SignalR
 
-There is a dedicated samples for ASP.NET Core MVC 2.1 [here](/projects/mvc) and ASP.NET Core Signal R 2.1 [here](/projects/signalr). The rest of projects here are for ASP.NET Core only.
+There is a dedicated samples for ASP.NET Core MVC 2.1 [here (1 sample)](/projects/mvc) and ASP.NET Core Signal R 2.1 [here (0 sample)](/projects/signalr). The rest of projects here are for ASP.NET Core only.
 
 ## What's new in ASP.NET Core 2.1 Preview 1(2)
 
