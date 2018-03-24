@@ -40,7 +40,7 @@ There is a dedicated samples for ASP.NET Core MVC 2.1 [here (1 sample)](/project
 
   All the examples below uses `2.1.0-preview1-final` version.
 
-    **New code based idiom to start your host for ASP.NET Core 2.1.**
+  **New code based idiom to start your host for ASP.NET Core 2.1**
 
   It is recommended to use the following approach 
 
