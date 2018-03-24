@@ -24,3 +24,5 @@ Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 (`2.1.0-previe
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   ```
+
+  We also use the new `ActionResult<T>` return type. You can read more about the type [here](https://joonasw.net/view/aspnet-core-2-1-actionresult-of-t).
