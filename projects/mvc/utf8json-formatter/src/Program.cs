@@ -31,10 +31,10 @@ namespace CustomJson
                 SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddMvcOptions(option =>
                 {
                     option.OutputFormatters.Clear();
-                    option.OutputFormatters.Add(new ut8json.JsonOutputFormatter(StandardResolver.Default));
+                    option.OutputFormatters.Add(new ut8json.JsonOutputFormatter(StandardResolver.ExcludeNullCamelCase));
 
                     option.InputFormatters.Clear();
-                    option.InputFormatters.Add(new ut8json.JsonInputFormatter(StandardResolver.Default));
+                    option.InputFormatters.Add(new ut8json.JsonInputFormatter(StandardResolver.ExcludeNullCamelCase));
                 });
 
         }
