@@ -1,12 +1,17 @@
-# 128 samples for aspnetcore fundamentals (updated daily)
+# 129 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
 If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
 
+
+### MVC and SignalR
+
+There is a dedicated samples for ASP.NET Core MVC 2.1 [here (3 samples)](/projects/mvc) and ASP.NET Core Signal R 2.1 [here (0 sample)](/projects/signalr). The rest of projects here are for ASP.NET Core only.
+
 ## Welcome
 
-The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
+The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
 
 You should download the **latest release version** [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
  
@@ -29,10 +34,6 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
-
-## MVC and SignalR
-
-There is a dedicated samples for ASP.NET Core MVC 2.1 [here (2 samples)](/projects/mvc) and ASP.NET Core Signal R 2.1 [here (0 sample)](/projects/signalr). The rest of projects here are for ASP.NET Core only.
 
 ## What's new in ASP.NET Core 2.1 Preview 1(2)
 
