@@ -1,4 +1,4 @@
-# MVC (2)
+# MVC (3)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -9,6 +9,12 @@ Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 (`2.1.0-previe
 
   You shouldn't use this configuration for your typical ASP.NET MVC Core application (it does not support Razor, etc). This is just an example on how to do it with the least amount of functionality and configuration. You can find a discussion about `services.AddMvcCore()` [here](https://offering.solutions/blog/articles/2017/02/07/difference-between-addmvc-addmvcore/).
 
+
+## Formatters
+
+* [Using Utf8Json as JSON Formatter](/projects/mvc/ut8json-formatter)
+
+  Use the super fast [Ut8Json](https://github.com/neuecc/Utf8Json) JSON serialization library instead of the default one. This project requires `utf8json` and `Utf8Json.AspNetCoreMvcFormatter` packages. 
 
 ## Swagger (API Documentation)
 
