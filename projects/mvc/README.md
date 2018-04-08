@@ -12,13 +12,14 @@ Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 (`2.1.0-previe
 
 ## Formatters
 
-* [Using Utf8Json as JSON Formatter](/projects/mvc/ut8json-formatter)
+* [Using Utf8Json as JSON Formatter](/projects/mvc/utf8json-formatter)
 
   Use the super fast [Ut8Json](https://github.com/neuecc/Utf8Json) JSON serialization library instead of the default one. This project requires `utf8json` and `Utf8Json.AspNetCoreMvcFormatter` packages. 
 
 ## Swagger (API Documentation)
 
 * [Using NSwag](/projects/mvc/nswag)
+  
   Generate automatic documentation for your Web API using [Swagger](https://swagger.io/) specification and [NSwag](https://github.com/RSuter/NSwag)
 
   You can further learn on how to customize the output of your documentation [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore#include-descriptions-from-xml-comments) and [here](http://michaco.net/blog/TipsForUsingSwaggerAndAutorestInAspNetCoreMvcServices).
