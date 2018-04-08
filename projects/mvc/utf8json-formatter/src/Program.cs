@@ -49,6 +49,12 @@ namespace CustomJson
     [ApiController]
     public class HomeController : Controller
     {
+        public enum Status
+        {
+            Cool,
+            Hot
+        }
+
         public class Message
         {
             public int Count { get; set; }
@@ -59,6 +65,8 @@ namespace CustomJson
             public List<string> Participants { get; set; }
 
             public string[] Countries { get; set; }
+
+            public Status Status { get; set; }
         }
 
         [HttpGet("")]
@@ -78,7 +86,8 @@ namespace CustomJson
                     "Dody",
                     "Anne"
                 },
-                Countries = new[] { "Egypt", "USA" }
+                Countries = new[] { "Egypt", "USA" },
+                Status = Status.Cool
             };
         }
     }
