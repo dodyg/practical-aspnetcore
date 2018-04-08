@@ -30,6 +30,7 @@ namespace CustomJson
             services.AddMvc().
                 SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddMvcOptions(option =>
                 {
+                    //Read more about resolver here https://github.com/neuecc/Utf8Json#resolver
                     option.OutputFormatters.Clear();
                     option.OutputFormatters.Add(new ut8json.JsonOutputFormatter(StandardResolver.ExcludeNullCamelCase));
 
