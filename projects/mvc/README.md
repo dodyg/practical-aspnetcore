@@ -2,7 +2,9 @@
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
-Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 (`2.1.0-preview1-final`) otherwise below examples won't work.
+Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 (`2.1.0-preview2-final`) otherwise below examples won't work.
+
+There is no more need to include this tool in your project `<DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.1.0-preview1" />` to be able to enjoy `dotnet watch run`. It's included by default in ASP.NET Core 2.1.
 
 * [Hello World Minimalistic](/projects/mvc/hello-world)
   This is the most basic hello world you can do using ASP.NET MVC. It uses `services.AddMvcCore()` with [behavior compatibility](https://blogs.msdn.microsoft.com/webdev/2018/02/27/introducing-compatibility-version-in-mvc/) set to `2.1` and with manually configured route.
