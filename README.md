@@ -1,4 +1,4 @@
-# 129 samples for aspnetcore fundamentals (updated daily)
+# 130 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -840,8 +840,9 @@ All these projects require the following dependencies
   * [Trimming Microsoft.AspNetCore.All hello world application](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package-trimming)
 
     Run ```dotnet publish``` or ```dotnet build``` and read the output in your terminal. It will read something similar to ```Trimmed 128 out of 180 files for a savings of 20.8 MB Final app size is 3.2 MB```. You can turn off the trimming by setting ```<TrimUnusedDependencies>true</TrimUnusedDependencies>``` to ```false``` at the project file.
+
   
-* **Modules (1)**
+* **Modules (2)**
 
   This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
 
@@ -850,6 +851,11 @@ All these projects require the following dependencies
     Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
 
     The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
+
+
+  * [Keeping track of anonymous users](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/anonymous-id)
+
+    Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
 
 * **Middleware (1)**
