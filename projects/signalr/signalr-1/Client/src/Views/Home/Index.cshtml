@@ -1,3 +1,4 @@
+<strong>Note: don't forget to run <i>npm install</i> to install the javascript client</strong>
 <h2>All Messages</h2>
 
 <ul id="msgs"></ul>
@@ -10,10 +11,11 @@
 @section scripts {
 <script>
     $(function () {
-
-        let hubUrl = 'http://localhost:5000/chatHub';
-        let httpConnection = new signalR.HttpConnection(hubUrl);
-        let hubConnection = new signalR.HubConnection(httpConnection);
+        //we are connecting on secure connection to the signalR server
+        const hubConnection = new signalR.HubConnection(
+                   "https://localhost:5001/chathub", { logger: signalR.LogLevel.Information });
+    
+        hubConnection.start().catch(err => console.error);
 
         $("#send").click(function () {
             hubConnection.invoke('Send', $('#msg').val());
@@ -22,8 +24,6 @@
         hubConnection.on('Send', data => {
             $('#msgs').append($('<li>').text(data));
         });
-
-        hubConnection.start();
     });
 </script>
 }
