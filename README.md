@@ -35,11 +35,11 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-## What's new in ASP.NET Core 2.1 Preview 2(2)
+## What's new in ASP.NET Core 2.1 RC1(2)
 
-  *Pre-requisite*: Make sure you download .NET Core SDK 2.1 Preview 1 [2.1.0-preview2-final](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2) otherwise below examples won't work.
+  *Pre-requisite*: Make sure you download .NET Core SDK 2.1 RC1 [2.1.0-rc1-final](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-rc1) otherwise below examples won't work.
 
-  All the examples below uses `2.1.0-preview2-final` version.
+  All the examples below uses `2.1.0-rc1-final` version.
 
   **New code based idiom to start your host for ASP.NET Core 2.1**
 
