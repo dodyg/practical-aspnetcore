@@ -1,4 +1,4 @@
-# MVC (3)
+# MVC (4)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -11,6 +11,12 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   You shouldn't use this configuration for your typical ASP.NET MVC Core application (it does not support Razor, etc). This is just an example on how to do it with the least amount of functionality and configuration. You can find a discussion about `services.AddMvcCore()` [here](https://offering.solutions/blog/articles/2017/02/07/difference-between-addmvc-addmvcore/).
 
+
+## Authentication/Authorization
+
+* [JWT](/projects/mvc/jwt)
+
+  Show how to generate and decode [JSON Web Tokens](https://jwt.io/).
 
 ## Formatters
 
