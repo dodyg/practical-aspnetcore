@@ -6,9 +6,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Options;
+using System.Text;
 
 namespace Jwt
 {
+    public class JwtIssuerOptions
+    {
+        public string Issuer { get; set; }
+
+        public string Audience { get; set; }
+
+        public SigningCredentials SigningCredentials { get; set; }
+    }
+
     public class Startup
     {
         IConfiguration Configuration { get; set; }
@@ -19,14 +31,12 @@ namespace Jwt
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
-
-            // Configure JwtIssuerOptions
             services.Configure<JwtIssuerOptions>(options =>
             {
-                options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
-                options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
-                options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
+                options.Issuer = "SimpleServer";
+                options.Audience = "http://localhost";
+                options.SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes("1234567890")), SecurityAlgorithms.HmacSha256);
+
             });
 
             services.AddMvcCore().
@@ -46,14 +56,21 @@ namespace Jwt
 
     public class HomeController : Controller
     {
-        [HttpPost]
+        readonly IOptions<JwtIssuerOptions> _options;
+        public HomeController(IOptions<JwtIssuerOptions> options)
+        {
+            _options = options;
+        }
+
+        [HttpGet]
         public ActionResult Index()
         {
             return new ContentResult
             {
                 Content =
-@"<html>
+    $@"<html>
     <body>
+    Audience: {_options.Value.Audience}
     <form action=""Jwt"" method=""post"">
         <button type=""submit"">Get Token</button>
     </form>
@@ -63,7 +80,7 @@ namespace Jwt
             };
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Jwt()
         {
             var content = "content";
