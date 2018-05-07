@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Options;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System;
 
 namespace Jwt
 {
@@ -35,7 +38,7 @@ namespace Jwt
             {
                 options.Issuer = "SimpleServer";
                 options.Audience = "http://localhost";
-                options.SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes("1234567890")), SecurityAlgorithms.HmacSha256);
+                options.SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes("12345678901234567890")), SecurityAlgorithms.HmacSha256);
 
             });
 
@@ -70,8 +73,7 @@ namespace Jwt
                 Content =
     $@"<html>
     <body>
-    Audience: {_options.Value.Audience}
-    <form action=""Jwt"" method=""post"">
+    <form action=""Home/Jwt"" method=""post"">
         <button type=""submit"">Get Token</button>
     </form>
     </body>
@@ -83,8 +85,58 @@ namespace Jwt
         [HttpPost]
         public ActionResult Jwt()
         {
-            var content = "content";
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, "Anne"),
+                new Claim(ClaimTypes.Role, "Admin")
+            };
 
+            var option = _options.Value;
+
+            var token = new JwtSecurityToken
+            (
+                issuer: option.Issuer,
+                audience: option.Audience,
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(60),
+                signingCredentials: option.SigningCredentials
+            );
+
+            var outputToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var content =
+            $@"
+<html>
+<body>
+    <strong>Content</strong>: {token}
+    <br/><br/>
+    <strong>Generated Token</strong>: {outputToken}
+
+    <hr />
+    Copy the encoded token here to get the content of the token back
+    <form action=""/Home/DecodeJwt"" method=""post"">
+        <input type=""text"" name=""token"" />
+        <button type=""submit"">Decode Token</button>
+    </form>
+</body>
+</html>";
+
+            return new ContentResult
+            {
+                Content = content,
+                ContentType = "text/html"
+            };
+        }
+
+        [HttpPost]
+        public ActionResult DecodeJwt([FromForm] string token)
+        {
+            var jwt = new JwtSecurityToken(token);
+
+            var content = $@"<html>
+<body>
+    <strong>Content</strong>: {jwt}
+</body>
+</html>";
             return new ContentResult
             {
                 Content = content,
