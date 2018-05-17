@@ -1,4 +1,4 @@
-# MVC (4)
+# MVC (5)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -17,6 +17,12 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 * [JWT](/projects/mvc/jwt)
 
   Show how to generate and decode [JSON Web Tokens](https://jwt.io/).
+
+## API
+
+* [Use Microsoft.AspNetCore.Mvc.ProblemDetails](/projects/mvc/api-problem-details)
+
+  Use `Microsoft.AspNetCore.Mvc.ProblemDetails` as part of your Web API error reply. It is implementing [RFC  7807](https://tools.ietf.org/html/rfc7807). It will make life easier for everybody.
 
 ## Formatters
 
