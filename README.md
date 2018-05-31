@@ -2,6 +2,8 @@
 
 ## Note
 
+I am working on the 2.1 branch at the moment to convert all the samples to 2.1.
+
 If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
 
 
