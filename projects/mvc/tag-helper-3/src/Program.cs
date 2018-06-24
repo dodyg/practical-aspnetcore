@@ -39,7 +39,7 @@ namespace TagHelperSeries
         Success,
         Warning,
         Info,
-        Error
+        Danger
     }
 
     [HtmlTargetElement("alert")]
@@ -61,7 +61,7 @@ namespace TagHelperSeries
                 case AlertType.Success: return "alert-success";
                 case AlertType.Warning: return "alert-warning";
                 case AlertType.Info: return "alert-info";
-                case AlertType.Error: return "alert-error";
+                case AlertType.Danger: return "alert-danger";
                 default: throw new System.ArgumentOutOfRangeException();
             }
         }
