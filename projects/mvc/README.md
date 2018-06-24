@@ -1,4 +1,4 @@
-# MVC (6)
+# MVC (8)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -53,3 +53,11 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Tag Helper - Hello World](/projects/mvc/tag-helper)
 
     This is the simplest tag helper you can do. It just prints 'hello world'.
+
+  * [Tag Helper - Alert Tag Helper](/projects/mvc/tag-helper-2)
+
+    Convert a message to become an alert message (bootstrap 4).
+
+  * [Tag Helper - Alert Tag Helper With Style](/projects/mvc/tag-helper-3)
+
+    Convert a message to become an alert message with 4 style of alerts (bootstrap 4).
