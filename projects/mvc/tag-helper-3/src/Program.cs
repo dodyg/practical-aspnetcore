@@ -34,15 +34,36 @@ namespace TagHelperSeries
         }
     }
 
-
-    [HtmlTargetElement("helloworld")]
-    public class HelloWorld : TagHelper
+    public enum AlertType
     {
+        Success,
+        Warning,
+        Info,
+        Error
+    }
+
+    [HtmlTargetElement("alert")]
+    public class AlertHelper : TagHelper
+    {
+        public AlertType Type { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
-            output.Content.SetContent("hello world from tag helper");
+            output.Attributes.Add("class", $"alert {GetAlertType()}");
+        }
+
+        string GetAlertType()
+        {
+            switch (Type)
+            {
+                case AlertType.Success: return "alert-success";
+                case AlertType.Warning: return "alert-warning";
+                case AlertType.Info: return "alert-info";
+                case AlertType.Error: return "alert-error";
+                default: throw new System.ArgumentOutOfRangeException();
+            }
         }
     }
 
