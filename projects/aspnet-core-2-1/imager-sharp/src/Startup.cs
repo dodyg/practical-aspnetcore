@@ -35,7 +35,15 @@ namespace ImagerSharp
                 await context.Response.WriteAsync($@"
 <html>
 <body>
-    <a href=""siwa.jpg?width=100"">Resize Image</a>
+    <blockquote>siwa.jpg?width=200</blockquote>
+    <img src=""siwa.jpg?width=200"" />
+    <br/>
+    <blockquote>siwa.jpg?height=200</blockquote>
+    <img src=""siwa.jpg?height=300"" />
+    <br/>
+    <blockquote>siwa.jpg</blockquote>
+    <br/>
+    <img src=""siwa.jpg"" />
 </body>
 </html>          
                 ");
