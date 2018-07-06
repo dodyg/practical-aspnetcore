@@ -35,6 +35,7 @@ namespace ImagerSharp
                 await context.Response.WriteAsync($@"
 <html>
 <body>
+    <h1>Imager</h1>
     <blockquote>siwa.jpg?width=200</blockquote>
     <img src=""siwa.jpg?width=200"" />
     <br/>
