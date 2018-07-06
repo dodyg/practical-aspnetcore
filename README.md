@@ -1,4 +1,4 @@
-# 135 samples for aspnetcore fundamentals (updated daily)
+# 136 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
@@ -883,6 +883,13 @@ All these projects require the following dependencies
 
     Hello world the hard way.
 
+* **Image Sharp (1)**
+
+  All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
+
+  * [Image-Sharp](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/image-sharp)
+
+    This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
 ## Other resources
 
