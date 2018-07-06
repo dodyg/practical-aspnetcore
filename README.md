@@ -35,11 +35,11 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 ## How to run these samples
 
-To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
+To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
 
 ## What's new in ASP.NET Core 2.1(2)
 
-  *Pre-requisite*: Make sure you download .NET Core SDK 2.1 RC1 [2.1.0](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300) otherwise below examples won't work.
+  *Pre-requisite*: Make sure you download .NET Core SDK [2.1.0](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300) otherwise below examples won't work.
 
   All the examples below uses `2.1.0` version.
 
