@@ -2,7 +2,7 @@
 
 ## Note
 
-I am working on the 2.1 branch at the moment to convert all the samples to 2.1.
+This branch will be `ASP.NET Core 2.1` only. If you want to see samples from the previous version of ASP.NET Core, check the `master` branch.
 
 If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
 
@@ -14,22 +14,6 @@ There are dedicated samples for ASP.NET Core MVC 2.1 [here (8 samples)](/project
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
-
-You should download the **latest release version** [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
- 
-If you are running **these samples on Linux**, change the target framework inside the csproj files from
-
-`<TargetFramework>net461</TargetFramework>`
-to
-`<TargetFramework>netcoreapp1.1</TargetFramework>`
-or to
-`<TargetFramework>netcoreapp2.0</TargetFramework>`
-
-Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
-
-Some of the samples you see here involve mixed projects (net461) that will run only in Windows. For many .NET developers, full framework is the reality for forseeable future. We are not going to port multi-year production systems to run on Linux. We want to improve the creaky .NET MVC 2.0 that we have lying around and bring it up to speed to aspnetcore MVC.
-
-If a sample requires additional dependencies, I will list them.
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
@@ -246,7 +230,7 @@ All the samples below will run on ASP.NET Core 1.1 and ASP.NET Core 2.0.
 All these projects require the following dependencies
 
 ```
-   "Microsoft.AspNetCore.Hosting" : "1.1.0-*"
+   "Microsoft.AspNetCore" : "2.1.0"
 ```
 
 
@@ -339,9 +323,9 @@ All these projects require the following dependencies
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
-  * [Application Environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-application-environment)
+  * [Application Environment - 2.1](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-application-environment)
 
-    Requires `Microsoft.Extensions.PlatformAbstractions" : "1.1.0-*` dependency. This sample shows how to obtain application environment information (target framework, etc).
+    This sample shows how to obtain application environment information (target framework, etc).
 
   * [Adding HTTP Response Header](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-header)
 
