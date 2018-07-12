@@ -291,7 +291,7 @@ All these projects require the following dependencies
 
     Enumerate the connection information of a HTTP request.
 
-  * [Environmental settings](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-env-development)
+  * [Environmental settings - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-env-development)
 
     Set your application environment to `Development` or `Production` or other mode directly from code. 
 
@@ -323,7 +323,7 @@ All these projects require the following dependencies
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
-  * [Application Environment - 2.1](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-application-environment)
+  * [Application Environment - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-application-environment)
 
     This sample shows how to obtain application environment information (target framework, etc).
 
