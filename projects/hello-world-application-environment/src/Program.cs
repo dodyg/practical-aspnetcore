@@ -23,7 +23,7 @@ namespace HelloWorldWithApplicationEnvironment
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            //These are the three default services available at Configure
+            //These are the four default services available at Configure
 
             app.Run(async context =>
             {
