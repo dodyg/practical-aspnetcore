@@ -275,7 +275,7 @@ All these projects require the following dependencies
 
       We are really getting into the weed of startup right now. This is an example on how to implement `IStartup` directly. 
 
-    * [Hello World without a startup class](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-no-startup)
+    * [Hello World without a startup class - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-no-startup)
 
       Why? just because we can.
 
