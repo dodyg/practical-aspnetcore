@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore;
 
 namespace StartupBasic 
 {
@@ -15,8 +16,11 @@ namespace StartupBasic
    {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
                 .ConfigureServices(services => services.AddSingleton(new Greeter()))
                 .Configure(app =>
                 {
@@ -26,9 +30,6 @@ namespace StartupBasic
                         return context.Response.WriteAsync($"{greet.Say()}");
                     });
                 })
-                .Build();
-
-            host.Run();
-        }
+                .UseEnvironment("Development");
     }
 }
