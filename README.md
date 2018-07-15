@@ -243,7 +243,7 @@ All these projects require the following dependencies
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
   * Startup class
-    * [Hello World with startup basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic)
+    * [Hello World with startup basic #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic)
 
       This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
