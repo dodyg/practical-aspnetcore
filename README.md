@@ -440,35 +440,35 @@ All these projects require the following dependencies
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
-  * [Middleware 1](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-1)
+  * [Middleware 1 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-1)
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
 
-  * [Middleware 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-3)
+  * [Middleware 3 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-3)
    
     This is the simplest middleware class you can create. 
 
-  * [Middleware 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-4)
+  * [Middleware 4 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-4)
    
     Use `app.Map` (`MapMiddleware`) to configure your middleware pipeline to respond only on specific url path.
 
-  * [Middleware 5](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-5)
+  * [Middleware 5 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-5)
    
     Nested `app.Map` (show `Request.Path` and `Request.PathBase`).
 
-  * [Middleware 6](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-6)
+  * [Middleware 6 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-6)
    
     Use `app.MapWhen`(`MapWhenMiddleware`) and Nested `app.Map` (show `Request.Path` and `Request.PathBase`).
 
-  * [Middleware 7](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-7)
+  * [Middleware 7 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-7)
    
     Use `MapMiddleware` and `MapWhenMiddleware` directly without using extensions (show `Request.Path` and `Request.PathBase`).
 
-  * [Middleware 8](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-8)
+  * [Middleware 8 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-8)
    
     Demonstrate the various ways you can inject dependency to your middleware class *manually*. 
 
-  * [Middleware 9](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-9)
+  * [Middleware 9 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-9)
    
     Demonstrate how to ASP.NET Core built in DI (Dependency Injection) mechanism to provide dependency for your middleware.
 
