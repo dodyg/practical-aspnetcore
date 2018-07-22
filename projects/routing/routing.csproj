@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <!--
-      To switch to .NET full framework, use net461 instead of netcoreapp1.1 
+      To switch to .NET full framework, use netcoreapp2.1 instead of netcoreapp1.1 
     -->
     <AssemblyName>routing</AssemblyName>
     <OutputType>Exe</OutputType>

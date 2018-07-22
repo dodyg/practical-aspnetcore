@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>hello-world-with-header</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>hello-world-with-header</PackageId>
