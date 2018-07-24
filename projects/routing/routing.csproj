@@ -5,4 +5,8 @@
     <OutputType>Exe</OutputType>
     <PackageId>routing</PackageId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+  </ItemGroup>
 </Project>
