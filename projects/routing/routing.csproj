@@ -1,28 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
-    <!--
-      To switch to .NET full framework, use netcoreapp2.1 instead of netcoreapp1.1 
-    -->
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>routing</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>routing</PackageId>
   </PropertyGroup>
-
-  <ItemGroup>
-
-
-  </ItemGroup>
-
-  <ItemGroup>
-
-
-
-  </ItemGroup>
-
-  <ItemGroup>
-
-  </ItemGroup>
-
 </Project>
