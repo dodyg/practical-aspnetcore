@@ -16,11 +16,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.1" />
     <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
+
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+
   </ItemGroup>
 
 </Project>
