@@ -509,11 +509,11 @@ All these projects require the following dependencies
 
   ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
 
-  * [Dependency Injection 1 - The basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/dependency-injection-1)
+  * [Dependency Injection 1 - The basic #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/dependency-injection-1)
 
     Demonstrate the three lifetime registrations for the out of the box DI functionality: singleton (one and only forever), scoped (one in every request) and transient (new everytime).
 
-  * [Dependency Injection 3 - Easy registration](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/dependency-injection-3)
+  * [Dependency Injection 3 - Easy registration #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/dependency-injection-3)
   
     Register all objects configured by classes that implements a specific interface (`IBootstrap` in this example). This is useful when you have large amount of classes in your project that needs registration. You can register them near where they are (usually in the same folder) instead of registering them somewhere in a giant registration function.
 

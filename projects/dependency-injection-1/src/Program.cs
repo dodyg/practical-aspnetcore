@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 
 namespace DI.One
 {
@@ -76,12 +77,12 @@ namespace DI.One
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseKestrel()
-              .UseStartup<Startup>()
-              .Build();
-
-            host.Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development");
     }
 }
