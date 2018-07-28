@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore;
 
 namespace Caching
 {

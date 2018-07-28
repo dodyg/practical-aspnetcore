@@ -7,6 +7,7 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore;
 
 namespace Caching.Two 
 {

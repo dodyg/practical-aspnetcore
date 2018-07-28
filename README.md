@@ -21,6 +21,29 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
 
+Most of the examples here uses `Microsoft.AspNetCore` package which is a package consisted of 
+
+```
+  Microsoft.AspNetCore.Diagnostics 
+  Microsoft.AspNetCore.HostFiltering
+  Microsoft.AspNetCore.Hosting 
+  Microsoft.AspNetCore.Routing 
+  Microsoft.AspNetCore.Server.IISIntegration 
+  Microsoft.AspNetCore.Server.Kestrel 
+  Microsoft.AspNetCore.Server.Kestrel.Https 
+  Microsoft.Extensions.Configuration.CommandLine 
+  Microsoft.Extensions.Configuration.EnvironmentVariables 
+  Microsoft.Extensions.Configuration.FileExtensions 
+  Microsoft.Extensions.Configuration.Json
+  Microsoft.Extensions.Configuration.UserSecrets 
+  Microsoft.Extensions.Logging 
+  Microsoft.Extensions.Logging.Configuration 
+  Microsoft.Extensions.Logging.Console
+  Microsoft.Extensions.Logging.Debug 
+```
+
+When an example requires packages that are not listed here, it will be added to the project file.
+
 ## What's new in ASP.NET Core 2.1(2)
 
   *Pre-requisite*: Make sure you download .NET Core SDK [2.1.0](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300) otherwise below examples won't work.

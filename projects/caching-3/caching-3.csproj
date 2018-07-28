@@ -8,5 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.0" />
   </ItemGroup>
 </Project>
