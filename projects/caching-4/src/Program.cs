@@ -8,6 +8,7 @@ using System;
 using Microsoft.Extensions.FileProviders;
 using System.Threading;
 using Microsoft.Extensions.Primitives;
+using Microsoft.AspNetCore;
 
 namespace Caching.Four
 {
@@ -87,12 +88,12 @@ namespace Caching.Four
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseKestrel()
-              .UseStartup<Startup>()
-              .Build();
-
-            host.Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development");
     }
 }
