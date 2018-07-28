@@ -559,11 +559,11 @@ All these projects require the following dependencies
 
   These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
 
-  * [Caching - Absolute/Sliding expiration](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching)
+  * [Caching - Absolute/Sliding expiration #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching)
 
     This is the most basic caching you can use either by setting absolute or sliding expiration for your cache. Absolute expiration will remove your cache at a certain point in the future. Sliding expiration will remove your cache after period of inactivity.
 
-  * [Caching 2 - File dependency](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching-2)
+  * [Caching 2 - File dependency #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching-2)
     
     Add file dependency to your caching so when the file changes, your cache expires.
 
@@ -576,11 +576,11 @@ All these projects require the following dependencies
 
     Note: example 1 is forthcoming. The inspiration has not arrived yet.
 
-  * [Caching 3 - Cache removal event](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching-3)
+  * [Caching 3 - Cache removal event #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching-3)
 
     Register callback when a cached value is removed.
 
-  * [Caching 4 - CancellationChangeToken dependency](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching-4)
+  * [Caching 4 - CancellationChangeToken dependency #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/caching-4)
 
     Bind several cache entries to a single dependency that you can reset manually.
 
