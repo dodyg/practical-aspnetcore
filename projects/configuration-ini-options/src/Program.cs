@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore;
 
 namespace Configuration.IniOptions 
 {

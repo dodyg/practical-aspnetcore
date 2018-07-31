@@ -1,16 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>configuration-environment-variables</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>configuration-environment-variables</PackageId>
   </PropertyGroup>
-
-
-
- 
-
-
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+  </ItemGroup>
 </Project>

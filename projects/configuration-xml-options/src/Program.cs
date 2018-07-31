@@ -6,10 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System.IO;
+using Microsoft.AspNetCore;
 
 namespace Configuration.Xml.Options 
 {
-
     public class XmlOptions
     {
         public XmlOptionsWebPages WebPages { get; set; }
