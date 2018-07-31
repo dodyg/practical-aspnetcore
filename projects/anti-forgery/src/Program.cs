@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Antiforgery;
-using Microsoft.AspNetCore;
 
 namespace StartupBasic 
 {
@@ -62,13 +61,12 @@ namespace StartupBasic
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateBuildWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateBuildWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseEnvironment("Development")
-                .Build();
+                .UseEnvironment("Development");
     }
 }

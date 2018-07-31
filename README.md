@@ -220,7 +220,7 @@ When an example requires packages that are not listed here, it will be added to 
 
     Note: This method is already available since ASP.NET Core 1.0. I put it here so it is located next to the ```BinaryFormatter``` sample. 
 
-  * [Anti Forgery on Form](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/anti-forgery)
+  * [Anti Forgery on Form](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anti-forgery)
 
     This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
 
