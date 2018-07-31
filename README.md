@@ -588,29 +588,29 @@ All these projects require the following dependencies
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 
-  * [Configuration](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration)
+  * [Configuration #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration)
 
     This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
 
-  * [Configuration - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-options)
+  * [Configuration - Options #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-options)
 
     Use IOptions at the most basic.
 
-  * [Configuration - Environment variables](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-environment-variables)
+  * [Configuration - Environment variables #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-environment-variables)
 
     Load environment variables and display all of them.
 
-  * [Configuration - INI file](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-ini)
+  * [Configuration - INI file #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-ini)
 
-    Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "1.1.0"`.
+    Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "2.1.0"`.
 
-  * [Configuration - INI file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-ini-options)
+  * [Configuration - INI file - Options #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-ini-options)
 
-    Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
+    Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "2.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "2.1.0"`.
 
-  * [Configuration - XML file](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-xml)
+  * [Configuration - XML file #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-xml)
 
-    Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"`.
+    Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "2.1.0"`.
 
     **Note**: This Xml Configuration provider does not support repeated element.
 
@@ -625,9 +625,9 @@ All these projects require the following dependencies
 
     On the other hand you can get unlimited nested elements and also attributes.
 
-  * [Configuration - XML file - Options](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-xml-options)
+  * [Configuration - XML file - Options #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/configuration-xml-options)
 
-    Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "1.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "1.1.0"`.
+    Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "2.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "2.1.0"`.
 
 * **Localization and Globalization (6)**
 
