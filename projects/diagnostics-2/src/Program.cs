@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Microsoft.AspNetCore;
 
 namespace StartupBasic 
 {
@@ -11,16 +12,16 @@ namespace StartupBasic
    {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
-                .Configure(app =>
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .Configure(app => 
                 {
                     app.UseDeveloperExceptionPage(); //Don't use this in production
                     app.Run(context => throw new ApplicationException("Hello World Exception"));
                 })
-                .Build();
-
-            host.Run();
-        }
+                .UseEnvironment("Development");
     }
 }

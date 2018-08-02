@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore;
 
 namespace StartupBasic 
 {
@@ -12,9 +13,12 @@ namespace StartupBasic
    {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
-                .Configure(app =>
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .Configure(app => 
                 {
                     app.UseExceptionHandler(errorApp =>
                     {
@@ -36,9 +40,6 @@ namespace StartupBasic
                     //trigger exception
                     app.Run(context => throw new Exception("Hello World Exception"));
                 })
-                .Build();
-
-            host.Run();
-        }
+                .UseEnvironment("Development");
     }
 }

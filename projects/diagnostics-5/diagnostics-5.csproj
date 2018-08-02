@@ -1,19 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>diagnostics-5</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>diagnostics-5</PackageId>
   </PropertyGroup>
-
   <ItemGroup>
-    
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
   </ItemGroup>
-
- 
-
-
-
 </Project>
