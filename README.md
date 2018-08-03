@@ -212,13 +212,11 @@ When an example requires packages that are not listed here, it will be added to 
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
 
-  * [Session Feature with Redis using JSON Serialization](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/features-session-redis-2)
+  * [Session Feature with Redis using JSON Serialization #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-session-redis-2)
 
-    This shows how to use session with ```Redis``` store. Use this method instead of using ```BinaryFormatter```.
+    This shows how to use session with ```Redis``` store using Json instead of ```BinaryFormatter```.
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
-
-    Note: This method is already available since ASP.NET Core 1.0. I put it here so it is located next to the ```BinaryFormatter``` sample. 
 
   * [Anti Forgery on Form](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anti-forgery)
 
