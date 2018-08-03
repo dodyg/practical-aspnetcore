@@ -206,9 +206,9 @@ When an example requires packages that are not listed here, it will be added to 
       }
     ```
 
-  * [Session Feature with Redis using BinaryFormatter](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/features-session-redis)
+  * [Session Feature with Redis using BinaryFormatter #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-session-redis)
 
-    This shows how to use session with ```Redis``` store. We use ```BinaryFormatter``` which is only available at `.NET Core 2.0` to serialize and deserialize your object. *The better way is to serialize your object using Json - BinaryFormatter is SLOW*.
+    This shows how to use session with ```Redis``` store. We use ```BinaryFormatter``` which is only available at `.NET Core 2.0` or above to serialize and deserialize your object. *The better way is to serialize your object using Json - BinaryFormatter is SLOW*.
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
 
