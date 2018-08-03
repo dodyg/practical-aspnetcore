@@ -8,12 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    
+
     <PackageReference Include="CommonMark.Net" Version="0.13.4" />
   </ItemGroup>
-
- 
-
 
 
 </Project>

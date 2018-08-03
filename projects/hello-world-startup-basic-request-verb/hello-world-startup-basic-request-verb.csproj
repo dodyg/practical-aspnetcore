@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>hello-world-startup-basic-request-verb</AssemblyName>
@@ -7,10 +6,7 @@
     <PackageId>hello-world-startup-basic-request-verb</PackageId>
   </PropertyGroup>
 
-
-
- 
-
-
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+  </ItemGroup>
 </Project>

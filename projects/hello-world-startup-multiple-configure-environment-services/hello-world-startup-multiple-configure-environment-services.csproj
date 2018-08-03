@@ -1,16 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>hello-world-startup-multiple-configure-environment-services</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>hello-world-startup-multiple-configure-environment-services</PackageId>
   </PropertyGroup>
-
-
-
- 
-
-
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+  </ItemGroup>
 </Project>
