@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Features;
 using System;
+using Microsoft.AspNetCore;
 
 namespace HelloWorldWithReload 
 {

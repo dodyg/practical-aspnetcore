@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore;
 
 namespace Features.Session
 {
