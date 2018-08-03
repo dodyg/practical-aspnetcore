@@ -280,7 +280,7 @@ All these projects require the following dependencies
 
       This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
 
-    * [Hello World with multiple startups using environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple-environment)
+    * [Hello World with multiple startups using environment #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple-environment)
 
       This project highlights the fact that you can create multiple startup classes and choose them at start depending on your needs depending on your environment (You do have to name the startup class with Startup). 
 

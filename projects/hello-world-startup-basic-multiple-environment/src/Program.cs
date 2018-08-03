@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore;
 
 namespace StartupBasicMultipleEnvironment
 {
@@ -56,11 +57,12 @@ namespace StartupBasicMultipleEnvironment
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseStartup(typeof(Program).Assembly.FullName) 
-              .UseEnvironment("Development") //switch to "Production" to use StartupProduction
-              .UseKestrel();
-            host.Build().Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup(typeof(Program).Assembly.FullName)
+                .UseEnvironment("Development"); //You can change this to "Production" to use StartupProduction
     }
 }
