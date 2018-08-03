@@ -1,16 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>file-provider-physical</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>file-provider-physical</PackageId>
   </PropertyGroup>
-
-
-
- 
-
-
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
+  </ItemGroup>
 </Project>

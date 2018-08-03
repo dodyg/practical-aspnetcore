@@ -544,11 +544,11 @@ All these projects require the following dependencies
   
   We will deal with various types of file providers supported by ASP.NET Core
 
-  * [Physical File Provider - Content and Web roots](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/file-provider-physical)
+  * [Physical File Provider - Content and Web roots #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/file-provider-physical)
 
     Access the file information on your Web and Content roots. 
 
-  * [Custom File Provider](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/file-provider-custom)
+  * [Custom File Provider #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/file-provider-custom)
 
     Implement a simple and largely nonsense file provider. It is a good starting point to implement your own proper File Provider.
     
