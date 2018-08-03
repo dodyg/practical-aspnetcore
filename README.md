@@ -631,9 +631,9 @@ All these projects require the following dependencies
 
   This section is all about languages, culture, etc.
 
-  * [Localization](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization)
+  * [Localization #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization)
 
-    Shows the most basic use of localization using a resource file. This sample only supports French language (because we are fancy). It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"` and  `"Microsoft.Extensions.Localization": "1.1.0"`.
+    Shows the most basic use of localization using a resource file. This sample only supports French language (because we are fancy). It needs the following dependency `"Microsoft.AspNetCore.Localization": "2.1.0"` and  `"Microsoft.Extensions.Localization": "2.1.0"`.
 
   * [Localization - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-2)
 
