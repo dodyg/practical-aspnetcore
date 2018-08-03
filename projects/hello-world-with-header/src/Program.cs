@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Microsoft.AspNetCore;
 
 namespace StartupWithHeader 
 {

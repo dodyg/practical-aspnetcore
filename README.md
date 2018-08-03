@@ -308,7 +308,7 @@ All these projects require the following dependencies
 
     Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
 
-  * [Show Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-connection-info)
+  * [Show Connection info #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-connection-info)
 
     Enumerate the connection information of a HTTP request.
 
@@ -334,13 +334,13 @@ All these projects require the following dependencies
     
     We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
-  * [IApplicationLifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IApplicationLifetime)
+  * [IApplicationLifetime #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IApplicationLifetime)
 
     Respond to application startup and shutdown.
 
     We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
-  * [IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IHostingEnvironment)
+  * [IHostingEnvironment #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IHostingEnvironment)
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
 
@@ -348,7 +348,7 @@ All these projects require the following dependencies
 
     This sample shows how to obtain application environment information (target framework, etc).
 
-  * [Adding HTTP Response Header](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-header)
+  * [Adding HTTP Response Header #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-header)
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
@@ -357,34 +357,32 @@ All these projects require the following dependencies
   This section shows all the different ways you capture input and examine request to your web application.
 
   * **HTTP Verb (1)**
-    * [Get request verb](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-verb)
+    * [Get request verb #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-verb)
       
       Detect the verb/method of the current request. 
 
   * **Headers (2)**
-    * [Access Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers)
+    * [Access Request Headers #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers)
       
       Enumerate all the available headers in a request.
 
-    * [Type Safe Access to Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers-typed)
+    * [Type Safe Access to Request Headers #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-headers-typed)
       
       Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
   * **Query String (1)**
-    * [Single value query string](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string)
+    * [Single value query string #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string)
 
       Access single value query string.
 
-    * [Multiple values query string](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string-2)
+    * [Multiple values query string #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string-2)
 
       Access multiples values query string.
 
-    * [List all query string values](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string-3)
+    * [List all query string values #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-request-query-string-3)
 
       List all query string values. Also shows the implicat conversion from ```StringValues``` to ```string```.
 
-      
-  
 
   * **Form (2)**
     
@@ -400,11 +398,11 @@ All these projects require the following dependencies
 
   * **Cookies (2)**
           
-      * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-cookies)
+      * [Cookies #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-cookies)
 
         Read and write cookies.
 
-      * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-cookies-2)
+      * [Removing cookies #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-cookies-2)
 
         Simply demonstrates on how to remove cookies.
 
