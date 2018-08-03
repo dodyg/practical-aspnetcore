@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore;
+using Microsoft.Net.Http.Headers;
+using Microsoft.Extensions.Primitives;
 
 namespace CompressionResponse 
 {

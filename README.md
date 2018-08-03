@@ -691,9 +691,9 @@ All these projects require the following dependencies
 
 * **Compression (1)**
 
-  Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "1.0.1```.
+  Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "2.1.0```.
 
-  * [Default Gzip Output Compression](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/compression-response) 
+  * [Default Gzip Output Compression #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/compression-response) 
    
     Compress everything using the default Gzip compression.
 
