@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>localization-3</AssemblyName>
@@ -7,16 +6,9 @@
     <PackageId>localization-3</PackageId>
   </PropertyGroup>
 
-
-
   <ItemGroup>
-    
-    <PackageReference Include="Microsoft.AspNetCore.Localization" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="1.1.1" />
-  
-    
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="2.1.0" />
   </ItemGroup>
-
-
-
 </Project>

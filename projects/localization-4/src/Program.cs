@@ -8,6 +8,7 @@ using Microsoft.Extensions.Localization;
 using System.Collections.Generic;
 using System.Globalization;
 using System;
+using Microsoft.AspNetCore;
 
 namespace Local
 {
@@ -26,7 +27,7 @@ namespace Local
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IStringLocalizerFactory stringLocalizerFactory)
         {
-            var local = stringLocalizerFactory.Create("Common", null);
+            var local = stringLocalizerFactory.Create("Common", typeof(Program).Assembly.FullName);
 
             //This section is important otherwise aspnet won't be able to pick up the resource
             var supportedCultures = new List<CultureInfo>

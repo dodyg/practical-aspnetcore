@@ -635,15 +635,15 @@ All these projects require the following dependencies
 
     Shows the most basic use of localization using a resource file. This sample only supports French language (because we are fancy). It needs the following dependency `"Microsoft.AspNetCore.Localization": "2.1.0"` and  `"Microsoft.Extensions.Localization": "2.1.0"`.
 
-  * [Localization - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-2)
+  * [Localization - 2 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-2)
 
     We build upon the previous sample and demonstrate how to switch request culture via query string using the built in `QueryStringRequestCultureProvider`. This sample supports English and French.
 
-  * [Localization - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-3)
+  * [Localization - 3 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-3)
 
     Demonstrate the difference between `Culture` and `UI Culture`.
 
-  * [Localization - 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-4)
+  * [Localization - 4 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/localization-4)
 
     Demonstrate how to switch request culture via cookie using the built in `CookieRequestCultureProvider`. This sample supports English and French.
 
