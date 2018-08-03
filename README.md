@@ -659,31 +659,31 @@ All these projects require the following dependencies
   
   This section explore the dark arts of URL Rewriting
 
-  * [Rewrite](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite)
+  * [Rewrite #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite)
     
     Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. These two dependencies apply to the rest of the samples in this category.
     
     If you have used routing yet, I recommend of checking out the routing examples.
 
-  * [Rewrite - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-2)
+  * [Rewrite - 2 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-2)
     
     **Redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
 
-  * [Rewrite - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-3)
+  * [Rewrite - 3 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-3)
 
     **Rewrite** anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
     
-  * [Rewrite - 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-4)
+  * [Rewrite - 4 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-4)
     
     **Permanent Redirect** (returns [HTTP 301](https://en.wikipedia.org/wiki/HTTP_301)) anything with an extension e.g. about-us.html or welcome.aspx to home page (/). It also shows how to capture the matched regex values.
 
-  * [Rewrite - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-5)
+  * [Rewrite - 5 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-5)
   
     Implement a custom redirect logic based on `IRule` implementation. Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
 
-  * [Rewrite - 6](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-6)
+  * [Rewrite - 6 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite-6)
   
     Implement a custom redirect logic using lambda (similar functionality to Rewrite - 5). Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
 

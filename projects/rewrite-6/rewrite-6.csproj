@@ -8,18 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    
-    <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="1.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.0" />
   </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
-    
-  
-    
-  </ItemGroup>
-
-
-
 </Project>
