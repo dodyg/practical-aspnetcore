@@ -276,7 +276,7 @@ All these projects require the following dependencies
 
       Configure so that your web app responds to multiple urls.
 
-    * [Hello World with multiple startups](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple)
+    * [Hello World with multiple startups #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple)
 
       This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
 
