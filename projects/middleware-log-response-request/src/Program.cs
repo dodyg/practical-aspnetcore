@@ -34,6 +34,11 @@ namespace MiddleWareLogRequestResponse
 
                 await _next(context);
 
+                // To avoid logging twice via Chrome
+                // https://github.com/aspnet/HttpAbstractions/issues/743
+                if (context.Request.Path == "/favicon.ico")
+                    return;
+
                 string responseBodyAsString = await FormatResponse(context.Response);
 
                 WriteToFile(responseBodyAsString);
@@ -59,13 +64,15 @@ namespace MiddleWareLogRequestResponse
 
         private void WriteToFile(string responseBodyAsText)
         {
-            string dt = DateTime.Now.ToString("hh_mm_ss");
+            string dt = DateTime.Now.ToString("hh_mm");
             string path = Path.Combine(_env.ContentRootPath, $"Logs/{dt}");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            string filePath = Path.Combine(_env.ContentRootPath, $"Logs/{dt}/{dt}.txt");
+
+            var ms = DateTime.Now.Millisecond; 
+            string filePath = Path.Combine(_env.ContentRootPath, $"Logs/{dt}/{ms}.txt");
             using (FileStream fs = File.Create(filePath))
             {
                 AddText(fs, responseBodyAsText);
@@ -95,7 +102,6 @@ namespace MiddleWareLogRequestResponse
                 context.Response.Headers.Add("content-type", "text/html");
                 await context.Response.WriteAsync(@"
 <html>
-
     <body>
         Hello World
     </body>
