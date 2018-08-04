@@ -284,7 +284,7 @@ All these projects require the following dependencies
 
       This project highlights the fact that you can create multiple startup classes and choose them at start depending on your needs depending on your environment (You do have to name the startup class with Startup). 
 
-    * [Hello World with multiple Configure methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-multiple-configure-environment)
+    * [Hello World with multiple Configure methods based on environment #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-multiple-configure-environment)
 
       This project demonstrates the ability to pick `Configure` method in a single Startup class based on environment.
 
