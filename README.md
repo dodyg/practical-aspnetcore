@@ -272,7 +272,7 @@ All these projects require the following dependencies
 
       You don't have to call your startup class `Startup`. Any valid C# class will do.
 
-    * [Hello World with responding to multiple urls](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple-urls)
+    * [Hello World with responding to multiple urls #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-basic-multiple-urls)
 
       Configure so that your web app responds to multiple urls.
 
