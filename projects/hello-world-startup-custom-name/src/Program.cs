@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore;
 
 namespace StartupBasic 
 {
@@ -10,18 +11,14 @@ namespace StartupBasic
     {
         public HailOurNewAlienOverlord(IHostingEnvironment env, ILoggerFactory logger)
         {
-            //These are two services available at constructor
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
-            //These are the three default services available at Configure
-            
             app.Run(context =>
             {
                 return context.Response.WriteAsync("Hail our new alien overlord");
@@ -29,16 +26,16 @@ namespace StartupBasic
         }
     }
     
-   public class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseStartup<HailOurNewAlienOverlord>()
-                .Build();
-
-            host.Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<HailOurNewAlienOverlord>()
+                .UseEnvironment("Development");
     }
 }

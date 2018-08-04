@@ -268,7 +268,7 @@ All these projects require the following dependencies
 
       This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
 
-    * [Hello World with custom startup class name](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-custom-name)
+    * [Hello World with custom startup class name #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-custom-name)
 
       You don't have to call your startup class `Startup`. Any valid C# class will do.
 
