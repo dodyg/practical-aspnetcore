@@ -11,6 +11,7 @@ using System;
 
 namespace MiddleWareLogRequestResponse
 {
+    // Code for this middleware is from here https://www.reddit.com/r/dotnet/comments/94jt95/core_21_httpcontextresponsebody_is_empty_when/
     public class LogMiddleware
     {
         RequestDelegate _next;
@@ -33,7 +34,6 @@ namespace MiddleWareLogRequestResponse
 
                 await _next(context);
 
-                //responseBodyAsString is ALWAYS empty/""
                 string responseBodyAsString = await FormatResponse(context.Response);
 
                 WriteToFile(responseBodyAsString);
@@ -73,7 +73,6 @@ namespace MiddleWareLogRequestResponse
         }
     }
 
-    // https://github.com/aspnet/Announcements/issues/237
     public class Startup
     {
         public Startup(IHostingEnvironment env, ILoggerFactory logger)
