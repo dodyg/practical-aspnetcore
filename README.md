@@ -288,11 +288,11 @@ All these projects require the following dependencies
 
       This project demonstrates the ability to pick `Configure` method in a single Startup class based on environment.
 
-    * [Hello World with multiple ConfigureServices methods based on environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-multiple-configure-environment-services)
+    * [Hello World with multiple ConfigureServices methods based on environment #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-multiple-configure-environment-services)
 
       This project demonstrates the ability to pick `ConfigureServices` method in a single Startup class based on environment.
 
-    * [Hello World with an implementation of IStartup interface](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartup)
+    * [Hello World with an implementation of IStartup interface #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartup)
 
       We are really getting into the weed of startup right now. This is an example on how to implement `IStartup` directly. 
 
@@ -300,7 +300,7 @@ All these projects require the following dependencies
 
       Why? just because we can.
 
-    * [Hello world with IStartupFilter](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartupfilter)
+    * [Hello world with IStartupFilter #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-istartupfilter)
 
       Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
 

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 
 namespace StartupBasic 
 {
@@ -44,7 +45,7 @@ namespace StartupBasic
 
         public async Task Invoke(HttpContext context)
         {
-            context.Items["Greetings"] = "Hello world";
+            context.Items["Greetings"] = "Hello world from GreetingMiddleware";
             await _next(context);
         }
     }
