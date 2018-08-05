@@ -386,7 +386,7 @@ All these projects require the following dependencies
 
   * **Form (2)**
     
-    We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
+    We take dependency on ```"Microsoft.AspNetCore.Routing" : "2.1.0-*"``` to enable routing facilities to make the form handling easier.
 
     * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/form-values) 
       
@@ -518,11 +518,11 @@ All these projects require the following dependencies
 
   * [Request Culture Feature #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-request-culture)
 
-    Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "1.1.0"`.
+    Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "2.1.0"`.
 
   * [Session Feature #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-session)
 
-    Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "1.1.0-*"`.
+    Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "2.1.0-*"`.
 
 * **Dependency Injection (2)**
 
@@ -659,7 +659,7 @@ All these projects require the following dependencies
 
   * [Rewrite #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/rewrite)
     
-    Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". It requires `"Microsoft.AspNetCore.Rewrite" : "1.0.0-*"` and `"Microsoft.AspNetCore.Routing" : "1.1.0-*"` dependencies. These two dependencies apply to the rest of the samples in this category.
+    Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". It requires an additional `"Microsoft.AspNetCore.Rewrite" : "2.1.0-*"` dependency. 
     
     If you have used routing yet, I recommend of checking out the routing examples.
 
