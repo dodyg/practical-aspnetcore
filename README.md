@@ -232,11 +232,11 @@ When an example requires packages that are not listed here, it will be added to 
 
     This sample also shows you how to us `Entity Framework Core` In-Memory Database.
 
-  * [UseRouter extension #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router)
+  * [UseRouter extension #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/use-router)
 
     Use ```app.UseRouter()``` extension to create minimalistic HTTP services similar to Nancy.
 
-  * [UseRouter extension 2 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router-2)
+  * [UseRouter extension 2 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/use-router-2)
 
     Use ```app.UseRouter()``` with alternative lambda signature.
 
@@ -807,11 +807,11 @@ All these projects require the following dependencies
 
   We are using the brand new ```Microsoft.SyndicationFeed.ReaderWriter``` package to read RSS and ATOM feeds.
 
-  * [Syndication - Read RSS](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/syndication)
+  * [Syndication - Read RSS #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/syndication)
 
     This is the shortest amount of code to read an RSS feed. This example read the feed from the inventor of RSS, Dave Winer at http://scripting.com/rss.xml. 
   
-  * [Syndication - Read RSS with extensions](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/syndication-2)
+  * [Syndication - Read RSS with extensions #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/syndication-2)
 
     This sample process RSS Outline Extension. 
 
