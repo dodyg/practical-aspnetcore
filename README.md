@@ -232,11 +232,11 @@ When an example requires packages that are not listed here, it will be added to 
 
     This sample also shows you how to us `Entity Framework Core` In-Memory Database.
 
-  * [UseRouter extension](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router)
+  * [UseRouter extension #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router)
 
     Use ```app.UseRouter()``` extension to create minimalistic HTTP services similar to Nancy.
 
-  * [UseRouter extension 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router-2)
+  * [UseRouter extension 2 #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/use-router-2)
 
     Use ```app.UseRouter()``` with alternative lambda signature.
 
