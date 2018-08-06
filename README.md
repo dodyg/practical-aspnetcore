@@ -87,7 +87,7 @@ When an example requires packages that are not listed here, it will be added to 
       }
   ```
 
-  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
+  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-app-package)
 
     If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
@@ -95,11 +95,11 @@ When an example requires packages that are not listed here, it will be added to 
 
     `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
 
-  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
+  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/httpclientfactory)
 
     Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
 
-  * [Supress Status Messages](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/suppress-status-messages)
+  * [Supress Status Messages](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/suppress-status-messages)
 
     You can hide status messages when you start up your web application. It's a small useful thing.
 
@@ -892,7 +892,7 @@ All these projects require the following dependencies
 
   All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
 
-  * [Image-Sharp](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/image-sharp)
+  * [Image-Sharp](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/image-sharp)
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
