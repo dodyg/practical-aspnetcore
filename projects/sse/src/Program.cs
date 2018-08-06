@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.AspNetCore;
 
 namespace StartupBasic
 {
@@ -104,12 +105,12 @@ namespace StartupBasic
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseKestrel()
-              .UseStartup<Startup>()
-              .Build();
-
-            host.Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development");
     }
 }

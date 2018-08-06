@@ -799,7 +799,7 @@ All these projects require the following dependencies
 
 * **Server Side Events (1)**
 
-  * [Forever Server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/sse)
+  * [Forever Server #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/sse)
 
     This server will send a 'hello world' greeting forever.
 
