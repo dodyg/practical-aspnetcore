@@ -112,7 +112,7 @@ When an example requires packages that are not listed here, it will be added to 
   The samples use SDK `2.1.4`.
 
 
-  * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
+  * [Hello World with Microsoft.AspNetCore.All package #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
 
       If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
@@ -170,11 +170,11 @@ When an example requires packages that are not listed here, it will be added to 
       }
       ```
 
-  * [A new way of configuring logging](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging)
+  * [A new way of configuring logging #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/logging)
 
     Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
 
-  * [Logging filtering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/logging-with-filter)
+  * [Logging filtering #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/logging-with-filter)
 
     Now you can adjust what kind of logging information from various part of ASP.NET Core and your app you want show/stored.
 
