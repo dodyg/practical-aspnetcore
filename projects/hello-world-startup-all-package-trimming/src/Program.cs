@@ -25,7 +25,16 @@ namespace StartupBasic
             //These are the four default services available at Configure
             app.Run(context =>
             {
-                return context.Response.WriteAsync("Hello world");
+                context.Response.Headers.Add("Content-Type", "text/html");
+                return context.Response.WriteAsync($@"
+                <html>
+                <body>
+                For the build command, use <blockquote>dotnet build /p:TrimUnusedDependencies=true</blockquote> For further options,
+                open <a href=""https://github.com/dotnet/standard/blob/master/Microsoft.Packaging.Tools.Trimming/docs/trimming.md"">this</a>
+                for the command line for trimming. 
+                </body>
+                </html>
+                ");
             });
         }
     }
