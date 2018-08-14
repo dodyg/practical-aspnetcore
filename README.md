@@ -87,7 +87,7 @@ When an example requires packages that are not listed here, it will be added to 
       }
   ```
 
-  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-app-package)
+  * [Hello World with Microsoft.AspNetCore.App package #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-app-package)
 
     If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
