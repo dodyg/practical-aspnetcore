@@ -240,7 +240,7 @@ When an example requires packages that are not listed here, it will be added to 
 
     Use ```app.UseRouter()``` with alternative lambda signature.
 
-  * [IHostedService](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/ihosted-service)
+  * [IHostedService #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/ihosted-service)
 
     Implement background tasks using the new `IHostedService` interface.
 

@@ -7,12 +7,11 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
-using Microsoft.Extensions.Hosting;
 using System;
 
 namespace StartupBasic
 {
-    public abstract class HostedService : IHostedService, IDisposable
+    public abstract class HostedService : Microsoft.Extensions.Hosting.IHostedService, IDisposable
     {
         //from https://blogs.msdn.microsoft.com/cesardelatorre/2017/11/18/implementing-background-tasks-in-microservices-with-ihostedservice-and-the-backgroundservice-class-net-core-2-x/
         
@@ -85,7 +84,7 @@ namespace StartupBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<Greeter>();
-            services.AddSingleton<IHostedService, GreeterUpdaterService>();
+            services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, GreeterUpdaterService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
