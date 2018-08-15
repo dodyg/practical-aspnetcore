@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore;
 
 namespace HelloWorldWithReload 
 {
@@ -10,7 +11,7 @@ namespace HelloWorldWithReload
         {
             app.Run(context =>
             {
-                return context.Response.WriteAsync("Hello world");
+                return context.Response.WriteAsync("Hello world. Make sure you run this app using 'dotnet watch run'.");
             });
         }
     }

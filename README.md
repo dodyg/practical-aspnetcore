@@ -257,7 +257,7 @@ All these projects require the following dependencies
 
 * **Hello World (21)**
 
-  * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-reload)
+  * [Hello World with reload #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-reload)
 
     Setup your most basic web app and enable the change+refresh development experience. 
     
