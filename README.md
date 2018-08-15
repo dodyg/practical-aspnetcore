@@ -328,7 +328,7 @@ All these projects require the following dependencies
 
     Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
 
-  * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-middleware)
+  * [Hello World with middlewares #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-middleware)
 
     ASPNetCore is built on top of pipelines of functions called middleware. 
     
