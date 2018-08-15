@@ -385,10 +385,8 @@ All these projects require the following dependencies
 
 
   * **Form (2)**
-    
-    We take dependency on ```"Microsoft.AspNetCore.Routing" : "2.1.0-*"``` to enable routing facilities to make the form handling easier.
 
-    * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/form-values) 
+    * [Form Values #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/form-values) 
       
       Handles the values submitted via a form.
 
@@ -428,12 +426,12 @@ All these projects require the following dependencies
     We are mixing optional route parameter, route parameter with default value and default handler.
 
   * [Router 5]
-    
+
     This is still broken. I am trying to figure out how to do nested routing. Wish me luck!
   
   * [Router 6 - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/routing-6)
 
-    We are building a template route segment by segment and parts by parts, oldskool. We are using ```TemplateMatcher```, ```TemplateSegment``` and ```TemplatePart```. 
+    We are building a template route segment by segment and parts by parts, oldskool. We are using ```TemplateMatcher```, ```TemplateSegment``` and ```TemplatePart```.
 
     Hold your mask, we are going deep.
   
