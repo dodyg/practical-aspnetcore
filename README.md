@@ -112,7 +112,7 @@ When an example requires packages that are not listed here, it will be added to 
   The samples use SDK `2.1.4`.
 
 
-  * [Hello World with Microsoft.AspNetCore.All package #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
+  * [Hello World with Microsoft.AspNetCore.All package #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-all-package)
 
       If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
@@ -240,7 +240,7 @@ When an example requires packages that are not listed here, it will be added to 
 
     Use ```app.UseRouter()``` with alternative lambda signature.
 
-  * [IHostedService #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/ihosted-service)
+  * [IHostedService #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/ihosted-service)
 
     Implement background tasks using the new `IHostedService` interface.
 
@@ -882,7 +882,7 @@ All these projects require the following dependencies
 
   All these samples require ```Microsoft.AspNetCore.Owin``` package. These are low level samples and in most cases are not relevant to your day to day ASP.NET Core development.
 
-  * [Owin](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/owin)
+  * [Owin #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/owin)
 
     Hello world the hard way.
 
