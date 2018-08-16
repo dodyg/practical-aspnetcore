@@ -18,7 +18,7 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDetection()
+            services.AddDetectionCore()
                 .AddDevice(); 
         }
 

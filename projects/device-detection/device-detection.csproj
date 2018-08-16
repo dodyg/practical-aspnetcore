@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Wangkanai.Detection.Device" Version="2.0.0-beta5-fix" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Wangkanai.Detection.Device" Version="2.0.0-beta8" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
   </ItemGroup>
 

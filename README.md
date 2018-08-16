@@ -873,7 +873,7 @@ All these projects require the following dependencies
   
   The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
 
-  * [Device Detection](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/device-detection)
+  * [Device Detection #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/device-detection)
 
     This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
