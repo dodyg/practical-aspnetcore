@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.IO;
-using CommonMark;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 
 namespace MarkdownServerWithMiddleware
 {
@@ -86,7 +86,7 @@ namespace MarkdownServerWithMiddleware
         {
             var md = File.ReadAllText(path);
 
-            var res = CommonMark.CommonMarkConverter.Convert(md);
+            var res = Markdig.Markdown.ToHtml(md);
             return res;
         }
     }
@@ -95,12 +95,12 @@ namespace MarkdownServerWithMiddleware
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseKestrel()
-              .UseStartup<Startup>()
-              .Build();
-
-            host.Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseEnvironment("Development");
     }
 }

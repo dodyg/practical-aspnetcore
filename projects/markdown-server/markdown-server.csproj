@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-
-    <PackageReference Include="CommonMark.Net" Version="0.13.4" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Markdig" Version="0.15.1" />
   </ItemGroup>
 
 

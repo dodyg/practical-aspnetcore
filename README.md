@@ -10,7 +10,7 @@ There are dedicated samples for ASP.NET Core MVC 2.1 [here (8 samples)](/project
 
 ## Welcome
 
-The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
+The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
@@ -812,17 +812,17 @@ All these projects require the following dependencies
 
 * **Misc (3)**
 
-  * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server)
+  * [Markdown server #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server)
 
     Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
-    We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
+    We take ```"Markdig" : "0.15.1"``` as dependency. 
     
-  * [Markdown server - implemented as middleware component](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server-middleware)
+  * [Markdown server - implemented as middleware component #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server-middleware)
 
     Serve markdown file as html file. It has the same exact functionality as [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/markdown-server) but implemented using middleware component.
 
-    We take ```"CommonMark.Net" : "0.13.4"``` as dependency. 
+    We take ```"Markdig" : "0.15.1"``` as dependency. 
 
     [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
 
