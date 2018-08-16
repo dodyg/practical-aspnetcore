@@ -95,11 +95,11 @@ When an example requires packages that are not listed here, it will be added to 
 
     `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
 
-  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/httpclientfactory)
+  * [HttpClientFactory #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/httpclientfactory)
 
     Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
 
-  * [Supress Status Messages](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/suppress-status-messages)
+  * [Supress Status Messages #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/suppress-status-messages)
 
     You can hide status messages when you start up your web application. It's a small useful thing.
 
@@ -218,7 +218,7 @@ When an example requires packages that are not listed here, it will be added to 
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
 
-  * [Anti Forgery on Form](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anti-forgery)
+  * [Anti Forgery on Form #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anti-forgery)
 
     This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
 
@@ -260,7 +260,7 @@ All these projects require the following dependencies
   * [Hello World with reload #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-reload)
 
     Setup your most basic web app and enable the change+refresh development experience. 
-    
+
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
   * Startup class
@@ -304,7 +304,7 @@ All these projects require the following dependencies
 
       Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
 
-  * [Show errors during startup](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-capture-errors)
+  * [Show errors during startup #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-startup-capture-errors)
 
     Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
 

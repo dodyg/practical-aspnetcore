@@ -57,7 +57,7 @@ namespace StartupBasic
         }
     }
     
-   public class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
