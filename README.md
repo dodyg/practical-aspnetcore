@@ -178,7 +178,7 @@ When an example requires packages that are not listed here, it will be added to 
 
     Now you can adjust what kind of logging information from various part of ASP.NET Core and your app you want show/stored.
 
-  * [IConfiguration is now core](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/configuration)
+  * [IConfiguration is now core #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/iconfiguration)
 
     ASP.NET Core 1.1
 
