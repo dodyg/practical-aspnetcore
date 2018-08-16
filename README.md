@@ -1,11 +1,8 @@
-# 138 samples for aspnetcore fundamentals (updated daily)
+# 138 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 ## Note
 
-This branch will be `ASP.NET Core 2.1` only. If you want to see samples from the previous version of ASP.NET Core, check the `master` branch.
-
 If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
-
 
 ### MVC, SignalR and Blazor
 
