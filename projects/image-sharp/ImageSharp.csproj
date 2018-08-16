@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
     <!--
     Temporarily add an explicit ImageSharp reference until the next ImageSharp.Web release is finalised
     due to API changes within System.Memory API between beta and RC
