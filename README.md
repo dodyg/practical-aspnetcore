@@ -890,7 +890,7 @@ All these projects require the following dependencies
 
   All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
 
-  * [Image-Sharp](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/image-sharp)
+  * [Image-Sharp #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/image-sharp)
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
