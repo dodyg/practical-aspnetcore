@@ -858,14 +858,14 @@ All these projects require the following dependencies
     The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
 
 
-  * [Keeping track of anonymous users](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/anonymous-id)
+  * [Keeping track of anonymous users](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anonymous-id)
 
     Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
 
 * **Middleware (1)**
   
-  * [Response Buffering #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
+  * [Response Buffering #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/response-buffering)
 
     Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
 
@@ -873,7 +873,7 @@ All these projects require the following dependencies
   
   The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
 
-  * [Device Detection #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/device-detection)
+  * [Device Detection #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/device-detection)
 
     This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
