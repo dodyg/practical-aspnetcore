@@ -826,11 +826,11 @@ All these projects require the following dependencies
 
     [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
 
-  * [Password Hasher server](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/password-hasher)
+  * [Password Hasher server #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/password-hasher)
 
     Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
-    We add dependency ```"Microsoft.AspNetCore.Identity": "1.1.0-*"``` to enable this functionality.
+    We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
 
 
 ## ASP.NET Core 2.0/2.1 Samples
@@ -855,7 +855,7 @@ All these projects require the following dependencies
     The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
 
 
-  * [Keeping track of anonymous users](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anonymous-id)
+  * [Keeping track of anonymous users #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/anonymous-id)
 
     Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
