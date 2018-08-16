@@ -222,11 +222,11 @@ When an example requires packages that are not listed here, it will be added to 
 
     This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
 
-  * [Razor Pages Basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/mvc/razor-pages-basic)
+  * [Razor Pages Basic #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/mvc/razor-pages-basic)
 
     This is the simplest example of the brand new `Razor Pages`. It shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind.
 
-  * [Razor Pages and MVC Basic](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/razor-pages-mvc)
+  * [Razor Pages and MVC Basic #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/mvc/razor-pages-mvc)
 
     Compare and contrast on how the same task can be performed by using `Razor Pages` and `MVC`.
 
