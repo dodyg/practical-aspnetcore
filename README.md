@@ -865,7 +865,7 @@ All these projects require the following dependencies
 
 * **Middleware (1)**
   
-  * [Response Buffering](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
+  * [Response Buffering #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/response-buffering)
 
     Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
 
