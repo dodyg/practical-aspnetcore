@@ -848,7 +848,7 @@ All these projects require the following dependencies
 
   This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
 
-  * [Modular Hello World](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/orchardcore-module)
+  * [Modular Hello World #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/orchardcore-module)
 
     Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
 

@@ -17,7 +17,7 @@ namespace Modules.HelloWorld
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("hello world");
+                await context.Response.WriteAsync("hello world from module 1");
             });
         }
     }

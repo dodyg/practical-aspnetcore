@@ -16,12 +16,12 @@ namespace Module
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddModules();
+            services.AddOrchardCore();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseModules();
+            app.UseOrchardCore();
         }
     }
     
