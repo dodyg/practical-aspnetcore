@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
 
 namespace HelloWorldWithLogging
 {
@@ -23,27 +24,16 @@ namespace HelloWorldWithLogging
     {
         public static void Main(string[] args)
         {
-            //filter what level of logging you want to see
-            var loggerFactory = new LoggerFactory().AddConsole((str, level) =>
-            {
-                return level >= LogLevel.Trace;
-            });
-
-            var log = loggerFactory.CreateLogger<Program>();
-
-            log.LogTrace("Before building host");
-
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseLoggerFactory(loggerFactory)
-                .UseStartup<Startup>()
-                .Build();
-
-            log.LogTrace("After building host");
-
-            host.Run();
-
-            log.LogInformation("Host is shut down");
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(builder =>
+                {
+                    builder.SetMinimumLevel(LogLevel.Trace);
+                    builder.AddConsole();
+                })
+                .UseStartup<Startup>();
     }
 }

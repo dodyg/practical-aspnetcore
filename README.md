@@ -313,7 +313,7 @@ All these projects require the following dependencies
 
     Set your application environment to `Development` or `Production` or other mode directly from code. 
 
-  * [Console logging](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging)
+  * [Console logging - #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging)
 
     Setup a basic logging in your app and show it to console.
 
@@ -321,7 +321,7 @@ All these projects require the following dependencies
 
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  * [Console logging - without framework log messages](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging-filtered)
+  * [Console logging - without framework log  #2.1#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging-filtered)
 
     Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
 

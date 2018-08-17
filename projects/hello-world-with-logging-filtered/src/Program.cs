@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
 
-namespace HelloWorldWithLogging 
+namespace HelloWorldWithLogging
 {
     public class Startup
     {
@@ -11,20 +12,17 @@ namespace HelloWorldWithLogging
         {
             //filter what level of logging you want to see
             //filter out framework logging
-            loggerFactory.AddConsole((str, level) => {
-                    return !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace;
-            });
-
             var log = loggerFactory.CreateLogger("Startup");
             app.Run(context =>
             {
-                log.LogTrace($"Request {context.Request.Path}");
+                log.LogTrace($"Request Path {context.Request.Path}");
                 log.LogDebug($"Debug info {context.Request.Path}");
                 return context.Response.WriteAsync($"Hello world at {context.Request.Path}");
             });
         }
     }
-    
+
+
     public class Program
     {
         public static void Main(string[] args)
@@ -34,7 +32,15 @@ namespace HelloWorldWithLogging
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+                .ConfigureLogging(builder =>
+                {
+                    builder.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft.AspNetCore") && logLevel >= LogLevel.Trace;
+                    });
+
+                    builder.SetMinimumLevel(LogLevel.Trace);
+                })
+                .UseStartup<Startup>();
     }
 }
