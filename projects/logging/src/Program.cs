@@ -27,27 +27,25 @@ namespace StartupBasic
             app.Run(context =>
             {
                 log.LogWarning("This is a test log");
-                return context.Response.WriteAsync("Hello world");
+                return context.Response.WriteAsync("Hello world. Take a look at your terminal to see the logging messages.");
             });
         }
     }
     
-   public class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
                 .ConfigureLogging(builder =>
                 {
                     builder.SetMinimumLevel(LogLevel.Warning);
                     builder.AddConsole();
                 })
-                .UseEnvironment("Development")
-                .Build();
+                .UseStartup<Startup>();
     }
 }
