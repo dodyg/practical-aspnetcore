@@ -1,18 +1,16 @@
-# 138 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 139 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
-## Note
-
-If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
-
-### MVC, SignalR and Blazor
-
-There are dedicated samples for ASP.NET Core MVC 2.1 [here (8 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
+If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
+
+### MVC, SignalR and Blazor
+
+There are dedicated samples for ASP.NET Core MVC 2.1 [here (8 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 
@@ -825,8 +823,14 @@ All these projects require the following dependencies
 
     We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
 
+* **Web Utilities(1)**
 
-## ASP.NET Core 2.0/2.1 Samples
+  This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
+
+  * [Query Helpers](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-utilities-query-helpers)
+
+    This utility helps you generate query string for your url safely (ht [Rehan Saeed](https://rehansaeed.com/asp-net-core-hidden-gem-queryhelpers/)).
+    
 
 * **Trimming (1)**
   
