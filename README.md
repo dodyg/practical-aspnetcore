@@ -1,4 +1,4 @@
-# 139 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 140 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -823,13 +823,17 @@ All these projects require the following dependencies
 
     We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
 
-* **Web Utilities(1)**
+* **Web Utilities(2)**
 
   This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
 
   * [Query Helpers](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-utilities-query-helpers)
 
     This utility helps you generate query string for your url safely (ht [Rehan Saeed](https://rehansaeed.com/asp-net-core-hidden-gem-queryhelpers/)).
+
+  * [Reason Phrases](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/web-utilities-reason-phrases)
+
+    This utility returns HTTP reasonse phrases given a status code number.
     
 
 * **Trimming (1)**
