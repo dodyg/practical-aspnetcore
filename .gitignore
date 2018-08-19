@@ -9,3 +9,5 @@ project.lock.json
 *.cache
 *.docstates
 
+.vs/
+Properties/
