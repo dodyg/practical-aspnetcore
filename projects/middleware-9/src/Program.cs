@@ -12,11 +12,17 @@ namespace HelloWorldWithMiddleware
         public string Greet() => "Good morning";
     }
 
+    public class Goodbye
+    {
+        public string Say() => "Goodbye";
+    }
+
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<Greeting>();
+            services.AddSingleton<Goodbye>();
         }
         
         public void Configure(IApplicationBuilder app)
@@ -34,9 +40,9 @@ namespace HelloWorldWithMiddleware
             _greet = greet;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, Goodbye goodbye)
         {
-            await context.Response.WriteAsync($"{_greet.Greet()}");
+            await context.Response.WriteAsync($"{_greet.Greet()} {goodbye.Say()}");
         }
     }
 
