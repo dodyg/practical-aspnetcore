@@ -41,7 +41,7 @@ When an example requires packages that are not listed here, it will be added to 
 
 ## What's new in ASP.NET Core 2.1(2)
 
-  *Pre-requisite*: Make sure you download .NET Core SDK [2.1.0](https://www.microsoft.com/net/download/dotnet-core/2.1#sdk-2.1.400) otherwise below examples won't work.
+  *Pre-requisite*: Make sure you download .NET Core SDK [2.1.2](https://www.microsoft.com/net/download/dotnet-core/2.1#sdk-2.1.400) otherwise below examples won't work.
 
   **New code based idiom to start your host for ASP.NET Core 2.1**
 
