@@ -1,4 +1,4 @@
-# 140 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 141 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -241,7 +241,7 @@ All these projects require the following dependencies
 ```
 
 
-* **Hello World (21)**
+* **Hello World (22)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-reload)
 
@@ -328,7 +328,11 @@ All these projects require the following dependencies
 
   * [IHostingEnvironment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IHostingEnvironment)
 
-    `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface.  
+    `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface. 
+
+  * [IHostingEnvironment at ConfigureServices](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-IHostingEnvironment-Configure-Services)
+
+    This sample shows how to access `IHostingEnvironment` from `ConfigureServices`. 
 
   * [Application Environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-application-environment)
 
