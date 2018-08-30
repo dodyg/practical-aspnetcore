@@ -1,4 +1,4 @@
-# 141 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 142 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
