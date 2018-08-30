@@ -1,4 +1,4 @@
-# MVC (8)
+# MVC (9)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -61,3 +61,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Tag Helper - Alert Tag Helper With Style](/projects/mvc/tag-helper-3)
 
     Convert a message to become an alert message with 4 style of alerts (bootstrap 4).
+
+  * [Tag Helper - Alert Tag Helper with other enclosed Tag Helpers](/projects/mvc/tag-helper-3)
+
+    Demonstrate the usage of other tag helpers within the enclosure of an Alert Tag Helper.

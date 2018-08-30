@@ -10,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 ### MVC, SignalR and Blazor
 
-There are dedicated samples for ASP.NET Core MVC 2.1 [here (8 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
+There are dedicated samples for ASP.NET Core MVC 2.1 [here (9 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 
