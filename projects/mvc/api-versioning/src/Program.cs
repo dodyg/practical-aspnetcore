@@ -19,23 +19,23 @@ namespace StartupBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-                
-            services.AddApiVersioning( o => o.ReportApiVersions = true );
+
+            services.AddApiVersioning(o => o.ReportApiVersions = true);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 
-    [ApiVersion( "1.0" )]
-    [Route( "api/v{version:apiVersion}/[controller]" )]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class HelloWorldController: ControllerBase
+    public class HelloWorldController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get( ApiVersion apiVersion ) => Ok( new { Controller = GetType().Name, Version = apiVersion.ToString() } );
+        public IActionResult Get(ApiVersion apiVersion) => Ok(new { Controller = GetType().Name, Version = apiVersion.ToString() });
     }
 
     public class HomeController : Controller
