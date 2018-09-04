@@ -1,4 +1,4 @@
-# MVC (10)
+# MVC (11)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -69,3 +69,11 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Tag Helper - Nested Alert Tag Helper](/projects/mvc/tag-helper-5)
 
     Demonstrate passing values from Parent Tag to Child Tag.
+
+## MVC and Pages Routing
+
+  We are exploring every single boring details about MVC and Pages routing in this section.
+
+  * [MVC Routing - 1](/projects/mvc/routing-1)
+
+    Demonstrates fixed routing and default routing for ASP.NET MVC.
