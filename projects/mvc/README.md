@@ -1,4 +1,4 @@
-# MVC (11)
+# MVC (12)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -77,3 +77,8 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Routing - 1](/projects/mvc/routing-1)
 
     Demonstrates fixed routing and default routing for ASP.NET MVC.
+  
+  * [MVC Routing - 2](/projects/mvc/routing-2)
+
+    Similar to `Routing - 1` but using alternative method to specify default routing.
+  
