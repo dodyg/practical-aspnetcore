@@ -1,4 +1,4 @@
-# MVC (12)
+# MVC (13)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -81,4 +81,12 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Routing - 2](/projects/mvc/routing-2)
 
     Similar to `Routing - 1` but using alternative method to specify default routing.
+
+## Syndication Output Formatter
+
+  We are building a RSS/ATOM Output formatter starting from the very basic.
+
+  * [Output Formatter Syndication](/projects/mvc/output-formatter-syndication)
+
+    This is a very rudimentary RSS output formatter. It's valid but it does not do much other than providing RSS items.
   
