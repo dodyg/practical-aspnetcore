@@ -1,4 +1,4 @@
-# MVC (13)
+# MVC (14)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -81,6 +81,27 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Routing - 2](/projects/mvc/routing-2)
 
     Similar to `Routing - 1` but using alternative method to specify default routing.
+
+  * [MVC Routing - 3](/projects/mvc-routing-3)
+
+    Use `UseMvcWithDefaultRoute` so you don't have to define the default route. This is how the extension is [implemented](https://github.com/aspnet/Mvc/blob/e2de54a92d8254a27f9eefd77e08370c7b17fa5d/src/Microsoft.AspNetCore.Mvc.Core/Builder/MvcApplicationBuilderExtensions.cs).
+
+    ```
+    public static IApplicationBuilder UseMvcWithDefaultRoute(this IApplicationBuilder app)
+        {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
+            return app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+        }
+    ```
 
 ## Syndication Output Formatter
 
