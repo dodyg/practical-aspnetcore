@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Routing;
 using System.Net.Http;
 
-namespace StartupBasic 
+namespace StartupBasic
 {
     public class Startup
     {
@@ -19,7 +19,11 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient();
+            services.AddHttpClient("rss", c =>
+            {
+                // Configure your http client here
+                c.DefaultRequestHeaders.Add("Accept", "application/rss+xml");
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
@@ -27,15 +31,15 @@ namespace StartupBasic
             app.Run(async context =>
             {
                 var httpClient = context.RequestServices.GetService<IHttpClientFactory>();
-                var client = httpClient.CreateClient();
+                var client = httpClient.CreateClient("rss"); // use the preconfigured http client
                 var result = await client.GetStringAsync("http://scripting.com/rss.xml");
-            
+
                 context.Response.Headers.Add("Content-Type", "application/rss+xml");
                 await context.Response.WriteAsync(result);
             });
         }
     }
-    
+
 
     public class Program
     {

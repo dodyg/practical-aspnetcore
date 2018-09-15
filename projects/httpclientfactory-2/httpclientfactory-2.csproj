@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>httpclientfactory</AssemblyName>
+    <AssemblyName>httpclientfactory-2</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>httpclientfactory</PackageId>
+    <PackageId>httpclientfactory-2</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
