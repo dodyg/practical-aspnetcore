@@ -1,4 +1,4 @@
-# 146 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 147 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -39,7 +39,7 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.1(2)
+## What's new in ASP.NET Core 2.1(4)
 
   *Pre-requisite*: Make sure you download .NET Core SDK [2.1.2](https://www.microsoft.com/net/download/dotnet-core/2.1#sdk-2.1.400) otherwise below examples won't work.
 
@@ -91,6 +91,11 @@ When an example requires packages that are not listed here, it will be added to 
   * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/httpclientfactory)
 
     Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
+
+  * [HttpClientFactory - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/httpclientfactory-2)
+
+    Use preconfigured `HttpClient` via `IHttpClientFactory`.
+
 
   * [Supress Status Messages](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/suppress-status-messages)
 
