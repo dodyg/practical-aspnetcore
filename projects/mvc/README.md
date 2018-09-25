@@ -105,7 +105,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   * [MVC Routing - 4](/projects/mvc/routing-4)
 
-    The simplest example for attribute routing.
+    The simplest example for attribute routing. We use the `Route` attribute at the Controller.
 
 ## Syndication Output Formatter
 
