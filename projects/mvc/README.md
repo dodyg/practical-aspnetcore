@@ -1,4 +1,4 @@
-# MVC (14)
+# MVC (15)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -102,6 +102,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
         });
     }
     ```
+
+  * [MVC Routing - 4](/projects/mvc/routing-4)
+
+    The simplest example for attribute routing.
 
 ## Syndication Output Formatter
 
