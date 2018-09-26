@@ -1,4 +1,4 @@
-# MVC (15)
+# MVC (16)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -105,7 +105,11 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   * [MVC Routing - 4](/projects/mvc/routing-4)
 
-    The simplest example for attribute routing. We use the `Route` attribute at the Controller.
+    The simplest example for attribute routing. We use the `Route` attribute at the Controller. This only allows you to have one Action per Controller.
+
+  * [MVC Routing - 5](/projects/mvc/routing-5)
+
+    We use the `Route` attribute at Action methods (in contrast to previous example). This allows you to have multiple Actions in a Controller.
 
 ## Syndication Output Formatter
 
