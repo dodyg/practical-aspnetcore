@@ -1,4 +1,4 @@
-# MVC (16)
+# MVC (17)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -110,6 +110,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Routing - 5](/projects/mvc/routing-5)
 
     We use the `Route` attribute at Action methods (in contrast to previous example). This allows you to have multiple Actions in a Controller.
+
+  * [MVC Routing - 6](/projects/mvc/routing-6)
+
+    Demonstrate the usage of `HttpGet` and `HttpPost`.
 
 ## Syndication Output Formatter
 
