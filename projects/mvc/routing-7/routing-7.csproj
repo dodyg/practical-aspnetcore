@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <AssemblyName>mvc-routing-7</AssemblyName>
+        <OutputType>Exe</OutputType>
+        <PackageId>mvc-routing-7</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
+    </ItemGroup>
+</Project>
