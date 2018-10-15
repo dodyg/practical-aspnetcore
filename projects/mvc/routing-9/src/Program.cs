@@ -29,7 +29,7 @@ namespace MvcRouting
     }
 
 
-    [Route("[controller]/[action]")]
+    [Route("[controller]/")]
     public class HomeController : Controller
     {
         [HttpGet("/")]
@@ -43,28 +43,31 @@ namespace MvcRouting
                 <h1>[controller] and [action] replacement tokens examples</h1>
                 <ul>
                     <li><a href=""/"">/</a></li>
-                    <li><a href=""/home/index"">/home/index</a></li>
+                    <li><a href=""/home/"">/home/</a></li>
                     <li><a href=""/home/about"">/home/about</a></li>
                     <li><a href=""/about"">/about</a></li>
+                    <li><a href=""/2/about2"">/2/about2</a></li>
                 </ul>
                 </body></html>",
                 ContentType = "text/html"
             };
         }
 
+        [HttpGet("[action]")]
         public ActionResult About()
         {
             return new ContentResult
             {
                 Content = @"
                 <html><body>
-                <b>About Page</b
+                <b>About Page using replacement token [action]</b
                 </body></html>",
                 ContentType = "text/html"
             };
         }
 
         [HttpGet("/about")]
+        [HttpGet("/2/[action]")]
         public ActionResult About2()
         {
             return new ContentResult
