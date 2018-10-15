@@ -1,4 +1,4 @@
-# MVC (19)
+# MVC (20)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -122,6 +122,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Routing - 8](/projects/mvc/routing-8)
 
     Demonstrate the usage of `[controller]` and `[action]` replacement tokens at the `Route` attribute.
+
+  * [MVC Routing - 9](/projects/mvc/routing-9)
+
+    Demonstrate the usage of `[action]` replacement tokens at the `HttpGet` attribute.
 
 ## Syndication Output Formatter
 
