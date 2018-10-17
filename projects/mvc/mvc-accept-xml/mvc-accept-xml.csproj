@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>mvc-accept-xml</AssemblyName>
@@ -8,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
   </ItemGroup>
-
- 
-
-
-
 </Project>
