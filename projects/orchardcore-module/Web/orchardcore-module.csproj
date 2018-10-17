@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
     <PackageReference Include="OrchardCore.Modules" Version="1.0.0-beta2-*" />
     <PackageReference Include="OrchardCore.Application.Targets" Version="1.0.0-beta2-*" />
     <ProjectReference Include="..\Module1\module1.csproj" />

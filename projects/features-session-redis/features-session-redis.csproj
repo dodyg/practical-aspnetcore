@@ -7,7 +7,7 @@
     <PackageId>features-session-redis</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.1.*" />
   </ItemGroup>
 </Project>

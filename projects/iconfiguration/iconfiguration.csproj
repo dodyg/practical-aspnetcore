@@ -6,6 +6,6 @@
     <PackageId>configuration</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
   </ItemGroup>
 </Project>
