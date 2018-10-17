@@ -8,6 +8,8 @@ The goal of this project is to enable .NET programmers to learn the new ASP.NET 
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
+Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
+
 ### MVC, SignalR and Blazor
 
 There are dedicated samples for ASP.NET Core MVC 2.1 [here (20 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
