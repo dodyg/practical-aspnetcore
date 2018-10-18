@@ -2,9 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-        <AssemblyName>mvc-routing-7</AssemblyName>
+        <AssemblyName>mvc-routing-8</AssemblyName>
         <OutputType>Exe</OutputType>
-        <PackageId>mvc-routing-7</PackageId>
+        <PackageId>mvc-routing-8</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
