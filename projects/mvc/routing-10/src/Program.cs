@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using System;
 
 namespace MvcRouting
 {
@@ -24,10 +26,38 @@ namespace MvcRouting
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                "About",
+                "{id}/About",
+                defaults: new { controller = "Home", Action = "About" });
+            });
         }
     }
 
+    public class NumberAttribute : Attribute, IActionConstraint
+    {
+        private readonly int _number;
+
+        public NumberAttribute(int number)
+        {
+            _number = number;
+        }
+
+        public int Order
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public bool Accept(ActionConstraintContext context)
+        {
+            return Convert.ToInt32(context.RouteContext.RouteData.Values["id"]) == _number;
+        }
+    }
 
     [Route("[controller]/")]
     public class HomeController : Controller
@@ -40,41 +70,13 @@ namespace MvcRouting
             {
                 Content = @"
                 <html><body>
-                <h1>[controller] and [action] replacement tokens examples</h1>
+                <h1>Custom Routing Constraint Attribute</h1>
                 <ul>
                     <li><a href=""/"">/</a></li>
-                    <li><a href=""/home/"">/home/</a></li>
-                    <li><a href=""/home/about"">/home/about</a></li>
-                    <li><a href=""/about"">/about</a></li>
-                    <li><a href=""/2/about2"">/2/about2</a></li>
+                    <li><a href=""/1/about"">/1/about</a></li>
+                    <li><a href=""/2/about"">/2/about</a></li>
+                    <li><a href=""/3/about"">/3/about</a></li>
                 </ul>
-                </body></html>",
-                ContentType = "text/html"
-            };
-        }
-
-        [HttpGet("[action]")]
-        public ActionResult About()
-        {
-            return new ContentResult
-            {
-                Content = @"
-                <html><body>
-                <b>About Page using replacement token [action]</b
-                </body></html>",
-                ContentType = "text/html"
-            };
-        }
-
-        [HttpGet("/about")]
-        [HttpGet("/2/[action]")]
-        public ActionResult About2()
-        {
-            return new ContentResult
-            {
-                Content = @"
-                <html><body>
-                <b>About Page 2</b
                 </body></html>",
                 ContentType = "text/html"
             };
@@ -92,5 +94,62 @@ namespace MvcRouting
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseEnvironment("Development");
+    }
+}
+
+namespace MvcRouting.Route1
+{
+    public class HomeController : Controller
+    {
+        [Number(1)]
+        public ActionResult About()
+        {
+            return new ContentResult
+            {
+                Content = @"
+                <html><body>
+                <b>About Page 1</b
+                </body></html>",
+                ContentType = "text/html"
+            };
+        }
+    }
+}
+
+namespace MvcRouting.Route2
+{
+    public class HomeController : Controller
+    {
+        [Number(2)]
+        public ActionResult About()
+        {
+            return new ContentResult
+            {
+                Content = @"
+                <html><body>
+                <b>About Page 2</b
+                </body></html>",
+                ContentType = "text/html"
+            };
+        }
+    }
+}
+
+namespace MvcRouting.Route3
+{
+    public class HomeController : Controller
+    {
+        [Number(3)]
+        public ActionResult About()
+        {
+            return new ContentResult
+            {
+                Content = @"
+                <html><body>
+                <b>About Page 3</b
+                </body></html>",
+                ContentType = "text/html"
+            };
+        }
     }
 }

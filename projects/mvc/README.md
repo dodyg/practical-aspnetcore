@@ -127,6 +127,24 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     Demonstrate the usage of `[action]` replacement tokens at the `HttpGet` attribute.
 
+  * [MVC Routing - 10](/projects/mvc/routing-10)
+
+    Demonstrate the usage of `IActionConstraint` attribute.
+
+    The following map routing will search all HomeController.About action accross the assembly regardless of namespace. If you have multiple
+    HomeController.About, it will generate error because the framework cannot decide which method to use. This sample demonstrates on how using
+    a custom `IActionConstraint` attribute solves this problem.
+
+    ``` csharp
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute(
+        "About",
+        "{id}/About",
+        defaults: new { controller = "Home", Action = "About" });
+    });
+    ```
+
 ## Syndication Output Formatter
 
   We are building a RSS/ATOM Output formatter starting from the very basic.
