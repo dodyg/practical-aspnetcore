@@ -1,4 +1,4 @@
-# MVC (21)
+# MVC (22)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -28,7 +28,11 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
 * [Using Utf8Json as JSON Formatter](/projects/mvc/utf8json-formatter)
 
-  Use the super fast [Ut8Json](https://github.com/neuecc/Utf8Json) JSON serialization library instead of the default one. This project requires `utf8json` and `Utf8Json.AspNetCoreMvcFormatter` packages. 
+  Use the super fast [Ut8Json](https://github.com/neuecc/Utf8Json) JSON serialization library instead of the default one. This project requires `utf8json` and `Utf8Json.AspNetCoreMvcFormatter` packages.
+
+* [Returning XML Response](/projects/mvc/mvc-output-xml)
+
+  Return XML response using `Microsoft.AspNetCore.Mvc.Formatters.Xml`. 
 
 ## Swagger (API Documentation)
 
