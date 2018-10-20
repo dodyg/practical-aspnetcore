@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>mvc-accept-xml</AssemblyName>
+    <AssemblyName>mvc-output-xml</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>mvc-accept-xml</PackageId>
+    <PackageId>mvc-output-xml</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
