@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-    <PackageReference Include="Markdig" Version="0.15.1" />
+    <PackageReference Include="Markdig" Version="0.15.4" />
   </ItemGroup>
 
 
