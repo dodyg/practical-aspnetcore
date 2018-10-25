@@ -922,7 +922,7 @@ All these projects require the following dependencies
 
     Demonstrate the way to inject configuration values to the host using Dictionary.
 
-  * [Configure Environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/generic-host-configure-host-2)
+  * [Configure Environment](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/generic-host-environment)
 
     Set your environment using `EnvironmentName.Development` or `EnvironmentName.Production` or `EnvironmentName.Staging`.
 
