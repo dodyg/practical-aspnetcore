@@ -1,4 +1,4 @@
-# 161 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 162 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -908,7 +908,7 @@ All these projects require the following dependencies
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
-## Generic Host (4)
+## Generic Host (5)
 
   Generic Host is an awesome way to host all sort of long running tasks and applications, e.g. messaging, background tasks, etc.
 
@@ -917,6 +917,10 @@ All these projects require the following dependencies
   * [Hello World](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/generic-host)
 
     This is the hello world equivalent of a Generic Host service.
+
+  * [Hello World using Console Lifetime](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/generic-host-2)
+
+    Use `UseConsoleLifetime` implicitly. 
 
   * [Configure Host using Dictionary](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/generic-host-configure-host)
 

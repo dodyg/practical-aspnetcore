@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>generic-host</AssemblyName>
+    <AssemblyName>generic-host-2</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>generic-host</PackageId>
+    <PackageId>generic-host-2</PackageId>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
