@@ -7,13 +7,13 @@ using System.Threading;
 
 namespace GenericHostBasic
 {
-    public class HelloWorldService : IHostedService, IDisposable
+    public class CountingService : IHostedService, IDisposable
     {
         CancellationTokenSource _stoppingCts = new CancellationTokenSource();
 
         Task _executingTask;
 
-        public HelloWorldService()
+        public CountingService()
         {
         }
 
@@ -60,7 +60,7 @@ namespace GenericHostBasic
             var host = new HostBuilder()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddHostedService<HelloWorldService>();
+                    services.AddHostedService<CountingService>();
                 })
                 .UseConsoleLifetime()
                 .Build();
