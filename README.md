@@ -45,7 +45,7 @@ When an example requires packages that are not listed here, it will be added to 
 
   All the samples in this section requires ASP.NET Core 2.2 Preview 3 (`2.2.100-preview3-009430`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
-  * [Endpoint Routing](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/endpoint-routing)
+  * [Endpoint Routing](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing)
 
     Enable Endpoint Routing for your MVC Core app. You will gain a faster performance and more functionalities regarding routing. 
 
