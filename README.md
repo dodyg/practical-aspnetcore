@@ -1,4 +1,4 @@
-# 168 samples for ASP.NET Core 2.1 fundamentals (updated daily)
+# 169 samples for ASP.NET Core 2.1 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -41,7 +41,7 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.2 (2) Preview 3
+## What's new in ASP.NET Core 2.2 (3) Preview 3
 
   All the samples in this section requires ASP.NET Core 2.2 Preview 3 (`2.2.100-preview3-009430`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
@@ -52,6 +52,10 @@ When an example requires packages that are not listed here, it will be added to 
   * [Endpoint Routing - GetUriByAction](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-2)
 
     Use the `LinkGenerator` singleton and its `GetUriByAction` method to generate a link to an Action. It will respect the convention used by MVC, which is, in this example, `app.UseMvcWithDefaultRoute();`.
+
+  * [Endpoint Routing - GetUriByAction - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-3)
+
+    Use the `LinkGenerator` singleton and its `GetUriByAction` method to generate a link to an Action. This sample uses various combination of `Route` and `HttpGet` attributes to generate various links.
 
 ## What's new in ASP.NET Core 2.1(5)
 
