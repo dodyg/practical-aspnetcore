@@ -59,7 +59,7 @@ When an example requires packages that are not listed here, it will be added to 
     
   * [Endpoint Routing - GetUriByAction - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-4)
 
-    Show how to deal with route values using `LinkGenerator.GetUriByAction`. 
+    Show how to deal with route with values using `LinkGenerator.GetUriByAction`. If you don't deal with the values, the link generator won't generate the link.
 
 ## What's new in ASP.NET Core 2.1(5)
 
