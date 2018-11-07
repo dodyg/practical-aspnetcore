@@ -51,14 +51,9 @@ namespace LinkGeneratorSample
                        action: "Index"
                    );
 
-                var url5 = linkGenerator.GetUriByAction(context,
+                LinkGenerationTemplate url5 = linkGenerator.GetTemplateByAction(
                        controller: "Wave",
-                       action: "Away",
-                       values: new
-                       {
-                           danger = "real danger",
-                           ahead = "5 km ahead"
-                       }
+                       action: "Away"
                    );
 
                 context.Response.ContentType = "text/plain";
@@ -66,8 +61,8 @@ namespace LinkGeneratorSample
 {url.GetPath(context, new { name = "hello" })}  
 {url2.GetPath(context, new { age = 40 })}  
 {url3.GetPath(context, values: null)} 
-{url4.GetPath(context, values: new { })}  
-{url5}");
+{url4.GetPath(context, values: new { isNice = true })}  
+{url5.GetPath(context, values: new { danger = "real danger", ahead = "5 km ahead" })}");
             });
 
             app.UseMvc();
