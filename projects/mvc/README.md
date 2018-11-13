@@ -1,4 +1,4 @@
-# MVC (25)
+# MVC (26)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -149,7 +149,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (3)
+## Localization (4)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -165,6 +165,9 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     Demonstrate an easy way to use shared resources. The class name, `Global`, is just a name. It can be `Common` or `CommonResources`, etc. It does not matter.
 
+  * [MVC Localization - 4](/projects/mvc/mvc-localization-3)
+
+    Similar to `MVC Localization - 3` except that now the assembly name and namespace share the same name. This is in constrast to `MVC Localization - 1` and `MVC Localization`.
 
 ## Syndication Output Formatter
 
