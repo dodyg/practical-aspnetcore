@@ -70,7 +70,7 @@ namespace MvcLocalization
             return new ContentResult
             {
                 Content = $@"<html><body>
-                <h1>MVC Localization Resource File Naming - Dot Naming Convention</h1>
+                <h1>MVC Localization Resource File Naming - Path Naming Convention</h1>
                 <p>
                 <i><b>Resources are named for the full type name of their class minus the assembly name</b>. For example, a French resource in a project whose main assembly is LocalizationWebsite.Web.dll for the class LocalizationWebsite.Web.Startup would be named Startup.fr.resx. A resource for the class LocalizationWebsite.Web.Controllers.HomeController would be named Controllers.HomeController.fr.resx. If your targeted class's namespace isn't the same as the assembly name you will need the full type name. For example, in the sample project a resource for the type ExtraNamespace.Tools would be named ExtraNamespace.Tools.fr.resx.
                 </i>
