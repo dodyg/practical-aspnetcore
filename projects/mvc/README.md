@@ -1,4 +1,4 @@
-# MVC (23)
+# MVC (24)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -149,13 +149,17 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (1)
+## Localization (2)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
   * [MVC Localization](/projects/mvc/mvc-localization)
 
-    Demonstrate the sample of naming resource file using the "." dot naming convention. In this case, our Assembly Name differs from our namespace so we use full type name in our resource.
+    Demonstrate the sample of naming resource file using the "." dot naming convention. In this case, our Assembly Name differs from our namespace so we use full type name in our resource. This allows `IStringLocalizer<>` to be used in Controllers.
+
+  * [MVC Localization - 2](/projects/mvc/mvc-localization-2)
+
+    This sample is identical as previous example except that we are using the path naming convention. 
 
 ## Syndication Output Formatter
 
