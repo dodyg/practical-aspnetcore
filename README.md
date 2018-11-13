@@ -1,4 +1,4 @@
-# 176 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
+# 177 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -12,7 +12,7 @@ Note: If you encounter problem with downloading packages or Nuget, try the follo
 
 ### MVC, SignalR and Blazor
 
-There are dedicated samples for **ASP.NET Core MVC 2.1** [here (26 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
+There are dedicated samples for **ASP.NET Core MVC 2.1** [here (27 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (1 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 

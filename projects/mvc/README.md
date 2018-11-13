@@ -1,4 +1,4 @@
-# MVC (26)
+# MVC (27)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -149,7 +149,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (4)
+## Localization (5)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -167,7 +167,11 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   * [MVC Localization - 4](/projects/mvc/mvc-localization-3)
 
-    Similar to `MVC Localization - 3` except that now the assembly name and namespace share the same name. This is in constrast to `MVC Localization - 1` and `MVC Localization`.
+    Similar to `MVC Localization - 3` except that now the assembly name and namespace share the same name. This is in contrast to `MVC Localization - 1` and `MVC Localization`.
+
+  * [MVC Localization - 5](/projects/mvc/mvc-localization-5)
+
+    Use shared resource on View.
 
 ## Syndication Output Formatter
 
