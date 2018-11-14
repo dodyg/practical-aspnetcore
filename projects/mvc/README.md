@@ -1,4 +1,4 @@
-# MVC (27)
+# MVC (28)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -149,7 +149,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (5)
+## Localization (6)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -172,6 +172,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Localization - 5](/projects/mvc/mvc-localization-5)
 
     Use shared resource on View.
+
+  * [MVC Localization - 6](/projects/mvc/mvc-localization-6)
+
+    Demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language.
 
 ## Syndication Output Formatter
 
