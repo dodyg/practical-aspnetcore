@@ -175,7 +175,9 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   * [MVC Localization - 6](/projects/mvc/mvc-localization-6)
 
-    Demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language.
+    If you keep wondering why your default request language doesn't work, this example is for you.
+    
+    This example demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language. This [article](https://dotnetcoretutorials.com/2017/06/22/request-culture-asp-net-core/) has a useful explanation on this provider.
 
 ## Syndication Output Formatter
 
