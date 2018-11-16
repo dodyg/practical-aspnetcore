@@ -1,4 +1,4 @@
-# 178 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
+# 180 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -41,7 +41,7 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.2 (6) Preview 3
+## What's new in ASP.NET Core 2.2 (8) Preview 3
 
   All the samples in this section requires ASP.NET Core 2.2 Preview 3 (`2.2.100-preview3-009430`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
@@ -68,6 +68,14 @@ When an example requires packages that are not listed here, it will be added to 
   * [Endpoint Routing - GetPathByAction](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-6)
 
     Show how to deal with route with values using `LinkGenerator.GetPathByAction`. If you don't deal with the values, the link generator won't generate the link.
+
+  * [Health Check - Check URL](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check)
+
+    Show the simplest way to use health check functionality using `app.UseHealthChecks`.
+
+  * [Health Check - Check URL - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check)
+
+    Customize the message returned by `app.UseHealthChecks`.
 
 
 ## What's new in ASP.NET Core 2.1(5)
