@@ -28,7 +28,7 @@ namespace EndpointRoutingSample
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseHealthChecks("/Home/IsUp");
+            app.UseHealthChecks("/WhatsUp");
             app.UseMvcWithDefaultRoute();
         }
     }
@@ -42,19 +42,7 @@ namespace EndpointRoutingSample
                 Content = @"
                 <html><body>
                 <h1>Health Check</h1>
-                The health check service checks on this url <a href=""/home/isup"">/home.isup</a>. It will replace whatever text you put on that endpoint with the text `healthy`.
-                </body></html> ",
-                ContentType = "text/html"
-            };
-        }
-
-        public ActionResult IsUp()
-        {
-            return new ContentResult
-            {
-                Content = @"
-                <html><body>
-                <h1>Health Check - it's Up</h1>
+                The health check service checks on this url <a href=""/WhatsUp"">/WhatsUp</a>. 
                 </body></html> ",
                 ContentType = "text/html"
             };
