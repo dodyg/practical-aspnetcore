@@ -33,7 +33,7 @@ namespace EndpointRoutingSample
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseHealthChecks("/Home/IsUp");
+            app.UseHealthChecks("/IsUp");
             app.UseMvcWithDefaultRoute();
         }
     }
@@ -55,7 +55,7 @@ namespace EndpointRoutingSample
                 Content = @"
                 <html><body>
                 <h1>Health Check - Failed check</h1>
-
+                This <a href=""/IsUp"">/IsUp</a> always fails.
                 </body></html> ",
                 ContentType = "text/html"
             };
