@@ -73,7 +73,7 @@ When an example requires packages that are not listed here, it will be added to 
 
     Show the simplest way to use health check functionality using `app.UseHealthChecks`.
 
-  * [Health Check - Check URL - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check)
+  * [Health Check - Check URL - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check-2)
 
     Customize the message returned by `app.UseHealthChecks`.
 
