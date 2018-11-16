@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace EndpointRoutingSample
 {
@@ -19,7 +23,8 @@ namespace EndpointRoutingSample
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                .AddCheck<AlwaysBadHealthCheck>("Bad");
 
             services
                 .AddMvc()
@@ -28,14 +33,16 @@ namespace EndpointRoutingSample
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseHealthChecks("/IsUp", new HealthCheckOptions
-            {
-                ResponseWriter = async (context, health) =>
-                {
-                    await context.Response.WriteAsync("Mucho Bien");
-                }
-            });
+            app.UseHealthChecks("/Home/IsUp");
             app.UseMvcWithDefaultRoute();
+        }
+    }
+
+    public class AlwaysBadHealthCheck : IHealthCheck
+    {
+        public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -47,8 +54,8 @@ namespace EndpointRoutingSample
             {
                 Content = @"
                 <html><body>
-                <h1>Health Check - custom message</h1>
-                The health check service checks on this url <a href=""/isup"">/isup</a>. It will return  `Mucho Bien` thanks to the customized health message.
+                <h1>Health Check - Failed check</h1>
+
                 </body></html> ",
                 ContentType = "text/html"
             };
