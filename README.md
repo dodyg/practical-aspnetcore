@@ -1,4 +1,4 @@
-# 181 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
+# 182 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -41,7 +41,7 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.2 (9) Preview 3
+## What's new in ASP.NET Core 2.2 (10) Preview 3
 
   All the samples in this section requires ASP.NET Core 2.2 Preview 3 (`2.2.100-preview3-009430`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
@@ -79,8 +79,11 @@ When an example requires packages that are not listed here, it will be added to 
 
   * [Health Check - Check URL - 3](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check-3)
 
-    Start implementing `IHealthCheck` to provide status information for the health check service. In this example, it will always return failure.
+    Start implementing `IHealthCheck` to provide status information for the health check service. In this example, it will always return failure because we just throw an exception in the implementation. You will see how the health check handles an unhandled exception.
 
+  * [Health Check - Check URL - 4](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check-4)
+
+    Implement a `IHealthCheck` that check the status of a url. This is the first version of the check so it is primitive but it is also easier to understand. We will go to a more sophisticated multi check in the next examples.
 
 ## What's new in ASP.NET Core 2.1(5)
 
