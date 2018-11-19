@@ -1,4 +1,4 @@
-# 182 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
+# 183 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated daily)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -538,13 +538,17 @@ All these projects require the following dependencies
     Demonstrate how to ASP.NET Core built in DI (Dependency Injection) mechanism to provide dependency for your middleware.
 
 
-* **Features (7)**
+* **Features (8)**
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
   * [Server Addresses Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-addresses)
 
     Use this Feature to obtain a list of urls that your app is responding to.
+
+  * [Server Addresses Feature - 2](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-addresses-2)
+
+    Use `IServer` interface to access server addressess when you don't have access to `IApplicationBuilder`. 
 
   * [Request Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-request)
 
@@ -554,7 +558,7 @@ All these projects require the following dependencies
 
     Use `IHttpConnectionFeature` interface to obtain local ip/port and remote ip/port. 
 
-  * [Custom Featur](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-custom)
+  * [Custom Feature](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/features-server-custom)
 
     Create your own custom Feature and pass it along from a middleware. 
 
