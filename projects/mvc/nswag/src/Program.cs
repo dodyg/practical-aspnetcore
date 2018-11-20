@@ -23,16 +23,24 @@ namespace StartupBasic
         {
             services.AddMvc().
                 SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerDocument(settings =>
+            {
+                settings.Title = "Sample API";
+                settings.DefaultEnumHandling = EnumHandling.CamelCaseString;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
             app.UseStaticFiles();
 
-            // Enable the Swagger UI middleware and the Swagger generator
-            app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, settings =>
+            app.UseSwagger();
+
+            app.UseSwaggerUi3(settings =>
             {
-                settings.GeneratorSettings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
+                settings.TagsSorter = "alpha";
+                settings.OperationsSorter = "alpha";
             });
 
             app.UseMvc();
@@ -46,19 +54,20 @@ namespace StartupBasic
         [HttpGet("")]
         public ActionResult Index()
         {
-            return new ContentResult 
+            return new ContentResult
             {
                 Content = "<html><body><b><a href=\"/swagger\">View API Documentation</a></b></body></html>",
                 ContentType = "text/html"
             };
-        } 
+        }
     }
 
+    [Produces("application/json")]
     [Route("api/greeting")]
     [ApiController]
     public class GreetingController : ControllerBase
     {
-        public class Greeting 
+        public class Greeting
         {
             public string Message { get; set; }
         }
@@ -68,8 +77,16 @@ namespace StartupBasic
         /// </summary>
         /// <response code="200">The "Hello World" text</response>
         [HttpGet]
-        [Produces("application/json", Type = typeof(Greeting))]
         public ActionResult<Greeting> Index()
+        {
+            return new Greeting
+            {
+                Message = "Hello World"
+            };
+        }
+
+        [HttpGet("goodbye")]
+        public ActionResult<Greeting> Goodbye()
         {
             return new Greeting
             {
