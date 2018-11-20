@@ -374,7 +374,7 @@ All these projects require the following dependencies
 
   * [Console logging - without framework log ](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-logging-filtered)
 
-    Filter out frameworking logging from your log output. Without filtering, logging can get very annoying becuase the framework produces a lot of messages.
+    Filter out frameworking logging from your log output. Without filtering, logging can get very annoying because the framework produces a lot of messages.
 
   * [Hello World with middlewares](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/hello-world-with-middleware)
 
