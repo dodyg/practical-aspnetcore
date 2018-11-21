@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting.Server;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace HelloWorldWithReload
 {
@@ -20,6 +22,8 @@ namespace HelloWorldWithReload
     {
         IServer _server;
 
+        IReadOnlyCollection<string> _addresses;
+
         public AddressesMiddleware(RequestDelegate next, IServer server)
         {
             _server = server;
@@ -28,9 +32,16 @@ namespace HelloWorldWithReload
         public async Task Invoke(HttpContext context)
         {
             var str = string.Empty;
-            var address = _server.Features.Get<IServerAddressesFeature>();
 
-            foreach (var a in address.Addresses)
+            // We cache the result because the addresses are not going to change. 
+            // Remember middlewares are singletons, so we can just do this simple check. 
+            if (_addresses == null)
+            {
+                var address = _server.Features.Get<IServerAddressesFeature>();
+                _addresses = address.Addresses.ToList();
+            }
+
+            foreach (var a in _addresses)
             {
                 str += $"{a}\n";
             }
