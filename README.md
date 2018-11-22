@@ -1,4 +1,4 @@
-# 184 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 185 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -41,7 +41,7 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.2 (11) Preview 3
+## What's new in ASP.NET Core 2.2 (12) Preview 3
 
   All the samples in this section requires ASP.NET Core 2.2 Preview 3 (`2.2.100-preview3-009430`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
@@ -88,6 +88,10 @@ When an example requires packages that are not listed here, it will be added to 
   * [Health Check - Check URL - 5](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check-5)
 
     Similar to the previous example except that now there are two checks, one fails and one successful. 
+
+  * [Health Check - Check URL - 6](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check-6)
+
+    Similar to the previous example except that one of the check reports "Degraded" status by using `context.Registration.FailureStatus = HealthStatus.Degraded;`.
 
 ## What's new in ASP.NET Core 2.1(5)
 
