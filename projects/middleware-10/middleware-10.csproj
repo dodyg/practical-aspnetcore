@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>middleware-9</AssemblyName>
+    <AssemblyName>middleware-10</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>middleware-10</PackageId>
   </PropertyGroup>
