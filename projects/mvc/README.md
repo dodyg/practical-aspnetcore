@@ -1,4 +1,4 @@
-# MVC (28)
+# MVC (29)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -23,6 +23,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 * [Use Microsoft.AspNetCore.Mvc.ProblemDetails](/projects/mvc/api-problem-details)
 
   Use `Microsoft.AspNetCore.Mvc.ProblemDetails` as part of your Web API error reply. It is implementing [RFC  7807](https://tools.ietf.org/html/rfc7807). It will make life easier for everybody.
+
+* [Extends Microsoft.AspNetCore.Mvc.ProblemDetails](/projects/mvc/api-problem-details-2)
+
+  Extend `Microsoft.AspNetCore.Mvc.ProblemDetails` to make it easier for day to day use. It will adjust what kind of information it shows based on your development environment.
 
 ## Formatters
 
