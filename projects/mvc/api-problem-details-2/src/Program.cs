@@ -132,15 +132,5 @@ namespace ApiProblemDetailsExample
 
             return self.StatusCode((int)statusCode, details);
         }
-
-        public static Dictionary<string, string> ApiValidationMessages(this Controller self, params (string key, string message)[] messages)
-        {
-            var dictionary = new Dictionary<string, string>();
-
-            foreach (var m in messages)
-                dictionary.Add(m.key, m.message);
-
-            return dictionary;
-        }
     }
 }
