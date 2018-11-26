@@ -1,4 +1,4 @@
-# 187 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 188 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -910,6 +910,15 @@ All these projects require the following dependencies
 
     This utility returns HTTP reasonse phrases given a status code number.
     
+
+* **Uri Helper(1)**
+  
+  This section shows various methods available at `Microsoft.AspNetCore.Http.Extensions.UriHelper`.
+
+  * [Get Display Url](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/uri-helper-get-display-url) 
+
+    `Request.GetDisplayUrl()` shows complete url with host, path and query string of the current request. It's to be used for display purposes only.
+
 
 * **Trimming (1)**
   
