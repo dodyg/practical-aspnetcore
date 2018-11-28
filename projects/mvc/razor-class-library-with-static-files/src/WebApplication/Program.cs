@@ -47,12 +47,18 @@ namespace WebApplication
             }
 
             app.UseStaticFiles();
-
             app.UseMvc();
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World from the Web Application!");
+                context.Response.Headers.Add("Content-Type", "text/html");
+
+                await context.Response.WriteAsync(@"<html>
+                <body>
+                <h1>Razor Class Library sample with static files (image, css, js)</h1>
+                Visit page from <a href=""/module1"">RazorClassLibrary1</a> and <a href=""/module2"">RazorClassLibrary2</a>.
+                </body>
+                </html>");
             });
         }
     }

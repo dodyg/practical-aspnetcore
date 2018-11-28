@@ -25,7 +25,7 @@ namespace WebApplication
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
-    
+
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -47,7 +47,14 @@ namespace WebApplication
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World from the Web Application!");
+                context.Response.Headers.Add("Content-Type", "text/html");
+
+                await context.Response.WriteAsync(@"<html>
+                <body>
+                <h1>Hello World from the Web Application!</h1>
+                Visit page from <a href=""/module1"">RazorClassLibrary1</a> and <a href=""/module2"">RazorClassLibrary2</a>.
+                </body>
+                </html>");
             });
         }
     }

@@ -1,4 +1,4 @@
-# MVC (29)
+# MVC (31)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -183,7 +183,20 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     
     This example demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language. This [article](https://dotnetcoretutorials.com/2017/06/22/request-culture-asp-net-core/) has a useful explanation on this provider.
 
-## Syndication Output Formatter
+
+## Razor Class Library (2)
+
+  We are exploring Razor Class Library (RCL) functionalities in this section. RCL allows you to create reusable UI libraries.
+
+  * [Razor Class Library - Hello World](/projects/mvc/razor-class-library)
+
+    This is the simplest example to demonstrate the functionality of RCL. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
+ 
+  * [Razor Class Library - Include static files](/projects/mvc/razor-class-library-with-static-files)
+
+    This is similar to previous example except now you can including static files (javascript, images, css, etc) with your RCL. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
+ 
+## Syndication Output Formatter (1)
 
   We are building a RSS/ATOM Output formatter starting from the very basic.
 
