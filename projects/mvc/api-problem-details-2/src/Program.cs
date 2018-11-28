@@ -78,8 +78,6 @@ namespace ApiProblemDetailsExample
 
         public IReadOnlyDictionary<string, string> ValidationMessages { get; set; } = new Dictionary<string, string>();
 
-        public string ExceptionMessage { get; set; }
-
         public string StackTrace { get; set; }
     }
 
@@ -123,7 +121,11 @@ namespace ApiProblemDetailsExample
 
             if (exception != null && host.EnvironmentName == EnvironmentName.Development)
             {
-                details.ExceptionMessage = exception.Message;
+                 if (string.IsNullOrWhiteSpace(details.Detail))
+                    details.Detail = "Exception Message: " + exception.Message;
+                else
+                    details.Detail += "\n\n Exception Message: " + exception.Message;
+
                 details.StackTrace = exception.StackTrace;
             }
 
