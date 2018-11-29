@@ -196,9 +196,9 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     This is similar to previous example except now you can including static files (javascript, images, css, etc) with your RCL. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
 
-  * [Razor Class Library - using Controllers](/projects/mvc/razor-class-library-with-controllers)
+  * [Razor Class Library - using Controllers and Views](/projects/mvc/razor-class-library-with-controllers)
 
-    This sample demonstrates on how to use `Controller` in your Razor Class Library in contrast to previous examples that uses Razor Pages.
+    This sample demonstrates on how to use Controllers and Views in your Razor Class Library in contrast to previous examples that uses Razor Pages.
 
 ## Syndication Output Formatter (1)
 
