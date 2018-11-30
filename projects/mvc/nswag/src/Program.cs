@@ -16,18 +16,15 @@ namespace StartupBasic
     {
         public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            //These are three services available at constructor
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSwaggerDocument(settings =>
             {
                 settings.Title = "Sample API";
-                settings.DefaultEnumHandling = EnumHandling.CamelCaseString;
             });
         }
 
@@ -63,20 +60,24 @@ namespace StartupBasic
     }
 
     [Produces("application/json")]
-    [Route("api/greeting")]
+    [Route("api/[controller]")]
     [ApiController]
     public class GreetingController : ControllerBase
     {
         public class Greeting
         {
             public string Message { get; set; }
+
+            public string PersonName { get; set; }
+
+            public string PersonAddressCity { get; set; }
         }
 
         /// <summary>
-        /// This is an API to return a "Hello World" message.
+        /// This is an API to return a "Hello World" message (this text comes from the Action comment)
         /// </summary>
         /// <response code="200">The "Hello World" text</response>
-        [HttpGet]
+        [HttpGet("")]
         public ActionResult<Greeting> Index()
         {
             return new Greeting
@@ -85,12 +86,35 @@ namespace StartupBasic
             };
         }
 
-        [HttpGet("goodbye")]
-        public ActionResult<Greeting> Goodbye()
+        [HttpPost("goodbye")]
+        public ActionResult<Greeting> Goodbye(string name)
         {
             return new Greeting
             {
-                Message = "Hello World"
+                Message = "Goodbye",
+                PersonName = name
+            };
+        }
+
+        [HttpPut("")]
+        public ActionResult<Greeting> Relay(Greeting greet)
+        {
+            return greet;
+        }
+
+        [HttpDelete("greetings/{name}")]
+        public ActionResult Remove(string name)
+        {
+            return Ok($"{name} removed");
+        }
+
+        [HttpPatch("")]
+        public ActionResult<Greeting> Update(string city)
+        {
+            return new Greeting
+            {
+                Message = "Hello World",
+                PersonAddressCity = city
             };
         }
     }
