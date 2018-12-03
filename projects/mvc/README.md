@@ -1,4 +1,4 @@
-# MVC (32)
+# MVC (33)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -55,6 +55,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   ```
 
   We also use the new `ActionResult<T>` return type. You can read more about the type [here](https://joonasw.net/view/aspnet-core-2-1-actionresult-of-t).
+
+* [Customizing NSwag](/projects/mvc/nswag-2)
+
+  Use attribute such as `SwaggerTag` to organize your API or `SwaggerIgnore` to hide an API from the definition (using `[ApiExplorerSettings(IgnoreApi = true)]` also works).
 
 ## Tag Helpers
 
