@@ -1,4 +1,4 @@
-# MVC (33)
+# MVC (34)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -27,6 +27,15 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 * [Extends Microsoft.AspNetCore.Mvc.ProblemDetails](/projects/mvc/api-problem-details-2)
 
   Extend `Microsoft.AspNetCore.Mvc.ProblemDetails` to make it easier for day to day use. It will adjust what kind of information it shows based on your development environment.
+
+## Model Binding
+  
+  We are exploring everything related to model binding in this section.
+
+  * [Model binding using a class and FromQuery attribute](/projects/mvc/model-binding-from-query)
+
+    Use `[FromQuery]` attribute to have MVC put all the query string values nicely in a class instead of using primitives e.g. `int userId`.
+
 
 ## Formatters
 
