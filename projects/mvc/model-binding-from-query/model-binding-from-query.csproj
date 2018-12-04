@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>model-binding</AssemblyName>
+    <AssemblyName>model-binding-from-query</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>model-binding</PackageId>
+    <PackageId>model-binding-from-query</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
