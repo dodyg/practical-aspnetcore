@@ -1,4 +1,4 @@
-# MVC (34)
+# MVC (35)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -35,6 +35,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Model binding using a class and FromQuery attribute](/projects/mvc/model-binding-from-query)
 
     Use `[FromQuery]` attribute to have MVC put all the query string values nicely in a class instead of using primitives e.g. `int userId`.
+
+  * [Model binding using a class and FromRoute attribute](/projects/mvc/model-binding-from-route)
+
+    Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
 
 
 ## Formatters
