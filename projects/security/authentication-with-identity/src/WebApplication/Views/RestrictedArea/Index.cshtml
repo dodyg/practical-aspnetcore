@@ -1,0 +1,27 @@
+@model WebApplication.ViewModels.RestrictedAreaViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Restricted area";
+}
+
+<h1>@ViewData["Title"]</h1>
+<i>You have to be signed in to access there.</i>
+
+<br />
+<b>Profile:</b>
+<ul>
+	<li>
+		<label asp-for="Username"></label>
+	</li>
+	<li>
+		<label asp-for="Email"></label>
+		@if (Model.IsEmailConfirmed)
+        {
+			<i>confirmed</i>
+		} else {
+			<i>not confirmed</i>
+		}
+	</li>
+	<li>
+		<label asp-for="PhoneNumber"></label>
+	</li>
+</ul>

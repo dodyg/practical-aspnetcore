@@ -1,0 +1,22 @@
+@model WebApplication.ViewModels.AccountViewModels.RegisterViewModel;
+@{
+	ViewData["Title"] = "Register new user";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="Account" asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+	<label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+	<br /><br />
+	<label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+	<br /><br />
+	<button type="submit">Register</button>
+</form>
+
+<p>
+   <a asp-action="Login">Log in</a>
+</p>

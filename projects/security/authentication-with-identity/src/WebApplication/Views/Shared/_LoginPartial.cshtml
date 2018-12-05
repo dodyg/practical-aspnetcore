@@ -1,0 +1,34 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul>
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <b>Hello @User.Identity.Name!</b>
+    </li>
+	<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+    <li>
+        <a asp-controller="RestrictedArea" asp-action="Index" title="You have to be signed in to access to this page">Restricted area</a>
+    </li>
+    <li>
+        <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit">Logout</button>
+        </form>
+    </li>
+}
+else
+{
+	<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+    <li>
+        <a asp-controller="Account" asp-action="Register">Register</a>
+    </li>
+    <li>
+        <a asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+    <li>
+        <a asp-controller="RestrictedArea" asp-action="Index" title="You have to be signed in to access to this page">Restricted area</a>
+    </li>
+}
+</ul>
