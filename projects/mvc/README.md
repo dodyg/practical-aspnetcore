@@ -1,4 +1,4 @@
-# MVC (31)
+# MVC (35)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -28,6 +28,19 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   Extend `Microsoft.AspNetCore.Mvc.ProblemDetails` to make it easier for day to day use. It will adjust what kind of information it shows based on your development environment.
 
+## Model Binding
+  
+  We are exploring everything related to model binding in this section.
+
+  * [Model binding using a class and FromQuery attribute](/projects/mvc/model-binding-from-query)
+
+    Use `[FromQuery]` attribute to have MVC put all the query string values nicely in a class instead of using primitives e.g. `int userId`.
+
+  * [Model binding using a class and FromRoute attribute](/projects/mvc/model-binding-from-route)
+
+    Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
+
+
 ## Formatters
 
 * [Using Utf8Json as JSON Formatter](/projects/mvc/utf8json-formatter)
@@ -55,6 +68,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   ```
 
   We also use the new `ActionResult<T>` return type. You can read more about the type [here](https://joonasw.net/view/aspnet-core-2-1-actionresult-of-t).
+
+* [Customizing NSwag](/projects/mvc/nswag-2)
+
+  Use attribute such as `SwaggerTag` to organize your API or `SwaggerIgnore` to hide an API from the definition (using `[ApiExplorerSettings(IgnoreApi = true)]` also works).
 
 ## Tag Helpers
 
@@ -184,18 +201,22 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     This example demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language. This [article](https://dotnetcoretutorials.com/2017/06/22/request-culture-asp-net-core/) has a useful explanation on this provider.
 
 
-## Razor Class Library (2)
+## Razor Class Library (3)
 
   We are exploring Razor Class Library (RCL) functionalities in this section. RCL allows you to create reusable UI libraries.
 
   * [Razor Class Library - Hello World](/projects/mvc/razor-class-library)
 
-    This is the simplest example to demonstrate the functionality of RCL. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
+    This is the simplest example to demonstrate the functionality of RCL. The library uses Razor Pages. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
  
   * [Razor Class Library - Include static files](/projects/mvc/razor-class-library-with-static-files)
 
     This is similar to previous example except now you can including static files (javascript, images, css, etc) with your RCL. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
- 
+
+  * [Razor Class Library - using Controllers and Views](/projects/mvc/razor-class-library-with-controllers)
+
+    This sample demonstrates on how to use Controllers and Views in your Razor Class Library in contrast to previous examples that uses Razor Pages.
+
 ## Syndication Output Formatter (1)
 
   We are building a RSS/ATOM Output formatter starting from the very basic.

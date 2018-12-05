@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using NSwag.AspNetCore;
 using System.Reflection;
 using NJsonSchema;
+using NSwag.Annotations;
 
 namespace StartupBasic
 {
@@ -62,6 +63,7 @@ namespace StartupBasic
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [ApiExplorerSettings()]
     public class GreetingController : ControllerBase
     {
         public class Greeting
@@ -78,6 +80,7 @@ namespace StartupBasic
         /// </summary>
         /// <response code="200">The "Hello World" text</response>
         [HttpGet("")]
+        [SwaggerTag("Basic")]
         public ActionResult<Greeting> Index()
         {
             return new Greeting
@@ -87,6 +90,7 @@ namespace StartupBasic
         }
 
         [HttpPost("goodbye")]
+        [SwaggerTag("Basic")]
         public ActionResult<Greeting> Goodbye(string name)
         {
             return new Greeting
@@ -97,18 +101,21 @@ namespace StartupBasic
         }
 
         [HttpPut("")]
+        [SwaggerTag("Intermediate")]
         public ActionResult<Greeting> Relay(Greeting greet)
         {
             return greet;
         }
 
         [HttpDelete("greetings/{name}")]
+        [SwaggerTag("Intermediate")]
         public ActionResult Remove(string name)
         {
             return Ok($"{name} removed");
         }
 
         [HttpPatch("")]
+        [SwaggerTag("Advanced")]
         public ActionResult<Greeting> Update(string city)
         {
             return new Greeting
@@ -116,6 +123,26 @@ namespace StartupBasic
                 Message = "Hello World",
                 PersonAddressCity = city
             };
+        }
+
+        [HttpGet("hide/this")]
+        [SwaggerIgnore]
+        public ActionResult HideThis()
+        {
+            return Ok(new { gretting = "hello" });
+        }
+
+        [HttpGet("hide/this2")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public ActionResult HideThisToo()
+        {
+            return Ok(new { gretting = "hello" });
+        }
+
+        [HttpGet("hide/fail")]
+        public ActionResult NotHidden()
+        {
+            return Ok(new { gretting = "hello" });
         }
     }
 
