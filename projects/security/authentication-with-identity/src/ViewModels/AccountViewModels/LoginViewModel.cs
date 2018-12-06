@@ -2,8 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication.ViewModels.AccountViewModels
 {
-	public class LoginViewModel
-	{
+    public class LoginViewModel
+    {
         [Required]
         [EmailAddress]
         public string Email { get; set; }
@@ -14,5 +14,5 @@ namespace WebApplication.ViewModels.AccountViewModels
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
-	}
+    }
 }
