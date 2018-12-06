@@ -12,7 +12,7 @@ Note: If you encounter problem with downloading packages or Nuget, try the follo
 
 ### Security 
 
-There is a new section dedicated to [all security related topics](/projects/security) for ASP.NET Core.
+There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
 ### MVC, SignalR and Blazor
 
