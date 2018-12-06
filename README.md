@@ -1,4 +1,4 @@
-# 194 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 195 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -9,6 +9,10 @@ The goal of this project is to enable .NET programmers to learn the new ASP.NET 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
+
+### Security 
+
+There is a new section dedicated to [all security related topics](/projects/security) for ASP.NET Core.
 
 ### MVC, SignalR and Blazor
 
