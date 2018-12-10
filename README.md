@@ -16,7 +16,7 @@ There is a new section dedicated to [all security related topics (1 sample)](/pr
 
 ### MVC, SignalR and Blazor
 
-There are dedicated samples for **ASP.NET Core MVC 2.1** [here (34 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (2 samples)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
+There are dedicated samples for **ASP.NET Core MVC 2.1** [here (34 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (3 samples)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 
