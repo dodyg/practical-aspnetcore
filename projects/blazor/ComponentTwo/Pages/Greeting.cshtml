@@ -1,0 +1,21 @@
+﻿<h1>@Message @currentCount from a component</h1>
+
+<button class="btn btn-primary" onclick="@IncrementCount">Click me</button>
+
+@functions {
+    [Parameter]
+    string Message {get; set;}
+
+    int currentCount = 1;
+
+    public void Say(string message)
+    {
+        Message = message;
+        this.StateHasChanged();
+    }
+
+    void IncrementCount()
+    {
+        currentCount++;
+    }
+}
