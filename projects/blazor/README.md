@@ -12,4 +12,4 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
   * [Component Two - Reference and Call](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentTwo)
   
-    This sample shows how to refer to a component and call a public method of the component.
+    This sample shows how to refer to a component and call a public method of the component. We use the method `this.StateHasChanged();` to tell the component that its value has changed.
