@@ -1,4 +1,4 @@
-# MVC (35)
+# MVC (36)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -170,7 +170,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (6)
+## Localization (7)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -200,6 +200,9 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     
     This example demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language. This [article](https://dotnetcoretutorials.com/2017/06/22/request-culture-asp-net-core/) has a useful explanation on this provider.
 
+  * [MVC Localization - 7](/projects/mvc/mvc-localization-7)
+
+    This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
 
 ## Razor Class Library (3)
 
