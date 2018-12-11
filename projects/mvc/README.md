@@ -186,7 +186,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     Demonstrate an easy way to use shared resources. The class name, `Global`, is just a name. It can be `Common` or `CommonResources`, etc. It does not matter.
 
-  * [MVC Localization - 4](/projects/mvc/mvc-localization-3)
+  * [MVC Localization - 4](/projects/mvc/mvc-localization-4)
 
     Similar to `MVC Localization - 3` except that now the assembly name and namespace share the same name. This is in contrast to `MVC Localization - 1` and `MVC Localization`.
 
