@@ -90,7 +90,7 @@ namespace StartupBasic
             //- Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareException
             //- Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareFinished
             //If you mispelled them, it won't work.
-            //Read more about them here https://github.com/aspnet/Diagnostics/blob/02dc95eda32b773456d566f2fbc3382e59a5da36/src/Microsoft.AspNetCore.MiddlewareAnalysis/AnalysisMiddleware.cs
+            //Read more about them here https://github.com/aspnet/AspNetCore/blob/master/src/Middleware/MiddlewareAnalysis/src/AnalysisMiddleware.cs
 
             //The parameters in all these three methods are ALL the information provided by the MiddlewareAnalysis for each specificic event
             [DiagnosticName("Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareStarting")]
