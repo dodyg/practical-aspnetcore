@@ -92,7 +92,7 @@ namespace StartupBasic
             //If you mispelled them, it won't work.
             //Read more about them here https://github.com/aspnet/Diagnostics/blob/02dc95eda32b773456d566f2fbc3382e59a5da36/src/Microsoft.AspNetCore.MiddlewareAnalysis/AnalysisMiddleware.cs
 
-            //The parameters in all these three methods are ALL the information provided by the MiddlewareAnalysis for each specifici event
+            //The parameters in all these three methods are ALL the information provided by the MiddlewareAnalysis for each specificic event
             [DiagnosticName("Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareStarting")]
             public void OnStarting(HttpContext httpContext, string name, Guid instanceId, long timestamp)
             {
