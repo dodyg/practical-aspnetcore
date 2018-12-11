@@ -90,9 +90,9 @@ namespace StartupBasic
             //- Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareException
             //- Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareFinished
             //If you mispelled them, it won't work.
-            //Read more about them here https://github.com/aspnet/Diagnostics/blob/dev/src/Microsoft.AspNetCore.MiddlewareAnalysis/AnalysisMiddleware.cs
+            //Read more about them here https://github.com/aspnet/AspNetCore/blob/master/src/Middleware/MiddlewareAnalysis/src/AnalysisMiddleware.cs
 
-            //The parameters in all these three methods are ALL the information provided by the MiddlewareAnalysis for each specifici event
+            //The parameters in all these three methods are ALL the information provided by the MiddlewareAnalysis for each specificic event
             [DiagnosticName("Microsoft.AspNetCore.MiddlewareAnalysis.MiddlewareStarting")]
             public void OnStarting(HttpContext httpContext, string name, Guid instanceId, long timestamp)
             {
