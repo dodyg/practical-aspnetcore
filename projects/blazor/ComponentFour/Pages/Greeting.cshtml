@@ -1,0 +1,16 @@
+﻿<button class="btn btn-primary" onclick="@IncrementCount">Click me</button>
+
+@functions {
+    [Parameter]
+    Action<int> OnUpdate {get; set;}
+
+    int _currentCount;
+
+    void IncrementCount()
+    {
+        _currentCount++;
+        if (OnUpdate != null){
+            OnUpdate(_currentCount);
+        }
+    }
+}

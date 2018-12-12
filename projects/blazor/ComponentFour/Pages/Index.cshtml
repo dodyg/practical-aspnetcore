@@ -1,0 +1,19 @@
+﻿@page "/"
+
+Count: @Increment
+
+<div style="margin:30px">
+<i>This is a component</i>
+<Greeting OnUpdate="IncrementUpdated"></Greeting>
+</div>
+
+@functions
+{
+    int Increment {get;set;}
+
+    void IncrementUpdated(int inc)
+    {
+        Increment = inc;
+        this.StateHasChanged();
+    }
+}
