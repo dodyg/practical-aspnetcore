@@ -1,4 +1,4 @@
-# Blazor (5)
+# Blazor (6)
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.7. Make sure you pay attention which port Kestrel is running on.
 
@@ -27,3 +27,8 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Four - Handling Custom Event from Component](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentFour)
 
     This sample shows how to raise a custom event from a component and how to handle them.
+   
+  * [Component Five - Inherit from a BlazorComponent class](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentFive)
+
+    This sample shows how to inherit from a `BlazorComponent` class. This allows you to share common code across components. You can also use this technique to have a 'Code Behind' experience if that's your thing.
+ 
