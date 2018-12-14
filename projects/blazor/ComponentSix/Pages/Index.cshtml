@@ -1,15 +1,18 @@
 ﻿@page "/"
 
-<p>We observe here the following behavior</p>
+<p>We observe here the following behaviors</p>
 
 <ul>
     <li>If you call your method from the same component, you don't need StateHasChanged()</li>
-    <li>If you call the same method from outside the componet (from parent), the method needs to call StateHasChanged() otherwise the component won't rerender the result.</li>
+    <li>If you call the same method from outside the component (from parent), the method needs to call StateHasChanged() otherwise the component won't re-render the result.</li>
 </ul>
 
 <div style="margin:30px">
 <i>Component Uses Variable</i>
 <CounterVariable ref="Variable"/>
+<hr />
+<i>The following buttons come from parents</i>
+<br/>
 <button type="button"  onclick="@IncrementVariable">Click</button>
 <button type="button"  onclick="@IncrementVariable2">Click with StateHasChanged()</button>
 </div>
@@ -17,6 +20,13 @@
 <div style="margin:30px">
 <i>Component Uses Property</i>
 <CounterProperty ref="Property" />
+<hr />
+<i>The following buttons come from parents</i>
+<br/>
+<button type="button" onclick="@AddToPropertyList">Expand List</button>
+<button type="button" onclick="@AddToPropertyList2">Expand List with StateHasChanged()</button>
+
+<br/>
 <button type="button" onclick="@IncrementProperty">Click</button>
 <button type="button" onclick="@IncrementProperty2">Click with StateHasChanged()</button>
 
@@ -40,5 +50,13 @@
 
     void IncrementProperty2() {
         Property.IncrementWithStateHasChanged();
+    }
+
+    void AddToPropertyList(){
+        Property.AddToList();
+    }
+
+    void AddToPropertyList2(){
+        Property.AddToListStateHasChanged();
     }
 }

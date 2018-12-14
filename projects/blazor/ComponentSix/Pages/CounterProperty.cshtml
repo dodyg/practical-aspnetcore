@@ -1,10 +1,30 @@
 @Counter
-
 <br />
 <button type="button" onclick="@Increment">Increment</button>
 
+<ul>
+@foreach(var l in List){
+    <li>@l</li>
+}
+</ul>
+
+<button type="button" onclick="@AddToList">Add to List</button>
+
 @functions {
     int Counter {get; set;}
+    List<int> List {get;set;} = new List<int>();
+    Random _rand = new Random();
+    
+    public void AddToList()
+    {
+        List.Add(_rand.Next(10000));
+    }
+
+    public void AddToListStateHasChanged()
+    {
+        List.Add(_rand.Next(10000));
+        this.StateHasChanged();
+    }
 
     public void Increment()
     {
