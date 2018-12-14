@@ -1,0 +1,44 @@
+﻿@page "/"
+
+<p>We observe here the following behavior</p>
+
+<ul>
+    <li>If you call your method from the same component, you don't need StateHasChanged()</li>
+    <li>If you call the same method from outside the componet (from parent), the method needs to call StateHasChanged() otherwise the component won't rerender the result.</li>
+</ul>
+
+<div style="margin:30px">
+<i>Component Uses Variable</i>
+<CounterVariable ref="Variable"/>
+<button type="button"  onclick="@IncrementVariable">Click</button>
+<button type="button"  onclick="@IncrementVariable2">Click with StateHasChanged()</button>
+</div>
+
+<div style="margin:30px">
+<i>Component Uses Property</i>
+<CounterProperty ref="Property" />
+<button type="button" onclick="@IncrementProperty">Click</button>
+<button type="button" onclick="@IncrementProperty2">Click with StateHasChanged()</button>
+
+</div>
+
+@functions{
+    CounterVariable Variable;
+    CounterProperty Property;
+
+    void IncrementVariable () {
+        Variable.Increment();
+    }
+
+    void IncrementVariable2 () {
+        Variable.IncrementWithStateHasChanged();
+    }
+
+    void IncrementProperty() {
+        Property.Increment();
+    }
+
+    void IncrementProperty2() {
+        Property.IncrementWithStateHasChanged();
+    }
+}
