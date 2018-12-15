@@ -1,4 +1,4 @@
-# Blazor (7)
+# Blazor (8)
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.7. Make sure you pay attention which port Kestrel is running on.
 
@@ -35,3 +35,8 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Six - When to call StateHasChanged](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentSix)
 
     This sample shows different behaviors by the component depending on where you call the method from. Note: __this is still tentative. It needs more exploration__. 
+
+
+  * [Component Seven - Plain C#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentSeven)
+
+    This sample demonstrates that you can use and organize your C# classes like in an ordinary C# app.
