@@ -1,0 +1,14 @@
+
+
+Number :@Number
+
+@functions {
+    [Parameter]
+    int Number { get;set;}
+
+    public void Display(int nbr)
+    {
+        Number = nbr;
+        this.StateHasChanged();
+    }
+}
