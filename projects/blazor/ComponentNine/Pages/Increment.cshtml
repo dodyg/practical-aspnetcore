@@ -1,0 +1,19 @@
+
+<button type="button" onclick="@Add">Increment</button>
+
+@functions
+{
+    // You need a Property + PropertyChanged event in combination to make the custom component data binding works
+    [Parameter]
+    int Number { get; set;}
+
+    [Parameter]
+    Action<int> NumberChanged { get; set;}
+
+
+    void Add()
+    {
+        Number++;
+        NumberChanged?.Invoke(Number);
+    }
+}
