@@ -1,0 +1,31 @@
+﻿@page "/"
+
+<h1>Data Binding from Child Component property to Parent</h1>
+
+MagicNumbers
+
+<ul>
+    @foreach(var mn in MagicNumbers)
+    {
+        <li>@mn</li>
+    }    
+</ul>
+
+<Increment bind-numbers="@MagicNumbers" />
+
+@functions {
+    List<int> _magicNumbers = new List<int>();
+    List<int> MagicNumbers
+    { 
+        get
+        {
+            return _magicNumbers;
+        }
+    
+        set
+        {
+            _magicNumbers = value;
+            StateHasChanged();
+        }
+    }
+}

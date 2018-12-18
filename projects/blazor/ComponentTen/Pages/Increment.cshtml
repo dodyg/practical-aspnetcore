@@ -1,0 +1,20 @@
+
+<button type="button" onclick="@Add">Add Number</button>
+
+@functions
+{
+    // You need a Property + PropertyChanged event in combination to make the custom component data binding works
+    [Parameter]
+    List<int> Numbers { get; set;} = new List<int>();
+
+    [Parameter]
+    Action<List<int>> NumbersChanged { get; set;}
+
+    Random _rnd = new Random();
+
+    void Add()
+    {
+        Numbers.Add(_rnd.Next());
+        NumbersChanged?.Invoke(Numbers);
+    }
+}
