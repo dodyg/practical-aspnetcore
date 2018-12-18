@@ -1,4 +1,4 @@
-# Blazor (10)
+# Blazor (11)
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.7. Make sure you pay attention which port Kestrel is running on.
 
@@ -36,7 +36,6 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     This sample shows different behaviors by the component depending on where you call the method from. Note: __this is still tentative. It needs more exploration__. 
 
-
   * [Component Seven - Plain C#](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentSeven)
 
     This sample demonstrates that you can use and organize your C# classes like in an ordinary C# app.
@@ -48,3 +47,7 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Nine - Data binding from Child Component to Parent](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentNine)
 
     This samples demonstrates another way on how to pass data from Child component to Parent using two way data binding. The other way is using Custom Event (see __Component Four__).
+
+  * [Component Ten - Data binding from Child Component to Parent on Collection](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentTen)
+
+    Similar to __Component Nine__ except that this time the property is a `List<int>` instead of an `int`.
