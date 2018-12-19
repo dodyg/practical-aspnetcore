@@ -27453,7 +27453,6 @@ var Demo = /** @class */ (function (_super) {
     Demo.prototype.render = function () {
         return (React.createElement("div", null,
             React.createElement("div", { style: { textAlign: "center" } },
-                React.createElement("h1", null, "Practical - Aspnet Core @ Github"),
                 React.createElement("h2", null, "This page refresh automatically all data displayed every 1 second only.")),
             React.createElement("hr", null),
             React.createElement("h3", null,

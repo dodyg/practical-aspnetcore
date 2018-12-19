@@ -33,12 +33,10 @@ class Demo extends React.Component<IDemoProp, IDemoState> {
         return (
             <div>
                 <div style={{ textAlign: "center" }}>
-                    <h1>Practical - Aspnet Core @ Github</h1>
-
                     <h2>This page refresh automatically all data displayed every 1 second only.</h2>
                 </div>
 
-                <hr/>
+                <hr />
 
                 <h3>Server time is: {new Date(this.state.Now).toString()}</h3>
 
