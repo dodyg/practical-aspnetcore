@@ -6,7 +6,7 @@
 `npm i`
 
 # Run the following command to run the asp core application.
-`dotnet run`
+`dotnet watch run`
 
 # Use the following to command to compile and watch the typescript scripts.
 `node node_modules/webpack/bin/webpack.js --watch`

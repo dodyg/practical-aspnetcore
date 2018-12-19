@@ -45,9 +45,9 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.2 (12) Preview 3
+## What's new in ASP.NET Core 2.2 (12)
 
-  All the samples in this section requires ASP.NET Core 2.2 Preview 3 (`2.2.100-preview3-009430`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
+  All the samples in this section requires ASP.NET Core 2.2 (`2.2.100`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
   * [Endpoint Routing](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing)
 
