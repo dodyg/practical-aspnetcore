@@ -1,4 +1,4 @@
-# MVC (36)
+# MVC (37)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -94,6 +94,14 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Tag Helper - Nested Alert Tag Helper](/projects/mvc/tag-helper-5)
 
     Demonstrate passing values from Parent Tag to Child Tag.
+
+
+## Tag Helpers Tips and Tricks
+
+  * [Cache Busting Tag Helper](/projects/mvc/tag-helper-link)
+
+    Use `asp-append-version` to your css and script link to make sure that your visitors always use the latest version of your style and script files.
+
 
 ## MVC and Pages Routing
 

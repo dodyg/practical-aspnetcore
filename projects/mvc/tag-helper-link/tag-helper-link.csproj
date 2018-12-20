@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>tag-helper-script</AssemblyName>
+    <AssemblyName>tag-helper-link</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>tag-helper-script</PackageId>
+    <PackageId>tag-helper-link</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
