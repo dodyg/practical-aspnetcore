@@ -1,4 +1,4 @@
-# 207 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 208 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -513,7 +513,7 @@ All these projects require the following dependencies
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (9)**
+* **Middleware (10)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -552,6 +552,11 @@ All these projects require the following dependencies
   * [Middleware 10](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-10)
    
     Demonstrate that a middleware is a singleton.
+
+  * [Middleware 11](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/middleware-11)
+   
+    This sample is similar to `Middleware 10` except that this one implement `IMiddleware` to create Factory-based middleware activation. This means that you can create a middleware that is not a singleton (either Transient or Scoped). 
+
 
 * **Features (8)**
   

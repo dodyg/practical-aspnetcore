@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>middleware-11</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>middleware-11</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*"/>
+  </ItemGroup>
+
+</Project>

@@ -13,6 +13,7 @@ namespace HelloWorldWithMiddleware
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<TerminalMiddleware>();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -21,19 +22,22 @@ namespace HelloWorldWithMiddleware
         }
     }
 
-    public class TerminalMiddleware
+    public class TerminalMiddleware : IMiddleware
     {
+        ILogger<TerminalMiddleware> _log;
+
         DateTime _date = DateTime.Now;
 
-        public TerminalMiddleware(RequestDelegate next)
+        public TerminalMiddleware(ILogger<TerminalMiddleware> log)
         {
+            _log = log;
         }
 
-        public async Task Invoke(HttpContext context, ILogger<TerminalMiddleware> log)
+        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            log.LogDebug($"Request: {context.Request.Path}");
+            _log.LogDebug($"Request: {context.Request.Path}");
             context.Response.Headers.Add("Content-Type", "text/plain");
-            await context.Response.WriteAsync($"Middleware is singleton. Keep refreshing the page. You will see that the date does not change {_date}.");
+            await context.Response.WriteAsync($"This Middleware is transient. Keep refreshing your page. The date will keep changing: {_date}.");
         }
     }
 
