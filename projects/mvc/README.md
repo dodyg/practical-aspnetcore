@@ -1,4 +1,4 @@
-# MVC (37)
+# MVC (38)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -211,6 +211,27 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Localization - 7](/projects/mvc/mvc-localization-7)
 
     This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
+
+## View Component (1)
+
+  We are exploring everything about ViewComponent in this section.
+
+  * [ View Component - Hello world](/projects/mvc/view-component-1)
+
+    This is the simplest sample of a `ViewComponent` that accept parameters. As you can see, the file for the `ViewComponent` class can be located anywhere. 
+
+    From the [doc](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-2.2#view-search-path) 
+    
+    > The runtime searches for the view in the following paths:
+
+    > * /Pages/Components/{View Component Name}/{View Name}
+    > * /Views/{Controller Name}/Components/{View Component Name}/{View Name}
+    > * /Views/Shared/Components/{View Component Name}/{View Name}
+    
+    > We recommend you name the view file Default.cshtml... 
+
+    So you will find the code for this `HelloWorldViewComponent` at `/Views/Shared/Components/HelloWorld/HelloWorld.cs` and the view at `/Views/Shared/Components/HelloWorld/Default.cshtml`.
+    
 
 ## Razor Class Library (3)
 
