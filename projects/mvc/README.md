@@ -216,7 +216,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   We are exploring everything about ViewComponent in this section.
 
-  * [ View Component - Hello world](/projects/mvc/view-component-1)
+  * [ View Component - Hello world](/projects/mvc/view-component)
 
     This is the simplest sample of a `ViewComponent` that accept parameters. As you can see, the file for the `ViewComponent` class can be located anywhere. 
 
