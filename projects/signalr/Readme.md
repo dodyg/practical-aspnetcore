@@ -2,4 +2,6 @@
 
 This section contains all micro samples for ASP.NET Core SignalR 2.1.
 
-Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 2.1.0-preview1-final otherwise below examples won't work.
+* [Dotnetify-ReactJs-Typescript-1](/projects/signalr/signalr-1)
+    
+  A minimal sample that use [Dotnetify (a library that use Signalr for real-time C# & HTML applications)](http://dotnetify.net/) + [ReactJs](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) to create a simple application that call methods on server and push updates periodically to the client.
