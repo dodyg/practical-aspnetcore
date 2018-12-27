@@ -18,13 +18,6 @@ There is a new section dedicated to [all security related topics (1 sample)](/pr
 
 There are dedicated samples for **ASP.NET Core MVC 2.1** [here (38 samples)](/projects/mvc/README.md), ASP.NET Core SignalR 2.1 [here (3 sample)](/projects/signalr) and Blazor [here (11 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
 
-#### SignalR
-* [Signalr-1](/projects/signalr/signalr-1)
-* [Signalr-2](/projects/signalr/signalr-2)
-* [Dotnetify-ReactJs-Typescript-1](/projects/signalr/signalr-1)
-    
-  A minimal sample that use [Dotnetify (a library that use Signalr for real-time C# & HTML applications)](http://dotnetify.net/) + [ReactJs](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/) to create a simple application that call methods on server and push updates periodically to the client.
-
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.

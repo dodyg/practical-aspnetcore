@@ -1,4 +1,4 @@
-# MVC (38)
+# MVC (39)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -232,6 +232,8 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     So you will find the code for this `HelloWorldViewComponent` at `/Views/Shared/Components/HelloWorld/HelloWorld.cs` and the view at `/Views/Shared/Components/HelloWorld/Default.cshtml`.
     
+
+  * [ View Component - Alternative Declaration](/projects/mvc/view-component-2)
 
 ## Razor Class Library (3)
 
