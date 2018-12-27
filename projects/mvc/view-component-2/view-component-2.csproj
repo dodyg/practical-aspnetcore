@@ -9,5 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
+    <Watch Include="**\*.cshtml" />
   </ItemGroup>
 </Project>
