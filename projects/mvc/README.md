@@ -212,7 +212,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
 
-## View Component (1)
+## View Component (2)
 
   We are exploring everything about ViewComponent in this section.
 
@@ -234,6 +234,8 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     
 
   * [ View Component - Alternative Declaration](/projects/mvc/view-component-2)
+
+    Use `@addTagHelper *, <AssemblyName>` to enable the invocation of view component as a Tag Helper. Pascal-cased view component class and properties are translated into their lower kebab case.
 
 ## Razor Class Library (3)
 
