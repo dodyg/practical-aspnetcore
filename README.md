@@ -1,4 +1,4 @@
-# 211 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 212 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -45,7 +45,7 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 
 When an example requires packages that are not listed here, it will be added to the project file.
 
-## What's new in ASP.NET Core 2.2 (12)
+## What's new in ASP.NET Core 2.2 (13)
 
   All the samples in this section requires ASP.NET Core 2.2 (`2.2.100`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
@@ -73,6 +73,10 @@ When an example requires packages that are not listed here, it will be added to 
 
     Show how to deal with route with values using `LinkGenerator.GetPathByAction`. If you don't deal with the values, the link generator won't generate the link.
 
+  * [Parameter Transformer ](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/parameter-transformer)
+     
+    Use Parameter Transformer to control the creation of route token `[area]`, `[controller]` and `[action]`. In this example we use it on `[controller]` and `[action]`.
+   
   * [Health Check - Check URL](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check)
 
     Show the simplest way to use health check functionality using `app.UseHealthChecks`.
