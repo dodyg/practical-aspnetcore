@@ -1,0 +1,9 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<html>
+    <body>
+        <h1>Cache Busting</h1>
+        View the source of this page and see how the image file contains extra string other than just /kitty.png. Everytime you update your image, the links will change which force your browser to download your images.
+
+        <img src="/kitty.png" asp-append-version="true" />
+    </body>
+</html>
