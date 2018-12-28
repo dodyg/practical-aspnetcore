@@ -1,4 +1,4 @@
-# MVC (39)
+# MVC (40)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -101,6 +101,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Cache Busting Tag Helper](/projects/mvc/tag-helper-link)
 
     Use `asp-append-version` to your css and script link to make sure that your visitors always use the latest version of your style and script files.
+
+  * [Cache Busting Image Tag Helper](/projects/mvc/tag-helper-img)
+
+    Use `asp-append-version` to your images to make sure that your visitors always use the latest version of images.
 
 
 ## MVC and Pages Routing
