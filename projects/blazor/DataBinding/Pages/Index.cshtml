@@ -1,0 +1,39 @@
+﻿@page "/"
+
+<h1>Two Way Data Binding</h1>
+<h2>Output</h2>
+
+<div>
+    <strong>Name</strong> : @Name 
+    <br/>
+    <strong>Bio</strong> : @Bio
+    <br/>
+    <strong>Football Team</strong> : @FootballTeam
+    <br/>
+    <strong>Is Winning</strong> : @IsWinning
+    <br/>
+</div>
+
+<h2>Form</h2>
+Name: <input type="text" bind="@Name" />
+<br/><br/>
+Bio:
+<textarea bind="@Bio" cols="50" rows="5">
+</textarea>
+<br/><br/>
+Team: <select bind="@FootballTeam">
+        <option>Arsenal</option>
+        <option>Liverpool</option>
+        <option>Manchester City</option>
+    </select>
+<br/><br/>
+Is Winning?: <input type="checkbox" bind="@IsWinning" />
+<br/><br/>
+<a href="https://github.com/aspnet/AspNetCore/issues/5579">Radio Button isn't supported yet</a>
+@functions
+{
+    public string Name { get; set; }   
+    public string Bio { get; set;}  
+    public string FootballTeam { get; set; }
+    public bool IsWinning { get; set; }
+}

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace LinkGeneratorSample
 {
+    /// This sample is not working. LinkGenerator.GetTemplateByAction has been removed from the final version of ASP.NET CORE 2.2
     public class Startup
     {
         public Startup(IHostingEnvironment env, ILoggerFactory logger)

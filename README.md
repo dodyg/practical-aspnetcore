@@ -1,4 +1,4 @@
-# 212 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 213 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -10,13 +10,15 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
 
+ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
+
 ### Security 
 
 There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
 ### MVC, SignalR and Blazor
 
-There are dedicated samples for **ASP.NET Core MVC 2.1** [here (40 samples)](/projects/mvc/README.md), ASP.NET Core SignalR 2.1 [here (1 sample)](/projects/signalr/README.md) and Blazor [here (11 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
+There are dedicated samples for **ASP.NET Core MVC 2.1** [here (40 samples)](/projects/mvc/README.md), ASP.NET Core SignalR 2.1 [here (1 sample)](/projects/signalr/README.md) and Blazor [here (12 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 
@@ -65,8 +67,9 @@ When an example requires packages that are not listed here, it will be added to 
 
     Show how to deal with route with values using `LinkGenerator.GetUriByAction`. If you don't deal with the values, the link generator won't generate the link.
 
-  * [Endpoint Routing - GetTemplateByAction](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-5)
+  * Endpoint Routing - GetTemplateByAction
 
+    __This sample is no longer relevant__. `LinkGenerator.GetTemplateByAction` has been removed from ASP.NET Core 2.2 final version.
     Demonstrate on how to obtain route template from an existing Action using `LinkGenerator.GetTemplateByAction` and generate path using the information.
 
   * [Endpoint Routing - GetPathByAction](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-6)
