@@ -65,8 +65,9 @@ When an example requires packages that are not listed here, it will be added to 
 
     Show how to deal with route with values using `LinkGenerator.GetUriByAction`. If you don't deal with the values, the link generator won't generate the link.
 
-  * [Endpoint Routing - GetTemplateByAction](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-5)
+  * Endpoint Routing - GetTemplateByAction
 
+    __This sample is no longer relevant__. `LinkGenerator.GetTemplateByAction` has been removed from ASP.NET Core 2.2 final version.
     Demonstrate on how to obtain route template from an existing Action using `LinkGenerator.GetTemplateByAction` and generate path using the information.
 
   * [Endpoint Routing - GetPathByAction](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/endpoint-routing-6)
