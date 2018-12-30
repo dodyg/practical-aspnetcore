@@ -10,6 +10,8 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
 
+ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
+
 ### Security 
 
 There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
