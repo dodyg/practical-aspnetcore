@@ -1,4 +1,4 @@
-# Blazor (11)
+# Blazor (12)
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.7. Make sure you pay attention which port Kestrel is running on.
 
@@ -51,3 +51,7 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Ten - Data binding from Child Component to Parent on Collection](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/ComponentTen)
 
     Similar to __Component Nine__ except that this time the property is a `List<int>` instead of an `int`.
+
+  * [Data Binding - Form](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/blazor/DataBinding)
+
+    Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
