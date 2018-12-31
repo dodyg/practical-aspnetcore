@@ -12,7 +12,7 @@ using MimeKit.Text;
 using MimeKit;
 
 
-namespace mailkit_sample
+namespace MailkitBasic
 {
     public class Startup
     {
