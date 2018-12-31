@@ -1,4 +1,4 @@
-# 213 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 214 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -103,6 +103,10 @@ When an example requires packages that are not listed here, it will be added to 
   * [Health Check - Check URL - 6](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/health-check-6)
 
     Similar to the previous example except that one of the check reports "Degraded" status by using `context.Registration.FailureStatus = HealthStatus.Degraded;`.
+
+  * [New Redis Caching Package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/2-2/new-redis-caching-package)
+
+    Instead of using `Microsoft.Extensions.Caching.Redis`, use the new `Microsoft.Extensions.Caching.StackExchangeRedis`. The former will be deprecated in .NET Core 3.0 (https://github.com/aspnet/Announcements/issues/322). 
 
 ## What's new in ASP.NET Core 2.1(5)
 
