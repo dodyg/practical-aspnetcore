@@ -12,7 +12,6 @@ using MailKit.Security;
 using MimeKit.Text;
 using MimeKit;
 
-
 namespace MailkitBasic
 {
     public class Startup
@@ -20,20 +19,16 @@ namespace MailkitBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<EmailService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Mailkit}/{action=Index}");
-            });
+            app.UseMvc();
         }
     }
+
     public class Program
     {
         public static void Main(string[] args)
@@ -46,22 +41,51 @@ namespace MailkitBasic
                 .UseStartup<Startup>()
                 .UseEnvironment("Development");
     }
-    public interface IEmailService
+
+    [Route("")]
+    public class HomeController : Controller
     {
-        void Send(EmailMessage email);
+        private readonly EmailService _emailService;
+
+        public HomeController(EmailService EmailService)
+        {
+            _emailService = EmailService;
+        }
+
+        [HttpGet("")]
+        public IActionResult Index() => View();
+
+        [HttpPost("Send")]
+        public IActionResult Send()
+        {
+            _emailService.Send(new EmailMessage()
+            {
+                SenderName = "Name",
+                SenderEmail = "Email",
+                RecipientName = "Rec. name",
+                RecipientEmail = "Rec. email",
+                Subject = "Subject",
+                Content = "Good day"
+            });
+
+            return RedirectToAction("Index");
+        }
     }
-    public class EmailService : IEmailService
+
+    public class EmailService
     {
         public void Send(EmailMessage email)
         {
             var message = new MimeMessage();
-            message.From.Add (new MailboxAddress (email.SenderName, email.SenderEmail));
-			message.To.Add (new MailboxAddress (email.RecipientName, email.RecipientEmail));
-			message.Subject = email.Subject;
+            message.From.Add(new MailboxAddress(email.SenderName, email.SenderEmail));
+            message.To.Add(new MailboxAddress(email.RecipientName, email.RecipientEmail));
+            message.Subject = email.Subject;
+
             message.Body = new TextPart(TextFormat.Html)
             {
                 Text = email.Content
             };
+
             using (var emailClient = new SmtpClient())
             {
                 // 587 is for smtp server port, this might change from one server to another.
@@ -77,7 +101,7 @@ namespace MailkitBasic
             }
         }
     }
-    
+
     public class EmailMessage
     {
         public string SenderName { get; set; }
@@ -87,36 +111,4 @@ namespace MailkitBasic
         public string Subject { get; set; }
         public string Content { get; set; }
     }
-}
-
-namespace MailkitBasic.Controllers
-{
-public class MailkitController : Controller
-    {
-        private readonly IEmailService _emailService;
-        public MailkitController(IEmailService EmailService)
-        {
-            _emailService = EmailService;
-        }
-        
-        public IActionResult Index()
-        {
-            return View("/src/Views/Mailkit/Index.cshtml");
-        }
-        [Route("Mailkit/Send")]
-        public IActionResult Send()
-        {
-            _emailService.Send(new EmailMessage()
-            {
-                SenderName = "Name",
-                SenderEmail = "Email",
-                RecipientName = "Rec. name",
-                RecipientEmail = "Rec. email",
-                Subject = "Subject",
-                Content = "Good day"
-            });
-            return RedirectToAction("Index");
-        }
-    }
-
 }
