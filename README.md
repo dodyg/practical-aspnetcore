@@ -952,9 +952,9 @@ All these projects require the following dependencies
 
   This section shows samples of using [MailKit](https://github.com/jstedfast/MailKit), which is essentially **the** library to use for sending and receiving email in ASP.NET Core.
 
-  * [Send message](/projects/hello-world-startup-all-package-trimming)
+  * [Send email](/projects/mailkit)
   
-    This shows an example on how to send an email.
+    This shows an example on how to send an email using SMTP.
 
 
 * **Modules (2)**
