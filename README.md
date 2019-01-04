@@ -1,4 +1,4 @@
-# 214 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 215 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -948,7 +948,15 @@ All these projects require the following dependencies
 
     Run ```dotnet publish``` or ```dotnet build``` and read the output in your terminal. It will read something similar to ```Trimmed 115 out of 168 files for a savings of 18.93 MB Final app size is 3.07 MB```. You can turn off the trimming by setting ```<TrimUnusedDependencies>true</TrimUnusedDependencies>``` to ```false``` at the project file.
 
+* **Email (1)**
+
+  This section shows samples of using [MailKit](https://github.com/jstedfast/MailKit), which is essentially **the** library to use for sending and receiving email in ASP.NET Core.
+
+  * [Send message](/projects/hello-world-startup-all-package-trimming)
   
+    This shows an example on how to send an email.
+
+
 * **Modules (2)**
 
   This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.

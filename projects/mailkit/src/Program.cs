@@ -53,22 +53,26 @@ namespace MailkitBasic
         }
 
         [HttpGet("")]
-        public IActionResult Index() => View();
+        public IActionResult Index(string message)
+        {
+            ViewBag.Message = message;
+            return View();
+        }
 
         [HttpPost("Send")]
         public IActionResult Send()
         {
             _emailService.Send(new EmailMessage()
             {
-                SenderName = "Name",
-                SenderEmail = "Email",
-                RecipientName = "Rec. name",
-                RecipientEmail = "Rec. email",
+                SenderName = "Change This",
+                SenderEmail = "Change This",
+                RecipientName = "Change This",
+                RecipientEmail = "Change This",
                 Subject = "Subject",
                 Content = "Good day"
             });
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { Message = "Email is successfully sent" });
         }
     }
 
@@ -90,12 +94,12 @@ namespace MailkitBasic
             {
                 // 587 is for smtp server port, this might change from one server to another.
                 // SecureSocketOptions.Auto for SSL.
-                emailClient.Connect("smtp server", 587, SecureSocketOptions.Auto);
+                emailClient.Connect("Change This", 587, SecureSocketOptions.Auto);
 
                 //Remove any OAuth functionality as we won't be using it. 
                 emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
 
-                emailClient.Authenticate("smtp server username", "smtp server password");
+                emailClient.Authenticate("Change This", "Change This");
                 emailClient.Send(message);
                 emailClient.Disconnect(true);
             }

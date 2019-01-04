@@ -3,14 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Mail Kit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
 </head>
 <body>
+    @if(ViewBag.Message != null)
+    {
+        <div style="padding:10px; background-color: #7CFC00;">
+            @ViewBag.Message
+        </div>
+    }
+
     <h1>Send Email</h1>
-    <p>Make sure you </p>
+    <p>Make sure you change the appropriate values (replace all "Change This") inside the source code otherwise this sample won't work.</p>
     <form action="/send" method="post">
         <input type="submit" value="Send"/>
     </form>
