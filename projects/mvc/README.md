@@ -1,4 +1,4 @@
-# MVC (40)
+# MVC (41)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -181,6 +181,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
         defaults: new { controller = "Home", Action = "About" });
     });
     ```
+
+  * [Routing Table](/projects/mvc/routing-table)
+
+    Use `Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider` to interrogate the routing table to display all the registered routes in the system, whether it is using conventional routing or attribute routing.
 
 ## Localization (7)
 
