@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <AssemblyName>routing-table</AssemblyName>
+        <OutputType>Exe</OutputType>
+        <PackageId>routing-table</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
+    </ItemGroup>
+</Project>
