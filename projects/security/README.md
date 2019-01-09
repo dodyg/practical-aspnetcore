@@ -8,4 +8,4 @@ Section about authentication, authorization and other things related to the secu
  
     Basic sample to show how authentication works with Identity Core and Entity Framework Core with SQLite). This sample provides some basic functionalities like register a new user, sign in or sign out.
 
-    Thanks to @AdrienTorris(https://twitter.com/AdrienTorris)
+    Thanks to [@AdrienTorris](https://twitter.com/AdrienTorris).
