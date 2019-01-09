@@ -10,9 +10,10 @@ Orchard Core Framework powers Orchard Core CMS - you can use the framework indep
 
 Notes:
 
-- To run a sample, go to each sample folder and go to the `Host` folder. 
+- To run a sample, go to each sample folder and go to the `Host` folder.
 - All module will have `Module` prefix.
-- We wil be using beta 3 version of Orchard Core.
+- We will be using beta 3 version of Orchard Core.
+- The samples in this section will receive frequent revisions as I am exploring the framework as I produce these samples.
 
 
 
