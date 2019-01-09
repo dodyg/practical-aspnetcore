@@ -956,6 +956,8 @@ All these projects require the following dependencies
   
     This shows an example on how to send an email using SMTP.
 
+    Thanks to [@Kinani95](https://twitter.com/Kinani95).
+
 
 * **Modules (2)**
 
