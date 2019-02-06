@@ -16,9 +16,13 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 
 There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
+### ASP.NET Core 3.0 Preview 2
+
+All the samples related to ASP.NET Core 3.0 is [here (1 sample)](/projects/3-0)
+
 ### MVC, SignalR and Blazor
 
-There are dedicated samples for **ASP.NET Core MVC 2.1** [here (41 samples)](/projects/mvc/README.md), **Razor Pages 2.2** [here (1 sample)](/projects/razor-pages/README.md), **ASP.NET Core SignalR 2.1** [here (1 sample)](/projects/signalr/README.md) and **Blazor** [here (12 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
+There are dedicated samples for **ASP.NET Core MVC 2.1** [here (41 samples)](/projects/mvc/README.md), **Razor Pages 2.2** [here (1 sample)](/projects/razor-pages/README.md), **ASP.NET Core SignalR 2.1** [here (1 sample)](/projects/signalr/README.md) and **Blazor 0.8** [here (12 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 
