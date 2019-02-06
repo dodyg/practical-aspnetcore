@@ -1,8 +1,8 @@
 
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 using System;
 
-public class GreetingBase : BlazorComponent
+public class GreetingBase : ComponentBase
 {
     [Parameter]
     Action<int> OnUpdate { get; set; }

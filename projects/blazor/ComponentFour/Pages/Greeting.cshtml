@@ -9,8 +9,6 @@
     void IncrementCount()
     {
         _currentCount++;
-        if (OnUpdate != null){
-            OnUpdate(_currentCount);
-        }
+        OnUpdate?.Invoke(_currentCount);
     }
 }

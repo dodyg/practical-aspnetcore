@@ -1,5 +1,3 @@
-
-
 <button type="button" onclick="@Add">Increment</button>
 
 @functions {
@@ -8,11 +6,5 @@
     [Parameter]
     Action<int> OnValueChanged { get; set;}
 
-    void Add()
-    {
-        if (OnValueChanged != null)
-        {
-            OnValueChanged(++_number);
-        }
-    }
+    void Add() => OnValueChanged?.Invoke(++_number);
 }
