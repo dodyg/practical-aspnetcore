@@ -28,8 +28,9 @@ namespace HelloWorldWithReload
                         services.AddResponseCompression();
                     })
                     .ConfigureLogging(logging => {
-                        logging.AddDebug();
                     })
+                    .CaptureStartupErrors(true)
+                    .SuppressStatusMessages(true)
                     .UseEnvironment("Development");
                 });
     }

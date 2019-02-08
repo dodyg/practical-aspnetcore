@@ -51,7 +51,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [Generic Hosting](/projects/3-0/hosting)
 
-  You will find here how to setup things that you used to do in the previous versions of ASP.NET Core.
+  You will find here how to setup things that you used to do in the previous versions of ASP.NET Core. In this sample we also forgo the use of `Startup` class.
 
   We also start examining the components of the Generic Hosting in the context of setting up your web app. The readme in this link contains more information and discussion.  
   
