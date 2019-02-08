@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 2 (1)
+# .NET Core 3.0 Preview 2 (2)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 2. Make sure you download the SDK [here](https://blogs.msdn.microsoft.com/webdev/2019/01/29/aspnet-core-3-preview-2/).
 
@@ -48,3 +48,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
                 .UseEnvironment("Development");
     }
     ```
+
+* [Generic Hosting](/projects/3-0/hosting)
+
+  You will find here how to setup things that you used to do in the previous versions of ASP.NET Core.
+
+  We also start examining the components of the Generic Hosting in the context of setting up your web app. The readme in this link contains more information and discussion.  
+  
