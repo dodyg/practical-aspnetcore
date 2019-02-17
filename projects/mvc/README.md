@@ -1,4 +1,4 @@
-# MVC (42)
+# MVC (43)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -220,7 +220,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
 
-## View Component (3)
+## View Component (4)
 
   We are exploring everything about ViewComponent in this section.
 
@@ -248,6 +248,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [ View Component - Return View Component result directly from a controller](/projects/mvc/view-component-3)
 
     This sample shows how to return the output of a View Component directly from a controller. Don't forget that your `_Layout.cshtml` won't be used here. It will just return whatever your View Component is producing.
+
+  * [ View Component - Passing complex object as parameter](/projects/mvc-view-component-4)
+
+    This sample shows you how to pass complex object to the View Component.
 
 ## Razor Class Library (3)
 
