@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>view-component-3</AssemblyName>
+    <AssemblyName>view-component-4</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>view-component-3</PackageId>
+    <PackageId>view-component-4</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

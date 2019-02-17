@@ -1,0 +1,15 @@
+@addTagHelper *, view-component-4
+
+@{
+    var msg = new StartupBasic.RepeatMessage
+    {
+        Content = "Hello World",
+        Repeat = 5
+    };
+}
+<html>
+<body>
+<vc:hello-world message="msg"></vc:hello-world>
+
+</body>
+</html>
