@@ -249,7 +249,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     This sample shows how to return the output of a View Component directly from a controller. Don't forget that your `_Layout.cshtml` won't be used here. It will just return whatever your View Component is producing.
 
-  * [ View Component - Passing complex object as parameter](/projects/mvc-view-component-4)
+  * [ View Component - Passing complex object as parameter](/projects/mvc/view-component-4)
 
     This sample shows you how to pass complex object to the View Component.
 
