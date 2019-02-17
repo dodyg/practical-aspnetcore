@@ -20,7 +20,8 @@ namespace StartupBasic
 
     public class HomeController : Controller
     {
-        public ActionResult Index() => View();
+        public ActionResult Index() => 
+            ViewComponent("HelloWorld", new { message = "Hello World", times = 10 }); 
     }
 
     public class Program
