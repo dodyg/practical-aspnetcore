@@ -1,6 +1,6 @@
 # Blazor (12)
 
-You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.7. Make sure you pay attention which port Kestrel is running on.
+You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.8. Make sure you pay attention which port Kestrel is running on.
 
   * [Hello World](/projects/blazor/hello-world)
 
@@ -28,9 +28,9 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     This sample shows how to raise a custom event from a component and how to handle them.
    
-  * [Component Five - Inherit from a BlazorComponent class](/projects/blazor/ComponentFive)
+  * [Component Five - Inherit from a ComponentBase class](/projects/blazor/ComponentFive)
 
-    This sample shows how to inherit from a `BlazorComponent` class. This allows you to share common code across components. You can also use this technique to have a 'Code Behind' experience if that's your thing.
+    This sample shows how to inherit from a `ComponentBase` class. This allows you to share common code across components. You can also use this technique to have a 'Code Behind' experience if that's your thing.
 
   * [Component Six - When to call StateHasChanged](/projects/blazor/ComponentSix)
 

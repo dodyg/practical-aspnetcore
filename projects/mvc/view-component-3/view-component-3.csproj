@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>view-component-3</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>view-component-3</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
+    <Watch Include="**\*.cshtml" />
+  </ItemGroup>
+</Project>

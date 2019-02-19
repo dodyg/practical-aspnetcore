@@ -10,7 +10,7 @@ public class Greeting
 
 public class HelloWorldViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(string message, int times)
+    public IViewComponentResult Invoke(string message, int times)
     {
         return View(new Greeting { Message = message, Repeat = times });
     }
