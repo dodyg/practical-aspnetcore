@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 2 (2)
+# .NET Core 3.0 Preview 2 (3)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 2. Make sure you download the SDK [here](https://blogs.msdn.microsoft.com/webdev/2019/01/29/aspnet-core-3-preview-2/).
 
@@ -54,4 +54,14 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
   You will find here how to setup things that you used to do in the previous versions of ASP.NET Core. In this sample we also forgo the use of `Startup` class.
 
   We also start examining the components of the Generic Hosting in the context of setting up your web app. The readme in this link contains more information and discussion.  
+
+## Razor Component
+
+This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
+
+All the projects in this section will contain at least 2 projects. Run the server at project with `Server` suffix using `dotnet watch`.
+
+  * [Hello World](/projects/3-0/razor-component/hello-world)
+
+    This is the simplest Razor component app you can create. It will show you clearly the building block of a Razor component application.
   
