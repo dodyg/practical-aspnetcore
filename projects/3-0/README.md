@@ -64,4 +64,10 @@ All the projects in this section will contain at least 2 projects. Run the serve
   * [Hello World](/projects/3-0/razor-component/hello-world)
 
     This is the simplest Razor component app you can create. It will show you clearly the building block of a Razor component application.
-  
+
+    There are two extra settings for dotnet watch to monitor `*.cshtml` file changes on two projects to make your development experience better.
+
+    ``` xml
+    <Watch Include="..\HelloWorld.App\**\*.cshtml" />
+    <Watch Include="**\*.cshtml" />
+    ```
