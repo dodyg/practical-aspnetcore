@@ -12,13 +12,13 @@ Note: If you encounter problem with downloading packages or Nuget, try the follo
 
 ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
 
-### Security 
+### Security
 
 There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
 ### ASP.NET Core 3.0 Preview 2
 
-All the samples related to ASP.NET Core 3.0 is [here (4 samples)](/projects/3-0)
+All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (4 samples)](/projects/3-0)
 
 ### MVC, SignalR and Blazor
 
