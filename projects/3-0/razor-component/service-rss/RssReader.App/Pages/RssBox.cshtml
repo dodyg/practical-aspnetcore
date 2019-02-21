@@ -1,0 +1,22 @@
+@using Microsoft.SyndicationFeed
+@using Microsoft.SyndicationFeed.Rss
+@inject RssNews rss
+
+<h1>RSS News </h1>
+
+<ul>
+    @foreach(var n in News)
+    {
+        <li>@((MarkupString)n.Description)</li>
+    }
+</ul>
+
+@functions 
+{
+    List<SyndicationItem> News {get;set;}
+
+    protected override async Task OnInitAsync()
+    {
+        News = await rss.GetNewsAsync();
+    }
+}
