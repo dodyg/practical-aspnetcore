@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 2 (4)
+# .NET Core 3.0 Preview 2 (5)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 2. Make sure you download the SDK [here](https://blogs.msdn.microsoft.com/webdev/2019/01/29/aspnet-core-3-preview-2/).
 
@@ -75,3 +75,7 @@ All the projects in this section will contain at least 2 projects. Run the serve
   * [Rss Reader](/projects/3-0/razor-component/service-rss)
 
     This sample demonstrates that you can use normal server side packages with your Razor Component as it is a truly server side system. This sample uses `Microsoft.SyndicationFeed.ReaderWriter` package to parse an external RSS feed and display it.
+
+  * [Js Integration](/projects/3-0/razor-component/js-integration)
+
+    This sample shows how to access JavaScript functions available at `windows` global scope.
