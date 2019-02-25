@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 2 (5)
+# .NET Core 3.0 Preview 2 (6)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 2. Make sure you download the SDK [here](https://blogs.msdn.microsoft.com/webdev/2019/01/29/aspnet-core-3-preview-2/).
 
@@ -79,3 +79,8 @@ All the projects in this section will contain at least 2 projects. Run the serve
   * [Js Integration](/projects/3-0/razor-component/js-integration)
 
     This sample shows how to access JavaScript functions available at `windows` global scope.
+
+
+  * [Dependency Injection](/projects/3-0/razor-component/dependency-injection)
+
+    This sample shows you that the 'Transient' and 'Scoped' Dependency Injection method have different practical impact on Razor Component.

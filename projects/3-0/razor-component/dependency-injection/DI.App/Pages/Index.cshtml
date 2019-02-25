@@ -1,0 +1,55 @@
+﻿@page "/"
+@inject TheTransientClock TClock
+@inject TheSingletonClock SClock
+@inject TheScopedClock SCClock
+
+<p>Click all buttons repeatedly. Also open new tabs and compares the result side by side.</p>
+
+<a href="/" target="new">New Window</a>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Singleton</th>
+        <th>Scoped</th>
+        <th>Transient</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>@SingletonClockOutput</td>
+        <td>@ScopedClockOutput</td>
+        <td>@TransientClockOutput</td>
+    </tr>
+    
+    <tr>
+        <td><button onclick="@Singleton">Call</button></td>
+        <td><button onclick="@Scoped">Call</button></td>
+        <td><button onclick="@Transient">Call</button></td>
+    </tr>
+</tbody>
+</table>
+
+@functions
+{
+    string SingletonClockOutput { get; set; }
+
+    string ScopedClockOutput { get; set; }
+
+    string TransientClockOutput { get; set; }
+
+    void Singleton()
+    {
+        SingletonClockOutput = SClock.Get();
+    }
+
+    void Scoped()
+    {
+        ScopedClockOutput = SCClock.Get();
+    }
+
+    void Transient()
+    {
+        TransientClockOutput = TClock.Get(); 
+    }
+}
