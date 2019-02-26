@@ -1058,6 +1058,7 @@ These are other aspnetcore resources with code samples
 
 * [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/)
 * [aspnetcore entropy](https://github.com/aspnet/entropy)
+* [aspnetcore API browser](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2)
 
 
 ## Misc
