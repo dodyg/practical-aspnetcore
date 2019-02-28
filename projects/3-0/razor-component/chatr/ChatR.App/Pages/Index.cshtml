@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inject NotificationService Notification
 
-<h1>SignalR Brodcast</h1>
+<h1>SignalR Broadcast</h1>
 
 <ul>
     <li>
@@ -11,7 +11,9 @@
         Click Connect
     </li>
     <li>
-        Enter Name and Broadcast Message. Both screens will receive the broadcasts.
+        Enter Name and Broadcast Message. Both screens will receive the broadcasts. 
+        For now you have to press the "Refresh" button to see the broadcast. Yeah it's stupid but the UI won't update by itself
+        currently although the data is already received.
     </li>
 </ul>
 
@@ -32,6 +34,7 @@
 <textarea class="form-control" bind="@BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
 <button onclick="@BroadcastAsync">Broadcast</button>
 
+<button onclick="@Refresh">Refresh</button>
 @functions
 {
     string Message { get;set;}
@@ -49,6 +52,11 @@
         };
     }
 
+    void Refresh()
+    {
+        Log = "Refresh Screen";
+    }
+
     async Task ConnectAsync()
     {
         Log = "Trying to connect";
@@ -59,6 +67,5 @@
     {
         Log = "Broadcast";
         await Notification.BroadcastAsync(Sender, BroadcastMessage);
-        //await JSRuntime.Current.InvokeAsync<short>("console.log", $"Sender: {Sender} | Message : {BroadcastMessage}");
     }
 }

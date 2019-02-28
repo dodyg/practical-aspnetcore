@@ -1,12 +1,5 @@
-# Hello World
+# SignalR broadcast
 
-This is the simplest Razor component app you can create. It will show you clearly the building block of a Razor component application.
+This sample attempts to demonstrate on how to use SignalR in your own Razor App. Still a work in progress. Everthing mostly works except that the UI doesn't update on two windows by themselves yet (you have to trigger the UI update manually).
 
-There are two extra settings for dotnet watch to monitor `*.cshtml` file changes on two projects to make your development experience better.
-
-``` xml
-<Watch Include="..\HelloWorld.App\**\*.cshtml" />
-<Watch Include="**\*.cshtml" />
-```
-
-Run the sample on `HelloWorld.Server` using `dotnet watch`.
+Run the sample on `ChatR.Server` using `dotnet watch`.
