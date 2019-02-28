@@ -12,8 +12,6 @@
     </li>
     <li>
         Enter Name and Broadcast Message. Both screens will receive the broadcasts. 
-        For now you have to press the "Refresh" button to see the broadcast. Yeah it's stupid but the UI won't update by itself
-        currently although the data is already received.
     </li>
 </ul>
 
@@ -34,7 +32,6 @@
 <textarea class="form-control" bind="@BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
 <button onclick="@BroadcastAsync">Broadcast</button>
 
-<button onclick="@Refresh">Refresh</button>
 @functions
 {
     string Message { get;set;}
@@ -48,13 +45,8 @@
         Notification.OnMessage = (string user, string message) =>
         {
             Message = $"{user} broadcasts \"{message}\"";
-            this.StateHasChanged();
+            this.Invoke(StateHasChanged);
         };
-    }
-
-    void Refresh()
-    {
-        Log = "Refresh Screen";
     }
 
     async Task ConnectAsync()
