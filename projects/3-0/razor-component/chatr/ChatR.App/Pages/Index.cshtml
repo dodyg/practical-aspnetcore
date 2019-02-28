@@ -3,18 +3,30 @@
 
 <h1>Hello, world!</h1>
 
-<h2>@Log</h2>
+<div class="alert alert-warning">
+    @Log
+</div>
 
-@Message
-
+<div class="alert alert-info">
+    @Message
+</div>
 
 <button onclick="@ConnectAsync">Connect</button>
+<br/><br/>
+<label>Username</label>
+<input class="form-control" type="text" bind="@Sender" placeholder="Enter username" />
+<br/>
+<label>Broadcast Message</label>
+<textarea class="form-control" bind="@BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
 <button onclick="@BroadcastAsync">Broadcast</button>
 
 @functions
 {
     string Message { get;set;}
     string Log { get;set;}
+
+    string Sender { get;set;}
+    string BroadcastMessage { get;set;}
 
     protected override void OnInit()
     {
@@ -33,7 +45,8 @@
 
     async Task BroadcastAsync()
     {
-        Log = "Brodcast";
-        await Notification.BroadcastAsync();
+        Log = "Broadcast";
+        await JSRuntime.Current.InvokeAsync<short>("console.log", $"Sender: {Sender} | Message : {BroadcastMessage}");
+        await Notification.BroadcastAsync(Sender, BroadcastMessage);
     }
 }

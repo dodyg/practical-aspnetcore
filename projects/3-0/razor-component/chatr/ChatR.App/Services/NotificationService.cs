@@ -14,7 +14,7 @@ namespace ChatR.App
                 .WithUrl("https://localhost:5001/notificationhub")
                 .Build();
 
-            _connection.On<string, string>("Broadcast", (user, message) => 
+            _connection.On<string, string>("BroadcastChannel", (user, message) => 
             {
                 this.OnMessage?.Invoke(user, message);
             });
@@ -27,9 +27,9 @@ namespace ChatR.App
 
         public Action<string, string> OnMessage {get; set;}
 
-        public async Task BroadcastAsync()
+        public async Task BroadcastAsync(string sender, string message)
         {
-            await _connection.InvokeAsync("Broadcast", "dodyg", "Hello world from crazy Cairo");
+            await _connection.InvokeAsync("Broadcast", sender, message);
         }
     }
 }
