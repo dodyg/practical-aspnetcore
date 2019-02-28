@@ -7,6 +7,7 @@ namespace ChatR.App
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<NotificationService>();
         }
 
         public void Configure(IComponentsApplicationBuilder app)

@@ -15,6 +15,7 @@ namespace ChatR.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorComponents<App.Startup>();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,6 +27,10 @@ namespace ChatR.Server
             }
 
             app.UseStaticFiles();
+            app.UseSignalR(route =>
+            {
+                route.MapHub<NotificationHub>("/notificationhub");
+            });
             app.UseRazorComponents<App.Startup>();
         }
     }

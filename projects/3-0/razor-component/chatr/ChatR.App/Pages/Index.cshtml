@@ -1,3 +1,39 @@
 ﻿@page "/"
+@inject NotificationService Notification
 
 <h1>Hello, world!</h1>
+
+<h2>@Log</h2>
+
+@Message
+
+
+<button onclick="@ConnectAsync">Connect</button>
+<button onclick="@BroadcastAsync">Broadcast</button>
+
+@functions
+{
+    string Message { get;set;}
+    string Log { get;set;}
+
+    protected override void OnInit()
+    {
+        Notification.OnMessage = (string user, string message) =>
+        {
+            Message = $"{user} sends this {message}";
+            this.StateHasChanged();
+        };
+    }
+
+    async Task ConnectAsync()
+    {
+        Log = "Trying to connect";
+        await Notification.ConnectAsync();
+    }
+
+    async Task BroadcastAsync()
+    {
+        Log = "Brodcast";
+        await Notification.BroadcastAsync();
+    }
+}
