@@ -1,7 +1,19 @@
 ﻿@page "/"
 @inject NotificationService Notification
 
-<h1>Hello, world!</h1>
+<h1>SignalR Brodcast</h1>
+
+<ul>
+    <li>
+        <a href="/" target="new">Open another window</a>
+    </li>
+    <li>
+        Click Connect
+    </li>
+    <li>
+        Enter Name and Broadcast Message. Both screens will receive the broadcasts.
+    </li>
+</ul>
 
 <div class="alert alert-warning">
     @Log
@@ -32,7 +44,7 @@
     {
         Notification.OnMessage = (string user, string message) =>
         {
-            Message = $"{user} sends this {message}";
+            Message = $"{user} broadcasts \"{message}\"";
             this.StateHasChanged();
         };
     }
@@ -46,7 +58,7 @@
     async Task BroadcastAsync()
     {
         Log = "Broadcast";
-        await JSRuntime.Current.InvokeAsync<short>("console.log", $"Sender: {Sender} | Message : {BroadcastMessage}");
         await Notification.BroadcastAsync(Sender, BroadcastMessage);
+        //await JSRuntime.Current.InvokeAsync<short>("console.log", $"Sender: {Sender} | Message : {BroadcastMessage}");
     }
 }

@@ -22,8 +22,8 @@ namespace ChatR.Server
 
         public async Task Broadcast(string from, string message)
         {
-            _logger.LogInformation("Broadcast Message: " + message);
-            await Clients.Caller.SendAsync("BroadcastChannel", from, message);
+            _logger.LogInformation($"{from} broadcasts message: {message}");
+            await Clients.All.SendAsync("BroadcastChannel", from, message);
         }
     }
 }
