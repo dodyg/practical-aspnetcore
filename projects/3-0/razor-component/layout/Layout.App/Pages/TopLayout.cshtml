@@ -1,0 +1,25 @@
+@inherits LayoutComponentBase
+
+<div class="container">
+    <header>
+        <h1>@Title</h1>
+    </header>
+
+    <nav style="margin-bottom:20px;">
+        <a href="/">Home</a>
+        <a href="/Nested">Nested</a>
+        <a href="/Nested2">2nd Level Nesting</a>
+    </nav>
+    
+    @Body
+
+    <footer>
+        @((MarkupString)"&copy;") by @Credit
+    </footer>
+</div>
+
+
+@functions {
+    string Title {get; set;} = "Top Layout";
+    string Credit {get;set;} = "Practical ASP.NET Core";
+}

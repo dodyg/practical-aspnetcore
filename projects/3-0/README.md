@@ -59,6 +59,8 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
+The source code to Razor Component is [here](https://github.com/aspnet/AspNetCore/tree/master/src/Components).
+
 All the projects in this section will contain at least 2 projects. Run the server at project with `Server` suffix using `dotnet watch`.
 
   * [Hello World](/projects/3-0/razor-component/hello-world)
