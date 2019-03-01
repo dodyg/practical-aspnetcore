@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 2 (7)
+# .NET Core 3.0 Preview 2 (8)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 2. Make sure you download the SDK [here](https://blogs.msdn.microsoft.com/webdev/2019/01/29/aspnet-core-3-preview-2/).
 
@@ -89,4 +89,8 @@ All the projects in this section will contain at least 2 projects. Run the serve
 
   * [SignalR Broadcast](/projects/3-0/razor-component/chatr)
 
-    This samples shows how to integrate SignalR with your Razor Component app.
+    This sample shows how to integrate SignalR with your Razor Component app.
+
+  * [Layout](/projects/3-0/razor-component/layout)
+
+    This sample shows how to use layout and nested layouts.
