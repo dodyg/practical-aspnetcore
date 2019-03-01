@@ -12,4 +12,11 @@ $(function () {
             }
         }
     });
+
+    const app2 = new Vue({
+        el: '#app2',
+        data: {
+            warning: 'Party is about to start'
+        }
+    });
 });
