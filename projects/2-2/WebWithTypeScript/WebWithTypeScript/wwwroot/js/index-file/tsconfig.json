@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outFile": "output.js"
+  },
+  "files": [ "index.ts" ],
+  "include": [
+
+  ]
+}

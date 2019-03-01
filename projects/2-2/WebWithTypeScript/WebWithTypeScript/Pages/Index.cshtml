@@ -1,0 +1,16 @@
+﻿@page
+@model WebWithTypeScript.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="app" style="margin-top:10px;">
+    <span style="color:pink;font-weight:bold;">{{message}}</span>
+
+    <button @@click="greet">Click Me</button>
+</div>
+
+@section JsInline{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/js/index-file/output.js"></script>
+}
