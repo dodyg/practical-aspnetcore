@@ -1,6 +1,6 @@
 # .NET Core 3.0 Preview 2 (8)
 
-All the samples here rely on ASP.NET Core 3.0 Preview 2. Make sure you download the SDK [here](https://blogs.msdn.microsoft.com/webdev/2019/01/29/aspnet-core-3-preview-2/).
+All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-2.2&tabs=visual-studio)
 
@@ -74,11 +74,11 @@ All the samples in this section runs on SSL. If you have not gotten your local s
     <Watch Include="**\*.cshtml" />
     ```
 
-  * [Rss Reader](/projects/3-0/razor-component/service-rss)
+  * Rss Reader - being upgraded to preview 3
 
     This sample demonstrates that you can use normal server side packages with your Razor Component as it is a truly server side system. This sample uses `Microsoft.SyndicationFeed.ReaderWriter` package to parse an external RSS feed and display it.
 
-  * [Js Integration](/projects/3-0/razor-component/js-integration)
+  * Js Integration - being upgraded to preview 3
 
     This sample shows how to access JavaScript functions available at `windows` global scope.
 
@@ -86,10 +86,10 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample shows you that the 'Transient' and 'Scoped' Dependency Injection method have different practical impact on Razor Component.
 
-  * [SignalR Broadcast](/projects/3-0/razor-component/chatr)
+  * SignalR Broadcast - being upgraded to preview 3
 
     This sample shows how to integrate SignalR with your Razor Component app.
 
-  * [Layout](/projects/3-0/razor-component/layout)
+  * Layout - being upgrade to preview 3
 
     This sample shows how to use layout and nested layouts.

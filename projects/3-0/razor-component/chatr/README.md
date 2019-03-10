@@ -1,5 +1,8 @@
 # SignalR broadcast
 
+This sample is broken at the moment. Being upgrade to ASP.NET Core preview 3.
+
+
 This sample attempts to demonstrate on how to use SignalR in your own Razor Component app. You will also see the usage of `ComponentBase.Invoke` in the codebase when updating the UI after receiving data from SignalR.
 
 
