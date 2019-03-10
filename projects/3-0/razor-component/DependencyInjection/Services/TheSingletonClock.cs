@@ -1,8 +1,8 @@
 using System;
 
-namespace DI.App
+namespace DependencyInjection.Services
 {
-    public class TheScopedClock
+    public class TheSingletonClock
     {
         DateTime _clock = DateTime.UtcNow;
 

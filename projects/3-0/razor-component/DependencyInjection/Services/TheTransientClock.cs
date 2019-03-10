@@ -1,6 +1,6 @@
 using System;
 
-namespace DI.App
+namespace DependencyInjection.Services
 {
     public class TheTransientClock
     {

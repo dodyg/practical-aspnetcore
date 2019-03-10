@@ -82,8 +82,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample shows how to access JavaScript functions available at `windows` global scope.
 
-
-  * [Dependency Injection](/projects/3-0/razor-component/dependency-injection)
+  * [Dependency Injection](/projects/3-0/razor-component/DependencyInjection)
 
     This sample shows you that the 'Transient' and 'Scoped' Dependency Injection method have different practical impact on Razor Component.
 
