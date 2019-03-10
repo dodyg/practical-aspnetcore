@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 2 (8)
+# .NET Core 3.0 Preview 3 (8)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -12,7 +12,9 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
   * You can see how barebone the project file is. 
   * In your `program.cs` you need to add `using Microsoft.Extensions.Hosting;`.
   * JSON.NET has been removed from the Core shared framework and it needs to be added in if you need it.
-  * You can only inject `IConfiguration` and `IHostingEnvironment` at `Startup` constructor.
+  * Instead of `IHostingEnvironment`, use `IHostEnvironment`.
+  * Instead of `EnvironmentName`, use `Environments`.
+  * You can only inject `IConfiguration` and `IHostEnvironment` at `Startup` constructor.
   * ASP.NET Core 3 uses `GenericHost` instead of `WebHost`. So it is now
     ```
     public class Program

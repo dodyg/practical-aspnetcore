@@ -1,4 +1,4 @@
-# 227 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-2 fundamentals (updated almost daily - except during Summer)
+# 227 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -16,7 +16,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 
 There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
-### ASP.NET Core 3.0 Preview 2
+### ASP.NET Core 3.0 Preview 3
 
 All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (8 samples)](/projects/3-0)
 
