@@ -61,13 +61,13 @@ This is an amazing piece of technology where your interactive web UI is handled 
 
 The source code to Razor Component is [here](https://github.com/aspnet/AspNetCore/tree/master/src/Components).
 
-All the projects in this section will contain at least 2 projects. Run the server at project with `Server` suffix using `dotnet watch`.
+All the samples in this section runs on SSL. If you have not gotten your local self-sign SSL in order yet, please read this [instruction](https://www.hanselman.com/blog/DevelopingLocallyWithASPNETCoreUnderHTTPSSSLAndSelfSignedCerts.aspx).
 
-  * [Hello World](/projects/3-0/razor-component/hello-world)
+  * [Hello World](/projects/3-0/razor-component/HelloWorld)
 
     This is the simplest Razor component app you can create. It will show you clearly the building block of a Razor component application.
 
-    There are two extra settings for dotnet watch to monitor `*.cshtml` file changes on two projects to make your development experience better.
+    There are two extra settings for dotnet watch to monitor `*.cshtml` and `*.razor` file changes on two projects to make your development experience better.
 
     ``` xml
     <Watch Include="..\HelloWorld.App\**\*.cshtml" />
