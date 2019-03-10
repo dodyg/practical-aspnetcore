@@ -5,13 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HelloWorld.App\HelloWorld.App.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Server" Version="3.0.0-preview-19075-0444" />
-    <Watch Include="..\HelloWorld.App\**\*.cshtml" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Server" Version="3.0.0-preview3-19153-02" />
     <Watch Include="**\*.cshtml" />
+    <Watch Include="**\*.razor" />
   </ItemGroup>
 
 </Project>
