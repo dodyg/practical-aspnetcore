@@ -17,6 +17,7 @@
 
     protected override async Task OnInitAsync()
     {
-        News = await rss.GetNewsAsync();
+        News = new List<SyndicationItem>();
+        //News = await rss.GetNewsAsync();
     }
 }

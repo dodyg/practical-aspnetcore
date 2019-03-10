@@ -4,8 +4,7 @@ using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
 using System.Xml;
 using System.Text;
-
-namespace RssReader.App.Services
+namespace RssReader.Services
 {
     public class RssNews
     {
