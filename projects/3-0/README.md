@@ -72,8 +72,8 @@ All the samples in this section runs on SSL. If you have not gotten your local s
     There are two extra settings for dotnet watch to monitor `*.cshtml` and `*.razor` file changes on two projects to make your development experience better.
 
     ``` xml
-    <Watch Include="..\HelloWorld.App\**\*.cshtml" />
-    <Watch Include="**\*.cshtml" />
+        <Watch Include="**\*.cshtml" />
+        <Watch Include="**\*.razor" />
     ```
 
   * Rss Reader - being upgraded to preview 3
