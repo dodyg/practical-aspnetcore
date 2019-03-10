@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using HelloWorld.Server.Components;
 
 namespace HelloWorld.Server
 {
@@ -34,7 +33,7 @@ namespace HelloWorld.Server
             app.UseRouting(routes =>
             {
                 routes.MapRazorPages();
-                routes.MapComponentHub<App>("app");
+                routes.MapComponentHub<HelloWorld.Server.Components.App>("app");
             });
         }
     }
