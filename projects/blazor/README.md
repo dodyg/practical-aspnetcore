@@ -1,6 +1,8 @@
 # Blazor (12)
 
-You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.8. Make sure you pay attention which port Kestrel is running on.
+Make sure you installed the latest [.NET Core 3 SDK - Preview 3](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+
+You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.9. Make sure you pay attention which port Kestrel is running on.
 
   * [Hello World](/projects/blazor/hello-world)
 
