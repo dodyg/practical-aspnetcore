@@ -9,4 +9,4 @@ There are two extra settings for dotnet watch to monitor `*.cshtml` and `*.razor
     <Watch Include="**\*.razor" />
 ```
 
-Run the sample on `HelloWorld.Server` using `dotnet watch`.
+Run the sample on `HelloWorld` using `dotnet watch`.
