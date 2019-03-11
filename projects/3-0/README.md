@@ -76,7 +76,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
         <Watch Include="**\*.razor" />
     ```
 
-  * Rss Reader - being upgraded to preview 3
+  * [Rss Reader](/projects/3-0/razor-component/RssReader)
 
     This sample demonstrates that you can use normal server side packages with your Razor Component as it is a truly server side system. This sample uses `Microsoft.SyndicationFeed.ReaderWriter` package to parse an external RSS feed and display it.
 

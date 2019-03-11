@@ -12,5 +12,3 @@ This sample also shows the use of `MarkupString` to show unescaped HTML string.
     }
 </ul>
 ```
-
-Run the sample on `RssReader.Server` using `dotnet watch`.
