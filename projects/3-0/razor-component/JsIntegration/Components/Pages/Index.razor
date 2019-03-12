@@ -1,5 +1,5 @@
 ﻿@page "/"
-@inject IJSRuntime JSRuntime 
+@inject IJSRuntime JS 
 
 <button onclick="@ConfirmAsync">Confirm</button>
 
@@ -7,13 +7,13 @@
 {
     protected override async Task OnInitAsync()
     {
-        await JSRuntime.InvokeAsync<short>("alert", "Hello World");
-        await JSRuntime.InvokeAsync<short>("console.log", "hello world console");
+        await JS.InvokeAsync<object>("console.log", "hello world console");
+        await JS.InvokeAsync<object>("alert", "Hello World");
     }
 
     async Task ConfirmAsync(){
-        var result = await JSRuntime.InvokeAsync<bool>("confirm", "Do you confirm?");
+        var result = await JS.InvokeAsync<bool>("confirm", "Do you confirm?");
         
-        await JSRuntime.InvokeAsync<short>("alert", $"Result {result}");
+        await JS.InvokeAsync<short>("alert", $"Result {result}");
     }
 }
