@@ -1,19 +1,26 @@
 ﻿@page "/"
 @inject IJSRuntime JS 
 
+<h1>JS Interop</h1>
+
+<p>
+We will call alert, confirm and console.log in this sample. Please click the button.
+</p>
+
+
 <button onclick="@ConfirmAsync">Confirm</button>
 
 @functions  
 {
     protected override async Task OnInitAsync()
     {
-        await JS.InvokeAsync<object>("console.log", "hello world console");
-        await JS.InvokeAsync<object>("alert", "Hello World");
+        // Note. YOU MUST NOT WRITE ANYTHING SYNCHRONOUS HERE SUCH AS "confirm", "alert" or "console.log". It will break the JS Interop.
     }
 
     async Task ConfirmAsync(){
         var result = await JS.InvokeAsync<bool>("confirm", "Do you confirm?");
         
+        await JS.InvokeAsync<object>("console.log", "hello world console");
         await JS.InvokeAsync<short>("alert", $"Result {result}");
     }
 }
