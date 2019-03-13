@@ -80,7 +80,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample demonstrates that you can use normal server side packages with your Razor Component as it is a truly server side system. This sample uses `Microsoft.SyndicationFeed.ReaderWriter` package to parse an external RSS feed and display it.
 
-  * Js Integration - being upgraded to preview 3
+  * [Js Integration](/projects/3-0/razor-component/JsIntegration)
 
     This sample shows how to access JavaScript functions available at `windows` global scope.
 
