@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RSS Reader</title>
+    <title>SignalR</title>
     <base href="~/" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               asp-fallback-href="css/bootstrap/bootstrap.min.css"
@@ -14,7 +14,9 @@
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <app>@(await Html.RenderComponentAsync<App>())</app>
+    <div class="container">
+        <app>@(await Html.RenderComponentAsync<App>())</app>
+    </div>
 
     <script src="_framework/components.server.js"></script>
 </body>

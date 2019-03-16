@@ -11,7 +11,7 @@ namespace ChatR.Services
         public async Task ConnectAsync()
         {
             _connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5000/notificationhub")
+                .WithUrl("https://localhost:5001/notificationhub")
                 .Build();
 
             _connection.On<string, string>("BroadcastChannel", (user, message) =>
