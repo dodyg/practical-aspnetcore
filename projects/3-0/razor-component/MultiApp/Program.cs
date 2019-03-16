@@ -33,8 +33,9 @@ namespace MultiApp
 
             app.UseRouting(routes =>
             {
+                routes.MapComponentHub<MultiApp.App1.Components.App>("app1", "app-1");
+                routes.MapComponentHub<MultiApp.App2.Components.App>("app2", "app-2");
                 routes.MapRazorPages();
-                routes.MapComponentHub<MultiApp.App1.App>("app");
             });
         }
     }
