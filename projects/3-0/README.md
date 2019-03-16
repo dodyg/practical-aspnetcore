@@ -88,7 +88,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample shows you that the 'Transient' and 'Scoped' Dependency Injection method have different practical impact on Razor Component.
 
-  * SignalR Broadcast - being upgraded to preview 3
+  * [SignalR Broadcast](/projects/3-0/razor-component/ChatR)
 
     This sample shows how to integrate SignalR with your Razor Component app.
 
