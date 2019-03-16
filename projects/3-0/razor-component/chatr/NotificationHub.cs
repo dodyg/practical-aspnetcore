@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 
-namespace ChatR.Server
+namespace ChatR
 {
     public class NotificationHub : Hub
     {
@@ -10,7 +10,7 @@ namespace ChatR.Server
 
         public NotificationHub(ILogger<NotificationHub> logger)
         {
-            _logger = logger;    
+            _logger = logger;
             _logger.LogInformation("NotificationHub Created");
         }
 
