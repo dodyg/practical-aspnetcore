@@ -1,2 +1,15 @@
 @page "/"
 <h1>App 1</h1>
+
+<p>@Message</p>
+
+<button onclick="@Greeting">Greet</button>
+
+@functions
+{
+    public string Message {get; set;}
+    async Task Greeting()
+    {
+        Message = "Hello world from App 1";
+    }
+}

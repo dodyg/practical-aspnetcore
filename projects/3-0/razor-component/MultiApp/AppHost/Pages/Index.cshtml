@@ -14,7 +14,9 @@
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <app1>@(await Html.RenderComponentAsync<App1.Components.App>())</app1>
+    <div class="container">
+        <app2>@(await Html.RenderComponentAsync<App2.Components.App>())</app2>
+    </div>
 
     <script src="_framework/components.server.js"></script>
 </body>
