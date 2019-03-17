@@ -5,7 +5,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MultiApp
+namespace AppHost
 {
     public class Startup
     {
@@ -33,8 +33,8 @@ namespace MultiApp
 
             app.UseRouting(routes =>
             {
-                routes.MapComponentHub<MultiApp.App1.Components.App>("app1", "app-1");
-                routes.MapComponentHub<MultiApp.App2.Components.App>("app2", "app-2");
+                routes.MapComponentHub<App1.Components.App>("app1");
+                //routes.MapComponentHub<App2.Components.App>("app2", "application2");
                 routes.MapRazorPages();
             });
         }

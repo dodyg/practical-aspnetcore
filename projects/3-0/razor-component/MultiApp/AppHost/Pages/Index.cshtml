@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Multiple Apps</title>
     <base href="~/" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               asp-fallback-href="css/bootstrap/bootstrap.min.css"
@@ -14,10 +14,8 @@
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <app2>@(await Html.RenderComponentAsync<MultiApp.App2.Components.App>())</app2>
+    <app1>@(await Html.RenderComponentAsync<App1.Components.App>())</app1>
 
     <script src="_framework/components.server.js"></script>
 </body>
 </html>
-
-https://github.com/jbomhold3/workingsplitproject/tree/master/WebApplication1.App
