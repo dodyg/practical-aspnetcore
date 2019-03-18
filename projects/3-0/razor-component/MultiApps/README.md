@@ -10,4 +10,4 @@ The one that `App2.cshtml` uses is a hack.
 
 Run it by using `dotnet watch run` on AppHost folder.
 
-Note: I can only make this project thanks to the hack shown at this [sample](https://github.com/jbomhold3/workingsplitproject).
+Note: I can only make this project thanks to the hack shown at this [sample](https://github.com/jbomhold3/workingsplitproject). There are probably better ways to achieve hosting multiple Razor Component apps. I will update the sample once I found one. 

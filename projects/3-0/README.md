@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (8)
+# .NET Core 3.0 Preview 3 (9)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -92,6 +92,10 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample shows how to integrate SignalR with your Razor Component app.
 
-  * [Layout](/projects/3-0/razor-component/layout)
+  * [Layout](/projects/3-0/razor-component/Layout)
 
     This sample shows how to use layout and nested layouts.
+
+  * [Multi Apps](/projects/3-0/razor-component/MultiApps)
+
+    This sample shows how to host multiple Razor Component apps in a single server.
