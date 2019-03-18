@@ -33,8 +33,8 @@ namespace AppHost
 
             app.UseRouting(routes =>
             {
-                routes.MapComponentHub<App1.Components.App>("app1");
-                //routes.MapComponentHub<App2.Components.App>("app2", "application2");
+                routes.MapComponentHub<App1.Components.App>("app");
+                routes.MapComponentHub<App2.Components.App>("app", "/application2");
                 routes.MapRazorPages();
             });
         }

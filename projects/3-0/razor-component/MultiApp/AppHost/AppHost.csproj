@@ -10,6 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Server" Version="3.0.0-preview3-19153-02" />
     <Watch Include="**\*.cshtml" />
     <Watch Include="**\*.razor" />
+    <Watch Include="..\App1\**\*.cshtml" />
+    <Watch Include="..\App1\**\*.razor" />
+    <Watch Include="..\App2\**\*.cshtml" />
+    <Watch Include="..\App2\**\*.razor" />
   </ItemGroup>
 
 </Project>

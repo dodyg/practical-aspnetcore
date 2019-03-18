@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiple Apps</title>
+    <base href="~/" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               asp-fallback-href="css/bootstrap/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
@@ -14,10 +15,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hosting multiple Razor Component Apps</h1>
-        <a href="App1">Application 1</a>
-        <br/>
-        <a href="App2">Application 2</a>
+        <app>@(await Html.RenderComponentAsync<App2.Components.App>())</app>
     </div>
+    <!-- This script is a hack -->
+    <script src="/app2.components.server.js"></script>
 </body>
 </html>
