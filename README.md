@@ -18,7 +18,7 @@ There is a new section dedicated to [all security related topics (1 sample)](/pr
 
 ### ASP.NET Core 3.0 Preview 3
 
-All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (9 samples)](/projects/3-0)
+All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (10 samples)](/projects/3-0)
 
 ### MVC, SignalR and Blazor
 

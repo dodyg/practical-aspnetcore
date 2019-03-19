@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (9)
+# .NET Core 3.0 Preview 3 (10)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -56,6 +56,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
   You will find here how to setup things that you used to do in the previous versions of ASP.NET Core. In this sample we also forgo the use of `Startup` class.
 
   We also start examining the components of the Generic Hosting in the context of setting up your web app. The readme in this link contains more information and discussion.  
+
+* [Integrate Newtonsoft.Json back](/projects/3-0/newtonsoft-json)
+
+  ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
 
 ## Razor Component
 
