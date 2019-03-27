@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (10)
+# .NET Core 3.0 Preview 3 (11)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -60,6 +60,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Integrate Newtonsoft.Json back](/projects/3-0/newtonsoft-json)
 
   ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
+
+* [New Routing - Razor Page](/projects/3-0/new-routing)
+
+  ASP.NET Core 3 allows more control what features of the framework to enable via the new `app.UseRouting`. In this example, we just enable Razor Pages and nothing else.
 
 ## Razor Component
 
