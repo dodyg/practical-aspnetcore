@@ -1,0 +1,16 @@
+@page "/app2"
+<h1>App 2</h1>
+
+<strong>@Counter</strong>
+
+<button onclick="@Greet">Click me</button>
+
+@functions
+{
+    public short Counter { get; set; }
+
+    void Greet()
+    {
+        Counter++;
+    }
+}
