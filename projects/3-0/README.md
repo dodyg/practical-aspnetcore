@@ -63,7 +63,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [New Routing - Razor Page](/projects/3-0/new-routing)
 
-  ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseRouting`. In this example, we just enable Razor Pages and nothing else.
+  ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseRouting`. In this example, we just enable Razor Pages routes and nothing else.
 
 ## Razor Component
 
