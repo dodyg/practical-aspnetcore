@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (12)
+# .NET Core 3.0 Preview 3 (13)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -68,6 +68,11 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - MVC](/projects/3-0/new-routing-2)
 
   ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseRouting`. In this example, we just enable MVC routes and nothing else.
+
+* [New Routing - MVC with default route](/projects/3-0/new-routing-3)
+
+  Map MVC routes with default `{controller=Home}/{action=Index}/{id?}` set up.
+
 
 ## Razor Component
 
