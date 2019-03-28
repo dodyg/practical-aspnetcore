@@ -73,7 +73,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   Map MVC routes with default `{controller=Home}/{action=Index}/{id?}` set up.
 
-* [New Routing - RequestDelegate](/project/3-0/new-routing-4)
+* [New Routing - RequestDelegate](/projects/3-0/new-routing-4)
 
   This example shows how to use `RequestDelegate` directly in `app.UseRouting` for `GET` operation using `MapGet`. `MapPost`, `MapPut`, and `MapDelete` are also available for use.
 
