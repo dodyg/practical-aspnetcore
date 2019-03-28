@@ -19,13 +19,12 @@ namespace NewRouting
         {
             app.UseRouting(route =>
             {
+                route.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello world");
+                });
             });
         }
-    }
-
-    public class HomeController : Controller
-    {
-        public IActionResult Index() => Content("Hello World. We are using default controller route.");
     }
 
     public class Program
