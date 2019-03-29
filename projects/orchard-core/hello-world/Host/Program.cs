@@ -1,8 +1,37 @@
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Host
 {
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddOrchardCore();
+        }
+        
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseOrchardCore(b =>
+            {
+            });
+        }
+    }
+
+    [Route("/")]
+    public class HomeController : Controller
+    {
+        public IActionResult Index () => Content("Hello world");
+    }
+
     public class Program
     {
         public static void Main(string[] args)

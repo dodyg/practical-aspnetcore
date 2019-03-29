@@ -10,11 +10,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.0.0-beta3-70371" />
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.0.0-beta3-70989" />
+    <PackageReference Include="OrchardCore.Modules" Version="1.0.0-beta3-70989" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\ForumModule\ForumModule.csproj" />
+  </ItemGroup>
+
+   <ItemGroup>
+    <Watch Include="..\ForumModule\**\*.cshtml" />
+ 
+    <Watch Include="**\*.cshtml" />
   </ItemGroup>
 
 </Project>

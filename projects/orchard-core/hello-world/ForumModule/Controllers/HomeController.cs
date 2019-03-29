@@ -9,9 +9,6 @@ namespace Module1.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => Content("From Forum");
     }
 }
