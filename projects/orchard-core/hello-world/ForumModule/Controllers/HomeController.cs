@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module1.Controllers
+namespace ForumModule.Controllers
 {
     public class HomeController : Controller
     {

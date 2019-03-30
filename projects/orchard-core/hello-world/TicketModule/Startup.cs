@@ -15,12 +15,6 @@ namespace TicketModule
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            routes.MapRoute(name: "About", template: "abt", defaults:
-              new
-              {
-                  controller = "Home",
-                  action = "About"
-              });
         }
     }
 }
