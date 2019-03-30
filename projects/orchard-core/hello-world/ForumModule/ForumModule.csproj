@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-71025" />
-    <PackageReference Include="OrchardCore.Mvc.Core" Version="1.0.0-beta3-71025" />
   </ItemGroup>
 
   <ItemGroup>
