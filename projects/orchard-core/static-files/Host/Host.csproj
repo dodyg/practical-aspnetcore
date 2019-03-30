@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TieredCompilation>true</TieredCompilation>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.0.0-beta3-71025" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ForumModule\ForumModule.csproj" />
+    <ProjectReference Include="..\TicketModule\TicketModule.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Watch Include="..\ForumModule\**\*.cshtml" />
+    <Watch Include="..\TicketModule\**\*.cshtml" />
+    <Watch Include="**\*.cshtml" />
+  </ItemGroup>
+
+</Project>
