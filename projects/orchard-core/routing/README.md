@@ -9,7 +9,7 @@ We have two modules in this sample:
 
 Each of this module uses `OrchardCore.Module.Targets`.
 
-The host application is a normal ASP.NET Core app that use `OrchardCore.Application.Mvc.Targets` and has references to the projects of `ForumModule` and `TicketModule`.
+The host application is a normal ASP.NET Core app that uses `OrchardCore.Application.Mvc.Targets` and has references to the projects of `ForumModule` and `TicketModule`.
 
 By default, OCF creates areas based on the name of your modules. Hence we have `ForumModule` and `TicketModule` areas in this app.
 
