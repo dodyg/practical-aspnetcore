@@ -1,4 +1,4 @@
-# Orchard Core Framework
+# Orchard Core Framework (1)
 
 Pre-requisite: Make sure you download .NET Core SDK 2.2 (`2.2.100`) otherwise below examples won't work.
 
@@ -15,5 +15,7 @@ Notes:
 - We will be using beta 3 version of Orchard Core.
 - The samples in this section will receive frequent revisions as I am exploring the framework as I produce these samples.
 
+* [Routing - MVC](/projects/orchard-core/routing)
 
+  This samples shows how routing works in an Orchard Core Framework app.
 

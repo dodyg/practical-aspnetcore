@@ -1,4 +1,4 @@
-# 232 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
+# 233 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -23,6 +23,8 @@ All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here
 ### MVC, SignalR and Blazor
 
 There are dedicated samples for **ASP.NET Core MVC 2.1** [here (43 samples)](/projects/mvc/README.md), **Razor Pages 2.2** [here (1 sample)](/projects/razor-pages/README.md), **ASP.NET Core SignalR 2.1** [here (1 sample)](/projects/signalr/README.md) and **Blazor 0.9** [here (12 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
+
+We also have a growing number of samples for [Orchard Core Framework (1 sample)](/projects/orchard-core).
 
 ## How to run these samples
 
