@@ -15,8 +15,10 @@ namespace TicketModule
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            routes.MapRoute(name: "Login",
-                template: "try-login",
+            routes.MapAreaRoute(
+                name: "TicketHome",
+                areaName: "TicketModule",
+                template: "Ticket",
                 defaults: new { controller = "Login", action = "Index" });
         }
     }

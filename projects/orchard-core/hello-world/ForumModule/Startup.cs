@@ -16,10 +16,13 @@ namespace ForumModule
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            routes.MapGet("/help", async context =>
-            {
-                await context.Response.WriteAsync("Help Me");
-            });
+            routes.MapAreaRoute
+           (
+               name: "ForumHome",
+               areaName: "ForumModule",
+               template: "Forum",
+               defaults: new { controller = "Home", action = "Index" }
+           );
         }
     }
 }
