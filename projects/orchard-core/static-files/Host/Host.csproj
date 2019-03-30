@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ForumModule\ForumModule.csproj" />
-    <ProjectReference Include="..\TicketModule\TicketModule.csproj" />
   </ItemGroup>
 
   <ItemGroup>
