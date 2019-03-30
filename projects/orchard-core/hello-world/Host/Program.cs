@@ -10,6 +10,7 @@ namespace Host
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddOrchardCore();
         }
         
@@ -22,6 +23,7 @@ namespace Host
 
             app.UseOrchardCore(b =>
             {
+                b.UseMvc();
             });
         }
     }
