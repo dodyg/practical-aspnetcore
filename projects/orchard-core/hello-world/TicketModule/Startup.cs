@@ -15,6 +15,9 @@ namespace TicketModule
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
+            routes.MapRoute(name: "Login",
+                template: "try-login",
+                defaults: new { controller = "Login", action = "Index" });
         }
     }
 }
