@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Modules;
 
-namespace ForumModule
+namespace TicketModule
 {
     public class Startup : StartupBase
     {
@@ -15,6 +15,12 @@ namespace ForumModule
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
+            routes.MapRoute(name: "About", template: "abt", defaults:
+              new
+              {
+                  controller = "Home",
+                  action = "About"
+              });
         }
     }
 }

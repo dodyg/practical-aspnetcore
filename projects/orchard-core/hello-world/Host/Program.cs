@@ -10,10 +10,9 @@ namespace Host
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddOrchardCore();
+            services.AddOrchardCore().AddMvc();
         }
-        
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -21,17 +20,8 @@ namespace Host
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseOrchardCore(b =>
-            {
-                b.UseMvc();
-            });
+            app.UseOrchardCore();
         }
-    }
-
-    [Route("/")]
-    public class HomeController : Controller
-    {
-        public IActionResult Index () => Content("Hello world");
     }
 
     public class Program
