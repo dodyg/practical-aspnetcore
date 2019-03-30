@@ -11,6 +11,6 @@ namespace Module1.Controllers
     {
         public ActionResult Index() => Content("From Ticket");
 
-        public ActionResult About => Content("About Ticket");
+        public ActionResult About() => Content("About Ticket");
     }
 }
