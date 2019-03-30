@@ -17,5 +17,9 @@ Notes:
 
 * [Routing - MVC](/projects/orchard-core/routing)
 
-  This samples shows how routing works in an Orchard Core Framework app.
+  This sample shows how routing works in an Orchard Core Framework app.
+
+* [Static Files](/projects/orchard-core/static-files)
+
+  This sample shows how to use static files in the module.
 
