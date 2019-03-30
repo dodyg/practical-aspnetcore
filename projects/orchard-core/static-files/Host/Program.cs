@@ -20,7 +20,6 @@ namespace Host
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
             app.UseOrchardCore();
         }
     }
