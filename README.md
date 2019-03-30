@@ -1,4 +1,4 @@
-# 233 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
+# 232 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -963,18 +963,6 @@ All these projects require the following dependencies
     This shows an example on how to send an email using SMTP.
 
     Thanks to [@Kinani95](https://twitter.com/Kinani95).
-
-
-* **Modules (2)**
-
-  This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
-
-  * [Modular Hello World](/projects/orchardcore-module)
-
-    Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
-
-    The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
-
 
   * [Keeping track of anonymous users](/projects/anonymous-id)
 
