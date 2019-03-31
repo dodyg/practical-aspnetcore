@@ -1,4 +1,4 @@
-# Orchard Core Framework (1)
+# Orchard Core Framework (3)
 
 Pre-requisite: Make sure you download .NET Core SDK 2.2 (`2.2.100`) otherwise below examples won't work.
 
@@ -22,4 +22,8 @@ Notes:
 * [Static Files](/projects/orchard-core/static-files)
 
   This sample shows how to use static files in the module.
+
+* [Multi Tenant](/projects/orchard-core/multi-tenant)
+
+  This sample shows how Orchard Core Framework handles multi tenancy and how each tenant have its own configuration file.
 
