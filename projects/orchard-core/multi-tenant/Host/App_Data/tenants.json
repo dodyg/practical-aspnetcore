@@ -2,19 +2,16 @@
     "Default": {
         "State": "Running",
         "RequestUrlHost": null,
-        "RequestUrlPrefix": null,
-        "CustomSetting": "Custom setting for Default tenant"
+        "RequestUrlPrefix": null
     },
     "CustomerA": {
         "State": "Running",
         "RequestUrlHost": null,
-        "RequestUrlPrefix": "customer-a",
-        "CustomSetting": "Custom setting for Customer A"
+        "RequestUrlPrefix": "customer-a"
     },
     "CustomerB": {
         "State": "Running",
         "RequestUrlHost": null,
-        "RequestUrlPrefix": "customer-b",
-        "CustomSetting": "Custom setting for Customer B"
+        "RequestUrlPrefix": "customer-b"
     }
 }
