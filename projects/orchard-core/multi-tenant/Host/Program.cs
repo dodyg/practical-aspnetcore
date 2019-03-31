@@ -22,19 +22,7 @@ namespace Host
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseOrchardCore(a =>
-            {
-                a.UseDeveloperExceptionPage();
-
-                a.Run(async context =>
-                {
-                    var shellSettings = context.RequestServices.GetRequiredService<ShellSettings>();  
-
-                    var customSetting = shellSettings.ShellConfiguration["CustomSetting"];
-
-                    await context.Response.WriteAsync("Host " + shellSettings.Name);
-                });
-            });
+            app.UseOrchardCore();
         }
     }
 

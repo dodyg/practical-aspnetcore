@@ -1,7 +1,34 @@
 @page
+@using OrchardCore.Environment.Shell
+@inject ShellSettings Settings
 
-<h1>Static Files</h1>
+<div class="container">
+    <h1>Shell Settings</h1>
 
-<ul>
-    <li><a href="/ForumModule/Home/Index">/ForumModule/Home/Index</a></li>
-</ul>
+    <ul>
+        <li><a href="/">/</a></li>
+        <li><a href="/customer-a">customer-a</a></li>
+        <li><a href="/customer-b">customer-b</a></li>
+    </ul>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>@Settings.Name</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>@Settings.State</td>
+            </tr>
+            <tr>
+                <td>Prefix</td>
+                <td>@Settings.RequestUrlPrefix</td>
+            </tr>
+            <tr>
+                <td>Custom Settings</td>
+                <td>@Settings.ShellConfiguration["CustomSetting"]</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
