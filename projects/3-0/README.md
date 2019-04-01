@@ -83,7 +83,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This example shows how to use `RequestDelegate` directly in `app.UseRouting` using `Map`.
 
-* [New Routing - Interrogate available end points](/projects/3-0/new-routing-6)
+* [New Routing - Interrogate available endpoints](/projects/3-0/new-routing-6)
 
   This example shows how to list all available endpoints in your app.
 
