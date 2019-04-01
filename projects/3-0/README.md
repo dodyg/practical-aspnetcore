@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (15)
+# .NET Core 3.0 Preview 3 (16)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -83,6 +83,9 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This example shows how to use `RequestDelegate` directly in `app.UseRouting` using `Map`.
 
+* [New Routing - Interrogate available end points](/projects/3-0/new-routing-6)
+
+  This example shows how to list all available endpoints in your app.
 
 ## Razor Component
 
