@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (14)
+# .NET Core 3.0 Preview 3 (15)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -78,6 +78,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
   This example shows how to use `RequestDelegate` directly in `app.UseRouting` for `GET` operation using `MapGet`. `MapPost`, `MapPut`, and `MapDelete` are also available for use.
 
   This allow the creation of very minimalistic web services apps.
+
+* [New Routing - RequestDelegate](/projects/3-0/new-routing-5)
+
+  This example shows how to use `RequestDelegate` directly in `app.UseRouting` using `Map`.
 
 
 ## Razor Component
