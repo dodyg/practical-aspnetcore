@@ -1,4 +1,4 @@
-# 236 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
+# 237 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -18,7 +18,7 @@ There is a new section dedicated to [all security related topics (1 sample)](/pr
 
 ### ASP.NET Core 3.0 Preview 3
 
-All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (16 samples)](/projects/3-0)
+All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (17 samples)](/projects/3-0)
 
 ### MVC, SignalR and Blazor
 

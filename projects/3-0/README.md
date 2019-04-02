@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 3 (16)
+# .NET Core 3.0 Preview 3 (17)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 3. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -86,6 +86,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - Interrogate available endpoints](/projects/3-0/new-routing-6)
 
   This example shows how to list all available endpoints in your app.
+
+* [New Routing - RequestDelegate with HTTP verb filter](/projects/3-0/new-routing-7)
+
+  This example shows how to use `RequestDelegate` directly in `app.UseRouting` using `MapVerbs` that filter request based on one or more HTTP verbs.
 
 ## Razor Component
 
