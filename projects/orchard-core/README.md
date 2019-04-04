@@ -19,7 +19,7 @@ Notes:
 
   This sample shows how routing works in an Orchard Core Framework app.
 
-* [Routing - Razor Pages](/projects/orchard-core/routing)
+* [Routing - Razor Pages](/projects/orchard-core/routing-2)
 
   This sample shows how routing works in an Orchard Core Framework app when you are using Razor Pages.
 
