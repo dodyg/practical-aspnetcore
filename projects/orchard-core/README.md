@@ -1,4 +1,4 @@
-# Orchard Core Framework (3)
+# Orchard Core Framework (4)
 
 Pre-requisite: Make sure you download .NET Core SDK 2.2 (`2.2.100`) otherwise below examples won't work.
 
@@ -18,6 +18,10 @@ Notes:
 * [Routing - MVC](/projects/orchard-core/routing)
 
   This sample shows how routing works in an Orchard Core Framework app.
+
+* [Routing - Razor Pages](/projects/orchard-core/routing)
+
+  This sample shows how routing works in an Orchard Core Framework app when you are using Razor Pages.
 
 * [Static Files](/projects/orchard-core/static-files)
 
