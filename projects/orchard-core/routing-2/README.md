@@ -1,6 +1,6 @@
 # Routing with Razor Pages
 
-This sample shows how the routing works in an Orchard Core Framework application when you are using Razor Pages. *Note*: To see the where the custom routing are defined, go to individual page at the modules. It is defined using `@page` attribute at each page.
+This sample shows how the routing works in an Orchard Core Framework application when you are using Razor Pages. *Note*: To see the where the custom routes are defined, go to individual page at the modules. It is defined using `@page` attribute at each page.
 
 We have two modules in this sample:
 
