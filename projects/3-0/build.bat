@@ -1,0 +1,19 @@
+dotnet build hello-world-with-reload
+dotnet build hosting
+dotnet build new-routing
+dotnet build new-routing-2
+dotnet build new-routing-3
+dotnet build new-routing-4
+dotnet build new-routing-5
+dotnet build new-routing-6
+dotnet build new-routing-7
+dotnet build new-routing-8
+dotnet build newtonsoft-json
+
+dotnet build razor-component\ChatR
+dotnet build razor-component\DependencyInjection
+dotnet build razor-component\HelloWorld
+dotnet build razor-component\JsIntegration
+dotnet build razor-component\Layout
+dotnet build razor-component\MultiApps
+dotnet build razor-component\RssReader
