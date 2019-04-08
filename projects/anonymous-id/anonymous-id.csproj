@@ -8,6 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-    <PackageReference Include="ReturnTrue.AspNetCore.Identity.Anonymous" Version="2.1.*" />
+    <PackageReference Include="ReturnTrue.AspNetCore.Identity.Anonymous" Version="1.1.2" />
   </ItemGroup>
 </Project>
