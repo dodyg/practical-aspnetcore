@@ -1,0 +1,181 @@
+{
+  "Id": 0,
+  "ContentTypeDefinitionRecords": [
+    {
+      "Name": "Menu",
+      "DisplayName": "Menu",
+      "Settings": {
+        "Draftable": "True",
+        "Versionable": "True",
+        "Listable": "True"
+      },
+      "ContentTypePartDefinitionRecords": [
+        {
+          "PartName": "TitlePart",
+          "Name": "TitlePart",
+          "Settings": {
+            "Position": "0"
+          }
+        },
+        {
+          "PartName": "AliasPart",
+          "Name": "AliasPart",
+          "Settings": {
+            "Position": "1",
+            "AliasPartSettings": {
+              "Pattern": "{{ ContentItem | display_text | slugify }}"
+            }
+          }
+        },
+        {
+          "PartName": "MenuPart",
+          "Name": "MenuPart",
+          "Settings": {
+            "Position": "2"
+          }
+        },
+        {
+          "PartName": "MenuItemsListPart",
+          "Name": "MenuItemsListPart",
+          "Settings": {
+            "Position": "3"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "LinkMenuItem",
+      "DisplayName": "Link Menu Item",
+      "Settings": {
+        "Stereotype": "MenuItem"
+      },
+      "ContentTypePartDefinitionRecords": [
+        {
+          "PartName": "LinkMenuItemPart",
+          "Name": "LinkMenuItemPart",
+          "Settings": {
+            "Position": "0"
+          }
+        },
+        {
+          "PartName": "LinkMenuItem",
+          "Name": "LinkMenuItem",
+          "Settings": {
+            "Position": "1"
+          }
+        }
+      ]
+    }
+  ],
+  "ContentPartDefinitionRecords": [
+    {
+      "Name": "CommonPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides an editor for the common properties of a content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "LiquidPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a Liquid formatted body for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "AliasPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a way to define custom aliases for content items."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "AutoroutePart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a custom url for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "WidgetsListPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a way to add widgets per content items."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "FlowPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a customizable body for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "BagPart",
+      "Settings": {
+        "Attachable": "True",
+        "Reusable": "True",
+        "Description": "Provides a collection behavior for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "HtmlBodyPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides an HTML Body for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "ListPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Add a list behavior."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "MarkdownBodyPart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a Markdown formatted body for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "TitlePart",
+      "Settings": {
+        "Attachable": "True",
+        "Description": "Provides a Title for your content item.",
+        "DefaultPosition": "0"
+      },
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "MenuPart",
+      "Settings": {},
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "MenuItemPart",
+      "Settings": {},
+      "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "LinkMenuItemPart",
+      "Settings": {
+        "Attachable": true,
+        "Description": "Provides a menu link behavior for your content item."
+      },
+      "ContentPartFieldDefinitionRecords": []
+    }
+  ],
+  "Serial": 18
+}
