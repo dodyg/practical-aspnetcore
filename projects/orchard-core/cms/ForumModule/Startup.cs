@@ -14,7 +14,6 @@ namespace ForumModule
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
         }
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)

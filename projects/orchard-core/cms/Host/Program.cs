@@ -11,7 +11,7 @@ namespace Host
         public void ConfigureServices(IServiceCollection services)
         {
             services
-            .AddOrchardCms(b => b.AddMvc())
+            .AddOrchardCms()
             .AddMvc();
         }
 
