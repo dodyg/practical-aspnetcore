@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Targets" Version="1.0.0-beta3-71025" />
-    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.0.0-beta3-71025" />
+    <PackageReference Include="OrchardCore.Application.Targets" Version="1.0.0-beta3-71077" />
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.0.0-beta3-71077" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
