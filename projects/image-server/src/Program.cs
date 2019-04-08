@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore;
 
-namespace ImageServer 
+namespace ImageServer
 {
     public class Startup
     {
@@ -21,14 +22,14 @@ namespace ImageServer
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 return context.Response.WriteAsync("This is a stub for an image processor server");
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
