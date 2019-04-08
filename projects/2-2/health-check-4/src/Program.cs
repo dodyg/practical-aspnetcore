@@ -84,13 +84,13 @@ namespace EndpointRoutingSample
                 var result = await _client.GetAsync(localServer + "/home/fakestatus/?statusCode=500");
 
                 if (result.StatusCode == HttpStatusCode.OK)
-                    return HealthCheckResult.Passed("Everything is OK");
+                    return HealthCheckResult.Healthy("Everything is OK");
                 else
-                    return HealthCheckResult.Failed($"Fails: Http Status returns {result.StatusCode}");
+                    return HealthCheckResult.Degraded($"Fails: Http Status returns {result.StatusCode}");
             }
             catch (Exception ex)
             {
-                return HealthCheckResult.Failed($"Exception {ex.Message} : {ex.StackTrace}");
+                return HealthCheckResult.Unhealthy($"Exception {ex.Message} : {ex.StackTrace}");
             }
         }
     }
