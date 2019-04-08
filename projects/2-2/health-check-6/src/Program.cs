@@ -107,20 +107,20 @@ namespace EndpointRoutingSample
                 var result = await _client.GetAsync(localServer + $"/home/fakestatus/?statusCode={_statusCode}");
 
                 if (result.StatusCode == HttpStatusCode.OK)
-                    return HealthCheckResult.Passed("Everything is OK");
+                    return HealthCheckResult.Healthy("Everything is OK");
                 else if (result.StatusCode == HttpStatusCode.BadRequest)
                 {
                     context.Registration.FailureStatus = HealthStatus.Degraded;
-                    return HealthCheckResult.Failed($"Degraded: Http Status returns {result.StatusCode}");
+                    return HealthCheckResult.Degraded($"Degraded: Http Status returns {result.StatusCode}");
                 }
                 else
                 {
-                    return HealthCheckResult.Failed($"Fails: Http Status returns {result.StatusCode}");
+                    return HealthCheckResult.Unhealthy($"Fails: Http Status returns {result.StatusCode}");
                 }
             }
             catch (Exception ex)
             {
-                return HealthCheckResult.Failed($"Exception {ex.Message} : {ex.StackTrace}");
+                return HealthCheckResult.Unhealthy($"Exception {ex.Message} : {ex.StackTrace}");
             }
         }
     }
