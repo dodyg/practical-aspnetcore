@@ -4,7 +4,7 @@
     int _number = 0;
 
     [Parameter]
-    Action<int> OnValueChanged { get; set;}
+    EventCallback<int> OnValueChanged { get; set;}
 
-    void Add() => OnValueChanged?.Invoke(++_number);
+    async Task Add() => await OnValueChanged.InvokeAsync(++_number);
 }
