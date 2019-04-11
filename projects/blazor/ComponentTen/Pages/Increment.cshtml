@@ -8,13 +8,13 @@
     List<int> Numbers { get; set;} = new List<int>();
 
     [Parameter]
-    Action<List<int>> NumbersChanged { get; set;}
+    EventCallback<List<int>> NumbersChanged { get; set;}
 
     Random _rnd = new Random();
 
-    void Add()
+    async Task Add()
     {
         Numbers.Add(_rnd.Next());
-        NumbersChanged?.Invoke(Numbers);
+        await NumbersChanged.InvokeAsync(Numbers);
     }
 }
