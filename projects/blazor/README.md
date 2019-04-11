@@ -28,7 +28,7 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
   * [Component Four - Handling Custom Event from Component](/projects/blazor/ComponentFour)
 
-    This sample shows how to raise a custom event from a component and how to handle them.
+    This sample shows how to raise a custom event from a component and how to handle them using `EventCallback<>`.
    
   * [Component Five - Inherit from a ComponentBase class](/projects/blazor/ComponentFive)
 

@@ -1,20 +1,18 @@
 
 using Microsoft.AspNetCore.Components;
 using System;
+using System.Threading.Tasks;
 
 public class GreetingBase : ComponentBase
 {
     [Parameter]
-    Action<int> OnUpdate { get; set; }
+    EventCallback<int> OnUpdate { get; set; }
 
     int _currentCount;
 
-    protected void IncrementCount()
+    protected async Task IncrementCount()
     {
         _currentCount++;
-        if (OnUpdate != null)
-        {
-            OnUpdate(_currentCount);
-        }
+        await OnUpdate.InvokeAsync(_currentCount);
     }
 }
