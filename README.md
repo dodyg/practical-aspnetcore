@@ -26,7 +26,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [Security related samples](/projects/security) | 1 |2.2 |
 | [Orchard Core Framework](/projects/orchard-core) | 4| 2.2 |
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 13 | 2.2 |
-| [What's new in ASP.NET Core 2.1](/projects/2-2) | 6 | 2.1 |
+| [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
 | Foundational ASP.NET Core Samples (scroll down) | 126 | 2.1 |
 
