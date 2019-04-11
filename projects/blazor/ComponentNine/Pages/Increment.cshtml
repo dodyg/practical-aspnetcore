@@ -8,12 +8,12 @@
     int Number { get; set;}
 
     [Parameter]
-    Action<int> NumberChanged { get; set;}
+    EventCallback<int> NumberChanged { get; set;}
 
 
-    void Add()
+    async Task Add()
     {
         Number++;
-        NumberChanged?.Invoke(Number);
+        await NumberChanged.InvokeAsync(Number);
     }
 }
