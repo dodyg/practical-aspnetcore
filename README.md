@@ -12,19 +12,19 @@ Note: If you encounter problem with downloading packages or Nuget, try the follo
 
 ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
 
-### Security
+### Other Topics
 
-There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
-### ASP.NET Core 3.0 Preview 3
+| Section | Samples Count | .NET Core SDK Version |
+| ------- | ------- | ------- |
+| [ASP.NET Core 3.0 and Blazor Server Side](/projects/3-0) | 17 | 3.0-preview-3  |
+| [ASP.NET Core MVC](/projects/mvc/README.md) | 43 | 2.1 |
+| [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 1|  2.2 |
+| [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
+| [Blazor Client Side Web Assembly](/projects/blazor/README.md) | 12| 3.0-preview-3 |
+| [Security related samples](/projects/security) | 1 |2.1 |
+| [Orchard Core Framework](/projects/orchard-core) | 4| 2.2 |
 
-All the samples related to ASP.NET Core 3.0 (including Razor Component) is [here (17 samples)](/projects/3-0)
-
-### MVC, SignalR and Blazor
-
-There are dedicated samples for **ASP.NET Core MVC 2.1** [here (43 samples)](/projects/mvc/README.md), **Razor Pages 2.2** [here (1 sample)](/projects/razor-pages/README.md), **ASP.NET Core SignalR 2.1** [here (1 sample)](/projects/signalr/README.md) and **Blazor 0.9** [here (12 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
-
-We also have a growing number of samples for [Orchard Core Framework (4 samples)](/projects/orchard-core).
 
 ## How to run these samples
 
