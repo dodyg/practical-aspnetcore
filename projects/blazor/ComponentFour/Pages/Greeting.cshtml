@@ -2,13 +2,13 @@
 
 @functions {
     [Parameter]
-    Action<int> OnUpdate {get; set;}
+    EventCallback<int> OnUpdate {get; set;}
 
     int _currentCount;
 
-    void IncrementCount()
+    async Task IncrementCount()
     {
         _currentCount++;
-        OnUpdate?.Invoke(_currentCount);
+        await OnUpdate.InvokeAsync(_currentCount);
     }
 }
