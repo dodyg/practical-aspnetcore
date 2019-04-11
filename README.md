@@ -12,10 +12,10 @@ Note: If you encounter problem with downloading packages or Nuget, try the follo
 
 ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
 
-### Other Topics
+### Additional Sections
 
 
-| Section | Samples Count | .NET Core SDK Version |
+| Section | No. of Samples  | .NET Core SDK Version |
 | ------- | ------- | ------- |
 | [ASP.NET Core 3.0 and Blazor Server Side](/projects/3-0) | 17 | 3.0-preview-3  |
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 43 | 2.1 |
