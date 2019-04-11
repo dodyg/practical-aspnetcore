@@ -1,4 +1,4 @@
-# ASP.NET COre 2.0
+# ASP.NET Core 2.0
 
 Note that all the code here will run on ASP.NET Core 2.0 however these samples uses 2.1.
 

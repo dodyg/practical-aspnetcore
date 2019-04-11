@@ -25,6 +25,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [Security related samples](/projects/security) | 1 |2.1 |
 | [Orchard Core Framework](/projects/orchard-core) | 4| 2.2 |
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 13 | 2.2 |
+| [What's new in ASP.NET Core 2.1](/projects/2-2) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
 
 
@@ -54,76 +55,6 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 ```
 
 When an example requires packages that are not listed here, it will be added to the project file.
-
-## What's new in ASP.NET Core 2.1(5)
-
-  *Pre-requisite*: Make sure you download .NET Core SDK [2.1.502](https://dotnet.microsoft.com/download/dotnet-core/2.1#sdk-2.1.502) otherwise below examples won't work.
-
-  **New code based idiom to start your host for ASP.NET Core 2.1**
-
-  It is recommended to use the following approach 
-
-  ```CSharp
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
-    }
-  ```
-
-  instead of
-
-  ```CSharp
-      public class Program
-      {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development")
-                .Build();
-      }
-  ```
-
-  * [Hello World with Microsoft.AspNetCore.App package](/projects/hello-world-startup-app-package)
-
-    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
-
-    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
-
-    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
-
-  * [HttpClientFactory](/projects/httpclientfactory)
-
-    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
-
-  * [HttpClientFactory - 2](/projects/httpclientfactory-2)
-
-    Use preconfigured `HttpClient` via `IHttpClientFactory`.
-
-  * [HttpClientFactory - 3](/projects/httpclientfactory-3)
-
-    Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for your classes.
-
-  * [HttpClientFactory - 4](/projects/httpclientfactory-4)
-
-    Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for interface-implementing classes.
-
-  * [Supress Status Messages](/projects/suppress-status-messages)
-
-    You can hide status messages when you start up your web application. It's a small useful thing.
-
 
 ## Foundation ASP.NET Core 2.1 Samples
 
