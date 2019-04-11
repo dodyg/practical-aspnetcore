@@ -22,7 +22,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 1|  2.2 |
 | [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
 | [Blazor Client Side Web Assembly](/projects/blazor/README.md) | 12| 3.0-preview-3 |
-| [Security related samples](/projects/security) | 1 |2.1 |
+| [Security related samples](/projects/security) | 1 |2.2 |
 | [Orchard Core Framework](/projects/orchard-core) | 4| 2.2 |
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 13 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-2) | 6 | 2.1 |
