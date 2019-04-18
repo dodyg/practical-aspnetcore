@@ -1,0 +1,25 @@
+@page
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<h1>Capturing routing data from @@page</h1>
+    <ol>
+        <li><a href="/contact-us/1">/contact-us/{id}</a> with page Contact.cshtml</li>
+        <li><a href="/About/OurSchool/2019">/About/{section}/{int:year}</a> with page About.cshtml</li>
+        <li><a href="/About/our-department-store/2020">/About/{section}/{int:year}</a> with page About.cshtml</li>
+        <li><a href="/Blog/2018/4/20/itsmybirthday">/Blog/{*path}</a> with page Blog.cshtml</li>
+        <li><a href="/Blog/welcome">/Blog/{*path}</a> with page Blog.cshtml</li>
+        <li><a href="/Product/">/Product/{id:int?}</a> with page Catalog.cshtml</li>
+        <li><a href="/Product/333">/Product/{id:int?}</a> with page Catalog.cshtml</li>
+    </ol>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Razor Pages (2)
+# Razor Pages (3)
 
 This section contains all micro samples for **ASP.NET Core Razor Pages 2.2**.
 
@@ -11,3 +11,8 @@ Pre-requisite: Make sure you download .NET Core SDK 2.2 (`2.2.100`) otherwise be
 * [Routing](/projects/razor-pages/routing)
 
   Use `@page` directive on your Razor Page file to customize the url of your Razor Page. Each Razor Page can only contain 1 `@page` definition.
+
+
+* [Routing](/projects/razor-pages/routing-2)
+
+  Capture routing data from `@page` url template.
