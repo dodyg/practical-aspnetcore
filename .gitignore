@@ -8,6 +8,7 @@ project.lock.json
 *.suo
 *.cache
 *.docstates
+*.db
 
 .vs/
 Properties/
