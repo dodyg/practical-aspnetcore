@@ -13,6 +13,6 @@ Pre-requisite: Make sure you download .NET Core SDK 2.2 (`2.2.100`) otherwise be
   Use `@page` directive on your Razor Page file to customize the url of your Razor Page. Each Razor Page can only contain 1 `@page` definition.
 
 
-* [Routing](/projects/razor-pages/routing-2)
+* [Routing-2](/projects/razor-pages/routing-2)
 
-  Capture routing data from `@page` url template.
+  Capture routing data from `@page` url template using `RouteData.Values[]`.
