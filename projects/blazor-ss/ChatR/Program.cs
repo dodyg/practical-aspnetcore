@@ -13,10 +13,9 @@ namespace ChatR
     {
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddServerSideBlazor();
             services.AddMvc();
-
+            services.AddSignalR().AddNewtonsoftJsonProtocol();
             services.AddScoped<NotificationService>();
         }
 
@@ -40,6 +39,7 @@ namespace ChatR
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
+                routes.MapFallbackToPage("/Index");
                 routes.MapHub<NotificationHub>("/notificationhub");
                 routes.MapBlazorHub<App>("app");
             });

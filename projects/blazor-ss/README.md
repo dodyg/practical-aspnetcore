@@ -1,4 +1,4 @@
-# Server Size Blazor (7)
+# Server Size Blazor (6)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -36,7 +36,3 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Layout](Layout)
 
     This sample shows how to use layout and nested layouts.
-
-  * [Multi Apps](MultiApps)
-
-    This sample shows how to host multiple Razor Component apps in a single server.
