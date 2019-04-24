@@ -16,7 +16,8 @@ namespace NewRouting
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRouting(route =>
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
                 route.MapGet("/", async context =>
                 {

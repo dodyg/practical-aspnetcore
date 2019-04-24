@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ClassicJson 
+namespace ClassicJson
 {
     public class Startup
     {
@@ -20,7 +20,8 @@ namespace ClassicJson
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRouting(routes =>
+            app.UseRouting();
+            app.UseEndpoints(routes =>
             {
                 routes.MapControllers();
             });
@@ -33,10 +34,10 @@ namespace ClassicJson
     {
         public IActionResult Index()
         {
-            return Ok(new { Greeting = "Hello World"});
+            return Ok(new { Greeting = "Hello World" });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

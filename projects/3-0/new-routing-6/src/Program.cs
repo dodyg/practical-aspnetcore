@@ -18,7 +18,8 @@ namespace NewRouting
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRouting(route =>
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
                 route.MapGet("hello", async context => await context.Response.WriteAsync("hello"));
                 route.MapPost("new-hello", async context => await context.Response.WriteAsync("hello"));

@@ -63,11 +63,11 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [New Routing - Razor Page](/projects/3-0/new-routing)
 
-  ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseRouting`. In this example, we just enable Razor Pages routes and nothing else.
+  ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseEndpoints`. In this example, we just enable Razor Pages routes and nothing else.
 
 * [New Routing - MVC](/projects/3-0/new-routing-2)
 
-  ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseRouting`. In this example, we just enable MVC routes and nothing else.
+  ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseEndpoints`. In this example, we just enable MVC routes and nothing else.
 
 * [New Routing - MVC with default route](/projects/3-0/new-routing-3)
 
@@ -75,13 +75,13 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [New Routing - RequestDelegate](/projects/3-0/new-routing-4)
 
-  This example shows how to use `RequestDelegate` directly in `app.UseRouting` for `GET` operation using `MapGet`. `MapPost`, `MapPut`, and `MapDelete` are also available for use.
+  This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` for `GET` operation using `MapGet`. `MapPost`, `MapPut`, and `MapDelete` are also available for use.
 
   This allow the creation of very minimalistic web services apps.
 
 * [New Routing - RequestDelegate](/projects/3-0/new-routing-5)
 
-  This example shows how to use `RequestDelegate` directly in `app.UseRouting` using `Map`.
+  This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` using `Map`.
 
 * [New Routing - Interrogate available endpoints](/projects/3-0/new-routing-6)
 
@@ -89,4 +89,4 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [New Routing - RequestDelegate with HTTP verb filter](/projects/3-0/new-routing-7)
 
-  This example shows how to use `RequestDelegate` directly in `app.UseRouting` using `MapVerbs` that filter request based on one or more HTTP verbs.
+  This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` using `MapMethods` that filter request based on one or more HTTP verbs.

@@ -18,9 +18,10 @@ namespace NewRouting
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRouting(route =>
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
-                route.MapVerbs("", async context =>
+                route.MapMethods("", new[] { "GET" }, async context =>
                 {
                     var content =
 @"<html>
@@ -33,9 +34,9 @@ namespace NewRouting
 </html>";
                     await context.Response.WriteAsync(content);
 
-                }, new[] { "GET" });
+                });
 
-                route.MapVerbs("about", async context =>
+                route.MapMethods("about", new[] { "POST" }, async context =>
                 {
                     var content =
 @"<html>
@@ -48,7 +49,7 @@ namespace NewRouting
 </html>";
                     await context.Response.WriteAsync(content);
 
-                }, new[] { "POST" });
+                });
             });
         }
     }
