@@ -14,7 +14,7 @@ namespace ChatR
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
 
             services.AddScoped<NotificationService>();
@@ -41,7 +41,7 @@ namespace ChatR
             {
                 routes.MapRazorPages();
                 routes.MapHub<NotificationHub>("/notificationhub");
-                routes.MapComponentHub<App>("app");
+                routes.MapBlazorHub<App>("app");
             });
         }
     }

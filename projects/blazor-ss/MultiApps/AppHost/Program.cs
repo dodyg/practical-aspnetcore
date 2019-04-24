@@ -11,7 +11,7 @@ namespace AppHost
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
         }
 
@@ -34,8 +34,8 @@ namespace AppHost
             app.UseRouting();
             app.UseEndpoints(routes =>
             {
-                routes.MapComponentHub<App1.Components.App>("app");
-                routes.MapComponentHub<App2.Components.App>("app", "/application2");
+                routes.MapBlazorHub<App1.Components.App>("app");
+                routes.MapBlazorHub<App2.Components.App>("app", "/application2");
                 routes.MapRazorPages();
             });
         }

@@ -12,7 +12,7 @@ namespace HelloWorld
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
         }
 
@@ -36,7 +36,7 @@ namespace HelloWorld
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
-                routes.MapComponentHub<App>("app");
+                routes.MapBlazorHub<App>("app");
             });
         }
     }

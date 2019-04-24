@@ -12,7 +12,7 @@ namespace JsIntegration
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
         }
 
@@ -36,7 +36,8 @@ namespace JsIntegration
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
-                routes.MapComponentHub<App>("app");
+                routes.MapFallbackToPage("/Index");
+                routes.MapBlazorHub<App>("app");
             });
         }
     }
