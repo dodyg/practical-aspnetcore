@@ -1,4 +1,4 @@
-# 237 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-3 fundamentals (updated almost daily - except during Summer)
+# 237 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-4 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
