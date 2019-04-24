@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview4-19216-03" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview4-19216-03" />
     <Watch Include="**\*.cshtml" />
+    <Watch Include="**\*.razor" />
   </ItemGroup>
 
 </Project>

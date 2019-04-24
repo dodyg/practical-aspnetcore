@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion> 
+    <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>DataBinding</AssemblyName>
 
     <LangVersion>7.3</LangVersion>
@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview4-19216-03" />
 
     <Watch Include="**\*.cshtml" />
+    <Watch Include="**\*.razor" />
   </ItemGroup>
 
 </Project>
