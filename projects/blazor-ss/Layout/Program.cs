@@ -12,7 +12,7 @@ namespace Layout
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
         }
 
@@ -36,7 +36,8 @@ namespace Layout
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
-                routes.MapComponentHub<App>("app");
+                routes.MapFallbackToPage("/Index");
+                routes.MapBlazorHub<App>("app");
             });
         }
     }
