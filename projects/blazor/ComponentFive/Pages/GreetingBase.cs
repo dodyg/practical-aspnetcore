@@ -1,18 +1,20 @@
-
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Threading.Tasks;
 
-public class GreetingBase : ComponentBase
+namespace ComponentFive.Pages
 {
-    [Parameter]
-    EventCallback<int> OnUpdate { get; set; }
-
-    int _currentCount;
-
-    protected async Task IncrementCount()
+    public class GreetingBase : ComponentBase
     {
-        _currentCount++;
-        await OnUpdate.InvokeAsync(_currentCount);
+        [Parameter]
+        EventCallback<int> OnUpdate { get; set; }
+
+        int _currentCount;
+
+        protected async Task IncrementCount()
+        {
+            _currentCount++;
+            await OnUpdate.InvokeAsync(_currentCount);
+        }
     }
 }
