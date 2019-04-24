@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RunCommand>dotnet</RunCommand>
+    <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>ComponentEight</AssemblyName>
-    <RunArguments>blazor serve</RunArguments>
+
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview4-19216-03" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview4-19216-03" PrivateAssets="all" />
-
+    <DotNetCliToolReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview4-19216-03" />
 
     <Watch Include="**\*.cshtml" />
   </ItemGroup>
