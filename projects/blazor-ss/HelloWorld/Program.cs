@@ -36,6 +36,7 @@ namespace HelloWorld
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
+                routes.MapFallbackToPage("/Index");
                 routes.MapBlazorHub<App>("app");
             });
         }
