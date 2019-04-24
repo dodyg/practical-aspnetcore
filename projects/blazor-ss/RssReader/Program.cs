@@ -13,7 +13,7 @@ namespace RssReader
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
 
             services.AddSingleton<RssNews>();
@@ -39,7 +39,8 @@ namespace RssReader
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
-                routes.MapComponentHub<App>("app");
+                routes.MapFallbackToPage("/Index");
+                routes.MapBlazorHub<App>("app");
             });
         }
     }
