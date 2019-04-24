@@ -13,7 +13,7 @@ namespace DependencyInjection
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
             services.AddMvc();
 
             services.AddTransient<TheTransientClock>();
@@ -41,7 +41,8 @@ namespace DependencyInjection
             app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
-                routes.MapComponentHub<App>("app");
+                routes.MapFallbackToPage("/Index");
+                routes.MapBlazorHub<App>("app");
             });
         }
     }
