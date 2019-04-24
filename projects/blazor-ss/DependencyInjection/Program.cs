@@ -37,7 +37,8 @@ namespace DependencyInjection
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting(routes =>
+            app.UseRouting();
+            app.UseEndpoints(routes =>
             {
                 routes.MapRazorPages();
                 routes.MapComponentHub<App>("app");

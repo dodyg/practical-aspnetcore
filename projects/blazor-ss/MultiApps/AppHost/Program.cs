@@ -31,7 +31,8 @@ namespace AppHost
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting(routes =>
+            app.UseRouting();
+            app.UseEndpoints(routes =>
             {
                 routes.MapComponentHub<App1.Components.App>("app");
                 routes.MapComponentHub<App2.Components.App>("app", "/application2");
