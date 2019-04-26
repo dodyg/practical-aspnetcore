@@ -1,4 +1,4 @@
-# Server Size Blazor (6)
+# Server Size Blazor (5)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -29,9 +29,11 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample shows you that the 'Transient' and 'Scoped' Dependency Injection method have different practical impact on Razor Component.
 
+<!-- 
   * [SignalR Broadcast](ChatR)
 
     This sample shows how to integrate SignalR with your Razor Component app.
+-->
 
   * [Layout](Layout)
 
