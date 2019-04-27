@@ -91,6 +91,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` using `MapMethods` that filter request based on one or more HTTP verbs.
 
-* [New Routing - Default static page handler](/projects/3-0/new-routing-8)
+* [New Routing - Static file fallback](/projects/3-0/new-routing-8)
 
   Return a static page when your request does not match anything else using `MapFallbackToFile`.
