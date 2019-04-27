@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Connections;
 using System.Buffers;
 using System.Threading.Tasks;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace NewRouting
 {
@@ -19,10 +21,21 @@ namespace NewRouting
             services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostEnvironment environment)
         {
-            app.UseRouting(route =>
+            app.UseRouting();
+
+            app.UseEndpoints(routes =>
             {
+                routes.MapGet("/contact/us", async context =>
+                {
+                    await context.Response.WriteAsync("Contact Us");
+                });
+
+                routes.MapFallbackToFile("index.html", new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(Path.Combine(environment.ContentRootPath, "Static")),
+                });
             });
         }
     }

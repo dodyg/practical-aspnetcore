@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 4 (10)
+# .NET Core 3.0 Preview 4 (11)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 4. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -90,3 +90,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - RequestDelegate with HTTP verb filter](/projects/3-0/new-routing-7)
 
   This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` using `MapMethods` that filter request based on one or more HTTP verbs.
+
+* [New Routing - Default static page handler](/projects/3-0/new-routing-8)
+
+  Return a static page when your request does not match anything else using `MapFallbackToFile`.

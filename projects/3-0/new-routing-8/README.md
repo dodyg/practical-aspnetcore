@@ -1,3 +1,3 @@
-# New Routing - using RequestDelegate with HTTP verb filter
+# New Routing - Static file fallback
 
-Respond to a url pattern and filter the request based on HTTP verbs.
+Return a static page when your request does not match anything else using `MapFallbackToFile`.
