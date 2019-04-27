@@ -18,18 +18,18 @@ namespace Routing5
         public void Configure(IApplicationBuilder app, IInlineConstraintResolver resolver)
         {
             var defaultHandler = new RouteHandler(context =>
-              {
-                  var routeValues = context.GetRouteData().Values;
-                  return context.Response.WriteAsync($"Route values: {string.Join(", ", routeValues)}");
-              });
+            {
+                var routeValues = context.GetRouteData().Values;
+                return context.Response.WriteAsync($"Route values: {string.Join(", ", routeValues)}");
+            });
 
             var routes = new RouteBuilder(app, defaultHandler);
 
-            routes.MapGet("hello", (IApplicationBuilder app2) =>
+            routes.MapMiddlewareGet("hello", (IApplicationBuilder app2) =>
             {
                 var routes2 = new RouteBuilder(app2);
                 routes2.MapGet("world", (context) => context.Response.WriteAsync("Hello World"));
-                return app2.UseRouter(routes2.Build());
+                app2.UseRouter(routes2.Build());
             });
 
             routes.MapRoute(
