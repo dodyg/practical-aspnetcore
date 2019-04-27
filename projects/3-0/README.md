@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 4 (11)
+# .NET Core 3.0 Preview 4 (12)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 4. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -94,3 +94,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - Static file fallback](/projects/3-0/new-routing-8)
 
   Return a static page when your request does not match anything else using `MapFallbackToFile`.
+
+* [New Routing - Razor Page fallback](/projects/3-0/new-routing-89
+
+  Return a Razor Page when your request does not match anything else using `MapFallbackToPage`.
