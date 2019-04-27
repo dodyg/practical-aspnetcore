@@ -95,6 +95,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   Return a static page when your request does not match anything else using `MapFallbackToFile`.
 
-* [New Routing - Razor Page fallback](/projects/3-0/new-routing-89
+* [New Routing - Razor Page fallback](/projects/3-0/new-routing-9)
 
   Return a Razor Page when your request does not match anything else using `MapFallbackToPage`.
