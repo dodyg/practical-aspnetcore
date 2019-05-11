@@ -271,7 +271,7 @@ All these projects require the following dependencies
 
 * **Middleware (12)**
 
-  We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
+  We will explore all aspect of middleware building in this section.
 
   * [Middleware 1](/projects/middleware-1)
    
