@@ -269,7 +269,7 @@ All these projects require the following dependencies
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (10)**
+* **Middleware (11)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
@@ -313,6 +313,9 @@ All these projects require the following dependencies
    
     This sample is similar to `Middleware 10` except that this one implement `IMiddleware` to create Factory-based middleware activation. This means that you can create a middleware that is not a singleton (either Transient or Scoped). 
 
+  * [Middleware 12](/projects/middleware-12)
+
+    Contrast the usage of `MapWhen` (which branch execution) and `UseWhen` (which doesn't branch execution) in configuring your Middleware.
 
 * **Features (8)**
   
