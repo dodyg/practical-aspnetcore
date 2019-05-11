@@ -1,4 +1,4 @@
-# 238 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-5 fundamentals (updated almost daily - except during Summer)
+# 239 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-5 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -269,13 +269,17 @@ All these projects require the following dependencies
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (11)**
+* **Middleware (12)**
 
   We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
 
   * [Middleware 1](/projects/middleware-1)
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
+
+  * [Middleware 1](/projects/middleware-2)
+   
+    As a general rule, only one of your Middleware should write to Response in an execution path. This sample shows how to work around this by buffering the Response.
 
   * [Middleware 3](/projects/middleware-3)
    
