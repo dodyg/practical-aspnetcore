@@ -18,7 +18,7 @@ namespace HelloWorldWithMiddleware
     //A middleware class in ASP.NET Core is simply a class that 
     // - Take a constructor with RequestDelegate
     // - implements Invoke method taking HttpContext and returning Task
-    //If you take a look at this code, it cannott be any simpler.
+    //If you take a look at this code, it cannot be any simpler.
     //This is a terminal middleware. It does not invoke the subsequent middleware. It just returns its own response and that's it.
 
     public class TerminalMiddleware
