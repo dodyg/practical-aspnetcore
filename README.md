@@ -277,7 +277,7 @@ All these projects require the following dependencies
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
 
-  * [Middleware 1](/projects/middleware-2)
+  * [Middleware 2](/projects/middleware-2)
    
     As a general rule, only one of your Middleware should write to Response in an execution path. This sample shows how to work around this by buffering the Response.
 
