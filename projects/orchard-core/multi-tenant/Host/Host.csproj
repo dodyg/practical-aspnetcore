@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Watch Include="..\ForumModule\**\*.cshtml" />
     <Watch Include="**\*.cshtml" />
   </ItemGroup>
 
