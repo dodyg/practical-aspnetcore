@@ -1,3 +1,3 @@
-# New Routing - Razor Page fallback
+# New Routing - Obtaining an Endpoint from your Middleware
 
-Return a Razor Page when your request does not match anything else using `MapFallbackToPage`.
+Use the brand new `HttpContext.GetEndPoint` extension method to examine the current endpoint that is being executed.
