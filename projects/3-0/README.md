@@ -1,6 +1,6 @@
-# .NET Core 3.0 Preview 5 (12)
+# .NET Core 3.0 Preview 5 (13)
 
-All the samples here rely on ASP.NET Core 3.0 Preview 4. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+All the samples here rely on ASP.NET Core 3.0 Preview 5. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-2.2&tabs=visual-studio)
 
@@ -98,3 +98,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - Razor Page fallback](/projects/3-0/new-routing-9)
 
   Return a Razor Page when your request does not match anything else using `MapFallbackToPage`.
+
+* [New Routing - Obtaining an Endpoint from your Middleware](/projects/3-0/new-routing-10)
+
+  Use the brand new `HttpContext.GetEndPoint` extension method to examine the current endpoint that is being executed.
