@@ -51,7 +51,7 @@ namespace NewRouting
         {
             Endpoint endPoint = httpContext.GetEndpoint();
 
-            var message = endPoint?.Metadata?.GetMetadata<MessageAttribute>();
+            var message = endPoint.Metadata.GetMetadata<MessageAttribute>();
 
             if (message != null)
             {
