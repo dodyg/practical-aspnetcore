@@ -1,3 +1,3 @@
-# New Routing - Obtaining an Endpoint from your Middleware
+# New Routing - Obtaining an Endpoint metadata from your Razor Page
 
-Use the brand new `HttpContext.GetEndPoint` extension method to examine the current endpoint that is being executed.
+  Use the brand new `EndPoint.Metadata.GetMetadata<>()` to get values from attributes at your Razor Page.
