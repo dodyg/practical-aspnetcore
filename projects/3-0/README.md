@@ -111,6 +111,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   Unlike in MVC, you can't use `Attribute` from the method of a Razor Page. You can only use it from the Model class. This makes getting obtaining the appropriate metadata for each request require an extra step.
 
-* New Routing - Obtaining an Endpoint metadata from your MVC Controller (/projects/3-0/new-routing-13)
+* [New Routing - Obtaining an Endpoint metadata from your MVC Controller](/projects/3-0/new-routing-13)
 
   Obtain Endpoint metadata from MVC Controller's Action methods.
