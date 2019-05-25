@@ -30,14 +30,21 @@ namespace NewRouting
 
                 route.Map("", async context =>
                 {
-                    foreach (var x in route.DataSources)
+                    foreach (EndpointDataSource x in route.DataSources)
                     {
                         await context.Response.WriteAsync($"{x}\n");
-                        foreach (var e in x.Endpoints)
+                        foreach (RouteEndpoint e in x.Endpoints)
                         {
                             await context.Response.WriteAsync($"Display Name: {e.DisplayName}\n");
+                            await context.Response.WriteAsync($"Route Pattern: {e.RoutePattern.RawText}\n");
+                            await context.Response.WriteAsync($"Metadata Count: {e.Metadata.Count}\n");
+                            foreach(var mm in e.Metadata)
+                            {
+                                await context.Response.WriteAsync($"Metadata: {mm}\n");
+                            }
+                            await context.Response.WriteAsync("\n");
                         }
-                        await context.Response.WriteAsync("\n");
+                        await context.Response.WriteAsync("\n\n");
                     }
                 });
             });
