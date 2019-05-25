@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 5 (15)
+# .NET Core 3.0 Preview 5 (16)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 5. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -110,3 +110,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - Obtaining an Endpoint metadata from your Razor Page depending on the request method](/projects/3-0/new-routing-12)
 
   Unlike in MVC, you can't use `Attribute` from the method of a Razor Page. You can only use it from the Model class. This makes getting obtaining the appropriate metadata for each request require an extra step.
+
+* New Routing - Obtaining an Endpoint metadata from your MVC Controller (/projects/3-0/new-routing-13)
+
+  Obtain Endpoint metadata from MVC Controller's Action methods.
