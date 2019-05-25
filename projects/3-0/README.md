@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 5 (17)
+# .NET Core 3.0 Preview 5 (18)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 5. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -118,3 +118,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - Obtaining Endpoint feature via IEndpointFeature](/projects/3-0/new-routing-14)
 
   Use `HttpContext.Features.Get<IEndpointFeature>();` to obtain `Endpoint` information for a given Middleware. You can accomplish the same thing using `HttpContext.GetEndpoint`.
+
+* [New Routing - Attaching Metadata information to your inline Middleware](/projects/3-0/new-routing-15)
+
+  Use `IEndpointConventionBuilder.WithMetadata` to attach metadata information to your inline Middleware.
