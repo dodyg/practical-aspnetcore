@@ -1,4 +1,4 @@
-# 244 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-5 fundamentals (updated almost daily - except during Summer)
+# 245 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-5 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -21,7 +21,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [Blazor Server Side](/projects/blazor-ss) | 5 | 3.0-preview-5  |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 12 | 3.0-preview-5  |
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 43 | 2.1 |
-| [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 3|  2.2 |
+| [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 4|  2.2 |
 | [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
 | [Security related samples](/projects/security) | 1 |2.2 |
 | [Orchard Core Framework](/projects/orchard-core) | 4| 2.2 |
