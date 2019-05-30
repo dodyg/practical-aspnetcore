@@ -1,0 +1,34 @@
+@page
+@model  RazorPageCustomHtmlGenerator.Pages.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Customize the automatically generated id by Tag Helper to snake_case</h1>
+
+    <p>
+        By default, the Tag Helper will generate something akin to "Input_FirstName" for the first text field. This is off course quite annoying 
+        if you have to refer the element in JavaScript because it's an uncommon id naming convention. 
+    </p>
+
+    <p>
+        The good thing is that you can customize the HTML that these Tag Helpers generate. Do a view source on this page and you will see that the ids are generated using snake_case.
+    </p>
+
+    <form>
+        <input type="text" asp-for="Input.FirstName" /><br/>
+        <input type="text" asp-for="Input.LastName" /><br/>
+        <input type="text" asp-for="Input.LastKnownAddress" /><br/>
+        <input type="text" asp-for="Input.Email" /><br/>
+        <button type="Submit">Submit</button>
+    </form>
+</body>
+</html>
