@@ -8,6 +8,18 @@ dotnet build new-routing-5
 dotnet build new-routing-6
 dotnet build new-routing-7
 dotnet build new-routing-8
+dotnet build new-routing-8
+dotnet build new-routing-9
+dotnet build new-routing-10
+dotnet build new-routing-11
+dotnet build new-routing-12
+dotnet build new-routing-13
+dotnet build new-routing-14
+dotnet build new-routing-15
+dotnet build new-routing-16
+dotnet build new-routing-17
+dotnet build new-routing-18
+
 dotnet build newtonsoft-json
 
 dotnet build razor-component\ChatR
