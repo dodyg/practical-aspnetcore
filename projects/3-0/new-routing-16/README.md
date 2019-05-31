@@ -1,3 +1,3 @@
-# New Routing - Attaching Metadata information to your inline Middleware
+# New Routing - Map Areas by Convention
 
-Use `IEndpointConventionBuilder.WithMetadata` to attach metadata information to your inline Middleware.
+Use `IEndpointRouteBuilder.MapAreaControllerRoute` to configure routing for your areas.

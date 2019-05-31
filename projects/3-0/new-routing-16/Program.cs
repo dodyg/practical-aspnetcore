@@ -28,12 +28,12 @@ namespace NewRouting
         {
             app.UseRouting();
 
-            app.UseEndpoints(routes =>
+            app.UseEndpoints(endpoints =>
             {
                 //Don't forget that the area name specified must match the name of the area at [Area()] attribute used at the area controllers. 
-                routes.MapAreaControllerRoute("AdminArea", "Admin", "Admin/{controller=Home}/{action=Index}/{id?}");
-                routes.MapAreaControllerRoute("CustomerArea", "Customer", "Customer/{controller=Home}/{action=Index}/{id?}");
-                routes.MapDefaultControllerRoute();
+                endpoints.MapAreaControllerRoute("AdminArea", "Admin", "Admin/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute("CustomerArea", "Customer", "Customer/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
