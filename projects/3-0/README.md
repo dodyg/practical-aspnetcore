@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 5 (22)
+# .NET Core 3.0 Preview 5 (23)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 5. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -61,80 +61,84 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
 
-* [New Routing - Razor Page](/projects/3-0/new-routing)
+* [Endpoint Routing - Razor Page](/projects/3-0/new-routing)
 
   ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseEndpoints`. In this example, we just map Razor Pages routes and nothing else.
 
-* [New Routing - MVC](/projects/3-0/new-routing-2)
+* [Endpoint Routing - MVC](/projects/3-0/new-routing-2)
 
   ASP.NET Core 3 allows more control on how to organize your endpoints using `app.UseEndpoints`. In this example, we just map MVC routes (attribute routing only, not convention routing) and nothing else.
 
-* [New Routing - MVC with default route](/projects/3-0/new-routing-3)
+* [Endpoint Routing - MVC with default route](/projects/3-0/new-routing-3)
 
   Map MVC routes with default `{controller=Home}/{action=Index}/{id?}` set up.
 
-* [New Routing - RequestDelegate](/projects/3-0/new-routing-4)
+* [Endpoint Routing - RequestDelegate](/projects/3-0/new-routing-4)
 
   This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` for `GET` operation using `MapGet`. `MapPost`, `MapPut`, and `MapDelete` are also available for use.
 
   This allow the creation of very minimalistic web services apps.
 
-* [New Routing - RequestDelegate](/projects/3-0/new-routing-5)
+* [Endpoint Routing - RequestDelegate](/projects/3-0/new-routing-5)
 
   This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` using `Map`.
 
-* [New Routing - Interrogate available endpoints](/projects/3-0/new-routing-6)
+* [Endpoint Routing - Interrogate available endpoints](/projects/3-0/new-routing-6)
 
   This example shows how to list all available endpoints in your app.
 
-* [New Routing - RequestDelegate with HTTP verb filter](/projects/3-0/new-routing-7)
+* [Endpoint Routing - RequestDelegate with HTTP verb filter](/projects/3-0/new-routing-7)
 
   This example shows how to use `RequestDelegate` directly in `app.UseEndpoints` using `MapMethods` that filter request based on one or more HTTP verbs.
 
-* [New Routing - Static file fallback](/projects/3-0/new-routing-8)
+* [Endpoint Routing - Static file fallback](/projects/3-0/new-routing-8)
 
   Return a static page when your request does not match anything else using `MapFallbackToFile`.
 
-* [New Routing - Razor Page fallback](/projects/3-0/new-routing-9)
+* [Endpoint Routing - Razor Page fallback](/projects/3-0/new-routing-9)
 
   Return a Razor Page when your request does not match anything else using `MapFallbackToPage`.
 
-* [New Routing - Obtaining an Endpoint from your Middleware](/projects/3-0/new-routing-10)
+* [Endpoint Routing - Obtaining an Endpoint from your Middleware](/projects/3-0/new-routing-10)
 
   Use the brand new `HttpContext.GetEndPoint` extension method to examine the current endpoint that is being executed.
 
-* [New Routing - How to obtain metadata in an Endpoint from a Razor page](/projects/3-0/new-routing-11)
+* [Endpoint Routing - How to obtain metadata in an Endpoint from a Razor page](/projects/3-0/new-routing-11)
 
   Use the brand new `EndPoint.Metadata.GetMetadata<>()` to get values from attributes at your Razor Page.
 
-* [New Routing - Obtaining an Endpoint metadata from your Razor Page depending on the request method](/projects/3-0/new-routing-12)
+* [Endpoint Routing - Obtaining an Endpoint metadata from your Razor Page depending on the request method](/projects/3-0/new-routing-12)
 
   Unlike in MVC, you can't use `Attribute` from the method of a Razor Page. You can only use it from the Model class. This makes getting obtaining the appropriate metadata for each request require an extra step.
 
-* [New Routing - Obtaining an Endpoint metadata from your MVC Controller](/projects/3-0/new-routing-13)
+* [Endpoint Routing - Obtaining an Endpoint metadata from your MVC Controller](/projects/3-0/new-routing-13)
 
   Obtain Endpoint metadata from MVC Controller's Action methods.
 
-* [New Routing - Obtaining Endpoint feature via IEndpointFeature](/projects/3-0/new-routing-14)
+* [Endpoint Routing - Obtaining Endpoint feature via IEndpointFeature](/projects/3-0/new-routing-14)
 
   Use `HttpContext.Features.Get<IEndpointFeature>();` to obtain `Endpoint` information for a given Middleware. You can accomplish the same thing using `HttpContext.GetEndpoint`.
 
-* [New Routing - Attaching Metadata information to your inline Middleware](/projects/3-0/new-routing-15)
+* [Endpoint Routing - Attaching Metadata information to your inline Middleware](/projects/3-0/new-routing-15)
 
   Use `IEndpointConventionBuilder.WithMetadata` to attach metadata information to your inline Middleware.
 
-* [New Routing - Map Areas by Convention](/projects/3-0/new-routing-16)
+* [Endpoint Routing - Map Areas by Convention](/projects/3-0/new-routing-16)
 
   Use `IEndpointRouteBuilder.MapAreaControllerRoute` to configure routing for your areas.
 
-* [New Routing - enable MVC but without Views support](/projects/3-0/new-routing-17)
+* [Endpoint Routing - enable MVC but without Views support](/projects/3-0/new-routing-17)
 
   Use `services.AddControllers` to provide MVC without Views supports. Razor Pages is not available. Perfect for Web APIs.
 
-* [New Routing - enable MVC but with Views support but without Razor Page](/projects/3-0/new-routing-18)
+* [Endpoint Routing - enable MVC but with Views support but without Razor Page](/projects/3-0/new-routing-18)
 
   Use `services.AddControllersWithViews();` to provide MVC with Views supports. Razor Page is not available. So this similar to the "classic" MVC configuration.
 
-* [New Routing - enable Razor Pages with MVC API support](/projects/3-0/new-routing-19)
+* [Endpoint Routing - enable Razor Pages with MVC API support](/projects/3-0/new-routing-19)
 
   Use `services.AddRazorPages()` add supports for Razor Pages and MVC API.
+
+* [Endpoint Routing - Convention based Routing](/projects/3-0/new-routing-20)
+  
+  Use `IEndpointRouteBuilder.MapControllerRoute` to configure convention based routing.
