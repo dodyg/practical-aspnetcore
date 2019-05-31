@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 5 (21)
+# .NET Core 3.0 Preview 5 (22)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 5. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -134,3 +134,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [New Routing - enable MVC but with Views support but without Razor Page](/projects/3-0/new-routing-18)
 
   Use `services.AddControllersWithViews();` to provide MVC with Views supports. Razor Page is not available. So this similar to the "classic" MVC configuration.
+
+* [New Routing - enable Razor Pages with MVC API support](/projects/3-0/new-routing-19)
+
+  Use `services.AddRazorPages()` add supports for Razor Pages and MVC API.
