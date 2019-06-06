@@ -2,7 +2,7 @@
 
 ## What's new in ASP.NET Core 2.2 (13)
 
-  All the samples in this section requires ASP.NET Core 2.2 (`2.2.100`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
+  All the samples in this section requires ASP.NET Core 2.2 (`2.2.300`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
   * [Endpoint Routing](endpoint-routing)
 
