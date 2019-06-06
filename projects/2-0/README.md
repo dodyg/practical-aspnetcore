@@ -1,6 +1,6 @@
 # ASP.NET Core 2.0
 
-Note that all the code here will run on ASP.NET Core 2.0 however these samples uses 2.1.
+Note that all the code here will run on ASP.NET Core 2.0 however these samples uses [2.1.700](https://dotnet.microsoft.com/download/dotnet-core/2.1).
 
 ## What's new in ASP.NET Core 2.0 (11)
 
