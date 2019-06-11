@@ -1,6 +1,6 @@
 # ASP.NET Core 2.2
 
-## What's new in ASP.NET Core 2.2 (13)
+## What's new in ASP.NET Core 2.2 (14)
 
   All the samples in this section requires ASP.NET Core 2.2 (`2.2.300`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
   
@@ -61,4 +61,7 @@
 
     Instead of using `Microsoft.Extensions.Caching.Redis`, use the new `Microsoft.Extensions.Caching.StackExchangeRedis`. The former will be deprecated in .NET Core 3.0 (https://github.com/aspnet/Announcements/issues/322). 
 
+  * [Allow or disallow Synchronous IO in your pipeline](allow-sync-io)
+
+    This sample demonstrates the impact of setting `KestelSeverOptions.AllowSynchronousIO` to false, which disallows any synchronous IO in your request pipeline. By default this option is set to true.
 
