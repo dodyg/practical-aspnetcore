@@ -7,24 +7,12 @@ MagicNumbers
 <ul>
     @foreach(var mn in MagicNumbers)
     {
-        <li>@mn</li>
+        <li @key="mn">@mn</li>
     }    
 </ul>
 
-<Increment bind-numbers="@MagicNumbers" />
+<Increment @bind-numbers="@MagicNumbers" />
 
-@functions {
-    List<int> _magicNumbers = new List<int>();
-    List<int> MagicNumbers
-    { 
-        get
-        {
-            return _magicNumbers;
-        }
-    
-        set
-        {
-            _magicNumbers = value;
-        }
-    }
+@code {
+    List<int> MagicNumbers { get; set; } = new List<int>(); 
 }
