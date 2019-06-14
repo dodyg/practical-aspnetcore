@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="../App1/App1.csproj" />
     <ProjectReference Include="../App2/App2.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Server" Version="3.0.0-preview5-19227-01" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Server" Version="3.0.0-preview6.19307.2" />
     <Watch Include="**\*.cshtml" />
     <Watch Include="**\*.razor" />
     <Watch Include="..\App1\**\*.cshtml" />

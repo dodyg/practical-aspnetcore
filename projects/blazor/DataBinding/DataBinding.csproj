@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <AssemblyName>DataBinding</AssemblyName>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <AssemblyName>DataBinding</AssemblyName>
 
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
+        <LangVersion>7.3</LangVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview5-19227-01" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview5-19227-01" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview5-19227-01" />
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview6.19307.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview6.19307.2" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview6.19307.2" />
 
-    <Watch Include="**\*.cshtml" />
-    <Watch Include="**\*.razor" />
-  </ItemGroup>
+        <Watch Include="**\*.cshtml" />
+        <Watch Include="**\*.razor" />
+    </ItemGroup>
 
 </Project>
