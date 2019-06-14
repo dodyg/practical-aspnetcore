@@ -11,7 +11,6 @@ using System.Buffers;
 using System.Threading.Tasks;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
-using Microsoft.AspNetCore.Http.Endpoints;
 using System;
 using Microsoft.AspNetCore.Http.Features;
 

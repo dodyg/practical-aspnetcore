@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AssemblyName>new-routing-14</AssemblyName>
+    <AssemblyName>new-routing-16</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>new-routing-14</PackageId>
   </PropertyGroup>

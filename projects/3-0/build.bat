@@ -19,6 +19,9 @@ dotnet build new-routing-15
 dotnet build new-routing-16
 dotnet build new-routing-17
 dotnet build new-routing-18
+dotnet build new-routing-19
+dotnet build new-routing-20
+dotnet build new-routing-21
 
 dotnet build newtonsoft-json
 

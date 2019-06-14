@@ -11,7 +11,6 @@ using System.Buffers;
 using System.Threading.Tasks;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
-using Microsoft.AspNetCore.Http.Endpoints;
 using System;
 using Microsoft.AspNetCore.Http.Features;
 
@@ -41,7 +40,7 @@ namespace NewRouting
                     var greeting = endpoint.Metadata.GetMetadata<HelloWorld>();
 
                     await context.Response.WriteAsync($"Greeting from metadata : {greeting.Greeting}");
-                }).WithMetadata(new HelloWorld { Greeting = "Hello World"});
+                }).WithMetadata(new HelloWorld { Greeting = "Hello World" });
             });
         }
     }

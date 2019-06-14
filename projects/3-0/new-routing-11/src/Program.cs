@@ -1,17 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Connections;
-using System.Buffers;
 using System.Threading.Tasks;
-using Microsoft.Extensions.FileProviders;
-using System.IO;
-using Microsoft.AspNetCore.Http.Endpoints;
 using System;
 
 namespace NewRouting
@@ -65,7 +59,7 @@ namespace NewRouting
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class MessageAttribute : System.Attribute
     {
-        public string Content { get; set;}
+        public string Content { get; set; }
     }
 
     public class Program
