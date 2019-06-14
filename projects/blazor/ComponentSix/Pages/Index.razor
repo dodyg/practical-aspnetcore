@@ -7,32 +7,39 @@
     <li>If you call the same method from outside the component (from parent), the method needs to call StateHasChanged() otherwise the component won't re-render the result.</li>
 </ul>
 
+<p>Note: Components are within red boxes.</p>
+
 <div style="margin:30px">
 <i>Component Uses Variable</i>
-<CounterVariable ref="Variable"/>
+<div style="padding:10px;border:2px solid red;">
+    <CounterVariable @ref="Variable"/>
+</div>
 <hr />
 <i>The following buttons come from parents</i>
 <br/>
-<button type="button"  onclick="@IncrementVariable">Click</button>
-<button type="button"  onclick="@IncrementVariable2">Click with StateHasChanged()</button>
+<button type="button" @onclick="@IncrementVariable">Click</button>
+<button type="button" @onclick="@IncrementVariable2">Click with StateHasChanged()</button>
 </div>
 
 <div style="margin:30px">
 <i>Component Uses Property</i>
-<CounterProperty ref="Property" />
+<div style="padding:10px;border:2px solid red;">
+    <CounterProperty @ref="Property" />
+</div>
+
 <hr />
 <i>The following buttons come from parents</i>
 <br/>
-<button type="button" onclick="@AddToPropertyList">Expand List</button>
-<button type="button" onclick="@AddToPropertyList2">Expand List with StateHasChanged()</button>
+<button type="button" @onclick="@AddToPropertyList">Expand List</button>
+<button type="button" @onclick="@AddToPropertyList2">Expand List with StateHasChanged()</button>
 
 <br/><br/>
-<button type="button" onclick="@IncrementProperty">Click</button>
-<button type="button" onclick="@IncrementProperty2">Click with StateHasChanged()</button>
+<button type="button" @onclick="@IncrementProperty">Click</button>
+<button type="button" @onclick="@IncrementProperty2">Click with StateHasChanged()</button>
 
 </div>
 
-@functions{
+@code{
     CounterVariable Variable;
     CounterProperty Property;
 

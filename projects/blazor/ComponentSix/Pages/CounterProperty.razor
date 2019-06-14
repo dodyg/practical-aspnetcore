@@ -1,18 +1,19 @@
 @Counter
 <br />
-<button type="button" onclick="@Increment">Increment</button>
+<button type="button" @onclick="@Increment">Increment</button>
 
 <ul>
 @foreach(var l in List){
-    <li>@l</li>
+    <li @key="l">@l</li>
 }
 </ul>
 
-<button type="button" onclick="@AddToList">Add to List</button>
+<button type="button" @onclick="@AddToList">Add to List</button>
 
-@functions {
+@code {
     int Counter {get; set;}
     List<int> List {get;set;} = new List<int>();
+        
     Random _rand = new Random();
     
     public void AddToList()

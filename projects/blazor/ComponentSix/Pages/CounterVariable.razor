@@ -1,9 +1,9 @@
 @Counter
 <br/>
 
-<button type="button" onclick="@Increment">Increment</button>
+<button type="button" @onclick="@Increment">Increment</button>
 
-@functions {
+@code {
     int Counter;
 
     public void Increment()
