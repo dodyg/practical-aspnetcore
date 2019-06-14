@@ -1,6 +1,6 @@
-<button type="button" onclick="@Add">Increment</button>
+<button type="button" @onclick="@Add">Increment</button>
 
-@functions {
+@code {
     int _number = 0;
 
     [Parameter]

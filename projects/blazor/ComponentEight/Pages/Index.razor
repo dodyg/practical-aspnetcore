@@ -1,7 +1,7 @@
 ﻿@page "/"
 
 <h1>Two components interacting with each other</h1>
-<Show ref="_showRef" Number="@Number" />
+<Show @ref="_showRef" Number="@Number" />
 <br/>
 <p>Via public method</p>
 <Increment OnValueChanged="Add"/>
@@ -9,7 +9,7 @@
 <p>Via parameter property</p>
 <Increment OnValueChanged="@Add2" />
 
-@functions
+@code
 {
     Show _showRef;
 
