@@ -7,20 +7,11 @@
 Number: @MagicNumber
 
 
-<Increment bind-nuMBer="@MagicNumber" />
+<Increment @bind-nuMBer="@MagicNumber" />
 
 @functions {
-    int _magicNumber;
     int MagicNumber 
     { 
-        get
-        {
-            return _magicNumber;
-        }
-    
-        set
-        {
-            _magicNumber = value;
-        }
+        get; set;        
     }
 }

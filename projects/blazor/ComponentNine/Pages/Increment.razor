@@ -1,7 +1,7 @@
 
-<button type="button" onclick="@Add">Increment</button>
+<button type="button" @onclick="@Add">Increment</button>
 
-@functions
+@code
 {
     // You need a Property + PropertyChanged event in combination to make the custom component data binding works
     [Parameter]
