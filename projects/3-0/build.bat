@@ -22,13 +22,4 @@ dotnet build new-routing-18
 dotnet build new-routing-19
 dotnet build new-routing-20
 dotnet build new-routing-21
-
 dotnet build newtonsoft-json
-
-dotnet build razor-component\ChatR
-dotnet build razor-component\DependencyInjection
-dotnet build razor-component\HelloWorld
-dotnet build razor-component\JsIntegration
-dotnet build razor-component\Layout
-dotnet build razor-component\MultiApps
-dotnet build razor-component\RssReader

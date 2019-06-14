@@ -1,6 +1,6 @@
-# .NET Core 3.0 Preview 5 (24)
+# .NET Core 3.0 Preview 6 (24)
 
-All the samples here rely on ASP.NET Core 3.0 Preview 5. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-2.2&tabs=visual-studio)
 
