@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using DependencyInjection.Components;
@@ -13,8 +11,8 @@ namespace DependencyInjection
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddMvc();
 
             services.AddTransient<TheTransientClock>();
             services.AddSingleton<TheSingletonClock>();
@@ -38,11 +36,11 @@ namespace DependencyInjection
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseEndpoints(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRazorPages();
-                routes.MapFallbackToPage("/Index");
-                routes.MapBlazorHub<App>("app");
+                endpoints.MapRazorPages();
+                endpoints.MapFallbackToPage("/Index");
+                endpoints.MapBlazorHub<App>("app");
             });
         }
     }
