@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using JsIntegration.Components;
@@ -12,8 +10,8 @@ namespace JsIntegration
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

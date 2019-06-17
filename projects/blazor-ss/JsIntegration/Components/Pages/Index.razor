@@ -8,19 +8,18 @@ We will call alert, confirm and console.log in this sample. Please click the but
 </p>
 
 
-<button onclick="@ConfirmAsync">Confirm</button>
+<button @onclick="@ConfirmAsync">Confirm</button>
 
-@functions  
+@code  
 {
     protected override async Task OnInitAsync()
     {
-        // Note. YOU MUST NOT WRITE ANYTHING SYNCHRONOUS HERE SUCH AS "confirm", "alert" or "console.log". It will break the JS Interop.
+        await JS.InvokeAsync<object>("console.log", "hello world console");
+        await JS.InvokeAsync<short>("alert", $"Hello ");
     }
 
     async Task ConfirmAsync(){
         var result = await JS.InvokeAsync<bool>("confirm", "Do you confirm?");
-        
-        await JS.InvokeAsync<object>("console.log", "hello world console");
         await JS.InvokeAsync<short>("alert", $"Result {result}");
     }
 }
