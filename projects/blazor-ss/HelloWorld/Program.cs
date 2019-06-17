@@ -12,8 +12,8 @@ namespace HelloWorld
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,11 +33,11 @@ namespace HelloWorld
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseEndpoints(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRazorPages();
-                routes.MapFallbackToPage("/Index");
-                routes.MapBlazorHub<App>("app");
+                endpoints.MapBlazorHub<App>("app");
+                endpoints.MapRazorPages();
+                endpoints.MapFallbackToPage("/Index");
             });
         }
     }
