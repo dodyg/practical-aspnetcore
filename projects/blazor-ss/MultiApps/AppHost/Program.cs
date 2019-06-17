@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,8 +9,8 @@ namespace AppHost
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,8 +32,6 @@ namespace AppHost
             app.UseRouting();
             app.UseEndpoints(routes =>
             {
-                routes.MapBlazorHub<App1.Components.App>("app");
-                routes.MapBlazorHub<App2.Components.App>("app", "/application2");
                 routes.MapRazorPages();
             });
         }
