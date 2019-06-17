@@ -1,5 +1,4 @@
 @using Microsoft.SyndicationFeed
-@using Microsoft.SyndicationFeed.Rss
 @inject RssNews rss
 
 <h1>RSS News </h1>
@@ -11,9 +10,9 @@
     }
 </ul>
 
-@functions 
+@code 
 {
-    List<SyndicationItem> News {get;set;}
+    List<SyndicationItem> News {get; set;}
 
     protected override async Task OnInitAsync()
     {

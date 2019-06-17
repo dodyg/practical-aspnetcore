@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using RssReader.Services;
@@ -13,8 +11,8 @@ namespace RssReader
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddMvc();
 
             services.AddSingleton<RssNews>();
         }
