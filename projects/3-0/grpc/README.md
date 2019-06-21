@@ -4,4 +4,4 @@ If you are not familiar with gRPC, it's useful to spend some time reading up abo
 
 This sample demonstrate a simple Unary RPC. The client side is located on `client` folder and the server at the `server` folder. Make sure you run the server **first** before running the client.
 
-The copy of `billboard.proto` on both folders are identical.
+The copies of `billboard.proto` on both folders are identical.
