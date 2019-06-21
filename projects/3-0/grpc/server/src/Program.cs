@@ -25,10 +25,10 @@ namespace GrpcServer
         public override Task<Billboard.MessageReply> ShowMessage(Billboard.MessageRequest request, ServerCallContext context)
         {
             var now = DateTime.UtcNow;
-            return new Billboard.MessageReply
+            return Task.FromResult(new Billboard.MessageReply
             {
-                DisplayTime = now.ToTicks()
-            };
+                DisplayTime = now.Ticks
+            });
         }
     }
 
