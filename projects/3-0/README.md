@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (24)
+# .NET Core 3.0 Preview 6 (25)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -146,3 +146,9 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Endpoint Routing - A new way to map health check](/projects/3-0/new-routing-21)
   
   Use `IEndpointRouteBuilder.MapHealthChecks` to configure health check instead of `IApplicationBuilder.UseHealthChecks`.
+
+## GRPC
+
+* [Unary - Hello World](/projects/grpc)
+
+  This sample shows a simple request/response RPC call.
