@@ -149,6 +149,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 ## GRPC
 
-* [Unary - Hello World](/projects/grpc)
+* [Unary - Hello World](/projects/3-0/grpc)
 
   This sample shows a simple request/response RPC call.
