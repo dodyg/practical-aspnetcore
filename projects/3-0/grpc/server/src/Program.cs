@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using System;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace GrpcServer
 {
@@ -58,7 +59,10 @@ namespace GrpcServer
                     webBuilder.UseStartup<Startup>().
                     ConfigureKestrel(k =>
                     {
-                        k.ListenLocalhost(5500);
+                        k.ListenLocalhost(5500, options =>
+                        {
+                            options.Protocols = HttpProtocols.Http1AndHttp2;
+                        });
                     }).
                     UseEnvironment(Environments.Development);
                 });
