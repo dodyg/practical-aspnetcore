@@ -6,16 +6,28 @@ using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
 using Grpc.Core;
 using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GrpcServer
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddGrpc();
+        }
+
         public void Configure(IApplicationBuilder app)
         {
-            app.Run(context =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                return context.Response.WriteAsync("This server contains a GRPC service");
+                endpoints.MapGrpcService<BillboardService>();
+                endpoints.MapGet("/", context =>
+                {
+                    return context.Response.WriteAsync("This server contains a GRPC service");
+                });
             });
         }
     }
