@@ -27,7 +27,7 @@ namespace GrpcServer
                 });
 
                 var displayDate = new DateTime(reply.DisplayTime);
-                await context.Response.WriteAsync($"This server sends a GRPC request to a server and get the following result: {displayDate}");
+                await context.Response.WriteAsync($"This server sends a gRPC request to a server and get the following result: {displayDate}");
             });
         }
     }

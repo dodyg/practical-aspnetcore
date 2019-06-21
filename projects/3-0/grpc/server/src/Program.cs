@@ -27,7 +27,7 @@ namespace GrpcServer
                 endpoints.MapGrpcService<BillboardService>();
                 endpoints.MapGet("/", context =>
                 {
-                    return context.Response.WriteAsync("This server contains a GRPC service");
+                    return context.Response.WriteAsync("This server contains a gRPC service");
                 });
             });
         }
