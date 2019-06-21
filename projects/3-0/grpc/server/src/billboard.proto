@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (MessageReply) {}
+}
+
+message MessageRequest {
+  string message = 1;
+  string sponsor = 2;
+}
+
+message MessageReply {
+  int64 display_time = 1;
+}
