@@ -59,10 +59,12 @@ namespace GrpcServer
                     webBuilder.UseStartup<Startup>().
                     ConfigureKestrel(k =>
                     {
-                        k.ListenLocalhost(5500, options =>
+                        k.ConfigureEndpointDefaults(options =>
                         {
-                            options.Protocols = HttpProtocols.Http1AndHttp2;
+                            options.Protocols = HttpProtocols.Http2;
                         });
+
+                        k.ListenLocalhost(5500);
                     }).
                     UseEnvironment(Environments.Development);
                 });

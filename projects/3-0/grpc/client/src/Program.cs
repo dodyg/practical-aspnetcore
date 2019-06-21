@@ -16,6 +16,7 @@ namespace GrpcServer
             //Make sure that the grpc-server is run 
             app.Run(async context =>
             {
+                AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri("http://localhost:5500"); //check the values at /server project
                 var client = GrpcClient.Create<Billboard.Board.BoardClient>(httpClient);
