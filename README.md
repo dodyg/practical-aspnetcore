@@ -684,7 +684,7 @@ All these projects require the following dependencies
 
   * [Reason Phrases](/projects/web-utilities-reason-phrases)
 
-    This utility returns HTTP reasonse phrases given a status code number.
+    This utility returns HTTP response phrases given a status code number.
     
 
 * **Uri Helper(1)**
