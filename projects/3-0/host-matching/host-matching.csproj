@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>host-matching</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>host-matching</PackageId>
+  </PropertyGroup>
+</Project>
