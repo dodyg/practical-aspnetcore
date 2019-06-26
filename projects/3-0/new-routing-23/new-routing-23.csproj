@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AssemblyName>host-matching</AssemblyName>
+    <AssemblyName>new-routing-23</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>host-matching</PackageId>
+    <PackageId>new-routing-23</PackageId>
   </PropertyGroup>
 </Project>

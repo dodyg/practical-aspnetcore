@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (27)
+# .NET Core 3.0 Preview 6 (28)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -150,7 +150,11 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Endpoint Routing - Configure Endpoints default on Kestrel](/projects/3-0/new-routing-22)
 
   We configure `KestrelServerOptions.ConfigureEndpointDefaults` so the Endpoints will run only on HTTP/2.
-  
+
+* [Endpoint Routing - Host Matching](/projects/3-0/new-routing-23)
+
+  This example demonstrates on how to configure your endpoint to respond to a request from a specific host. In this example, GET `/` returns a different result depending whether you access it from `localhost:8111` and `localhost:8112`.
+
 
 ## GRPC
 
