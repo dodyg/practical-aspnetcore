@@ -1,4 +1,4 @@
-# 254 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
+# 255 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -28,7 +28,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| Foundational ASP.NET Core Samples (scroll down) | 126 | 2.1 |
+| Foundational ASP.NET Core Samples (scroll down) | 127 | 2.1 |
 
 
 ## How to run these samples
@@ -674,13 +674,17 @@ All these projects require the following dependencies
 
     We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
 
-* **Web Utilities(2)**
+* **Web Utilities(3)**
 
   This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
 
   * [Query Helpers](/projects/web-utilities-query-helpers)
 
     This utility helps you generate query string for your url safely (ht [Rehan Saeed](https://rehansaeed.com/asp-net-core-hidden-gem-queryhelpers/)).
+
+  * [Parse Query String](/projects/web-utilities-query-helpers-2)
+
+    `QueryHelpers.ParseQuery` allows you to parse a raw query string and access its individual key and values.
 
   * [Reason Phrases](/projects/web-utilities-reason-phrases)
 
