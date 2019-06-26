@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (28)
+# .NET Core 3.0 Preview 6 (29)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -155,6 +155,9 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This example demonstrates on how to configure your endpoint to respond to a request from a specific host. In this example, GET `/` returns a different result depending whether you access it from `localhost:8111` and `localhost:8112`.
 
+* [Endpoint Routing - Host Matching 2](/projects/3-0/new-routing-24)
+
+  This produces the same exact effect as the [previous example above - Host Matching](/projects/3-0/new-routing-23) except that here we use `IEndpointConventionBuilder.WithMetadata` and `HostAttribute` instead of `IEndpointConventionBuilder.RequireHost`.
 
 ## GRPC
 
