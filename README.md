@@ -361,7 +361,7 @@ All these projects require the following dependencies
 
     Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "2.1.0-*"`.
 
-  * [Maximum Request Body Size Feature](/proejcts/features-max-request-body-size)
+  * [Maximum Request Body Size Feature](/projects/features-max-request-body-size)
 
     Use this feature to read and set maximum HTTP Request body size.
 
