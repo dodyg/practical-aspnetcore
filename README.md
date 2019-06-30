@@ -1,4 +1,4 @@
-# 260 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
+# 261 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -28,7 +28,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| Foundational ASP.NET Core Samples (scroll down) | 129 | 2.1 |
+| Foundational ASP.NET Core Samples (scroll down) | 130 | 2.1 |
 
 
 ## How to run these samples
@@ -325,7 +325,7 @@ All these projects require the following dependencies
 
     Contrast the usage of `MapWhen` (which branch execution) and `UseWhen` (which doesn't branch execution) in configuring your Middleware.
 
-* **Features (8)**
+* **Features (9)**
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
@@ -360,6 +360,10 @@ All these projects require the following dependencies
   * [Session Feature](/projects/features-session)
 
     Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "2.1.0-*"`.
+
+  * [Maximum Request Body Size Feature](/proejcts/features-max-request-body-size)
+
+    Use this feature to read and set maximum HTTP Request body size.
 
 * **Dependency Injection (2)**
 
