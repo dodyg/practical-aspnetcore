@@ -1,4 +1,4 @@
-# 259 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
+# 260 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -28,7 +28,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| Foundational ASP.NET Core Samples (scroll down) | 128 | 2.1 |
+| Foundational ASP.NET Core Samples (scroll down) | 129 | 2.1 |
 
 
 ## How to run these samples
@@ -691,13 +691,17 @@ All these projects require the following dependencies
     This utility returns HTTP response phrases given a status code number.
     
 
-* **Uri Helper(2)**
+* **Uri Helper(3)**
   
   This section shows various methods available at `Microsoft.AspNetCore.Http.Extensions.UriHelper`.
 
   * [Get Display Url](/projects/uri-helper-get-display-url) 
 
     `Request.GetDisplayUrl()` shows complete url with host, path and query string of the current request. It's to be used for display purposes only.
+
+  * [Get Encoded Url](/projects/uri-helper-get-encoded-url)
+
+    `Request.GetEncodedUrl()` returns the combined components of the request URL in a fully escaped form suitable for use in HTTP headers and other HTTP operations.
 
   * [From Absolute](/projects/uri-helper-from-absolute)
 
