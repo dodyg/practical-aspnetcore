@@ -1,4 +1,4 @@
-# 262 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
+# 263 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -28,7 +28,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| Foundational ASP.NET Core Samples (scroll down) | 131 | 2.1 |
+| Foundational ASP.NET Core Samples (scroll down) | 132 | 2.1 |
 
 
 ## How to run these samples
@@ -695,7 +695,7 @@ All these projects require the following dependencies
     This utility returns HTTP response phrases given a status code number.
     
 
-* **Uri Helper(4)**
+* **Uri Helper(5)**
   
   This section shows various methods available at `Microsoft.AspNetCore.Http.Extensions.UriHelper`.
 
@@ -714,6 +714,11 @@ All these projects require the following dependencies
   * [From Absolute](/projects/uri-helper-from-absolute)
 
     `UriHelper.FromAbsolute` separates the given absolute URI string into components.
+
+  * [Build Absolute](/projects/uri-helper-build-absolute)
+
+    `UriHelper.BuildAbsolute` combines the given URI components into a string that is properly encoded for use in HTTP headers. This sample
+    shows 9 ways on how to use it.
 
 
 * **Trimming (1)**
