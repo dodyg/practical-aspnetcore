@@ -25,6 +25,10 @@
                     <option value="M">Male</option>
                 </InputSelect>
             </div>
+            <div class="form-check">
+                <InputCheckbox id="married_status" @bind-Value="@_profile.IsMarried" class="form-check-input" />
+                <label for="married_status">Is Married?</label>
+            </div>
             <br/>
             <button type="submit">Submit</button>
         </EditForm>
@@ -41,8 +45,8 @@
                 <td>@_profile.Gender</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Is Married?</td>
+                <td>@_profile.IsMarried</td>
             </tr>
         </table>
     </div>

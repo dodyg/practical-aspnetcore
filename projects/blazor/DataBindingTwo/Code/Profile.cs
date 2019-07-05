@@ -15,5 +15,8 @@ namespace DataBindingTwo.Code
 
         [Required]
         public string Gender { get; set; }
+
+        [Required]
+        public bool IsMarried { get; set; }
     }
 }
