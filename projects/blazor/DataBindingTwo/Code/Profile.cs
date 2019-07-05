@@ -17,6 +17,17 @@ namespace DataBindingTwo.Code
         public string Gender { get; set; }
 
         [Required]
+        [Display(Name = "Personal Bio")]
+        public string PersonalBio { get; set; }
+
+        [Required]
         public bool IsMarried { get; set; }
+
+        [Required]
+        [Range(1, 120)]
+        public int Age { get; set; }
+
+        [Required]
+        public DateTime DateOfBirth { get; set; }
     }
 }
