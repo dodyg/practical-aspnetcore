@@ -1,4 +1,4 @@
-# Blazor (12)
+# Blazor (13)
 
 Make sure you installed the latest [.NET Core 3 SDK - Preview 6](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -57,3 +57,7 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
     Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
+
+  * [Date Binding - EditForm](/projects/blazor/DataBindingTwo)
+
+    Show an example of `EditForm` and its 6 input controls, including form validation.
