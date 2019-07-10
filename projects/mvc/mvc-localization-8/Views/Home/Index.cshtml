@@ -1,0 +1,16 @@
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Localization
+@inject IStringLocalizer<MvcLocalization.Global> local
+
+@{
+    var culture = Context.Features.Get<IRequestCultureFeature>();
+}
+<html>
+    <body>
+        <h1>MVC Shared Resources - Forcing the default language to be French although your browser wants (probably) English</h1>
+        <b>Culture requested</b> @culture.RequestCulture.Culture <br/>
+        <b>UI Culture requested</b> @culture.RequestCulture.UICulture <br/>
+        @local["Hello"]<br/>
+        @local["Goodbye"]<br/>
+    </body>
+</html>
