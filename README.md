@@ -182,9 +182,9 @@ All these projects require the following dependencies
       
       Enumerate all the available headers in a request.
 
-    * [Access Request Headers using common HTTP header names contained in HeadersName](/projects/hello-world-startup-basic-request-headers-names)
+    * [Access Request Headers using common HTTP header names contained in HeaderNames](/projects/hello-world-startup-basic-request-headers-names)
 
-      This sample shows all the common HTTP header names contained in `HeadersName` class. So instead of using string to obtain a HTTP Header, you can just use a convenient constant such as `HeaderNames.ContentType`.
+      This sample shows all the common HTTP header names contained in `HeaderNames` class. So instead of using string to obtain a HTTP Header, you can just use a convenient constant such as `HeaderNames.ContentType`.
 
     * [Type Safe Access to Request Headers](/projects/hello-world-startup-basic-request-headers-typed)
       
