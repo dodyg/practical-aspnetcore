@@ -1,4 +1,4 @@
-# 265 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
+# 266 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -28,7 +28,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| Foundational ASP.NET Core Samples (scroll down) | 133 | 2.1 |
+| Foundational ASP.NET Core Samples (scroll down) | 134 | 2.1 |
 
 
 ## How to run these samples
@@ -168,7 +168,7 @@ All these projects require the following dependencies
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Request(8)**
+* **Request(9)**
   
   This section shows all the different ways you capture input and examine request to your web application.
 
@@ -177,10 +177,14 @@ All these projects require the following dependencies
       
       Detect the verb/method of the current request. 
 
-  * **Headers (2)**
+  * **Headers (3)**
     * [Access Request Headers](/projects/hello-world-startup-basic-request-headers)
       
       Enumerate all the available headers in a request.
+
+    * [Access Request Headers using common HTTP header names contained in HeadersName](/projects/hello-world-startup-basic-request-headers-names)
+
+      This sample shows all the common HTTP header names contained in `HeadersName` class. So instead of using string to obtain a HTTP Header, you can just use a convenient constant such as `HeaderNames.ContentType`.
 
     * [Type Safe Access to Request Headers](/projects/hello-world-startup-basic-request-headers-typed)
       
