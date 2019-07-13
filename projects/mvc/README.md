@@ -1,4 +1,4 @@
-# MVC (43)
+# MVC (44)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -186,7 +186,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     Use `Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider` to interrogate the routing table to display all the registered routes in the system, whether it is using conventional routing or attribute routing.
 
-## Localization (7)
+## Localization (8)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -219,6 +219,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [MVC Localization - 7](/projects/mvc/mvc-localization-7)
 
     This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
+
+  * [MVC Localization - 8](/projects/mvc/mvc-localization-8)
+
+    This sample demonstrates the usage of `AcceptLanguageHeaderRequestCultureProvider` and `Accept-Language` HTTP header.
 
 ## View Component (4)
 
