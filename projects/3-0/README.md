@@ -178,6 +178,6 @@ All about the new `System.Text.Json` namespace.
 
   Use `JsonSerializerOptions` to control certain aspect of your object serialization.
 
-  * [Json - Options](/projects/3-0/json-3)
+* [Json - Serializing Anonymous Type](/projects/3-0/json-3)
 
   Create adhoc JSON document using anonymous type and serialize it to stream directly using `JsonSerializer.WriteAsync`.
