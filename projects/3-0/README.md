@@ -172,7 +172,7 @@ All about the new `System.Text.Json` namespace.
 
 * [Json](/projects/3-0/json)
 
-  Use `JsonSerializer.ToString` to serializer your object.
+  Use `JsonSerializer.WriteAsync` to serializer your object to JSON directly to stream.
 
 * [Json - Options](/projects/3-0/json-2)
 

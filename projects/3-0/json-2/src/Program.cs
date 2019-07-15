@@ -58,7 +58,6 @@ namespace JsonSample
                         }
                     };
 
-
                     var options = new JsonSerializerOptions
                     {
                         WriteIndented = true,
@@ -67,9 +66,8 @@ namespace JsonSample
                         DictionaryKeyPolicy = JsonNamingPolicy.CamelCase
                     };
 
-                    var serialized = JsonSerializer.ToString(payload, options);
                     context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await context.Response.WriteAsync(serialized);
+                    await JsonSerializer.WriteAsync(payload, typeof(Person), context.Response.Body, options);
                 });
             });
         }
