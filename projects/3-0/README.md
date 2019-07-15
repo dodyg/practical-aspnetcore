@@ -174,6 +174,6 @@ All about the new `System.Text.Json` namespace.
 
   Use `JsonSerializer.ToString` to serializer your object.
 
-* [Json - Option](/projects/3-0/json-2)
+* [Json - Options](/projects/3-0/json-2)
 
   Use `JsonSerializerOptions` to control certain aspect of your object serialization.
