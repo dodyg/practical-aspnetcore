@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (31)
+# .NET Core 3.0 Preview 6 (32)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -177,3 +177,7 @@ All about the new `System.Text.Json` namespace.
 * [Json - Options](/projects/3-0/json-2)
 
   Use `JsonSerializerOptions` to control certain aspect of your object serialization.
+
+  * [Json - Options](/projects/3-0/json-3)
+
+  Create adhoc JSON document using anonymous type and serialize it to stream directly using `JsonSerializer.WriteAsync`.
