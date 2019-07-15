@@ -1,17 +1,30 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Net.Http.Headers;
 using System;
+using System.Collections.Generic;
 
 namespace NewRouting
 {
+    public class Person
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public bool IsMarried { get; set; }
+
+        public DateTimeOffset CurrentTime { get; set; }
+
+        public bool? IsWorking { get; set; }
+
+        public Dictionary<string, bool> Characters { get; set; }
+    }
+
+
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
@@ -26,10 +39,24 @@ namespace NewRouting
             {
                 route.MapGet("/", async context =>
                 {
-                    var payload = new { Greeting = "Hello World", Time = DateTimeOffset.UtcNow, Age = 33, IsMarried = false };
-                    var serialized = JsonSerializer.ToString(payload);
+                    var payload = new Person
+                    {
+                        Name = "Annie",
+                        Age = 33,
+                        IsMarried = false,
+                        CurrentTime = DateTimeOffset.UtcNow,
+                        Characters = new Dictionary<string, bool>
+                        {
+                            {"Funny" , true},
+                            {"Feisty" , true},
+                            {"Brilliant" , true},
+                            {"FOMA", false}
+                        },
+                        IsWorking = true
+                    };
+
                     context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await context.Response.WriteAsync(serialized);
+                    await JsonSerializer.WriteAsync(payload, typeof(Person), context.Response.Body);
                 });
             });
         }
