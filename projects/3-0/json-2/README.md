@@ -1,6 +1,6 @@
 # Setting the options for JsonSerializer.ToString
 
-These are the following options you can set that affect the serialization of your object
+These are the following options (`JsonSerializerOptions`) you can set that affect the serialization of your object
 
 * `IgnoreNullValues`. If your property is null, do not serialize it to JSON.
 * `PropertyNamingPolicy`. If you don't set this, your property will be serialized as PascalCase, which is the property naming convention for C#. To serialize it to camelCase, use `JsonNamingPolicy.CamelCase`.

@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (30)
+# .NET Core 3.0 Preview 6 (31)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -170,6 +170,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 All about the new `System.Text.Json` namespace.
 
-* [Json - 1](/projects/3-0/json)
+* [Json](/projects/3-0/json)
 
   Use `JsonSerializer.ToString` to serializer your object.
+
+* [Json - Option](/projects/3-0/json-2)
+
+  Use `JsonSerializerOptions` to control certain aspect of your object serialization.
