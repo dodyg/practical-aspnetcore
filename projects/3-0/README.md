@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (33)
+# .NET Core 3.0 Preview 6 (34)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -185,3 +185,7 @@ All about the new `System.Text.Json` namespace.
 * [Json - Control serialization using attributes](/projects/3-0/json-4)
 
   Use `[JsonPropertyName]` and `[JsonIgnore]` to control JSON serialization output.
+
+* [Json - Serialize a Dictionary of object](/projects/3-0/json-5)
+
+  A `Dictionary<string, object>` can be used to generate pretty much any shape of JSON document that you want
