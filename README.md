@@ -1,4 +1,4 @@
-# 272 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
+# 273 samples for ASP.NET Core 2.1, 2.2 and 3.0-preview-6 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -28,7 +28,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| [Foundational ASP.NET Core 2.1 Samples](#foundation-aspnet-core-21-samples) | 134 | 2.1 |
+| [Foundational ASP.NET Core 2.1 Samples](#foundation-aspnet-core-21-samples) | 135 | 2.1 |
 
 
 ## How to run these samples
@@ -660,11 +660,18 @@ All these projects require the following dependencies
 
     This sample process RSS Outline Extension. 
 
-* **Misc (4)**
+* **Utils(2)**
 
   * [Status Codes](/projects/http-status-codes)
 
     Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
+
+  * [MediaTypeNames](/projects/media-type-names)
+
+    This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.  
+
+* **Misc (3)**
+
 
   * [Markdown server](/projects/markdown-server)
 
