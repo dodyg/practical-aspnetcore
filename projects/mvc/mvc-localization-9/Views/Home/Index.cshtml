@@ -1,0 +1,58 @@
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Localization
+@inject IStringLocalizer<MvcLocalization.Global> local
+
+@{
+    var culture = Context.Features.Get<IRequestCultureFeature>();
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-12">
+                <h1>Culture Fallback</h1>
+                <ul>
+                    <li>Global.en-US.resx has no entry for 'Hello' so it uses the entry contained in Global.en.resx when the request has `en-US` language culture.</li>
+                    <li>For `Goodbye`, both Global.en-US.resx and Global.en.resx have their own entries so they show different results.</li>
+                </ul>
+                <div id="message" style="color:red;font-weight:bold;"></div>
+
+                <br/><br/>
+                <button type="button" class="btn btn-primary" id="hello_en">Hello (en)</button>
+                <button type="button" class="btn btn-secondary" id="hello_en_us">Hello (en-US)</button>
+                <button type="button" class="btn btn-info" id="hello_fr">Hello (fr)</button>
+                <button type="button" class="btn btn-warning" id="goodbye_en">Goodbye (en)</button>
+                <button type="button" class="btn btn-danger" id="goodbye_en_us">Goodbye (en-US)</button>
+            </div>
+        </div>
+     
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            function fetch(word, lang){
+                let url = `/api/` + word;
+                $.ajax({
+                    typ: `GET`,
+                    url: url,
+                    dataType: `json`,
+                    headers: {
+                        'Accept': `application/json`, 
+                        'Accept-Language': `${lang}`
+                    }
+                }).done(function(data)
+                {
+                    $('#message').text(data.greeting);
+                });
+            }
+                
+            $(function(){
+                $('#hello_en').click(() => fetch('Hello', 'en'));
+                $('#hello_en_us').click(() => fetch('Hello', 'en-US'));
+                $('#hello_fr').click(() => fetch('Hello', 'fr'));
+                $('#goodbye_en').click(() => fetch('Goodbye', 'en'));
+                $('#goodbye_en_us').click(() => fetch('Goodbye', 'en-US'));
+            });
+        </script>
+    </body>
+</html>
