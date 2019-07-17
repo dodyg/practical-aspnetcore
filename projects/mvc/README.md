@@ -226,7 +226,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   * [MVC Localization - 9](/projects/mvc/mvc-localization-9)
 
-    This sample demonstrates the situation of `cultural fallback`;`Starting from the requested culture, if not found, it reverts to the parent culture of that culture.`[doc](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-2.2#culture-fallback-behavior).
+    This sample demonstrates the situation of `cultural fallback` behaviour - `Starting from the requested culture, if not found, it reverts to the parent culture of that culture.`[doc](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-2.2#culture-fallback-behavior).
 
 ## View Component (4)
 
