@@ -12,8 +12,23 @@ using System.Threading.Tasks;
 
 namespace JsonSample
 {
+    public class Superpower
+    {
+        public string Name { get; set; }
+
+        public short Rating { get; set; }
+
+        public Superpower(string name, short rating)
+        {
+            Name = name;
+            Rating = rating;
+        }
+    }
+
     public class Person
     {
+
+
         public string Name { get; set; }
 
         public int Age { get; set; }
@@ -22,11 +37,9 @@ namespace JsonSample
 
         public DateTimeOffset CurrentTime { get; set; }
 
-        public bool? IsWorking { get; set; }
-
         public Dictionary<string, bool> Characters { get; set; }
 
-        public Dictionary<string, object> Extensions { get; set; }
+        public List<Superpower> Superpowers { get; set; }
     }
 
     public class Startup
@@ -60,12 +73,10 @@ namespace JsonSample
                             {"Brilliant" , true},
                             {"FOMA", false}
                         },
-                        IsWorking = true,
-                        Extensions = new Dictionary<string, object>
-                        {
-                            { "SuperPowers", new { Flight = false, Humor = true, Invisibility = true }}, // ad hoc object
-                            { "FavouriteWords", new string[] { "Hello", "Oh Dear", "Bye"} }, // an array of primitives
-                            { "Stats", new object[] { new { Flight = 0 }, new { Humor = 99 }, new { Invisibility = 30, Charged = true }}}, // an array of mixed objects
+                        Superpowers = new List<Superpower> {
+                            new Superpower("Humor", 8),
+                            new Superpower("Intelligence", 10),
+                            new Superpower("Focus", 7)
                         }
                     };
 
@@ -76,13 +87,29 @@ namespace JsonSample
 
                     context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
 
-                    using (var writer = new Utf8JsonWriter(context.Response.Body))
+                    using (var writer = new Utf8JsonWriter(context.Response.Body, options))
                     {
                         writer.WriteStartObject();
-                        writer.WriteString("name", "Annie");
-                        writer.WriteNumber("age", 33);
-                        writer.WriteBoolean("isMarried", false);
-                        writer.WriteString("currentTime", DateTimeOffset.UtcNow);
+                        writer.WriteString("name", payload.Name);
+                        writer.WriteNumber("age", payload.Age);
+                        writer.WriteBoolean("isMarried", payload.IsMarried);
+                        writer.WriteString("currentTime", payload.CurrentTime);
+
+                        writer.WriteStartObject("characters");
+                        foreach (var kv in payload.Characters)
+                            writer.WriteBoolean(kv.Key, kv.Value);
+                        writer.WriteEndObject();
+
+                        writer.WriteStartArray("superpowers");
+                        foreach (var s in payload.Superpowers)
+                        {
+                            writer.WriteStartObject();
+                            writer.WriteString("name", s.Name);
+                            writer.WriteNumber("rating", s.Rating);
+                            writer.WriteEndObject();
+                        }
+                        writer.WriteEndArray();
+
                         writer.WriteEndObject();
                     }
 
