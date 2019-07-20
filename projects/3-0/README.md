@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (34)
+# .NET Core 3.0 Preview 6 (35)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 6. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -188,4 +188,8 @@ All about the new `System.Text.Json` namespace.
 
 * [Json - Serialize a Dictionary of object](/projects/3-0/json-5)
 
-  A `Dictionary<string, object>` can be used to generate pretty much any shape of JSON document that you want
+  A `Dictionary<string, object>` can be used to generate pretty much any shape of JSON document that you want.
+
+* [Json - Write a JSON document to the stream directly](/projects/3-0/json-6)
+
+  Use `Utf8JsonWriter` to write a JSON document directly to a stream.
