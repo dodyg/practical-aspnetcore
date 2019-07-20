@@ -6,4 +6,4 @@ In this sample we write a JSON document to stream directly  using `Utf8JsonWrite
 * Number
 * Date
 * An object
-* An array of object
+* An array of objects
