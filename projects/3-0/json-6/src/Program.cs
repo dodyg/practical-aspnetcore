@@ -96,7 +96,8 @@ namespace JsonSample
                             writer.WriteBoolean(kv.Key, kv.Value);
                         writer.WriteEndObject();
 
-                        /* This block of code is commented because it throws  System.InvalidOperationException: Cannot advance past the end of the buffer, which has a size of 256.
+                        await writer.FlushAsync();
+
                         writer.WriteStartArray("superpowers");
                         foreach (var s in payload.Superpowers)
                         {
@@ -106,7 +107,6 @@ namespace JsonSample
                             writer.WriteEndObject();
                         }
                         writer.WriteEndArray();
-                        */
 
                         writer.WriteEndObject();
 
