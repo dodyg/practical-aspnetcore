@@ -83,7 +83,7 @@ namespace JsonSample
 
                     context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
 
-                    using (var writer = new Utf8JsonWriter(context.Response.Body, options))
+                    await using (var writer = new Utf8JsonWriter(context.Response.Body, options))
                     {
                         writer.WriteStartObject();
                         writer.WriteString("name", payload.Name);
@@ -96,21 +96,7 @@ namespace JsonSample
                             writer.WriteBoolean(kv.Key, kv.Value);
                         writer.WriteEndObject();
 
-                        await writer.FlushAsync();
-
-                        writer.WriteStartArray("superpowers");
-                        foreach (var s in payload.Superpowers)
-                        {
-                            writer.WriteStartObject();
-                            writer.WriteString("name", s.Name);
-                            writer.WriteNumber("rating", s.Rating);
-                            writer.WriteEndObject();
-                        }
-                        writer.WriteEndArray();
-
                         writer.WriteEndObject();
-
-                        await writer.FlushAsync();
                     }
                 });
             });
