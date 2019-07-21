@@ -54,12 +54,8 @@ namespace JsonSample
             app.UseRouting();
             app.UseEndpoints(route =>
             {
-                route.MapGet("/", context =>
+                route.MapGet("/", async context =>
                 {
-                    var syncIOFeature = context.Features.Get<IHttpBodyControlFeature>();
-                    if (syncIOFeature != null)
-                        syncIOFeature.AllowSynchronousIO = true;
-
                     var payload = new Person
                     {
                         Name = "Annie",
@@ -100,6 +96,7 @@ namespace JsonSample
                             writer.WriteBoolean(kv.Key, kv.Value);
                         writer.WriteEndObject();
 
+                        /* This block of code is commented because it throws  System.InvalidOperationException: Cannot advance past the end of the buffer, which has a size of 256.
                         writer.WriteStartArray("superpowers");
                         foreach (var s in payload.Superpowers)
                         {
@@ -109,11 +106,12 @@ namespace JsonSample
                             writer.WriteEndObject();
                         }
                         writer.WriteEndArray();
+                        */
 
                         writer.WriteEndObject();
-                    }
 
-                    return Task.CompletedTask;
+                        await writer.FlushAsync();
+                    }
                 });
             });
         }
