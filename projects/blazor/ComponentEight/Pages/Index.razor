@@ -1,13 +1,13 @@
 ﻿@page "/"
 
 <h1>Two components interacting with each other</h1>
-<Show @ref="_showRef" Number="@Number" />
+<Show @ref="_showRef" Number="Number" />
 <br/>
 <p>Via public method</p>
 <Increment OnValueChanged="Add"/>
 <hr />
 <p>Via parameter property</p>
-<Increment OnValueChanged="@Add2" />
+<Increment OnValueChanged="Add2" />
 
 @code
 {
