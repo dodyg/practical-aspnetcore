@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 6 (35)
+# .NET Core 3.0 Preview 7 (35)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 7. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
