@@ -2,7 +2,7 @@
 
 <h1>Data Binding from Child Component property to Parent</h1>
 
-MagicNumbers
+Magic Numbers
 
 <ul>
     @foreach(var mn in MagicNumbers)
@@ -11,8 +11,9 @@ MagicNumbers
     }    
 </ul>
 
-<Increment @bind-numbers="@MagicNumbers" />
+<Increment @bind-numbers="MagicNumbers" />
 
-@code {
+@code 
+{
     List<int> MagicNumbers { get; set; } = new List<int>(); 
 }
