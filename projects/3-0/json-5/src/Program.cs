@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json.Serialization;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
@@ -72,7 +71,7 @@ namespace JsonSample
                     };
 
                     context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await JsonSerializer.WriteAsync(payload, typeof(Person), context.Response.Body, options);
+                    await JsonSerializer.SerializeAsync(context.Response.Body, payload, typeof(Person), options);
                 });
             });
         }

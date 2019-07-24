@@ -1,4 +1,4 @@
-# Setting the options for JsonSerializer.WriteAsync
+# Setting the options for JsonSerializer.SerializeAsync
 
 These are the following options (`JsonSerializerOptions`) you can set that affect the serialization of your object
 

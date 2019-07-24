@@ -2,13 +2,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json.Serialization;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
-using Microsoft.AspNetCore.Http.Features;
-using System.Threading.Tasks;
 
 namespace JsonSample
 {
