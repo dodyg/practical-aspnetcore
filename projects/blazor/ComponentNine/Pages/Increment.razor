@@ -1,5 +1,5 @@
 
-<button type="button" @onclick="@Add">Increment</button>
+<button type="button" @onclick="Add">Increment</button>
 
 @code
 {
@@ -9,7 +9,6 @@
 
     [Parameter]
     EventCallback<int> NumberChanged { get; set;}
-
 
     async Task Add()
     {
