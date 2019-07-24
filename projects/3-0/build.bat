@@ -1,5 +1,13 @@
+dotnet build grpc/client
+dotnet build grpc/server
 dotnet build hello-world-with-reload
 dotnet build hosting
+dotnet build json
+dotnet build json-2
+dotnet build json-3
+dotnet build json-4
+dotnet build json-5
+dotnet build json-6
 dotnet build new-routing
 dotnet build new-routing-2
 dotnet build new-routing-3
@@ -7,7 +15,6 @@ dotnet build new-routing-4
 dotnet build new-routing-5
 dotnet build new-routing-6
 dotnet build new-routing-7
-dotnet build new-routing-8
 dotnet build new-routing-8
 dotnet build new-routing-9
 dotnet build new-routing-10
@@ -22,4 +29,7 @@ dotnet build new-routing-18
 dotnet build new-routing-19
 dotnet build new-routing-20
 dotnet build new-routing-21
+dotnet build new-routing-22
+dotnet build new-routing-23
+dotnet build new-routing-24
 dotnet build newtonsoft-json
