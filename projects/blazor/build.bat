@@ -9,4 +9,5 @@ dotnet build ComponentTen
 dotnet build ComponentThree
 dotnet build ComponentTwo
 dotnet build DataBinding
+dotnet build DataBindingTwo
 dotnet build hello-world

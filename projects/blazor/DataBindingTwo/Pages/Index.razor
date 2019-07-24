@@ -6,20 +6,20 @@
 
 <div class="row">
     <div class="col-md-6">
-        <EditForm Model="@_profile" OnValidSubmit="@HandleValidSubmit">
+        <EditForm Model="_profile" OnValidSubmit="HandleValidSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
             <div class="form-group">
                 <label for="first_name">First Name</label>
-                <InputText id="first_name" @bind-Value="@_profile.FirstName" class="form-control"/>
+                <InputText id="first_name" @bind-Value="_profile.FirstName" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="last_name">Last Name</label>
-                <InputText id="last_name" @bind-Value="@_profile.LastName"  class="form-control"/> 
+                <InputText id="last_name" @bind-Value="_profile.LastName"  class="form-control"/> 
             </div>
             <div class="form-group">
                 <label for="gender">Gender</label>
-                <InputSelect id="gender" @bind-Value="@_profile.Gender" class="form-control">
+                <InputSelect id="gender" @bind-Value="_profile.Gender" class="form-control">
                     <option value="">Select Gender</option>
                     <option value="F">Female</option>
                     <option value="M">Male</option>
@@ -27,19 +27,19 @@
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth</label>
-                <InputDate id="dob" @bind-Value="@_profile.DateOfBirth" class="form-control"/>
+                <InputDate id="dob" @bind-Value="_profile.DateOfBirth" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="age">Age</label>
-                <InputNumber id="age" @bind-Value="@_profile.Age" class="form-control"/>
+                <InputNumber id="age" @bind-Value="_profile.Age" class="form-control"/>
             </div>
             <div class="form-check">
-                <InputCheckbox id="married_status" @bind-Value="@_profile.IsMarried" class="form-check-input" />
+                <InputCheckbox id="married_status" @bind-Value="_profile.IsMarried" class="form-check-input" />
                 <label for="married_status">Is Married?</label>
             </div>
             <div class="form-group">
                 <label for="personal_bio">Personal Bio</label>
-                <InputTextArea @bind-Value="@_profile.PersonalBio" class="form-control"></InputTextArea>
+                <InputTextArea @bind-Value="_profile.PersonalBio" class="form-control"></InputTextArea>
             </div>
             <br/>
             <button type="submit">Submit</button>
