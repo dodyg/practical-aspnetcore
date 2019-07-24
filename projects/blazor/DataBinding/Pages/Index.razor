@@ -15,19 +15,19 @@
 </div>
 
 <h2>Form</h2>
-Name: <input type="text" @bind="@Name" />
+Name: <input type="text" @bind="Name" />
 <br/><br/>
 Bio:
-<textarea @bind="@Bio" cols="50" rows="5">
+<textarea @bind="Bio" cols="50" rows="5">
 </textarea>
 <br/><br/>
-Team: <select @bind="@FootballTeam">
+Team: <select @bind="FootballTeam">
         <option>Arsenal</option>
         <option>Liverpool</option>
         <option>Manchester City</option>
     </select>
 <br/><br/>
-Is Winning?: <input type="checkbox" @bind="@IsWinning" />
+Is Winning?: <input type="checkbox" @bind="IsWinning" />
 <br/><br/>
 <a href="https://github.com/aspnet/AspNetCore/issues/5579">Radio Button isn't supported yet</a>
 @functions
