@@ -1,4 +1,4 @@
-# Blazor (13)
+# Blazor (14)
 
 Make sure you installed the latest [.NET Core 3 SDK - Preview 7](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -53,6 +53,10 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Ten - Data binding from Child Component to Parent on Collection](/projects/blazor/ComponentTen)
 
     Similar to __Component Nine__ except that this time the property is a `List<int>` instead of an `int`.
+
+  * [Component Eleven - Capture unmatched component parameters](/projects/blazor/ComponentEleven)
+
+    Use `[Parameter(CaptureUnmatchedValues = true)]` to capture unmatched parameters.
 
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
