@@ -1,4 +1,4 @@
-# Blazor (14)
+# Blazor (15)
 
 Make sure you installed the latest [.NET Core 3 SDK - Preview 7](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -57,6 +57,11 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Eleven - Capture unmatched component parameters](/projects/blazor/ComponentEleven)
 
     Use `[Parameter(CaptureUnmatchedValues = true)]` to capture unmatched parameters.
+
+  * [Component Twelve - Splatting arbitrary parameters to components](/projects/blazor/ComponentTwelve)
+
+    Use `@attributes` and a `Dictionary<string, object>` or `List<KeyValuePair<string, object>>`.
+    
 
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
