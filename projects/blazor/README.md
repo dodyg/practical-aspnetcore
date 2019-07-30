@@ -1,4 +1,4 @@
-# Blazor (15)
+# Blazor (16)
 
 Make sure you installed the latest [.NET Core 3 SDK - Preview 7](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -62,7 +62,10 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     Use `@attributes` and a `Dictionary<string, object>` or `List<KeyValuePair<string, object>>`.
     
+  * [Component Thirteen - more example of attributes splatting](/projects/blazor/ComponentThirteen)
 
+    Use `@attributes` attributes splatting on an input form.
+    
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
     Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
