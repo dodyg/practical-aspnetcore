@@ -1,4 +1,4 @@
-# Blazor (16)
+# Blazor (17)
 
 Make sure you installed the latest [.NET Core 3 SDK - Preview 7](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -65,6 +65,10 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Thirteen - more example of attributes splatting](/projects/blazor/ComponentThirteen)
 
     Use `@attributes` attributes splatting on an input form.
+
+  * [Component Fourteen - various ways to pass data to components](/projects/blazor/ComponentFourteen)
+
+    This sample demonstrates the various ways to pass parameters to a component and how it affects on how the data is perceived by the component.
     
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
