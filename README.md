@@ -2,7 +2,7 @@
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
-Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise file a case. I will be happy to point you to the right direction.
+Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
 
 ## Welcome
 
