@@ -2,6 +2,8 @@
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
+Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise file a case. I will be happy to point you to the right direction.
+
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
@@ -371,7 +373,7 @@ All these projects require the following dependencies
 
 * **Dependency Injection (2)**
 
-  ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
+  ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. 
 
   * [Dependency Injection 1 - The basic](/projects/dependency-injection-1)
 
@@ -398,7 +400,7 @@ All these projects require the following dependencies
 
 * **In Memory Caching (a.k.a local cache) (4)**
 
-  These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
+  These samples depends on `Microsoft.Extensions.Caching.Memory` library. 
 
   * [Caching - Absolute/Sliding expiration](/projects/caching)
 
@@ -406,16 +408,7 @@ All these projects require the following dependencies
 
   * [Caching 2 - File dependency](/projects/caching-2)
     
-    Add file dependency to your caching so when the file changes, your cache expires.
-
-    You need to put the cache file in your `project.json` so it gets copied over, e.g.
-
-    `"buildOptions": {
-        "emitEntryPoint": true,
-        "copyToOutput": ["cache-file.txt"]
-    }`
-
-    Note: example 1 is forthcoming. The inspiration has not arrived yet.
+    Add file dependency to your caching so when the file changes, your cache expires. Make sure to set `cache-file.txt` to copy over to bin.
 
   * [Caching 3 - Cache removal event](/projects/caching-3)
 
