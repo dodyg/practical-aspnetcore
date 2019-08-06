@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 7 (35)
+# .NET Core 3.0 Preview 7 (36)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 7. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -158,6 +158,12 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Endpoint Routing - Host Matching 2](/projects/3-0/new-routing-24)
 
   This produces the same exact effect as the [previous example above - Host Matching](/projects/3-0/new-routing-23) except that here we use `IEndpointConventionBuilder.WithMetadata` and `HostAttribute` instead of `IEndpointConventionBuilder.RequireHost`.
+
+## Razor View
+
+* [Markup at @functions](/projects/3-0/razor)
+   
+  Now you can use markup inside functions at `@functions` block.
 
 ## GRPC
 
