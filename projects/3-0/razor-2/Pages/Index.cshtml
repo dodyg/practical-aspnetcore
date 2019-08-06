@@ -1,0 +1,25 @@
+@page
+@{
+    void Say(string message)
+    {
+        <div><strong>@message</strong></div>
+    }
+
+    void Calculate(IEnumerable<int> numbers)
+    {
+        foreach(var b in numbers)
+        {
+            Say(b + "");
+        }
+    }
+}
+
+<html>
+    <body>
+        <h1>Markup in code block</h1>
+        @{ Say("Hello World"); }
+        <br/>
+        @{ Calculate(Enumerable.Range(1, 10));}
+    </body>
+</html>
+

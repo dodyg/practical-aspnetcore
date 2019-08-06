@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 7 (36)
+# .NET Core 3.0 Preview 7 (37)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 7. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -163,7 +163,11 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [Markup at @functions](/projects/3-0/razor)
    
-  Now you can use markup inside functions at `@functions` block.
+  Now you can use markup inside methods at `@functions` block.
+
+* [Markup at code block](/projects/3-0/razor-2)
+   
+  Now you can use markup inside functions at code block.
 
 ## GRPC
 
