@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <Watch Include="**\*.cshtml" />
+    <Watch Include="**\*.razor" />
+  </ItemGroup>
+
+</Project>

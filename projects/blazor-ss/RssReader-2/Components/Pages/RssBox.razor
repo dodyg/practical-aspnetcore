@@ -1,0 +1,43 @@
+@using Microsoft.SyndicationFeed
+@inject RssNews rss
+
+<h1>RSS News </h1>
+
+<ul>
+    @foreach(var n in News)
+    {
+        <li>@((MarkupString)n.Description)</li>
+    }
+</ul>
+
+@code 
+{
+    List<SyndicationItem> News {get; set;} = new List<SyndicationItem>();
+
+    protected override async Task OnInitAsync()
+    {
+        var feeds = new string[]
+        {
+            "http://scripting.com/rss.xml", 
+            "https://hnrss.org/jobs",
+            "https://hnrss.org/newest",
+            "http://feeds.bbci.co.uk/news/rss.xml",
+            "http://feeds.bbci.co.uk/news/world/rss.xml",
+            "http://feeds.bbci.co.uk/news/uk/rss.xml",
+            "http://feeds.bbci.co.uk/news/business/rss.xml",
+            "http://feeds.bbci.co.uk/news/politics/rss.xml",
+            "http://feeds.bbci.co.uk/news/health/rss.xml",
+            "http://feeds.bbci.co.uk/news/education/rss.xml",
+            "http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+        };
+
+        await foreach(var news in rss.GetMultipleNewsAsync(feeds))
+        {
+            foreach(var n in news)
+            {
+                News.Insert(0, n);
+            }
+            this.StateHasChanged();
+        }
+    }
+}

@@ -1,4 +1,4 @@
-# Server Size Blazor (6)
+# Server Size Blazor (7)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -20,6 +20,10 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Rss Reader](RssReader)
 
     This sample demonstrates that you can use normal server side packages with your Razor Component as it is a truly server side system. This sample uses `Microsoft.SyndicationFeed.ReaderWriter` package to parse an external RSS feed and display it.
+
+  * [Rss Reader - 2](RssReader-2)
+    
+    This version of RSS Reader uses C# 8.0 `IAsyncEnumerable` to process RSS data as they are available. There is an artificial `await Task.Delay(3000);` added to `RssNews.GetNewsAsync` so you can see visually how the UI changes.
 
   * [Js Integration](JsIntegration)
 
