@@ -95,38 +95,19 @@ namespace JsonSample
          }
     }
 
+    [MemoryDiagnoser]
     public class SnakeCaseConverter
     {
-        public List<string> Data {get; set;} = new List<string>
-        {
-            "FullName",
-            "DateOfBirth",
-            "CityAndCountry",
-            "SocialSecurityNumber"
-        };
-
         [Benchmark]
-        public List<string> ConvertToSnakeCaseNewtonsoft()
+        public string ConvertToSnakeCaseNewtonsoft()
         {
-            var lst = new List<string>();
-            foreach(var x in Data)
-            {
-                lst.Add(StringUtils.ToSnakeCaseNewtonsoft(x));
-            }
-
-            return lst;
+            return StringUtils.ToSnakeCaseNewtonsoft("SocialSecurityNumber");
         }
         
         [Benchmark]
-        public List<string> ConvertToSnakeCaseLinq()
+        public string ConvertToSnakeCaseLinq()
         {
-            var lst = new List<string>();
-            foreach(var x in Data)
-            {
-                lst.Add(StringUtils.ToSnakeCaseLinq(x));
-            }
-
-            return lst;
+            return StringUtils.ToSnakeCaseLinq("SocialSecurityNumber");
         }
     }
     
