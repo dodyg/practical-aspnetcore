@@ -12,6 +12,7 @@ using System.Text;
 namespace JsonSample
 {
     // Implementation from https://github.com/JamesNK/Newtonsoft.Json/blob/cdf10151d507d497a3f9a71d36d544b199f73435/Src/Newtonsoft.Json/Utilities/StringUtils.cs
+    // Modified to use span
     internal static class StringUtils
     {
         internal enum SnakeCaseState
@@ -22,12 +23,14 @@ namespace JsonSample
             NewWord
         }
 
-        public static string ToSnakeCase(string s)
+        public static string ToSnakeCase(string initialString)
         {
-            if (string.IsNullOrEmpty(s))
+            if (string.IsNullOrEmpty(initialString))
             {
-                return s;
+                return initialString;
             }
+
+            ReadOnlySpan<char> s = initialString.AsSpan();
 
             StringBuilder sb = new StringBuilder();
             SnakeCaseState state = SnakeCaseState.Start;
