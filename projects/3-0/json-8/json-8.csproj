@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>json-8</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>new-routing</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Watch Include="**\*.cshtml" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.11.5" />
+  </ItemGroup>
+</Project>

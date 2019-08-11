@@ -1,13 +1,9 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json;
-using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 namespace JsonSample
 {
@@ -23,7 +19,7 @@ namespace JsonSample
             NewWord
         }
 
-        public static string ToSnakeCase(string s)
+        public static string ToSnakeCaseNewtonsoft(string s)
         {
             if (string.IsNullOrEmpty(s))
             {
@@ -92,74 +88,53 @@ namespace JsonSample
 
             return sb.ToString();
         }
+
+         public static string ToSnakeCaseLinq(string s)
+         {
+            return string.Concat(s.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
+         }
     }
 
-    public class SnakeCaseNamingPolicy : JsonNamingPolicy
+    public class SnakeCaseConverter
     {
-        public override string ConvertName(string name)
+        public List<string> Data {get; set;} = new List<string>
         {
-            return StringUtils.ToSnakeCase(name);
-        }
-    }
+            "FullName",
+            "DateOfBirth",
+            "CityAndCountry",
+            "SocialSecurityNumber"
+        };
 
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
+        [Benchmark]
+        public List<string> ConvertToSnakeCaseNewtonsoft()
         {
-            services.AddMvc();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseEndpoints(route =>
+            var lst = new List<string>();
+            foreach(var x in Data)
             {
-                route.MapGet("/", async context =>
-                {
-                    var payload = new
-                    {
-                        Name = "Annie",
-                        Age = 33,
-                        IsMarried = false,
-                        CurrentTime = DateTimeOffset.UtcNow,
-                        Characters = new
-                        {
-                            Funny = true,
-                            Feisty = true,
-                            Brilliant = true,
-                            FOMA = false,
-                            HighEmpathy = true
-                        }
-                    };
+                lst.Add(StringUtils.ToSnakeCaseNewtonsoft(x));
+            }
 
-                    var options = new JsonSerializerOptions
-                    {
-                        WriteIndented = true,
-                        IgnoreNullValues = true,
-                        PropertyNamingPolicy = new SnakeCaseNamingPolicy(),
-                        DictionaryKeyPolicy = new SnakeCaseNamingPolicy()
-                    };
+            return lst;
+        }
+        
+        [Benchmark]
+        public List<string> ConvertToSnakeCaseLinq()
+        {
+            var lst = new List<string>();
+            foreach(var x in Data)
+            {
+                lst.Add(StringUtils.ToSnakeCaseLinq(x));
+            }
 
-                    context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await JsonSerializer.SerializeAsync(context.Response.Body, payload, options);
-                });
-            });
+            return lst;
         }
     }
-
+    
     public class Program
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+             var summary = BenchmarkRunner.Run<SnakeCaseConverter>();
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().
-                    UseEnvironment(Environments.Development);
-                });
     }
 }
