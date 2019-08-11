@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 7 (37)
+# .NET Core 3.0 Preview 7 (38)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 7. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -203,3 +203,7 @@ All about the new `System.Text.Json` namespace.
 * [Json - Write a JSON document to the stream directly](/projects/3-0/json-6)
 
   Use `Utf8JsonWriter` to write a JSON document directly to a stream.
+
+* [Json - Implement a custom naming policy](/projects/3-0/json-7)
+
+  Create a custom naming policy that generate JSON property names in snake_case. 
