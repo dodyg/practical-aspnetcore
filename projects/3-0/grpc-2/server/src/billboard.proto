@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (stream MessageReply) {}
+}
+
+
+message MessageRequest {
+  string name = 1;
+}
+
+message MessageReply {
+  string message = 1;
+  int64 display_time = 2;
+}
