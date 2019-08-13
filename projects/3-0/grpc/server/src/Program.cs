@@ -40,7 +40,8 @@ namespace GrpcServer
             var now = DateTime.UtcNow;
             return Task.FromResult(new Billboard.MessageReply
             {
-                DisplayTime = now.Ticks
+                DisplayTime = now.Ticks,
+                ReceiveFrom = request.Sender
             });
         }
     }

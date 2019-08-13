@@ -23,11 +23,11 @@ namespace GrpcServer
                 var reply = await client.ShowMessageAsync(new Billboard.MessageRequest
                 {
                     Message = "Good morning people of the world",
-                    Sponsor = "Dody Gunawinata"
+                    Sender = "Dody Gunawinata"
                 });
 
                 var displayDate = new DateTime(reply.DisplayTime);
-                await context.Response.WriteAsync($"This server sends a gRPC request to a server and get the following result: {displayDate}");
+                await context.Response.WriteAsync($"This server sends a gRPC request to a server and get the following result: Received message on {displayDate} from {reply.ReceiveFrom}");
             });
         }
     }

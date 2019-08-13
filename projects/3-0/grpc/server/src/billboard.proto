@@ -6,11 +6,13 @@ service Board {
   rpc ShowMessage (MessageRequest) returns (MessageReply) {}
 }
 
+
 message MessageRequest {
-  string message = 1;
-  string sponsor = 2;
+  string sender = 1;
+  string message = 2;
 }
 
 message MessageReply {
-  int64 display_time = 1;
+  string receive_from = 1;
+  int64 display_time = 2;
 }
