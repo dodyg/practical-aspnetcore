@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 7 (39)
+# .NET Core 3.0 Preview 7 (40)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 7. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -211,3 +211,9 @@ All about the new `System.Text.Json` namespace.
 * [Json - Benchmark](/projects/3-0/json-8)
 
   Benchmark on two different approaches of generating snake_case property names. 
+
+## Misc
+
+* [Version info](/projects/3-0/version)
+ 
+  Show various version info of the framework your system is running on.
