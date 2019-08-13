@@ -28,7 +28,7 @@ namespace GrpcServer
 
                 context.Response.Headers["Content-Type"] = "text/event-stream";
 
-                var tokenSource = new CancellationTokenSource();
+                using var tokenSource = new CancellationTokenSource();
                 CancellationToken token = tokenSource.Token;
 
                 var streamReader = result.ResponseStream;
