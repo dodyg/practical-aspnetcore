@@ -13,8 +13,8 @@ Age = @Age
 @code
 {
     [Parameter(CaptureUnmatchedValues = true)]
-    Dictionary<string, object> Attributes { get; set; }
+    public Dictionary<string, object> Attributes { get; set; }
 
     [Parameter]
-    short Age { get; set;}
+    public short Age { get; set;}
 }
