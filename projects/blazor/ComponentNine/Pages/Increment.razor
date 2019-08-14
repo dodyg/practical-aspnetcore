@@ -5,10 +5,10 @@
 {
     // You need a Property + PropertyChanged event in combination to make the custom component data binding works
     [Parameter]
-    int Number { get; set;}
+    public int Number { get; set;}
 
     [Parameter]
-    EventCallback<int> NumberChanged { get; set;}
+    public EventCallback<int> NumberChanged { get; set;}
 
     async Task Add()
     {
