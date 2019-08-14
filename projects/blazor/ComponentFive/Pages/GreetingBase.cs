@@ -7,7 +7,7 @@ namespace ComponentFive.Pages
     public class GreetingBase : ComponentBase
     {
         [Parameter]
-        EventCallback<int> OnUpdate { get; set; }
+        public EventCallback<int> OnUpdate { get; set; }
 
         int _currentCount;
 
