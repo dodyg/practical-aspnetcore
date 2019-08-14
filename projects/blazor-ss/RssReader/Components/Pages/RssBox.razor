@@ -14,7 +14,7 @@
 {
     List<SyndicationItem> News {get; set;}
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         News = await rss.GetNewsAsync();
     }
