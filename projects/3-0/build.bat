@@ -1,5 +1,7 @@
 dotnet build grpc/client
 dotnet build grpc/server
+dotnet build grpc-2/client
+dotnet build grpc-2/server
 dotnet build hello-world-with-reload
 dotnet build hosting
 dotnet build json
@@ -33,3 +35,4 @@ dotnet build new-routing-22
 dotnet build new-routing-23
 dotnet build new-routing-24
 dotnet build newtonsoft-json
+dotnet build version
