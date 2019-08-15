@@ -7,9 +7,9 @@
     <PackageId>grpc-server</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Grpc.Tools" Version="1.22.0" PrivateAssets="All" />
-    <PackageReference Include="Google.Protobuf" Version="3.8.0" />
-    <PackageReference Include="Grpc.AspNetCore.Server" Version="0.1.22-pre2" />
+    <PackageReference Include="Grpc.Tools" Version="2.23.0-pre1" PrivateAssets="All" />
+    <PackageReference Include="Google.Protobuf" Version="3.9.1" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="0.1.22-pre3" />
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="src\billboard.proto" GrpcServices="Server"/>
