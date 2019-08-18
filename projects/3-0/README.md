@@ -180,7 +180,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This sample shows how to do simple gRPC sever streaming.
 
-* [Client Streaming - Message Server](/projects/3-0/grpc-3)
+* [Client Streaming - Fortune Cookie Server](/projects/3-0/grpc-3)
 
   This sample shows how to do simple gRPC client streaming.
 
