@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (stream MessageRequest) returns (MessageReply) {}
+}
+
+
+message MessageRequest {
+  string fortune_cookie = 1;
+}
+
+message MessageReply {
+  repeated TranslatedFortune fortunes = 1;
+}
+
+message TranslatedFortune
+{
+  string message = 1;
+  int64 received_time = 2;
+}
