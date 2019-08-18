@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (42)
+# .NET Core 3.0 Preview 8 (43)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -183,6 +183,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Client Streaming - Fortune Cookie Server](/projects/3-0/grpc-3)
 
   This sample shows how to do simple gRPC client streaming.
+
+* [Bidirectional Streaming - Forever Ping Pong](/projects/3-0/grpc-3)
+
+  This sample shows how to do simple gRPC client/server bidirectional streaming.
 
 ## Json
 
