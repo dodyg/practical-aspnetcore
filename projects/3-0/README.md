@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (41)
+# .NET Core 3.0 Preview 8 (42)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -179,6 +179,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Server Streaming - Message Server](/projects/3-0/grpc-2)
 
   This sample shows how to do simple gRPC sever streaming.
+
+* [Client Streaming - Message Server](/projects/3-0/grpc-3)
+
+  This sample shows how to do simple gRPC client streaming.
 
 ## Json
 
