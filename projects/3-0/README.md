@@ -201,7 +201,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [Data format - oneof](/projects/3-0/grpc-8)
 
-  This sample demonstrates how to use `oneof` type to allow you to check whether the value of a property is set or not, essentialy simulating nullable type.
+  This sample demonstrates how to use `oneof` type to allow you to check whether the value of a property is set or not, essentialy emulating nullable type.
 
 ## Json
 
