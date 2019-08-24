@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (MessageReply) {}
+}
+
+message MessageRequest {
+  message SuperPower {
+    string name = 1;
+    int32 level = 2;
+  }
+
+  repeated SuperPower capabilities = 1;
+}
+
+message MessageReply {
+  string message = 1;
+  int64 received_time = 2;
+}

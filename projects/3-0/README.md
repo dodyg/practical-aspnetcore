@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (44)
+# .NET Core 3.0 Preview 8 (45)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -187,9 +187,13 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This sample shows how to do simple gRPC client/server bidirectional streaming.
 
-* [Data format - Send string, enum and datetime](/projects/3-0/grpc-5)
+* [Data format - string, enum and datetime](/projects/3-0/grpc-5)
 
   This sample shows how to define Protocol Buffers format to support sending enum, string and datetime.
+
+* [Data format - nested types and repeated values (list)](/projects/3-0/grpc-5)
+
+  This sample shows how to define Protocol Buffers format to support sending nested types and repeated values (list).
 
 ## Json
 
