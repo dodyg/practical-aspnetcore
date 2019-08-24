@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (45)
+# .NET Core 3.0 Preview 8 (46)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -194,6 +194,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Data format - nested types and repeated values (list)](/projects/3-0/grpc-6)
 
   This sample shows how to define Protocol Buffers format to support sending nested types and repeated values (list).
+
+* [Data format - nested types and repeated values (list)](/projects/3-0/grpc-7)
+
+  This sample shows how to define Protocol Buffers format to support sending map values (dictionary).
 
 ## Json
 
