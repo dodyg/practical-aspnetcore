@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (MessageReply) {}
+}
+
+message MessageRequest {
+  string sender = 1;
+  string message = 2;
+  enum MessageType
+  {
+    UNKNOWN = 0;
+    SMS = 1;
+    TWEET = 2;
+    LONG_FORM = 3;
+  }
+  MessageType type = 3;
+}
+
+message MessageReply {
+  string message = 1;
+  int64 received_time = 2;
+}

@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (43)
+# .NET Core 3.0 Preview 8 (44)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -175,7 +175,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This sample shows a simple request/response gRPC call.
 
-
 * [Server Streaming - Message Server](/projects/3-0/grpc-2)
 
   This sample shows how to do simple gRPC sever streaming.
@@ -184,9 +183,13 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This sample shows how to do simple gRPC client streaming.
 
-* [Bidirectional Streaming - Forever Ping Pong](/projects/3-0/grpc-3)
+* [Bidirectional Streaming - Forever Ping Pong](/projects/3-0/grpc-4)
 
   This sample shows how to do simple gRPC client/server bidirectional streaming.
+
+* [Data format - Send string, enum and datetime](/projects/3-0/grpc-5)
+
+  This sample shows how to define Protocol Buffer format to support sending enum, string and datetime.
 
 ## Json
 
