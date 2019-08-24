@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (46)
+# .NET Core 3.0 Preview 8 (47)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -198,6 +198,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Data format - map values (dictionary)](/projects/3-0/grpc-7)
 
   This sample shows how to define Protocol Buffers format to support sending map values (dictionary).
+
+* [Data format - oneof](/projects/3-0/grpc-8)
+
+  This sample demonstrates how to use `oneof` type to allow you to check whether the value of a property is set or not, essentialy simulating nullable type.
 
 ## Json
 

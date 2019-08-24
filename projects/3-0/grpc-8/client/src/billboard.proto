@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (MessageReply) {}
+}
+
+message MessageRequest {
+  oneof wage {
+    double wage_value = 1;
+  }
+
+  oneof bonus {
+    double bonus_value = 2;
+  }
+}
+
+message MessageReply {
+  string message = 1;
+  int64 received_time = 2;
+}
