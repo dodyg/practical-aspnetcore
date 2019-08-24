@@ -191,7 +191,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   This sample shows how to define Protocol Buffers format to support sending enum, string and datetime.
 
-* [Data format - nested types and repeated values (list)](/projects/3-0/grpc-5)
+* [Data format - nested types and repeated values (list)](/projects/3-0/grpc-6)
 
   This sample shows how to define Protocol Buffers format to support sending nested types and repeated values (list).
 
