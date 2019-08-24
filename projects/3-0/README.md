@@ -189,7 +189,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
 * [Data format - Send string, enum and datetime](/projects/3-0/grpc-5)
 
-  This sample shows how to define Protocol Buffer format to support sending enum, string and datetime.
+  This sample shows how to define Protocol Buffers format to support sending enum, string and datetime.
 
 ## Json
 
