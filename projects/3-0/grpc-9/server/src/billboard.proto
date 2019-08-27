@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (stream MessageReply) {}
+}
+
+message MessageRequest {
+}
+
+message ImageMetaData {
+  string mime_type = 1;
+  string file_name = 2;
+}
+
+message ImageChunk {
+    bytes data = 1;
+    int32 length = 2;
+}
+
+message MessageReply {
+  oneof image {
+    ImageMetaData meta_data = 1;
+    ImageChunk chunk = 2;
+  }
+}

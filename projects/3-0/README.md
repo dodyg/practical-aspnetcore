@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (47)
+# .NET Core 3.0 Preview 8 (48)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -202,6 +202,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Data format - oneof](/projects/3-0/grpc-8)
 
   This sample demonstrates how to use `oneof` type to allow you to check whether the value of a property is set or not, essentialy emulating nullable type.
+
+* [Server Streaming - Kitty Server](/projects/3-0/grpc-9)
+
+  This sample shows how to stream an image in chunks from server to client.
 
 ## Json
 
