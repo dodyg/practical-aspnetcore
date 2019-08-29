@@ -52,15 +52,11 @@ namespace StartupBasic
             };
         }
 
-        public FileStreamResult Hegel()
+        public PhysicalFileResult Hegel()
         {
             var pathToIdeas = System.IO.Path.Combine(_env.WebRootPath, "hegel.pdf");
 
-            //This is a contrite example to demonstrate returning a stream. If you have a physical file on disk, just use PhySicalFileResult that takes a path. 
-            return new FileStreamResult(System.IO.File.OpenRead(pathToIdeas), "application/pdf")
-            {
-                FileDownloadName = "hegel.pdf"
-            };
+            return new PhysicalFileResult(pathToIdeas, "application/pdf");
         }
     }
 

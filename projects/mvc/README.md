@@ -1,4 +1,4 @@
-# MVC (46)
+# MVC (47)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -41,13 +41,17 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
 
 
-## Result
+## Action Results
   
-  We are exploring various results that an Action returns.
+  We are exploring various  that an Action returns.
 
   * [FileStreamResult](/projects/mvc/result-filestream)
 
-    Use this to return a file to the browser when you have a stream available.  
+    An example on how to return a file to the browser when you have a stream available.  
+
+  * [PhysicalFileResult](/projects/mvc/result-physicalfile)
+
+    An example on how to return a file to the browser when you have a path to a file on disk.
  
 
 ## Formatters
