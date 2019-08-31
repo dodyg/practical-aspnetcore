@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <AssemblyName>new-routing-25</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>new-routing-25</PackageId>
+  </PropertyGroup>
+</Project>
