@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (49)
+# .NET Core 3.0 Preview 8 (50)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -162,6 +162,10 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Endpoint Routing - Handle MVC routing dynamically](/projects/3-0/new-routing-25)
 
   This example shows how to handle MVC routing dynamically using `MapDynamicControllerRoute` and `DynamicRouteValueTransformer`.
+
+* [Endpoint Routing - Handle Razor Pages routing dynamically](/projects/3-0/new-routing-26)
+
+  This example shows how to handle Razor Pages routing dynamically using `MapDynamicPageRoute` and `DynamicRouteValueTransformer`.
 
 ## Razor View
 
