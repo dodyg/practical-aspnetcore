@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 8 (53)
+# .NET Core 3.0 Preview 8 (54)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 8. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -175,9 +175,14 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   Map a route to a Razor Pages located in an Area using `Conventions.AddAreaPageRoute`. 
 
-* [Endpoint routing - setup a fallback page in a Razor Pages area](/projects/3-0/new-routing-28)
+* [Endpoint routing - setup a fallback page in a Razor Pages area](/projects/3-0/new-routing-29)
 
   This sample shows you how to setup a fallback page located in a Razor Pages area. 
+
+* [Endpoint routing - serve different fallback pages depending on route pattern match](/projects/3-0/new-routing-30)
+
+  This sample shows how to return different fallback page located in areas depending on the route pattern that matches the request.
+  
 
 ## Razor View
 
