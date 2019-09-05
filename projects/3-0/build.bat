@@ -34,5 +34,11 @@ dotnet build new-routing-21
 dotnet build new-routing-22
 dotnet build new-routing-23
 dotnet build new-routing-24
+dotnet build new-routing-25
+dotnet build new-routing-26
+dotnet build new-routing-27
+dotnet build new-routing-28
+dotnet build new-routing-29
+dotnet build new-routing-30
 dotnet build newtonsoft-json
 dotnet build version
