@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <app></app>
+        <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
     </div>
     <script src="_framework/blazor.server.js"></script>
 </body>

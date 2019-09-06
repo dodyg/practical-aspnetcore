@@ -31,11 +31,11 @@ namespace Layout
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseEndpoints(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRazorPages();
-                routes.MapFallbackToPage("/Index");
-                routes.MapBlazorHub<App>("app");
+                endpoints.MapRazorPages();
+                endpoints.MapFallbackToPage("/Index");
+                endpoints.MapBlazorHub();
             });
         }
     }
