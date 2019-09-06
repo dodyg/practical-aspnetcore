@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using DependencyInjection.Components;
 using DependencyInjection.Services;
 
 namespace DependencyInjection
@@ -40,7 +39,7 @@ namespace DependencyInjection
             {
                 endpoints.MapRazorPages();
                 endpoints.MapFallbackToPage("/Index");
-                endpoints.MapBlazorHub<App>("app");
+                endpoints.MapBlazorHub();
             });
         }
     }
