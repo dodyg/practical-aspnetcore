@@ -12,7 +12,7 @@ We will call alert, confirm and console.log in this sample. Please click the but
 
 @code  
 {
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JS.InvokeAsync<object>("console.log", "hello world console");
         await JS.InvokeAsync<object>("alert", $"Hello ");

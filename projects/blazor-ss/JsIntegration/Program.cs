@@ -35,7 +35,7 @@ namespace JsIntegration
             {
                 routes.MapRazorPages();
                 routes.MapFallbackToPage("/Index");
-                routes.MapBlazorHub<App>("app");
+                routes.MapBlazorHub();
             });
         }
     }
