@@ -23,7 +23,6 @@ namespace HelloWorld
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -33,7 +32,7 @@ namespace HelloWorld
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapBlazorHub<App>("app");
+                endpoints.MapBlazorHub();
                 endpoints.MapRazorPages();
                 endpoints.MapFallbackToPage("/Index");
             });
