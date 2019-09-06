@@ -47,7 +47,7 @@ namespace GrpcServer
             _env = env;
         }
 
-        public override async Task ShowMessage(MessageRequest request, IServerStreamWriter<MessageReply> responseStream, ServerCallContext context)
+        public override async Task ShowMessage(Google.Protobuf.WellKnownTypes.Empty _, IServerStreamWriter<MessageReply> responseStream, ServerCallContext context)
         {
             using var tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;

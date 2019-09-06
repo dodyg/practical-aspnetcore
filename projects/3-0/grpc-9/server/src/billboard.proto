@@ -1,12 +1,10 @@
 syntax = "proto3";
 
 package Billboard;
+import "google/protobuf/Empty.proto";
 
 service Board {
-  rpc ShowMessage (MessageRequest) returns (stream MessageReply) {}
-}
-
-message MessageRequest {
+  rpc ShowMessage (google.protobuf.Empty) returns (stream MessageReply) {}
 }
 
 message ImageMetaData {

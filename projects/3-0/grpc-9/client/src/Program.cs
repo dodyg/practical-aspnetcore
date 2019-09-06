@@ -25,7 +25,7 @@ namespace GrpcServer
 
                 var channel = GrpcChannel.ForAddress("http://localhost:5500"); //check the values at /server project
                 var client = new Billboard.Board.BoardClient(channel);
-                var result = client.ShowMessage(new Billboard.MessageRequest());
+                var result = client.ShowMessage(new Google.Protobuf.WellKnownTypes.Empty());
 
                 context.Response.Headers["Content-Type"] = "text/html";
 
