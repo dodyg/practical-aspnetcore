@@ -38,9 +38,9 @@ namespace GrpcServer
 
     public class ReceivedFortune
     {
-        public string Message { get; set; } 
+        public string Message { get; set; }
 
-        public DateTimeOffset Received { get; set;} = DateTimeOffset.UtcNow;
+        public DateTimeOffset Received { get; set; } = DateTimeOffset.UtcNow;
     }
 
     public class BillboardService : Billboard.Board.BoardBase
@@ -48,14 +48,12 @@ namespace GrpcServer
         public override async Task<MessageReply> ShowMessage(IAsyncStreamReader<MessageRequest> requestStream, ServerCallContext context)
         {
             var fortunes = new List<ReceivedFortune>();
-            
+
             using var tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;
-                
-            while(await requestStream.MoveNext(token))
-            {
-                var request = requestStream.Current;
 
+            await foreach (var request in requestStream.ReadAllAsync())
+            {
                 var inBed = request.FortuneCookie[0..^1] + " in bed.";
 
                 fortunes.Add(new ReceivedFortune { Message = inBed });
@@ -63,9 +61,10 @@ namespace GrpcServer
 
             var reply = new MessageReply();
 
-            foreach(var f in fortunes)
+            foreach (var f in fortunes)
             {
-                reply.Fortunes.Add(new TranslatedFortune {
+                reply.Fortunes.Add(new TranslatedFortune
+                {
                     Message = f.Message,
                     ReceivedTime = f.Received.Ticks
                 });

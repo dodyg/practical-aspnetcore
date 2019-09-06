@@ -34,9 +34,8 @@ namespace GrpcServer
             app.Run(async context =>
             {
                 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-                var httpClient = new HttpClient();
-                httpClient.BaseAddress = new Uri("http://localhost:5500"); //check the values at /server project
-                var client = GrpcClient.Create<Billboard.Board.BoardClient>(httpClient);
+                var channel = GrpcChannel.ForAddress("http://localhost:5500"); //check the values at /server project
+                var client = new Billboard.Board.BoardClient(channel);
 
                 context.Response.Headers["Content-Type"] = "text/event-stream";
 
@@ -49,7 +48,7 @@ namespace GrpcServer
                 {
                     if (token.IsCancellationRequested)
                         break;
-                    
+
                     await stream.RequestStream.WriteAsync(new Billboard.MessageRequest
                     {
                         FortuneCookie = f
@@ -66,8 +65,8 @@ namespace GrpcServer
                 var response = await stream.ResponseAsync;
 
                 await context.Response.WriteAsync("\n\n");
-                
-                foreach(var r in response.Fortunes)
+
+                foreach (var r in response.Fortunes)
                 {
                     await context.Response.WriteAsync($"Reply \"{r.Message}\". Original cookied received on {new DateTime(r.ReceivedTime)}. \n");
                 }
