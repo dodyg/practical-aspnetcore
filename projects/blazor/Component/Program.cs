@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.AspNetCore.Blazor.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 namespace Component
 {
     public class Startup
