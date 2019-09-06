@@ -38,9 +38,9 @@ namespace GrpcServer
 
     public class ReceivedFortune
     {
-        public string Message { get; set; } 
+        public string Message { get; set; }
 
-        public DateTimeOffset Received { get; set;} = DateTimeOffset.UtcNow;
+        public DateTimeOffset Received { get; set; } = DateTimeOffset.UtcNow;
     }
 
     public class BillboardService : Billboard.Board.BoardBase
@@ -50,11 +50,9 @@ namespace GrpcServer
             using var tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;
 
-            while(await requestStream.MoveNext(token))
+            await foreach (var request in requestStream.ReadAllAsync(token))
             {
-                var request = requestStream.Current;
-
-                await responseStream.WriteAsync(new MessageReply { Pong = "pong"});
+                await responseStream.WriteAsync(new MessageReply { Pong = "pong" });
                 await Task.Delay(request.DelayTime);
             }
         }

@@ -20,9 +20,8 @@ namespace GrpcServer
             app.Run(async context =>
             {
                 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-                var httpClient = new HttpClient();
-                httpClient.BaseAddress = new Uri("http://localhost:5500"); //check the values at /server project
-                var client = GrpcClient.Create<Billboard.Board.BoardClient>(httpClient);
+                var channel = GrpcChannel.ForAddress("http://localhost:5500"); //check the values at /server project
+                var client = new Billboard.Board.BoardClient(channel);
 
                 context.Response.Headers["Content-Type"] = "text/event-stream";
 
@@ -30,10 +29,10 @@ namespace GrpcServer
                 CancellationToken token = tokenSource.Token;
 
                 using var stream = client.ShowMessage(cancellationToken: token);
-                
+
                 bool response = true;
                 int inc = 1;
-                do 
+                do
                 {
                     try
                     {

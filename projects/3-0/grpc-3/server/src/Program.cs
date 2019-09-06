@@ -52,7 +52,7 @@ namespace GrpcServer
             using var tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;
 
-            await foreach (var request in requestStream.ReadAllAsync())
+            await foreach (var request in requestStream.ReadAllAsync(token))
             {
                 var inBed = request.FortuneCookie[0..^1] + " in bed.";
 
