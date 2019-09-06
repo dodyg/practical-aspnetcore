@@ -16,14 +16,15 @@ namespace GrpcServer
             //Make sure that the grpc-server is run 
             app.Run(async context =>
             {
+                //We need this switch because we are connecting to an unsecure server. If the server runs on SSL, there's no need for this switch.
                 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri("http://localhost:5500"); //check the values at /server project
                 var client = GrpcClient.Create<Billboard.Board.BoardClient>(httpClient);
                 var request = new Billboard.MessageRequest();
-                request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Flying", Level = 1});
-                request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Invisibility", Level = 10});
-                request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Speed", Level = 5});
+                request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Flying", Level = 1 });
+                request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Invisibility", Level = 10 });
+                request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Speed", Level = 5 });
 
                 var reply = await client.ShowMessageAsync(request);
 

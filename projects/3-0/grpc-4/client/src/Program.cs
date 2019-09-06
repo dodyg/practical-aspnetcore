@@ -19,6 +19,7 @@ namespace GrpcServer
             //Make sure that the grpc-server is run 
             app.Run(async context =>
             {
+                //We need this switch because we are connecting to an unsecure server. If the server runs on SSL, there's no need for this switch.
                 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
                 var channel = GrpcChannel.ForAddress("http://localhost:5500"); //check the values at /server project
                 var client = new Billboard.Board.BoardClient(channel);

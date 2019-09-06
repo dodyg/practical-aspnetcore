@@ -2,10 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
 using System;
 using Grpc.Net.Client;
-using System.Net.Http;
 
 namespace GrpcServer
 {
@@ -16,10 +14,10 @@ namespace GrpcServer
             //Make sure that the grpc-server is run 
             app.Run(async context =>
             {
+                //We need this switch because we are connecting to an unsecure server. If the server runs on SSL, there's no need for this switch.
                 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-                var httpClient = new HttpClient();
-                httpClient.BaseAddress = new Uri("http://localhost:5500"); //check the values at /server project
-                var client = GrpcClient.Create<Billboard.Board.BoardClient>(httpClient);
+                var channel = GrpcChannel.ForAddress("http://localhost:5500"); //check the values at /server project
+                var client = new Billboard.Board.BoardClient(channel);
                 var reply = await client.ShowMessageAsync(new Billboard.MessageRequest
                 {
                     Message = "Hello World",
