@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using StartingVariation.Components;
 
 namespace StartingVariation
 {
@@ -35,7 +34,7 @@ namespace StartingVariation
             {
                 endpoints.MapRazorPages();
                 endpoints.MapFallbackToPage("/Admin/Blazor");
-                endpoints.MapBlazorHub<App>("app");
+                endpoints.MapBlazorHub();
             });
         }
     }
