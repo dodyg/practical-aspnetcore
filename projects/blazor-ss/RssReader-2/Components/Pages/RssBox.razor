@@ -14,7 +14,7 @@
 {
     List<SyndicationItem> News {get; set;} = new List<SyndicationItem>();
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         var feeds = new string[]
         {
