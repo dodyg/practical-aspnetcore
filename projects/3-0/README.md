@@ -1,4 +1,4 @@
-# .NET Core 3.0 Preview 9 (54)
+# .NET Core 3.0 Preview 9 (55)
 
 All the samples here rely on ASP.NET Core 3.0 Preview 9. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -273,3 +273,7 @@ All about the new `System.Text.Json` namespace.
 * [Version info](/projects/3-0/version)
  
   Show various version info of the framework your system is running on.
+
+* [IHttpResponseBodyFeature](/projects/3-0/features-http-body-response)
+
+  This new Feature interface consolidate previous version's three response body APIs into one
