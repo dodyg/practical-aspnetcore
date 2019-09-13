@@ -10,11 +10,16 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System.Net;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EndpointRoutingSample
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddHttpClient();
+        }
         public void Configure(IApplicationBuilder app)
         {
             //We need this switch because we are connecting to an unsecure server. If the server runs on SSL, there's no need for this switch.
@@ -32,12 +37,21 @@ namespace EndpointRoutingSample
 
                 watch?.Start();
 
-                context.Response.Headers.Add("Content-Type", "text/plain");
-                await context.Response.WriteAsync("Open your browser developer tools to see the 'Server-Timing' HTTP header in this request " + supportTrailers);
+                var httpFactory = context.RequestServices.GetService<IHttpClientFactory>();
+                var httpClient = httpFactory.CreateClient();
+
+                using var response = await httpClient.GetStreamAsync("http://histo.io/");
+
+                context.Response.Headers.Add("Content-Type", "text/html");
+                await response.CopyToAsync(context.Response.Body);
 
                 watch?.Stop();
                 if (supportTrailers)
-                    context.Response.AppendTrailer("Server-Timing", $"app;dur={watch.ElapsedMilliseconds}.0");
+                {
+                    Console.WriteLine("Server-Timing " + watch.ElapsedMilliseconds + " ms.");
+                    //You won't be able to see this in any browser dev tools
+                    context.Response.AppendTrailer("Server-Timing", $"practical-aspnet-core;dur={watch.ElapsedMilliseconds}.0");
+                }
             });
         }
     }

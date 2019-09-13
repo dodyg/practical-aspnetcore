@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>endpoint-routing</AssemblyName>
+    <LangVersion>8.0</LangVersion>
     <OutputType>Exe</OutputType>
     <PackageId>endpoint-routing</PackageId>
   </PropertyGroup>
