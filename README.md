@@ -635,7 +635,7 @@ All these projects require the following dependencies
 
     Implement a rudimentary single channel chat server.
 
-* **Server Side Events (1)**
+* **Server-Sent Events (1)**
 
   * [Forever Server](/projects/sse)
 
