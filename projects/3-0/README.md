@@ -1,6 +1,6 @@
-# .NET Core 3.0 Release Candidate 1 (56)
+# ASP.NET Core 3.0 (56)
 
-All the samples here rely on ASP.NET Core 3.0 Release Candidate 1. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+All the samples here rely on ASP.NET Core 3.0. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-2.2&tabs=visual-studio)
 
