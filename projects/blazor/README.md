@@ -1,6 +1,6 @@
 # Blazor (17)
 
-Make sure you installed the latest [.NET Core 3 SDK - Release Candidate 1](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+Make sure you installed the latest [.NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. Make sure you pay attention which port Kestrel is running on.
 
