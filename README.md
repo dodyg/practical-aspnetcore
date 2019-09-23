@@ -8,7 +8,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
+I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2019 as well.
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
 
@@ -21,7 +21,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | ------- | ------- | ------- |
 | [ASP.NET Core 3.0](/projects/3-0) | 56 | 3.0|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 17 | 3.0-rc-1|
-| [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0-rc-1|
+| [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0|
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
 | [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 4|  2.2 |
 | [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
