@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.AspNetCore.Blazor.Hosting;
-namespace Component
+namespace ComponentFourteen
 {
     public class Startup
     {
