@@ -13,4 +13,4 @@ The host application is a normal ASP.NET Core app that uses `OrchardCore.Applica
 
 By default, OCF creates areas based on the name of your modules. Hence we have `ForumModule` and `TicketModule` areas in this app.
 
-If you want to customize the routing of each module, you can do it via the `Startup.cs` located under each module. Make sure that `routes.MapAreaRoute` `AreaName` matches the name of your module otherwise it won't work.
+If you want to customize the routing of each module, you can do it via the `Startup.cs` located under each module. Make sure that `routes.MapAreaControllerRoute` `AreaName` matches the name of your module otherwise it won't work.

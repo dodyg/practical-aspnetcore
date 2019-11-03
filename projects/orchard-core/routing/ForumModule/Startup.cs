@@ -14,15 +14,16 @@ namespace ForumModule
         {
         }
 
-        public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
+        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            routes.MapAreaRoute
+            routes.MapAreaControllerRoute
            (
                name: "ForumHome",
                areaName: "ForumModule",
-               template: "Forum",
+               pattern: "Forum",
                defaults: new { controller = "Home", action = "Index" }
            );
         }
+
     }
 }

@@ -1,6 +1,6 @@
 # Orchard Core Framework (4)
 
-Pre-requisite: Make sure you download .NET Core SDK 2.2 (`2.2.100`) otherwise below examples won't work.
+Pre-requisite: Make sure you download .NET Core SDK 3.0 (`3.0.100`) otherwise below examples won't work.
 
 This section contains samples of project relying on [Orchard Core Framework](https://orchardcore.readthedocs.io/en/dev/). This section is a bit more advanced than the other parts of Practical ASP.NET Core.
 
