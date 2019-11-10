@@ -9,17 +9,35 @@ using System.IO.Pipelines;
 using System;
 using System.Buffers;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using System.Threading;
 
 namespace EchoServer
 {
+    // Code extracted from https://github.com/davidfowl/MultiProtocolAspNetCore
     public class EchoConnectionHandler : ConnectionHandler
     {
+        readonly ILogger<EchoConnectionHandler> _log;
+
+        public EchoConnectionHandler(ILogger<EchoConnectionHandler> log)
+        {
+            _log = log;
+        }
+
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
+            using var tokenSource = new CancellationTokenSource();
+            connection.ConnectionClosed = tokenSource.Token;
+
             while (true)
             {
+                if (connection.ConnectionClosed.IsCancellationRequested)
+                    break;
+
                 ReadResult result = await connection.Transport.Input.ReadAsync();
                 ReadOnlySequence<byte> buffer = result.Buffer;
+
+                _log.LogDebug("Receiving data");
 
                 foreach (ReadOnlyMemory<byte> x in buffer)
                 {
@@ -58,7 +76,7 @@ namespace EchoServer
             {
                 config.UseKestrel(k =>
                 {
-                    k.ListenLocalhost(8007, builder =>
+                    k.ListenLocalhost(8087, builder =>
                     {
                         builder.UseConnectionHandler<EchoConnectionHandler>();
                     });

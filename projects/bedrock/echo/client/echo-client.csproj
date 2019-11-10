@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>EchoServer</AssemblyName>
+    <AssemblyName>EchoClient</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>echo-server</PackageId>
+    <PackageId>echo-client</PackageId>
   </PropertyGroup>
 </Project>
