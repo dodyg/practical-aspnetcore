@@ -1,4 +1,4 @@
-# 305 samples for ASP.NET Core 2.1, 2.2, 3.0 and 3.1-Preview1 fundamentals (updated almost daily - except during Summer)
+# 305 samples for ASP.NET Core 2.1, 2.2, 3.0 and 3.1-Preview2 fundamentals (updated almost daily - except during Summer)
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
@@ -19,7 +19,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 
 | Section | No. of Samples  | .NET Core SDK Version |
 | ------- | ------- | ------- |
-| [ASP.NET Core 3.1](/projects/3-1) | 1 | 3.1-Preview1|
+| [ASP.NET Core 3.1](/projects/3-1) | 1 | 3.1-Preview2|
 | [ASP.NET Core 3.0](/projects/3-0) | 56 | 3.0|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 17 | 3.0.0-preview9.19465.2|
 | [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0|

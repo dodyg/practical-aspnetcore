@@ -1,4 +1,4 @@
-# ASP.NET Core 3.1 Preview1 (1)
+# ASP.NET Core 3.1 Preview2 (1)
 
 Make sure you installed the latest [.NET Core 3.1 Preview1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
