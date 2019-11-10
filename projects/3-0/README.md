@@ -1,4 +1,4 @@
-# ASP.NET Core 3.0 (56)
+# ASP.NET Core 3.0 (57)
 
 All the samples here rely on ASP.NET Core 3.0. Make sure you download the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
@@ -267,6 +267,10 @@ All about the new `System.Text.Json` namespace.
 * [Json - Benchmark](/projects/3-0/json-8)
 
   Benchmark on two different approaches of generating snake_case property names. 
+
+* [Json - Custom Converter](/projects/3-0/json-9)
+
+  Implement a custom type converter. In this example we convert `TimeSpan`.
 
 ## Misc
 
