@@ -26,26 +26,40 @@ namespace EchoServer
 
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
+            _log.LogDebug("Receive connection on " + connection.ConnectionId);
+
             using var tokenSource = new CancellationTokenSource();
             connection.ConnectionClosed = tokenSource.Token;
-
+           
             while (true)
             {
                 if (connection.ConnectionClosed.IsCancellationRequested)
+                {
+                    _log.LogDebug("Connection closed on " + connection.ConnectionId);
                     break;
+                }
 
                 ReadResult result = await connection.Transport.Input.ReadAsync();
                 ReadOnlySequence<byte> buffer = result.Buffer;
 
-                _log.LogDebug("Receiving data");
+                _log.LogDebug("Receiving data on " + connection.ConnectionId);
 
                 foreach (ReadOnlyMemory<byte> x in buffer)
                 {
                     await connection.Transport.Output.WriteAsync(x);
                 }
 
-                if (result.IsCompleted)
+                if (result.IsCanceled)
+                {
+                    _log.LogDebug("result.IsCancelled " + connection.ConnectionId);
                     break;
+                }
+
+                if (result.IsCompleted)
+                {
+                    _log.LogDebug("result.IsCompleted " + connection.ConnectionId);
+                    break;
+                }
 
                 connection.Transport.Input.AdvanceTo(buffer.End);
             }
@@ -82,7 +96,10 @@ namespace EchoServer
                     });
                 })
                 .UseStartup<Startup>();
-            })
-            ;
+            }).ConfigureLogging(builder =>
+            {
+                builder.SetMinimumLevel(LogLevel.Debug);
+                builder.AddConsole();
+            });
     }
 }
