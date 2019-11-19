@@ -4,5 +4,6 @@
     <AssemblyName>EchoClient</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>echo-client</PackageId>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 </Project>
