@@ -26,42 +26,51 @@ namespace EchoServer
 
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
-            _log.LogDebug("Receive connection on " + connection.ConnectionId);
-
-            using var tokenSource = new CancellationTokenSource();
-            connection.ConnectionClosed = tokenSource.Token;
-           
-            while (true)
+            try
             {
-                if (connection.ConnectionClosed.IsCancellationRequested)
+
+                _log.LogDebug("Receive connection on " + connection.ConnectionId);
+
+                using var tokenSource = new CancellationTokenSource();
+                connection.ConnectionClosed = tokenSource.Token;
+
+                while (true)
                 {
-                    _log.LogDebug("Connection closed on " + connection.ConnectionId);
-                    break;
+                    if (connection.ConnectionClosed.IsCancellationRequested)
+                    {
+                        _log.LogDebug("Connection closed on " + connection.ConnectionId);
+                        break;
+                    }
+
+                    ReadResult result = await connection.Transport.Input.ReadAsync();
+                    ReadOnlySequence<byte> buffer = result.Buffer;
+
+                    _log.LogDebug("Receiving data on " + connection.ConnectionId);
+
+                    foreach (ReadOnlyMemory<byte> x in buffer)
+                    {
+                        await connection.Transport.Output.WriteAsync(x);
+                    }
+
+                    if (result.IsCanceled)
+                    {
+                        _log.LogDebug("result.IsCancelled " + connection.ConnectionId);
+                        break;
+                    }
+
+                    if (result.IsCompleted)
+                    {
+                        _log.LogDebug("result.IsCompleted " + connection.ConnectionId);
+                        break;
+                    }
+
+                    connection.Transport.Input.AdvanceTo(buffer.End);
                 }
-
-                ReadResult result = await connection.Transport.Input.ReadAsync();
-                ReadOnlySequence<byte> buffer = result.Buffer;
-
-                _log.LogDebug("Receiving data on " + connection.ConnectionId);
-
-                foreach (ReadOnlyMemory<byte> x in buffer)
-                {
-                    await connection.Transport.Output.WriteAsync(x);
-                }
-
-                if (result.IsCanceled)
-                {
-                    _log.LogDebug("result.IsCancelled " + connection.ConnectionId);
-                    break;
-                }
-
-                if (result.IsCompleted)
-                {
-                    _log.LogDebug("result.IsCompleted " + connection.ConnectionId);
-                    break;
-                }
-
-                connection.Transport.Input.AdvanceTo(buffer.End);
+            }
+            finally
+            {
+                connection.Transport.Input.Complete();
+                connection.Transport.Output.Complete();
             }
         }
     }
