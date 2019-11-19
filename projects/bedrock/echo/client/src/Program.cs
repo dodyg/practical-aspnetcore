@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
+// https://github.com/sebastienros/httpsocket/blob/master/src/HttpSocket.cs
 namespace TcpEcho
 {
     public class Program
