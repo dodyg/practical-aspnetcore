@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 // https://github.com/sebastienros/httpsocket/blob/master/src/HttpSocket.cs
+// https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/
 namespace TcpEcho
 {
     public class Program
