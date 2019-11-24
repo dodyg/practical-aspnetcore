@@ -6,29 +6,47 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
+// https://github.com/sebastienros/httpsocket/blob/master/src/HttpSocket.cs
+// https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/
 namespace TcpEcho
 {
     public class Program
     {
         static async Task Main(string[] args)
         {
-            var clientSocket = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            int port = 8087;
+            Console.WriteLine($"Connecting to port {port}");
 
-            Console.WriteLine("Connecting to port 8087");
+            using var clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            await clientSocket.ConnectAsync(new IPEndPoint(IPAddress.Loopback, port));
 
-            clientSocket.Connect(new IPEndPoint(IPAddress.Loopback, 8087));
-            var stream = new NetworkStream(clientSocket);
+            try
+            {
+                var stream = new NetworkStream(clientSocket);
 
-            Byte[] data = System.Text.Encoding.ASCII.GetBytes("Hello World Echo");
-            await stream.WriteAsync(data, 0, data.Length);
+                Console.Write("Ready for your input: ");
+                var input = Console.ReadLine();
+                while (input != "")
+                {
+                    Byte[] data = System.Text.Encoding.ASCII.GetBytes(input);
+                    await stream.WriteAsync(data, 0, data.Length);
 
-            data = new Byte[256];
-            String response = String.Empty;
-            // Read the Tcp Server Response Bytes.
-            Int32 bytes = stream.Read(data, 0, data.Length);
-            response = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                    data = new Byte[256];
+                    // Read the Tcp Server Response Bytes.
+                    int bytes = stream.Read(data, 0, data.Length);
+                    var response = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
 
-            Console.WriteLine("Received: {0}", response);
+                    Console.WriteLine("Received: {0}", response);
+                    Console.Write("Ready for your input: ");
+                    input = Console.ReadLine();
+                }
+            }
+            finally
+            {
+                clientSocket.Shutdown(SocketShutdown.Both);
+                clientSocket.Close();
+            }
+
         }
     }
 }

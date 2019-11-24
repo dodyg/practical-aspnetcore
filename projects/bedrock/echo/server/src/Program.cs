@@ -26,28 +26,36 @@ namespace EchoServer
 
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
-            using var tokenSource = new CancellationTokenSource();
-            connection.ConnectionClosed = tokenSource.Token;
-
-            while (true)
+            try
             {
-                if (connection.ConnectionClosed.IsCancellationRequested)
-                    break;
+                _log.LogDebug("Receive connection on " + connection.ConnectionId);
 
-                ReadResult result = await connection.Transport.Input.ReadAsync();
-                ReadOnlySequence<byte> buffer = result.Buffer;
-
-                _log.LogDebug("Receiving data");
-
-                foreach (ReadOnlyMemory<byte> x in buffer)
+                while (true)
                 {
-                    await connection.Transport.Output.WriteAsync(x);
+                    ReadResult result = await connection.Transport.Input.ReadAsync();
+                    ReadOnlySequence<byte> buffer = result.Buffer;
+                    
+                    _log.LogDebug("Receiving data on " + connection.ConnectionId);
+
+                    foreach (ReadOnlyMemory<byte> x in buffer)
+                    {
+                        await connection.Transport.Output.WriteAsync(x);
+                    }
+
+                    if (result.IsCompleted)
+                    {
+                        _log.LogDebug("result.IsCompleted " + connection.ConnectionId);
+                        break;
+                    }
+
+                    connection.Transport.Input.AdvanceTo(buffer.End);
                 }
-
-                if (result.IsCompleted)
-                    break;
-
-                connection.Transport.Input.AdvanceTo(buffer.End);
+            }
+            finally
+            {
+                connection.Transport.Input.Complete();
+                connection.Transport.Output.Complete();
+                _log.LogDebug($"Connection {connection.ConnectionId} disconnected");
             }
         }
     }
@@ -82,7 +90,10 @@ namespace EchoServer
                     });
                 })
                 .UseStartup<Startup>();
-            })
-            ;
+            }).ConfigureLogging(builder =>
+            {
+                builder.SetMinimumLevel(LogLevel.Debug);
+                builder.AddConsole();
+            });
     }
 }
