@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>anonymous-id</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>anonymous-id</PackageId>

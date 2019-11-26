@@ -44,7 +44,7 @@
 
   * [Hello World with Microsoft.AspNetCore.App package](hello-world-startup-app-package)
 
-    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
+    If you are targeting `netcoreapp3.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
 
     This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
 

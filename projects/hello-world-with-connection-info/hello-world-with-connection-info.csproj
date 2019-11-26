@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>hello-world-with-connection-info</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>hello-world-with-connection-info</PackageId>
