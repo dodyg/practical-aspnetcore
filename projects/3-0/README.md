@@ -194,43 +194,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
    
   Now you can use markup inside functions at code block.
 
-## GRPC
-
-* [Unary - Hello World](/projects/3-0/grpc)
-
-  This sample shows a simple request/response gRPC call.
-
-* [Server Streaming - Message Server](/projects/3-0/grpc-2)
-
-  This sample shows how to do simple gRPC sever streaming.
-
-* [Client Streaming - Fortune Cookie Server](/projects/3-0/grpc-3)
-
-  This sample shows how to do simple gRPC client streaming.
-
-* [Bidirectional Streaming - Forever Ping Pong](/projects/3-0/grpc-4)
-
-  This sample shows how to do simple gRPC client/server bidirectional streaming.
-
-* [Data format - string, enum and datetime](/projects/3-0/grpc-5)
-
-  This sample shows how to define Protocol Buffers format to support sending enum, string and datetime.
-
-* [Data format - nested types and repeated values (list)](/projects/3-0/grpc-6)
-
-  This sample shows how to define Protocol Buffers format to support sending nested types and repeated values (list).
-
-* [Data format - map values (dictionary)](/projects/3-0/grpc-7)
-
-  This sample shows how to define Protocol Buffers format to support sending map values (dictionary).
-
-* [Data format - oneof](/projects/3-0/grpc-8)
-
-  This sample demonstrates how to use `oneof` type to allow you to check whether the value of a property is set or not, essentialy emulating nullable type.
-
-* [Server Streaming - Kitty Server](/projects/3-0/grpc-9)
-
-  This sample shows how to stream an image in chunks from server to client.
 
 ## Json
 
