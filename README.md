@@ -1,4 +1,4 @@
-# 306 samples for ASP.NET Core 3.1
+# Samples for ASP.NET Core 3.1 (WIP)
 
 All the samples in this branch will be converted to ASP.NET Core 3.1.
 
@@ -11,6 +11,8 @@ All the samples in this branch will be converted to ASP.NET Core 3.1.
 | [ASP.NET Core 3.0](/projects/3-0) | 57 | 3.0|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 17 | 3.0.0-preview9.19465.2|
 | [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0|
+
+<!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
 | [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 4|  2.2 |
 | [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
@@ -20,42 +22,16 @@ All the samples in this branch will be converted to ASP.NET Core 3.1.
 | [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
 | [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
 | [Foundational ASP.NET Core 2.1 Samples](#foundation-aspnet-core-21-samples) | 136 | 2.1 |
-
+-->
 
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
 
-Most of the examples here uses `Microsoft.AspNetCore` package which is a package consisted of 
+## Foundation ASP.NET Core 3.1 Samples
 
-```
-  Microsoft.AspNetCore.Diagnostics
-  Microsoft.AspNetCore.HostFiltering
-  Microsoft.AspNetCore.Hosting
-  Microsoft.AspNetCore.Routing
-  Microsoft.AspNetCore.Server.IISIntegration
-  Microsoft.AspNetCore.Server.Kestrel
-  Microsoft.AspNetCore.Server.Kestrel.Https
-  Microsoft.Extensions.Configuration.CommandLine
-  Microsoft.Extensions.Configuration.EnvironmentVariables
-  Microsoft.Extensions.Configuration.FileExtensions
-  Microsoft.Extensions.Configuration.Json
-  Microsoft.Extensions.Configuration.UserSecrets
-  Microsoft.Extensions.Logging
-  Microsoft.Extensions.Logging.Configuration
-  Microsoft.Extensions.Logging.Console
-  Microsoft.Extensions.Logging.Debug
-```
 
-When an example requires packages that are not listed here, it will be added to the project file.
-
-## Foundation ASP.NET Core 2.1 Samples
-
-All these projects require the following dependencies
-
-```
-   "Microsoft.AspNetCore" : "2.1.0"
-```
+<!-- 
 
 
 * **Hello World (22)**
@@ -831,3 +807,4 @@ These are other aspnetcore resources with code samples
 
 * [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
 * [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
+-->
