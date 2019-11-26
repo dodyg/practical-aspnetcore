@@ -1,4 +1,4 @@
-# 306 samples for ASP.NET Core 2.1, 2.2, 3.0 and 3.1-Preview3 fundamentals (updated almost daily - except during Summer)
+# 306 samples for ASP.NET Core 3.1
 
 All the samples in this branch will be converted to ASP.NET Core 3.1.
 
