@@ -1,18 +1,6 @@
 # 306 samples for ASP.NET Core 2.1, 2.2, 3.0 and 3.1-Preview3 fundamentals (updated almost daily - except during Summer)
 
-If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
-
-Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
-
-## Welcome
-
-The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
-
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2019 as well.
-
-Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
-
-ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
+All the samples in this branch will be converted to ASP.NET Core 3.1.
 
 ### Additional Sections
 
