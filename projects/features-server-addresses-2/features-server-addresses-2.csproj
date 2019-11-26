@@ -5,7 +5,3 @@
     <OutputType>Exe</OutputType>
     <PackageId>features-server-addresses-2</PackageId>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-  </ItemGroup>
-</Project>

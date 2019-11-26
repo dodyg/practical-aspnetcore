@@ -10,7 +10,3 @@
     <PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-  </ItemGroup>
-</Project>

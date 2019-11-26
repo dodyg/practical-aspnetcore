@@ -5,7 +5,5 @@
     <OutputType>Exe</OutputType>
     <PackageId>diagnostics-2</PackageId>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-  </ItemGroup>
+
 </Project>

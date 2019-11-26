@@ -5,7 +5,3 @@
     <OutputType>Exe</OutputType>
     <PackageId>hello-world-startup-multiple-configure-environment</PackageId>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-  </ItemGroup>
-</Project>

@@ -5,7 +5,3 @@
     <OutputType>Exe</OutputType>
     <PackageId>media-type-names</PackageId>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-  </ItemGroup>
-</Project>

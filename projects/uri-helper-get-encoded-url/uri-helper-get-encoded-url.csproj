@@ -6,7 +6,5 @@
     <PackageId>uri-helper-get-encoded-url</PackageId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-  </ItemGroup>
+
 </Project>
