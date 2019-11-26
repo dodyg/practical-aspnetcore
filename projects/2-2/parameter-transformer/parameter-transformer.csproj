@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>parameter-transformer</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>parameter-transformer</PackageId>
