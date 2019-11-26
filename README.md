@@ -7,12 +7,13 @@ All the samples in this branch will be converted to ASP.NET Core 3.1.
 
 | Section | No. of Samples  | .NET Core SDK Version |
 | ------- | ------- | ------- |
-| [ASP.NET Core 3.1](/projects/3-1) | 1 | 3.1-Preview3|
-| [ASP.NET Core 3.0](/projects/3-0) | 57 | 3.0|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 17 | 3.0.0-preview9.19465.2|
-| [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0|
-| [gRPC](/projects/grpc)| |
-| [System.Text.Json](/projects/json) | |
+| [ASP.NET Core 3.1](/projects/3-1) |
+| [ASP.NET Core 3.0](/projects/3-0) |
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
+| [Blazor Server Side](/projects/blazor-ss) |
+| [gRPC](/projects/grpc)| 
+| [System.Text.Json](/projects/json) | 
+| [Endpoint Routing](/projects/endpoint-routing) | 
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
