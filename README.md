@@ -37,8 +37,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * [Hello World](/projects/basic/hello-world)
 
-  This is the simplest ASP.NET Core application you can create. An ASP.NET Core application includes a super fast web server called Kestrel. In a few lines of code we set up the web server and a simple app. 
+  This is the simplest ASP.NET Core application you can create. An ASP.NET Core application includes a super fast web server called Kestrel. In a few lines of code we set up the web server and a simple app.
 
+  In this sample we use a `Startup` class to configure your application. This is the canonical way of doing thing.
+  
+* [Hello World - 2](/projects/basic/hello-world-2)
+
+  This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
 
 <!-- 
 
