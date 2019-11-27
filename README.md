@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 3.1 (WIP)
 
-All the samples in this branch will be converted to ASP.NET Core 3.1.
+All the samples in this branch will be converted to ASP.NET Core 3.1. 
 
 ### Additional Sections
 
@@ -32,6 +32,12 @@ All the samples in this branch will be converted to ASP.NET Core 3.1.
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
 
 ## Foundation ASP.NET Core 3.1 Samples
+
+### Basic
+
+* [Hello World](/projects/basic/hello-world)
+
+  This is the simplest ASP.NET Core application you can create. An ASP.NET Core application includes a super fast web server called Kestrel. In a few lines of code we set up the web server and a simple app. 
 
 
 <!-- 
