@@ -4,6 +4,7 @@ All the samples in this branch will be converted to ASP.NET Core 3.1.
 
 ### Additional Sections
 
+*Continue to scroll down to find materials for absolute beginners to ASP.NET Core.*
 
 | Section | No. of Samples  | .NET Core SDK Version |
 | ------- | ------- | ------- |
