@@ -41,7 +41,7 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

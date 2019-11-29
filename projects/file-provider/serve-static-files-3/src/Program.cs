@@ -18,7 +18,7 @@ namespace ServeStaticFiles
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         static IWebHostBuilder CreateWebHostBuilder(string[] args) => 
