@@ -1,39 +1,40 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            if (env.IsDevelopment()){
-                app.Use(async (context, next) =>{
+            if (env.IsDevelopment())
+            {
+                app.Use(async (context, next) =>
+                {
 
                     await context.Response.WriteAsync("Development Mode \n");
                     await next.Invoke();
                 });
             }
 
-            if (env.IsProduction()){
-                app.Use(async (context, next) =>{
+            if (env.IsProduction())
+            {
+                app.Use(async (context, next) =>
+                {
 
                     await context.Response.WriteAsync("Production Mode \n");
+                    await next.Invoke();
+                });
+            }
+
+            if (env.IsStaging())
+            {
+                app.Use(async (context, next) =>
+                {
+
+                    await context.Response.WriteAsync("Staging Mode \n");
                     await next.Invoke();
                 });
             }
@@ -44,7 +45,7 @@ namespace StartupBasic
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
@@ -55,7 +56,9 @@ namespace StartupBasic
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.UseStartup<Startup>()
+                    webBuilder
+                    .UseStartup<Startup>()
+                    .UseEnvironment(Environments.Staging) // Other options are Staging and Production
                 );
     }
 }

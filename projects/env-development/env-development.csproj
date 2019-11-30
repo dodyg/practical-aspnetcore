@@ -1,9 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>hello-world-env-development</AssemblyName>
+    <AssemblyName>env-development</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>hello-world-env-development</PackageId>
+    <PackageId>env-development</PackageId>
   </PropertyGroup>
-
+</Project>
