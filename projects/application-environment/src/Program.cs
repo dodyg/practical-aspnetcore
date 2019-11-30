@@ -5,26 +5,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
-namespace HelloWorldWithApplicationEnvironment
+namespace PracticalAspNetCore
 {
     // https://github.com/aspnet/Announcements/issues/237
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are the four default services available at Configure
-
             app.Run(async context =>
             {
                 context.Response.Headers.Add("content-type", "text/html");
