@@ -11,9 +11,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.*" />
-  </ItemGroup>
 </Project>
