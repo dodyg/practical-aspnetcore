@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Caching
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -16,11 +15,10 @@ namespace Caching
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
             services.AddMemoryCache();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var fileProvider = new PhysicalFileProvider(env.ContentRootPath);
 
@@ -30,10 +28,11 @@ namespace Caching
                 var greeting = cache.Get(CACHE_KEY) as string;
 
                 //There is no existing cache, add one
-                if (string.IsNullOrWhiteSpace(greeting)){
+                if (string.IsNullOrWhiteSpace(greeting))
+                {
                     var options = new MemoryCacheEntryOptions()
                         .SetAbsoluteExpiration(TimeSpan.FromMinutes(100));
-                        //You can also use .SetSlidingExpiration
+                    //You can also use .SetSlidingExpiration
 
                     var message = "Hello " + DateTimeOffset.UtcNow.ToString();
                     cache.Set(CACHE_KEY, message, options);
@@ -44,7 +43,7 @@ namespace Caching
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
