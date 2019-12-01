@@ -8,7 +8,7 @@ using System;
 using Microsoft.Extensions.FileProviders;
 using System.Threading;
 using Microsoft.Extensions.Primitives;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Caching.Four
 {
@@ -23,7 +23,7 @@ namespace Caching.Four
             services.AddMemoryCache();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILoggerFactory logger)
         {
             var fileProvider = new PhysicalFileProvider(env.ContentRootPath);
             var cts = new CancellationTokenSource();
@@ -51,7 +51,7 @@ namespace Caching.Four
                     greeting = message;
                 }
 
-                var greeting2 =  cache.Get(CACHE_KEY_2) as string;
+                var greeting2 = cache.Get(CACHE_KEY_2) as string;
                 if (string.IsNullOrWhiteSpace(greeting2))
                 {
                     var options = new MemoryCacheEntryOptions()
@@ -78,7 +78,7 @@ namespace Caching.Four
                     count = 0;
                     cts = new CancellationTokenSource();
                 }
-                
+
                 await context.Response.WriteAsync($"Above greetings share the same cancellation token. They will both expire at the same time. The caches will expire if you refresh this page {resetCount} times. So far you have loaded {count} times. \n");
             });
         }
