@@ -7,9 +7,9 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Caching.Two 
+namespace Caching.Two
 {
     public class Startup
     {
@@ -22,7 +22,7 @@ namespace Caching.Two
             services.AddMemoryCache();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var fileProvider = new PhysicalFileProvider(env.ContentRootPath);
 
@@ -33,7 +33,8 @@ namespace Caching.Two
                 var greeting = cache.Get(CACHE_KEY) as string;
 
                 //There is no existing cache, add one
-                if (string.IsNullOrWhiteSpace(greeting)){
+                if (string.IsNullOrWhiteSpace(greeting))
+                {
                     var options = new MemoryCacheEntryOptions()
                         .AddExpirationToken(fileProvider.Watch(FILE_TO_WATCH));
 
@@ -47,7 +48,7 @@ namespace Caching.Two
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
