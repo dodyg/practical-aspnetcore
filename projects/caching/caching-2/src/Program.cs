@@ -17,7 +17,6 @@ namespace PracticalAspNetCore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
             services.AddMemoryCache();
         }
 
