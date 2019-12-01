@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
+
 namespace Caching.Three
 {
     public class Startup
@@ -19,7 +19,7 @@ namespace Caching.Three
             services.AddMemoryCache();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             var fileProvider = new PhysicalFileProvider(env.ContentRootPath);
 
