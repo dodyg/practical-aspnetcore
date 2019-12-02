@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Routing;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -23,19 +23,22 @@ namespace StartupBasic
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseRouter(r =>{
-                r.MapGet("", async context => {
+            app.UseRouter(r =>
+            {
+                r.MapGet("", async context =>
+                {
                     context.Response.Headers.Add("Content-Type", "text/html");
                     await context.Response.WriteAsync($"Hello world <br><a href=\"good-morning\">Greet good morning</a>");
                 });
-                r.MapGet("good-morning", async context => {
+                r.MapGet("good-morning", async context =>
+                {
                     context.Response.Headers.Add("Content-Type", "text/html");
-                    await context.Response.WriteAsync("Good morning");  
+                    await context.Response.WriteAsync("Good morning");
                 });
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

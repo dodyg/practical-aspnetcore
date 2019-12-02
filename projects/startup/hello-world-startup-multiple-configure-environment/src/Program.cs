@@ -5,14 +5,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
         public void ConfigureProduction(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 return context.Response.WriteAsync("Hello world Production");
@@ -22,7 +22,7 @@ namespace StartupBasic
         public void ConfigureDevelopment(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 return context.Response.WriteAsync("Hello world Development");

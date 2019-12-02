@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using System.IO;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -25,12 +25,12 @@ namespace StartupBasic
         {
             //These are the three default services available at Configure
             var routerBuilder = new RouteBuilder(app);
-       
+
             routerBuilder.MapGet("", async context =>
             {
-               context.Response.Headers.Add("content-type", "text/html");
+                context.Response.Headers.Add("content-type", "text/html");
 
-               var body = $@"
+                var body = $@"
                <h1>Upload File</h1>
                <form action=""Upload"" method=""post"" enctype=""multipart/form-data"">
                     <input type=""text"" name=""name"" placeholder=""Name"" /><br/><br/>
@@ -52,7 +52,7 @@ namespace StartupBasic
                </form>
                ";
 
-               await context.Response.WriteAsync(body); 
+                await context.Response.WriteAsync(body);
             });
 
             routerBuilder.MapPost("Upload", async context =>
@@ -63,11 +63,11 @@ namespace StartupBasic
                 {
                     var form = await context.Request.ReadFormAsync();
 
-                    foreach(var v in form.Keys)
+                    foreach (var v in form.Keys)
                     {
                         await context.Response.WriteAsync($"{v} = {form[v]} <br/>");
                     }
-                   
+
                 }
                 await context.Response.WriteAsync("");
             });
@@ -77,7 +77,7 @@ namespace StartupBasic
 
         public static byte[] ReadFully(Stream input)
         {
-            byte[] buffer = new byte[16*1024];
+            byte[] buffer = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int read;
@@ -89,7 +89,7 @@ namespace StartupBasic
             }
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

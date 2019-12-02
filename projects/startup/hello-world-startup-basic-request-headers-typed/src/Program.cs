@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -23,7 +23,7 @@ namespace StartupBasic
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 var typedHeaders = context.Request.GetTypedHeaders();
@@ -36,7 +36,7 @@ Accept Language : {typedHeaders.AcceptLanguage.FirstOrDefault()?.Value}
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

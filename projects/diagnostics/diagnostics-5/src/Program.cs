@@ -11,10 +11,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
-   public class Program
-   {
+    public class Program
+    {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -22,18 +22,19 @@ namespace StartupBasic
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .Configure(app => 
+                .Configure(app =>
                 {
                     app.UseStatusCodePagesWithRedirects("/error?status={0}");
 
                     app.Map("/error", errorApp =>
                     {
-                        errorApp.Run(async context => {
-                            await context.Response.WriteAsync($"This is a redirected error message status {context.Request.Query["status"]}");            
+                        errorApp.Run(async context =>
+                        {
+                            await context.Response.WriteAsync($"This is a redirected error message status {context.Request.Query["status"]}");
                         });
-                    });      
+                    });
 
-                    app.Run(context => 
+                    app.Run(context =>
                     {
                         context.Response.StatusCode = 500;//change this as necessary
                         return Task.CompletedTask;

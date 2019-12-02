@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Routing;
 using System.Net.Http;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -29,13 +29,13 @@ namespace StartupBasic
                 var httpClient = context.RequestServices.GetService<IHttpClientFactory>();
                 var client = httpClient.CreateClient();
                 var result = await client.GetStringAsync("http://scripting.com/rss.xml");
-            
+
                 context.Response.Headers.Add("Content-Type", "application/rss+xml");
                 await context.Response.WriteAsync(result);
             });
         }
     }
-    
+
 
     public class Program
     {

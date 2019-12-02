@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -26,7 +26,7 @@ namespace StartupBasic
                 .SelectMany(x => x.GetTypes())
                 .Where(p => type.IsAssignableFrom(p) && p.IsClass);
 
-            foreach(var p in types)
+            foreach (var p in types)
             {
                 var config = (IBootstrap)System.Activator.CreateInstance(p);
                 config.Register(services);
@@ -36,7 +36,7 @@ namespace StartupBasic
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 var person = app.ApplicationServices.GetService<Person>();
@@ -56,7 +56,7 @@ namespace StartupBasic
     {
         public void Register(IServiceCollection services)
         {
-            services.AddTransient(x => new Person { Name = "Mahmoud"});
+            services.AddTransient(x => new Person { Name = "Mahmoud" });
             //continue registering all your classes here
         }
     }
@@ -67,19 +67,19 @@ namespace StartupBasic
     {
         public void Register(IServiceCollection services)
         {
-            services.AddTransient(x => new Greeting { Message = "Good Morning"});
-           //continue registering all your classes here
+            services.AddTransient(x => new Greeting { Message = "Good Morning" });
+            //continue registering all your classes here
         }
     }
 
-    public class Person 
+    public class Person
     {
-        public string Name { get; set;}
+        public string Name { get; set; }
     }
 
     public class Greeting
     {
-        public string Message { get; set;}
+        public string Message { get; set; }
     }
 
     public class Program

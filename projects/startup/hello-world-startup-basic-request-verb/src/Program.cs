@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -28,7 +28,7 @@ namespace StartupBasic
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

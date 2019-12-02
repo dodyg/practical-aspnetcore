@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -22,14 +22,15 @@ namespace StartupBasic
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
-        {            
-             var options = new RewriteOptions()
-                .AddRedirect("/$", "/"); //redirect when path ends with /
+        {
+            var options = new RewriteOptions()
+               .AddRedirect("/$", "/"); //redirect when path ends with /
 
             app.UseRewriter(options);
 
             var routes = new RouteBuilder(app);
-            routes.MapGet("", (context) => {
+            routes.MapGet("", (context) =>
+            {
                 context.Response.Headers.Add("content-type", "text/html");
                 return context.Response.WriteAsync($"Always display this page when path ends with / e.g. <a href=\"/hello-world/\">/hello-world/</a> or <a href=\"/welcome/everybody/inthis/train/\">/welcome/everybody/inthis/train/</a>.");
             });
@@ -37,7 +38,7 @@ namespace StartupBasic
             app.UseRouter(routes.Build());
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

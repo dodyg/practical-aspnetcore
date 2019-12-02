@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -26,15 +26,15 @@ namespace StartupBasic
                 context.Response.Headers.Add("content-type", "text/html");
                 await context.Response.WriteAsync("<h1>Request Headers</h1>");
                 await context.Response.WriteAsync("<ul>");
-                foreach(var h in context.Request.Headers)         
+                foreach (var h in context.Request.Headers)
                 {
                     await context.Response.WriteAsync($"<li>{h.Key} : {h.Value}</li>");
-                }       
+                }
                 await context.Response.WriteAsync("</ul>");
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

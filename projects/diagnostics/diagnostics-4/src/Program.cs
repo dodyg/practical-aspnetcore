@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
-   public class Program
-   {
+    public class Program
+    {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -18,7 +18,7 @@ namespace StartupBasic
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .Configure(app => 
+                .Configure(app =>
                 {
                     app.UseExceptionHandler("/GlobalError");
 
@@ -38,7 +38,7 @@ namespace StartupBasic
                             }
                         });
                     });
-                    
+
                     app.Run(context => throw new ApplicationException("Hello World Exception"));
                 })
                 .UseEnvironment("Development");

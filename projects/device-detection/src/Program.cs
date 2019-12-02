@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Wangkanai.Detection;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -19,7 +19,7 @@ namespace StartupBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDetectionCore()
-                .AddDevice(); 
+                .AddDevice();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
@@ -36,7 +36,7 @@ namespace StartupBasic
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -29,7 +29,7 @@ namespace StartupBasic
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

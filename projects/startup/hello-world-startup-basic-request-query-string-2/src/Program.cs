@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Primitives;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -33,7 +33,7 @@ namespace StartupBasic
                 await context.Response.WriteAsync("<h1>Query String with multiple values</h1>");
                 await context.Response.WriteAsync(@"<a href=""?message=hello&message=world&message=again"">click this link to add query string</a><br/><br/>");
                 await context.Response.WriteAsync("<ul>");
-                foreach(string v in queryString)
+                foreach (string v in queryString)
                 {
                     await context.Response.WriteAsync($"<li>{v}</li>");
                 }
@@ -42,7 +42,7 @@ namespace StartupBasic
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

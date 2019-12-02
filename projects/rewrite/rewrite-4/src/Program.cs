@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Routing;
 using System.Net;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -23,14 +23,15 @@ namespace StartupBasic
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
-        {            
-             var options = new RewriteOptions()
-                .AddRedirect("([/_0-9a-z-]+)+(.*)$", "/?path=$1&ext=$2", (int) HttpStatusCode.MovedPermanently); //redirect any path that ends with .html 
+        {
+            var options = new RewriteOptions()
+               .AddRedirect("([/_0-9a-z-]+)+(.*)$", "/?path=$1&ext=$2", (int)HttpStatusCode.MovedPermanently); //redirect any path that ends with .html 
 
             app.UseRewriter(options);
 
             var routes = new RouteBuilder(app);
-            routes.MapGet("", (context) => {
+            routes.MapGet("", (context) =>
+            {
                 context.Response.Headers.Add("content-type", "text/html");
                 var path = context.Request.Query["Path"];
                 var ext = context.Request.Query["Ext"];
@@ -47,7 +48,7 @@ namespace StartupBasic
             app.UseRouter(routes.Build());
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

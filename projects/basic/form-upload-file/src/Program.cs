@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using System.IO;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -25,12 +25,12 @@ namespace StartupBasic
         {
             //These are the three default services available at Configure
             var routerBuilder = new RouteBuilder(app);
-       
+
             routerBuilder.MapGet("", async context =>
             {
-               context.Response.Headers.Add("content-type", "text/html");
+                context.Response.Headers.Add("content-type", "text/html");
 
-               var body = $@"
+                var body = $@"
                <h1>Upload File</h1>
                <form action=""Upload"" method=""post"" enctype=""multipart/form-data"">
                     <input type=""file"" name=""file"" />
@@ -38,7 +38,7 @@ namespace StartupBasic
                </form>
                ";
 
-               await context.Response.WriteAsync(body); 
+                await context.Response.WriteAsync(body);
             });
 
             routerBuilder.MapPost("Upload", async context =>
@@ -47,9 +47,9 @@ namespace StartupBasic
                 {
                     var form = await context.Request.ReadFormAsync();
 
-                    foreach(var f in form.Files)
+                    foreach (var f in form.Files)
                     {
-                        using(var body = f.OpenReadStream())
+                        using (var body = f.OpenReadStream())
                         {
                             var fileName = Path.Combine(env.ContentRootPath, f.FileName);
                             File.WriteAllBytes(fileName, ReadFully(body));
@@ -65,7 +65,7 @@ namespace StartupBasic
 
         public static byte[] ReadFully(Stream input)
         {
-            byte[] buffer = new byte[16*1024];
+            byte[] buffer = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int read;
@@ -77,7 +77,7 @@ namespace StartupBasic
             }
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

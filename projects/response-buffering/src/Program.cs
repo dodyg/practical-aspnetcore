@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -18,18 +18,18 @@ namespace StartupBasic
             app.Run(async context =>
             {
                 context.Response.ContentType = "application/json";
-                await context.Response.WriteAsync(Newtonsoft.Json.JsonConvert.SerializeObject(new { Name = "Annie", Status = "Amore"}));
-                
+                await context.Response.WriteAsync(Newtonsoft.Json.JsonConvert.SerializeObject(new { Name = "Annie", Status = "Amore" }));
+
                 //Without buffering this would have generated exception
                 context.Response.Headers.Clear();
                 context.Response.ContentType = "text/plain";
-                
+
                 context.Response.Body.SetLength(0);
                 await context.Response.WriteAsync("hello world");
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

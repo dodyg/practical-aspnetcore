@@ -6,10 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
-   public class Program
-   {
+    public class Program
+    {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -17,7 +17,7 @@ namespace StartupBasic
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .Configure(app => 
+                .Configure(app =>
                 {
                     app.UseDeveloperExceptionPage(); //Don't use this in production
                     app.Run(context => throw new ApplicationException("Hello World Exception"));

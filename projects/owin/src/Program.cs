@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Globalization;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -30,10 +30,11 @@ namespace StartupBasic
         {
             app.UseOwin(pipeline =>
             {
-                pipeline(next => async environment =>{
+                pipeline(next => async environment =>
+                {
                     byte[] response = Encoding.UTF8.GetBytes("Hello world");
                     var responseStream = (Stream)environment["owin.ResponseBody"];
-                    
+
                     var responseHeaders = (IDictionary<string, string[]>)environment["owin.ResponseHeaders"];
                     responseHeaders["Content-Length"] = new string[] { response.Length.ToString(CultureInfo.InvariantCulture) };
                     responseHeaders["Content-Type"] = new string[] { "text/plain" };

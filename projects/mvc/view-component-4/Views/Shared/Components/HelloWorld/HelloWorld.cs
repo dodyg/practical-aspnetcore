@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Greeting
     {
@@ -16,5 +16,5 @@ namespace StartupBasic
         {
             return View(new Greeting { Message = message.Content, Repeat = message.Repeat });
         }
-}
+    }
 }

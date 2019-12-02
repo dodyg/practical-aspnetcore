@@ -7,7 +7,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup : IStartup
     {
@@ -19,7 +19,7 @@ namespace StartupBasic
         public void Configure(IApplicationBuilder app)
         {
             //With normal startup class these two variables are available from the parameters of Configure method
-            var env = (IHostingEnvironment) app.ApplicationServices.GetService(typeof(IHostingEnvironment));
+            var env = (IHostingEnvironment)app.ApplicationServices.GetService(typeof(IHostingEnvironment));
             var logger = (ILoggerFactory)app.ApplicationServices.GetService(typeof(ILoggerFactory));
             app.Run(async context =>
             {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Antiforgery;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -34,13 +34,13 @@ namespace StartupBasic
             {
                 if (HttpMethods.IsPost(context.Request.Method))
                 {
-                    await antiForgery.ValidateRequestAsync(context);        
+                    await antiForgery.ValidateRequestAsync(context);
                     await context.Response.WriteAsync("Response validated with anti forgery");
                     return;
                 }
-                
+
                 var token = antiForgery.GetAndStoreTokens(context);
-               
+
                 context.Response.Headers.Add("ContentType", "text/html");
                 await context.Response.WriteAsync($@"
                 <html>
@@ -56,7 +56,7 @@ namespace StartupBasic
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

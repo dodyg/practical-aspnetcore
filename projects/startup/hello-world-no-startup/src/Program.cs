@@ -5,15 +5,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
-   public class Greeter
-   {
-       public string Say() => "Look Ma, no Startup class";
-   }    
+    public class Greeter
+    {
+        public string Say() => "Look Ma, no Startup class";
+    }
 
-   public class Program
-   {
+    public class Program
+    {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

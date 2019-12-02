@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic 
+namespace PracticalAspNetCore
 {
     public class GreetingStartupFilter : IStartupFilter
     {
@@ -27,15 +27,15 @@ namespace StartupBasic
         public HelloWorldMiddleware(RequestDelegate next)
         {
 
-        }   
+        }
 
         public async Task Invoke(HttpContext context)
         {
             await context.Response.WriteAsync($"{context.Items["Greetings"]}");
-        }     
+        }
     }
 
-    public class GreetingMiddleware 
+    public class GreetingMiddleware
     {
         RequestDelegate _next;
         public GreetingMiddleware(RequestDelegate next)
@@ -67,7 +67,7 @@ namespace StartupBasic
             //Empty by design
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
