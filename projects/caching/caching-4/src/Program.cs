@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
-using System;
 using Microsoft.Extensions.FileProviders;
 using System.Threading;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Extensions.Hosting;
+using System;
 
-namespace Caching.Four
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -19,11 +19,10 @@ namespace Caching.Four
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is the only service available at ConfigureServices
             services.AddMemoryCache();
         }
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILogger<Startup> log)
         {
             var fileProvider = new PhysicalFileProvider(env.ContentRootPath);
             var cts = new CancellationTokenSource();
@@ -43,7 +42,7 @@ namespace Caching.Four
                         .AddExpirationToken(new CancellationChangeToken(cts.Token))
                         .RegisterPostEvictionCallback((object key, object value, EvictionReason reason, object state) =>
                         {
-                            Console.WriteLine($"Key '{key}' with value '{value}' was removed because of '{reason}'");
+                            log.LogInformation($"Key '{key}' with value '{value}' was removed because of '{reason}'");
                         });
 
                     var message = $"Hello   {DateTime.Now.Ticks}";
@@ -58,7 +57,7 @@ namespace Caching.Four
                     .AddExpirationToken(new CancellationChangeToken(cts.Token))
                     .RegisterPostEvictionCallback((object key, object value, EvictionReason reason, object state) =>
                     {
-                        Console.WriteLine($"Key '{key}' with value '{value}' was removed because of '{reason}'");
+                        log.LogInformation($"Key '{key}' with value '{value}' was removed because of '{reason}'");
                     });
 
                     var message = $"Hello 2 {DateTime.UtcNow.Ticks}";
@@ -93,6 +92,16 @@ namespace Caching.Four
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                    // Filter out the noise 
+                    logging.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft.AspNetCore");
+                    });
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                     webBuilder.UseStartup<Startup>()
                 );
