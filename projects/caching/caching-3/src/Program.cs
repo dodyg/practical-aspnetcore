@@ -6,8 +6,9 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-namespace Caching.Three
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -19,7 +20,7 @@ namespace Caching.Three
             services.AddMemoryCache();
         }
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILogger<Startup> log)
         {
             var fileProvider = new PhysicalFileProvider(env.ContentRootPath);
 
@@ -36,9 +37,9 @@ namespace Caching.Three
                         .RegisterPostEvictionCallback((object key, object value, EvictionReason reason, object state) =>
                         {
                             if (state == null)
-                                System.Console.WriteLine("State is null");
+                                log.LogInformation("State is null");
 
-                            Console.WriteLine($"Key '{key}' with value '{value}' was removed because of '{reason}'");
+                            log.LogInformation($"Key '{key}' with value '{value}' was removed because of '{reason}'");
                         });
                     //You can also use .SetSlidingExpiration
 
@@ -72,8 +73,18 @@ namespace Caching.Three
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.UseStartup<Startup>()
-                );
+            .ConfigureLogging(logging =>
+            {
+                logging.ClearProviders();
+                logging.AddConsole();
+                // Filter out the noise 
+                logging.AddFilter((provider, category, logLevel) =>
+                {
+                    return !category.Contains("Microsoft.AspNetCore");
+                });
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.UseStartup<Startup>()
+            );
     }
 }
