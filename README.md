@@ -1,5 +1,7 @@
 # 306 samples for ASP.NET Core 2.1, 2.2, 3.0 and 3.1-Preview3 fundamentals (updated almost daily - except during Summer)
 
+There is an [active branch](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS) that converts all these samples to ASP.NET Core 3.1
+
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
 
 Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
