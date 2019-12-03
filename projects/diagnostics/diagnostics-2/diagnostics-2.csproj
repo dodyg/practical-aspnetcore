@@ -5,5 +5,4 @@
     <OutputType>Exe</OutputType>
     <PackageId>diagnostics-2</PackageId>
   </PropertyGroup>
-
 </Project>
