@@ -5,4 +5,5 @@
     <OutputType>Exe</OutputType>
     <PackageId>diagnostics</PackageId>
   </PropertyGroup>
+</Project>
 
