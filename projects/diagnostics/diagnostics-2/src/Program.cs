@@ -6,6 +6,15 @@ using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseDeveloperExceptionPage(); //Don't use this in production
+            app.Run(context => throw new ApplicationException("Hello World Exception"));
+        }
+    }
+
     public class Program
     {
         public static void Main(string[] args) =>
@@ -14,10 +23,6 @@ namespace PracticalAspNetCore
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.Configure(app =>
-                {
-                    app.UseDeveloperExceptionPage(); //Don't use this in production
-                    app.Run(context => throw new ApplicationException("Hello World Exception"));
-                }));
+                    webBuilder.UseStartup<Startup>());
     }
 }
