@@ -1,6 +1,6 @@
 # Diagnostics
 
-  * [Welcome Page](/projects/diagnostics/diagnostic-1)
+  * [Welcome Page](/projects/diagnostics/diagnostics-1)
 
     Simply show a welcome page to indicate that the app is working properly. This sample does not use a startup class simply because it's just a one line code.
 
