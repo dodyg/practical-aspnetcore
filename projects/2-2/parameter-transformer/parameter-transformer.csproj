@@ -6,7 +6,5 @@
     <PackageId>parameter-transformer</PackageId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+
 </Project>

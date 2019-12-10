@@ -6,7 +6,5 @@
     <PackageId>health-check-6</PackageId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+
 </Project>
