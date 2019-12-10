@@ -6,7 +6,7 @@
     <PackageId>features-session</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.*" />
+
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.*" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.*" />
   </ItemGroup>
