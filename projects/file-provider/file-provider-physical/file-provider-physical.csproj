@@ -5,7 +5,5 @@
     <OutputType>Exe</OutputType>
     <PackageId>file-provider-physical</PackageId>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
-  </ItemGroup>
+
 </Project>

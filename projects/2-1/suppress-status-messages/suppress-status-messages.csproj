@@ -7,9 +7,7 @@
     <PackageId>supress-status-message</PackageId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
-  </ItemGroup>
+
 
   <ItemGroup>
   </ItemGroup>
