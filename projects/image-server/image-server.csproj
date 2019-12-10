@@ -5,5 +5,4 @@
     <OutputType>Exe</OutputType>
     <PackageId>image-server</PackageId>
   </PropertyGroup>
-
 </Project>
