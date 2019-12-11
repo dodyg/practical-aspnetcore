@@ -5,6 +5,4 @@
     <OutputType>Exe</OutputType>
     <PackageId>health-check-2</PackageId>
   </PropertyGroup>
-
-
 </Project>

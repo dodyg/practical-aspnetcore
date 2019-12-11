@@ -1,41 +1,37 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Hosting;
 
-namespace EndpointRoutingSample
+namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHealthChecks();
-
-            services
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseHealthChecks("/IsUp", new HealthCheckOptions
+
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
-                ResponseWriter = async (context, health) =>
+                route.MapHealthChecks("/IsUp", new HealthCheckOptions
                 {
-                    await context.Response.WriteAsync("Mucho Bien");
-                }
+                    ResponseWriter = async (context, health) =>
+                    {
+                        await context.Response.WriteAsync("Mucho Bien");
+                    }
+                });
+
+                route.MapDefaultControllerRoute();
             });
-            app.UseMvcWithDefaultRoute();
         }
     }
 
@@ -57,10 +53,8 @@ namespace EndpointRoutingSample
 
     public class Program
     {
-        public static void Main(string[] args)
-        {
+        public static void Main(string[] args) =>
             CreateHostBuilder(args).Build().Run();
-        }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
