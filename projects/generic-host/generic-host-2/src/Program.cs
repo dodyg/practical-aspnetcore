@@ -5,7 +5,7 @@ using System.Threading;
 using Microsoft.Extensions.Hosting;
 using System;
 
-namespace GenericHostBasic
+namespace PracticalAspNetCore
 {
     public class HelloWorldService : IHostedService
     {

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging.Console;
 using Microsoft.Extensions.Logging.Debug;
 using Microsoft.Extensions.Logging;
 
-namespace GenericHostBasic
+namespace PracticalAspNetCore
 {
     public class HelloWorldService : IHostedService
     {

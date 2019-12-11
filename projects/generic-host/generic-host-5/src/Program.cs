@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading;
 
-namespace GenericHostBasic
+namespace PracticalAspNetCore
 {
     public class CountingService : IHostedService, IDisposable
     {
