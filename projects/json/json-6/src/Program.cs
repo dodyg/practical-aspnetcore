@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace JsonSample
+namespace PracticalAspNetCore
 {
     public class Superpower
     {

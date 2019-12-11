@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace NewRouting.Areas.Admin.Controllers
+namespace PracticalAspNetCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class HomeController : Controller

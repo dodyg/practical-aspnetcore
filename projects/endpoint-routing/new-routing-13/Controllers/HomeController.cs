@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Data
     {

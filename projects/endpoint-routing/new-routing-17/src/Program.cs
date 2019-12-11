@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {

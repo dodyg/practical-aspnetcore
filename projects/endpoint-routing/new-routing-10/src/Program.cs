@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Connections;
 using System.Threading.Tasks;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {

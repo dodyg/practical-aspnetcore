@@ -13,7 +13,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using System;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {

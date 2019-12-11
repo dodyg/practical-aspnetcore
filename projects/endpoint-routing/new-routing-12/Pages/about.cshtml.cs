@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     [Message(ContentGet = "This message only shows up on GET", ContentPost = "This message only shows up on POST")]
     public class AboutModel : PageModel

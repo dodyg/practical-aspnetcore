@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Connections;
 using System.Threading.Tasks;
 using System;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {

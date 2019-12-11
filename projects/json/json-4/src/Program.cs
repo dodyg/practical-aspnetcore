@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace JsonSample
+namespace PracticalAspNetCore
 {
     public class Person
     {

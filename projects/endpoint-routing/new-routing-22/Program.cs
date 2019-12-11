@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {

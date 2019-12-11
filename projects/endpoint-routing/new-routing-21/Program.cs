@@ -14,7 +14,7 @@ using System.IO;
 using System;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {

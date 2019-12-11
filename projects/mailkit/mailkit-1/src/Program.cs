@@ -12,7 +12,7 @@ using MailKit.Security;
 using MimeKit.Text;
 using MimeKit;
 
-namespace MailkitBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

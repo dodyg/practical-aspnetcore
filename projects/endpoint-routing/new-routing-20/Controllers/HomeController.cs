@@ -1,7 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace NewRouting.Controllers
+namespace PracticalAspNetCore.Controllers
 {
     public class HomeController : Controller
     {

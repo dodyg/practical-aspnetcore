@@ -13,7 +13,7 @@ using MimeKit.Text;
 using MimeKit;
 
 
-namespace MailkitBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -95,7 +95,7 @@ namespace MailkitBasic
     }
 }
 
-namespace MailkitBasic.Controllers
+namespace PracticalAspNetCore.Controllers
 {
 public class MailkitController : Controller
     {

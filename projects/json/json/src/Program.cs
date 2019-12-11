@@ -7,7 +7,7 @@ using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     public class Person
     {

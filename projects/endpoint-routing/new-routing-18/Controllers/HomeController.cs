@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace NewRouting
+namespace PracticalAspNetCore
 {
     [Route("")]
     public class HomeController : Controller

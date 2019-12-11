@@ -10,7 +10,7 @@ using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
 
-namespace JsonSample
+namespace PracticalAspNetCore
 {
     public class Person
     {
