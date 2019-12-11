@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Hosting.Server;
 
-namespace EndpointRoutingSample
+namespace PracticalAspNetCore
 {
     public class Startup
     {

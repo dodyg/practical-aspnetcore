@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
-namespace EndpointRoutingSample
+namespace PracticalAspNetCore
 {
     public class Startup
     {

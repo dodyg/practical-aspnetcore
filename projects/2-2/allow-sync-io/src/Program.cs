@@ -13,7 +13,7 @@ using Newtonsoft;
 using Newtonsoft.Json.Linq;
 using System;
 
-namespace EndpointRoutingSample
+namespace PracticalAspNetCore
 {
     public class Startup
     {

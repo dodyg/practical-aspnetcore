@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using System.Text.RegularExpressions;
 
-namespace EndpointRoutingSample
+namespace PracticalAspNetCore
 {
     public class Startup
     {

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System.Net;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EndpointRoutingSample
+namespace PracticalAspNetCore
 {
     public class Startup
     {
