@@ -1,12 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System;
@@ -15,50 +11,47 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net;
 using Microsoft.AspNetCore.Hosting.Server.Features;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
-
             services.AddHttpClient<HttpStatusCodeHealthCheck>();
+            services.AddHealthChecks().AddCheck<HttpStatusCodeHealthCheck>("HttpStatusCheck");
 
-            services.AddHealthChecks()
-                .AddCheck<HttpStatusCodeHealthCheck>("HttpStatusCheck");
-
-            services
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseHealthChecks("/IsUp", new HealthCheckOptions
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
-                ResponseWriter = async (context, health) =>
+                route.MapHealthChecks("/IsUp", new HealthCheckOptions
                 {
-                    if (health.Status == HealthStatus.Healthy)
-                        await context.Response.WriteAsync("Everything is good");
-                    else
+                    ResponseWriter = async (context, health) =>
                     {
-                        foreach (var h in health.Entries)
+                        if (health.Status == HealthStatus.Healthy)
+                            await context.Response.WriteAsync("Everything is good");
+                        else
                         {
-                            await context.Response.WriteAsync($"{h.Key} {h.Value.Description}");
+                            foreach (var h in health.Entries)
+                            {
+                                await context.Response.WriteAsync($"{h.Key} {h.Value.Description}");
+                            }
                         }
                     }
-                }
+                });
+
+                route.MapDefaultControllerRoute();
+
             });
-            app.UseMvcWithDefaultRoute();
         }
     }
 
@@ -128,10 +121,8 @@ namespace PracticalAspNetCore
 
     public class Program
     {
-        public static void Main(string[] args)
-        {
+        public static void Main(string[] args) =>
             CreateHostBuilder(args).Build().Run();
-        }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
