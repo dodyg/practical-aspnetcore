@@ -16,7 +16,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [System.Text.Json](/projects/json) |
 | [Endpoint Routing](/projects/endpoint-routing) |
 | [Diagnostics](/projects/diagnostics)|
-| [Health Check](/projects/healtch-check)|
+| [Health Check](/projects/health-check)|
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
