@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 3.1 (WIP)
 
-All the samples in this branch will be converted to ASP.NET Core 3.1. 
+This branch in a work in progress. I am converting over 200 samples from previous versions to 3.1. If you are starting on ASP.NET Core, you can start from the samples from the master branch. 
 
 ### Additional Sections
 

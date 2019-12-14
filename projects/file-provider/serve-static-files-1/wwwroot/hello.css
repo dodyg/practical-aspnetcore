@@ -1,3 +1,7 @@
-.hello-world {
+body {
     font-size: large;
+}
+
+h1 {
+    color: blueviolet;
 }
