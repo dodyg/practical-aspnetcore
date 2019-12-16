@@ -2,25 +2,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
+using System;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
         IEnumerable<int> Counter()
         {
             int count = 0;
@@ -29,52 +19,51 @@ namespace PracticalAspNetCore
                 yield return ++count;
             }
         }
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, ILogger<Startup> log)
         {
-            logger.AddConsole((str, level) =>
-            {
-                return !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace;
-            });
-
-            var log = logger.CreateLogger("Startup");
             int requestCount = 0;
 
-            app.Use(async (context, next) =>
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
-                if (context.Request.Headers["Accept"] == "text/event-stream")
+                route.MapGet("/sse", async context =>
                 {
-                    requestCount++;
-                    log.LogDebug($"Start SSE request {requestCount}");
-
-                    context.Response.ContentType = "text/event-stream";
-                    context.Response.Body.Flush();
-
-                    foreach (var round in Counter())
+                    if (context.Request.Headers["Accept"] == "text/event-stream")
                     {
-                        string data = $"hello world {round}";
-                        await context.Response.WriteAsync($"data: {data}\n");
+                        requestCount++;
+                        log.LogDebug($"Start SSE request {requestCount}");
 
-                        string id = round.ToString();
-                        await context.Response.WriteAsync($"id: {id}\n");
+                        try
+                        {
+                            context.Response.ContentType = "text/event-stream";
+                            await context.Response.Body.FlushAsync();
+                            foreach (var round in Counter())
+                            {
+                                string data = $"hello world {round}";
+                                await context.Response.WriteAsync($"data: {data}\n");
 
-                        string eventType = "message"; //the other type if 'ping'
-                        await context.Response.WriteAsync($"event: {eventType}\n");
+                                string id = round.ToString();
+                                await context.Response.WriteAsync($"id: {id}\n");
 
-                        await context.Response.WriteAsync("\n");//end of message
-                        context.Response.Body.Flush();
-                        await Task.Delay(3000);
+                                string eventType = "message"; //the other type if 'ping'
+                                await context.Response.WriteAsync($"event: {eventType}\n");
+
+                                await context.Response.WriteAsync("\n");//end of message
+                                await context.Response.Body.FlushAsync();
+                                await Task.Delay(3000);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            log.LogDebug(ex.Message);
+                        }
                     }
-
-                    context.RequestAborted.WaitHandle.WaitOne();
-                    return;
-                }
-
-                await next();
+                });
             });
 
-            app.Run(context =>
+            app.Run(async context =>
             {
-                return context.Response.WriteAsync(@"
+                await context.Response.WriteAsync(@"
                 <html>
                     <head>
                     </head>
@@ -91,7 +80,7 @@ namespace PracticalAspNetCore
                             };
 
                             source.onerror = function(event){
-                                alert('error');
+                                console.log(event);
                             };
                         </script>
                     </body>
@@ -100,7 +89,6 @@ namespace PracticalAspNetCore
             });
         }
     }
-
     public class Program
     {
         public static void Main(string[] args)
@@ -108,9 +96,19 @@ namespace PracticalAspNetCore
             CreateHostBuilder(args).Build().Run();
         }
 
-        static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                ).ConfigureLogging(builder =>
+                {
+                    builder.ClearProviders();
+                    builder.SetMinimumLevel(LogLevel.Trace);
+                    builder.AddConsole();
+                    builder.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft.AspNetCore");
+                    });
+                });
     }
 }
