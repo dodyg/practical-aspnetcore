@@ -1,12 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System;
@@ -15,18 +11,14 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net;
 using Microsoft.AspNetCore.Hosting.Server.Features;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
@@ -41,34 +33,38 @@ namespace PracticalAspNetCore
                 .AddCheck<OKHttpStatusCodeHealthCheck>("OK Status Check")
                 .AddCheck<Error2HttpStatusCodeHealthCheck>("Error Status 2 Check");
 
-            services
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseHealthChecks("/IsUp", new HealthCheckOptions
-            {
-                ResponseWriter = async (context, health) =>
-                {
-                    context.Response.Headers.Add("Content-Type", "text/plain");
+            app.UseRouting();
 
-                    if (health.Status == HealthStatus.Healthy)
-                        await context.Response.WriteAsync("Everything is good");
-                    else
+            app.UseEndpoints(route =>
+            {
+                route.MapHealthChecks("/IsUp", new HealthCheckOptions
+                {
+                    ResponseWriter = async (context, health) =>
                     {
-                        foreach (var h in health.Entries)
+                        context.Response.Headers.Add("Content-Type", "text/plain");
+
+                        if (health.Status == HealthStatus.Healthy)
+                            await context.Response.WriteAsync("Everything is good");
+                        else
                         {
-                            await context.Response.WriteAsync($"Key = {h.Key} :: Description = {h.Value.Description} :: Status = {h.Value.Status} \n");
+                            foreach (var h in health.Entries)
+                            {
+                                await context.Response.WriteAsync($"Key = {h.Key} :: Description = {h.Value.Description} :: Status = {h.Value.Status} \n");
+                            }
+
+                            await context.Response.WriteAsync($"\n\n Overall Status: {health.Status}");
                         }
 
-                        await context.Response.WriteAsync($"\n\n Overall Status: {health.Status}");
                     }
+                });
 
-                }
+                route.MapDefaultControllerRoute();
             });
-            app.UseMvcWithDefaultRoute();
         }
     }
 
