@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace Utilities
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -28,9 +28,9 @@ namespace Utilities
 
                 var output = "";
 
-                foreach(var qs in queryString)
+                foreach (var qs in queryString)
                 {
-                    output += qs.Key + " = " + qs.Value + "<br/>";   
+                    output += qs.Key + " = " + qs.Value + "<br/>";
                 }
                 await context.Response.WriteAsync($@"<html>
                 <body>

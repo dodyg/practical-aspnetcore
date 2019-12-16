@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace Utilities
+namespace PracticalAspNetCore
 {
     public class Startup
     {
