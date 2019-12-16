@@ -49,6 +49,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
 
+
+### Server-Sent Events (1)
+
+* [Forever Server](/projects/sse)
+
+  This server will send a 'hello world' greeting forever.
+
 <!-- 
 
 
@@ -559,38 +566,6 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Allow Directory Browsing](/projects/serve-static-files-6)
     
     Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
-
-* **Web Sockets (5)**
-
-  We are going to explore websocket functionality provided by ASP.NET Core. All the samples here require ```Microsoft.AspNetCore.WebSockets```. 
-
-  **Warning**: These samples are low level websocket code. For production, use [SignalR](https://github.com/aspnet/signalr). Yes I will work on SignalR samples soon.
-
-  * [Echo Server](/projects/web-sockets)
-
-    This is the simplest web socket code you can write. It simply returns what you sent. It does not handle the closing of the connection. It does not handle data that is larger than buffer. It only handles text payload.
-
-  * [Echo Server 2](/projects/web-sockets-2)
-
-    We improve upon the previous sample by adding console logging (requiring ```Microsoft.Extensions.Logging.Console``` package) and handling data larger than the buffer. I set the buffer to be very small (4 bytes) so you can see how it works.
-
-  * [Echo Server 3](/projects/web-sockets-3)
-  
-    We improve upon the previous sample by enabling broadcast. What you see here is a very crude chat functionality.
-
-  * [Echo Server 4](/projects/web-sockets-4)
-
-    We improve upon the previous sample by handling closing event intiated by the web client.
-    
-  * [Chat Server](/projects/web-sockets-5)
-
-    Implement a rudimentary single channel chat server.
-
-* **Server-Sent Events (1)**
-
-  * [Forever Server](/projects/sse)
-
-    This server will send a 'hello world' greeting forever.
 
 * **Syndications (2)**
 
