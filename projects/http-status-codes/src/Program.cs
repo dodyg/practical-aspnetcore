@@ -1,30 +1,17 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System;
 using System.Reflection;
 using System.Linq;
 using System.Net;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
         private List<FieldInfo> GetConstants(Type type)
         {
             FieldInfo[] fieldInfos = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
@@ -32,10 +19,11 @@ namespace PracticalAspNetCore
             return fieldInfos.Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
+                context.Response.Headers.Add("Content-Type", "text/html");
                 await context.Response.WriteAsync(@"<html>
                 <head>
                     <link rel=""stylesheet"" href=""https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"" />
@@ -44,13 +32,20 @@ namespace PracticalAspNetCore
                 <h1>Battle of the Http Status Codes</h1>
                 ");
 
-                await context.Response.WriteAsync(@"<table class=""table""><tbody><tr><td><h2>Microsoft.AspNetCore.Http.StatusCodes</h2><ul>");
+                await context.Response.WriteAsync(@"<table class=""table"">
+                <thead>
+                    <tr>
+                        <th>Microsoft.AspNetCore.Http.StatusCodes</th>
+                        <th>System.Net.HttpStatusCode</th>
+                    </tr>
+                </thead>");
+                await context.Response.WriteAsync("<tbody><tr><td><ul>");
                 foreach (var code in GetConstants(typeof(StatusCodes)))
                 {
                     await context.Response.WriteAsync($"<li>{code.Name} = {code.GetValue(code)}</li> \n");
                 }
 
-                await context.Response.WriteAsync("</ul></td><td><h2>System.Net.HttpStatusCode</h2><ul>");
+                await context.Response.WriteAsync("</ul></td><td><ul>");
 
                 foreach (var code in Enum.GetNames(typeof(HttpStatusCode)))
                 {

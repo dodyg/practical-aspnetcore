@@ -5,4 +5,4 @@
     <OutputType>Exe</OutputType>
     <PackageId>hello-world-startup-basic</PackageId>
   </PropertyGroup>
-
+</Project>
