@@ -17,6 +17,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Endpoint Routing](/projects/endpoint-routing) |
 | [Diagnostics](/projects/diagnostics)|
 | [Health Check](/projects/health-check)|
+| [IHttpClientFactory](/projects/httpclientfactory)|
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |

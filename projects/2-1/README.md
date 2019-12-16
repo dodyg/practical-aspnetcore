@@ -51,21 +51,7 @@
 
     `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
 
-  * [HttpClientFactory](httpclientfactory)
 
-    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
-
-  * [HttpClientFactory - 2](httpclientfactory-2)
-
-    Use preconfigured `HttpClient` via `IHttpClientFactory`.
-
-  * [HttpClientFactory - 3](httpclientfactory-3)
-
-    Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for your classes.
-
-  * [HttpClientFactory - 4](httpclientfactory-4)
-
-    Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for interface-implementing classes.
 
   * [Supress Status Messages](suppress-status-messages)
 
