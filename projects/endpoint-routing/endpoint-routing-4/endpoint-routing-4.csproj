@@ -5,6 +5,4 @@
     <OutputType>Exe</OutputType>
     <PackageId>endpoint-routing-4</PackageId>
   </PropertyGroup>
-
-
 </Project>
