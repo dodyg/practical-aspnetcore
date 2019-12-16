@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using System.Net.WebSockets;
 using System;
 using System.Threading;
@@ -12,7 +11,8 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PracticalAspNetCore
 {
@@ -74,15 +74,14 @@ namespace PracticalAspNetCore
             }
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void ConfigureServices(IServiceCollection services)
         {
-            logger.AddConsole((str, level) => !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace);
+            services.AddSingleton<ConnectionManager>();
+        }
 
-            var log = logger.CreateLogger("");
-
+        public void Configure(IApplicationBuilder app, ILogger<Startup> log, ConnectionManager cm)
+        {
             app.UseWebSockets();
-
-            var cm = new ConnectionManager();
 
             int count = 0;
             app.Use(async (context, next) =>
@@ -163,9 +162,19 @@ namespace PracticalAspNetCore
             CreateHostBuilder(args).Build().Run();
         }
 
-        static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                ).ConfigureLogging(builder =>
+                {
+                    builder.ClearProviders();
+                    builder.SetMinimumLevel(LogLevel.Trace);
+                    builder.AddConsole();
+                    builder.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft.AspNetCore");
+                    });
+                });
     }
 }
