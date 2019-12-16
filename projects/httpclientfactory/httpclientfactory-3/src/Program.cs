@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

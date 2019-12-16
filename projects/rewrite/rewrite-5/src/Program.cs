@@ -10,7 +10,7 @@ using Microsoft.Net.Http.Headers;
 using System.IO;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class ExtensionRedirection : IRule
     {
@@ -64,7 +64,7 @@ namespace StartupBasic
 
             app.UseRewriter(options);
 
-            app.UseStaticFiles(); 
+            app.UseStaticFiles();
 
             var routes = new RouteBuilder(app);
             routes.MapGet("", async context =>

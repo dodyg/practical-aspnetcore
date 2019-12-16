@@ -10,7 +10,7 @@ using System.Text;
 using System.IO;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

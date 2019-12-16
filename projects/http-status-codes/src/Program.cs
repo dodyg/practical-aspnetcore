@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Linq;
 using System.Net;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

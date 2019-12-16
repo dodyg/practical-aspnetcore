@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasicConfigureEnvironment 
+namespace PracticalAspNetCoreConfigureEnvironment
 {
     public class Greet
     {
@@ -34,7 +34,7 @@ namespace StartupBasicConfigureEnvironment
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 var greeter = context.RequestServices.GetService<Greet>();
@@ -45,16 +45,16 @@ namespace StartupBasicConfigureEnvironment
             });
         }
     }
-    
-   public class Program
+
+    public class Program
     {
         public static void Main(string[] args)
         {
-              var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseStartup<Startup>()
-                .UseEnvironment("Development") //switch to "Production" to use StartupProduction
-                .Build();
+            var host = new WebHostBuilder()
+              .UseKestrel()
+              .UseStartup<Startup>()
+              .UseEnvironment("Development") //switch to "Production" to use StartupProduction
+              .Build();
 
             host.Run();
         }

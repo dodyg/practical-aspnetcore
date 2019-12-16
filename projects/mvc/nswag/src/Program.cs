@@ -10,7 +10,7 @@ using NSwag.AspNetCore;
 using System.Reflection;
 using NJsonSchema;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

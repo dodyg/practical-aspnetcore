@@ -12,7 +12,7 @@ using Microsoft.Net.Http.Headers;
 using System;
 using Microsoft.AspNetCore.StaticFiles;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

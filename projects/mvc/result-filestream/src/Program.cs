@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

@@ -11,7 +11,7 @@ using System.Reflection;
 using NJsonSchema;
 using NSwag.Annotations;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

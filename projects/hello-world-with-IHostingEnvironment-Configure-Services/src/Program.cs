@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Options;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class SimpleOption
     {

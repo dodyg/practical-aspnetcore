@@ -6,7 +6,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -18,18 +18,18 @@ namespace StartupBasic
             {
                 context.Response.Headers.Add("Content-Type", "text/html");
 
-                var url1 = UriHelper.BuildAbsolute(scheme:" http", host: new HostString("localhost:5000"));
+                var url1 = UriHelper.BuildAbsolute(scheme: " http", host: new HostString("localhost:5000"));
                 var url2 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"));
                 var url3 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"));
                 var url4 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
                 query: new QueryString("?greeting=Annie&age=32"));
-                
+
                 var query5 = new QueryString()
                 .Add("greeting", "Annie")
                 .Add("age", "32");
-                
+
                 var url5 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
-                query: query5 );
+                query: query5);
 
                 var url6 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
                 query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));

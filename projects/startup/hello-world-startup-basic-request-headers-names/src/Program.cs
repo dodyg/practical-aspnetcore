@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

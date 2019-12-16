@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -20,8 +20,8 @@ namespace StartupBasic
 
     public class HomeController : Controller
     {
-        public ActionResult Index() => 
-            ViewComponent("HelloWorld", new { message = "Hello World", times = 10 }); 
+        public ActionResult Index() =>
+            ViewComponent("HelloWorld", new { message = "Hello World", times = 10 });
     }
 
     public class Program

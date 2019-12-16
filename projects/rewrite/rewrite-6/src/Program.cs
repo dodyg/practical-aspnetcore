@@ -10,7 +10,7 @@ using Microsoft.Net.Http.Headers;
 using System.IO;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class ExtensionRedirection : IRule
     {
@@ -61,27 +61,27 @@ namespace StartupBasic
             var options = new RewriteOptions()
                .Add(context =>
                {
-                    var request = context.HttpContext.Request;
+                   var request = context.HttpContext.Request;
 
-                    // Because we're redirecting back to the same app, stop processing if the request has already been redirected
-                    // This is to prevent crazy loop. Try it, comment below code and you are going to crash.
-                    if (request.Path.StartsWithSegments(new PathString("/images/jpeg")))
-                    {
-                        return;
-                    }
+                   // Because we're redirecting back to the same app, stop processing if the request has already been redirected
+                   // This is to prevent crazy loop. Try it, comment below code and you are going to crash.
+                   if (request.Path.StartsWithSegments(new PathString("/images/jpeg")))
+                   {
+                       return;
+                   }
 
-                    if (request.Path.Value.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase))
-                    {
-                        var response = context.HttpContext.Response;
-                        response.StatusCode = StatusCodes.Status301MovedPermanently;
-                        context.Result = RuleResult.EndResponse;
-                        response.Headers[HeaderNames.Location] = "/images/jpeg" + request.Path + request.QueryString;
-                    }   
+                   if (request.Path.Value.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase))
+                   {
+                       var response = context.HttpContext.Response;
+                       response.StatusCode = StatusCodes.Status301MovedPermanently;
+                       context.Result = RuleResult.EndResponse;
+                       response.Headers[HeaderNames.Location] = "/images/jpeg" + request.Path + request.QueryString;
+                   }
                });
 
             app.UseRewriter(options);
 
-            app.UseStaticFiles(); 
+            app.UseStaticFiles();
 
             var routes = new RouteBuilder(app);
             routes.MapGet("", async context =>

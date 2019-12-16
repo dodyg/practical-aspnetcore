@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public abstract class HostedService : Microsoft.Extensions.Hosting.IHostedService, IDisposable
     {

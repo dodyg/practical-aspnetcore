@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup1
     {
@@ -62,8 +62,8 @@ namespace StartupBasic
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            var hostBuilder =  WebHost.CreateDefaultBuilder(args).UseEnvironment("Development");
-        
+            var hostBuilder = WebHost.CreateDefaultBuilder(args).UseEnvironment("Development");
+
             //This is a dumb way of doing it. You can use command line argument, etc to switch your startup 
             const int startupNumber = 1; //CHANGE THIS to 2 if you want to use Startup2
 

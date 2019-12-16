@@ -14,7 +14,7 @@ using System.Text;
 using System.Linq;
 using System;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Outline
     {

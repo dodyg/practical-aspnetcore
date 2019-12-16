@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

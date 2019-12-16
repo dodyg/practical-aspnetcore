@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -24,7 +24,7 @@ namespace StartupBasic
         IEnumerable<int> Counter()
         {
             int count = 0;
-            while(true)
+            while (true)
             {
                 yield return ++count;
             }

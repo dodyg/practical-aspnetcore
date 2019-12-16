@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace StartupBasicUrls 
+namespace PracticalAspNetCoreUrls
 {
     public class Startup
     {
@@ -22,14 +22,14 @@ namespace StartupBasicUrls
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             //These are the three default services available at Configure
-            
+
             app.Run(context =>
             {
                 return context.Response.WriteAsync("Hello world responding on http://localhost:1000 and http://localhost:5000");
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

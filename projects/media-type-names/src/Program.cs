@@ -11,7 +11,7 @@ using System.Net.Mime;
 using Microsoft.Net.Http.Headers;
 using System;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

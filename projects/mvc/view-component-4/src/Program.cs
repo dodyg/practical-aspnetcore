@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -18,14 +18,14 @@ namespace StartupBasic
         {
             app.UseDeveloperExceptionPage();
             app.UseMvcWithDefaultRoute();
-        } 
+        }
     }
 
-    public class RepeatMessage 
+    public class RepeatMessage
     {
-        public string Content { get; set;}
+        public string Content { get; set; }
 
-        public int Repeat { get;set;}
+        public int Repeat { get; set; }
     }
 
     public class HomeController : Controller

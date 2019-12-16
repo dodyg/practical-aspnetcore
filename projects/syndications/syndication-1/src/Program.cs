@@ -12,7 +12,7 @@ using System.Xml;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -43,7 +43,7 @@ namespace StartupBasic
 
                 var str = new StringBuilder();
                 str.Append("<ul>");
-                foreach(var i in items)
+                foreach (var i in items)
                 {
                     str.Append($"<li>{i.Description}</li>");
                 }

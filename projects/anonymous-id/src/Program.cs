@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Routing;
 using ReturnTrue.AspNetCore.Identity.Anonymous;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

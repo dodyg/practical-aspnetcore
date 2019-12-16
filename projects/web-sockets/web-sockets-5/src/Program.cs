@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class ConnectionManager
     {
@@ -205,7 +205,7 @@ namespace StartupBasic
                                         await socket.SendAsync(Reply(string.Join(",", others)), WebSocketMessageType.Text, true, CancellationToken.None);
                                     else
                                         await socket.SendAsync(Reply("No other user on this channel"), WebSocketMessageType.Text, true, CancellationToken.None);
-                                    
+
                                     break;
                                 }
 

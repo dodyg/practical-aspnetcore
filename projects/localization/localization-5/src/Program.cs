@@ -10,7 +10,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -50,7 +50,7 @@ namespace StartupBasic
                 var local = fac.Create(string.Empty, string.Empty);
 
                 var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
-                
+
                 return context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
             });
         }

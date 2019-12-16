@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

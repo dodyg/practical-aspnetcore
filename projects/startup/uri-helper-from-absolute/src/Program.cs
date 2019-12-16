@@ -6,7 +6,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class Startup
     {

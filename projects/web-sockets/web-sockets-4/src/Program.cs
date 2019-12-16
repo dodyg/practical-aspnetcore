@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore;
 
-namespace StartupBasic
+namespace PracticalAspNetCore
 {
     public class ConnectionManager
     {
@@ -50,8 +50,9 @@ namespace StartupBasic
                     do
                     {
                         result = await socket.ReceiveAsync(receiveBuffer, CancellationToken.None);
-                        
-                        if (result.MessageType == WebSocketMessageType.Close){
+
+                        if (result.MessageType == WebSocketMessageType.Close)
+                        {
                             log.LogDebug($"Socket Id {socketId} : Receive closing message.");
                             var removalStatus = cm.RemoveSocket(socketId);
                             log.LogDebug($"Socket Id {socketId} removal status {removalStatus}.");
@@ -79,7 +80,7 @@ namespace StartupBasic
 
                         await responseHandlerAsync(cm, clientRequest);
                     }
-                    
+
                     if (result.CloseStatus.HasValue)
                         break;
                 }
