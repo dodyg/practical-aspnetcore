@@ -2,7 +2,7 @@
 
 This branch in a work in progress. I am converting over 200 samples from previous versions to 3.1. If you are starting on ASP.NET Core, you can start from the samples from the master branch. 
 
-### Additional Sections
+## Additional Sections
 
 *Continue to scroll down to find materials for absolute beginners to ASP.NET Core.*
 
@@ -18,6 +18,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Diagnostics](/projects/diagnostics)|
 | [Health Check](/projects/health-check)|
 | [IHttpClientFactory](/projects/httpclientfactory)|
+| [Static Files and File Provider](/projects/file-provider)|
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
@@ -375,18 +376,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Note: example 2 is forthcoming. The inspiration has not arrived yet.
 
-* **File Provider (2)**
-  
-  We will deal with various types of file providers supported by ASP.NET Core
-
-  * [Physical File Provider - Content and Web roots](/projects/file-provider-physical)
-
-    Access the file information on your Web and Content roots. 
-
-  * [Custom File Provider](/projects/file-provider-custom)
-
-    Implement a simple and largely nonsense file provider. It is a good starting point to implement your own proper File Provider.
-    
 
 * **In Memory Caching (a.k.a local cache) (4)**
 
@@ -534,38 +523,6 @@ To run these samples, simply open your command line console,  go to each folder 
     * application/json
     * text/json 
 
-* **Static Files(6)**
-
-    This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
-
-  * [Serve static files](/projects/serve-static-files)
-
-    Simply serve static files (html, css, images, etc).     
-    
-    There are two static files being served in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
-    
-    To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
-
-  * [Allow Directory Browsing](/projects/serve-static-files-2)
-    
-    Allow listing and browsing of your ```wwwroot``` folder.
-
-  * [Use File Server](/projects/serve-static-files-3)
-    
-    Combines the functionality of ```UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser```.
-
-  * [Custom Directory Formatter](/projects/serve-static-files-4)
-    
-    Customize the way Directory Browsing is displayed. In this sample the custom view only handles flat directory. We will deal with 
-    more complex scenario in the next sample.
-
-  * [Custom Directory Formatter - 2](/projects/serve-static-files-5)
-    
-    Show custom Directory Browsing and handle directory listing as well as files.
-
-  * [Allow Directory Browsing](/projects/serve-static-files-6)
-    
-    Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
 
 * **Syndications (2)**
 
