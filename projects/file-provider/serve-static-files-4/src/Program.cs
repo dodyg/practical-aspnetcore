@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Hosting;
 
-namespace ServeStaticFiles
+namespace PracticalAspNetCore
 {
     public class DirectoryFormatter : IDirectoryFormatter
     {

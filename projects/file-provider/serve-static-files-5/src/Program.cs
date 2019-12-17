@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore;
 
-namespace ServeStaticFiles 
+namespace PracticalAspNetCore
 {
 
     public class DirectoryFormatter : IDirectoryFormatter
@@ -28,13 +28,13 @@ namespace ServeStaticFiles
 ");
             await context.Response.WriteAsync("\n");
 
-            foreach(var c in contents)
+            foreach (var c in contents)
             {
                 await context.Response.WriteAsync($"<div class=\"row justify-content-center\">\n");
 
                 if (c.IsDirectory)
                 {
-                    await context.Response.WriteAsync($"<div class=\"col\"><strong>Directory <a href=\"{c.Name}\">{c.Name}</a></strong></div>\n");    
+                    await context.Response.WriteAsync($"<div class=\"col\"><strong>Directory <a href=\"{c.Name}\">{c.Name}</a></strong></div>\n");
                 }
                 else
                 {
@@ -43,7 +43,7 @@ namespace ServeStaticFiles
                     else
                         await context.Response.WriteAsync($"<div class=\"col\"><a href=\"{c.Name}\">{c.Name}</a></div>\n");
                 }
-                
+
                 await context.Response.WriteAsync("</div>\n");
             }
 
@@ -62,7 +62,7 @@ namespace ServeStaticFiles
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
