@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
@@ -10,9 +9,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace FileProviderPhysical
+namespace PracticalAspNetCore
 {
     public class CustomDirectoryContents : IDirectoryContents
     {
@@ -68,7 +67,7 @@ namespace FileProviderPhysical
         {
             var list = new List<AlwaysTheSameFile>
             {
-                new AlwaysTheSameFile()    
+                new AlwaysTheSameFile()
             };
 
             var contents = new CustomDirectoryContents(list);
@@ -81,9 +80,9 @@ namespace FileProviderPhysical
 
     public class Startup
     {
-        IHostingEnvironment _env;
+        IWebHostEnvironment _env;
 
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public Startup(IWebHostEnvironment env)
         {
             _env = env;
         }
@@ -93,7 +92,7 @@ namespace FileProviderPhysical
             _env.ContentRootFileProvider = new CustomFileProvider();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
