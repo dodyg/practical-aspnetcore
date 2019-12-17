@@ -1,17 +1,13 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using System.IO;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
-
     public class DirectoryFormatter : IDirectoryFormatter
     {
         public async Task GenerateContentAsync(HttpContext context, IEnumerable<Microsoft.Extensions.FileProviders.IFileInfo> contents)
@@ -70,9 +66,11 @@ namespace PracticalAspNetCore
             CreateHostBuilder(args).Build().Run();
         }
 
-        static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                );
+
     }
 }
