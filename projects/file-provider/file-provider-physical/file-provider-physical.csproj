@@ -5,5 +5,4 @@
     <OutputType>Exe</OutputType>
     <PackageId>file-provider-physical</PackageId>
   </PropertyGroup>
-
 </Project>
