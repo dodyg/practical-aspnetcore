@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using System.IO;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace ServeStaticFiles 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -22,7 +21,7 @@ namespace ServeStaticFiles
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
@@ -30,9 +29,11 @@ namespace ServeStaticFiles
             CreateHostBuilder(args).Build().Run();
         }
 
-        static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                );
+
     }
 }
