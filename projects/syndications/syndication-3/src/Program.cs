@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -47,7 +48,7 @@ namespace PracticalAspNetCore
 
     public class Startup
     {
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             //These are the four default services available at Configure
             app.Run(async context =>
