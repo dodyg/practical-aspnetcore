@@ -19,6 +19,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Health Check](/projects/health-check)|
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Static Files and File Provider](/projects/file-provider)|
+| [Syndications](/projects/syndications)]
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
@@ -524,17 +525,6 @@ To run these samples, simply open your command line console,  go to each folder 
     * text/json 
 
 
-* **Syndications (2)**
-
-  We are using the brand new ```Microsoft.SyndicationFeed.ReaderWriter``` package to read RSS and ATOM feeds.
-
-  * [Syndication - Read RSS](/projects/syndication)
-
-    This is the shortest amount of code to read an RSS feed. This example read the feed from the inventor of RSS, Dave Winer at http://scripting.com/rss.xml. 
-  
-  * [Syndication - Read RSS with extensions](/projects/syndication-2)
-
-    This sample process RSS Outline Extension. 
 
 * **Utils(3)**
 
