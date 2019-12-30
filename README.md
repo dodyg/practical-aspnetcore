@@ -19,7 +19,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Health Check](/projects/health-check)|
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Static Files and File Provider](/projects/file-provider)|
-| [Syndications](/projects/syndications)]
+| [Syndications](/projects/syndications)|
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
