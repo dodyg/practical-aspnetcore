@@ -3,21 +3,28 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.Extensions.Hosting;
-using System;
+using Microsoft.Extensions.Logging;
 
 namespace PracticalAspNetCore
 {
     public class HelloWorldService : IHostedService
     {
+        ILogger _log;
+
+        public HelloWorldService(ILogger<HelloWorldService> logger)
+        {
+            _log = logger;
+        }   
+
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Hello world");
+            _log.LogDebug("Start Hello world");
             return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Goodbye");
+            _log.LogDebug("Goodbye");
             return Task.CompletedTask;
         }
     }
@@ -26,14 +33,23 @@ namespace PracticalAspNetCore
     {
         public static async Task Main(string[] args)
         {
-            var host = new HostBuilder()
+            await CreateHostBuilder(args).Build().RunAsync();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<HelloWorldService>();
                 })
-                .Build();
-
-            await host.RunAsync();
-        }
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                    logging.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft");
+                    });
+                });
     }
 }
