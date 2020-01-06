@@ -6,6 +6,4 @@
     <PackageId>generic-host-2</PackageId>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
-
 </Project>
