@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading;
+using Microsoft.Extensions.Logging;
 
 namespace PracticalAspNetCore
 {
@@ -13,8 +14,11 @@ namespace PracticalAspNetCore
 
         Task _executingTask;
 
-        public CountingService()
+        readonly ILogger _log;
+
+        public CountingService(ILogger<CountingService> logger)
         {
+            _log = logger;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -29,7 +33,7 @@ namespace PracticalAspNetCore
             var count = 0;
             do
             {
-                Console.WriteLine(count);
+                _log.LogDebug(count.ToString());
                 count++;
                 await Task.Delay(1000, cancellationToken);
             } while (!cancellationToken.IsCancellationRequested);
@@ -63,6 +67,15 @@ namespace PracticalAspNetCore
                     services.AddHostedService<CountingService>();
                 })
                 .UseConsoleLifetime()
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                    logging.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft");
+                    });
+                })
                 .Build();
 
             await host.RunAsync();
