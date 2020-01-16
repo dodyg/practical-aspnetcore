@@ -93,7 +93,7 @@ namespace PracticalAspNetCore
                     {
                         return !category.Contains("Microsoft");
                     });
-                }); ;
+                });
 
             await host.RunConsoleAsync();
         }

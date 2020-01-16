@@ -4,20 +4,28 @@ using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.Extensions.Logging;
 
 namespace PracticalAspNetCore
 {
     public class HelloWorldService : IHostedService
     {
+        readonly ILogger _log;
+
+        public HelloWorldService(ILogger<HelloWorldService> logger)
+        {
+            _log = logger;
+        }
+
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Hello world 1");
+            _log.LogDebug("Hello world 1");
             return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Goodbye 1");
+             _log.LogDebug("Goodbye 1");
             return Task.CompletedTask;
         }
     }
@@ -30,7 +38,17 @@ namespace PracticalAspNetCore
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<HelloWorldService>();
-                }).Build();
+                })
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                    logging.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft");
+                    });
+                })
+                .Build();
 
             using (host)
             {
