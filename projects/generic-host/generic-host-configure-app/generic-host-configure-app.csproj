@@ -6,6 +6,4 @@
     <PackageId>generic-host-configure-app</PackageId>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
-
 </Project>
