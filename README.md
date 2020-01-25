@@ -20,7 +20,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Static Files and File Provider](/projects/file-provider)|
 | [Syndications](/projects/syndications)|
-| [Generic Hosting](/projects/generic-hosting) |
+| [Generic Hosting](/projects/generic-host) |
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
