@@ -1,12 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Logging.Console;
-using Microsoft.Extensions.Logging.Debug;
 using Microsoft.Extensions.Logging;
 
 namespace PracticalAspNetCore
@@ -39,6 +34,7 @@ namespace PracticalAspNetCore
             var host = new HostBuilder()
                 .ConfigureLogging((hostContext, configLogging) =>
                 {
+                    configLogging.ClearProviders();
                     configLogging.AddConsole();
                     configLogging.SetMinimumLevel(LogLevel.Trace);
                 })
