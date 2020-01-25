@@ -20,6 +20,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Static Files and File Provider](/projects/file-provider)|
 | [Syndications](/projects/syndications)|
+| [Generic Hosting](/projects/generic-hosting) |
 
 <!-- 
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
@@ -660,47 +661,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
-## Generic Host (9)
-
-  Generic Host is an awesome way to host all sort of long running tasks and applications, e.g. messaging, background tasks, etc.
-
-  This section is dedicated to all the nitty gritty of Generic Host. All the examples in this section rely on `Microsoft.AspNetCore.App` package.
-
-  * [Hello World](/projects/generic-host)
-
-    This is the hello world equivalent of a Generic Host service.
-
-  * [Hello World using Console Lifetime](/projects/generic-host-2)
-
-    Use `UseConsoleLifetime` implicitly. 
-
-  * [Startup and Shutdown order](/projects/generic-host-3)
-
-    Demonstrates the startup and shutdown order of hosted services.
-
-  * [Start and stop the host](/projects/generic-host-4)
-
-    Demonstrates starting and stopping the host programmatically.
-
-  * [A service with timed execution](/projects/generic-host-5)
-
-    Demonstrate processing a task on a regular interval using `Task.Delay`.
-
-  * [Configure Host using Dictionary](/projects/generic-host-configure-host)
-
-    Demonstrate the way to inject configuration values to the host using Dictionary.
-
-  * [Configure Environment](/projects/generic-host-environment)
-
-    Set your environment using `EnvironmentName.Development` or `EnvironmentName.Production` or `EnvironmentName.Staging`.
-
-  * [Configure Logging](/projects/generic-host-configure-logging)
-
-    Configure logging for your Generic Host.
-
-  * [Listen to IApplicationLifetime events](/projects/generic-host-iapplicationlifetime)
-
-    Inject `IApplicationLifetime` and listen to `ApplicationStarted`, `ApplicationStopping` and `ApplicationStopped` events. This is important to allow services to be shutdown gracefully. The shutdown process blocks until `ApplicatinStopping` and `ApplicationStopped` events complete.
 
 ## Other resources
 
