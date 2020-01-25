@@ -2,7 +2,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.Extensions.Hosting;
-using System;
 using Microsoft.Extensions.Logging;
 
 namespace PracticalAspNetCore
