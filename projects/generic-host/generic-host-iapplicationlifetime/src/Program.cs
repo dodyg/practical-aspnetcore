@@ -1,19 +1,20 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace PracticalAspNetCore
 {
     public class HelloWorldService : IHostedService
     {
-        readonly IApplicationLifetime _lifetime;
+        readonly IHostApplicationLifetime _lifetime;
+        readonly ILogger _log;
 
-        public HelloWorldService(IApplicationLifetime lifetime)
+        public HelloWorldService(IHostApplicationLifetime lifetime, ILogger<HelloWorldService> logger)
         {
+            _log = logger;
             _lifetime = lifetime;
             _lifetime.ApplicationStarted.Register(OnStarted);
             _lifetime.ApplicationStopping.Register(OnStopping);
@@ -22,29 +23,29 @@ namespace PracticalAspNetCore
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("StartAsync");
+            _log.LogDebug("StartAsync");
             return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("StopAsync");
+            _log.LogDebug("StopAsync");
             return Task.CompletedTask;
         }
 
         void OnStarted()
         {
-            Console.WriteLine("OnStarted");
+            _log.LogDebug("OnStarted");
         }
 
         void OnStopping()
         {
-            Console.WriteLine("OnStopping");
+            _log.LogDebug("OnStopping");
         }
 
         void OnStopped()
         {
-            Console.WriteLine("OnStopped");
+            _log.LogDebug("OnStopped");
         }
 
     }
@@ -57,6 +58,15 @@ namespace PracticalAspNetCore
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<HelloWorldService>();
+                })
+                .ConfigureLogging(logging =>
+                {
+                  logging.ClearProviders();
+                  logging.AddConsole();
+                  logging.AddFilter((provider, category, logLevel) =>
+                  {
+                      return !category.Contains("Microsoft");
+                  });
                 })
                 .Build();
 
