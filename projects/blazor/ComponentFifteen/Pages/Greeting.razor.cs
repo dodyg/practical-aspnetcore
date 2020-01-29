@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace ComponentFourteen.Pages
+namespace ComponentFifteen.Pages
 {
     public partial class Greeting
     {
