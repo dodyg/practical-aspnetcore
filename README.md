@@ -8,7 +8,6 @@ This branch in a work in progress. I am converting over 200 samples from previou
 
 | Sections |
 | --------------------------------------------------------------- |
-| [ASP.NET Core 3.1](/projects/3-1) |
 | [ASP.NET Core 3.0](/projects/3-0) |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
 | [Blazor Server Side](/projects/blazor-ss) |
