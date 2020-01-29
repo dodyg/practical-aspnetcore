@@ -1,10 +1,10 @@
 # Blazor (17)
 
-Make sure you installed the latest [.NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+Make sure you installed the latest [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. Make sure you pay attention which port Kestrel is running on.
 
-  * [Hello World](/projects/blazor/hello-world)
+  * [Hello World](/projects/blazor/HelloWorld)
 
     The smallest Blazor app you can create.
 
