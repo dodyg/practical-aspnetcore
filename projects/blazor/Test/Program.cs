@@ -1,6 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Text;
 using Microsoft.AspNetCore.Blazor.Hosting;
-namespace Component
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Test
 {
     public class Program
     {

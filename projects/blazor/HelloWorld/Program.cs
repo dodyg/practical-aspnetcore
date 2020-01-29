@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Blazor.Hosting;
-namespace Component
+﻿using Microsoft.AspNetCore.Blazor.Hosting;
+using System.Threading.Tasks;
+
+namespace HelloWorld
 {
     public class Program
     {

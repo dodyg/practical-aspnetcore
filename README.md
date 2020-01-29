@@ -23,7 +23,7 @@ ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/d
 | ------- | ------- | ------- |
 | [ASP.NET Core 3.1](/projects/3-1) | 1 | 3.1|
 | [ASP.NET Core 3.0](/projects/3-0) | 57 | 3.0|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 17 | 3.0.0-preview9.19465.2|
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 17 | 3.2.0-preview1.20073.1|
 | [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0|
 | [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
 | [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 4|  2.2 |
