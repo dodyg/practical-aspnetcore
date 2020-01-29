@@ -30,8 +30,8 @@
 <hr />
 <i>The following buttons come from parents</i>
 <br/>
-<button type="button" @onclick="AddToPropertyList">Expand List</button>
-<button type="button" @onclick="AddToPropertyList2">Expand List with StateHasChanged()</button>
+<button type="button" @onclick="AddToPropertyList">Add To List</button>
+<button type="button" @onclick="AddToPropertyList2">Add To List with StateHasChanged()</button>
 
 <br/><br/>
 <button type="button" @onclick="IncrementProperty">Click</button> 
@@ -41,6 +41,7 @@
 
 @code{
     CounterVariable Variable;
+
     CounterProperty Property;
 
     void IncrementVariable () {
