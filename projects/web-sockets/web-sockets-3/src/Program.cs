@@ -169,7 +169,6 @@ namespace PracticalAspNetCore
                 ).ConfigureLogging(builder =>
                 {
                     builder.ClearProviders();
-                    builder.SetMinimumLevel(LogLevel.Trace);
                     builder.AddConsole();
                     builder.AddFilter((provider, category, logLevel) =>
                     {
