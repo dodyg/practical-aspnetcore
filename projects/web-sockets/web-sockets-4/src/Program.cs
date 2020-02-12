@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using System.Net.WebSockets;
 using System;
 using System.Threading;
@@ -12,7 +11,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -87,12 +86,8 @@ namespace PracticalAspNetCore
             }
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILogger<Startup> log)
         {
-            logger.AddConsole((str, level) => !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace);
-
-            var log = logger.CreateLogger("");
-
             app.UseWebSockets();
 
             var cm = new ConnectionManager();
@@ -201,9 +196,18 @@ namespace PracticalAspNetCore
             CreateHostBuilder(args).Build().Run();
         }
 
-        static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                ).ConfigureLogging(builder =>
+                {
+                    builder.ClearProviders();
+                    builder.AddConsole();
+                    builder.AddFilter((provider, category, logLevel) =>
+                    {
+                        return !category.Contains("Microsoft.AspNetCore");
+                    });
+                });
     }
 }
