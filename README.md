@@ -11,15 +11,15 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [ASP.NET Core 3.0](/projects/3-0) |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
 | [Blazor Server Side](/projects/blazor-ss) |
-| [gRPC](/projects/grpc)|
-| [System.Text.Json](/projects/json) |
-| [Endpoint Routing](/projects/endpoint-routing) |
 | [Diagnostics](/projects/diagnostics)|
+| [Endpoint Routing](/projects/endpoint-routing) |
 | [Health Check](/projects/health-check)|
 | [IHttpClientFactory](/projects/httpclientfactory)|
-| [Static Files and File Provider](/projects/file-provider)|
-| [Syndications](/projects/syndications)|
 | [Generic Hosting](/projects/generic-host) |
+| [gRPC](/projects/grpc)|
+| [Static Files and File Provider](/projects/file-provider)|
+| [System.Text.Json](/projects/json) |
+| [Syndications](/projects/syndications)|
 | [Web Sockets](/projects/web-sockets)|
 
 <!-- 
