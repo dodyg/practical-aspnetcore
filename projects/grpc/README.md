@@ -45,3 +45,7 @@
 * [Unary - Hello World](/projects/grpc/grpc-10)
 
   This sample shows a simple request/response gRPC call.
+
+* [Server Streaming - Message Server](/projects/grpc/grpc-11)
+
+  This sample shows how to do simple gRPC sever streaming.

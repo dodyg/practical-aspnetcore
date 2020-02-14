@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>grpc-client</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>grpc-client</PackageId>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.Tools" Version="2.27.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Google.Protobuf" Version="3.9.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.27.0" />
+    <PackageReference Include="Grpc.Net.Client.Web" Version="2.27.0-pre1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="src\billboard.proto" GrpcServices="Client"/>
+    <Watch Include="**\*.proto" />
+  </ItemGroup>
+</Project>
