@@ -4,7 +4,7 @@
 
   * [Rewrite](/projects/rewrite/rewrite-1)
     
-    Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". It requires an additional `"Microsoft.AspNetCore.Rewrite" : "2.1.0-*"` dependency. 
+    Shows the most basic of URL rewriting which will **redirect** (returns [HTTP 302](https://en.wikipedia.org/wiki/HTTP_302)) anything to the home page "/". 
     
     If you have used routing yet, I recommend of checking out the routing examples.
 
