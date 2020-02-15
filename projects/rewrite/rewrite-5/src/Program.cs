@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Routing;
 using System;
 using Microsoft.Net.Http.Headers;
-using System.IO;
 using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
@@ -49,7 +47,7 @@ namespace PracticalAspNetCore
         public void Configure(IApplicationBuilder app)
         {
             app.UseRouting();
-            
+
             var options = new RewriteOptions()
                .Add(new ExtensionRedirection(".png", "/images/png"))
                .Add(new ExtensionRedirection(".jpg", "/images/jpeg"));

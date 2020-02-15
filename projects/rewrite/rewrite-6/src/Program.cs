@@ -1,14 +1,12 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Routing;
 using System;
 using Microsoft.Net.Http.Headers;
-using System.IO;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -46,18 +44,10 @@ namespace PracticalAspNetCore
 
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
-        }
+            app.UseRouting();
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-            services.AddRouting();
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
-        {
             var options = new RewriteOptions()
                .Add(context =>
                {
@@ -80,18 +70,17 @@ namespace PracticalAspNetCore
                });
 
             app.UseRewriter(options);
-
             app.UseStaticFiles();
 
-            var routes = new RouteBuilder(app);
-            routes.MapGet("", async context =>
+            app.UseEndpoints(endpoints =>
             {
-                context.Response.Headers.Add("content-type", "text/html");
+                endpoints.MapGet("", async context =>
+                {
+                    context.Response.Headers.Add("content-type", "text/html");
 
-                await context.Response.WriteAsync($"<h1>Extension Based Redirection</h1><img src=\"ryan-wong-25025.jpg\" />");
+                    await context.Response.WriteAsync($"<h1>Extension Based Redirection</h1><img src=\"ryan-wong-25025.jpg\" />");
+                });
             });
-
-            app.UseRouter(routes.Build());
         }
     }
 
@@ -99,14 +88,13 @@ namespace PracticalAspNetCore
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseKestrel()
-              .UseContentRoot(Directory.GetCurrentDirectory())
-              .UseEnvironment("Development") //Change to 'Production' if you want to make it in production mode
-              .UseStartup<Startup>()
-              .Build();
-
-            host.Run();
+            CreateHostBuilder(args).Build().Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                );
     }
 }
