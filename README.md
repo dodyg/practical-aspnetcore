@@ -17,9 +17,10 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Generic Hosting](/projects/generic-host) |
 | [gRPC](/projects/grpc)|
-| [URL Redirect/Rewrite](/projects/rewrite)|
+| [MVC - View Component](/projects/mvc/view-component]) |
 | [Static Files and File Provider](/projects/file-provider)|
 | [System.Text.Json](/projects/json) |
+| [URL Redirect/Rewrite](/projects/rewrite)|
 | [Syndications](/projects/syndications)|
 | [Web Sockets](/projects/web-sockets)|
 
