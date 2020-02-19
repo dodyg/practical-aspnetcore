@@ -7,7 +7,6 @@
     <PackageId>mvc-localization</PackageId>
   </PropertyGroup>
 
-
   <ItemGroup>
     <ProjectReference Include="..\ProjectWithResources\ClassLibrary.csproj" />
   </ItemGroup>
