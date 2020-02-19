@@ -2,7 +2,7 @@
 
   We are exploring all the nitty gritty of localization with MVC here.
 
-  * [MVC Localization](/projects/mvc/localization/mvc-localization-1)
+  * [MVC Localization - 1](/projects/mvc/localization/mvc-localization-1)
 
     Demonstrate the sample of naming resource file using the "." dot naming convention. In this case, our Assembly Name differs from our namespace so we use full type name in our resource. This allows `IStringLocalizer<>` to be used in Controllers.
 
