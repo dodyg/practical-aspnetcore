@@ -1,35 +1,25 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Hosting;
 
 namespace MvcLocalization
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
-
-            services.AddMvc().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
+            app.UseRouting();
             app.UseStaticFiles();
 
             var supportedCultures = new List<CultureInfo>
@@ -45,13 +35,10 @@ namespace MvcLocalization
             };
 
             app.UseRequestLocalization(options);
-
-            app.UseMvc(routes =>
-                routes.MapRoute(
-                    name: "default_route",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" })
-                );
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 
@@ -67,7 +54,6 @@ namespace MvcLocalization
             return View();
         }
     }
-
 
     public class Program
     {
