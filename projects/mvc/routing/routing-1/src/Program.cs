@@ -22,17 +22,17 @@ namespace PracticalAspNetCore
                 endpoints.MapControllerRoute(
                     name: "home",
                     pattern: "/",
-                    defaults: new { controller = "HomePage", action = "Index" });
+                    defaults: new { controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action}",
-                    defaults: new { controller = "HomePage", action = "Index" });
+                    defaults: new { controller = "Home", action = "Index" });
             });
         }
     }
 
-    public class HomePageController : Controller
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {
@@ -45,8 +45,8 @@ namespace PracticalAspNetCore
                 The following links call the same controller and action.
                 <ul>
                     <li><a href=""/"">/</a></li>
-                    <li><a href=""/homepage"">/homepage</a></li>
-                    <li><a href=""/homepage/index"">/homepage/index</a></li>
+                    <li><a href=""/home"">/home</a></li>
+                    <li><a href=""/home/index"">/home/index</a></li>
                 </ul>
                 </body></html>",
                 ContentType = "text/html"
