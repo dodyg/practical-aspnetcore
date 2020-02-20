@@ -15,18 +15,19 @@ namespace PracticalAspNetCore
 
         public void Configure(IApplicationBuilder app)
         {
-            app.AddRouting();
-            app.UseMvc(routes => {
-                routes.MapRoute(
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
                     name: "home",
-                    template: "/",
+                    pattern: "/",
                     defaults: new { controller = "HomePage", action = "Index" });
 
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action}",
+                    pattern: "{controller}/{action}",
                     defaults: new { controller = "HomePage", action = "Index" });
-
             });
         }
     }
