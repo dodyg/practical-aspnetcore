@@ -1,35 +1,32 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 
 
-    [Route("[controller]/[action]")]
+    [Route("[controller]/")]
     public class HomeController : Controller
     {
         [HttpGet("/")]
@@ -43,28 +40,31 @@ namespace PracticalAspNetCore
                 <h1>[controller] and [action] replacement tokens examples</h1>
                 <ul>
                     <li><a href=""/"">/</a></li>
-                    <li><a href=""/home/index"">/home/index</a></li>
+                    <li><a href=""/home/"">/home/</a></li>
                     <li><a href=""/home/about"">/home/about</a></li>
                     <li><a href=""/about"">/about</a></li>
+                    <li><a href=""/2/about2"">/2/about2</a></li>
                 </ul>
                 </body></html>",
                 ContentType = "text/html"
             };
         }
 
+        [HttpGet("[action]")]
         public ActionResult About()
         {
             return new ContentResult
             {
                 Content = @"
                 <html><body>
-                <b>About Page</b
+                <b>About Page using replacement token [action]</b
                 </body></html>",
                 ContentType = "text/html"
             };
         }
 
         [HttpGet("/about")]
+        [HttpGet("/2/[action]")]
         public ActionResult About2()
         {
             return new ContentResult

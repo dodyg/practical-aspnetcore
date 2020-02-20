@@ -18,6 +18,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Generic Hosting](/projects/generic-host) |
 | [gRPC](/projects/grpc)|
 | [MVC - Localization](/projects/mvc/localization) |
+| [MVC - Routing](/projects/mvc/routing) |
 | [MVC - View Component](/projects/mvc/view-component) |
 | [Static Files and File Provider](/projects/file-provider)|
 | [System.Text.Json](/projects/json) |

@@ -1,49 +1,44 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 
 
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         [HttpGet("/")]
-        [HttpGet("")] //You have to do this otherwise /Home/Index won't work
+        [HttpGet("")]
         public ActionResult Index()
         {
             return new ContentResult
             {
                 Content = @"
                 <html><body>
-                <h1>[controller] replacement token examples</h1>
+                <h1>[controller] and [action] replacement tokens examples</h1>
                 <ul>
                     <li><a href=""/"">/</a></li>
-                    <li><a href=""/home/"">/home/</a></li>
+                    <li><a href=""/home/index"">/home/index</a></li>
                     <li><a href=""/home/about"">/home/about</a></li>
                     <li><a href=""/about"">/about</a></li>
                 </ul>
@@ -52,7 +47,6 @@ namespace PracticalAspNetCore
             };
         }
 
-        [HttpGet("about")]
         public ActionResult About()
         {
             return new ContentResult

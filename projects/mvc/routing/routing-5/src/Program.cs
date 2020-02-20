@@ -1,30 +1,25 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 
@@ -39,33 +34,40 @@ namespace PracticalAspNetCore
             {
                 Content = @"
                 <html><body>
-                <b>Hello World</b>
-                <br/><br/>
+                <h1>[HttpGet] and [HttpPost]</h1>
                 <ul>
-                    <li><a href=""/"">/</a></li>
-                    <li><a href=""/home"">/home</a></li>
-                    <li><a href=""/home/index"">/home/index</a></li>
                     <li><a href=""/about"">/about</a></li>
                 </ul>
+
+                <form action=""about"" method=""post"">
+                    <button>Post About</button>
+                </form>
                 </body></html>",
                 ContentType = "text/html"
             };
         }
 
-        [Route("About")]
+        [HttpGet("About")]
         public ActionResult About()
         {
             return new ContentResult
             {
                 Content = @"
                 <html><body>
-                <b>About Page</b>
-                <br/><br/>
-                <ul>
-                    <li><a href=""/"">/</a></li>
-                    <li><a href=""/home"">/home</a></li>
-                    <li><a href=""/home/index"">/home/index</a></li>
-                </ul>
+                <b>About Page - GET</b
+                </body></html>",
+                ContentType = "text/html"
+            };
+        }
+
+        [HttpPost("About")]
+        public ActionResult About2()
+        {
+            return new ContentResult
+            {
+                Content = @"
+                <html><body>
+                <b>About Page - POST</b
                 </body></html>",
                 ContentType = "text/html"
             };
