@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using System;
 
-namespace MvcRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -98,7 +98,7 @@ namespace MvcRouting
     }
 }
 
-namespace MvcRouting.Route1
+namespace PracticalAspNetCore.Route1
 {
     public class HomeController : Controller
     {
@@ -117,7 +117,7 @@ namespace MvcRouting.Route1
     }
 }
 
-namespace MvcRouting.Route2
+namespace PracticalAspNetCore.Route2
 {
     public class HomeController : Controller
     {
@@ -136,7 +136,7 @@ namespace MvcRouting.Route2
     }
 }
 
-namespace MvcRouting.Route3
+namespace PracticalAspNetCore.Route3
 {
     public class HomeController : Controller
     {

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using System;
 
-namespace MvcRouting
+namespace PracticalAspNetCore
 {
     public class Startup
     {
