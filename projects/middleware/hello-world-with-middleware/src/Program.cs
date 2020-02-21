@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore;
 using System.Threading.Tasks;
 
-namespace HelloWorldWithMiddleware
+namespace PracticalAspNetCore
 {
     public class Startup
     {

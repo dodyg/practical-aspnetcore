@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace HelloWorldWithMiddleware
+namespace PracticalAspNetCore
 {
     public class Startup
     {

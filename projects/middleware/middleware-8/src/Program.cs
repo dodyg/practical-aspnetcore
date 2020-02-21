@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 
-namespace HelloWorldWithMiddleware
+namespace PracticalAspNetCore
 {
     public class Content
     {

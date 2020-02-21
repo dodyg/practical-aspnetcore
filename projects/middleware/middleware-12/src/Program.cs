@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.AspNetCore;
 
-namespace HelloWorldWithMiddleware
+namespace PracticalAspNetCore
 {
     public class MiddlewareHtml
     {
