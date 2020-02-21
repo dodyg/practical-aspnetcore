@@ -1,20 +1,20 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
+using System;
+
 namespace RazorClassLibraries.Mvc
 {
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.StaticFiles;
-    using Microsoft.Extensions.FileProviders;
-    using Microsoft.Extensions.Options;
-    using System;
-
     public abstract class BaseModuleUiConfigureOptions : IPostConfigureOptions<StaticFileOptions>
     {
-        public BaseModuleUiConfigureOptions(IHostingEnvironment environment)
+        public BaseModuleUiConfigureOptions(IWebHostEnvironment environment)
         {
             Environment = environment;
         }
 
-        public IHostingEnvironment Environment { get; }
+        public IWebHostEnvironment Environment { get; }
 
         public void PostConfigure(string name, StaticFileOptions options)
         {
