@@ -3,7 +3,7 @@ Razor Class Libraries
 
 'Hello World' sample with Razor Class Libraries.
 
-List of commands to execute to build this sample from scratch:
+List of commands to execute to create this sample from scratch:
 * cd /src
 * dotnet new razorclasslib -n RazorClassLibrary1
 * dotnet new razorclasslib -n RazorClassLibrary2
