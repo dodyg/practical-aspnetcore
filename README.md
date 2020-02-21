@@ -21,6 +21,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [MVC - Routing](/projects/mvc/routing) |
 | [MVC - Tag Helpers](/projects/mvc/tag-helper) |
 | [MVC - View Component](/projects/mvc/view-component) |
+| [Razor Pages](/projects/razor-pages)|
 | [Static Files and File Provider](/projects/file-provider)|
 | [System.Text.Json](/projects/json) |
 | [URL Redirect/Rewrite](/projects/rewrite)|
