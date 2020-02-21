@@ -1,6 +1,6 @@
 # Tag Helpers
 
-  * [Tag Helper - Hello World](/projects/mvc/tag-helper/tag-helper)
+  * [Tag Helper - Hello World](/projects/mvc/tag-helper/tag-helper-1)
 
     This is the simplest tag helper you can do. It just prints 'hello world'.
 
