@@ -12,7 +12,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
 
-namespace RazorPageCustomHtmlGenerator
+namespace PracticalAspNetCore
 {
     public class LowerCaseIdHtmlGenerator : DefaultHtmlGenerator
     {

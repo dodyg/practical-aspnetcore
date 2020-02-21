@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorPageCustomHtmlGenerator.Pages
+namespace PracticalAspNetCore.Pages
 {
     public class IndexModel : PageModel
     {

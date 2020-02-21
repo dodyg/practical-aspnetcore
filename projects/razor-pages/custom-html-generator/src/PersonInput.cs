@@ -1,7 +1,7 @@
 
 
 
-namespace RazorPageCustomHtmlGenerator
+namespace PracticalAspNetCore
 {
     public class PersonInput
     {
