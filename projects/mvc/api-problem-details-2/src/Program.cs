@@ -1,41 +1,31 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Net.Http.Headers;
 using System.Net;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.Extensions.Hosting;
 
-namespace ApiProblemDetailsExample
+namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 
@@ -118,9 +108,9 @@ namespace ApiProblemDetailsExample
                     details.ValidationMessages = details.ValidationMessages.Union(modelStateMessages).ToDictionary(x => x.Key, x => x.Value);
             }
 
-            var host = self.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment)) as IHostingEnvironment;
+            var host = self.HttpContext.RequestServices.GetService(typeof(IWebHostEnvironment)) as IWebHostEnvironment;
 
-            if (exception != null && host.EnvironmentName == EnvironmentName.Development)
+            if (exception != null && host.EnvironmentName == Environments.Development)
             {
                  if (string.IsNullOrWhiteSpace(details.Detail))
                     details.Detail = "Exception Message: " + exception.Message;
