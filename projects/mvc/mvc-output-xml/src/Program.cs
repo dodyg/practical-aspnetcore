@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Hosting;
 
-namespace MvcOutputXml
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -21,7 +19,11 @@ namespace MvcOutputXml
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 
