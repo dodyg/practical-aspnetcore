@@ -10,7 +10,7 @@ using Microsoft.Net.Http.Headers;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
 
-namespace OutputFormatter
+namespace PracticalAspNetCore
 {
     public class RssOutputFormatter : TextOutputFormatter
     {
