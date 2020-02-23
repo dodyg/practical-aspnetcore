@@ -3,7 +3,7 @@
 
   We are exploring Razor Class Library (RCL) functionalities in this section. RCL allows you to create reusable UI libraries.
 
-  * [Razor Class Library - Hello World](/projects/mvc/razor-class-library/razor-class-library)
+  * [Razor Class Library - Hello World](/projects/mvc/razor-class-library/razor-class-library-1)
 
     This is the simplest example to demonstrate the functionality of RCL. The library uses Razor Pages. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
 
