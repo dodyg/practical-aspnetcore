@@ -19,6 +19,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [gRPC](/projects/grpc)|
 | [MVC - Localization](/projects/mvc/localization) |
 | [MVC - Routing](/projects/mvc/routing) |
+| [MVC - Razor Class Library](/projects/mvc/razor-class-library)|
 | [MVC - Tag Helpers](/projects/mvc/tag-helper) |
 | [MVC - View Component](/projects/mvc/view-component) |
 | [Razor Pages](/projects/razor-pages)|
