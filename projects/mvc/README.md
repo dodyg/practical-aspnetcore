@@ -1,10 +1,12 @@
-# MVC (47)
+# MVC
 
-This section contains all micro samples for **ASP.NET Core MVC 2.1**.
-
-Pre-requisite: Make sure you download .NET Core SDK 2.1 (`2.1.0`) otherwise below examples won't work.
-
-There is no more need to include this tool in your project `<DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.1.0-preview1" />` to be able to enjoy `dotnet watch run`. It's included by default in ASP.NET Core 2.1.
+| Sections |
+| --------------------------------------------------------------- |
+| [MVC - Localization](/projects/mvc/localization) |
+| [MVC - Routing](/projects/mvc/routing) |
+| [MVC - Razor Class Library](/projects/mvc/razor-class-library)|
+| [MVC - Tag Helpers](/projects/mvc/tag-helper) |
+| [MVC - View Component](/projects/mvc/view-component) |
 
 * [Hello World Minimalistic](/projects/mvc/hello-world)
   This is the most basic hello world you can do using ASP.NET MVC. It uses `services.AddMvcCore()` with [behavior compatibility](https://blogs.msdn.microsoft.com/webdev/2018/02/27/introducing-compatibility-version-in-mvc/) set to `2.1` and with manually configured route.
@@ -70,21 +72,9 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   
   Generate automatic documentation for your Web API using [Swagger](https://swagger.io/) specification and [NSwag](https://github.com/RSuter/NSwag)
 
-  You can further learn on how to customize the output of your documentation [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore#include-descriptions-from-xml-comments) and [here](http://michaco.net/blog/TipsForUsingSwaggerAndAutorestInAspNetCoreMvcServices).
-
-  Do not forget to enable XML documentation XML generation for your project
-
-  ``` xml
-  <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-  ```
-
-  We also use the new `ActionResult<T>` return type. You can read more about the type [here](https://joonasw.net/view/aspnet-core-2-1-actionresult-of-t).
-
 * [Customizing NSwag](/projects/mvc/nswag-2)
 
-  Use attribute such as `SwaggerTag` to organize your API or `SwaggerIgnore` to hide an API from the definition (using `[ApiExplorerSettings(IgnoreApi = true)]` also works).
+  Use attribute such as `OpenApiTag` to organize your API or `OpenApiIgnore` to hide an API from the definition (using `[ApiExplorerSettings(IgnoreApi = true)]` also works).
 
 ## Syndication Output Formatter (1)
 

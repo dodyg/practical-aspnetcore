@@ -17,11 +17,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Generic Hosting](/projects/generic-host) |
 | [gRPC](/projects/grpc)|
-| [MVC - Localization](/projects/mvc/localization) |
-| [MVC - Routing](/projects/mvc/routing) |
-| [MVC - Razor Class Library](/projects/mvc/razor-class-library)|
-| [MVC - Tag Helpers](/projects/mvc/tag-helper) |
-| [MVC - View Component](/projects/mvc/view-component) |
+| [MVC](/projects/mvc)|
 | [Razor Pages](/projects/razor-pages)|
 | [Static Files and File Provider](/projects/file-provider)|
 | [System.Text.Json](/projects/json) |
