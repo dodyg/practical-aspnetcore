@@ -5,6 +5,8 @@
     <OutputType>Exe</OutputType>
     <PackageId>jwt</PackageId>
   </PropertyGroup>
-
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.6.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
 </Project>

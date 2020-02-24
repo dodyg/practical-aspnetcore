@@ -1,10 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Options;
@@ -12,8 +8,9 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System;
+using Microsoft.Extensions.Hosting;
 
-namespace Jwt
+namespace PracticalAspNetCore
 {
     public class JwtIssuerOptions
     {
@@ -26,12 +23,6 @@ namespace Jwt
 
     public class Startup
     {
-        IConfiguration Configuration { get; set; }
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<JwtIssuerOptions>(options =>
@@ -42,18 +33,16 @@ namespace Jwt
 
             });
 
-            services.AddMvcCore().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc(routes =>
-                routes.MapRoute(
-                    name: "default_route",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" })
-                );
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 
@@ -109,7 +98,7 @@ namespace Jwt
 <body>
     <strong>Content</strong>: {token}
     <br/><br/>
-    <strong>Generated Token</strong>: {outputToken}
+    <strong>Encoded Token</strong>: {outputToken}
 
     <hr />
     Copy the encoded token here to get the content of the token back
