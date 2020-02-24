@@ -3,32 +3,22 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Net.Http.Headers;
-using Utf8Json;
 using ut8json = Utf8Json.AspNetCoreMvcFormatter;
 using Utf8Json.Resolvers;
+using Microsoft.Extensions.Hosting;
 
-namespace CustomJson
+namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().
-                SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddMvcOptions(option =>
+            services.AddMvc()
+                .AddMvcOptions(option =>
                 {
                     //Read more about resolver here https://github.com/neuecc/Utf8Json#resolver
                     option.OutputFormatters.Clear();
@@ -40,9 +30,13 @@ namespace CustomJson
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 
