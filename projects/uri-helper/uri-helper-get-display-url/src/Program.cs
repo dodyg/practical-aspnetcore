@@ -6,22 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             //These are the four default services available at Configure
 
@@ -32,7 +23,7 @@ namespace PracticalAspNetCore
 <body>                
     <h1>Get Display Url</h1>
     <i>Returns the combined components of the request URL in a fully un-escaped form (except for the QueryString) suitable only for display. This format should not be used in HTTP headers or other HTTP operations.</i>
-    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.getdisplayurl?view=aspnetcore-2.1"">Doc</a><br/><br/>
+    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.getdisplayurl?view=aspnetcore-3.1"">Doc</a><br/><br/>
     <p style=""color:red;"">{ context.Request.GetDisplayUrl() }</p>
 
     <p>Click on the links to see what the helper method shows</p>
