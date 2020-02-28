@@ -2,18 +2,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
-            //These are the four default services available at Configure
-
             app.Run(context =>
             {
                 context.Response.Headers.Add("Content-Type", "text/html");
@@ -23,7 +21,7 @@ namespace PracticalAspNetCore
 <body>                
     <h1>Get Encoded Path and Query</h1>
     <i>Returns the relative url</i>
-    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.getencodedpathandquery?view=aspnetcore-2.2#Microsoft_AspNetCore_Http_Extensions_UriHelper_GetEncodedPathAndQuery_Microsoft_AspNetCore_Http_HttpRequest_"">Doc</a><br/><br/>
+    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.getencodedpathandquery?view=aspnetcore-3.1#Microsoft_AspNetCore_Http_Extensions_UriHelper_GetEncodedPathAndQuery_Microsoft_AspNetCore_Http_HttpRequest_"">Doc</a><br/><br/>
     <p style=""color:red;"">{ requestUrl }</p>
 
     <p>Click on the links to see what the helper method shows</p>
