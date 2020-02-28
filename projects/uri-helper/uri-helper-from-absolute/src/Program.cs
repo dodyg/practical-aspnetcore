@@ -5,12 +5,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             //These are the four default services available at Configure
 
