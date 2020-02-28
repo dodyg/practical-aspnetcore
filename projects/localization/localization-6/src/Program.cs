@@ -3,31 +3,25 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();
             services.AddPortableObjectLocalization();
-            services.AddRouting();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             //We are limiting the supported culture here so this sample works in any browser from different culture setting.
             //To make it pick up French or other language, simply change it-IT with something else or add more supported cultures
@@ -46,9 +40,10 @@ namespace PracticalAspNetCore
 
             app.UseRequestLocalization(option);
 
-            app.UseRouter(r =>
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
             {
-                r.MapGet("greet-friend", async context =>
+                endpoints.MapGet("greet-friend", async context =>
                 {
                     var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
                     var local = fac.Create("Greet Friend", string.Empty);
@@ -57,12 +52,8 @@ namespace PracticalAspNetCore
 
                     await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
                 });
-            });
-
-
-            app.UseRouter(r =>
-            {
-                r.MapGet("greet-lover", async context =>
+                
+                endpoints.MapGet("greet-lover", async context =>
                 {
                     var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
                     var local = fac.Create("Greet Lover", string.Empty);
@@ -71,6 +62,7 @@ namespace PracticalAspNetCore
 
                     await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
                 });
+
             });
 
             app.Run(async context =>
