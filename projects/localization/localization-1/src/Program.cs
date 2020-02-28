@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.Extensions.Hosting;
 
-namespace Local 
+namespace PracticalAspNetCore 
 {
     public class Startup
     {
