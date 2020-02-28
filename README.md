@@ -23,6 +23,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Static Files and File Provider](/projects/file-provider)|
 | [System.Text.Json](/projects/json) |
 | [URL Redirect/Rewrite](/projects/rewrite)|
+| [Uri Helper](/projects/uri-helper)|
 | [Syndications](/projects/syndications)|
 | [Web Sockets](/projects/web-sockets)|
 
@@ -533,31 +534,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This utility returns HTTP response phrases given a status code number.
     
-
-* **Uri Helper(5)**
-  
-  This section shows various methods available at `Microsoft.AspNetCore.Http.Extensions.UriHelper`.
-
-  * [Get Display Url](/projects/uri-helper-get-display-url) 
-
-    `Request.GetDisplayUrl()` shows complete url with host, path and query string of the current request. It's to be used for display purposes only.
-
-  * [Get Encoded Url](/projects/uri-helper-get-encoded-url)
-
-    `Request.GetEncodedUrl()` returns the combined components of the request URL in a fully escaped form suitable for use in HTTP headers and other HTTP operations.
-
-  * [Get Encoded Path and Query](/projects/uri-helper-get-encoded-path-and-query)
-
-    `UriHelper.GetEncodedPathAndQuery` returns the relative URL of a request.
-
-  * [From Absolute](/projects/uri-helper-from-absolute)
-
-    `UriHelper.FromAbsolute` separates the given absolute URI string into components.
-
-  * [Build Absolute](/projects/uri-helper-build-absolute)
-
-    `UriHelper.BuildAbsolute` combines the given URI components into a string that is properly encoded for use in HTTP headers. This sample
-    shows 9 ways on how to use it.
 
 
 * **Trimming (1)**
