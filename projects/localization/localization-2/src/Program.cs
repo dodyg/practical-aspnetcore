@@ -7,24 +7,18 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using System.Collections.Generic;
 using System.Globalization;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Local 
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            //put the resource files under resources folder
             services.AddLocalization(options => options.ResourcesPath = "resources");
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IStringLocalizerFactory stringLocalizerFactory)
+        public void Configure(IApplicationBuilder app, IStringLocalizerFactory stringLocalizerFactory)
         {
             var local = stringLocalizerFactory.Create("Common", typeof(Program).Assembly.FullName);
 
