@@ -11,6 +11,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [ASP.NET Core 3.0](/projects/3-0) |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
 | [Blazor Server Side](/projects/blazor-ss) |
+| [Caching](/projects/caching) |
 | [Diagnostics](/projects/diagnostics)|
 | [Endpoint Routing](/projects/endpoint-routing) |
 | [Health Check](/projects/health-check)|
@@ -383,25 +384,6 @@ To run these samples, simply open your command line console,  go to each folder 
     Note: example 2 is forthcoming. The inspiration has not arrived yet.
 
 
-* **In Memory Caching (a.k.a local cache) (4)**
-
-  These samples depends on `Microsoft.Extensions.Caching.Memory` library. 
-
-  * [Caching - Absolute/Sliding expiration](/projects/caching)
-
-    This is the most basic caching you can use either by setting absolute or sliding expiration for your cache. Absolute expiration will remove your cache at a certain point in the future. Sliding expiration will remove your cache after period of inactivity.
-
-  * [Caching 2 - File dependency](/projects/caching-2)
-    
-    Add file dependency to your caching so when the file changes, your cache expires. Make sure to set `cache-file.txt` to copy over to bin.
-
-  * [Caching 3 - Cache removal event](/projects/caching-3)
-
-    Register callback when a cached value is removed.
-
-  * [Caching 4 - CancellationChangeToken dependency](/projects/caching-4)
-
-    Bind several cache entries to a single dependency that you can reset manually.
 
 * **Configuration (7)**
 
