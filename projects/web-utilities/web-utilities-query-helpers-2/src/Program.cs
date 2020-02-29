@@ -6,21 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
