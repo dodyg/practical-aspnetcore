@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting.Server.Features;
-using Microsoft.AspNetCore.Http.Features;
-using System;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace HelloWorldWithReload 
+namespace PracticalAspNetCore 
 {
     interface ICustomFeature 
     {
@@ -33,7 +30,7 @@ namespace HelloWorldWithReload
                 if (custom == null)
                     return context.Response.WriteAsync($"Custom is null");
                 else
-                    return context.Response.WriteAsync($"hello {custom.Greetings}");
+                    return context.Response.WriteAsync($"{custom.Greetings}");
             });
         }
     }
