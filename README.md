@@ -26,6 +26,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Uri Helper](/projects/uri-helper)|
 | [Syndications](/projects/syndications)|
 | [Web Sockets](/projects/web-sockets)|
+| [Web Utilities](/projects/web-utilities)|
 
 
 <!-- 
@@ -489,24 +490,6 @@ To run these samples, simply open your command line console,  go to each folder 
     Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
     We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
-
-* **Web Utilities(3)**
-
-  This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
-
-  * [Query Helpers](/projects/web-utilities-query-helpers)
-
-    This utility helps you generate query string for your url safely (ht [Rehan Saeed](https://rehansaeed.com/asp-net-core-hidden-gem-queryhelpers/)).
-
-  * [Parse Query String](/projects/web-utilities-query-helpers-2)
-
-    `QueryHelpers.ParseQuery` allows you to parse a raw query string and access its individual key and values.
-
-  * [Reason Phrases](/projects/web-utilities-reason-phrases)
-
-    This utility returns HTTP response phrases given a status code number.
-    
-
 
 * **Trimming (1)**
   
