@@ -5,9 +5,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Features.Session
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -18,7 +18,7 @@ namespace Features.Session
             services.AddSession();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseSession();
 
