@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Features;
 using System;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace HelloWorldWithReload 
+namespace PracticalAspNetCore 
 {
     interface ICustomFeature 
     {
