@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Features.Connection
+namespace PracticalAspNetCore
 {
     public class Startup
     {
@@ -14,13 +15,15 @@ namespace Features.Connection
             {
                 var bodySize = context.Features.Get<IHttpMaxRequestBodySizeFeature>();
                 bodySize.MaxRequestBodySize = 555;
-                var str = string.Empty;
-                str = $"Max Request Body Size {bodySize.MaxRequestBodySize}(Is Read Only: {bodySize.IsReadOnly}) You can <strong>also</strong> set this value at KestrelServerOptions.Limits.MaxRequestBodySize";
+                var str = "<html><body>";
+                str += $"Max Request Body Size {bodySize.MaxRequestBodySize}(Is Read Only: {bodySize.IsReadOnly}) You can <strong>also</strong> set this value at KestrelServerOptions.Limits.MaxRequestBodySize";
+                str += "</body></html>";
+                context.Response.Headers.Add("Content-Type", "text/html");
                 return context.Response.WriteAsync($"{str}");
             });
         }
     }
-
+    
     public class Program
     {
         public static void Main(string[] args)
@@ -28,13 +31,13 @@ namespace Features.Connection
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseKestrel(k =>
-                {
-                    k.Limits.MaxRequestBodySize = 5000;
-                })
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>().ConfigureKestrel(k =>
+                    {
+                      k.Limits.MaxRequestBodySize = 5000;
+                    })
+                );
     }
 }
