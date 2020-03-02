@@ -14,6 +14,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Caching](/projects/caching) |
 | [Diagnostics](/projects/diagnostics)|
 | [Endpoint Routing](/projects/endpoint-routing) |
+| [Features](/projects/features) |
 | [Health Check](/projects/health-check)|
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Generic Hosting](/projects/generic-host) |
@@ -331,45 +332,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Contrast the usage of `MapWhen` (which branch execution) and `UseWhen` (which doesn't branch execution) in configuring your Middleware.
 
-* **Features (9)**
-  
-  Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
-  * [Server Addresses Feature](/projects/features-server-addresses)
-
-    Use this Feature to obtain a list of urls that your app is responding to.
-
-  * [Server Addresses Feature - 2](/projects/features-server-addresses-2)
-
-    Use `IServer` interface to access server addressess when you don't have access to `IApplicationBuilder`. 
-
-  * [Request Feature](/projects/features-server-request)
-
-    Obtain details of a current request. It has some similarity to HttpContext.Request. They are not equal. `HttpContext.Request` has more properties.  
-
-  * [Connection Feature](/projects/features-connection)
-
-    Use `IHttpConnectionFeature` interface to obtain local ip/port and remote ip/port. 
-
-  * [Custom Feature](/projects/features-server-custom)
-
-    Create your own custom Feature and pass it along from a middleware. 
-
-  * [Custom Feature - Override](/projects/features-server-custom-override)
-
-    Shows how you can replace an implementation of a Feature with another within the request pipeline.
-
-  * [Request Culture Feature](/projects/features-request-culture)
-
-    Use this feature to detect the culture of a web request through `IRequestCultureFeature`. It needs the following dependency `"Microsoft.AspNetCore.Localization": "2.1.0"`.
-
-  * [Session Feature](/projects/features-session)
-
-    Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "2.1.0-*"`.
-
-  * [Maximum Request Body Size Feature](/projects/features-max-request-body-size)
-
-    Use this feature to read and set maximum HTTP Request body size.
 
 * **Dependency Injection (2)**
 

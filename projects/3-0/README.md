@@ -81,10 +81,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
  
   Show various version info of the framework your system is running on.
 
-* [IHttpResponseBodyFeature](/projects/3-0/features-http-body-response)
-
-  This new Feature interface consolidate previous version's three response body APIs into one
-
 * [Trailing headers](/projects/3-0/trailing-headers)
 
   This example shows how to issue trailing HTTP headers. Normal HTTP headers must be issued before body of the HTTP Response starts being written. Trailing headers allows you to issue headers after the HTTP body has been written. 
