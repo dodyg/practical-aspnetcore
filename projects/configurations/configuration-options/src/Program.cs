@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Configuration.Options 
+namespace PracticalAspNetCore
 {
     public class ApplicationOptions
     {
@@ -17,10 +16,6 @@ namespace Configuration.Options
 
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<ApplicationOptions>( o =>{
@@ -29,7 +24,7 @@ namespace Configuration.Options
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(context =>
             {
