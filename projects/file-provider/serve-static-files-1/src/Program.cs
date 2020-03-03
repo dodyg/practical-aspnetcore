@@ -8,7 +8,7 @@ namespace PracticalAspNetCore
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseStaticFiles()
+            app.UseStaticFiles();
         }
     }
 
