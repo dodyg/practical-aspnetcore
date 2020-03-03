@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System.IO;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Configuration.Xml.Options 
+namespace PracticalAspNetCore
 {
     public class XmlOptions
     {
@@ -72,7 +71,7 @@ namespace Configuration.Xml.Options
     {
         IConfigurationRoot _config;
 
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public Startup()
         {
             //This is the most basic configuration you can have
             var builder = new ConfigurationBuilder();
@@ -89,7 +88,7 @@ namespace Configuration.Xml.Options
             services.Configure<XmlOptions>(_config);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async (context) =>
             {
