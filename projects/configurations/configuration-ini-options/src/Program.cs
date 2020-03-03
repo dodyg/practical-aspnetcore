@@ -6,13 +6,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Configuration.IniOptions 
+namespace PracticalAspNetCore
 {
     public class XmlOptions
     {
         public XmlOptionsWebPages WebPages { get; set; }
+
         public class XmlOptionsWebPages
         {
             public string Value { get; set;}
@@ -71,7 +72,7 @@ namespace Configuration.IniOptions
     {
         IConfigurationRoot _config;
 
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public Startup()
         {
             //This is the most basic configuration you can have
             var builder = new ConfigurationBuilder();
@@ -85,11 +86,10 @@ namespace Configuration.IniOptions
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-
             services.Configure<XmlOptions>(_config);            
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
