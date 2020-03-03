@@ -22,12 +22,12 @@
 
   * [Rewrite - 5](/projects/rewrite/rewrite-5)
   
-    Implement a custom redirect logic based on `IRule` implementation. Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
+    Implement a custom redirect logic based on `IRule` implementation. 
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
 
   * [Rewrite - 6](/projects/rewrite/rewrite-6)
   
-    Implement a custom redirect logic using lambda (similar functionality to Rewrite - 5). Require additional dependency of `"Microsoft.AspNetCore.StaticFiles": "1.1.0"` to serve images.
+    Implement a custom redirect logic using lambda (similar functionality to Rewrite - 5). 
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
