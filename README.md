@@ -12,6 +12,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
 | [Blazor Server Side](/projects/blazor-ss) |
 | [Caching](/projects/caching) |
+| [Configurations](/projects/configurations) |
 | [Diagnostics](/projects/diagnostics)|
 | [Endpoint Routing](/projects/endpoint-routing) |
 | [Features](/projects/features) |
@@ -348,52 +349,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Note: example 2 is forthcoming. The inspiration has not arrived yet.
 
-
-
-* **Configuration (7)**
-
-  This section is all about configuration, from memory configuration to INI, JSON and XML.
-
-  * [Configuration](/projects/configuration)
-
-    This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
-
-  * [Configuration - Options](/projects/configuration-options)
-
-    Use IOptions at the most basic.
-
-  * [Configuration - Environment variables](/projects/configuration-environment-variables)
-
-    Load environment variables and display all of them.
-
-  * [Configuration - INI file](/projects/configuration-ini)
-
-    Read from INI file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.INI" : "2.1.0"`.
-
-  * [Configuration - INI file - Options](/projects/configuration-ini-options)
-
-    Read from INI file (with nested keys) and IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.INI" : "2.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "2.1.0"`.
-
-  * [Configuration - XML file](/projects/configuration-xml)
-
-    Read from XML file. It requires taking a new dependency, `"Microsoft.Extensions.Configuration.Xml" : "2.1.0"`.
-
-    **Note**: This Xml Configuration provider does not support repeated element.
-
-    The following configuration settings will break:
-
-    ```
-    <appSettings>
-      <add key="webpages:Version" value="3.0.0.0" />
-      <add key="webpages:Enabled" value="false" />
-    </appSettings>
-    ```
-
-    On the other hand you can get unlimited nested elements and also attributes.
-
-  * [Configuration - XML file - Options](/projects/configuration-xml-options)
-
-    Read from XML file and use IOptions. It requires taking two new dependencies, `"Microsoft.Extensions.Configuration.Xml" : "2.1.0"` and `"Microsoft.Extensions.Options.ConfigurationExtensions" : "2.1.0"`.
 
 
 * **Compression (1)**
