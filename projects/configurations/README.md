@@ -2,7 +2,7 @@
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 
-  * [Configuration](/projects/configurations/configuration)
+  * [Configuration](/projects/configurations/configuration-1)
 
     This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
 
