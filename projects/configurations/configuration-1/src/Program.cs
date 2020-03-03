@@ -1,18 +1,16 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace Configuration 
+namespace PracticalAspNetCore 
 {
     public class Startup
     {
         IConfigurationRoot _config;
 
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public Startup()
         {
             //This is the most basic configuration you can have
             var builder = new ConfigurationBuilder();
@@ -22,11 +20,7 @@ namespace Configuration
             _config["message"] = "hello world";
         }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(context =>
             {
