@@ -6,64 +6,6 @@ Note that all the code here will run on ASP.NET Core 2.0 however these samples u
 
   This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/).
 
-  * [Hello World with Microsoft.AspNetCore.All package](hello-world-startup-all-package)
-
-      If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
-
-      It also adds the following packages
-
-      ```
-      Installing Microsoft.IdentityModel.Logging 1.1.4.
-      Installing Microsoft.IdentityModel.Tokens 5.1.4.
-      Installing runtime.win-x64.runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing runtime.win-x86.runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing runtime.win-arm64.runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing System.IdentityModel.Tokens.Jwt 5.1.4.
-      Installing System.Text.Encoding.CodePages 4.4.0.
-      Installing runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing Microsoft.Azure.KeyVault.WebKey 2.0.7.
-      Installing Microsoft.Rest.ClientRuntime.Azure 3.3.7.
-      Installing Microsoft.Rest.ClientRuntime 2.3.8.
-      Installing SQLitePCLRaw.lib.e_sqlite3.v110_xp 1.1.7.
-      Installing SQLitePCLRaw.lib.e_sqlite3.linux 1.1.7.
-      Installing SQLitePCLRaw.lib.e_sqlite3.osx 1.1.7.
-      Installing SQLitePCLRaw.provider.e_sqlite3.netstandard11 1.1.7.
-      Installing Microsoft.IdentityModel.Protocols 2.1.4.
-      Installing Microsoft.NETCore.App 2.0.0-preview2-25407-01.
-      Installing Microsoft.NETCore.DotNetHostPolicy 2.0.0-preview2-25407-01.
-      Installing Microsoft.NETCore.Platforms 2.0.0-preview2-25405-01.
-      Installing NETStandard.Library 2.0.0-preview2-25401-01.
-      Installing Microsoft.NETCore.DotNetHostResolver 2.0.0-preview2-25407-01.
-      Installing Microsoft.Packaging.Tools 1.0.0-preview2-25401-01.
-      Installing System.Interactive.Async 3.1.1.
-      Installing SQLitePCLRaw.core 1.1.7.
-      Installing Microsoft.IdentityModel.Protocols.OpenIdConnect 2.1.4.
-      Installing SQLitePCLRaw.bundle_green 1.1.7.
-      Installing Microsoft.Azure.KeyVault 2.3.2.
-      Installing Microsoft.IdentityModel.Clients.ActiveDirectory 3.14.1.
-      Installing WindowsAzure.Storage 8.1.4.
-      Installing System.Data.SqlClient 4.4.0.
-      Installing Microsoft.NETCore.DotNetAppHost 2.0.0-preview2-25407-01.
-      ```
-
-      In ASP.NET Core 2.0, this is the recommended way to start your host
-
-      ```
-      public class Program
-      {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development")
-                .Build();
-      }
-      ```
-
   * [A new way of configuring logging](logging)
 
     Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
@@ -99,12 +41,6 @@ Note that all the code here will run on ASP.NET Core 2.0 however these samples u
           });
       }
     ```
-
-  * [Session Feature with Redis using BinaryFormatter](features-session-redis)
-
-    This shows how to use session with ```Redis``` store. We use ```BinaryFormatter``` which is only available at `.NET Core 2.0` or above to serialize and deserialize your object. *The better way is to serialize your object using Json - BinaryFormatter is SLOW*.
-
-    Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
 
   * [Session Feature with Redis using JSON Serialization](features-session-redis-2)
 
