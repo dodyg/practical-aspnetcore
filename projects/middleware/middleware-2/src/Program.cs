@@ -21,7 +21,7 @@ namespace Middleware
 
             app.Run(async context =>
             {
-                context.Response.Headers.Add("content-type", "text/html");
+                context.Response.Headers.Add("Content-Type", "text/html");
                 await context.Response.WriteAsync("<h1>This sample uses buffering</h1>");
                 await context.Response.WriteAsync("<p>This allows all your Middlewares to write to Response.</p>");
             });
