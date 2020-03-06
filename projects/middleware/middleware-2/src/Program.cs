@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Middleware
 {
