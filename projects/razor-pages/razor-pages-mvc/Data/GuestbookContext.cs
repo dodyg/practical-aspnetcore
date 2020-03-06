@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace RazorPagesMvc.Data
+namespace PracticalAspNetCore.Data
 {
     public class GuestbookContext : DbContext
     {

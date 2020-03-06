@@ -52,24 +52,6 @@ Note that all the code here will run on ASP.NET Core 2.0 however these samples u
 
     This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
 
-  * [Razor Pages Basic](razor-pages-basic)
-
-    This is the simplest example of the brand new `Razor Pages`. It shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind.
-
-  * [Razor Pages and MVC Basic](razor-pages-mvc)
-
-    Compare and contrast on how the same task can be performed by using `Razor Pages` and `MVC`.
-
-    This sample also shows you how to us `Entity Framework Core` In-Memory Database.
-
-  * [UseRouter extension](use-router)
-
-    Use ```app.UseRouter()``` extension to create minimalistic HTTP services similar to Nancy.
-
-  * [UseRouter extension 2](use-router-2)
-
-    Use ```app.UseRouter()``` with alternative lambda signature.
-
   * [IHostedService](ihosted-service)
 
     Implement background tasks using the new `IHostedService` interface.

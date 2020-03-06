@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMvc.Data;
+using PracticalAspNetCore.Data;
 using System.Threading.Tasks;
 
-namespace RazorPagesMvc.Controllers
+namespace PracticalAspNetCore.Controllers
 {
     [Route("Mvc")]
     public class EntryController : Controller

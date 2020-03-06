@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RazorPagesMvc.Data;
+using PracticalAspNetCore.Data;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace RazorPagesMvcCrud.Pages
+namespace PracticalAspNetCore.Pages
 {
     public class IndexRazorPagesModel : PageModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RazorPagesMvc.Data
+namespace PracticalAspNetCore.Data
 {
     public class Entry
     {

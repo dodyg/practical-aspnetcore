@@ -1,8 +1,18 @@
-# Razor Pages (4)
+# Razor Pages
 
 * [Hello World](/projects/razor-pages/hello-world)
 
   This is the simplest example for Razor Page. Razor Page by default routes `.cshtml` files with `@page` attribute under `/Pages`. So `/Pages/Index.cshtml` becomes `/` and `/Pages/AboutUs.cshtml` becomes `/AboutUs`. 
+
+* [Razor Pages Basic](/projects/razor-pages/razor-pages-basic)
+
+  This sample shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind.
+
+* [Razor Pages and MVC Basic](razor-pages-mvc)
+
+  Compare and contrast on how the same task can be performed by using `Razor Pages` and `MVC`.
+  This sample also shows you how to us `Entity Framework Core` In-Memory Database.
+
 
 * [Routing](/projects/razor-pages/routing)
 

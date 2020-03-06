@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RazorPagesMvc.Data;
+using PracticalAspNetCore.Data;
 using System.Threading.Tasks;
 
-namespace RazorPagesMvcCrud.Pages
+namespace PracticalAspNetCore.Pages
 {
     public class CreateModel : PageModel
     {
