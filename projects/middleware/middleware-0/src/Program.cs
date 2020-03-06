@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
