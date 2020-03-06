@@ -1,6 +1,12 @@
-# Middleware (12)
+# Middleware
 
   We will explore all aspect of middleware building in this section.
+
+  * [Middleware 0](/projects/middleware/middleware-0)
+
+    ASP.NET Core is built on top of pipelines of functions called middleware. This sample shows the basic outline on how they work. 
+    
+    We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
   * [Middleware 1](/projects/middleware/middleware-1)
    

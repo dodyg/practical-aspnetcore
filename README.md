@@ -20,6 +20,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [IHttpClientFactory](/projects/httpclientfactory)|
 | [Generic Hosting](/projects/generic-host) |
 | [gRPC](/projects/grpc)|
+| [Middleware](/projects/middleware)|
 | [MVC](/projects/mvc)|
 | [Razor Pages](/projects/razor-pages)|
 | [Static Files and File Provider](/projects/file-provider)|
@@ -143,12 +144,6 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Console logging - without framework log ](/projects/hello-world-with-logging-filtered)
 
     Filter out frameworking logging from your log output. Without filtering, logging can get very annoying because the framework produces a lot of messages.
-
-  * [Hello World with middlewares](/projects/hello-world-with-middleware)
-
-    ASPNetCore is built on top of pipelines of functions called middleware. 
-    
-    We are using ```IApplicationBuilder Use```, an extension method for adding middleware and ```IApplicationBuilder Run```.
 
   * [IApplicationLifetime](/projects/hello-world-with-IApplicationLifetime)
 
