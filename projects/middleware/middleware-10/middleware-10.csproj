@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>middleware-10</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>middleware-10</PackageId>
   </PropertyGroup>
+</Project>
 
