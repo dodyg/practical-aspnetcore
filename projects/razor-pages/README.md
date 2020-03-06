@@ -8,11 +8,10 @@
 
   This sample shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind.
 
-* [Razor Pages and MVC Basic](razor-pages-mvc)
+* [Razor Pages and MVC Basic](/projects/razor-pages/razor-pages-mvc)
 
   Compare and contrast on how the same task can be performed by using `Razor Pages` and `MVC`.
   This sample also shows you how to us `Entity Framework Core` In-Memory Database.
-
 
 * [Routing](/projects/razor-pages/routing)
 
