@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
