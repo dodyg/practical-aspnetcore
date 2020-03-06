@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -22,7 +23,7 @@ namespace PracticalAspNetCore
             
             app.Run(context =>
             { 
-                context.Response.Headers.Add("content-type", "text/html");
+                context.Response.Headers.Add("Content-Type", "text/html");
                 return context.Response.WriteAsync(@"
                    <a href=""/hello"">/hello</a> <a href=""/hello/world"">/hello/world</a>
                 ");
