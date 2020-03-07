@@ -21,15 +21,15 @@
       Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
   * **Query String (3)**
-    * [Single value query string](/projects/request/request-query-string-1)
+    * [Single value query string](/projects/request/query-string-1)
 
       Access single value query string.
 
-    * [Multiple values query string](/projects/request/request-query-string-2)
+    * [Multiple values query string](/projects/request/query-string-2)
 
       Access multiples values query string.
 
-    * [List all query string values](/projects/request/request-query-string-3)
+    * [List all query string values](/projects/request/query-string-3)
 
       List all query string values. Also shows the implicat conversion from ```StringValues``` to ```string```.
 
