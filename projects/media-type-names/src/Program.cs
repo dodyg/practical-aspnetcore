@@ -10,21 +10,12 @@ using System.Reflection;
 using System.Net.Mime;
 using Microsoft.Net.Http.Headers;
 using System;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
         private List<FieldInfo> GetConstants(Type type)
         {
             FieldInfo[] fieldInfos = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
@@ -32,7 +23,7 @@ namespace PracticalAspNetCore
             return fieldInfos.Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
