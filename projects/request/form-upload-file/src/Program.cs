@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
 using System.IO;
 using Microsoft.Extensions.Hosting;
@@ -11,50 +9,45 @@ namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddRouting();
-        }
-
         public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
-            var routerBuilder = new RouteBuilder(app);
-
-            routerBuilder.MapGet("", async context =>
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
             {
-                context.Response.Headers.Add("content-type", "text/html");
-
-                var body = $@"
-               <h1>Upload File</h1>
-               <form action=""Upload"" method=""post"" enctype=""multipart/form-data"">
-                    <input type=""file"" name=""file"" />
-                    <input type=""submit"" value=""Upload"" />
-               </form>
-               ";
-
-                await context.Response.WriteAsync(body);
-            });
-
-            routerBuilder.MapPost("Upload", async context =>
-            {
-                if (context.Request.HasFormContentType)
+                endpoints.MapGet("", async context =>
                 {
-                    var form = await context.Request.ReadFormAsync();
+                    context.Response.Headers.Add("content-type", "text/html");
 
-                    foreach (var f in form.Files)
+                    var body = $@"
+                <h1>Upload File</h1>
+                <form action=""Upload"" method=""post"" enctype=""multipart/form-data"">
+                        <input type=""file"" name=""file"" />
+                        <input type=""submit"" value=""Upload"" />
+                </form>
+                ";
+
+                    await context.Response.WriteAsync(body);
+                });
+
+                endpoints.MapPost("Upload", async context =>
+                {
+                    if (context.Request.HasFormContentType)
                     {
-                        using (var body = f.OpenReadStream())
+                        var form = await context.Request.ReadFormAsync();
+
+                        foreach (var f in form.Files)
                         {
-                            var fileName = Path.Combine(env.ContentRootPath, f.FileName);
-                            File.WriteAllBytes(fileName, ReadFully(body));
-                            await context.Response.WriteAsync($"Uploaded file written to {fileName}");
+                            using (var body = f.OpenReadStream())
+                            {
+                                var fileName = Path.Combine(env.ContentRootPath, f.FileName);
+                                File.WriteAllBytes(fileName, ReadFully(body));
+                                await context.Response.WriteAsync($"Uploaded file written to {fileName}");
+                            }
                         }
                     }
-                }
-                await context.Response.WriteAsync("");
+                    await context.Response.WriteAsync("");
+                });
             });
-
-            app.UseRouter(routerBuilder.Build());
         }
 
         public static byte[] ReadFully(Stream input)
