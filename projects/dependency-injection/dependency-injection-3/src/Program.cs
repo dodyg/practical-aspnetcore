@@ -1,20 +1,14 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             //Register all objects configured by classes that implements IBootstrap.
@@ -33,7 +27,7 @@ namespace PracticalAspNetCore
             }
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             //These are the three default services available at Configure
 
