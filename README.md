@@ -182,57 +182,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-
-* **Routing (9)**
-
-  We go deep into `Microsoft.AspNetCore.Routing` library that provides routing facilities in your aspnetcore apps.
-  There are several samples to illuminate this powerful library.
-
-  * [Router](/projects/routing)
-  
-    A single route handler that handles every path request.
-
-  * [Router 2](/projects/routing-2)
-  
-    Two route handler, one for home page (/) and the other takes the rest of the request using asterisk (*) in the url template.
-
-  * [Router 3](/projects/routing-3)
-
-    We are exploring default handler - this is the entry point to create your own framework.
-    
-  * [Router 4](/projects/routing-4)
-
-    We are mixing optional route parameter, route parameter with default value and default handler.
-
-  * [Router 5]
-
-    This is still broken. I am trying to figure out how to do nested routing. Wish me luck!
-  
-  * [Router 6](/projects/routing-6)
-
-    We are building a template route segment by segment and parts by parts, oldskool. We are using ```TemplateMatcher```, ```TemplateSegment``` and ```TemplatePart```.
-
-    Hold your mask, we are going deep.
-  
-  * [Router 7](/projects/routing-7)
-
-    We are creating a routing template with two segments, one with Literal part and the other Parameter part, e.g, "/page/{*title}"
-
-  * [Router 8](/projects/routing-8)
-
-    We are creating a routing template with one segment consisted of two parts, one Literal and one Parameter, e.g. "/page{*title}". Note the difference between this example and Router 7.
-
-  * [Router 9](/projects/routing-9)
-   
-    I am still trying to determine whether `TemplateMatcher` uses the `InlineConstraint` information.
-
-    Update: No, `TemplateMatcher` does not run constraints. [#362](https://github.com/aspnet/Routing/issues/362)
- 
-  * [Router 10](/projects/routing-10)    
-
-    We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
-
-
 * **Compression (1)**
 
   Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "2.1.0```.
