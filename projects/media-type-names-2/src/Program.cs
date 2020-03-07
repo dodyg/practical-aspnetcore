@@ -3,30 +3,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using Microsoft.AspNetCore;
-using System.Collections.Generic;
-using System.Reflection;
 using System.Net.Mime;
 using Microsoft.Net.Http.Headers;
-using System;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //This is the only service available at ConfigureServices
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             var provider = new FileExtensionContentTypeProvider();
 
