@@ -6,16 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace DI.One
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(x => new SingletonDate());
@@ -23,7 +19,7 @@ namespace DI.One
             services.AddScoped(x => new ScopedDate());
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             //These are the three default services available at Configure
 
