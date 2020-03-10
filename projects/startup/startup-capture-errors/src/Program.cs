@@ -5,25 +5,20 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are two services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
+            // We throw exception here deliberately so we can see how ASP.NET Core shows the error
             throw new Exception("error here");
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
-            //These are the three default services available at Configure
-
             app.Run(context =>
             {
                 return context.Response.WriteAsync("Hello world");
@@ -35,14 +30,16 @@ namespace PracticalAspNetCore
     {
         public static void Main(string[] args)
         {
-            CreateBuildWebHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateBuildWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .CaptureStartupErrors(true)
-                .UseSetting("detailedErrors", "true")
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder
+                        .CaptureStartupErrors(true)
+                        .UseSetting("detailedErrors", "true")
+                        .UseStartup<Startup>()
+                );
     }
 }
