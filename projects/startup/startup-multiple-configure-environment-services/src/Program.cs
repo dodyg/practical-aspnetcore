@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCoreConfigureEnvironment
+namespace PracticalAspNetCore
 {
     public class Greet
     {
@@ -31,10 +32,8 @@ namespace PracticalAspNetCoreConfigureEnvironment
             services.AddSingleton(new Greet("Hello Development"));
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
-            //These are the three default services available at Configure
-
             app.Run(context =>
             {
                 var greeter = context.RequestServices.GetService<Greet>();
@@ -50,13 +49,14 @@ namespace PracticalAspNetCoreConfigureEnvironment
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-              .UseKestrel()
-              .UseStartup<Startup>()
-              .UseEnvironment("Development") //switch to "Production" to use StartupProduction
-              .Build();
-
-            host.Run();
+            CreateHostBuilder(args).Build().Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>()
+                    .UseEnvironment(Environments.Development)
+                ); // You can change this to "Production" and it will use ConfigureProduction
     }
 }
