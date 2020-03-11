@@ -32,7 +32,7 @@
 
   Why? just because we can.
 
-* [Hello world with IStartupFilter](/projects/startup/startup-istartupfilter)
+* [Using IStartupFilter](/projects/startup/startup-istartupfilter)
 
   Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
 
