@@ -26,6 +26,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Razor Pages](/projects/razor-pages)|
 | [Request](/projects/request)|
 | [Static Files and File Provider](/projects/file-provider)|
+| [Startup](/projects/startup)|
 | [System.Text.Json](/projects/json) |
 | [URL Redirect/Rewrite](/projects/rewrite)|
 | [Uri Helper](/projects/uri-helper)|
@@ -96,51 +97,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
 
-  * Startup class
-    * [Hello World with startup basic](/projects/hello-world-startup-basic)
-
-      This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
-
-    * [Hello World with custom startup class name](/projects/hello-world-startup-custom-name)
-
-      You don't have to call your startup class `Startup`. Any valid C# class will do.
-
-    * [Hello World with responding to multiple urls](/projects/hello-world-startup-basic-multiple-urls)
-
-      Configure so that your web app responds to multiple urls.
-
-    * [Hello World with multiple startups](/projects/hello-world-startup-basic-multiple)
-
-      This project highlights the fact that you can create multiple Startup classes and choose them at start depending on your needs. 
-
-    * [Hello World with multiple startups using environment](/projects/hello-world-startup-basic-multiple-environment)
-
-      This project highlights the fact that you can create multiple startup classes and choose them at start depending on your needs depending on your environment (You do have to name the startup class with Startup). 
-
-    * [Hello World with multiple Configure methods based on environment](/projects/hello-world-startup-multiple-configure-environment)
-
-      This project demonstrates the ability to pick `Configure` method in a single Startup class based on environment.
-
-    * [Hello World with multiple ConfigureServices methods based on environment](/projects/hello-world-startup-multiple-configure-environment-services)
-
-      This project demonstrates the ability to pick `ConfigureServices` method in a single Startup class based on environment.
-
-    * [Hello World with an implementation of IStartup interface](/projects/hello-world-startup-istartup)
-
-      We are really getting into the weed of startup right now. This is an example on how to implement `IStartup` directly. 
-
-    * [Hello World without a startup class](/projects/hello-world-no-startup)
-
-      Why? just because we can.
-
-    * [Hello world with IStartupFilter](/projects/hello-world-startup-istartupfilter)
-
-      Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
-
-  * [Show errors during startup](/projects/hello-world-startup-capture-errors)
-
-    Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
-
+  
   * [Show Connection info](/projects/hello-world-with-connection-info)
 
     Enumerate the connection information of a HTTP request.
