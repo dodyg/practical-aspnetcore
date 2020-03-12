@@ -71,6 +71,10 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
 
+* [Application Environment](/projects/application-environment)
+
+  This sample shows how to obtain application environment information (target framework, etc).
+
 
 ### Server-Sent Events (1)
 
