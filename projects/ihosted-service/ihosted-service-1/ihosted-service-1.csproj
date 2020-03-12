@@ -1,10 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>ihosted-service</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>ihosted-service</PackageId>
   </PropertyGroup>
-
-
 </Project>

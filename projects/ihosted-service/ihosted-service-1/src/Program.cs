@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -76,18 +76,13 @@ namespace PracticalAspNetCore
 
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-            //These are three services available at constructor
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<Greeter>();
             services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, GreeterUpdaterService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app)
         {
             //These are the four default services available at Configure
             app.Run(context =>

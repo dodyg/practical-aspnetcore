@@ -47,7 +47,3 @@ Note that all the code here will run on ASP.NET Core 2.0 however these samples u
     This shows how to use session with ```Redis``` store using Json instead of ```BinaryFormatter```.
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
-
-  * [IHostedService](ihosted-service)
-
-    Implement background tasks using the new `IHostedService` interface.
