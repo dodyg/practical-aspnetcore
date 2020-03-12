@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -12,10 +12,11 @@ namespace PracticalAspNetCore
     {
         public string ContentPath { get; set; }
     }
+
     public class Startup
     {
-        IHostingEnvironment _env;
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        IHostEnvironment _env;
+        public Startup(IHostEnvironment env)
         {
             _env = env;
         }
@@ -28,7 +29,7 @@ namespace PracticalAspNetCore
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {

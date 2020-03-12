@@ -60,6 +60,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This sample demonstrates the usage of `IWebHostEnvironment` from `Configure` method.
 
+* [IHostEnvironment](/projects/basic/i-host-environment)
+
+  This sample shows how to access `IHostEnvironment` from `ConfigureServices`. 
+
+
 * [IConfiguration](/projects/basic/iconfiguration)
 
   This sample demonstrates the usage of `IConfiguration` from `Configure' method.
@@ -131,21 +136,6 @@ To run these samples, simply open your command line console,  go to each folder 
   * [IHostingEnvironment](/projects/hello-world-with-IHostingEnvironment)
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface. 
-
-  * [IHostingEnvironment at ConfigureServices](/projects/hello-world-with-IHostingEnvironment-Configure-Services)
-
-    This sample shows how to access `IHostingEnvironment` from `ConfigureServices`. 
-
-  * [Application Environment](/projects/hello-world-application-environment)
-
-    This sample shows how to obtain application environment information (target framework, etc).
-
-
-* **Compression (1)**
-
-  Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "2.1.0```.
-
-
 
 * **Misc (3)**
 
