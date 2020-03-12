@@ -65,6 +65,12 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
 
+### Misc
+
+* [Anti Forgery on Form](/projects/anti-forgery)
+
+  This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
+
 
 ### Server-Sent Events (1)
 
@@ -88,15 +94,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 <!-- 
 
-
 * **Hello World (22)**
-
-  * [Hello World with reload](/projects/hello-world-with-reload)
-
-    Setup your most basic web app and enable the change+refresh development experience. 
-
-    We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
-
   
   * [Show Connection info](/projects/hello-world-with-connection-info)
 
@@ -219,15 +217,6 @@ To run these samples, simply open your command line console,  go to each folder 
   * [Device Detection](/projects/device-detection)
 
     This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
-
-
-* **Owin (1)**
-
-  All these samples require ```Microsoft.AspNetCore.Owin``` package. These are low level samples and in most cases are not relevant to your day to day ASP.NET Core development.
-
-  * [Owin](/projects/owin)
-
-    Hello world the hard way.
 
 * **Image Sharp (1)**
 

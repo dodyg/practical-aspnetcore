@@ -48,10 +48,6 @@ Note that all the code here will run on ASP.NET Core 2.0 however these samples u
 
     Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
 
-  * [Anti Forgery on Form](anti-forgery)
-
-    This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
-
   * [IHostedService](ihosted-service)
 
     Implement background tasks using the new `IHostedService` interface.
