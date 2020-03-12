@@ -64,7 +64,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This sample shows how to access `IHostEnvironment` from `ConfigureServices`. 
 
-
 * [IConfiguration](/projects/basic/iconfiguration)
 
   This sample demonstrates the usage of `IConfiguration` from `Configure' method.
