@@ -56,6 +56,14 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
 
+* [IWebHostConfiguration](/projects/basic/i-webhost-environment)
+
+  This sample demonstrates the usage of `IWebHostEnvironment` from `Configure` method.
+
+* [IConfiguration](/projects/basic/iconfiguration)
+
+  This sample demonstrates the usage of `IConfiguration` from `Configure' method.
+
 ### Misc
 
 * [Anti Forgery on Form](/projects/anti-forgery)
