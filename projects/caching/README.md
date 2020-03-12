@@ -17,3 +17,7 @@
   * [Caching 4 - CancellationChangeToken dependency](/projects/caching/caching-4)
 
     Bind several cache entries to a single dependency that you can reset manually.
+
+  * [Redis Caching Package](/projects/caching/redis-cache)
+
+    This sample uses the `Microsoft.Extensions.Caching.StackExchangeRedis` to store caching value in Redis.
