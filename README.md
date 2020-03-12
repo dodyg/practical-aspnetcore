@@ -22,6 +22,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [IHostedService](/projects/ihosted-service)|
 | [Generic Hosting](/projects/generic-host) |
 | [gRPC](/projects/grpc)|
+| [Logging](/projects/logging)|
 | [Middleware](/projects/middleware)|
 | [MVC](/projects/mvc)|
 | [Orchard Core](/projects/orchard-core)|
