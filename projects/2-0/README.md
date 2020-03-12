@@ -6,14 +6,6 @@ Note that all the code here will run on ASP.NET Core 2.0 however these samples u
 
   This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/).
 
-  * [A new way of configuring logging](logging)
-
-    Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
-
-  * [Logging filtering](logging-with-filter)
-
-    Now you can adjust what kind of logging information from various part of ASP.NET Core and your app you want show/stored.
-
   * [IConfiguration is now core](iconfiguration)
 
     ASP.NET Core 1.1
