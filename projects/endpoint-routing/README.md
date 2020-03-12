@@ -122,3 +122,7 @@
 
   This sample shows how to return different fallback page located in areas depending on the route pattern that matches the request.
   
+* [Parameter Transformer ](/projects/endpoint-routing/parameter-transformer)
+     
+  Use Parameter Transformer to control the creation of route token `[area]`, `[controller]` and `[action]`. In this example we use it on `[controller]` and `[action]`.
+   
