@@ -24,6 +24,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [gRPC](/projects/grpc)|
 | [Middleware](/projects/middleware)|
 | [MVC](/projects/mvc)|
+| [Orchard Core](/project/orchard-core)|
 | [Razor Pages](/projects/razor-pages)|
 | [Request](/projects/request)|
 | [Static Files and File Provider](/projects/file-provider)|
@@ -66,6 +67,10 @@ To run these samples, simply open your command line console,  go to each folder 
 * [Show Connection info](/projects/connection-info)
 
   Enumerate the connection information of a HTTP request.
+
+* [Keeping track of anonymous users](/projects/anonymous-id)
+
+  Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
 ### Server-Sent Events
 
@@ -189,11 +194,6 @@ To run these samples, simply open your command line console,  go to each folder 
     This shows an example on how to send an email using SMTP.
 
     Thanks to [@Kinani95](https://twitter.com/Kinani95).
-
-  * [Keeping track of anonymous users](/projects/anonymous-id)
-
-    Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
-
 
 * **Middleware (1)**
   
