@@ -1,9 +1,7 @@
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -14,7 +12,6 @@ namespace PracticalAspNetCore
             //Comment this code out and you will see the whole program will stop working 
             app.UseResponseBuffering();
 
-            //These are the four default services available at Configure
             app.Run(async context =>
             {
                 context.Response.ContentType = "application/json";

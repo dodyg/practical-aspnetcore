@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Buffering" Version="0.2.2"/>
   </ItemGroup>
 </Project>

@@ -131,28 +131,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This sample shows how to obtain application environment information (target framework, etc).
 
-  * [Adding HTTP Response Header](/projects/hello-world-with-header)
-
-    Demonstrate on how to add a response header and where is allowed place to do it.
 
 * **Compression (1)**
 
   Enable the ability to compress ASP.NET Core responses. These samples takes a dependency of ```Microsoft.AspNetCore.ResponseCompression": "2.1.0```.
 
-  * [Default Gzip Output Compression](/projects/compression-response) 
-   
-    Compress everything using the default Gzip compression.
-
-    _Everything_ means the following MIME output  
-    
-    * text/plain
-    * text/css
-    * application/javascript
-    * text/html
-    * application/xml
-    * text/xml
-    * application/json
-    * text/json 
 
 
 * **Misc (3)**
@@ -189,12 +172,6 @@ To run these samples, simply open your command line console,  go to each folder 
     This shows an example on how to send an email using SMTP.
 
     Thanks to [@Kinani95](https://twitter.com/Kinani95).
-
-* **Middleware (1)**
-  
-  * [Response Buffering](/projects/response-buffering)
-
-    Use `Microsoft.AspNetCore.Buffering 0.2.2` middleware to implement response buffering facility. This will allow you to change your response after you write them.
 
 * **Device Detection (1)**
   
