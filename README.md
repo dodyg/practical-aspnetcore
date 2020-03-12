@@ -19,6 +19,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Features](/projects/features) |
 | [Health Check](/projects/health-check)|
 | [IHttpClientFactory](/projects/httpclientfactory)|
+| [IHostedService](/projects/ihosted-service)|
 | [Generic Hosting](/projects/generic-host) |
 | [gRPC](/projects/grpc)|
 | [Middleware](/projects/middleware)|
