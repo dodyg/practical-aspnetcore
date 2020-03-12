@@ -831,15 +831,6 @@ All these projects require the following dependencies
 
     Inject `IApplicationLifetime` and listen to `ApplicationStarted`, `ApplicationStopping` and `ApplicationStopped` events. This is important to allow services to be shutdown gracefully. The shutdown process blocks until `ApplicatinStopping` and `ApplicationStopped` events complete.
 
-## Other resources
-
-These are other aspnetcore resources with code samples
-
-* [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/)
-* [aspnetcore entropy](https://github.com/aspnet/entropy)
-* [aspnetcore API browser](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2)
-
-
 ## Misc
 
 * [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
