@@ -124,32 +124,23 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
 
+### Device Detection
+  
+The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
+
+* [Device Detection](/projects/device-detection)
+
+  This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
+
 <!-- 
 
 * **Hello World (22)**
-
-  * [Console logging](/projects/hello-world-with-logging)
-
-    Setup a basic logging in your app and show it to console.
-
-    We add the following dependencies ```"Microsoft.Extensions.Logging": "1.1.0"``` and ```"Microsoft.Extensions.Logging.Console": "1.1.0"```
-
-    We are using ```IApplicationBuilder Run```, an extension method for adding terminal middleware.
-
-  * [Console logging - without framework log ](/projects/hello-world-with-logging-filtered)
-
-    Filter out frameworking logging from your log output. Without filtering, logging can get very annoying because the framework produces a lot of messages.
 
   * [IApplicationLifetime](/projects/hello-world-with-IApplicationLifetime)
 
     Respond to application startup and shutdown.
 
     We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
-
-  * [IHostingEnvironment](/projects/hello-world-with-IHostingEnvironment)
-
-    `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface. 
-
 
 * **Trimming (1)**
   
@@ -169,13 +160,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Thanks to [@Kinani95](https://twitter.com/Kinani95).
 
-* **Device Detection (1)**
-  
-  The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
-
-  * [Device Detection](/projects/device-detection)
-
-    This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
 * **Image Sharp (1)**
 
