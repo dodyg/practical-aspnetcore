@@ -72,6 +72,10 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
+* [Password Hasher server](/projects/password-hasher)
+
+  Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
+
 ### Server-Sent Events
 
 * [Forever Server](/projects/sse)
@@ -171,12 +175,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
 
-  * [Password Hasher server](/projects/password-hasher)
-
-    Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
-
-    We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
-
 * **Trimming (1)**
   
   This section shows the various way on how to trim the size of your application by using [Microsoft.Packagin.Tools.Trimming](https://www.nuget.org/packages/Microsoft.Packaging.Tools.Trimming/1.1.0-preview1-26619-01)
@@ -217,6 +215,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
+-->
 
 ## Other resources
 
@@ -231,4 +230,3 @@ These are other aspnetcore resources with code samples
 
 * [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
 * [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
--->
