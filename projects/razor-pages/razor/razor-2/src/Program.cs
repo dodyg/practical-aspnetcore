@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Mvc;
 
 namespace PracticalAspNetCore
 {
@@ -12,7 +9,7 @@ namespace PracticalAspNetCore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddRazorPages();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -36,8 +33,7 @@ namespace PracticalAspNetCore
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().
-                    UseEnvironment(Environments.Development);
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }

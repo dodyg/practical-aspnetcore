@@ -1,22 +1,29 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 
-namespace HelloWorldWithReload 
+namespace PracticalAspNetCore
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddRazorPages();
+        }
+
         public void Configure(IApplicationBuilder app)
         {
-            app.Run(context =>
+            app.UseRouting();
+            app.UseEndpoints(route =>
             {
-                return context.Response.WriteAsync("Hello world. Make sure you run this app using 'dotnet watch run'.");
+                route.MapRazorPages();
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
@@ -29,7 +36,7 @@ namespace HelloWorldWithReload
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>().
-                    UseEnvironment("Development");
+                    UseEnvironment(Environments.Development);
                 });
     }
 }

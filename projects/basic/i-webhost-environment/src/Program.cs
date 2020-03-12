@@ -9,8 +9,6 @@ namespace PracticalAspNetCore
     {
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //These are the three default services available at Configure
-
             var applicationName = $"<tr><td>ApplicationName</td><td>{env.ApplicationName}</td></tr>";
             var contentRootPath = $"<tr><td>ContentRootPath</td><td>{env.ContentRootPath}</td></tr>";
             var contentRootFileProvider = $"<tr><td>ContentRootFileProvider</td><td>{env.ContentRootFileProvider}</td></tr>";

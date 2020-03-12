@@ -63,18 +63,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
   ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
 
 
-## Razor View
-
-* [Markup at @functions](/projects/3-0/razor)
-   
-  Now you can use markup inside methods at `@functions` block.
-
-* [Markup at code block](/projects/3-0/razor-2)
-   
-  Now you can use markup inside functions at code block.
-
-
-
 ## Misc
 
 * [Version info](/projects/3-0/version)

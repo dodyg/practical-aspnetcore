@@ -3,37 +3,7 @@
 ## What's new in ASP.NET Core 2.2 (14)
 
   All the samples in this section requires ASP.NET Core 2.2 (`2.2.300`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
-  
-  * [Endpoint Routing](endpoint-routing)
-
-    Enable Endpoint Routing for your MVC Core app. You will gain a faster performance and more functionalities regarding routing. 
-
-  * [Endpoint Routing - GetUriByAction](endpoint-routing-2)
-
-    Use the `LinkGenerator` singleton and its `GetUriByAction` method to generate a link to an Action. It will respect the convention used by MVC, which is, in this example, `app.UseMvcWithDefaultRoute();`.
-
-  * [Endpoint Routing - GetUriByAction - 2](endpoint-routing-3)
-
-    Use the `LinkGenerator` singleton and its `GetUriByAction` method to generate a link to an Action. This sample uses various combination of `Route` and `HttpGet` attributes to generate various links.
-    
-  * [Endpoint Routing - GetUriByAction - 3](endpoint-routing-4)
-
-    Show how to deal with route with values using `LinkGenerator.GetUriByAction`. If you don't deal with the values, the link generator won't generate the link.
-
-  * Endpoint Routing - GetTemplateByAction
-
-    __This sample is no longer relevant__. `LinkGenerator.GetTemplateByAction` has been removed from ASP.NET Core 2.2 final version.
-    Demonstrate on how to obtain route template from an existing Action using `LinkGenerator.GetTemplateByAction` and generate path using the information.
-
-  * [Endpoint Routing - GetPathByAction](endpoint-routing-6)
-
-    Show how to deal with route with values using `LinkGenerator.GetPathByAction`. If you don't deal with the values, the link generator won't generate the link.
 
   * [New Redis Caching Package](new-redis-caching-package)
 
     Instead of using `Microsoft.Extensions.Caching.Redis`, use the new `Microsoft.Extensions.Caching.StackExchangeRedis`. The former will be deprecated in .NET Core 3.0 (https://github.com/aspnet/Announcements/issues/322). 
-
-  * [Allow or disallow Synchronous IO in your pipeline](allow-sync-io)
-
-    This sample demonstrates the impact of setting `KestelSeverOptions.AllowSynchronousIO` to false, which disallows any synchronous IO in your request pipeline. By default this option is set to true.
-
