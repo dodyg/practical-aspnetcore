@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>connection-info</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>connection-info</PackageId>
   </PropertyGroup>
 </Project>

@@ -35,19 +35,6 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [Web Sockets](/projects/web-sockets)|
 | [Web Utilities](/projects/web-utilities)|
 
-
-<!-- 
-| [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
-| [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 4|  2.2 |
-| [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
-| [Security related samples](/projects/security) | 1 |2.2 |
-| [Orchard Core Framework](/projects/orchard-core) | 4| 3.0 |
-| [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
-| [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
-| [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
-| [Foundational ASP.NET Core 2.1 Samples](#foundation-aspnet-core-21-samples) | 136 | 2.1 |
--->
-
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
@@ -75,14 +62,18 @@ To run these samples, simply open your command line console,  go to each folder 
 * [Application Environment](/projects/application-environment)
 
   This sample shows how to obtain application environment information (target framework, etc).
+  
+* [Show Connection info](/projects/connection-info)
 
-### Server-Sent Events (1)
+  Enumerate the connection information of a HTTP request.
+
+### Server-Sent Events
 
 * [Forever Server](/projects/sse)
 
   This server will send a 'hello world' greeting forever.
 
-### Utils(3)
+### Utils
 
 * [Status Codes](/projects/http-status-codes)
 
@@ -99,10 +90,6 @@ To run these samples, simply open your command line console,  go to each folder 
 <!-- 
 
 * **Hello World (22)**
-  
-  * [Show Connection info](/projects/hello-world-with-connection-info)
-
-    Enumerate the connection information of a HTTP request.
 
   * [Environmental settings](/projects/hello-world-env-development)
 
