@@ -6,15 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-        {
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAntiforgery(options =>
@@ -27,7 +24,7 @@ namespace PracticalAspNetCore
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration, IAntiforgery antiForgery)
+        public void Configure(IApplicationBuilder app, IAntiforgery antiForgery)
         {
             //These are the four default services available at Configure
             app.Run(async context =>
@@ -41,7 +38,7 @@ namespace PracticalAspNetCore
 
                 var token = antiForgery.GetAndStoreTokens(context);
 
-                context.Response.Headers.Add("ContentType", "text/html");
+                context.Response.Headers.Add("Content-Type", "text/html");
                 await context.Response.WriteAsync($@"
                 <html>
                 <body>

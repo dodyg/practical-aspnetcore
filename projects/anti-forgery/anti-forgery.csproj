@@ -1,13 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>Anti Forgery</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Anti Forgery</PackageId>
   </PropertyGroup>
-
-  <ItemGroup>
-
-    <PackageReference Include="Microsoft.AspNetCore.Antiforgery" Version="2.1.*" />
-  </ItemGroup>
 </Project>
