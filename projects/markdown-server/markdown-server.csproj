@@ -1,16 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>markdown-server</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>markdown-server</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
-
-    <PackageReference Include="Markdig" Version="0.15.4" />
+    <PackageReference Include="Markdig" Version="0.18.3" />
   </ItemGroup>
-
-
 </Project>
