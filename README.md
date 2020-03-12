@@ -24,7 +24,7 @@ This branch in a work in progress. I am converting over 200 samples from previou
 | [gRPC](/projects/grpc)|
 | [Middleware](/projects/middleware)|
 | [MVC](/projects/mvc)|
-| [Orchard Core](/project/orchard-core)|
+| [Orchard Core](/projects/orchard-core)|
 | [Razor Pages](/projects/razor-pages)|
 | [Request](/projects/request)|
 | [Static Files and File Provider](/projects/file-provider)|
