@@ -100,10 +100,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * **Hello World (22)**
 
-  * [Environmental settings](/projects/hello-world-env-development)
-
-    Set your application environment to `Development` or `Production` or other mode directly from code. 
-
   * [Console logging](/projects/hello-world-with-logging)
 
     Setup a basic logging in your app and show it to console.

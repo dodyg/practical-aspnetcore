@@ -3,6 +3,11 @@
 * [Startup basic](/projects/startup/startup-basic)
 
   This project contains all the available services available in Startup class constructor, `ConfigureServices` and `Configure` methods.
+  
+* [Environmental settings](/projects/startup/env-development)
+
+  Set your application environment to `Development` or `Production` or other mode directly from code. 
+
 
 * [Custom startup class name](/projects/startup/startup-custom-name)
 
