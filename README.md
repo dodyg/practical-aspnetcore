@@ -97,6 +97,20 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This server will send a 'hello world' greeting forever.
 
+### Markdown
+
+* [Markdown server](/projects/markdown-server)
+
+  Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
+
+  We take ```"Markdig"``` as dependency. 
+    
+* [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
+
+  Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
+
+  We take ```"Markdig"``` as dependency. 
+
 ### Utils
 
 * [Status Codes](/projects/http-status-codes)
@@ -137,22 +151,6 @@ To run these samples, simply open your command line console,  go to each folder 
 
     `IHostingEnvironment` is available at `Startup` constuctor and `Startup.Configure`. This sample shows all the properties available in this interface. 
 
-* **Misc (3)**
-
-
-  * [Markdown server](/projects/markdown-server)
-
-    Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
-
-    We take ```"Markdig" : "0.15.1"``` as dependency. 
-    
-  * [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
-
-    Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
-
-    We take ```"Markdig" : "0.15.1"``` as dependency. 
-
-    [Check out](https://docs.asp.net/en/latest/migration/http-modules.html) the documentation on how to write your own middleware.
 
 * **Trimming (1)**
   
