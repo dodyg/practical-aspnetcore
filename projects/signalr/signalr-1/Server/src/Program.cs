@@ -23,9 +23,10 @@ namespace PracticalAspNetCore
             services.AddCors(options =>
             {
                 options.AddPolicy("all",
-                    policy => policy.WithOrigins("http://localhost:5002/")
+                    policy => policy.WithOrigins("http://localhost:5002")
                                     .AllowAnyHeader()
-                                    .AllowAnyMethod());
+                                    .AllowAnyMethod()
+                                    .AllowCredentials());
             });
 
             services.AddSignalR();
@@ -36,9 +37,9 @@ namespace PracticalAspNetCore
             app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCors("all");
 
             app.UseRouting();
+            app.UseCors("all");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<ChatHub>("/chatHub");
