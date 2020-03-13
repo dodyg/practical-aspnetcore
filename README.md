@@ -8,7 +8,6 @@ This branch in a work in progress. I am converting over 200 samples from previou
 
 | Sections |
 | --------------------------------------------------------------- |
-| [ASP.NET Core 3.0](/projects/3-0) |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
 | [Blazor Server Side](/projects/blazor-ss) |
 | [Caching](/projects/caching) |
@@ -93,6 +92,11 @@ To run these samples, simply open your command line console,  go to each folder 
 * [Integrate Newtonsoft.Json back](/projects/newtonsoft-json)
 
   ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
+
+* [Version info](/projects/version)
+ 
+  Show various version info of the framework your system is running on.
+
 
 ### Server-Sent Events
 
