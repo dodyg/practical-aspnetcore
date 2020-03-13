@@ -90,6 +90,10 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Give it a string and it will generate a secure hash for you, e.g. ```localhost:5000?password=mypassword```.
 
+* [Integrate Newtonsoft.Json back](/projects/newtonsoft-json)
+
+  ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
+
 ### Server-Sent Events
 
 * [Forever Server](/projects/sse)

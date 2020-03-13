@@ -58,10 +58,6 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 
   We also start examining the components of the Generic Hosting in the context of setting up your web app. The readme in this link contains more information and discussion.  
 
-* [Integrate Newtonsoft.Json back](/projects/3-0/newtonsoft-json)
-
-  ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
-
 
 ## Misc
 
