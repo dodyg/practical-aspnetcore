@@ -132,6 +132,16 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 
   This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
+
+### Image Sharp
+
+  All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
+
+  * [Image-Sharp](/projects/image-sharp)
+
+    This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
+
+
 <!-- 
 
 * **Hello World (22)**
@@ -160,14 +170,6 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 
     Thanks to [@Kinani95](https://twitter.com/Kinani95).
 
-
-* **Image Sharp (1)**
-
-  All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
-
-  * [Image-Sharp](/projects/image-sharp)
-
-    This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
   
 -->
 
