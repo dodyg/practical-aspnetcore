@@ -68,7 +68,3 @@ The official migration guide from 2.2 to 3.0 is [here](https://docs.microsoft.co
 * [Version info](/projects/3-0/version)
  
   Show various version info of the framework your system is running on.
-
-* [Trailing headers](/projects/3-0/trailing-headers)
-
-  This example shows how to issue trailing HTTP headers. Normal HTTP headers must be issued before body of the HTTP Response starts being written. Trailing headers allows you to issue headers after the HTTP body has been written. 
