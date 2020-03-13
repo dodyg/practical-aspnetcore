@@ -68,11 +68,6 @@ To run these samples, simply open your command line console,  go to each folder 
   This sample demonstrates the usage of `IConfiguration` from `Configure' method.
 
 ### Misc
-
-* [Anti Forgery on Form](/projects/anti-forgery)
-
-  This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
-
 * [Application Environment](/projects/application-environment)
 
   This sample shows how to obtain application environment information (target framework, etc).
@@ -97,6 +92,11 @@ To run these samples, simply open your command line console,  go to each folder 
  
   Show various version info of the framework your system is running on.
 
+* [IApplicationLifetime](/projects/i-application-lifetime)
+
+  Responds to application startup and shutdown.
+
+  We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
 ### Server-Sent Events
 
@@ -153,12 +153,6 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 <!-- 
 
 * **Hello World (22)**
-
-  * [IApplicationLifetime](/projects/hello-world-with-IApplicationLifetime)
-
-    Respond to application startup and shutdown.
-
-    We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
 * **Trimming (1)**
   
