@@ -1,9 +1,9 @@
 {
   "name": "signalr-client",
-  "version": "1.0.0",
+  "version": "3.1.2",
   "description": "",
   "dependencies": {
-    "@aspnet/signalr": "1.0.0-preview2-final"
+    "@microsoft/signalr": "3.1.2"
   },
   "devDependencies": {},
   "license": "MIT"

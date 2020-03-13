@@ -12,16 +12,17 @@
 <script>
     $(function () {
         //we are connecting on secure connection to the signalR server
-        const hubConnection = new signalR.HubConnection(
-                   "https://localhost:5001/chathub", { logger: signalR.LogLevel.Information });
+        const connection = new signalR.HubConnectionBuilder()
+                   .withUrl("https://localhost:5001/chathub")
+                   .build();
     
-        hubConnection.start().catch(err => console.error);
+        connection.start().catch(err => console.error);
 
         $("#send").click(function () {
-            hubConnection.invoke('Send', $('#msg').val());
+            connection.invoke('Send', $('#msg').val());
         });
 
-        hubConnection.on('Send', data => {
+        connection.on('Send', data => {
             $('#msgs').append($('<li>').text(data));
         });
     });

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 
-namespace SignalChat
+namespace PracticalAspNetCore
 {
     public class ChatHub : Hub
     {
@@ -32,16 +31,17 @@ namespace SignalChat
             services.AddSignalR();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCors("all");
 
-            app.UseSignalR(routes =>
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapHub<ChatHub>("/chatHub");
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
 
             app.Run(async context =>
