@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace HelloWorldWithIApplicationLifetime 
+namespace PracticalAspNetCore 
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app, IApplicationLifetime lifetime)
+        public void Configure(IApplicationBuilder app, Microsoft.Extensions.Hosting.IApplicationLifetime lifetime)
         {
         
             lifetime.ApplicationStarted.Register(() => System.Console.WriteLine("===== Server is starting"));
