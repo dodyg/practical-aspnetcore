@@ -6,36 +6,22 @@ This branch in a work in progress. I am converting over 200 samples from previou
 
 *Continue to scroll down to find materials for absolute beginners to ASP.NET Core.*
 
-| Sections |
-| --------------------------------------------------------------- |
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) |
-| [Blazor Server Side](/projects/blazor-ss) |
-| [Caching](/projects/caching) |
-| [Configurations](/projects/configurations) |
-| [Dependency Injection](/projects/dependency-injection/) |
-| [Diagnostics](/projects/diagnostics)|
-| [Endpoint Routing](/projects/endpoint-routing) |
-| [Features](/projects/features) |
-| [Health Check](/projects/health-check)|
-| [IHttpClientFactory](/projects/httpclientfactory)|
-| [IHostedService](/projects/ihosted-service)|
-| [Generic Hosting](/projects/generic-host) |
-| [gRPC](/projects/grpc)|
-| [Logging](/projects/logging)|
-| [Middleware](/projects/middleware)|
-| [MVC](/projects/mvc)|
-| [Orchard Core](/projects/orchard-core)|
-| [Razor Pages](/projects/razor-pages)|
-| [Request](/projects/request)|
-| [Response](/projects/response)|
-| [Static Files and File Provider](/projects/file-provider)|
-| [Startup](/projects/startup)|
-| [System.Text.Json](/projects/json) |
-| [URL Redirect/Rewrite](/projects/rewrite)|
-| [Uri Helper](/projects/uri-helper)|
-| [Syndications](/projects/syndications)|
-| [Web Sockets](/projects/web-sockets)|
-| [Web Utilities](/projects/web-utilities)|
+| Sections                                                        |                                                           |
+|-----------------------------------------------------------------|-----------------------------------------------------------|
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | [Middleware](/projects/middleware)    |
+| [Blazor Server Side](/projects/blazor-ss)                       | [MVC](/projects/mvc)                                      |
+| [Caching](/projects/caching)                                    | [Razor Pages](/projects/razor-pages)                      |
+| [Configurations](/projects/configurations)                      | [Orchard Core](/projects/orchard-core)                    |
+| [Dependency Injection](/projects/dependency-injection/)         | [Request](/projects/request)                              |
+| [Diagnostics](/projects/diagnostics)                            | [Response](/projects/response)                            |
+| [Endpoint Routing](/projects/endpoint-routing)                  | [Static Files and File Provider](/projects/file-provider) |
+| [Features](/projects/features)                                  | [System.Text.Json](/projects/json)                        |
+| [Health Check](/projects/health-check)                          | [Startup](/projects/startup)                              |
+| [IHttpClientFactory](/projects/httpclientfactory)               | [URL Redirect/Rewrite](/projects/rewrite)                 |
+| [IHostedService](/projects/ihosted-service)                     | [Syndications](/projects/syndications)                    |
+| [Generic Hosting](/projects/generic-host)                       | [Uri Helper](/projects/uri-helper)                        |
+| [gRPC](/projects/grpc)                                          | [Web Sockets](/projects/web-sockets)                      |
+| [Logging](/projects/logging)                                    | [Web Utilities](/projects/web-utilities)                  |
 
 ## How to run these samples
 
