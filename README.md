@@ -2,7 +2,7 @@
 
 This branch in a work in progress. I am converting over 200 samples from previous versions to 3.1. If you are starting on ASP.NET Core, you can start from the samples from the master branch. 
 
-There is a section containing .NET 5 Preview 1 specific samples [here](/projects/5-0).
+There is a section containing .NET 5 Preview 2 specific samples [here](/projects/5-0).
 
 ## Additional Sections
 
