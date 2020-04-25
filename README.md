@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 3.1
 
-There is a section containing .NET 5 Preview 2 specific samples [here](/projects/5-0).
+There is a section containing .NET 5 Preview 3 specific samples [here](/projects/5-0).
 
 ## Additional Sections
 
