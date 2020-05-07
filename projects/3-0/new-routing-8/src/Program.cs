@@ -34,7 +34,7 @@ namespace NewRouting
 
                 routes.MapFallbackToFile("index.html", new StaticFileOptions()
                 {
-                    FileProvider = new PhysicalFileProvider(Path.Combine(environment.ContentRootPath, "Static")),
+                    FileProvider = new PhysicalFileProvider(Path.Combine(environment.ContentRootPath, "static")),
                 });
             });
         }
