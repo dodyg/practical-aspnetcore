@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 3.1
 
-There is a section containing .NET 5 Preview 3 specific samples [here](/projects/5-0).
+There is a section containing .NET 5 Preview 3 specific samples [here](/projects/5-0). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/master).
 
 ## Additional Sections
 
