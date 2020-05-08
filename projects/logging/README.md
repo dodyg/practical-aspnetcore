@@ -1,4 +1,4 @@
-# Logging
+# Logging (2)
 
 * [Basic Logging](/projects/logging/logging-1)
 

@@ -26,13 +26,13 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              |  |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                            |  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider) |  |
-| [Features](/projects/features)                                  |      | [System.Text.Json](/projects/json)                        |  |
-| [Health Check](/projects/health-check)                          |      | [Startup](/projects/startup)                              |  |
-| [IHttpClientFactory](/projects/httpclientfactory)               |      | [URL Redirect/Rewrite](/projects/rewrite)                 |  |
-| [IHostedService](/projects/ihosted-service)                     |      | [Syndications](/projects/syndications)                    |  |
-| [Generic Hosting](/projects/generic-host)                       |      | [Uri Helper](/projects/uri-helper)                        |  |
-| [gRPC](/projects/grpc)                                          |      | [Web Sockets](/projects/web-sockets)                      |  |
-| [Logging](/projects/logging)                                    |      | [Web Utilities](/projects/web-utilities)                  |  |
+| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                        |  |
+| [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                              |  |
+| [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                 |  |
+| [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                    |  |
+| [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        |  |
+| [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      |  |
+| [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  |  |
 
 ## How to run these samples
 

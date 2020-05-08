@@ -1,4 +1,4 @@
-# IHttpClientFactory
+# IHttpClientFactory (4)
 
   * [HttpClientFactory](httpclientfactory-1)
 

@@ -1,4 +1,4 @@
-# Features (9)
+# Features (10)
 
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
