@@ -1,10 +1,21 @@
 # Samples for ASP.NET Core 3.1
 
-There is a section containing .NET 5 Preview 3 specific samples [here](/projects/5-0). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/master).
+## Welcome
 
-## Additional Sections
+The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
-*Continue to scroll down to find materials for absolute beginners to ASP.NET Core.*
+I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2019 as well.
+
+Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
+
+**Note** There is a section containing .NET 5 Preview 3 specific samples [here](/projects/5-0). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/master).
+
+If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
+
+Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
+
+
+## Sections
 
 | Sections                                                        |                                                           |
 |-----------------------------------------------------------------|-----------------------------------------------------------|
@@ -135,31 +146,6 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
 
-
-<!-- 
-
-* **Hello World (22)**
-
-* **Trimming (1)**
-  
-  This section shows the various way on how to trim the size of your application by using [Microsoft.Packagin.Tools.Trimming](https://www.nuget.org/packages/Microsoft.Packaging.Tools.Trimming/1.1.0-preview1-26619-01)
-
-  * [Trimming Microsoft.AspNetCore.All hello world application](/projects/hello-world-startup-all-package-trimming)
-
-    Run ```dotnet publish``` or ```dotnet build``` and read the output in your terminal. It will read something similar to ```Trimmed 115 out of 168 files for a savings of 18.93 MB Final app size is 3.07 MB```. You can turn off the trimming by setting ```<TrimUnusedDependencies>true</TrimUnusedDependencies>``` to ```false``` at the project file.
-
-* **Email (1)**
-
-  This section shows samples of using [MailKit](https://github.com/jstedfast/MailKit), which is essentially **the** library to use for sending and receiving email in ASP.NET Core.
-
-  * [Send email](/projects/mailkit)
-  
-    This shows an example on how to send an email using SMTP.
-
-    Thanks to [@Kinani95](https://twitter.com/Kinani95).
-
-  
--->
 
 ## Misc
 
