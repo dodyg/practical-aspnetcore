@@ -1,4 +1,4 @@
-# Uri Helper(5)
+# Uri Helper (5)
   
   This section shows various methods available at `Microsoft.AspNetCore.Http.Extensions.UriHelper`.
 

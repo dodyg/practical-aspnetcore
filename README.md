@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1
+# Samples for ASP.NET Core 3.1 (281)
 
 ## Welcome
 
@@ -21,19 +21,19 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 |-----------------------------------------------------------------|------|-----------------------------------------------------------|------|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                        | (13) |
 | [Blazor Server Side](/projects/blazor-ss)                       | (7)  | [MVC](/projects/mvc)                                      | (45) |
-| [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                      |      |
-| [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                    |      |
-| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              |      |
-| [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                            |      |
-| [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider) |      |
-| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                        |      |
-| [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                              |      |
-| [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                 |      |
-| [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                    |      |
-| [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        |      |
-| [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      |      |
-| [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  |      |
-|                                                                 | 119  |                                                           |      | 
+| [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                      | (8)  |
+| [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                    | (4)  |
+| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              | (11) |
+| [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                            | (4)  |
+| [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider) | (8)  |
+| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                        | (9)  |
+| [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                              | (12) |
+| [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                 | (6)  |
+| [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                    | (3)  |
+| [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        | (5)  |
+| [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      | (5)  |
+| [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  | (3)  |
+|                                                                 | 119  |                                                           | 142  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
