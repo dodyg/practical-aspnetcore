@@ -1,8 +1,8 @@
-# Razor Pages
+# Razor Pages (6)
 
 | Sections |
 | --------------------------------------------------------------- |
-| [Razor View](/projects/razor-pages/razor) |
+| [Razor View](/projects/razor-pages/razor) (2) |
 
 * [Hello World](/projects/razor-pages/hello-world)
 

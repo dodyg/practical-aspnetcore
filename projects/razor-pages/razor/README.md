@@ -1,4 +1,4 @@
-# Razor View
+# Razor View (2)
 
 * [Markup at @functions](/projects/razor-pages/razor/razor-1)
    

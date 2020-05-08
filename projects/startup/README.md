@@ -1,4 +1,4 @@
-# Startup class
+# Startup class (12)
 
 * [Startup basic](/projects/startup/startup-basic)
 
@@ -7,7 +7,6 @@
 * [Environmental settings](/projects/startup/env-development)
 
   Set your application environment to `Development` or `Production` or other mode directly from code. 
-
 
 * [Custom startup class name](/projects/startup/startup-custom-name)
 
@@ -44,7 +43,6 @@
 * [Show errors during startup](/projects/startup/startup-capture-errors)
 
   Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
-
 
 * [Supress Status Messages](/projects/startup/suppress-status-messages)
  

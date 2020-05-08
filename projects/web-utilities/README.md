@@ -1,4 +1,4 @@
-# Web Utilities
+# Web Utilities (3)
 
   This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
 

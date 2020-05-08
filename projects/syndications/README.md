@@ -1,4 +1,4 @@
-# Syndications
+# Syndications (3)
 
   We are using ```Microsoft.SyndicationFeed.ReaderWriter``` package to read RSS and ATOM feeds.
 
