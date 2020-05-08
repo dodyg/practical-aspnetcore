@@ -1,4 +1,4 @@
-# Tag Helpers
+# Tag Helpers (5)
 
   * [Tag Helper - Hello World](/projects/mvc/tag-helper/tag-helper-1)
 
@@ -21,7 +21,7 @@
     Demonstrate passing values from Parent Tag to Child Tag.
 
 
-## Extras
+## Extras (2)
 
   * [Cache Busting Tag Helper](/projects/mvc/tag-helper/tag-helper-link)
 

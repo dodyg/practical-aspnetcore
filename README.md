@@ -17,30 +17,30 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 
 ## Sections
 
-| Sections                                                        |      |                                                           |  |
-|-----------------------------------------------------------------|------|-----------------------------------------------------------|--|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                        |  |
-| [Blazor Server Side](/projects/blazor-ss)                       | (7)  | [MVC](/projects/mvc)                                      |  |
-| [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                      |  |
-| [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                    |  |
-| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              |  |
-| [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                            |  |
-| [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider) |  |
-| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                        |  |
-| [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                              |  |
-| [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                 |  |
-| [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                    |  |
-| [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        |  |
-| [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      |  |
-| [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  |  |
-
+| Sections                                                        |      |                                                           |      |
+|-----------------------------------------------------------------|------|-----------------------------------------------------------|------|
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                        | (13) |
+| [Blazor Server Side](/projects/blazor-ss)                       | (7)  | [MVC](/projects/mvc)                                      | (45) |
+| [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                      |      |
+| [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                    |      |
+| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              |      |
+| [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                            |      |
+| [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider) |      |
+| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                        |      |
+| [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                              |      |
+| [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                 |      |
+| [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                    |      |
+| [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        |      |
+| [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      |      |
+| [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  |      |
+|                                                                 |      |                                                           |      | 
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
 
 ## Foundation ASP.NET Core 3.1 Samples
 
-### Basic
+### Basic (5)
 
 * [Hello World](/projects/basic/hello-world)
 
@@ -64,7 +64,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This sample demonstrates the usage of `IConfiguration` from `Configure' method.
 
-### Misc
+### Misc (7)
 * [Application Environment](/projects/application-environment)
 
   This sample shows how to obtain application environment information (target framework, etc).
@@ -95,13 +95,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
   We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
 
-### Server-Sent Events
+### Server-Sent Events (1)
 
 * [Forever Server](/projects/sse)
 
   This server will send a 'hello world' greeting forever.
 
-### Markdown
+### Markdown (2)
 
 * [Markdown server](/projects/markdown-server)
 
@@ -115,7 +115,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   We take ```"Markdig"``` as dependency. 
 
-### Utils
+### Utils (3)
 
 * [Status Codes](/projects/http-status-codes)
 
@@ -129,7 +129,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
 
-### Device Detection
+### Device Detection (1)
   
 The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
 
@@ -138,7 +138,7 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
   This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
 
-### Image Sharp
+### Image Sharp (1)
 
   All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
 

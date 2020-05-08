@@ -1,26 +1,27 @@
-# MVC
+# MVC (45)
 
-| Sections |
-| --------------------------------------------------------------- |
-| [MVC - Localization](/projects/mvc/localization) |
-| [MVC - Routing](/projects/mvc/routing) |
-| [MVC - Razor Class Library](/projects/mvc/razor-class-library)|
-| [MVC - Tag Helpers](/projects/mvc/tag-helper) |
-| [MVC - View Component](/projects/mvc/view-component) |
+| Sections                                                       |     |
+|----------------------------------------------------------------|-----|
+| [MVC - Localization](/projects/mvc/localization)               | (9) |
+| [MVC - Routing](/projects/mvc/routing)                         | (9) |
+| [MVC - Razor Class Library](/projects/mvc/razor-class-library) | (3) |
+| [MVC - Tag Helpers](/projects/mvc/tag-helper)                  | (7) |
+| [MVC - View Component](/projects/mvc/view-component)           | (4) |
+|                                                                | 32  |
 
-* [Hello World Minimalistic](/projects/mvc/hello-world)
+* [Hello World Minimalistic](/projects/mvc/hello-world) (1)
   This is the most basic hello world you can do using ASP.NET MVC. It uses `services.AddMvcCore()` with [behavior compatibility](https://blogs.msdn.microsoft.com/webdev/2018/02/27/introducing-compatibility-version-in-mvc/) set to `2.1` and with manually configured route.
 
   You shouldn't use this configuration for your typical ASP.NET MVC Core application (it does not support Razor, etc). This is just an example on how to do it with the least amount of functionality and configuration. You can find a discussion about `services.AddMvcCore()` [here](https://offering.solutions/blog/articles/2017/02/07/difference-between-addmvc-addmvcore/).
 
 
-## Authentication/Authorization
+## Authentication/Authorization (1)
 
 * [JWT](/projects/mvc/jwt)
 
   Show how to generate and decode [JSON Web Tokens](https://jwt.io/).
 
-## API
+## API (2)
 
 * [Use Microsoft.AspNetCore.Mvc.ProblemDetails](/projects/mvc/api-problem-details)
 
@@ -30,7 +31,7 @@
 
   Extend `Microsoft.AspNetCore.Mvc.ProblemDetails` to make it easier for day to day use. It will adjust what kind of information it shows based on your development environment.
 
-## Model Binding
+## Model Binding (2)
   
   We are exploring everything related to model binding in this section.
 
@@ -43,7 +44,7 @@
     Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
 
 
-## Action Results
+## Action Results (2)
   
   We are exploring various  that an Action returns.
 
@@ -56,7 +57,7 @@
     An example on how to return a file to the browser when you have a path to a file on disk.
  
 
-## Formatters
+## Formatters (2)
 
 * [Using Utf8Json as JSON Formatter](/projects/mvc/utf8json-formatter)
 
@@ -66,7 +67,7 @@
 
   Return XML response using `Microsoft.AspNetCore.Mvc.Formatters.Xml`. 
 
-## Swagger (API Documentation)
+## Swagger (API Documentation) (2)
 
 * [Using NSwag](/projects/mvc/nswag)
   
