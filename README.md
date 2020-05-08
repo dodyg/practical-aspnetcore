@@ -33,7 +33,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        |      |
 | [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      |      |
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  |      |
-|                                                                 |      |                                                           |      | 
+|                                                                 | 119  |                                                           |      | 
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
