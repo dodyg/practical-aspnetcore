@@ -1,4 +1,4 @@
-# Endpoint Routing
+# Endpoint Routing (31)
 
 * [Endpoint Routing - Razor Page](/projects/endpoint-routing/new-routing)
 

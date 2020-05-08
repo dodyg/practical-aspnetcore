@@ -1,4 +1,4 @@
-# Diagnostics
+# Diagnostics (6)
 
   * [Welcome Page](/projects/diagnostics/diagnostics-1)
 

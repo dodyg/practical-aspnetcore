@@ -21,11 +21,11 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 |-----------------------------------------------------------------|------|-----------------------------------------------------------|--|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                        |  |
 | [Blazor Server Side](/projects/blazor-ss)                       | (7)  | [MVC](/projects/mvc)                                      |  |
-| [Caching](/projects/caching)                                    | (5)     | [Razor Pages](/projects/razor-pages)                      |  |
-| [Configurations](/projects/configurations)                      | (7)     | [Orchard Core](/projects/orchard-core)                    |  |
-| [Dependency Injection](/projects/dependency-injection/)         |  (2)      | [Request](/projects/request)                              |  |
-| [Diagnostics](/projects/diagnostics)                            |      | [Response](/projects/response)                            |  |
-| [Endpoint Routing](/projects/endpoint-routing)                  |      | [Static Files and File Provider](/projects/file-provider) |  |
+| [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                      |  |
+| [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                    |  |
+| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              |  |
+| [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                            |  |
+| [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider) |  |
 | [Features](/projects/features)                                  |      | [System.Text.Json](/projects/json)                        |  |
 | [Health Check](/projects/health-check)                          |      | [Startup](/projects/startup)                              |  |
 | [IHttpClientFactory](/projects/httpclientfactory)               |      | [URL Redirect/Rewrite](/projects/rewrite)                 |  |
