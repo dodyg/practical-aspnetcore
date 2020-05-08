@@ -17,22 +17,22 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 
 ## Sections
 
-| Sections                                                        |                                                           |
-|-----------------------------------------------------------------|-----------------------------------------------------------|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | [Middleware](/projects/middleware)    |
-| [Blazor Server Side](/projects/blazor-ss)                       | [MVC](/projects/mvc)                                      |
-| [Caching](/projects/caching)                                    | [Razor Pages](/projects/razor-pages)                      |
-| [Configurations](/projects/configurations)                      | [Orchard Core](/projects/orchard-core)                    |
-| [Dependency Injection](/projects/dependency-injection/)         | [Request](/projects/request)                              |
-| [Diagnostics](/projects/diagnostics)                            | [Response](/projects/response)                            |
-| [Endpoint Routing](/projects/endpoint-routing)                  | [Static Files and File Provider](/projects/file-provider) |
-| [Features](/projects/features)                                  | [System.Text.Json](/projects/json)                        |
-| [Health Check](/projects/health-check)                          | [Startup](/projects/startup)                              |
-| [IHttpClientFactory](/projects/httpclientfactory)               | [URL Redirect/Rewrite](/projects/rewrite)                 |
-| [IHostedService](/projects/ihosted-service)                     | [Syndications](/projects/syndications)                    |
-| [Generic Hosting](/projects/generic-host)                       | [Uri Helper](/projects/uri-helper)                        |
-| [gRPC](/projects/grpc)                                          | [Web Sockets](/projects/web-sockets)                      |
-| [Logging](/projects/logging)                                    | [Web Utilities](/projects/web-utilities)                  |
+| Sections                                                        |      |                                                           |  |
+|-----------------------------------------------------------------|------|-----------------------------------------------------------|--|
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                        |  |
+| [Blazor Server Side](/projects/blazor-ss)                       | (7)  | [MVC](/projects/mvc)                                      |  |
+| [Caching](/projects/caching)                                    | (5)     | [Razor Pages](/projects/razor-pages)                      |  |
+| [Configurations](/projects/configurations)                      | (7)     | [Orchard Core](/projects/orchard-core)                    |  |
+| [Dependency Injection](/projects/dependency-injection/)         |  (2)      | [Request](/projects/request)                              |  |
+| [Diagnostics](/projects/diagnostics)                            |      | [Response](/projects/response)                            |  |
+| [Endpoint Routing](/projects/endpoint-routing)                  |      | [Static Files and File Provider](/projects/file-provider) |  |
+| [Features](/projects/features)                                  |      | [System.Text.Json](/projects/json)                        |  |
+| [Health Check](/projects/health-check)                          |      | [Startup](/projects/startup)                              |  |
+| [IHttpClientFactory](/projects/httpclientfactory)               |      | [URL Redirect/Rewrite](/projects/rewrite)                 |  |
+| [IHostedService](/projects/ihosted-service)                     |      | [Syndications](/projects/syndications)                    |  |
+| [Generic Hosting](/projects/generic-host)                       |      | [Uri Helper](/projects/uri-helper)                        |  |
+| [gRPC](/projects/grpc)                                          |      | [Web Sockets](/projects/web-sockets)                      |  |
+| [Logging](/projects/logging)                                    |      | [Web Utilities](/projects/web-utilities)                  |  |
 
 ## How to run these samples
 

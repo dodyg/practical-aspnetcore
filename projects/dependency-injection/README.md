@@ -1,4 +1,4 @@
-# Dependency Injection
+# Dependency Injection (2)
 
   ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. 
 
