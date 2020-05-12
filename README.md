@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1 (281)
+# Samples for ASP.NET Core 3.1 (287)
 
 ## Welcome
 
@@ -33,7 +33,8 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                        | (5)  |
 | [gRPC](/projects/grpc)                                          | (11) | [Web Sockets](/projects/web-sockets)                      | (5)  |
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                  | (3)  |
-|                                                                 | 119  |                                                           | 142  |
+| [Localization and Globalization](projects/localization)         | (6)  |                                                           |      |
+|                                                                 | 125  |                                                           | 142  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
