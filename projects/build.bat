@@ -44,7 +44,7 @@ dotnet build endpoint-routing\endpoint-routing
 dotnet build endpoint-routing\endpoint-routing-2
 dotnet build endpoint-routing\endpoint-routing-3
 dotnet build endpoint-routing\endpoint-routing-4
-dotnet build endpoint-routing\endpoint-routing-5
+REM dotnet build endpoint-routing\endpoint-routing-5
 dotnet build endpoint-routing\endpoint-routing-6
 dotnet build endpoint-routing\new-routing
 dotnet build endpoint-routing\new-routing-10
@@ -200,15 +200,15 @@ dotnet build mvc\mvc-output-xml
 dotnet build mvc\nswag
 dotnet build mvc\nswag-2
 dotnet build mvc\output-formatter-syndication
-dotnet build mvc\razor-class-library\razor-class-library-1\src\RazorClassLibrary1
-dotnet build mvc\razor-class-library\razor-class-library-1\src\RazorClassLibrary2
-dotnet build mvc\razor-class-library\razor-class-library-1\src\WebApplication
-dotnet build mvc\razor-class-library\razor-class-library-with-controllers\src\RazorClassLibrary1
-dotnet build mvc\razor-class-library\razor-class-library-with-controllers\src\WebApplication
-dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\RazorClassLibraries.Mvc.Core
-dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\RazorClassLibrary1
-dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\RazorClassLibrary2
-dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\WebApplication
+REM dotnet build mvc\razor-class-library\razor-class-library-1\src\RazorClassLibrary1
+REM dotnet build mvc\razor-class-library\razor-class-library-1\src\RazorClassLibrary2
+REM dotnet build mvc\razor-class-library\razor-class-library-1\src\WebApplication
+REM dotnet build mvc\razor-class-library\razor-class-library-with-controllers\src\RazorClassLibrary1
+REM dotnet build mvc\razor-class-library\razor-class-library-with-controllers\src\WebApplication
+REM dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\RazorClassLibrary1
+REM dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\RazorClassLibrary2
+REM dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\RazorClassLibraries.Mvc.Core
+REM dotnet build mvc\razor-class-library\razor-class-library-with-static-files\src\WebApplication
 dotnet build mvc\result-filestream
 dotnet build mvc\result-physicalfile
 dotnet build mvc\routing\routing-1
