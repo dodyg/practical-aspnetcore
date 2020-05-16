@@ -11,7 +11,7 @@ using MailKit.Net.Pop3;
 using MailKit.Security;
 using MimeKit.Text;
 using MimeKit;
-
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -19,18 +19,21 @@ namespace PracticalAspNetCore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddControllersWithViews();
             services.AddTransient<IEmailService, EmailService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseStaticFiles();
-            app.UseMvc(routes =>
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Mailkit}/{action=Index}");
+                    pattern: "{controller=Mailkit}/{action=Index}");
             });
         }
     }
@@ -61,7 +64,7 @@ namespace PracticalAspNetCore
                 // SecureSocketOptions.Auto for SSL.
                 emailClient.Connect("POP3 server name",  995, SecureSocketOptions.Auto);
 
-                //Remove any OAuth functionality as we won't be using it. 
+                //Remove any OAuth functionality as we won't be using it.
                 emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
 
                 emailClient.Authenticate("POP3 server username", "POP3 server password");
@@ -83,7 +86,7 @@ namespace PracticalAspNetCore
             }
         }
     }
-    
+
     public class EmailMessage
     {
         public string SenderName { get; set; }
@@ -104,7 +107,7 @@ public class MailkitController : Controller
         {
             _emailService = EmailService;
         }
-        
+
         public IActionResult Index()
         {
             return View("/src/Views/Mailkit/Index.cshtml");

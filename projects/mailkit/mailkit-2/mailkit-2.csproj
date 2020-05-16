@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MailKit" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*"/>
+    <PackageReference Include="MailKit" Version="2.6.0" />
   </ItemGroup>
 
 </Project>
