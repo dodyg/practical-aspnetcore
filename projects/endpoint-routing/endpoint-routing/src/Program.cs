@@ -7,25 +7,30 @@ using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public Startup(IWebHostEnvironment env, ILoggerFactory logger)
         {
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .AddControllersWithViews();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseMvcWithDefaultRoute();
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 
@@ -38,7 +43,7 @@ namespace PracticalAspNetCore
                 Content = @"
                 <html><body>
                 <b>Hello World running on Endpoint Routing</b>
-                <p>As you can see, all the existing routing methods <b>just works</b>. 
+                <p>As you can see, all the existing routing methods <b>just works</b>.
                 Now they are just <a href=""https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/"">faster</a>. We will explore the cool stuff that Endpoint Routing brings in the next samples.
                 <br /><br />
                     <li><a href=""/"">/</a></li>
