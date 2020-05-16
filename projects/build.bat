@@ -9,36 +9,15 @@ dotnet build basic\i-webhost-environment
 dotnet build basic\iconfiguration
 dotnet build bedrock\echo\client
 dotnet build bedrock\echo\server
-dotnet build blazor\Component
-dotnet build blazor\ComponentEight
-dotnet build blazor\ComponentEleven
-dotnet build blazor\ComponentFifteen
-dotnet build blazor\ComponentFive
-dotnet build blazor\ComponentFour
-dotnet build blazor\ComponentFourteen
-dotnet build blazor\ComponentNine
-dotnet build blazor\ComponentSeven
-dotnet build blazor\ComponentSix
-dotnet build blazor\ComponentTen
-dotnet build blazor\ComponentThirteen
-dotnet build blazor\ComponentThree
-dotnet build blazor\ComponentTwelve
-dotnet build blazor\ComponentTwo
-dotnet build blazor\DataBinding
-dotnet build blazor\DataBindingTwo
-dotnet build blazor\HelloWorld
-dotnet build blazor-ss\ChatR
-dotnet build blazor-ss\Chatter
-dotnet build blazor-ss\DependencyInjection
-dotnet build blazor-ss\HelloWorld
-dotnet build blazor-ss\JsIntegration
-dotnet build blazor-ss\Layout
-dotnet build blazor-ss\MultiApps\App1
-dotnet build blazor-ss\MultiApps\App2
-dotnet build blazor-ss\MultiApps\AppHost
-dotnet build blazor-ss\RssReader
-dotnet build blazor-ss\RssReader-2
-dotnet build blazor-ss\StartingVariation
+
+cd blazor\
+build.bat
+cd ..
+
+cd blazor-ss\
+build.bat
+cd ..
+
 dotnet build caching\caching-1
 dotnet build caching\caching-2
 dotnet build caching\caching-3
