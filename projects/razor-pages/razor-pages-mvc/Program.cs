@@ -13,7 +13,7 @@ namespace PracticalAspNetCore
         {
             services.AddDbContext<GuestbookContext>(o =>
                 o.UseInMemoryDatabase("GuestbookDatabase"));
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)

@@ -17,7 +17,7 @@ namespace MvcLocalization
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization();
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)

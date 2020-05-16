@@ -15,7 +15,7 @@ namespace ChatR
         {
             services.AddSignalR().AddNewtonsoftJsonProtocol();
             services.AddServerSideBlazor();
-            services.AddMvc();
+            services.AddControllersWithViews();
             services.AddScoped<NotificationService>();
         }
 

@@ -15,7 +15,7 @@ namespace MvcLocalization
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)

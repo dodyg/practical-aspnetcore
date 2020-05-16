@@ -13,7 +13,7 @@ namespace PracticalAspNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHealthChecks();
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)
