@@ -1,1 +1,1 @@
-dotnet build authentication-with-identity
+dotnet build authentication-with-identity\src
