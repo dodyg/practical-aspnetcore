@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore;
+using Microsoft.Extensions.Hosting;
 
-namespace ServeStaticFiles 
+namespace ServeStaticFiles
 {
     public class Startup
     {
@@ -14,7 +15,7 @@ namespace ServeStaticFiles
             app.UseDirectoryBrowser();
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)
