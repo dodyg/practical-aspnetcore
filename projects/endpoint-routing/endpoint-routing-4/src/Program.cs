@@ -8,24 +8,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 
 namespace LinkGeneratorSample
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory logger)
+        public Startup(IWebHostEnvironment env, ILoggerFactory logger)
         {
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+                .AddControllersWithViews();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
             app.Use(async (context, next) =>
             {
@@ -74,15 +73,20 @@ namespace LinkGeneratorSample
                    );
 
                 context.Response.ContentType = "text/plain";
-                await context.Response.WriteAsync($@"Generated Url: 
-{url}  
-{url2}  
-{url3} (the route value is optional) 
-{url4}  
+                await context.Response.WriteAsync($@"Generated Url:
+{url}
+{url2}
+{url3} (the route value is optional)
+{url4}
 {url5}");
             });
 
-            app.UseMvc();
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 

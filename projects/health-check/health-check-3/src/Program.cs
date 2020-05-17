@@ -17,7 +17,7 @@ namespace PracticalAspNetCore
             services.AddHealthChecks()
                 .AddCheck<AlwaysBadHealthCheck>("Bad");
 
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)

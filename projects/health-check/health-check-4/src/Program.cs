@@ -25,7 +25,7 @@ namespace PracticalAspNetCore
             services.AddHttpClient<HttpStatusCodeHealthCheck>();
             services.AddHealthChecks().AddCheck<HttpStatusCodeHealthCheck>("HttpStatusCheck");
 
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)

@@ -11,6 +11,7 @@ using MailKit.Net.Pop3;
 using MailKit.Security;
 using MimeKit.Text;
 using MimeKit;
+using Microsoft.Extensions.Hosting;
 
 namespace PracticalAspNetCore
 {
@@ -18,14 +19,20 @@ namespace PracticalAspNetCore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddControllersWithViews();
             services.AddTransient<EmailService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseStaticFiles();
-            app.UseMvc();
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 
@@ -97,7 +104,7 @@ namespace PracticalAspNetCore
                 // SecureSocketOptions.Auto for SSL.
                 emailClient.Connect("Change This", 587, SecureSocketOptions.Auto);
 
-                //Remove any OAuth functionality as we won't be using it. 
+                //Remove any OAuth functionality as we won't be using it.
                 emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
 
                 emailClient.Authenticate("Change This", "Change This");

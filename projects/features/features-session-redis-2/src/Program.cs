@@ -11,6 +11,7 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Hosting;
 
 namespace Features.Session
 {
@@ -27,7 +28,7 @@ namespace Features.Session
         IConfiguration Configuration {get;set;}
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;        
+            Configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -40,7 +41,7 @@ namespace Features.Session
             services.AddSession();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger)
         {
             app.UseSession();
 
@@ -65,11 +66,11 @@ namespace Features.Session
                 }
                 await next.Invoke();
             });
-            
+
             app.Run(async context =>
             {
                 var session = context.Features.Get<ISessionFeature>();
-                
+
                 try
                 {
                     string msg = session.Session.GetString("Message");
@@ -85,7 +86,7 @@ namespace Features.Session
             });
         }
     }
-    
+
     public class Program
     {
         public static void Main(string[] args)

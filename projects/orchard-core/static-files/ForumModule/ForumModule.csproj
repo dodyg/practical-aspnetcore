@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-12268" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-13211" />
   </ItemGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    
   </ItemGroup>
 
 </Project>

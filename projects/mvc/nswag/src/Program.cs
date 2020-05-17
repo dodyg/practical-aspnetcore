@@ -15,7 +15,7 @@ namespace PracticalAspNetCore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddControllersWithViews();
             services.AddSwaggerDocument(settings =>
             {
                 settings.Title = "Sample API";

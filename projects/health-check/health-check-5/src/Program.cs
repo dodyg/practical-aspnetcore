@@ -33,7 +33,7 @@ namespace PracticalAspNetCore
                 .AddCheck<OKHttpStatusCodeHealthCheck>("OK Status Check")
                 .AddCheck<ErrorHttpStatusCodeHealthCheck>("Error Status Check");
 
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)

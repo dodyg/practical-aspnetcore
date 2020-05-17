@@ -6,8 +6,4 @@
         <OutputType>Exe</OutputType>
         <PackageId>mvc-routing-10</PackageId>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
-    </ItemGroup>
 </Project>
