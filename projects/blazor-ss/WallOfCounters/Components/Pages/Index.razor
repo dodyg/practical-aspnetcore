@@ -1,0 +1,199 @@
+﻿@page "/" 
+@using System.Timers
+@implements IDisposable
+ 
+<h1>Wall Of Counters</h1>
+
+<div class="row">
+    <div class="col-md-4 @ClassWall">
+        @Counter1    
+    </div>
+
+    <div class="col-md-4 @ClassWall">
+        @Counter2
+    </div>
+
+    <div class="col-md-4 @ClassWall">
+        @Counter3 
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 @ClassWall">
+        @Counter4
+    </div>
+
+    <div class="col-md-4 @ClassWall">
+        @Counter5
+    </div>
+
+    <div class="col-md-4 @ClassWall">
+        @Counter6
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 @ClassWall">
+        @Counter7
+    </div>
+
+    <div class="col-md-4 @ClassWall">
+        @Counter8
+    </div>
+
+    <div class="col-md-4 @ClassWall">
+        @Counter9
+    </div>
+</div>
+
+<Styled @bind-Classname="ClassWall">
+    font-size: 96px;
+    text-align: center;
+</Styled>
+
+@code {
+
+    string ClassWall { get; set; }
+
+    int Counter1 { get; set; }
+    int Counter2 { get; set; }
+    int Counter3 { get; set; }
+    int Counter4 { get; set; }
+    int Counter5 { get; set; }
+    int Counter6 { get; set; }
+    int Counter7 { get; set; }
+    int Counter8 { get; set; }
+    int Counter9 { get; set; }
+
+    Timer _timer1;
+    Timer _timer2;
+    Timer _timer3;
+    Timer _timer4;
+    Timer _timer5;
+    Timer _timer6;
+    Timer _timer7;
+    Timer _timer8;
+    Timer _timer9;
+
+    const short TimerTick1InSecond = 1;
+    const short TimerTick2InSecond = 4;
+    const short TimerTick3InSecond = 3;
+    const short TimerTick4InSecond = 7;
+    const short TimerTick5InSecond = 9;
+    const short TimerTick6InSecond = 5;
+    const short TimerTick7InSecond = 2;
+    const short TimerTick8InSecond = 6;
+    const short TimerTick9InSecond = 8;
+
+
+    Timer CreateAndStartTimer(short intervalModifier, ElapsedEventHandler handler)
+    {
+        var t = new Timer(1000 * intervalModifier);
+        t.Elapsed += handler;
+        t.Enabled = true;
+        t.Start();
+
+        return t;
+    }
+
+    protected override void OnInitialized()
+    {
+        _timer1 = CreateAndStartTimer(TimerTick1InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter1++;
+                StateHasChanged();
+            });
+        });
+
+        _timer2 = CreateAndStartTimer(TimerTick2InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter2++;
+                StateHasChanged();
+            });
+        });
+
+        _timer3 = CreateAndStartTimer(TimerTick3InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter3++;
+                StateHasChanged();
+            });
+        });
+
+        _timer4 = CreateAndStartTimer(TimerTick4InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter4++;
+                StateHasChanged();
+            });
+        });
+
+        _timer5 = CreateAndStartTimer(TimerTick5InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter5++;
+                StateHasChanged();
+            });
+        });
+
+        _timer6 = CreateAndStartTimer(TimerTick6InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter6++;
+                StateHasChanged();
+            });
+        });
+
+        _timer7 = CreateAndStartTimer(TimerTick7InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter7++;
+                StateHasChanged();
+            });
+        });
+
+        _timer8 = CreateAndStartTimer(TimerTick8InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter8++;
+                StateHasChanged();
+            });
+        });
+
+        _timer9 = CreateAndStartTimer(TimerTick9InSecond, (a, b) =>
+        {
+            InvokeAsync(() =>
+            {
+                Counter9++;
+                StateHasChanged();
+            });
+        });
+
+        base.OnInitialized();
+    }
+
+    public void Dispose()
+    {
+        _timer1.Dispose();
+        _timer2.Dispose();
+        _timer3.Dispose();
+
+        _timer4.Dispose();
+        _timer5.Dispose();
+        _timer6.Dispose();
+
+        _timer7.Dispose();
+        _timer8.Dispose();
+        _timer9.Dispose();
+    }
+}
