@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1 (287)
+# Samples for ASP.NET Core 3.1 (288)
 
 ## Welcome
 
@@ -20,7 +20,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | Sections                                                        |      |                                                           |      |
 |-----------------------------------------------------------------|------|-----------------------------------------------------------|------|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                        | (13) |
-| [Blazor Server Side](/projects/blazor-ss)                       | (7)  | [MVC](/projects/mvc)                                      | (45) |
+| [Blazor Server Side](/projects/blazor-ss)                       | (8)  | [MVC](/projects/mvc)                                      | (45) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                      | (8)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                    | (4)  |
 | [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request)                              | (11) |
