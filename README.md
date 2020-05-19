@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1 (289)
+# Samples for ASP.NET Core 3.1.300 (289)
 
 ## Welcome
 
