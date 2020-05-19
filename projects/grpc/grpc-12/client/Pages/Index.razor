@@ -1,0 +1,34 @@
+@page "/"
+@inject Billboard.Board.BoardClient Client;
+@using System.Threading
+
+<p>
+  @((MarkupString)Message)
+</p>
+
+<button type="button" @onclick="Click">Start receiving broadcast</button>
+
+@code {
+
+  public string Message { get; set; }
+
+  async Task Click()
+  {
+    var result = Client.ShowMessage(new Billboard.MessageRequest
+    {
+      Name = "Anne"
+    });
+
+    using var tokenSource = new CancellationTokenSource();
+    System.Threading.CancellationToken token = tokenSource.Token;
+
+    var streamReader = result.ResponseStream;
+
+    await foreach (var reply in streamReader.ReadAllAsync(token))
+    {
+      var displayDate = new DateTime(reply.DisplayTime);
+      Message += $"Received \"{reply.Message}\" on {displayDate.ToLongTimeString()} <br/>\n";
+      StateHasChanged();
+    }
+  }
+}

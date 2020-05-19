@@ -1,4 +1,4 @@
-# GRPC (11)
+# GRPC (12)
 
 * [Unary - Hello World](/projects/grpc/grpc)
 
@@ -49,3 +49,7 @@
 * [Server Streaming - Message Server](/projects/grpc/grpc-11)
 
   This sample shows how to do simple gRPC sever streaming.
+
+* [Server Streaming - Message Server - Blazor Web Assembly](/projects/grpc/grpc-12)
+
+  This sample shows how to do simple gRPC sever streaming with Blazor Web Assembly client.
