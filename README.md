@@ -17,7 +17,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 
 ## Sections
 
-| Sections                                                        |      |                                                                                                                 |      |
+| Section                                                        |      |                                                                                                                 |      |
 |-----------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------|------|
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (18) | [Middleware](/projects/middleware)                                                                              | (13) |
 | [Blazor Server Side](/projects/blazor-ss)                       | (8)  | [MVC](/projects/mvc)                                                                                            | (45) |
