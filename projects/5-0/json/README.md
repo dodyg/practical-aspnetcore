@@ -1,5 +1,5 @@
 
-# Json (9)
+# Json (10)
 
 All about the new `System.Text.Json` namespace.
 
@@ -38,3 +38,9 @@ All about the new `System.Text.Json` namespace.
 * [Json - Custom Converter](/projects/json/json-9)
 
   Implement a custom type converter. In this example we convert `TimeSpan`.
+
+* [Json - Control JsonIgnore behaviour](/projects/json/json-10)
+
+  Demonstrate the three different ways you can control the behaviour of `[JsonIgnore]` per property.
+
+  
