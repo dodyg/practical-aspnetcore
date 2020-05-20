@@ -10,7 +10,7 @@ Note: If you encounter problem with downloading packages or Nuget, try the follo
 
 **Note** There is a section containing **.NET 5 Preview** specific samples [here](/projects/5-0) (10). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/master).
 
-If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
+If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**. Otherwise just create a new issue and I will try to answer the best I can.
 
 Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
 
