@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1.300 (290)
+# Samples for ASP.NET Core 3.1.300 (291)
 
 ## Welcome
 
@@ -65,7 +65,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This sample demonstrates the usage of `IConfiguration` from `Configure' method.
 
-### Misc (7)
+### Misc (8)
 * [Application Environment](/projects/application-environment)
 
   This sample shows how to obtain application environment information (target framework, etc).
@@ -95,6 +95,10 @@ To run these samples, simply open your command line console,  go to each folder 
   Responds to application startup and shutdown.
 
   We are using ```IApplicationLifetime``` that trigger events during application startup and shutdown.
+
+* [CommandLine](/projects/command-line/command-line-1)
+
+  This project shows a simple integration between `System.CommandLine`, a command line parsing library with ASP.WNET Core app.
 
 ### Server-Sent Events (1)
 
