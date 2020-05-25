@@ -1,4 +1,4 @@
-# Server Size Blazor (9)
+# Server Size Blazor (10)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -44,6 +44,10 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Wall of Counters](WallOfCounters)
 
     In this sample we will use System.Timers.Timer to perform multiple counters. It will also demonstrate the usage of [BlazorStyled](https://github.com/chanan/BlazorStyled), a component that allows the usage of scoped CSS inside a Blazor component.
+  
+  * [ChatR](ChatR)
+
+    In this sample we will host a SignalR Hub in the same host as the Blazor Server Side
 
   * [Component Events](ComponentEvents)
 
