@@ -36,7 +36,7 @@ namespace ChatR
             app.UseEndpoints(routes =>
             {
                 routes.MapBlazorHub(); //https://github.com/dotnet/aspnetcore/blob/master/src/Components/Server/src/Builder/ComponentEndpointRouteBuilderExtensions.cs
-                //routes.MapHub<NotificationHub>("/notificationhub");
+                routes.MapHub<NotificationHub>("/notificationhub");
                 routes.MapRazorPages();
                 routes.MapFallbackToPage("/Index");
             });
@@ -56,7 +56,8 @@ namespace ChatR
                     webBuilder.UseStartup<Startup>();
                     webBuilder.ConfigureLogging(builder =>
                     {
-                        builder.SetMinimumLevel(LogLevel.Trace);
+                        builder.ClearProviders();
+                        builder.SetMinimumLevel(LogLevel.Information);
                         builder.AddConsole();
                     });
                     webBuilder.UseEnvironment(Environments.Development);

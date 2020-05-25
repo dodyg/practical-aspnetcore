@@ -18,14 +18,19 @@ namespace ChatR.Services
 
         public async Task ConnectAsync()
         {
-            _logger.LogTrace("ConnectAsync()");
+            _logger.LogInformation("ConnectAsync()");
             _connection = new HubConnectionBuilder()
                 .WithUrl("https://localhost:5001/notificationhub")
                 .Build();
 
             _connection.On<string, string>("BroadcastChannel", (user, message) =>
             {
-                this.OnMessage?.Invoke(user, message);
+                this.OnBroadcastMessage?.Invoke(user, message);
+            });
+
+            _connection.On<string>("ServerChannel", (message) => 
+            {
+                this.OnServerMessage?.Invoke(message);
             });
 
             if (_connection.State != HubConnectionState.Connected)
@@ -35,7 +40,9 @@ namespace ChatR.Services
             }
         }
 
-        public Action<string, string> OnMessage { get; set; }
+        public Action<string> OnServerMessage { get; set; }
+
+        public Action<string, string> OnBroadcastMessage { get; set; }
 
         public async Task BroadcastAsync(string sender, string message)
         {

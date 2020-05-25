@@ -1,10 +1,9 @@
 ﻿@page "/"
 @inject NotificationService Notification
-@implements IAsyncDisposable
+@implements IDisposable
 
 <div class="container">
     <h1>SignalR Broadcast</h1>
-
     <ul>
         <li>
             <a href="/" target="new">Open another window</a>
@@ -24,46 +23,51 @@
     <div class="alert alert-info">
         @Message
     </div>
-    @Message
-    <button @onclick="Hello" class="btn btn-primary">Hello</button>
+    <button @onclick="ConnectAsync" class="btn btn-primary">Connect</button>
     
-    <button @onclick="Hello" class="btn btn-primary">Connect</button>
     <br/><br/>
-    <label>Username</label>
-    <input class="form-control" type="text" @bind="Sender" placeholder="Enter username" />
-    <br/>
-    <label>Broadcast Message</label>
-    <textarea class="form-control" @bind="BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
-    <button @onclick="BroadcastAsync" class="btn btn-secondary">Broadcast</button>
-
+    @if (ShowChatPanel)
+    {
+        <label>Username</label>
+        <input class="form-control" type="text" @bind="Sender" placeholder="Enter username" />
+        <br/>
+        <label>Broadcast Message</label>
+        <textarea class="form-control" @bind="BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
+        <br/>
+        <button @onclick="BroadcastAsync" class="btn btn-secondary">Broadcast</button>
+    }
 </div>
 
 @code{
-    public string Message { get;set;}
-    public string Log { get;set;}
+    string Message { get;set;}
+    
+    string Log { get;set;}
 
-    public string Sender { get;set;}
-    public string BroadcastMessage { get;set;}
+    string Sender { get;set;}
+
+    string BroadcastMessage { get;set;}
+
+    bool ShowChatPanel { get; set; }
 
     protected override void OnInitialized()
     {
-        Notification.OnMessage = async (string user, string message) =>
+        Notification.OnBroadcastMessage = async (string user, string message) =>
         {
             Message = $"{user} broadcasts \"{message}\"";
             await this.InvokeAsync(StateHasChanged);
-        };
-    }
+        }; 
 
-    public void Hello()
-    {
-        Message = "Hello World";
-        StateHasChanged();
+        Notification.OnServerMessage = async (string message) =>
+        {
+            ShowChatPanel = true;
+            Message = $"Server sends message: \"{message}\"";
+            await this.InvokeAsync(StateHasChanged);
+        }; 
     }
 
     async Task ConnectAsync()
     {
-        Message = "Good Morning";
-        Log = "Connect";
+        Log = "Connected";
         await Notification.ConnectAsync();
     }
 
@@ -73,8 +77,8 @@
         await Notification.BroadcastAsync(Sender, BroadcastMessage);
     }
 
-    public async ValueTask DisposeAsync()
+    public void Dispose()
     {
-        await Notification.DisposeAsync();
+        Notification.DisposeAsync(); //This is by design because Blazor does not support IAsyncDisposable  https://github.com/dotnet/aspnetcore/issues/20932
     }
 }

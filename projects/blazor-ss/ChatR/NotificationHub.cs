@@ -18,12 +18,19 @@ namespace ChatR
         {
             _logger.LogInformation("New Connection from Client");
             await base.OnConnectedAsync();
+            await ServerMessage("Welcome to ChatR");
         }
 
         public async Task Broadcast(string from, string message)
         {
             _logger.LogInformation($"{from} broadcasts message: {message}");
             await Clients.All.SendAsync("BroadcastChannel", from, message);
+        }
+
+        public async Task ServerMessage(string message)
+        {
+            _logger.LogInformation($"Server sends message: {message}");
+            await Clients.Caller.SendAsync("ServerChannel", message);
         }
     }
 }
