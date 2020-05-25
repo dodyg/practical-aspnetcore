@@ -1,0 +1,14 @@
+@inject AppState AppState
+
+<div class="card">
+  <div class="card-body">
+    <button @onclick="Notify" class="btn btn-primary">Notify from a Child Component</button>
+  </div>
+</div>
+
+@{
+  void Notify()
+  {
+    AppState.Notify("Hello World from a child component");
+  }
+}

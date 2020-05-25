@@ -1,0 +1,17 @@
+﻿@page "/"
+@inject AppState AppState
+<h1>Component Events</h1>
+
+<button @onclick="Notify" class="btn btn-primary">Notify from Page</button>
+
+<br/>
+<br/>
+
+<Child></Child>
+
+@{
+  void Notify()
+  {
+    AppState.Notify("Hello World from a page");
+  }
+}

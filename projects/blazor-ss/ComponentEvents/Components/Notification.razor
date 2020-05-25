@@ -1,0 +1,25 @@
+@inject AppState AppState
+@implements IDisposable
+
+@Message
+
+@code {
+  
+  string Message { get; set; }
+  
+  protected override void OnInitialized()
+  {
+      AppState.OnNotification += UpdateNotification;
+  }
+
+  public void UpdateNotification(string str)
+  {
+    Message = str;
+    StateHasChanged();
+  }
+
+  public void Dispose()
+  {
+    AppState.OnNotification -= UpdateNotification;
+  }
+}

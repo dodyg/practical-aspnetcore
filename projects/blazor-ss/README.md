@@ -1,4 +1,4 @@
-# Server Size Blazor (8)
+# Server Size Blazor (9)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -44,3 +44,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Wall of Counters](WallOfCounters)
 
     In this sample we will use System.Timers.Timer to perform multiple counters. It will also demonstrate the usage of [BlazorStyled](https://github.com/chanan/BlazorStyled), a component that allows the usage of scoped CSS inside a Blazor component.
+
+  * [Component Events](ComponentEvents)
+
+    In this sample we will facilitate communication between components and pages using a Scoped lifetime AppState object. 
