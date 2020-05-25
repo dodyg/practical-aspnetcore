@@ -1,56 +1,68 @@
 ﻿@page "/"
 @inject NotificationService Notification
+@implements IAsyncDisposable
 
-<h1>SignalR Broadcast</h1>
+<div class="container">
+    <h1>SignalR Broadcast</h1>
 
-<ul>
-    <li>
-        <a href="/" target="new">Open another window</a>
-    </li>
-    <li>
-        Click Connect
-    </li>
-    <li>
-        Enter Name and Broadcast Message. Both screens will receive the broadcasts. 
-    </li>
-</ul>
+    <ul>
+        <li>
+            <a href="/" target="new">Open another window</a>
+        </li>
+        <li>
+            Click Connect
+        </li>
+        <li>
+            Enter Name and Broadcast Message. Both screens will receive the broadcasts. 
+        </li>
+    </ul>
 
-<div class="alert alert-warning">
-    @Log
-</div>
+    <div class="alert alert-warning">
+        @Log
+    </div>
 
-<div class="alert alert-info">
+    <div class="alert alert-info">
+        @Message
+    </div>
     @Message
+    <button @onclick="Hello" class="btn btn-primary">Hello</button>
+    
+    <button @onclick="Hello" class="btn btn-primary">Connect</button>
+    <br/><br/>
+    <label>Username</label>
+    <input class="form-control" type="text" @bind="Sender" placeholder="Enter username" />
+    <br/>
+    <label>Broadcast Message</label>
+    <textarea class="form-control" @bind="BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
+    <button @onclick="BroadcastAsync" class="btn btn-secondary">Broadcast</button>
+
 </div>
 
-<button onclick="@ConnectAsync">Connect</button>
-<br/><br/>
-<label>Username</label>
-<input class="form-control" type="text" bind="@Sender" placeholder="Enter username" />
-<br/>
-<label>Broadcast Message</label>
-<textarea class="form-control" bind="@BroadcastMessage" placeholder="Enter Broadcast Message"></textarea>
-<button onclick="@BroadcastAsync">Broadcast</button>
+@code{
+    public string Message { get;set;}
+    public string Log { get;set;}
 
-@functions
-{
-    string Message { get;set;}
-    string Log { get;set;}
+    public string Sender { get;set;}
+    public string BroadcastMessage { get;set;}
 
-    string Sender { get;set;}
-    string BroadcastMessage { get;set;}
-
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
-        Notification.OnMessage = (string user, string message) =>
+        Notification.OnMessage = async (string user, string message) =>
         {
             Message = $"{user} broadcasts \"{message}\"";
-            this.Invoke(StateHasChanged);
+            await this.InvokeAsync(StateHasChanged);
         };
+    }
+
+    public void Hello()
+    {
+        Message = "Hello World";
+        StateHasChanged();
     }
 
     async Task ConnectAsync()
     {
+        Message = "Good Morning";
         Log = "Connect";
         await Notification.ConnectAsync();
     }
@@ -59,5 +71,10 @@
     {
         Log = "Broadcast";
         await Notification.BroadcastAsync(Sender, BroadcastMessage);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await Notification.DisposeAsync();
     }
 }

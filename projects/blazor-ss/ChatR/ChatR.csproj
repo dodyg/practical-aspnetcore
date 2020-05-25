@@ -6,8 +6,7 @@
 
   <ItemGroup>
 
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.0.0-preview9.19457.4" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="3.0.0-preview9.19457.4"/>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.4" />
     <Watch Include="**\*.cshtml" />
     <Watch Include="**\*.razor" />
   </ItemGroup>

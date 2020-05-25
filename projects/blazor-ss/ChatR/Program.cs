@@ -1,11 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using ChatR.Components;
 using ChatR.Services;
+using Microsoft.Extensions.Logging;
 
 namespace ChatR
 {
@@ -13,9 +11,8 @@ namespace ChatR
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSignalR().AddNewtonsoftJsonProtocol();
-            services.AddServerSideBlazor();
-            services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddServerSideBlazor(); //https://github.com/dotnet/aspnetcore/blob/master/src/Components/Server/src/DependencyInjection/ComponentServiceCollectionExtensions.cs
             services.AddScoped<NotificationService>();
         }
 
@@ -38,10 +35,10 @@ namespace ChatR
             app.UseRouting();
             app.UseEndpoints(routes =>
             {
+                routes.MapBlazorHub(); //https://github.com/dotnet/aspnetcore/blob/master/src/Components/Server/src/Builder/ComponentEndpointRouteBuilderExtensions.cs
+                //routes.MapHub<NotificationHub>("/notificationhub");
                 routes.MapRazorPages();
                 routes.MapFallbackToPage("/Index");
-                routes.MapHub<NotificationHub>("/notificationhub");
-                routes.MapBlazorHub<App>("app");
             });
         }
     }
@@ -57,6 +54,11 @@ namespace ChatR
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureLogging(builder =>
+                    {
+                        builder.SetMinimumLevel(LogLevel.Trace);
+                        builder.AddConsole();
+                    });
                     webBuilder.UseEnvironment(Environments.Development);
                 });
     }
