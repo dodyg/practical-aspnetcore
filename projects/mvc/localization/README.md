@@ -1,4 +1,4 @@
-## Localization (9)
+## Localization (10)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -39,3 +39,7 @@
   * [MVC Localization - 9](/projects/mvc/localization/mvc-localization-9)
 
     This sample demonstrates the situation of `cultural fallback` behaviour - `Starting from the requested culture, if not found, it reverts to the parent culture of that culture.`[doc](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-3.1#culture-fallback-behavior).
+
+  * [MVC Localization - 10](/projects/mvc/localization/mvc-localization-10)
+
+    This sample uses `CustomRequestCultureProvider` to provide fine localization based on the first part of a url segment e.g. /en/my-page, /fr.

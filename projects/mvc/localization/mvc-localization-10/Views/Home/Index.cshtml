@@ -1,0 +1,57 @@
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Localization
+@inject IStringLocalizer<MvcLocalization.Global> Local
+
+@{
+    var culture = Context.Features.Get<IRequestCultureFeature>();
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Custom Culture Provider</h1>
+            <p>
+                As you can see here we are providing culture based on the first segment of the url. If the first segment doesn't exist (e.g. /) or doesn't match our list of supported culture, the default culture is returned. 
+                The default culture in this case is 'fr'.
+            </p>
+            <ul>
+                <li><a href="/">/</a></li>
+                <li><a href="/fr">/fr</a></li>
+                <li><a href="/fr/oui">/fr/oui</a></li>
+                <li><a href="/en">/en</a></li>
+                <li><a href="/en/yes">/en/yes</a></li>
+                <li><a href="/en-US/yes">/en-US/yes</a></li>
+                <li><a href="/ar">/ar</a></li>
+            </ul>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Hello
+                        </td>
+                        <td>
+                            @Local["Hello"]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Goodbye
+                        </td>
+                        <td>
+                            @Local["Goodbye"]
+                        </td>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+    </body>
+</html>
