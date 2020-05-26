@@ -1,0 +1,14 @@
+@inject EventAggregator.Blazor.IEventAggregator Events
+
+<div class="card">
+  <div class="card-body">
+    <button @onclick="NotifyAsync" class="btn btn-primary">Notify from a Child Component</button>
+  </div>
+</div>
+
+@code{
+  async Task NotifyAsync()
+  {
+    await Events.PublishAsync(new NotificationMessage { Message = "Hello World from a child component"});
+  }
+}

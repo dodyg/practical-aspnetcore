@@ -1,0 +1,27 @@
+@inject EventAggregator.Blazor.IEventAggregator Events
+@implements EventAggregator.Blazor.IHandle<NotificationMessage>
+@implements IDisposable
+
+@Message
+
+@code {
+  
+  string Message { get; set; }
+  
+  protected override void OnInitialized()
+  {
+    Events.Subscribe(this);
+  }
+
+  public Task HandleAsync(NotificationMessage message)
+  {
+    Message = message.Message;
+    InvokeAsync(() => StateHasChanged());
+    return Task.CompletedTask;
+  }
+
+  public void Dispose()
+  {
+    Events.Unsubscribe(this);
+  }
+}

@@ -1,0 +1,17 @@
+﻿@page "/"
+@inject EventAggregator.Blazor.IEventAggregator Events
+
+<h1>Component Events</h1>
+
+<button @onclick="NotifyAsync" class="btn btn-primary">Notify from Page</button>
+
+<br/>
+<br/>
+
+<Child></Child>
+@code {
+  async Task NotifyAsync()
+  {
+    await Events.PublishAsync(new NotificationMessage { Message = "Hello World from a page" }); 
+  }
+}
