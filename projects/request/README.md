@@ -1,4 +1,4 @@
-# Request (12)
+# Request (14)
 
   This section shows all the different ways you capture input and examine request to your web application.
 
@@ -25,7 +25,7 @@
     
     Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
-* **Query String (4)**
+* **Query String (5)**
   * [Single value query string](/projects/request/query-string-1)
 
     Access single value query string.
@@ -38,10 +38,15 @@
 
     List all query string values. Also shows the implicat conversion from ```StringValues``` to ```string```.
 
+  There are multiple ways to generate query strings.
+
   * [Generate query string](/projects/request/form-url-encoded-content)
 
     Use `System.Net.Http.FormUrlEncodedContent` to generate URL encoded query string.
 
+  * [Generate query string 2](/projects/request/query-string-create)
+
+    Use `Microsoft.AspNetCore.Http.QueryString.Create` to generate URL encoded query string. 
 
   * More functionalities to generate and parse query string is available at [Web Utilities](/projects/web-utilities) section.
 

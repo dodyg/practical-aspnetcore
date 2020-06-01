@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1.300 (297)
+# Samples for ASP.NET Core 3.1.300 (298)
 
 ## Welcome
 
@@ -23,7 +23,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Blazor Server Side](/projects/blazor-ss)                       | (11)  | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)                                                                                            | (46) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                                                                            | (9)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                                                                          | (4)  |
-| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (12) |
+| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                                                                                  | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider)                                                       | (8)  |
 | [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (9)  |
