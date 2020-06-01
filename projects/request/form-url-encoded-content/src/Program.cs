@@ -24,7 +24,7 @@ namespace PracticalAspNetCore
                     ["formula"] = "10 = 10 * 1"
                 };
 
-                var queryString = new FormUrlEncodedContent(dicts);
+                using var queryString = new FormUrlEncodedContent(dicts);
                 
                 context.Response.Headers.Add("Content-Type", "text/html");
                 await context.Response.WriteAsync($@"<html>
