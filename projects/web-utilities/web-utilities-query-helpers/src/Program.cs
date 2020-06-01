@@ -18,10 +18,11 @@ namespace PracticalAspNetCore
             };
 
             var path = QueryHelpers.AddQueryString("/greet", arguments);
+            var path2 = QueryHelpers.AddQueryString(path, "name", "annie");
 
-            app.Run(context =>
+            app.Run(async context =>
             {
-                return context.Response.WriteAsync($"{path}");
+                await context.Response.WriteAsync($"{path}\n{path2}");
             });
         }
     }

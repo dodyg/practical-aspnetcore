@@ -29,7 +29,7 @@ namespace PracticalAspNetCore
                 <h1>Parsing Raw Query String</h1>
                 <ul>
                     <li><a href=""?name=anne"">?name=anne</a></li>
-                    <li><a href=""?name=anne&name=mishkind"">?name=anne&name=mishkind</a></li>
+                    <li><a href=""?name=anne&name=annie"">?name=anne&name=annie</a></li>
                     <li><a href=""?age=25&smart=true"">?age=25&smart=true</a></li>
                     <li><a href=""?country=zambia&country=senegal&country="">?country=zambia&country=senegal&country=</a></li>
                     <li><a href=""?"">?</a></li>
