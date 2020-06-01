@@ -122,15 +122,15 @@ To run these samples, simply open your command line console,  go to each folder 
 
 ### Utils (3)
 
-* [Status Codes](/projects/http-status-codes)
+* [Status Codes](/projects/utils/http-status-codes)
 
   Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
 
-* [MediaTypeNames](/projects/media-type-names)
+* [MediaTypeNames](/projects/utils/media-type-names)
 
   This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.  
 
-* [MediaTypeNames - 2](/projects/media-type-names-2)
+* [MediaTypeNames - 2](/projects/utils/media-type-names-2)
 
   Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
 
