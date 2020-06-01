@@ -42,6 +42,9 @@
 
     Use `System.Net.Http.FormUrlEncodedContent` to generate URL encoded query string.
 
+
+  * More functionalities to generate and parse query string is available at [Web Utilities](/projects/web-utilities) section.
+
 * **Form (2)**
 
   * [Form Values](/projects/request/form-values) 

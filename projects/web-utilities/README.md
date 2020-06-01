@@ -1,6 +1,6 @@
 # Web Utilities (3)
 
-  This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
+  This section shows various functions available at `Microsoft.AspNetCore.WebUtilities`. 
 
   * [Query Helpers](/projects/web-utilities/web-utilities-query-helpers)
 
