@@ -1,4 +1,4 @@
-# Request (11)
+# Request (12)
 
   This section shows all the different ways you capture input and examine request to your web application.
 
@@ -25,7 +25,7 @@
     
     Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
-* **Query String (3)**
+* **Query String (4)**
   * [Single value query string](/projects/request/query-string-1)
 
     Access single value query string.
@@ -38,6 +38,9 @@
 
     List all query string values. Also shows the implicat conversion from ```StringValues``` to ```string```.
 
+  * [Generate query string](/projects/request/form-url-encoded-content)
+
+    Use `System.Net.Http.FormUrlEncodedContent` to generate URL encoded query string.
 
 * **Form (2)**
 
