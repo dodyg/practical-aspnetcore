@@ -1,5 +1,9 @@
 # Samples for ASP.NET Core 3.1.300 (298)
 
+
+## Black Lives Matter. [Support National Bail Fund Network](https://www.communityjusticeexchange.org/nbfn-directory).
+
+
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
