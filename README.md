@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1.300 (298)
+# Samples for ASP.NET Core 3.1.300 (299)
 
 
 ## Black Lives Matter. [Support National Bail Fund Network](https://www.communityjusticeexchange.org/nbfn-directory).
@@ -30,7 +30,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                                                                                  | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider)                                                       | (8)  |
-| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (9)  |
+| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (10)  |
 | [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                                                                                    | (12) |
 | [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                                                                       | (6)  |
 | [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                                                                          | (3)  |

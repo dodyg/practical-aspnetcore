@@ -1,5 +1,5 @@
 
-# Json (9)
+# Json (10)
 
 All about the new `System.Text.Json` namespace.
 
@@ -38,3 +38,7 @@ All about the new `System.Text.Json` namespace.
 * [Json - Custom Converter](/projects/json/json-9)
 
   Implement a custom type converter. In this example we convert `TimeSpan`.
+
+* [Json - Custom Converter 2](/projects/json/json-11)
+
+  Implement a custom type coverter for DateTime type for JsonSerializer in the format of JSON date ticks.
