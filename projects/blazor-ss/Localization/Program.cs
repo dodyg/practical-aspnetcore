@@ -13,7 +13,6 @@ namespace Localization
     // Leave this class empty. We use it to bind to resources.
     public class Global
     {
-
     }
     
     public class Startup
@@ -21,6 +20,23 @@ namespace Localization
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+            
+            var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("fr-FR"),
+                new CultureInfo("en"),
+                new CultureInfo("fr"),
+            };
+
+            services.Configure<RequestLocalizationOptions>(options => 
+            {
+                options.DefaultRequestCulture = new RequestCulture("fr");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+                options.RequestCultureProviders.Clear();
+                options.RequestCultureProviders.Add(new CookieRequestCultureProvider());
+            });
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
         }
@@ -41,21 +57,8 @@ namespace Localization
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseStaticFiles();
-
-            var supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo("fr-FR"),
-                new CultureInfo("en-US"),
-            };
-
-            var options = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("en-US"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            };
             
-            app.UseRequestLocalization(options);
+            app.UseRequestLocalization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
