@@ -58,6 +58,6 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
     This sample is similar to [Component Events](ComponentEvents) except that we will facilitate communication between components and pages using [Blazor.EventAggregrator](https://github.com/mikoskinen/Blazor.EventAggregator)  library.
 
-  * [Localization](localization)
+  * [Localization](Localization)
 
     This sample shows how to use localization and perform languaeg switching in Blazor server using a global resource.
