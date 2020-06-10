@@ -1,0 +1,22 @@
+@page "/switch"
+@model SwitchModel
+
+
+@functions {
+
+  public class SwitchModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+  {
+    public IActionResult OnGet(string culture, string redirectUrl)
+    {
+      if (culture != null)
+      {
+          System.Console.WriteLine("Culture " + culture);
+          HttpContext.Response.Cookies.Delete(CookieRequestCultureProvider.DefaultCookieName);
+          HttpContext.Response.Cookies.Append(
+              CookieRequestCultureProvider.DefaultCookieName,
+              CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)));
+      }
+      return LocalRedirect(redirectUrl);
+    }
+  }
+}

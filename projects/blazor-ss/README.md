@@ -1,4 +1,4 @@
-# Server Size Blazor (12)
+# Server Size Blazor (13)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -52,7 +52,6 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Component Events](ComponentEvents)
 
     In this sample we will facilitate communication between components and pages using a Scoped lifetime AppState object. 
-
  
   * [Component Events 2](ComponentEvents-2)
 
@@ -60,4 +59,8 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
   * [Localization](Localization)
 
-    This sample shows how to use localization and perform languaeg switching in Blazor server using a global resource.
+    This sample shows how to use localization and perform language switching in Blazor server using a global resource.
+
+  * [Localization using PO files](Localization-2)
+
+    This sample shows how to use localization and perform language switching in Blazor server using Portable Object(PO) files.
