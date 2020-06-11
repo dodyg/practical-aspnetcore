@@ -9,3 +9,9 @@ msgstr "Oui"
 
 msgid "No"
 msgstr "No"
+
+msgid "One car"
+msgid_plural "{0} cars"
+msgstr[0] "Une voiture"
+msgstr[1] "{0} voitures"
+ 
