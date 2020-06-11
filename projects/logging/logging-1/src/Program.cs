@@ -39,6 +39,15 @@ namespace PracticalAspNetCore
                     {
                         // Adjust the minimum level here and see the impact 
                         // on the displayed logs.
+                        // The rule is it will show >= minimum level
+                        // The levels are:
+                        // - Trace = 0
+                        // - Debug = 1
+                        // - Information = 2
+                        // - Warning = 3
+                        // - Error = 4
+                        // - Critical = 5
+                        // - None = 6
                         builder.SetMinimumLevel(LogLevel.Warning);
                         builder.AddConsole();
                     })
