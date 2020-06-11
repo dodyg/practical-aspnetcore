@@ -1,4 +1,4 @@
-# Server Size Blazor (13)
+# Server Size Blazor (14)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -64,3 +64,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Localization using PO files](Localization-2)
 
     This sample shows how to use localization and perform language switching in Blazor server using Portable Object(PO) files.
+
+  * [Localization using PO with multiple files](Localization-3)
+
+    This sample is similar to the previous one above except this time we allow translation files to be split into multiple files per language. This allows better organization of language translation.

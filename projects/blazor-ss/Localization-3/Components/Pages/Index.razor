@@ -1,0 +1,52 @@
+﻿@page "/"
+@inject IStringLocalizer<Localization.Global> Local
+
+<div class="container">
+    <h1>Localization</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hello</td>
+                <td>@Local["Hello"]</td>
+            </tr>
+            <tr>
+                <td>Goodbye</td>
+                <td>@Local["Goodbye"]</td>
+            </tr>
+            <tr>
+                <td>Yes</td>
+                <td>@Local["Yes"]</td>
+            </tr>
+            <tr>
+                <td>No</td>
+                <td>@Local["No"]</td>
+            </tr>
+            <tr>
+                <td>1 Car</td>
+                <td>@Local.Plural(1,"One car", "{0} cars")</td>
+            </tr>
+            <tr>
+                <td>2 Cars</td>
+                <td>@Local.Plural(2,"One car", "{0} {1} cars", "holly")</td>
+            </tr>
+            <tr>
+                <td>100 Cars</td>
+                <td>@Local.Plural(100,"One car", "{0} {1} cars", "shit")</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Switch Language</h2>
+    <ul>
+        <li><a href="/switch?culture=fr&redirecturl=/">French</a></li>
+        <li><a href="/switch?culture=en&redirecturl=/">English</a></li>
+    </ul>
+</div>
+
