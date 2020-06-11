@@ -12,7 +12,12 @@ namespace PracticalAspNetCore
         {
             app.Run(context =>
             {
-                log.LogWarning("This is a test log");
+                log.LogTrace("Trace message");
+                log.LogDebug("Debug message");
+                log.LogInformation("Information message");
+                log.LogWarning("Warning message");
+                log.LogError("Error message");
+                log.LogCritical("Critical message");
                 return context.Response.WriteAsync("Hello world. Take a look at your terminal to see the logging messages.");
             });
         }
@@ -32,6 +37,8 @@ namespace PracticalAspNetCore
                     webBuilder
                     .ConfigureLogging(builder =>
                     {
+                        // Adjust the minimum level here and see the impact 
+                        // on the displayed logs.
                         builder.SetMinimumLevel(LogLevel.Warning);
                         builder.AddConsole();
                     })
