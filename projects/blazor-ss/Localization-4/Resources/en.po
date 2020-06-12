@@ -1,0 +1,11 @@
+msgid "Hello"
+msgstr "Howdy"
+
+msgid "Goodbye"
+msgstr "So Long"
+
+msgid "Yes"
+msgstr "Yeah"
+
+msgid "No"
+msgstr "Nope"

@@ -1,4 +1,4 @@
-# Server Size Blazor (14)
+# Server Size Blazor (15)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -68,3 +68,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Localization using PO with multiple files](Localization-3)
 
     This sample is similar to the previous one above except this time we allow translation files to be split into multiple files per language. This allows better organization of language translation.
+
+  * [Localization RTL/LTR support](Localization-4)
+
+    This sample shows how to implement LTR/RTL support in Blazor.

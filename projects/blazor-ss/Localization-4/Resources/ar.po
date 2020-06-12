@@ -1,0 +1,12 @@
+msgid "Hello"
+msgstr "أهلاً و سهلاً"
+
+msgid "Goodbye"
+msgstr "مع السّلامة"
+
+msgid "Yes"
+msgstr "أيوا"
+
+msgid "No"
+msgstr "لا"
+ 
