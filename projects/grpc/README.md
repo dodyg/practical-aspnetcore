@@ -39,7 +39,7 @@
 ## gRPC-Web
   This is a version of gRPC that runs on HTTP 1.1 and support Unary call and Server Streaming. **Client Streaming and bi-Directional Streaming are not supported**.
 
-  You can read more about the technology [here](https://devblogs.microsoft.com/aspnet/grpc-web-experiment/).
+  gRPC-Web has been released. You can find the details [here](https://devblogs.microsoft.com/aspnet/grpc-web-for-net-now-available/).
 
 
 * [Unary - Hello World](/projects/grpc/grpc-10)
