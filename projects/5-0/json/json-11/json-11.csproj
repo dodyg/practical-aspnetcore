@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>json-11</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Watch Include="**\*.cshtml" />
+  </ItemGroup>
+</Project>
