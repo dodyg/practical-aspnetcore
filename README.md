@@ -12,7 +12,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
 
-**Note** There is a section containing **.NET 5 Preview 5** specific samples [here](/projects/5-0) (10). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS).
+**Note** There is a section containing **.NET 5 Preview 6** specific samples [here](/projects/5-0) (10). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS).
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**. Otherwise just create a new issue and I will try to answer the best I can.
 
