@@ -2,5 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <OutputType>Exe</OutputType>
+    <LangVersion>Preview</LangVersion>
   </PropertyGroup>
 </Project>
