@@ -10,5 +10,5 @@ The following sample runs on `5.0.100-preview.6.20318.15`. Please install the SD
 
 * [Hello World](/projects/5-0/hello-world)
 
-  Classic sample running on .NET 5.
+  Classic sample running on .NET 5 using C# 9 top level statements.
 

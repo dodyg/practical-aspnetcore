@@ -11,7 +11,7 @@ IHostBuilder CreateHostBuilder(string[] args) =>
             webBuilder.Configure(app =>
             {
                 app.Run(async context => {
-                    await context.Response.WriteAsync("Hello world .NET 5");
+                    await context.Response.WriteAsync("Hello world C# 9");
                 });
             })
         );
