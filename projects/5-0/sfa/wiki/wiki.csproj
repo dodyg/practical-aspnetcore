@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Scriban" Version="3.0.0-alpha.3" />
+    <PackageReference Include="Markdig" Version="0.20.0" />
+    <PackageReference Include="LiteDB" Version="5.0.8" />
+    <PackageReference Include="FeatherHttp" Version="0.1.67-*"  />
+  </ItemGroup>
+</Project>
