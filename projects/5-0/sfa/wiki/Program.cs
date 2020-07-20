@@ -37,12 +37,28 @@ app.MapGet("/edit", async context =>
     return;
   }
 
-  await context.Response.WriteAsync(BuildPage(pageName, atBody: () =>
-    new[]
-    {
-        BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}")
-    }));
+  await context.Response.WriteAsync(BuildPage(pageName,
+    atHead: () => MarkdownEditorHead(),
+    atBody: () =>
+      new[]
+      {
+          BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}")
+      },
+    atFoot: () => MarkdownEditorFoot()));
 });
+
+IEnumerable<string> MarkdownEditorHead() => new[]
+      {
+        @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
+        @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
+      };
+
+IEnumerable<string> MarkdownEditorFoot() => new[]
+      {
+        @"<script>
+          var easyMDE = new EasyMDE();
+          </script>"
+      };
 
 app.MapGet("/{pageName}", async context =>
 {
@@ -63,26 +79,14 @@ app.MapGet("/{pageName}", async context =>
   }
   else
   {
-    await context.Response.WriteAsync(BuildPage(pageName, atHead: () =>
-      new[]
-      {
-        @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
-        @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
-      }
-    ,
+    await context.Response.WriteAsync(BuildPage(pageName,
+    atHead: () => MarkdownEditorHead(),
     atBody: () =>
-      new[] 
+      new[]
       {
         BuildForm(new PageInput(null, pageName, string.Empty), path: pageName)
       },
-    atFoot: () =>
-      new[] 
-      {
-        @"<script>
-          var easyMDE = new EasyMDE();
-          </script>"
-      })
-    );
+    atFoot: () => MarkdownEditorFoot()));
   }
 });
 
@@ -171,7 +175,7 @@ string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IE
     {
       PageName = KebabToNormalCase(title),
       Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
-      AtFoot =  string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
+      AtFoot = string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
     });
 
   var page = @"
