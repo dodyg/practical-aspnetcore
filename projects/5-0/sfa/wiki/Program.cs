@@ -116,6 +116,10 @@ app.MapPost("/{pageName}", async context =>
   context.Response.Redirect($"/{pageName}");
 });
 
+await app.RunAsync();
+
+// End of the web part
+
 IEnumerable<string> MarkdownEditorHead() => new[]
 {
   @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
@@ -206,7 +210,6 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
   return new HtmlString(template.Render(new { head, body }));
 }
 
-await app.RunAsync();
 
 class Wiki
 {
@@ -216,10 +219,10 @@ class Wiki
 
   public Wiki(IWebHostEnvironment env)
   {
-    _env = env;
+    _env = env!;
   }
 
-  string GetDbPath() => Path.Combine(_env!.ContentRootPath, "wiki.db");
+  string GetDbPath() => Path.Combine(_env.ContentRootPath, "wiki.db");
 
   public (bool isFound, Page? page) LoadPage(string path)
   {
@@ -244,15 +247,9 @@ class Wiki
     coll.EnsureIndex(x => x.Name);
 
     if (page.Id == default(int))
-    {
-      Console.WriteLine("Insert");
       coll.Insert(page);
-    }
     else
-    {
-      Console.WriteLine("Update");
       coll.Update(page);
-    }
 
     return (true, page, null);
   }
