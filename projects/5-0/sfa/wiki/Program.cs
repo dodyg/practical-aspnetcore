@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Antiforgery;
 using Markdig;
 using Microsoft.Extensions.Caching.Memory;
 
+const string DisplayDateFormat = "MMMM dd, yyyy";
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
 builder.Services.AddAntiforgery();
@@ -38,7 +40,6 @@ app.MapGet("/", async context =>
     context.Response.Redirect($"/{name}");
     return;
   }
-
 
   await context.Response.WriteAsync(BuildPage(name, atBody: () =>
       new[]
@@ -92,6 +93,7 @@ app.MapGet("/{pageName}", async context =>
       new[]
       {
         RenderMarkdown(page!.Content),
+        HtmlTags.Div.Class("last-modified").Append("Last modified: " + page!.LastModified.ToString(DisplayDateFormat)).ToHtmlString(),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
       },
       atSidePanel: () => AllPages(wiki)
@@ -220,6 +222,9 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
     <title>{{ title }}</title>
     <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"">
     {{ header }}
+    <style>
+      .last-modified { font-size: small; }
+    </style>
   ").Render(new { title = title, header = string.Join("\r", atHead?.Invoke() ?? new[] { "" }) });
 
   var body = Template.Parse(@"
@@ -311,16 +316,23 @@ class Wiki
 
   public (bool isOK, Page? page, Exception? ex) SavePage(Page page)
   {
-    using var db = new LiteDatabase(GetDbPath());
-    var coll = db.GetCollection<Page>(PageCollectionName);
-    coll.EnsureIndex(x => x.Name);
+    try
+    {
+      using var db = new LiteDatabase(GetDbPath());
+      var coll = db.GetCollection<Page>(PageCollectionName);
+      coll.EnsureIndex(x => x.Name);
 
-    if (page.Id == default(int))
-      coll.Insert(page);
-    else
-      coll.Update(page);
+      if (page.Id == default(int))
+        coll.Insert(page);
+      else
+        coll.Update(page);
 
-    return (true, page, null);
+      return (true, page, null);
+    }
+    catch(Exception ex)
+    {
+      return (false, null, ex);
+    }
   }
 }
 
