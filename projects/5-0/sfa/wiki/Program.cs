@@ -16,8 +16,10 @@ using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Antiforgery;
 using Markdig;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
+const string homePageName = "home-page";
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
@@ -30,22 +32,20 @@ DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
 
 app.MapGet("/", async context =>
 {
-  const string name = "home-page";
-
   var wiki = context.RequestServices.GetService<Wiki>()!;
-  Page? page = wiki.GetPage(name);
+  Page? page = wiki.GetPage(homePageName);
 
   if (page is not object)
   {
-    context.Response.Redirect($"/{name}");
+    context.Response.Redirect($"/{homePageName}");
     return;
   }
 
-  await context.Response.WriteAsync(BuildPage(name, atBody: () =>
+  await context.Response.WriteAsync(BuildPage(homePageName, atBody: () =>
       new[]
       {
         RenderMarkdown(page!.Content),
-        HtmlTags.A.Href($"/edit?pageName={name}").Append("Edit").ToHtmlString()
+        HtmlTags.A.Href($"/edit?pageName={homePageName}").Append("Edit").ToHtmlString()
       },
       atSidePanel: () => AllPages(wiki)
     ).ToString());
@@ -76,7 +76,6 @@ app.MapGet("/edit", async context =>
     atFoot: () => MarkdownEditorFoot()).ToString());
 });
 
-string RenderMarkdown(string str)  => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
 
 app.MapGet("/{pageName}", async context =>
 {
@@ -115,18 +114,49 @@ app.MapGet("/{pageName}", async context =>
 
 app.MapPost("/{pageName}", async context =>
 {
+  var pageName = context.Request.RouteValues["pageName"] as string ?? "";
+  var wiki = context.RequestServices.GetService<Wiki>()!;
   var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
   await antiForgery.ValidateRequestAsync(context);
+
+  var modelState = new ModelStateDictionary();
 
   var id = context.Request.Form["Id"];
   var name = context.Request.Form["Name"];
   var content = context.Request.Form["Content"];
 
-  var properName = name.ToString().Replace(' ', '-').ToLower();
+  if (string.IsNullOrWhiteSpace(name))
+    modelState.AddModelError("Name", "Name is required");
+  else if (pageName.Equals(homePageName) && !name.Equals(homePageName))
+    modelState.AddModelError("Name", $"You cannot modify home page name. Please keep it {homePageName}");
+
+  if (string.IsNullOrWhiteSpace(content))
+    modelState.AddModelError("Content", "Content is required");
+
+  if (!modelState.IsValid)
+  {
+    int? pageId = null;
+    
+    if (!StringValues.IsNullOrEmpty(id))
+      pageId = Convert.ToInt32(id);
+
+    await context.Response.WriteAsync(BuildPage(pageName,
+      atHead: () => MarkdownEditorHead(),
+      atBody: () =>
+        new[]
+        {
+            BuildForm(new PageInput(pageId, name, content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
+        },
+      atSidePanel: () => AllPages(wiki),
+      atFoot: () => MarkdownEditorFoot()).ToString());
+    return;
+  }
+
+  var properName = name.ToString().Trim().Replace(' ', '-').ToLower();
 
   var page = new Page
   {
-    Name = name,
+    Name = properName,
     Content = content,
     LastModified = Timestamp()
   };
@@ -134,19 +164,15 @@ app.MapPost("/{pageName}", async context =>
   if (!StringValues.IsNullOrEmpty(id))
     page.Id = Convert.ToInt32(id);
 
-  var wiki = context.RequestServices.GetService<Wiki>()!;
   var (isOK, p, ex) = wiki.SavePage(page);
-
-  if (!isOK)
-    Console.WriteLine($"Error {ex?.Message}");
-
-  var pageName = context.Request.RouteValues["pageName"] as string ?? "";
   context.Response.Redirect($"/{p!.Name}");
 });
 
 await app.RunAsync();
 
 // End of the web part
+
+string RenderMarkdown(string str)  => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
 
 IEnumerable<string> MarkdownEditorHead() => new[]
 {
@@ -176,7 +202,7 @@ IEnumerable<string> AllPages(Wiki wiki) => new[]
   "</ul>"
 };
 
-string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
+string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
   var antiForgeryField = HtmlTags.Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
@@ -191,6 +217,25 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
     .Append(HtmlTags.Div.Class("control")
       .Append(HtmlTags.Textarea.Name("Content").Class("textarea").Append(input.Content))
     );
+
+  if (modelState is object && !modelState.IsValid)
+  {
+    if (modelState.ContainsKey("Name") && modelState["Name"].ValidationState == ModelValidationState.Invalid)
+    {
+      foreach(var er in modelState["Name"].Errors)
+      {
+        nameField = nameField.Append(HtmlTags.P.Class("help is-danger").Append(er.ErrorMessage));
+      }
+    }
+
+    if (modelState.ContainsKey("Content") && modelState["Content"].ValidationState == ModelValidationState.Invalid)
+    {
+      foreach(var er in modelState["Content"].Errors)
+      {
+        contentField = contentField.Append(HtmlTags.P.Class("help is-danger").Append(er.ErrorMessage));
+      }
+    }
+  }
 
   var submit = HtmlTags.Button.Class("button").Append("Submit");
 
