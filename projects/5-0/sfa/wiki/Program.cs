@@ -9,16 +9,18 @@ using Scriban;
 using Microsoft.Extensions.DependencyInjection;
 using HtmlBuilders;
 using Microsoft.Extensions.Primitives;
-using System.Threading.Tasks;
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Antiforgery;
+using Markdig;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
 builder.Services.AddAntiforgery();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
@@ -50,8 +52,11 @@ app.MapGet("/edit", async context =>
       {
           BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
       },
+    atSidePanel: () => AllPages(wiki),
     atFoot: () => MarkdownEditorFoot()).ToString());
 });
+
+string RenderMarkdown(string str)  => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
 
 app.MapGet("/{pageName}", async context =>
 {
@@ -67,9 +72,10 @@ app.MapGet("/{pageName}", async context =>
     await context.Response.WriteAsync(BuildPage(pageName, atBody: () =>
       new[]
       {
-        Markdig.Markdown.ToHtml(page!.Content),
+        RenderMarkdown(page!.Content),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
-      }
+      },
+      atSidePanel: () => AllPages(wiki)
     ).ToString());
   }
   else
@@ -81,6 +87,7 @@ app.MapGet("/{pageName}", async context =>
       {
         BuildForm(new PageInput(null, pageName, string.Empty), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
       },
+    atSidePanel: () => AllPages(wiki),
     atFoot: () => MarkdownEditorFoot()).ToString());
   }
 });
@@ -113,7 +120,7 @@ app.MapPost("/{pageName}", async context =>
     Console.WriteLine($"Error {ex?.Message}");
 
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
-  context.Response.Redirect($"/{pageName}");
+  context.Response.Redirect($"/{p.Name}");
 });
 
 await app.RunAsync();
@@ -135,6 +142,17 @@ IEnumerable<string> MarkdownEditorFoot() => new[]
       }
     });
     </script>"
+};
+
+IEnumerable<string> AllPages(Wiki wiki) => new[]
+{ 
+  "<ul>",
+  string.Join("", 
+    wiki.ListAllPages().OrderBy(x => x.Name)
+      .Select(x => HtmlTags.Li.Append(HtmlTags.A.Href(x.Name).Append(x.Name)).ToHtmlString()
+    )
+  ),
+  "</ul>"
 };
 
 string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
@@ -175,7 +193,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
 
 string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
-HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atFoot = null)
+HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atSidePanel = null, Func<IEnumerable<string>>? atFoot = null)
 {
   var head = Template.Parse(@"
     <meta charset=""utf-8"">
@@ -186,16 +204,31 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
   ").Render(new { title = title, header = string.Join("\r", atHead?.Invoke() ?? new[] { "" }) });
 
   var body = Template.Parse(@"
+    {{ if at_side_panel != """" }}
+    <div class=""columns"">
+      <div class=""column is-four-fifths"">
+        <div class=""container is-fluid"">
+          <h1 class=""title is-1"">{{ page_name }}</h1>
+          {{ content }}
+        </div>
+      </div>
+      <div class=""column"">
+        {{ at_side_panel }}
+      </div>
+    </div>
+    {{ else }}
     <div class=""container is-fluid"">
       <h1 class=""title is-1"">{{ page_name }}</h1>
       {{ content }}
     </div>
+    {{ end }}    
     {{ at_foot }}
     ")
     .Render(new
     {
       PageName = KebabToNormalCase(title),
       Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
+      AtSidePanel = string.Join("\r", atSidePanel?.Invoke() ?? new[] { "" }),
       AtFoot = string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
     });
 
@@ -214,19 +247,37 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
   return new HtmlString(template.Render(new { head, body }));
 }
 
-
 class Wiki
 {
   const string PageCollectionName = "Pages";
+  const string AllPagesKey = "AllPages";
+  const double CacheAllPagesForMinutes = 30;
 
   readonly IWebHostEnvironment _env;
+  readonly IMemoryCache _cache;
 
-  public Wiki(IWebHostEnvironment env)
+  public Wiki(IWebHostEnvironment env, IMemoryCache cache)
   {
     _env = env!;
+    _cache = cache;
   }
 
   string GetDbPath() => Path.Combine(_env.ContentRootPath, "wiki.db");
+
+  public List<Page> ListAllPages()
+  {
+    var pages = _cache.Get(AllPagesKey) as List<Page>;
+
+    if (pages is object)
+      return pages;
+
+    using var db = new LiteDatabase(GetDbPath());
+    var coll = db.GetCollection<Page>(PageCollectionName);
+    var items = coll.Query().ToList();
+
+    _cache.Set(items, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(CacheAllPagesForMinutes)));
+    return items;
+  }
 
   public (bool isFound, Page? page) LoadPage(string path)
   {
