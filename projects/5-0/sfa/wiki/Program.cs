@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Html;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
@@ -46,19 +47,6 @@ app.MapGet("/edit", async context =>
       },
     atFoot: () => MarkdownEditorFoot()));
 });
-
-IEnumerable<string> MarkdownEditorHead() => new[]
-      {
-        @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
-        @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
-      };
-
-IEnumerable<string> MarkdownEditorFoot() => new[]
-      {
-        @"<script>
-          var easyMDE = new EasyMDE();
-          </script>"
-      };
 
 app.MapGet("/{pageName}", async context =>
 {
@@ -119,6 +107,19 @@ app.MapPost("/{pageName}", context =>
   return Task.CompletedTask;
 });
 
+IEnumerable<string> MarkdownEditorHead() => new[]
+{
+  @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
+  @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
+};
+
+IEnumerable<string> MarkdownEditorFoot() => new[]
+{
+  @"<script>
+    var easyMDE = new EasyMDE();
+    </script>"
+};
+
 string BuildForm(PageInput input, string path)
 {
   var nameField = HtmlTags.Div.Class("field")
@@ -136,10 +137,10 @@ string BuildForm(PageInput input, string path)
   var submit = HtmlTags.Button.Class("button").Append("Submit");
 
   var form = HtmlTags.Form
-                  .Attribute("method", "post")
-                  .Attribute("action", $"/{path}")
-                .Append(nameField)
-                .Append(contentField);
+             .Attribute("method", "post")
+             .Attribute("action", $"/{path}")
+               .Append(nameField)
+               .Append(contentField);
 
   if (input.Id.HasValue)
   {
@@ -162,7 +163,7 @@ string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IE
     <title>{{ title }}</title>
     <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"">
     {{ header }}
-  ").Render(new { title, header = string.Join("\r", atHead?.Invoke() ?? new[] { "" }) });
+  ").Render(new { title = new HtmlString(title), header = new HtmlString(string.Join("\r", atHead?.Invoke() ?? new[] { "" })) });
 
   var body = Template.Parse(@"
     <div class=""container is-fluid"">
@@ -173,9 +174,9 @@ string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IE
     ")
     .Render(new
     {
-      PageName = KebabToNormalCase(title),
-      Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
-      AtFoot = string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
+      PageName = new HtmlString(KebabToNormalCase(title)),
+      Content = new HtmlString(string.Join("\r", atBody?.Invoke() ?? new[] { "" })),
+      AtFoot = new HtmlString(string.Join("\r", atFoot?.Invoke() ?? new[] { "" }))
     });
 
   var page = @"
