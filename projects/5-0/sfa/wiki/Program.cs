@@ -14,9 +14,12 @@ using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Antiforgery;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
+builder.Services.AddAntiforgery();
+
 var app = builder.Build();
 
 DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
@@ -29,6 +32,8 @@ app.MapGet("/", async context =>
 app.MapGet("/edit", async context =>
 {
   var wiki = context.RequestServices.GetService<Wiki>()!;
+  var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
+
   var pageName = context.Request.Query["pageName"];
 
   var (isFound, page) = wiki.LoadPage(pageName);
@@ -43,7 +48,7 @@ app.MapGet("/edit", async context =>
     atBody: () =>
       new[]
       {
-          BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}")
+          BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
       },
     atFoot: () => MarkdownEditorFoot()));
 });
@@ -51,6 +56,8 @@ app.MapGet("/edit", async context =>
 app.MapGet("/{pageName}", async context =>
 {
   var wiki = context.RequestServices.GetService<Wiki>()!;
+  var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
+
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
 
   var (isFound, page) = wiki.LoadPage(pageName);
@@ -72,7 +79,7 @@ app.MapGet("/{pageName}", async context =>
     atBody: () =>
       new[]
       {
-        BuildForm(new PageInput(null, pageName, string.Empty), path: pageName)
+        BuildForm(new PageInput(null, pageName, string.Empty), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
       },
     atFoot: () => MarkdownEditorFoot()));
   }
@@ -120,8 +127,11 @@ IEnumerable<string> MarkdownEditorFoot() => new[]
     </script>"
 };
 
-string BuildForm(PageInput input, string path)
+string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
 {
+  
+  var antiForgeryField = HtmlTags.Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
+
   var nameField = HtmlTags.Div.Class("field")
     .Append(HtmlTags.Label.Class("label").Append(nameof(input.Name)))
     .Append(HtmlTags.Div.Class("control")
@@ -139,6 +149,7 @@ string BuildForm(PageInput input, string path)
   var form = HtmlTags.Form
              .Attribute("method", "post")
              .Attribute("action", $"/{path}")
+               .Append(antiForgeryField)
                .Append(nameField)
                .Append(contentField);
 
