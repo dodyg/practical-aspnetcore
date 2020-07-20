@@ -129,7 +129,11 @@ IEnumerable<string> MarkdownEditorHead() => new[]
 IEnumerable<string> MarkdownEditorFoot() => new[]
 {
   @"<script>
-    var easyMDE = new EasyMDE();
+    var easyMDE = new EasyMDE({
+      insertTexts: {
+        link: [""["", ""]()""]
+      }
+    });
     </script>"
 };
 
