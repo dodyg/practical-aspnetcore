@@ -33,16 +33,15 @@ app.MapGet("/edit", async context =>
   var (isFound, page) = wiki.LoadPage(pageName);
   if (!isFound)
   {
-    context.Response.StatusCode = (int) HttpStatusCode.NotFound;
+    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
     return;
   }
 
-  await context.Response.WriteAsync(BuildPage(pageName, () =>
-    {
-      return new []{ 
+  await context.Response.WriteAsync(BuildPage(pageName, setContent: () =>
+    new[]{
         BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}")
-      };
-    }));
+      }
+    ));
 });
 
 app.MapGet("/{pageName}", async context =>
@@ -54,10 +53,10 @@ app.MapGet("/{pageName}", async context =>
 
   if (isFound)
   {
-    await context.Response.WriteAsync(BuildPage(pageName, () =>
+    await context.Response.WriteAsync(BuildPage(pageName, setContent: () =>
     {
-      return new[] 
-      { 
+      return new[]
+      {
         Markdig.Markdown.ToHtml(page!.Content),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
       };
@@ -65,12 +64,17 @@ app.MapGet("/{pageName}", async context =>
   }
   else
   {
-    await context.Response.WriteAsync(BuildPage(pageName, () =>
-    {
-      return new[] { 
+    await context.Response.WriteAsync(BuildPage(pageName, setHead: () =>
+    new[]{
+        @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
+        @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
+      }
+    ,
+    setContent: () =>
+      new[] {
         BuildForm(new PageInput(null, pageName, string.Empty), path: pageName)
-        };
-    }));
+        }
+    ));
   }
 });
 
@@ -92,14 +96,14 @@ app.MapPost("/{pageName}", context =>
   if (!StringValues.IsNullOrEmpty(id))
     page.Id = Convert.ToInt32(id);
 
-  var wiki = context.RequestServices.GetService<Wiki>()!;  
+  var wiki = context.RequestServices.GetService<Wiki>()!;
   var (isOK, p, ex) = wiki.SavePage(page);
 
   if (!isOK)
-    Console.WriteLine($"Error {ex.Message}");
+    Console.WriteLine($"Error {ex?.Message}");
 
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
-  context.Response.Redirect($"/{pageName}");  
+  context.Response.Redirect($"/{pageName}");
   return Task.CompletedTask;
 });
 
@@ -130,7 +134,7 @@ string BuildForm(PageInput input, string path)
     HtmlTag id = HtmlTags.Input.Hidden.Name("Id").Value(input.Id.ToString());
     form = form.Append(id);
   }
-  
+
   form = form.Append(submit);
 
   return form.ToHtmlString();
@@ -138,26 +142,26 @@ string BuildForm(PageInput input, string path)
 
 string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
-string BuildPage(string title, Func<IEnumerable<string>>? buildContent = null)
+string BuildPage(string title, Func<IEnumerable<string>>? setHead = null, Func<IEnumerable<string>>? setContent = null)
 {
   var head = Template.Parse(@"
     <meta charset=""utf-8"">
     <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
     <title>{{ title }}</title>
     <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"">
-  ").Render(new { title });
+    {{ header }}
+  ").Render(new { title, header = string.Join("\r", setHead?.Invoke() ?? new[] { "" }) });
 
   var body = Template.Parse(@"
     <div class=""container"">
       <h1 class=""title is-1"">{{ page_name }}</h1>
-
       {{ content }}
     </div>
     ")
     .Render(new
     {
       PageName = KebabToNormalCase(title),
-      Content = string.Join("<br/>", buildContent?.Invoke() ?? new [] { "" })
+      Content = string.Join("\r", setContent?.Invoke() ?? new[] { "" })
     });
 
   var page = @"
@@ -193,22 +197,20 @@ class Wiki
   public (bool isFound, Page? page) LoadPage(string path)
   {
     using var db = new LiteDatabase(GetDbPath());
-
     var coll = db.GetCollection<Page>(PageCollectionName);
-
     coll.EnsureIndex(x => x.Name);
 
     var p = coll.Query()
-            .Where(x => x.Name.Equals(path, StringComparison.CurrentCultureIgnoreCase))
+            .Where(x => x.Name.Equals(path, StringComparison.OrdinalIgnoreCase))
             .FirstOrDefault();
 
-    if (p == null)
+    if (p is not object)
       return (false, null);
 
     return (true, p);
   }
 
-  public (bool isOK, Page? page, Exception ex) SavePage(Page page)
+  public (bool isOK, Page? page, Exception? ex) SavePage(Page page)
   {
     using var db = new LiteDatabase(GetDbPath());
     var coll = db.GetCollection<Page>(PageCollectionName);
@@ -229,17 +231,15 @@ class Wiki
   }
 }
 
-
-
 public record Page
 {
   public int Id { get; set; }
 
-  public string Name { get; set; }
+  public string Name { get; set; } = string.Empty;
 
-  public string Content { get; set; }
+  public string Content { get; set; } = string.Empty;
 
   public DateTimeOffset LastModified { get; set; }
 }
 
-public record PageInput (int? Id, string Name, string Content);
+public record PageInput(int? Id, string Name, string Content);
