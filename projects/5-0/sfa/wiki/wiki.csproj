@@ -11,5 +11,6 @@
     <PackageReference Include="FeatherHttp" Version="0.1.67-*"  />
     <PackageReference Include="HtmlBuilders" Version="6.0.0" />
     <PackageReference Include="HtmlSanitizer" Version="5.0.331" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.0.1" />
   </ItemGroup>
 </Project>

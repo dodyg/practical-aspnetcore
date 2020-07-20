@@ -18,9 +18,11 @@ using Markdig;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Ganss.XSS;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
-const string homePageName = "home-page";
+const string HomePageName = "home-page";
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
@@ -34,19 +36,19 @@ DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
 app.MapGet("/", async context =>
 {
   var wiki = context.RequestServices.GetService<Wiki>()!;
-  Page? page = wiki.GetPage(homePageName);
+  Page? page = wiki.GetPage(HomePageName);
 
   if (page is not object)
   {
-    context.Response.Redirect($"/{homePageName}");
+    context.Response.Redirect($"/{HomePageName}");
     return;
   }
 
-  await context.Response.WriteAsync(BuildPage(homePageName, atBody: () =>
+  await context.Response.WriteAsync(BuildPage(HomePageName, atBody: () =>
       new[]
       {
         RenderMarkdown(page!.Content),
-        HtmlTags.A.Href($"/edit?pageName={homePageName}").Append("Edit").ToHtmlString()
+        HtmlTags.A.Href($"/edit?pageName={HomePageName}").Append("Edit").ToHtmlString()
       },
       atSidePanel: () => AllPages(wiki)
     ).ToString());
@@ -120,33 +122,21 @@ app.MapPost("/{pageName}", async context =>
   var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
   await antiForgery.ValidateRequestAsync(context);
 
+  PageInput input = PageInput.From(context.Request.Form);
+
   var modelState = new ModelStateDictionary();
+  var validator = new PageInputValidator(pageName, HomePageName);
+  validator.Validate(input).AddToModelState(modelState, null);
 
-  var id = context.Request.Form["Id"];
-  var name = context.Request.Form["Name"];
-  var content = context.Request.Form["Content"];
-
-  if (string.IsNullOrWhiteSpace(name))
-    modelState.AddModelError("Name", "Name is required");
-  else if (pageName.Equals(homePageName) && !name.Equals(homePageName))
-    modelState.AddModelError("Name", $"You cannot modify home page name. Please keep it {homePageName}");
-
-  if (string.IsNullOrWhiteSpace(content))
-    modelState.AddModelError("Content", "Content is required");
 
   if (!modelState.IsValid)
   {
-    int? pageId = null;
-    
-    if (!StringValues.IsNullOrEmpty(id))
-      pageId = Convert.ToInt32(id);
-
     await context.Response.WriteAsync(BuildPage(pageName,
       atHead: () => MarkdownEditorHead(),
       atBody: () =>
         new[]
         {
-            BuildForm(new PageInput(pageId, name, content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
+            BuildForm(input, path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
         },
       atSidePanel: () => AllPages(wiki),
       atFoot: () => MarkdownEditorFoot()).ToString());
@@ -154,17 +144,14 @@ app.MapPost("/{pageName}", async context =>
   }
 
   var sanitizer = new HtmlSanitizer();
-
-  var properName = name.ToString().Trim().Replace(' ', '-').ToLower();
+  var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
   var page = new Page
   {
+    Id = input.Id ?? default(int),
     Name = sanitizer.Sanitize(properName),
-    Content = sanitizer.Sanitize(content),
+    Content = sanitizer.Sanitize(input.Content),
     LastModified = Timestamp()
   };
-
-  if (!StringValues.IsNullOrEmpty(id))
-    page.Id = Convert.ToInt32(id);
 
   var (isOK, p, ex) = wiki.SavePage(page);
   context.Response.Redirect($"/{p!.Name}");
@@ -337,6 +324,7 @@ class Wiki
 
   string GetDbPath() => Path.Combine(_env.ContentRootPath, "wiki.db");
 
+
   public List<Page> ListAllPages()
   {
     var pages = _cache.Get(AllPagesKey) as List<Page>;
@@ -396,4 +384,31 @@ public record Page
   public DateTimeOffset LastModified { get; set; }
 }
 
-public record PageInput(int? Id, string Name, string Content);
+public record PageInput(int? Id, string Name, string Content)
+{
+  public static PageInput From(IFormCollection form)
+  {
+      var id = form["Id"];
+      var name = form["Name"];
+      var content = form["Content"];
+
+      int? pageId = null;
+      
+      if (!StringValues.IsNullOrEmpty(id))
+        pageId = Convert.ToInt32(id);
+
+      return new PageInput(pageId, name, content);
+  }
+}
+
+public class PageInputValidator: AbstractValidator<PageInput>
+{
+  public PageInputValidator(string pageName, string homePageName)
+  { 
+      RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");
+      if (pageName.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
+        RuleFor(x => x.Name).Must(name => name.Equals(homePageName)).WithMessage($"You cannot modify home page name. Please keep it {homePageName}");
+
+      RuleFor(x => x.Content).NotEmpty().WithMessage("Content is required");
+  }
+}
