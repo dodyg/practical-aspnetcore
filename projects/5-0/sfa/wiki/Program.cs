@@ -26,7 +26,7 @@ DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
 
 app.MapGet("/", async context =>
 {
-  await context.Response.WriteAsync(BuildPage(title: "Welcome To Irtysh Wiki"));
+  await context.Response.WriteAsync(BuildPage(title: "Welcome To Irtysh Wiki").ToString());
 });
 
 app.MapGet("/edit", async context =>
@@ -50,7 +50,7 @@ app.MapGet("/edit", async context =>
       {
           BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
       },
-    atFoot: () => MarkdownEditorFoot()));
+    atFoot: () => MarkdownEditorFoot()).ToString());
 });
 
 app.MapGet("/{pageName}", async context =>
@@ -70,7 +70,7 @@ app.MapGet("/{pageName}", async context =>
         Markdig.Markdown.ToHtml(page!.Content),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
       }
-    ));
+    ).ToString());
   }
   else
   {
@@ -81,12 +81,15 @@ app.MapGet("/{pageName}", async context =>
       {
         BuildForm(new PageInput(null, pageName, string.Empty), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
       },
-    atFoot: () => MarkdownEditorFoot()));
+    atFoot: () => MarkdownEditorFoot()).ToString());
   }
 });
 
-app.MapPost("/{pageName}", context =>
+app.MapPost("/{pageName}", async context =>
 {
+  var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
+  await antiForgery.ValidateRequestAsync(context);
+
   var id = context.Request.Form["Id"];
   var name = context.Request.Form["Name"];
   var content = context.Request.Form["Content"];
@@ -111,7 +114,6 @@ app.MapPost("/{pageName}", context =>
 
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
   context.Response.Redirect($"/{pageName}");
-  return Task.CompletedTask;
 });
 
 IEnumerable<string> MarkdownEditorHead() => new[]
@@ -129,7 +131,6 @@ IEnumerable<string> MarkdownEditorFoot() => new[]
 
 string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
 {
-  
   var antiForgeryField = HtmlTags.Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
   var nameField = HtmlTags.Div.Class("field")
@@ -166,7 +167,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery)
 
 string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
-string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atFoot = null)
+HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atFoot = null)
 {
   var head = Template.Parse(@"
     <meta charset=""utf-8"">
@@ -174,7 +175,7 @@ string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IE
     <title>{{ title }}</title>
     <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"">
     {{ header }}
-  ").Render(new { title = new HtmlString(title), header = new HtmlString(string.Join("\r", atHead?.Invoke() ?? new[] { "" })) });
+  ").Render(new { title = title, header = string.Join("\r", atHead?.Invoke() ?? new[] { "" }) });
 
   var body = Template.Parse(@"
     <div class=""container is-fluid"">
@@ -185,9 +186,9 @@ string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IE
     ")
     .Render(new
     {
-      PageName = new HtmlString(KebabToNormalCase(title)),
-      Content = new HtmlString(string.Join("\r", atBody?.Invoke() ?? new[] { "" })),
-      AtFoot = new HtmlString(string.Join("\r", atFoot?.Invoke() ?? new[] { "" }))
+      PageName = KebabToNormalCase(title),
+      Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
+      AtFoot = string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
     });
 
   var page = @"
@@ -202,7 +203,7 @@ string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IE
   ";
 
   var template = Template.Parse(page);
-  return template.Render(new { head, body });
+  return new HtmlString(template.Render(new { head, body }));
 }
 
 await app.RunAsync();
