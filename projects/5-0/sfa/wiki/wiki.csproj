@@ -10,5 +10,6 @@
     <PackageReference Include="LiteDB" Version="5.0.8" />
     <PackageReference Include="FeatherHttp" Version="0.1.67-*"  />
     <PackageReference Include="HtmlBuilders" Version="6.0.0" />
+    <PackageReference Include="HtmlSanitizer" Version="5.0.331" />
   </ItemGroup>
 </Project>

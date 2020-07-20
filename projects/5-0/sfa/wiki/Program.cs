@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Antiforgery;
 using Markdig;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Ganss.XSS;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string homePageName = "home-page";
@@ -152,12 +153,13 @@ app.MapPost("/{pageName}", async context =>
     return;
   }
 
-  var properName = name.ToString().Trim().Replace(' ', '-').ToLower();
+  var sanitizer = new HtmlSanitizer();
 
+  var properName = name.ToString().Trim().Replace(' ', '-').ToLower();
   var page = new Page
   {
-    Name = properName,
-    Content = content,
+    Name = sanitizer.Sanitize(properName),
+    Content = sanitizer.Sanitize(content),
     LastModified = Timestamp()
   };
 
