@@ -37,11 +37,11 @@ app.MapGet("/edit", async context =>
     return;
   }
 
-  await context.Response.WriteAsync(BuildPage(pageName, setContent: () =>
-    new[]{
+  await context.Response.WriteAsync(BuildPage(pageName, atBody: () =>
+    new[]
+    {
         BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}")
-      }
-    ));
+    }));
 });
 
 app.MapGet("/{pageName}", async context =>
@@ -53,28 +53,36 @@ app.MapGet("/{pageName}", async context =>
 
   if (isFound)
   {
-    await context.Response.WriteAsync(BuildPage(pageName, setContent: () =>
-    {
-      return new[]
+    await context.Response.WriteAsync(BuildPage(pageName, atBody: () =>
+      new[]
       {
         Markdig.Markdown.ToHtml(page!.Content),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
-      };
-    }));
+      }
+    ));
   }
   else
   {
-    await context.Response.WriteAsync(BuildPage(pageName, setHead: () =>
-    new[]{
+    await context.Response.WriteAsync(BuildPage(pageName, atHead: () =>
+      new[]
+      {
         @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
         @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
       }
     ,
-    setContent: () =>
-      new[] {
+    atBody: () =>
+      new[] 
+      {
         BuildForm(new PageInput(null, pageName, string.Empty), path: pageName)
-        }
-    ));
+      },
+    atFoot: () =>
+      new[] 
+      {
+        @"<script>
+          var easyMDE = new EasyMDE();
+          </script>"
+      })
+    );
   }
 });
 
@@ -142,7 +150,7 @@ string BuildForm(PageInput input, string path)
 
 string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
-string BuildPage(string title, Func<IEnumerable<string>>? setHead = null, Func<IEnumerable<string>>? setContent = null)
+string BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atFoot = null)
 {
   var head = Template.Parse(@"
     <meta charset=""utf-8"">
@@ -150,18 +158,20 @@ string BuildPage(string title, Func<IEnumerable<string>>? setHead = null, Func<I
     <title>{{ title }}</title>
     <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"">
     {{ header }}
-  ").Render(new { title, header = string.Join("\r", setHead?.Invoke() ?? new[] { "" }) });
+  ").Render(new { title, header = string.Join("\r", atHead?.Invoke() ?? new[] { "" }) });
 
   var body = Template.Parse(@"
-    <div class=""container"">
+    <div class=""container is-fluid"">
       <h1 class=""title is-1"">{{ page_name }}</h1>
       {{ content }}
     </div>
+    {{ at_foot }}
     ")
     .Render(new
     {
       PageName = KebabToNormalCase(title),
-      Content = string.Join("\r", setContent?.Invoke() ?? new[] { "" })
+      Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
+      AtFoot =  string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
     });
 
   var page = @"
