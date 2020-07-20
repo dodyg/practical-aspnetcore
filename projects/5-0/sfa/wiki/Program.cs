@@ -68,15 +68,13 @@ app.MapGet("/edit", async context =>
     return;
   }
 
-  await context.Response.WriteAsync(BuildPage(pageName,
-    atHead: () => MarkdownEditorHead(),
+  await context.Response.WriteAsync(BuildEditorPage(pageName,
     atBody: () =>
       new[]
       {
           BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
       },
-    atSidePanel: () => AllPages(wiki),
-    atFoot: () => MarkdownEditorFoot()).ToString());
+    atSidePanel: () => AllPages(wiki)).ToString());
 });
 
 
@@ -103,15 +101,13 @@ app.MapGet("/{pageName}", async context =>
   }
   else
   {
-    await context.Response.WriteAsync(BuildPage(pageName,
-    atHead: () => MarkdownEditorHead(),
+    await context.Response.WriteAsync(BuildEditorPage(pageName,
     atBody: () =>
       new[]
       {
         BuildForm(new PageInput(null, pageName, string.Empty), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
       },
-    atSidePanel: () => AllPages(wiki),
-    atFoot: () => MarkdownEditorFoot()).ToString());
+    atSidePanel: () => AllPages(wiki)).ToString());
   }
 });
 
@@ -128,18 +124,15 @@ app.MapPost("/{pageName}", async context =>
   var validator = new PageInputValidator(pageName, HomePageName);
   validator.Validate(input).AddToModelState(modelState, null);
 
-
   if (!modelState.IsValid)
   {
-    await context.Response.WriteAsync(BuildPage(pageName,
-      atHead: () => MarkdownEditorHead(),
+    await context.Response.WriteAsync(BuildEditorPage(pageName,
       atBody: () =>
         new[]
         {
             BuildForm(input, path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
         },
-      atSidePanel: () => AllPages(wiki),
-      atFoot: () => MarkdownEditorFoot()).ToString());
+      atSidePanel: () => AllPages(wiki)).ToString());
     return;
   }
 
@@ -250,6 +243,15 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
 string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
+HtmlString BuildEditorPage(string title, Func<IEnumerable<string>> atBody, Func<IEnumerable<string>>? atSidePanel = null) =>
+   BuildPage(
+    title,
+    atHead: () => MarkdownEditorHead(),
+    atBody: atBody,
+    atSidePanel: atSidePanel,
+    atFoot: () => MarkdownEditorFoot()
+    );
+
 HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atSidePanel = null, Func<IEnumerable<string>>? atFoot = null)
 {
   var head = Template.Parse(@"
@@ -324,7 +326,6 @@ class Wiki
 
   string GetDbPath() => Path.Combine(_env.ContentRootPath, "wiki.db");
 
-
   public List<Page> ListAllPages()
   {
     var pages = _cache.Get(AllPagesKey) as List<Page>;
@@ -336,7 +337,7 @@ class Wiki
     var coll = db.GetCollection<Page>(PageCollectionName);
     var items = coll.Query().ToList();
 
-    _cache.Set(items, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(CacheAllPagesForMinutes)));
+    _cache.Set(AllPagesKey, items, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(CacheAllPagesForMinutes)));
     return items;
   }
 
@@ -364,6 +365,7 @@ class Wiki
       else
         coll.Update(page);
 
+      _cache.Remove(AllPagesKey);
       return (true, page, null);
     }
     catch(Exception ex)
