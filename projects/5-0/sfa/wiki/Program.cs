@@ -28,7 +28,26 @@ DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
 
 app.MapGet("/", async context =>
 {
-  await context.Response.WriteAsync(BuildPage(title: "Welcome To Irtysh Wiki").ToString());
+  const string name = "home-page";
+
+  var wiki = context.RequestServices.GetService<Wiki>()!;
+  Page? page = wiki.GetPage(name);
+
+  if (page is not object)
+  {
+    context.Response.Redirect($"/{name}");
+    return;
+  }
+
+
+  await context.Response.WriteAsync(BuildPage(name, atBody: () =>
+      new[]
+      {
+        RenderMarkdown(page!.Content),
+        HtmlTags.A.Href($"/edit?pageName={name}").Append("Edit").ToHtmlString()
+      },
+      atSidePanel: () => AllPages(wiki)
+    ).ToString());
 });
 
 app.MapGet("/edit", async context =>
@@ -207,7 +226,7 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
     {{ if at_side_panel != """" }}
     <div class=""columns"">
       <div class=""column is-four-fifths"">
-        <div class=""container is-fluid"">
+        <div class=""container is-fluid content"">
           <h1 class=""title is-1"">{{ page_name }}</h1>
           {{ content }}
         </div>
@@ -217,7 +236,7 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
       </div>
     </div>
     {{ else }}
-    <div class=""container is-fluid"">
+    <div class=""container is-fluid content"">
       <h1 class=""title is-1"">{{ page_name }}</h1>
       {{ content }}
     </div>
