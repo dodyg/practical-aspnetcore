@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1.300 (303)
+# Samples for ASP.NET Core 3.1.300 (304)
 
 ## Black Lives Matter. [Support National Bail Fund Network](https://www.communityjusticeexchange.org/nbfn-directory).
 
@@ -36,7 +36,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [gRPC](/projects/grpc) (including grpc-Web)                                          | (12) | [Web Sockets](/projects/web-sockets)                                                                            | (5)  |
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
-| [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (0) | | |
+| [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (1) | | |
 |                                                                 | 125  |                                                                                                                 | 142  |
 ## How to run these samples
 
