@@ -38,8 +38,8 @@ app.MapGet("/edit", async context =>
 
   var pageName = context.Request.Query["pageName"];
 
-  var (isFound, page) = wiki.LoadPage(pageName);
-  if (!isFound)
+  Page? page = wiki.GetPage(pageName);
+  if (page is not object)
   {
     context.Response.StatusCode = (int)HttpStatusCode.NotFound;
     return;
@@ -65,9 +65,9 @@ app.MapGet("/{pageName}", async context =>
 
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
 
-  var (isFound, page) = wiki.LoadPage(pageName);
+  Page? page = wiki.GetPage(pageName);
 
-  if (isFound)
+  if (page is object)
   {
     await context.Response.WriteAsync(BuildPage(pageName, atBody: () =>
       new[]
@@ -120,7 +120,7 @@ app.MapPost("/{pageName}", async context =>
     Console.WriteLine($"Error {ex?.Message}");
 
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
-  context.Response.Redirect($"/{p.Name}");
+  context.Response.Redirect($"/{p!.Name}");
 });
 
 await app.RunAsync();
@@ -279,20 +279,15 @@ class Wiki
     return items;
   }
 
-  public (bool isFound, Page? page) LoadPage(string path)
+  public Page? GetPage(string path)
   {
     using var db = new LiteDatabase(GetDbPath());
     var coll = db.GetCollection<Page>(PageCollectionName);
     coll.EnsureIndex(x => x.Name);
 
-    var p = coll.Query()
+    return coll.Query()
             .Where(x => x.Name.Equals(path, StringComparison.OrdinalIgnoreCase))
             .FirstOrDefault();
-
-    if (p is not object)
-      return (false, null);
-
-    return (true, p);
   }
 
   public (bool isOK, Page? page, Exception? ex) SavePage(Page page)
