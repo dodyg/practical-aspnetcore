@@ -20,6 +20,6 @@ Used libraries:
 * Text Template - [Scriban](https://github.com/lunet-io/scriban).
 * Markdown Support - [Markdig](https://github.com/lunet-io/markdig).
 * Validation - [FluentValidation](https://github.com/FluentValidation/FluentValidation).
-* Html Generation [HtmlBuilders](https://github.com/amoerie/HtmlBuilders).
-* Markdown Editor [EasyMDE](https://github.com/Ionaru/easy-markdown-editor).
-* Sanitizing Input [HtmlSanitizer](https://github.com/mganss/HtmlSanitizer).
+* Html Generation - [HtmlBuilders](https://github.com/amoerie/HtmlBuilders).
+* Markdown Editor - [EasyMDE](https://github.com/Ionaru/easy-markdown-editor).
+* Sanitizing Input - [HtmlSanitizer](https://github.com/mganss/HtmlSanitizer).
