@@ -204,6 +204,8 @@ IEnumerable<string> AllPages(Wiki wiki) => new[]
 
 string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
+  bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key].ValidationState == ModelValidationState.Invalid;
+
   var antiForgeryField = HtmlTags.Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
   var nameField = HtmlTags.Div.Class("field")
@@ -220,7 +222,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
   if (modelState is object && !modelState.IsValid)
   {
-    if (modelState.ContainsKey("Name") && modelState["Name"].ValidationState == ModelValidationState.Invalid)
+    if (IsFieldOK("Name"))
     {
       foreach(var er in modelState["Name"].Errors)
       {
@@ -228,7 +230,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
       }
     }
 
-    if (modelState.ContainsKey("Content") && modelState["Content"].ValidationState == ModelValidationState.Invalid)
+    if (IsFieldOK("Content"))
     {
       foreach(var er in modelState["Content"].Errors)
       {
