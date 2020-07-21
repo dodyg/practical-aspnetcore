@@ -141,7 +141,7 @@ await app.RunAsync();
 
 // End of the web part
 
-string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
+string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build());
 
 IEnumerable<string> MarkdownEditorHead() => new[]
 {
@@ -257,6 +257,8 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
     {{ header }}
     <style>
       .last-modified { font-size: small; }
+      a:visited { color: blue; }
+      a:link { color: red; }
     </style>
   ").Render(new { title = title, header = string.Join("\r", atHead?.Invoke() ?? new[] { "" }) });
 
@@ -353,24 +355,37 @@ class Wiki
   {
     try
     {
-      var sanitizer = new HtmlSanitizer();
-      var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
-      var page = new Page
-      {
-        Id = input.Id ?? default(int),
-        Name = sanitizer.Sanitize(properName),
-        Content = sanitizer.Sanitize(input.Content),
-        LastModified = Timestamp()
-      };
-
       using var db = new LiteDatabase(GetDbPath());
       var coll = db.GetCollection<Page>(PageCollectionName);
       coll.EnsureIndex(x => x.Name);
 
-      if (page.Id == default(int))
+      Page? page = null;
+      if (input.Id.HasValue)
+        page = coll.FindOne(x => x.Id == input.Id);
+
+      var sanitizer = new HtmlSanitizer();
+      var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
+
+      // new record
+      if (page is not object)
+      {
+        page = new Page
+        {
+          Name = sanitizer.Sanitize(properName),
+          Content = sanitizer.Sanitize(input.Content),
+          LastModified = Timestamp()
+        };
+
         coll.Insert(page);
-      else
+      }
+      else 
+      { // existing record
+        page.Name = sanitizer.Sanitize(properName);
+        page.Content = sanitizer.Sanitize(input.Content);
+        page.LastModified = Timestamp();
+
         coll.Update(page);
+      }
 
       _cache.Remove(AllPagesKey);
       return (true, page, null);
