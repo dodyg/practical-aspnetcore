@@ -359,36 +359,36 @@ class Wiki
       var coll = db.GetCollection<Page>(PageCollectionName);
       coll.EnsureIndex(x => x.Name);
 
-      Page? page = null;
-      if (input.Id.HasValue)
-        page = coll.FindOne(x => x.Id == input.Id);
+      Page? existingPage = input.Id.HasValue ? coll.FindOne(x => x.Id == input.Id) : null;
 
       var sanitizer = new HtmlSanitizer();
       var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
 
-      // new record
-      if (page is not object)
+      if (existingPage is not object)
       {
-        page = new Page
+        var newPage = new Page
         {
           Name = sanitizer.Sanitize(properName),
           Content = sanitizer.Sanitize(input.Content),
           LastModified = Timestamp()
         };
 
-        coll.Insert(page);
+        coll.Insert(newPage);
       }
       else 
-      { // existing record
-        page.Name = sanitizer.Sanitize(properName);
-        page.Content = sanitizer.Sanitize(input.Content);
-        page.LastModified = Timestamp();
+      { 
+        var updatedPage = existingPage with 
+        { 
+          Name = sanitizer.Sanitize(properName),
+          Content = sanitizer.Sanitize(input.Content),
+          LastModified = Timestamp()
+        };
 
-        coll.Update(page);
+        coll.Update(updatedPage);
       }
 
       _cache.Remove(AllPagesKey);
-      return (true, page, null);
+      return (true, existingPage, null);
     }
     catch (Exception ex)
     {
