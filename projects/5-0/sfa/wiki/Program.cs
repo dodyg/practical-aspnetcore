@@ -72,11 +72,10 @@ app.MapGet("/edit", async context =>
     atBody: () =>
       new[]
       {
-          BuildForm(new PageInput(page!.Id, pageName, page.Content), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
+          BuildForm(new PageInput(page!.Id, pageName, page.Content, null), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
       },
     atSidePanel: () => AllPages(wiki)).ToString());
 });
-
 
 app.MapGet("/{pageName}", async context =>
 {
@@ -105,7 +104,7 @@ app.MapGet("/{pageName}", async context =>
     atBody: () =>
       new[]
       {
-        BuildForm(new PageInput(null, pageName, string.Empty), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
+        BuildForm(new PageInput(null, pageName, string.Empty, null), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
       },
     atSidePanel: () => AllPages(wiki)).ToString());
   }
@@ -202,6 +201,13 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
       .Append(HtmlTags.Textarea.Name("Content").Class("textarea").Append(input.Content))
     );
 
+  var attachmentField = HtmlTags.Div.Class("field")
+    .Append(HtmlTags.Label.Class("label").Append(nameof(input.Attachment)))
+    .Append(HtmlTags.Div.Class("control")
+      .Append(HtmlTags.Input.File.Name("Attachment"))
+    );
+
+
   if (modelState is object && !modelState.IsValid)
   {
     if (IsFieldOK("Name"))
@@ -225,10 +231,12 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
   var form = HtmlTags.Form
              .Attribute("method", "post")
+             .Attribute("enctype", "multipart/form-data")
              .Attribute("action", $"/{path}")
                .Append(antiForgeryField)
                .Append(nameField)
-               .Append(contentField);
+               .Append(contentField)
+               .Append(attachmentField);
 
   if (input.Id.HasValue)
   {
@@ -384,9 +392,23 @@ public record Page
   public string Content { get; set; } = string.Empty;
 
   public DateTimeOffset LastModified { get; set; }
+
+  public List<Attachment> Attachments = new();
 }
 
-public record PageInput(int? Id, string Name, string Content)
+public record Attachment 
+{
+  public int Id { get; set; }
+
+  public string Name { get; set; } = string.Empty;
+
+  public string MimeType { get; set; } = string.Empty;
+
+  public DateTimeOffset LastModified { get; set; }
+
+}
+
+public record PageInput(int? Id, string Name, string Content, IFormFile? Attachment)
 {
   public static PageInput From(IFormCollection form)
   {
@@ -399,7 +421,9 @@ public record PageInput(int? Id, string Name, string Content)
       if (!StringValues.IsNullOrEmpty(id))
         pageId = Convert.ToInt32(id);
 
-      return new PageInput(pageId, name, content);
+      IFormFile? file = form.Files["Attachment"];
+
+      return new PageInput(pageId, name, content, file);
   }
 }
 
