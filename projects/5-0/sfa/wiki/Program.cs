@@ -31,8 +31,6 @@ builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
-DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
-
 app.MapGet("/", async context =>
 {
   var wiki = context.RequestServices.GetService<Wiki>()!;
@@ -135,17 +133,7 @@ app.MapPost("/{pageName}", async context =>
     return;
   }
 
-  var sanitizer = new HtmlSanitizer();
-  var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
-  var page = new Page
-  {
-    Id = input.Id ?? default(int),
-    Name = sanitizer.Sanitize(properName),
-    Content = sanitizer.Sanitize(input.Content),
-    LastModified = Timestamp()
-  };
-
-  var (isOK, p, ex) = wiki.SavePage(page);
+  var (isOK, p, ex) = wiki.SavePage(input);
   context.Response.Redirect($"/{p!.Name}");
 });
 
@@ -153,7 +141,7 @@ await app.RunAsync();
 
 // End of the web part
 
-string RenderMarkdown(string str)  => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
+string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
 
 IEnumerable<string> MarkdownEditorHead() => new[]
 {
@@ -173,9 +161,9 @@ IEnumerable<string> MarkdownEditorFoot() => new[]
 };
 
 IEnumerable<string> AllPages(Wiki wiki) => new[]
-{ 
+{
   "<ul>",
-  string.Join("", 
+  string.Join("",
     wiki.ListAllPages().OrderBy(x => x.Name)
       .Select(x => HtmlTags.Li.Append(HtmlTags.A.Href(x.Name).Append(x.Name)).ToHtmlString()
     )
@@ -207,12 +195,11 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
       .Append(HtmlTags.Input.File.Name("Attachment"))
     );
 
-
   if (modelState is object && !modelState.IsValid)
   {
     if (IsFieldOK("Name"))
     {
-      foreach(var er in modelState["Name"].Errors)
+      foreach (var er in modelState["Name"].Errors)
       {
         nameField = nameField.Append(HtmlTags.P.Class("help is-danger").Append(er.ErrorMessage));
       }
@@ -220,7 +207,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
     if (IsFieldOK("Content"))
     {
-      foreach(var er in modelState["Content"].Errors)
+      foreach (var er in modelState["Content"].Errors)
       {
         contentField = contentField.Append(HtmlTags.P.Class("help is-danger").Append(er.ErrorMessage));
       }
@@ -319,6 +306,8 @@ HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Fun
 
 class Wiki
 {
+  DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
+
   const string PageCollectionName = "Pages";
   const string AllPagesKey = "AllPages";
   const double CacheAllPagesForMinutes = 30;
@@ -360,10 +349,20 @@ class Wiki
             .FirstOrDefault();
   }
 
-  public (bool isOK, Page? page, Exception? ex) SavePage(Page page)
+  public (bool isOK, Page? page, Exception? ex) SavePage(PageInput input)
   {
     try
     {
+      var sanitizer = new HtmlSanitizer();
+      var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
+      var page = new Page
+      {
+        Id = input.Id ?? default(int),
+        Name = sanitizer.Sanitize(properName),
+        Content = sanitizer.Sanitize(input.Content),
+        LastModified = Timestamp()
+      };
+
       using var db = new LiteDatabase(GetDbPath());
       var coll = db.GetCollection<Page>(PageCollectionName);
       coll.EnsureIndex(x => x.Name);
@@ -376,7 +375,7 @@ class Wiki
       _cache.Remove(AllPagesKey);
       return (true, page, null);
     }
-    catch(Exception ex)
+    catch (Exception ex)
     {
       return (false, null, ex);
     }
@@ -396,7 +395,7 @@ public record Page
   public List<Attachment> Attachments = new();
 }
 
-public record Attachment 
+public record Attachment
 {
   public int Id { get; set; }
 
@@ -412,29 +411,29 @@ public record PageInput(int? Id, string Name, string Content, IFormFile? Attachm
 {
   public static PageInput From(IFormCollection form)
   {
-      var id = form["Id"];
-      var name = form["Name"];
-      var content = form["Content"];
+    var id = form["Id"];
+    var name = form["Name"];
+    var content = form["Content"];
 
-      int? pageId = null;
-      
-      if (!StringValues.IsNullOrEmpty(id))
-        pageId = Convert.ToInt32(id);
+    int? pageId = null;
 
-      IFormFile? file = form.Files["Attachment"];
+    if (!StringValues.IsNullOrEmpty(id))
+      pageId = Convert.ToInt32(id);
 
-      return new PageInput(pageId, name, content, file);
+    IFormFile? file = form.Files["Attachment"];
+
+    return new PageInput(pageId, name, content, file);
   }
 }
 
-public class PageInputValidator: AbstractValidator<PageInput>
+public class PageInputValidator : AbstractValidator<PageInput>
 {
   public PageInputValidator(string pageName, string homePageName)
-  { 
-      RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");
-      if (pageName.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
-        RuleFor(x => x.Name).Must(name => name.Equals(homePageName)).WithMessage($"You cannot modify home page name. Please keep it {homePageName}");
+  {
+    RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");
+    if (pageName.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
+      RuleFor(x => x.Name).Must(name => name.Equals(homePageName)).WithMessage($"You cannot modify home page name. Please keep it {homePageName}");
 
-      RuleFor(x => x.Content).NotEmpty().WithMessage("Content is required");
+    RuleFor(x => x.Content).NotEmpty().WithMessage("Content is required");
   }
 }
