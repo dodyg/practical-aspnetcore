@@ -209,7 +209,8 @@ await app.RunAsync();
 
 static string[] AllPages(Wiki wiki) => new[]
 {
-  "<ul>",
+  @"<span class=""uk-label"">Pages</span>",
+  @"<ul class=""uk-list"">",
   string.Join("",
     wiki.ListAllPages().OrderBy(x => x.Name)
       .Select(x => Li.Append(A.Href(x.Name).Append(x.Name)).ToHtmlString()
@@ -227,12 +228,13 @@ static string RenderPageAttachments(Page page)
     if(page.Attachments.Count == 0)
       return string.Empty;
 
-    var tag = Ul;
+    var label = Span.Class("uk-label").Append("Attachments");
+    var list = Ul.Class("uk-list uk-list-disc");
     foreach (var attachment in page.Attachments)
     {
-        tag = tag.Append(Li.Append(A.Href($"/attachment?fileId={attachment.FileId}").Append(attachment.FileName)));
+        list = list.Append(Li.Append(A.Href($"/attachment?fileId={attachment.FileId}").Append(attachment.FileName)));
     }
-    return tag.ToHtmlString();
+    return label.ToHtmlString() + list.ToHtmlString();
 }
 
 // Build the wiki input form 
