@@ -387,7 +387,7 @@ class Wiki
 
     public Wiki(IWebHostEnvironment env, IMemoryCache cache, ILogger<Wiki> logger)
     {
-        _env = env!;
+        _env = env;
         _cache = cache;
         _logger = logger;
     }
