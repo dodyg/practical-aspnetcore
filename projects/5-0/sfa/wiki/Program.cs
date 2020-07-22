@@ -50,7 +50,8 @@ app.MapGet("/", async context =>
   await context.Response.WriteAsync(BuildPage(HomePageName, atBody: () =>
       new[]
       {
-        RenderMarkdown(page!.Content),
+        RenderPageContent(page),
+        RenderPageAttachments(page),
         HtmlTags.A.Href($"/edit?pageName={HomePageName}").Append("Edit").ToHtmlString()
       },
       atSidePanel: () => AllPages(wiki)
@@ -115,8 +116,8 @@ app.MapGet("/{pageName}", async context =>
     await context.Response.WriteAsync(BuildPage(pageName, atBody: () =>
       new[]
       {
-        RenderMarkdown(page!.Content),
-        RenderPageAttachments(page!),
+        RenderPageContent(page),
+        RenderPageAttachments(page),
         HtmlTags.Div.Class("last-modified").Append("Last modified: " + page!.LastModified.ToString(DisplayDateFormat)).ToHtmlString(),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
       },
@@ -205,18 +206,19 @@ string[] AllPages(Wiki wiki) => new[]
   "</ul>"
 };
 
+string RenderPageContent(Page page) => RenderMarkdown(page.Content);
+
 string RenderPageAttachments(Page page)
 {
   var tag = HtmlTags.Ul;
-
   foreach(var attachment in page.Attachments)
   {
     tag = tag.Append(HtmlTags.Li.Append(HtmlTags.A.Href($"/attachment?fileId={attachment.FileId}").Append(attachment.FileName)));
   }
-
   return tag.ToHtmlString();
 }
 
+// Build the wiki input form 
 string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
   bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key].ValidationState == ModelValidationState.Invalid;
@@ -284,6 +286,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
 string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
+// Use only when the page requires editor
 HtmlString BuildEditorPage(string title, Func<IEnumerable<string>> atBody, Func<IEnumerable<string>>? atSidePanel = null) =>
    BuildPage(
     title,
@@ -293,6 +296,7 @@ HtmlString BuildEditorPage(string title, Func<IEnumerable<string>> atBody, Func<
     atFoot: () => MarkdownEditorFoot()
     );
 
+// General page layout building function
 HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atSidePanel = null, Func<IEnumerable<string>>? atFoot = null)
 {
   var head = Template.Parse(@"
@@ -371,8 +375,10 @@ class Wiki
     _logger = logger;
   }
 
+  // Get the location of the LiteDB file.
   string GetDbPath() => Path.Combine(_env.ContentRootPath, "wiki.db");
 
+  // List all the available wiki pages. It is cached for 30 minutes.
   public List<Page> ListAllPages()
   {
     var pages = _cache.Get(AllPagesKey) as List<Page>;
@@ -399,6 +405,7 @@ class Wiki
             .FirstOrDefault();
   }
 
+  // Save or update a wiki page. Cache(AllPagesKey) will be destroyed.
   public (bool isOK, Page? page, Exception? ex) SavePage(PageInput input)
   {
     try
@@ -466,6 +473,7 @@ class Wiki
     }
   }
 
+  // Return null if file cannot be found.
   public (LiteFileInfo<string> meta, byte[] file)? GetFile(string fileId)
   {
     using var db = new LiteDatabase(GetDbPath());

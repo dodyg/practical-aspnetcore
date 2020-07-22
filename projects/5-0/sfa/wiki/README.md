@@ -1,6 +1,6 @@
 # Wiki
 
-**Note**. This sample uses preview features of C# 9 that is only available on .NET 5 SDK Preview 7. Since this preview has not been released yet, download it from the nightly build [here](https://github.com/dotnet/installer).
+**Note**. This sample uses preview features of C# 9 that is only available on [.NET 5 SDK Preview 7](https://dotnet.microsoft.com/download/dotnet/5.0).
 
 This is a Single File Application (SFA) that provide wiki functionality.
 
@@ -8,6 +8,7 @@ This is a Single File Application (SFA) that provide wiki functionality.
 - You can rename pages
 - It is stored using LiteDB
 - It has a nice markdown editor
+- You can upload attachments in every page.
 
 All the code is contained within `Program.cs`.
 
