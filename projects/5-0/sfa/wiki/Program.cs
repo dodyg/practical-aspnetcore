@@ -124,7 +124,7 @@ app.MapGet("/{pageName}", async context =>
           {
             RenderPageContent(page),
             RenderPageAttachments(page),
-            Div.Class("last-modified").Append("Last modified: " + page!.LastModified.ToString(DisplayDateFormat)).ToHtmlString(),
+            Div.Class("last-modified").Append("Last modified: " + page!.LastModifiedUtc.ToString(DisplayDateFormat)).ToHtmlString(),
             A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
           },
           atSidePanel: () => AllPages(wiki)
@@ -375,7 +375,7 @@ class Render
 
 class Wiki
 {
-    DateTimeOffset Timestamp() => DateTimeOffset.UtcNow;
+    DateTime Timestamp() => DateTime.UtcNow;
 
     const string PageCollectionName = "Pages";
     const string AllPagesKey = "AllPages";
@@ -441,11 +441,12 @@ class Wiki
             if (!string.IsNullOrWhiteSpace(input.Attachment?.FileName))
             {
                 attachment = new Attachment
-                {
-                    FileName = input.Attachment.FileName,
-                    MimeType = input.Attachment.ContentType,
-                    LastModified = Timestamp()
-                };
+                (
+                    FileId: Guid.NewGuid().ToString(),
+                    FileName: input.Attachment.FileName,
+                    MimeType: input.Attachment.ContentType,
+                    LastModifiedUtc: Timestamp()
+                );
 
                 using var stream = input.Attachment.OpenReadStream();
                 var res = db.FileStorage.Upload(attachment.FileId, input.Attachment.FileName, stream);
@@ -457,7 +458,7 @@ class Wiki
                 {
                     Name = sanitizer.Sanitize(properName),
                     Content = sanitizer.Sanitize(input.Content),
-                    LastModified = Timestamp()
+                    LastModifiedUtc = Timestamp()
                 };
 
                 if (attachment is object)
@@ -474,7 +475,7 @@ class Wiki
                 {
                     Name = sanitizer.Sanitize(properName),
                     Content = sanitizer.Sanitize(input.Content),
-                    LastModified = Timestamp()
+                    LastModifiedUtc = Timestamp()
                 };
 
                 if (attachment is object)
@@ -515,22 +516,21 @@ record Page
 
     public string Content { get; set; } = string.Empty;
 
-    public DateTimeOffset LastModified { get; set; }
+    public DateTime LastModifiedUtc { get; set; }
 
     public List<Attachment> Attachments { get; set; } = new();
 }
 
 record Attachment
-{
-    public string FileId { get; set; } = Guid.NewGuid().ToString();
+(
+    string FileId,
 
-    public string FileName { get; set; } = string.Empty;
+    string FileName,
 
-    public string MimeType { get; set; } = string.Empty;
+    string MimeType,
 
-    public DateTimeOffset LastModified { get; set; }
-
-}
+    DateTime LastModifiedUtc 
+);
 
 record PageInput(int? Id, string Name, string Content, IFormFile? Attachment)
 {
