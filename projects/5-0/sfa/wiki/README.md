@@ -8,7 +8,7 @@ This is a Single File Application (SFA) that provide wiki functionality.
 - You can rename pages
 - It is stored using LiteDB
 - It has a nice markdown editor
-- You can upload attachments in every page.
+- You can upload attachments in every page
 
 All the code is contained within `Program.cs`.
 
