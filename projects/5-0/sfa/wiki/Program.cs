@@ -256,9 +256,9 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
 
     var attachmentField = Div
       .Append(Label.Class("uk-form-label").Append(nameof(input.Attachment)))
-      .Append(Div.Class("uk-form-custom")
+      .Append(Div.Attribute("uk-form-custom", "target: true")
         .Append(Input.File.Name("Attachment"))
-        .Append(Input.Button)
+        .Append(Input.Text.Class("uk-input uk-form-width-large").Attribute("placeholder", "Click to select file").ToggleAttribute("disabled", true))
       );
 
     if (modelState is object && !modelState.IsValid)
