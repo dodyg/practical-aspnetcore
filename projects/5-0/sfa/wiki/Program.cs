@@ -267,7 +267,7 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
         {
             foreach (var er in modelState["Name"].Errors)
             {
-                nameField = nameField.Append(P.Class("help is-danger").Append(er.ErrorMessage));
+                nameField = nameField.Append(Div.Class("uk-form-danger uk-text-small").Append(er.ErrorMessage));
             }
         }
 
@@ -275,7 +275,7 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
         {
             foreach (var er in modelState["Content"].Errors)
             {
-                contentField = contentField.Append(P.Class("help is-danger").Append(er.ErrorMessage));
+                contentField = contentField.Append(Div.Class("uk-form-danger uk-text-small").Append(er.ErrorMessage));
             }
         }
     }
