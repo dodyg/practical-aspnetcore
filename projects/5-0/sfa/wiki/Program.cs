@@ -21,6 +21,7 @@ using Ganss.XSS;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Headers;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";
@@ -34,6 +35,7 @@ builder.Logging.SetMinimumLevel(LogLevel.Information);
 
 var app = builder.Build();
 
+// Load home page
 app.MapGet("/", async context =>
 {
   var wiki = context.RequestServices.GetService<Wiki>()!;
@@ -55,6 +57,7 @@ app.MapGet("/", async context =>
     ).ToString());
 });
 
+// Edit a wiki page
 app.MapGet("/edit", async context =>
 {
   app.Logger.LogInformation("Editing");
@@ -79,6 +82,25 @@ app.MapGet("/edit", async context =>
     atSidePanel: () => AllPages(wiki)).ToString());
 });
 
+// Deal with attachment download
+app.MapGet("/attachment", async context => 
+{
+  var fileId = context.Request.Query["fileId"];
+  var wiki = context.RequestServices.GetService<Wiki>()!;
+
+  var file = wiki.GetFile(fileId);
+  if (file is not object)
+  {
+    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+    return;
+  }
+
+  app!.Logger.LogInformation("Attachment " + file.Value.meta.Id + " - " + file.Value.meta.Filename);
+  context.Response.Headers.Append(HeaderNames.ContentType, file.Value.meta.MimeType);
+  await context.Response.Body.WriteAsync(file.Value.file);
+});
+
+// Load a wiki page
 app.MapGet("/{pageName}", async context =>
 {
   var wiki = context.RequestServices.GetService<Wiki>()!;
@@ -94,6 +116,7 @@ app.MapGet("/{pageName}", async context =>
       new[]
       {
         RenderMarkdown(page!.Content),
+        RenderPageAttachments(page!),
         HtmlTags.Div.Class("last-modified").Append("Last modified: " + page!.LastModified.ToString(DisplayDateFormat)).ToHtmlString(),
         HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
       },
@@ -112,6 +135,7 @@ app.MapGet("/{pageName}", async context =>
   }
 });
 
+// Add or update a wiki page
 app.MapPost("/{pageName}", async context =>
 {
   var pageName = context.Request.RouteValues["pageName"] as string ?? "";
@@ -153,13 +177,13 @@ await app.RunAsync();
 
 string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build());
 
-IEnumerable<string> MarkdownEditorHead() => new[]
+string[] MarkdownEditorHead() => new[]
 {
   @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
   @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
 };
 
-IEnumerable<string> MarkdownEditorFoot() => new[]
+string[] MarkdownEditorFoot() => new[]
 {
   @"<script>
     var easyMDE = new EasyMDE({
@@ -170,7 +194,7 @@ IEnumerable<string> MarkdownEditorFoot() => new[]
     </script>"
 };
 
-IEnumerable<string> AllPages(Wiki wiki) => new[]
+string[] AllPages(Wiki wiki) => new[]
 {
   "<ul>",
   string.Join("",
@@ -180,6 +204,18 @@ IEnumerable<string> AllPages(Wiki wiki) => new[]
   ),
   "</ul>"
 };
+
+string RenderPageAttachments(Page page)
+{
+  var tag = HtmlTags.Ul;
+
+  foreach(var attachment in page.Attachments)
+  {
+    tag = tag.Append(HtmlTags.Li.Append(HtmlTags.A.Href($"/attachment?fileId={attachment.FileId}").Append(attachment.FileName)));
+  }
+
+  return tag.ToHtmlString();
+}
 
 string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
@@ -376,10 +412,19 @@ class Wiki
       var sanitizer = new HtmlSanitizer();
       var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
 
-      if (input.Attachment is not object)
-        _logger.LogInformation("Attachment is null");
-      else
-        _logger.LogInformation("Attachment is not null");
+      Attachment? attachment = null;
+      if (!string.IsNullOrWhiteSpace(input.Attachment?.FileName))
+      {
+        attachment = new Attachment
+        {
+          FileName = input.Attachment.FileName,
+          MimeType = input.Attachment.ContentType,
+          LastModified = Timestamp()
+        };
+
+        using var stream = input.Attachment.OpenReadStream();
+        var res = db.FileStorage.Upload(attachment.FileId, input.Attachment.FileName, stream);
+      }
 
       if (existingPage is not object)
       {
@@ -389,6 +434,9 @@ class Wiki
           Content = sanitizer.Sanitize(input.Content),
           LastModified = Timestamp()
         };
+
+        if (attachment is object)
+          newPage.Attachments.Add(attachment);
 
         coll.Insert(newPage);
       }
@@ -400,6 +448,11 @@ class Wiki
           Content = sanitizer.Sanitize(input.Content),
           LastModified = Timestamp()
         };
+        
+        if (attachment is object)
+          updatedPage.Attachments.Add(attachment);
+
+        _logger.LogInformation("Updated page attachments " + updatedPage.Attachments.Count);
 
         coll.Update(updatedPage);
       }
@@ -411,6 +464,21 @@ class Wiki
     {
       return (false, null, ex);
     }
+  }
+
+  public (LiteFileInfo<string> meta, byte[] file)? GetFile(string fileId)
+  {
+    using var db = new LiteDatabase(GetDbPath());
+
+    var meta = db.FileStorage.FindById(fileId);
+    if (meta == null)
+      return null;
+    
+    using var stream = new MemoryStream();
+    db.FileStorage.Download(fileId, stream);
+
+    var data = stream.ToArray();
+    return (meta, data);
   }
 }
 
@@ -424,14 +492,14 @@ public record Page
 
   public DateTimeOffset LastModified { get; set; }
 
-  public List<Attachment> Attachments = new();
+  public List<Attachment> Attachments { get; set; } = new();
 }
 
 public record Attachment
 {
-  public int Id { get; set; }
+  public string FileId { get; set; } = Guid.NewGuid().ToString();
 
-  public string Name { get; set; } = string.Empty;
+  public string FileName { get; set; } = string.Empty;
 
   public string MimeType { get; set; } = string.Empty;
 
