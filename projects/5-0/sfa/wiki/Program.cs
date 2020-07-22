@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Ganss.XSS;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.Extensions.Logging;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";
@@ -28,6 +29,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<Wiki>();
 builder.Services.AddAntiforgery();
 builder.Services.AddMemoryCache();
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Information);
 
 var app = builder.Build();
 
@@ -54,6 +57,7 @@ app.MapGet("/", async context =>
 
 app.MapGet("/edit", async context =>
 {
+  app.Logger.LogInformation("Editing");
   var wiki = context.RequestServices.GetService<Wiki>()!;
   var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
 
@@ -134,6 +138,12 @@ app.MapPost("/{pageName}", async context =>
   }
 
   var (isOK, p, ex) = wiki.SavePage(input);
+  if (!isOK)
+  {
+    app.Logger.LogError(ex, "Problem in saving page");
+    return;
+  }
+
   context.Response.Redirect($"/{p!.Name}");
 });
 
@@ -316,11 +326,13 @@ class Wiki
 
   readonly IWebHostEnvironment _env;
   readonly IMemoryCache _cache;
+  readonly ILogger _logger;
 
-  public Wiki(IWebHostEnvironment env, IMemoryCache cache)
+  public Wiki(IWebHostEnvironment env, IMemoryCache cache, ILogger<Wiki> logger)
   {
     _env = env!;
     _cache = cache;
+    _logger = logger;
   }
 
   string GetDbPath() => Path.Combine(_env.ContentRootPath, "wiki.db");
@@ -363,6 +375,11 @@ class Wiki
 
       var sanitizer = new HtmlSanitizer();
       var properName = input.Name.ToString().Trim().Replace(' ', '-').ToLower();
+
+      if (input.Attachment is not object)
+        _logger.LogInformation("Attachment is null");
+      else
+        _logger.LogInformation("Attachment is not null");
 
       if (existingPage is not object)
       {
