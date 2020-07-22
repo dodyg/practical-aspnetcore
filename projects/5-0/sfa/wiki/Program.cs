@@ -1,38 +1,40 @@
-using System;
-using System.Globalization;
-using System.IO;
-using LiteDB;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Scriban;
-using Microsoft.Extensions.DependencyInjection;
-using HtmlBuilders;
-using Microsoft.Extensions.Primitives;
-using System.Net;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Antiforgery;
-using Markdig;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Ganss.XSS;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Ganss.XSS;
+using HtmlBuilders;
+using LiteDB;
+using Markdig;
+using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
+using Scriban;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Net;
+using static HtmlBuilders.HtmlTags;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<Wiki>();
-builder.Services.AddSingleton<Render>();
-builder.Services.AddAntiforgery();
-builder.Services.AddMemoryCache();
-builder.Logging.AddConsole();
-builder.Logging.SetMinimumLevel(LogLevel.Information);
+builder.Services
+  .AddSingleton<Wiki>()
+  .AddSingleton<Render>()
+  .AddAntiforgery()
+  .AddMemoryCache();
+
+builder.Logging.AddConsole().SetMinimumLevel(LogLevel.Information);
 
 var app = builder.Build();
 
@@ -52,9 +54,9 @@ app.MapGet("/", async context =>
     await context.Response.WriteAsync(render.BuildPage(HomePageName, atBody: () =>
         new[]
         {
-        RenderPageContent(page),
-        RenderPageAttachments(page),
-        HtmlTags.A.Href($"/edit?pageName={HomePageName}").Append("Edit").ToHtmlString()
+          RenderPageContent(page),
+          RenderPageAttachments(page),
+          A.Href($"/edit?pageName={HomePageName}").Append("Edit").ToHtmlString()
         },
         atSidePanel: () => AllPages(wiki)
       ).ToString());
@@ -120,10 +122,10 @@ app.MapGet("/{pageName}", async context =>
         await context.Response.WriteAsync(render.BuildPage(pageName, atBody: () =>
           new[]
           {
-        RenderPageContent(page),
-        RenderPageAttachments(page),
-        HtmlTags.Div.Class("last-modified").Append("Last modified: " + page!.LastModified.ToString(DisplayDateFormat)).ToHtmlString(),
-        HtmlTags.A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
+            RenderPageContent(page),
+            RenderPageAttachments(page),
+            Div.Class("last-modified").Append("Last modified: " + page!.LastModified.ToString(DisplayDateFormat)).ToHtmlString(),
+            A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
           },
           atSidePanel: () => AllPages(wiki)
         ).ToString());
@@ -134,7 +136,7 @@ app.MapGet("/{pageName}", async context =>
         atBody: () =>
           new[]
           {
-        BuildForm(new PageInput(null, pageName, string.Empty, null), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
+            BuildForm(new PageInput(null, pageName, string.Empty, null), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
           },
         atSidePanel: () => AllPages(wiki)).ToString());
     }
@@ -161,7 +163,7 @@ app.MapPost("/{pageName}", async context =>
           atBody: () =>
             new[]
             {
-            BuildForm(input, path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
+              BuildForm(input, path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
             },
           atSidePanel: () => AllPages(wiki)).ToString());
         return;
@@ -181,54 +183,54 @@ await app.RunAsync();
 
 // End of the web part
 
-string[] AllPages(Wiki wiki) => new[]
+static string[] AllPages(Wiki wiki) => new[]
 {
   "<ul>",
   string.Join("",
     wiki.ListAllPages().OrderBy(x => x.Name)
-      .Select(x => HtmlTags.Li.Append(HtmlTags.A.Href(x.Name).Append(x.Name)).ToHtmlString()
+      .Select(x => Li.Append(A.Href(x.Name).Append(x.Name)).ToHtmlString()
     )
   ),
   "</ul>"
 };
 
-string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build());
+static string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build());
 
-string RenderPageContent(Page page) => RenderMarkdown(page.Content);
+static string RenderPageContent(Page page) => RenderMarkdown(page.Content);
 
-string RenderPageAttachments(Page page)
+static string RenderPageAttachments(Page page)
 {
-    var tag = HtmlTags.Ul;
+    var tag = Ul;
     foreach (var attachment in page.Attachments)
     {
-        tag = tag.Append(HtmlTags.Li.Append(HtmlTags.A.Href($"/attachment?fileId={attachment.FileId}").Append(attachment.FileName)));
+        tag = tag.Append(Li.Append(A.Href($"/attachment?fileId={attachment.FileId}").Append(attachment.FileName)));
     }
     return tag.ToHtmlString();
 }
 
 // Build the wiki input form 
-string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
+static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
     bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key].ValidationState == ModelValidationState.Invalid;
 
-    var antiForgeryField = HtmlTags.Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
+    var antiForgeryField = Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
-    var nameField = HtmlTags.Div.Class("field")
-      .Append(HtmlTags.Label.Class("label").Append(nameof(input.Name)))
-      .Append(HtmlTags.Div.Class("control")
-        .Append(HtmlTags.Input.Text.Class("input").Name("Name").Value(input.Name))
+    var nameField = Div.Class("field")
+      .Append(Label.Class("label").Append(nameof(input.Name)))
+      .Append(Div.Class("control")
+        .Append(Input.Text.Class("input").Name("Name").Value(input.Name))
       );
 
-    var contentField = HtmlTags.Div.Class("field")
-      .Append(HtmlTags.Label.Class("label").Append(nameof(input.Content)))
-      .Append(HtmlTags.Div.Class("control")
-        .Append(HtmlTags.Textarea.Name("Content").Class("textarea").Append(input.Content))
+    var contentField = Div.Class("field")
+      .Append(Label.Class("label").Append(nameof(input.Content)))
+      .Append(Div.Class("control")
+        .Append(Textarea.Name("Content").Class("textarea").Append(input.Content))
       );
 
-    var attachmentField = HtmlTags.Div.Class("field")
-      .Append(HtmlTags.Label.Class("label").Append(nameof(input.Attachment)))
-      .Append(HtmlTags.Div.Class("control")
-        .Append(HtmlTags.Input.File.Name("Attachment"))
+    var attachmentField = Div.Class("field")
+      .Append(Label.Class("label").Append(nameof(input.Attachment)))
+      .Append(Div.Class("control")
+        .Append(Input.File.Name("Attachment"))
       );
 
     if (modelState is object && !modelState.IsValid)
@@ -237,7 +239,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
         {
             foreach (var er in modelState["Name"].Errors)
             {
-                nameField = nameField.Append(HtmlTags.P.Class("help is-danger").Append(er.ErrorMessage));
+                nameField = nameField.Append(P.Class("help is-danger").Append(er.ErrorMessage));
             }
         }
 
@@ -245,14 +247,14 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
         {
             foreach (var er in modelState["Content"].Errors)
             {
-                contentField = contentField.Append(HtmlTags.P.Class("help is-danger").Append(er.ErrorMessage));
+                contentField = contentField.Append(P.Class("help is-danger").Append(er.ErrorMessage));
             }
         }
     }
 
-    var submit = HtmlTags.Button.Class("button").Append("Submit");
+    var submit = Button.Class("button").Append("Submit");
 
-    var form = HtmlTags.Form
+    var form = Form
                .Attribute("method", "post")
                .Attribute("enctype", "multipart/form-data")
                .Attribute("action", $"/{path}")
@@ -263,7 +265,7 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
     if (input.Id.HasValue)
     {
-        HtmlTag id = HtmlTags.Input.Hidden.Name("Id").Value(input.Id.ToString());
+        HtmlTag id = Input.Hidden.Name("Id").Value(input.Id.ToString());
         form = form.Append(id);
     }
 
@@ -275,27 +277,27 @@ string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, 
 
 class Render
 {
-  string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
+    static string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
 
-  string[] MarkdownEditorHead() => new[]
-  {
-    @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
-    @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
-  };
+    static string[] MarkdownEditorHead() => new[]
+    {
+      @"<link rel=""stylesheet"" href=""https://unpkg.com/easymde/dist/easymde.min.css"">",
+      @"<script src=""https://unpkg.com/easymde/dist/easymde.min.js""></script>"
+    };
 
-  string[] MarkdownEditorFoot() => new[]
-  {
-    @"<script>
-      var easyMDE = new EasyMDE({
-        insertTexts: {
-          link: [""["", ""]()""]
-        }
-      });
-      </script>"
-  };
+    static string[] MarkdownEditorFoot() => new[]
+    {
+      @"<script>
+        var easyMDE = new EasyMDE({
+          insertTexts: {
+            link: [""["", ""]()""]
+          }
+        });
+        </script>"
+    };
 
-  (Template head, Template body, Template layout) _templates = (
-    Template.Parse(@"
+    (Template head, Template body, Template layout) _templates = (
+      head: Scriban.Template.Parse(@"
         <meta charset=""utf-8"">
         <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
         <title>{{ title }}</title>
@@ -307,7 +309,7 @@ class Render
           a:link { color: red; }
         </style>
       "),
-  Template.Parse(@"
+      body: Scriban.Template.Parse(@"
       {{ if at_side_panel != """" }}
       <div class=""columns"">
         <div class=""column is-four-fifths"">
@@ -328,7 +330,7 @@ class Render
       {{ end }}    
       {{ at_foot }}
       "),
-  Template.Parse(@"
+      layout: Scriban.Template.Parse(@"
       <!DOCTYPE html>
         <head>
           {{ head }}
@@ -338,37 +340,37 @@ class Render
         </body>
       </html>
     ")
-  );
+    );
 
-  // Use only when the page requires editor
-  public HtmlString BuildEditorPage(string title, Func<IEnumerable<string>> atBody, Func<IEnumerable<string>>? atSidePanel = null) =>
-    BuildPage(
-      title,
-      atHead: () => MarkdownEditorHead(),
-      atBody: atBody,
-      atSidePanel: atSidePanel,
-      atFoot: () => MarkdownEditorFoot()
-      );
+    // Use only when the page requires editor
+    public HtmlString BuildEditorPage(string title, Func<IEnumerable<string>> atBody, Func<IEnumerable<string>>? atSidePanel = null) =>
+      BuildPage(
+        title,
+        atHead: () => MarkdownEditorHead(),
+        atBody: atBody,
+        atSidePanel: atSidePanel,
+        atFoot: () => MarkdownEditorFoot()
+        );
 
-  // General page layout building function
-  public HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atSidePanel = null, Func<IEnumerable<string>>? atFoot = null)
-  {
-      var head = _templates.head.Render(new
-      {
-          title = title,
-          header = string.Join("\r", atHead?.Invoke() ?? new[] { "" })
-      });
+    // General page layout building function
+    public HtmlString BuildPage(string title, Func<IEnumerable<string>>? atHead = null, Func<IEnumerable<string>>? atBody = null, Func<IEnumerable<string>>? atSidePanel = null, Func<IEnumerable<string>>? atFoot = null)
+    {
+        var head = _templates.head.Render(new
+        {
+            title,
+            header = string.Join("\r", atHead?.Invoke() ?? new[] { "" })
+        });
 
-      var body = _templates.body.Render(new
-      {
-          PageName = KebabToNormalCase(title),
-          Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
-          AtSidePanel = string.Join("\r", atSidePanel?.Invoke() ?? new[] { "" }),
-          AtFoot = string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
-      });
+        var body = _templates.body.Render(new
+        {
+            PageName = KebabToNormalCase(title),
+            Content = string.Join("\r", atBody?.Invoke() ?? new[] { "" }),
+            AtSidePanel = string.Join("\r", atSidePanel?.Invoke() ?? new[] { "" }),
+            AtFoot = string.Join("\r", atFoot?.Invoke() ?? new[] { "" })
+        });
 
-      return new HtmlString(_templates.layout.Render(new { head, body }));
-  }
+        return new HtmlString(_templates.layout.Render(new { head, body }));
+    }
 }
 
 class Wiki
@@ -409,6 +411,7 @@ class Wiki
         return items;
     }
 
+    // Get a wiki page based on its path
     public Page? GetPage(string path)
     {
         using var db = new LiteDatabase(GetDbPath());
@@ -461,6 +464,9 @@ class Wiki
                     newPage.Attachments.Add(attachment);
 
                 coll.Insert(newPage);
+
+                _cache.Remove(AllPagesKey);
+                return (true, newPage, null);
             }
             else
             {
@@ -474,13 +480,11 @@ class Wiki
                 if (attachment is object)
                     updatedPage.Attachments.Add(attachment);
 
-                _logger.LogInformation("Updated page attachments " + updatedPage.Attachments.Count);
-
                 coll.Update(updatedPage);
+                    
+                _cache.Remove(AllPagesKey);
+                return (true, updatedPage, null);
             }
-
-            _cache.Remove(AllPagesKey);
-            return (true, existingPage, null);
         }
         catch (Exception ex)
         {
@@ -494,7 +498,7 @@ class Wiki
         using var db = new LiteDatabase(GetDbPath());
 
         var meta = db.FileStorage.FindById(fileId);
-        if (meta == null)
+        if (meta is not object)
             return null;
 
         using var stream = new MemoryStream();
@@ -503,7 +507,7 @@ class Wiki
     }
 }
 
-public record Page
+record Page
 {
     public int Id { get; set; }
 
@@ -516,7 +520,7 @@ public record Page
     public List<Attachment> Attachments { get; set; } = new();
 }
 
-public record Attachment
+record Attachment
 {
     public string FileId { get; set; } = Guid.NewGuid().ToString();
 
@@ -528,13 +532,11 @@ public record Attachment
 
 }
 
-public record PageInput(int? Id, string Name, string Content, IFormFile? Attachment)
+record PageInput(int? Id, string Name, string Content, IFormFile? Attachment)
 {
     public static PageInput From(IFormCollection form)
     {
-        var id = form["Id"];
-        var name = form["Name"];
-        var content = form["Content"];
+        var (id, name, content) = (form["Id"], form["Name"], form["Content"]);
 
         int? pageId = null;
 
@@ -547,7 +549,7 @@ public record PageInput(int? Id, string Name, string Content, IFormFile? Attachm
     }
 }
 
-public class PageInputValidator : AbstractValidator<PageInput>
+class PageInputValidator : AbstractValidator<PageInput>
 {
     public PageInputValidator(string pageName, string homePageName)
     {
