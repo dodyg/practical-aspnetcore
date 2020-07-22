@@ -22,6 +22,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using static HtmlBuilders.HtmlTags;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
@@ -61,6 +63,28 @@ app.MapGet("/", async context =>
         atSidePanel: () => AllPages(wiki)
       ).ToString());
 });
+
+app.MapGet("/new-page", context =>
+{
+  var pageName = context.Request.Query["pageName"];
+  if (StringValues.IsNullOrEmpty(pageName))
+  {
+    context.Response.Redirect("/");
+    return Task.CompletedTask;
+  }
+
+  // Copied from https://www.30secondsofcode.org/c-sharp/s/to-kebab-case
+  string ToKebabCase(string str) 
+  {
+    Regex pattern = new Regex(@"[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+");
+    return string.Join("-", pattern.Matches(str)).ToLower();
+  }
+
+  var page = ToKebabCase(pageName);
+  context.Response.Redirect($"/{page}");
+  return Task.CompletedTask;
+});
+
 
 // Edit a wiki page
 app.MapGet("/edit", async context =>
@@ -200,6 +224,9 @@ static string RenderPageContent(Page page) => RenderMarkdown(page.Content);
 
 static string RenderPageAttachments(Page page)
 {
+    if(page.Attachments.Count == 0)
+      return string.Empty;
+
     var tag = Ul;
     foreach (var attachment in page.Attachments)
     {
@@ -215,22 +242,23 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
 
     var antiForgeryField = Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
-    var nameField = Div.Class("field")
-      .Append(Label.Class("label").Append(nameof(input.Name)))
-      .Append(Div.Class("control")
-        .Append(Input.Text.Class("input").Name("Name").Value(input.Name))
+    var nameField = Div
+      .Append(Label.Class("uk-form-label").Append(nameof(input.Name)))
+      .Append(Div.Class("uk-form-controls")
+        .Append(Input.Text.Class("uk-input").Name("Name").Value(input.Name))
       );
 
-    var contentField = Div.Class("field")
-      .Append(Label.Class("label").Append(nameof(input.Content)))
-      .Append(Div.Class("control")
-        .Append(Textarea.Name("Content").Class("textarea").Append(input.Content))
+    var contentField = Div
+      .Append(Label.Class("uk-form-label").Append(nameof(input.Content)))
+      .Append(Div.Class("uk-form-controls")
+        .Append(Textarea.Name("Content").Class("uk-textarea").Append(input.Content))
       );
 
-    var attachmentField = Div.Class("field")
-      .Append(Label.Class("label").Append(nameof(input.Attachment)))
-      .Append(Div.Class("control")
+    var attachmentField = Div
+      .Append(Label.Class("uk-form-label").Append(nameof(input.Attachment)))
+      .Append(Div.Class("uk-form-custom")
         .Append(Input.File.Name("Attachment"))
+        .Append(Input.Button)
       );
 
     if (modelState is object && !modelState.IsValid)
@@ -252,9 +280,10 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
         }
     }
 
-    var submit = Button.Class("button").Append("Submit");
+    var submit = Div.Style("margin-top", "20px").Append(Button.Class("uk-button uk-button-primary").Append("Submit"));
 
     var form = Form
+               .Class("uk-form-stacked")
                .Attribute("method", "post")
                .Attribute("enctype", "multipart/form-data")
                .Attribute("action", $"/{path}")
@@ -301,7 +330,7 @@ class Render
         <meta charset=""utf-8"">
         <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
         <title>{{ title }}</title>
-        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"">
+        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
         {{ header }}
         <style>
           .last-modified { font-size: small; }
@@ -310,24 +339,46 @@ class Render
         </style>
       "),
       body: Scriban.Template.Parse(@"
-      {{ if at_side_panel != """" }}
-      <div class=""columns"">
-        <div class=""column is-four-fifths"">
-          <div class=""container is-fluid content"">
-            <h1 class=""title is-1"">{{ page_name }}</h1>
-            {{ content }}
+      <nav class=""uk-navbar-container"">
+        <div class=""uk-container"">
+          <div class=""uk-navbar"">
+            <div class=""uk-navbar-left"">
+              <ul class=""uk-navbar-nav"">
+                <li class=""uk-active""><a href=""/""><span uk-icon=""home""></span></a></li>
+              </ul>
+            </div>
+            <div class=""uk-navbar-center"">
+              <div class=""uk-navbar-item"">
+                <form action=""/new-page"">
+                  <input class=""uk-input uk-form-width-large"" type=""text"" name=""pageName"" placeholder=""Type desired page title here""></input>
+                  <input type=""submit""  class=""uk-button uk-button-default"" value=""Add New Page"">
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-        <div class=""column"">
-          {{ at_side_panel }}
+      </nav>
+      {{ if at_side_panel != """" }}
+        <div class=""uk-container"">
+        <div uk-grid>
+          <div class=""uk-width-4-5"">
+            <h1>{{ page_name }}</h1>
+            {{ content }}
+          </div>
+          <div class=""uk-width-1-5"">
+            {{ at_side_panel }}
+          </div>
         </div>
-      </div>
+        </div>
       {{ else }}
-      <div class=""container is-fluid content"">
-        <h1 class=""title is-1"">{{ page_name }}</h1>
-        {{ content }}
-      </div>
-      {{ end }}    
+        <div class=""uk-container"">
+          <h1>{{ page_name }}</h1>
+          {{ content }}
+        </div>
+      {{ end }}
+            
+      <script src=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js""></script>
+      <script src=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js""></script>    
       {{ at_foot }}
       "),
       layout: Scriban.Template.Parse(@"
