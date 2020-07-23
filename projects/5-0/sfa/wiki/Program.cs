@@ -66,23 +66,23 @@ app.MapGet("/", async context =>
 
 app.MapGet("/new-page", context =>
 {
-  var pageName = context.Request.Query["pageName"];
-  if (StringValues.IsNullOrEmpty(pageName))
-  {
-    context.Response.Redirect("/");
+    var pageName = context.Request.Query["pageName"];
+    if (StringValues.IsNullOrEmpty(pageName))
+    {
+        context.Response.Redirect("/");
+        return Task.CompletedTask;
+    }
+
+    // Copied from https://www.30secondsofcode.org/c-sharp/s/to-kebab-case
+    string ToKebabCase(string str)
+    {
+        Regex pattern = new Regex(@"[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+");
+        return string.Join("-", pattern.Matches(str)).ToLower();
+    }
+
+    var page = ToKebabCase(pageName);
+    context.Response.Redirect($"/{page}");
     return Task.CompletedTask;
-  }
-
-  // Copied from https://www.30secondsofcode.org/c-sharp/s/to-kebab-case
-  string ToKebabCase(string str) 
-  {
-    Regex pattern = new Regex(@"[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+");
-    return string.Join("-", pattern.Matches(str)).ToLower();
-  }
-
-  var page = ToKebabCase(pageName);
-  context.Response.Redirect($"/{page}");
-  return Task.CompletedTask;
 });
 
 
@@ -107,7 +107,8 @@ app.MapGet("/edit", async context =>
       atBody: () =>
         new[]
         {
-          BuildForm(new PageInput(page!.Id, pageName, page.Content, null), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
+          BuildForm(new PageInput(page!.Id, pageName, page.Content, null), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context)),
+          RenderPageAttachmentsForEdit(page)
         },
       atSidePanel: () => AllPagesForEditing(wiki)).ToString());
 });
@@ -219,29 +220,53 @@ static string[] AllPages(Wiki wiki) => new[]
   "</ul>"
 };
 
-static string[] AllPagesForEditing(Wiki wiki) => new[]
+static string[] AllPagesForEditing(Wiki wiki)
 {
-  @"<span class=""uk-label"">Pages</span>",
-  @"<ul class=""uk-list"">",
-  string.Join("",
-    wiki.ListAllPages().OrderBy(x => x.Name)
-      .Select(x => Li.Append(Div.Class("uk-inline")
-          .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
-          .Append(Input.Text.Value(x.Name).Class("uk-input").Style("cursor", "pointer").Attribute("onclick", "copyPage(this);"))
-      ).ToHtmlString()
-    )
-  ),
-  "</ul>"
-};
+    static string KebabToNormalCase(string txt) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txt.Replace('-', ' '));
+
+    return new[]
+    {
+      @"<span class=""uk-label"">Pages</span>",
+      @"<ul class=""uk-list"">",
+      string.Join("",
+        wiki.ListAllPages().OrderBy(x => x.Name)
+          .Select(x => Li.Append(Div.Class("uk-inline")
+              .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
+              .Append(Input.Text.Value($"[{KebabToNormalCase(x.Name)}](/{x.Name})").Class("uk-input uk-form-small").Style("cursor", "pointer").Attribute("onclick", "copyMarkdownLink(this);"))
+          ).ToHtmlString()
+        )
+      ),
+      "</ul>"
+    };
+}
 
 static string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build());
 
 static string RenderPageContent(Page page) => RenderMarkdown(page.Content);
 
+static string RenderPageAttachmentsForEdit(Page page)
+{
+    if (page.Attachments.Count == 0)
+        return string.Empty;
+
+    var label = Span.Class("uk-label").Append("Attachments");
+    var list = Ul.Class("uk-list");
+    foreach (var attachment in page.Attachments)
+    {
+        list = list.Append(
+          Li.Append(Div.Class("uk-inline")
+          .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
+          .Append(Input.Text.Value($"[{attachment.FileName}](/attachment?fileId={attachment.FileId})").Class("uk-input uk-form-width-large").Style("cursor", "pointer").Attribute("onclick", "copyMarkdownLink(this);"))
+      )
+      );
+    }
+    return label.ToHtmlString() + list.ToHtmlString();
+}
+
 static string RenderPageAttachments(Page page)
 {
-    if(page.Attachments.Count == 0)
-      return string.Empty;
+    if (page.Attachments.Count == 0)
+        return string.Empty;
 
     var label = Span.Class("uk-label").Append("Attachments");
     var list = Ul.Class("uk-list uk-list-disc");
@@ -340,7 +365,7 @@ class Render
           }
         });
 
-        function copyPage(element) {
+        function copyMarkdownLink(element) {
           element.select();
           document.execCommand(""copy"");
         }
@@ -555,7 +580,7 @@ class Wiki
                     updatedPage.Attachments.Add(attachment);
 
                 coll.Update(updatedPage);
-                    
+
                 _cache.Remove(AllPagesKey);
                 return (true, updatedPage, null);
             }
@@ -602,7 +627,7 @@ record Attachment
 
     string MimeType,
 
-    DateTime LastModifiedUtc 
+    DateTime LastModifiedUtc
 );
 
 record PageInput(int? Id, string Name, string Content, IFormFile? Attachment)
