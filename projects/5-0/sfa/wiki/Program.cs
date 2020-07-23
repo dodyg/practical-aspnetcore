@@ -163,7 +163,7 @@ app.MapGet("/{pageName}", async context =>
           {
             BuildForm(new PageInput(null, pageName, string.Empty, null), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
           },
-        atSidePanel: () => AllPages(wiki)).ToString());
+        atSidePanel: () => AllPagesForEditing(wiki)).ToString());
     }
 });
 
@@ -256,7 +256,7 @@ static string RenderPageAttachmentsForEdit(Page page)
         list = list.Append(
           Li.Append(Div.Class("uk-inline")
           .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
-          .Append(Input.Text.Value($"[{attachment.FileName}](/attachment?fileId={attachment.FileId})").Class("uk-input uk-form-width-large").Style("cursor", "pointer").Attribute("onclick", "copyMarkdownLink(this);"))
+          .Append(Input.Text.Value($"[{attachment.FileName}](/attachment?fileId={attachment.FileId})").Class("uk-input uk-form-small uk-form-width-large").Style("cursor", "pointer").Attribute("onclick", "copyMarkdownLink(this);"))
       )
       );
     }
