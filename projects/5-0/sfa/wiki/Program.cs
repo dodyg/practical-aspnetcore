@@ -109,7 +109,7 @@ app.MapGet("/edit", async context =>
         {
           BuildForm(new PageInput(page!.Id, pageName, page.Content, null), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context))
         },
-      atSidePanel: () => AllPages(wiki)).ToString());
+      atSidePanel: () => AllPagesForEditing(wiki)).ToString());
 });
 
 // Deal with attachment download
@@ -214,6 +214,21 @@ static string[] AllPages(Wiki wiki) => new[]
   string.Join("",
     wiki.ListAllPages().OrderBy(x => x.Name)
       .Select(x => Li.Append(A.Href(x.Name).Append(x.Name)).ToHtmlString()
+    )
+  ),
+  "</ul>"
+};
+
+static string[] AllPagesForEditing(Wiki wiki) => new[]
+{
+  @"<span class=""uk-label"">Pages</span>",
+  @"<ul class=""uk-list"">",
+  string.Join("",
+    wiki.ListAllPages().OrderBy(x => x.Name)
+      .Select(x => Li.Append(Div.Class("uk-inline")
+          .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
+          .Append(Input.Text.Value(x.Name).Class("uk-input").Style("cursor", "pointer").Attribute("onclick", "copyPage(this);"))
+      ).ToHtmlString()
     )
   ),
   "</ul>"
@@ -324,6 +339,11 @@ class Render
             link: [""["", ""]()""]
           }
         });
+
+        function copyPage(element) {
+          element.select();
+          document.execCommand(""copy"");
+        }
         </script>"
     };
 
