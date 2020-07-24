@@ -27,3 +27,6 @@ Used libraries:
 * Html Generation - [HtmlBuilders](https://github.com/amoerie/HtmlBuilders).
 * Markdown Editor - [EasyMDE](https://github.com/Ionaru/easy-markdown-editor).
 * Sanitizing Input - [HtmlSanitizer](https://github.com/mganss/HtmlSanitizer).
+
+**Screenshot**
+![screenshot of the running wiki](fanon.png)
