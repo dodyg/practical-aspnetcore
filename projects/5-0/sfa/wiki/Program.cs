@@ -89,7 +89,6 @@ app.MapGet("/new-page", context =>
 // Edit a wiki page
 app.MapGet("/edit", async context =>
 {
-    app.Logger.LogInformation("Editing");
     var wiki = context.RequestServices.GetService<Wiki>()!;
     var render = context.RequestServices.GetService<Render>()!;
 
@@ -110,7 +109,14 @@ app.MapGet("/edit", async context =>
           BuildForm(new PageInput(page!.Id, pageName, page.Content, null), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context)),
           RenderPageAttachmentsForEdit(page)
         },
-      atSidePanel: () => AllPagesForEditing(wiki)).ToString());
+      atSidePanel: () =>
+      {
+          var list = new List<string>();
+          list.Add(RenderDeletePageButton(page!, antiForgery: antiForgery.GetAndStoreTokens(context)));
+          list.Add(Br.ToHtmlString());
+          list.AddRange(AllPagesForEditing(wiki));
+          return list;
+      }).ToString());
 });
 
 // Deal with attachment download
@@ -165,6 +171,30 @@ app.MapGet("/{pageName}", async context =>
           },
         atSidePanel: () => AllPagesForEditing(wiki)).ToString());
     }
+});
+
+// Delete a page
+app.MapPost("/delete-page", async context =>
+{
+    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
+    await antiForgery.ValidateRequestAsync(context);
+    var wiki = context.RequestServices.GetService<Wiki>()!;
+    var id = context.Request.Form["id"];
+
+    if (StringValues.IsNullOrEmpty(id))
+    {
+        context.Response.Redirect("/");
+        return;
+    }
+
+    var (isOk, exception ) = wiki.DeletePage(Convert.ToInt32(id));
+
+    if (!isOk && exception is object)
+      app.Logger.LogError(exception, $"Error in deleting page id {id}");
+    else if (!isOk)
+      app.Logger.LogError($"Unable to delete page id {id}");
+
+    context.Response.Redirect("/");
 });
 
 // Add or update a wiki page
@@ -240,13 +270,30 @@ static string[] AllPagesForEditing(Wiki wiki)
     };
 }
 
-static string RenderMarkdown(string str) 
+static string RenderMarkdown(string str)
 {
-   var sanitizer = new HtmlSanitizer();  
-   return sanitizer.Sanitize(Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build()));
+    var sanitizer = new HtmlSanitizer();
+    return sanitizer.Sanitize(Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build()));
 }
 
 static string RenderPageContent(Page page) => RenderMarkdown(page.Content);
+
+static string RenderDeletePageButton(Page page, AntiforgeryTokenSet antiForgery)
+{
+    var antiForgeryField = Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
+    HtmlTag id = Input.Hidden.Name("Id").Value(page.Id.ToString());
+    var submit = Div.Style("margin-top", "20px").Append(Button.Class("uk-button uk-button-danger").Append("Delete Page"));
+
+    var form = Form
+               .Attribute("method", "post")
+               .Attribute("action", $"/delete-page")
+               .Attribute("onsubmit", $"return confirm('Please confirm to delete this page');")
+                 .Append(antiForgeryField)
+                 .Append(id)
+                 .Append(submit);
+
+    return form.ToHtmlString();
+}
 
 static string RenderPageAttachmentsForEdit(Page page)
 {
@@ -594,6 +641,38 @@ class Wiki
         }
     }
 
+    public (bool isOK, Exception? ex) DeletePage(int id)
+    {
+      try
+      {
+        using var db = new LiteDatabase(GetDbPath());
+        var coll = db.GetCollection<Page>(PageCollectionName);
+
+        var page = coll.FindById(id);
+
+        if (page is not object)
+          return (false, null);
+
+        //Delete all the attachments
+        foreach(var a in page.Attachments)
+        {
+          db.FileStorage.Delete(a.FileId);
+        }
+
+        if (coll.Delete(id))
+        {
+          _cache.Remove(AllPagesKey);
+          return (true, null);
+        }
+
+        return (false, null);
+      }
+      catch(Exception ex)
+      {
+        return (false, ex);
+      }
+    }
+
     // Return null if file cannot be found.
     public (LiteFileInfo<string> meta, byte[] file)? GetFile(string fileId)
     {
@@ -613,13 +692,13 @@ record Page
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = string.Empty;
+public string Name { get; set; } = string.Empty;
 
-    public string Content { get; set; } = string.Empty;
+public string Content { get; set; } = string.Empty;
 
-    public DateTime LastModifiedUtc { get; set; }
+public DateTime LastModifiedUtc { get; set; }
 
-    public List<Attachment> Attachments { get; set; } = new();
+public List<Attachment> Attachments { get; set; } = new();
 }
 
 record Attachment
