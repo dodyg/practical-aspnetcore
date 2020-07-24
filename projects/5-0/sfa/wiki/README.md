@@ -9,6 +9,9 @@ This is a Single File Application (SFA) that provide wiki functionality.
 - It is stored using LiteDB
 - It has a nice markdown editor
 - You can upload attachments in every page
+- You can delete attachments
+- You can delete pages
+- It has pages and attachment markdown linking helpers
 
 All the code is contained within `Program.cs`.
 
