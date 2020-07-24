@@ -114,8 +114,8 @@ app.MapGet("/edit", async context =>
           var list = new List<string>();
           // Do not show delete button on home page
           if (!pageName!.ToString().Equals(HomePageName, StringComparison.Ordinal))
-            list.Add(RenderDeletePageButton(page!, antiForgery: antiForgery.GetAndStoreTokens(context)));
-          
+              list.Add(RenderDeletePageButton(page!, antiForgery: antiForgery.GetAndStoreTokens(context)));
+
           list.Add(Br.ToHtmlString());
           list.AddRange(AllPagesForEditing(wiki));
           return list;
@@ -182,7 +182,7 @@ app.MapPost("/delete-page", async context =>
     var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
     var wiki = context.RequestServices.GetService<Wiki>()!;
-    var id = context.Request.Form["id"];
+    var id = context.Request.Form["Id"];
 
     if (StringValues.IsNullOrEmpty(id))
     {
@@ -190,14 +190,46 @@ app.MapPost("/delete-page", async context =>
         return;
     }
 
-    var (isOk, exception ) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
+    var (isOk, exception) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
 
     if (!isOk && exception is object)
-      app.Logger.LogError(exception, $"Error in deleting page id {id}");
+        app.Logger.LogError(exception, $"Error in deleting page id {id}");
     else if (!isOk)
-      app.Logger.LogError($"Unable to delete page id {id}");
+        app.Logger.LogError($"Unable to delete page id {id}");
 
     context.Response.Redirect("/");
+});
+
+app.MapPost("/delete-attachment", async context =>
+{
+    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
+    await antiForgery.ValidateRequestAsync(context);
+    var wiki = context.RequestServices.GetService<Wiki>()!;
+    var id = context.Request.Form["Id"];
+
+    if (StringValues.IsNullOrEmpty(id))
+    {
+        app.Logger.LogWarning($"Unable to delete attachment because form Id is missing");
+        context.Response.Redirect("/");
+        return;
+    }
+
+    var pageName = context.Request.Form["PageName"];
+    if (StringValues.IsNullOrEmpty(pageName))
+    {
+        app.Logger.LogWarning($"Unable to delete attachment because form PageName is missing");
+        context.Response.Redirect("/");
+        return;
+    }
+
+    var (isOk, exception) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
+
+    if (!isOk && exception is object)
+        app.Logger.LogError(exception, $"Error in deleting page attachment id {id}");
+    else if (!isOk)
+        app.Logger.LogError($"Unable to delete page attachment id {id}");
+
+    context.Response.Redirect($"/{pageName}");
 });
 
 // Add or update a wiki page
@@ -307,11 +339,16 @@ static string RenderPageAttachmentsForEdit(Page page)
     var list = Ul.Class("uk-list");
     foreach (var attachment in page.Attachments)
     {
-        list = list.Append(
-          Li.Append(Div.Class("uk-inline")
+        var editorHelper = Div.Class("uk-inline")
           .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
-          .Append(Input.Text.Value($"[{attachment.FileName}](/attachment?fileId={attachment.FileId})").Class("uk-input uk-form-small uk-form-width-large").Style("cursor", "pointer").Attribute("onclick", "copyMarkdownLink(this);"))
-      )
+          .Append(Input.Text.Value($"[{attachment.FileName}](/attachment?fileId={attachment.FileId})")
+            .Class("uk-input uk-form-small uk-form-width-large")
+            .Style("cursor", "pointer")
+            .Attribute("onclick", "copyMarkdownLink(this);")
+          );
+    
+        list = list.Append(
+          Li.Append( editorHelper)
       );
     }
     return label.ToHtmlString() + list.ToHtmlString();
@@ -647,66 +684,64 @@ class Wiki
 
     public (bool isOk, Exception? ex) DeleteAttachment(string id)
     {
-      try
-      {
-          using var db = new LiteDatabase(GetDbPath());
+        try
+        {
+            using var db = new LiteDatabase(GetDbPath());
 
-          if(!db.FileStorage.Delete(id))
-          {
-            _logger.LogWarning($"We cannot delete this file attachment id {id} and it's a mystery why");
-            return (false, null);
-          }
+            if (!db.FileStorage.Delete(id))
+            {
+                _logger.LogWarning($"We cannot delete this file attachment id {id} and it's a mystery why");
+                return (false, null);
+            }
 
-          return (true, null);
-      }
-      catch (Exception ex)
-      {
-          _logger.LogError(ex, $"Exception in trying to delete page attachment id {id}");
-          return (false, ex);
-      }
+            return (true, null);
+        }
+        catch (Exception ex)
+        {
+            return (false, ex);
+        }
     }
 
     public (bool isOk, Exception? ex) DeletePage(int id, string homePageName)
     {
-      try
-      {
-        using var db = new LiteDatabase(GetDbPath());
-        var coll = db.GetCollection<Page>(PageCollectionName);
-
-        var page = coll.FindById(id);
-
-        if (page is not object)
+        try
         {
-          _logger.LogWarning($"Delete operation fails because page id {id} cannot be found in the database");
-          return (false, null);
-        }
+            using var db = new LiteDatabase(GetDbPath());
+            var coll = db.GetCollection<Page>(PageCollectionName);
 
-        if (page.Name.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
+            var page = coll.FindById(id);
+
+            if (page is not object)
+            {
+                _logger.LogWarning($"Delete operation fails because page id {id} cannot be found in the database");
+                return (false, null);
+            }
+
+            if (page.Name.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
+            {
+                _logger.LogWarning($"Page id {id}  is a home page and elete operation on home page is not allowed");
+                return (false, null);
+            }
+
+            //Delete all the attachments
+            foreach (var a in page.Attachments)
+            {
+                db.FileStorage.Delete(a.FileId);
+            }
+
+            if (coll.Delete(id))
+            {
+                _cache.Remove(AllPagesKey);
+                return (true, null);
+            }
+
+            _logger.LogWarning($"Somehow we cannot delete page id {id} and it's a mistery why.");
+            return (false, null);
+        }
+        catch (Exception ex)
         {
-          _logger.LogWarning($"Page id {id}  is a home page and elete operation on home page is not allowed");
-          return (false, null);
+            return (false, ex);
         }
-
-        //Delete all the attachments
-        foreach(var a in page.Attachments)
-        {
-          db.FileStorage.Delete(a.FileId);
-        }
-
-        if (coll.Delete(id))
-        {
-          _cache.Remove(AllPagesKey);
-          return (true, null);
-        }
-
-        _logger.LogWarning($"Somehow we cannot delete page id {id} and it's a mistery why.");
-        return (false, null);
-      }
-      catch(Exception ex)
-      {
-        _logger.LogError(ex, $"Exception in trying to delete page id {id}");
-        return (false, ex);
-      }
     }
 
     // Return null if file cannot be found.
