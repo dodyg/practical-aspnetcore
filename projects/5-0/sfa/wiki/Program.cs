@@ -112,7 +112,10 @@ app.MapGet("/edit", async context =>
       atSidePanel: () =>
       {
           var list = new List<string>();
-          list.Add(RenderDeletePageButton(page!, antiForgery: antiForgery.GetAndStoreTokens(context)));
+          // Do not show delete button on home page
+          if (!pageName!.ToString().Equals(HomePageName, StringComparison.Ordinal))
+            list.Add(RenderDeletePageButton(page!, antiForgery: antiForgery.GetAndStoreTokens(context)));
+          
           list.Add(Br.ToHtmlString());
           list.AddRange(AllPagesForEditing(wiki));
           return list;
@@ -187,7 +190,7 @@ app.MapPost("/delete-page", async context =>
         return;
     }
 
-    var (isOk, exception ) = wiki.DeletePage(Convert.ToInt32(id));
+    var (isOk, exception ) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
 
     if (!isOk && exception is object)
       app.Logger.LogError(exception, $"Error in deleting page id {id}");
@@ -637,11 +640,12 @@ class Wiki
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, $"There is an exception in trying to save page name '{input.Name}'");
             return (false, null, ex);
         }
     }
 
-    public (bool isOK, Exception? ex) DeletePage(int id)
+    public (bool isOK, Exception? ex) DeletePage(in int id, in string homePageName)
     {
       try
       {
@@ -651,7 +655,16 @@ class Wiki
         var page = coll.FindById(id);
 
         if (page is not object)
+        {
+          _logger.LogInformation($"Delete operation fails because page id {id} cannot be found in the database");
           return (false, null);
+        }
+
+        if (page.Name.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
+        {
+          _logger.LogInformation($"Page id {id}  is a home page and elete operation on home page is not allowed");
+          return (false, null);
+        }
 
         //Delete all the attachments
         foreach(var a in page.Attachments)
@@ -665,16 +678,18 @@ class Wiki
           return (true, null);
         }
 
+        _logger.LogInformation($"Somehow we cannot delete page id {id} and it's a mistery why.");
         return (false, null);
       }
       catch(Exception ex)
       {
+        _logger.LogError(ex, $"Exception in trying to delete page id {id}");
         return (false, ex);
       }
     }
 
     // Return null if file cannot be found.
-    public (LiteFileInfo<string> meta, byte[] file)? GetFile(string fileId)
+    public (LiteFileInfo<string> meta, byte[] file)? GetFile(in string fileId)
     {
         using var db = new LiteDatabase(GetDbPath());
 
@@ -692,13 +707,13 @@ record Page
 {
     public int Id { get; set; }
 
-public string Name { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
-public string Content { get; set; } = string.Empty;
+    public string Content { get; set; } = string.Empty;
 
-public DateTime LastModifiedUtc { get; set; }
+    public DateTime LastModifiedUtc { get; set; }
 
-public List<Attachment> Attachments { get; set; } = new();
+    public List<Attachment> Attachments { get; set; } = new();
 }
 
 record Attachment
