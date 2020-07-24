@@ -645,6 +645,26 @@ class Wiki
         }
     }
 
+    public (bool isOk, Exception? ex) DeleteAttachment(string id)
+    {
+      try
+      {
+          using var db = new LiteDatabase(GetDbPath());
+
+          if(!db.FileStorage.Delete(id))
+          {
+            _logger.LogWarning($"We cannot delete this file attachment id {id} and it's a mystery why");
+            return (false, null);
+          }
+
+          return (true, null);
+      }
+      catch (Exception ex)
+      {
+          _logger.LogError(ex, $"Exception in trying to delete page attachment id {id}");
+          return (false, ex);
+      }
+    }
 
     public (bool isOk, Exception? ex) DeletePage(int id, string homePageName)
     {
@@ -657,13 +677,13 @@ class Wiki
 
         if (page is not object)
         {
-          _logger.LogInformation($"Delete operation fails because page id {id} cannot be found in the database");
+          _logger.LogWarning($"Delete operation fails because page id {id} cannot be found in the database");
           return (false, null);
         }
 
         if (page.Name.Equals(homePageName, StringComparison.OrdinalIgnoreCase))
         {
-          _logger.LogInformation($"Page id {id}  is a home page and elete operation on home page is not allowed");
+          _logger.LogWarning($"Page id {id}  is a home page and elete operation on home page is not allowed");
           return (false, null);
         }
 
@@ -679,7 +699,7 @@ class Wiki
           return (true, null);
         }
 
-        _logger.LogInformation($"Somehow we cannot delete page id {id} and it's a mistery why.");
+        _logger.LogWarning($"Somehow we cannot delete page id {id} and it's a mistery why.");
         return (false, null);
       }
       catch(Exception ex)
