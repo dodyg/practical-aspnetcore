@@ -227,8 +227,8 @@ app.MapPost("/{pageName}", async context =>
         return;
     }
 
-    var (isOK, p, ex) = wiki.SavePage(input);
-    if (!isOK)
+    var (isOk, p, ex) = wiki.SavePage(input);
+    if (!isOk)
     {
         app.Logger.LogError(ex, "Problem in saving page");
         return;
@@ -575,7 +575,7 @@ class Wiki
     }
 
     // Save or update a wiki page. Cache(AllPagesKey) will be destroyed.
-    public (bool isOK, Page? page, Exception? ex) SavePage(PageInput input)
+    public (bool isOk, Page? page, Exception? ex) SavePage(PageInput input)
     {
         try
         {
@@ -645,7 +645,8 @@ class Wiki
         }
     }
 
-    public (bool isOK, Exception? ex) DeletePage(int id, string homePageName)
+
+    public (bool isOk, Exception? ex) DeletePage(int id, string homePageName)
     {
       try
       {
