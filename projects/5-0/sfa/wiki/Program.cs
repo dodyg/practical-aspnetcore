@@ -240,7 +240,11 @@ static string[] AllPagesForEditing(Wiki wiki)
     };
 }
 
-static string RenderMarkdown(string str) => Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build());
+static string RenderMarkdown(string str) 
+{
+   var sanitizer = new HtmlSanitizer();  
+   return sanitizer.Sanitize(Markdown.ToHtml(str, new MarkdownPipelineBuilder().UseSoftlineBreakAsHardlineBreak().UseAdvancedExtensions().Build()));
+}
 
 static string RenderPageContent(Page page) => RenderMarkdown(page.Content);
 
@@ -344,7 +348,6 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
 
     return form.ToHtmlString();
 }
-
 
 class Render
 {
@@ -555,7 +558,7 @@ class Wiki
                 var newPage = new Page
                 {
                     Name = sanitizer.Sanitize(properName),
-                    Content = sanitizer.Sanitize(input.Content),
+                    Content = input.Content, //Do not sanitize on input because it will impact some markdown tag such as >. We do it on the output instead.
                     LastModifiedUtc = Timestamp()
                 };
 
@@ -572,7 +575,7 @@ class Wiki
                 var updatedPage = existingPage with
                 {
                     Name = sanitizer.Sanitize(properName),
-                    Content = sanitizer.Sanitize(input.Content),
+                    Content = input.Content, //Do not sanitize on input because it will impact some markdown tag such as >. We do it on the output instead.
                     LastModifiedUtc = Timestamp()
                 };
 
