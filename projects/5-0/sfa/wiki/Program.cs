@@ -36,7 +36,7 @@ builder.Services
   .AddAntiforgery()
   .AddMemoryCache();
 
-builder.Logging.AddConsole().SetMinimumLevel(LogLevel.Information);
+builder.Logging.AddConsole().SetMinimumLevel(LogLevel.Warning);
 
 var app = builder.Build();
 
@@ -107,7 +107,7 @@ app.MapGet("/edit", async context =>
         new[]
         {
           BuildForm(new PageInput(page!.Id, pageName, page.Content, null), path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context)),
-          RenderPageAttachmentsForEdit(page)
+          RenderPageAttachmentsForEdit(page!, antiForgery.GetAndStoreTokens(context))
         },
       atSidePanel: () =>
       {
@@ -186,6 +186,7 @@ app.MapPost("/delete-page", async context =>
 
     if (StringValues.IsNullOrEmpty(id))
     {
+        app.Logger.LogWarning($"Unable to delete page because form Id is missing");
         context.Response.Redirect("/");
         return;
     }
@@ -214,22 +215,32 @@ app.MapPost("/delete-attachment", async context =>
         return;
     }
 
-    var pageName = context.Request.Form["PageName"];
-    if (StringValues.IsNullOrEmpty(pageName))
+    var pageId = context.Request.Form["PageId"];
+    if (StringValues.IsNullOrEmpty(pageId))
     {
-        app.Logger.LogWarning($"Unable to delete attachment because form PageName is missing");
+        app.Logger.LogWarning($"Unable to delete attachment because form PageId is missing");
         context.Response.Redirect("/");
         return;
     }
 
-    var (isOk, exception) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
+    var (isOk, page, exception) = wiki.DeleteAttachment(Convert.ToInt32(pageId), id.ToString());
 
-    if (!isOk && exception is object)
-        app.Logger.LogError(exception, $"Error in deleting page attachment id {id}");
-    else if (!isOk)
-        app.Logger.LogError($"Unable to delete page attachment id {id}");
+    if (!isOk)
+    {
+        if (exception is object)
+            app.Logger.LogError(exception, $"Error in deleting page attachment id {id}");
+        else
+            app.Logger.LogError($"Unable to delete page attachment id {id}");
 
-    context.Response.Redirect($"/{pageName}");
+        if (page is object)
+            context.Response.Redirect($"/{page.Name}");
+        else
+            context.Response.Redirect("/");
+
+        return;
+    }
+
+    context.Response.Redirect($"/{page!.Name}");
 });
 
 // Add or update a wiki page
@@ -330,26 +341,49 @@ static string RenderDeletePageButton(Page page, AntiforgeryTokenSet antiForgery)
     return form.ToHtmlString();
 }
 
-static string RenderPageAttachmentsForEdit(Page page)
+static string RenderPageAttachmentsForEdit(Page page, AntiforgeryTokenSet antiForgery)
 {
     if (page.Attachments.Count == 0)
         return string.Empty;
 
     var label = Span.Class("uk-label").Append("Attachments");
     var list = Ul.Class("uk-list");
-    foreach (var attachment in page.Attachments)
-    {
-        var editorHelper = Div.Class("uk-inline")
+
+    HtmlTag CreateEditorHelper(Attachment attachment) =>
+      Span.Class("uk-inline")
           .Append(Span.Class("uk-form-icon").Attribute("uk-icon", "icon: copy"))
           .Append(Input.Text.Value($"[{attachment.FileName}](/attachment?fileId={attachment.FileId})")
             .Class("uk-input uk-form-small uk-form-width-large")
             .Style("cursor", "pointer")
             .Attribute("onclick", "copyMarkdownLink(this);")
           );
-    
-        list = list.Append(
-          Li.Append( editorHelper)
-      );
+
+    static HtmlTag CreateDelete(int pageId, string attachmentId, AntiforgeryTokenSet antiForgery)
+    {
+        var antiForgeryField = Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
+        var id = Input.Hidden.Name("Id").Value(attachmentId.ToString());
+        var name = Input.Hidden.Name("PageId").Value(pageId.ToString());
+
+        var submit = Button.Class("uk-button uk-button-danger uk-button-small").Append(Span.Attribute("uk-icon", "icon: close; ratio: .75;"));
+        var form = Form
+               .Style("display", "inline")
+               .Attribute("method", "post")
+               .Attribute("action", $"/delete-attachment")
+               .Attribute("onsubmit", $"return confirm('Please confirm to delete this attachment');")
+                 .Append(antiForgeryField)
+                 .Append(id)
+                 .Append(name)
+                 .Append(submit);
+
+        return form;
+    }
+
+    foreach (var attachment in page.Attachments)
+    {
+        list = list.Append(Li
+          .Append(CreateEditorHelper(attachment))
+          .Append(CreateDelete(page.Id, attachment.FileId, antiForgery))
+        );
     }
     return label.ToHtmlString() + list.ToHtmlString();
 }
@@ -682,23 +716,40 @@ class Wiki
         }
     }
 
-    public (bool isOk, Exception? ex) DeleteAttachment(string id)
+    public (bool isOk, Page? p, Exception? ex) DeleteAttachment(int pageId, string id)
     {
         try
         {
             using var db = new LiteDatabase(GetDbPath());
+            var coll = db.GetCollection<Page>(PageCollectionName);
+            var page = coll.FindById(pageId);
+            if (page is not object)
+            {
+                _logger.LogWarning($"Delete attachment operation fails because page id {id} cannot be found in the database");
+                return (false, null, null);
+            }
 
             if (!db.FileStorage.Delete(id))
             {
                 _logger.LogWarning($"We cannot delete this file attachment id {id} and it's a mystery why");
-                return (false, null);
+                return (false, page, null);
             }
 
-            return (true, null);
+            page.Attachments.RemoveAll(x => x.FileId.Equals(id, StringComparison.OrdinalIgnoreCase));
+
+            var updateResult = coll.Update(page);
+
+            if (!updateResult)
+            {
+                _logger.LogWarning($"Delete attachment works but updating the page (id {pageId}) attachment list fails");
+                return (false, page, null);
+            }
+
+            return (true, page, null);
         }
         catch (Exception ex)
         {
-            return (false, ex);
+            return (false, null, ex);
         }
     }
 
