@@ -58,7 +58,7 @@ app.MapGet("/", async context =>
         {
           RenderPageContent(page),
           RenderPageAttachments(page),
-          A.Href($"/edit?pageName={HomePageName}").Append("Edit").ToHtmlString()
+          A.Href($"/edit?pageName={HomePageName}").Class("uk-button uk-button-default uk-button-small").Append("Edit").ToHtmlString()
         },
         atSidePanel: () => AllPages(wiki)
       ).ToString());
