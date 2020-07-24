@@ -645,7 +645,7 @@ class Wiki
         }
     }
 
-    public (bool isOK, Exception? ex) DeletePage(in int id, in string homePageName)
+    public (bool isOK, Exception? ex) DeletePage(int id, string homePageName)
     {
       try
       {
@@ -689,7 +689,7 @@ class Wiki
     }
 
     // Return null if file cannot be found.
-    public (LiteFileInfo<string> meta, byte[] file)? GetFile(in string fileId)
+    public (LiteFileInfo<string> meta, byte[] file)? GetFile(string fileId)
     {
         using var db = new LiteDatabase(GetDbPath());
 
