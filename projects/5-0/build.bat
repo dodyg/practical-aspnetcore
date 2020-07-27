@@ -1,5 +1,7 @@
 dotnet build hello-world
 
+dotnet build sfa\wiki
+
 dotnet build json\json
 dotnet build json\json-2
 dotnet build json\json-3
