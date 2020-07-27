@@ -1,0 +1,19 @@
+@Counter
+<br/>
+
+<button type="button" @onclick="Increment">Increment</button>
+
+@code {
+    int Counter;
+
+    public void Increment()
+    {
+        Counter++;
+    }
+
+    public void IncrementWithStateHasChanged()
+    {
+        Counter++;
+        this.StateHasChanged();
+    }
+}

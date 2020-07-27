@@ -1,0 +1,8 @@
+
+<input class="form-field" @attributes="Attributes" type="text" />
+
+@code
+{
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> Attributes { get; set; }
+}
