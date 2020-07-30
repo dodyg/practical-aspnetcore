@@ -6,7 +6,7 @@ using Orleans;
 using Orleans.Configuration;
 using Orleans.Hosting;
 
- new HostBuilder()
+await new HostBuilder()
     .UseOrleans(builder =>
     {
         builder
