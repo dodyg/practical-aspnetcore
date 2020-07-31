@@ -101,7 +101,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * [CommandLine](/projects/command-line/command-line-1)
 
-  This project shows a simple integration between `System.CommandLine`, a command line parsing library with ASP.WNET Core app.
+  This project shows a simple integration between `System.CommandLine`, a command line parsing library with ASP.NET Core app.
 
 ### Server-Sent Events (1)
 
