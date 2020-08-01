@@ -15,7 +15,6 @@
     <PackageReference Include="FeatherHttp" Version="0.1.67-*"  />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\interfaces\interfaces.csproj" />
     <ProjectReference Include="..\grains\grains.csproj" />
   </ItemGroup>
 </Project>

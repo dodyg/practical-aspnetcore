@@ -12,7 +12,4 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\interfaces\interfaces.csproj" />
-  </ItemGroup>
 </Project>

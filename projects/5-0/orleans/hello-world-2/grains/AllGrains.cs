@@ -24,7 +24,7 @@ public class HelloArchiveGrain : Grain, IHelloArchive
 {
     private readonly IPersistentState<GreetingArchive> _archive;
 
-    public HelloArchiveGrain([PersistentState("archive", "ArchiveStorage")] IPersistentState<GreetingArchive> archive)
+    public HelloArchiveGrain([PersistentState("archive", "Redis")] IPersistentState<GreetingArchive> archive)
     {
         _archive = archive;
     }
