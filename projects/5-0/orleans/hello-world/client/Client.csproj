@@ -14,7 +14,6 @@
     <PackageReference Include="Microsoft.Orleans.Core" Version="3.2.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\interfaces\interfaces.csproj" />
     <ProjectReference Include="..\grains\grains.csproj" />
   </ItemGroup>
 </Project>
