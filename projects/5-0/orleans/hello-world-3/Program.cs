@@ -46,11 +46,6 @@ class Startup
         _env = env;
     }
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        //services.AddOrleans();
-    }
-
     public void Configure(IApplicationBuilder app) 
     {
         if (_env.IsDevelopment())
