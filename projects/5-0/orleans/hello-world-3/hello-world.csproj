@@ -10,5 +10,8 @@
     <PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="3.2.2" />
     <PackageReference Include="Microsoft.Orleans.OrleansProviders" Version="3.2.2" />
     <PackageReference Include="Microsoft.Orleans.Core" Version="3.2.2" />
+    <PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.2.2" PrivateAssets="all">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
