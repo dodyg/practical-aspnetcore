@@ -31,11 +31,10 @@ await Host.CreateDefaultBuilder(args)
                 options.ServiceId = "HelloWorldApp";
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
+            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloArchiveGrain).Assembly).WithReferences())
             .AddMemoryGrainStorage(name: "ArchiveStorage");
     })
     .RunConsoleAsync();
-
 
 class Startup
 {
@@ -56,29 +55,14 @@ class Startup
         {
             endpoints.MapGet("/", async context =>
             {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>();
-                IHello grain = client.GetGrain<IHello>(0);
-                var res = await grain.SayHello("Hello world");
-                await context.Response.WriteAsync(res);
+                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
+                await grain.SayHello("Hello world");
+                await context.Response.WriteAsync("Keep refreshing your browser \n");
+                var res2 = await grain.GetGreetings();
+                await context.Response.WriteAsync(string.Join("\n", res2));
             });
         });
-    }
-}
-
-
-public class HelloGrain : Grain, IHello
-{
-    private readonly ILogger _logger;
-
-    public HelloGrain(ILogger<HelloGrain> logger)
-    {
-        _logger = logger;
-    }  
-
-    Task<string> IHello.SayHello(string greeting)
-    {
-        _logger.LogInformation($"SayHello message received: greeting = '{greeting}'");
-        return Task.FromResult($"You said: '{greeting}', I say: Hello!");
     }
 }
 
@@ -106,11 +90,6 @@ public class HelloArchiveGrain : Grain, IHelloArchive
 public class GreetingArchive
 {
     public List<string> Greetings { get; } = new List<string>();
-}
-
-public interface IHello : Orleans.IGrainWithIntegerKey
-{
-    Task<string> SayHello(string greeting);
 }
 
 public interface IHelloArchive : Orleans.IGrainWithIntegerKey

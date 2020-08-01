@@ -1,3 +1,3 @@
 # Orleans Hello World with ASP.NET Core
 
-WIP
+This sample shows how to use Orleans with ASP.NET Core.
