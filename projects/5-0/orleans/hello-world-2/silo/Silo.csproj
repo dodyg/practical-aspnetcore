@@ -13,7 +13,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0-preview.7.20364.11" />
     <PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="3.2.2" />
     <PackageReference Include="Microsoft.Orleans.OrleansProviders" Version="3.2.2" />
-    <PackageReference Include="FeatherHttp" Version="0.1.67-*"  />
+    <PackageReference Include="Orleans.Persistence.Redis" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\interfaces\interfaces.csproj" />

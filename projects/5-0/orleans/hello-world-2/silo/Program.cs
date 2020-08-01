@@ -18,7 +18,12 @@ await new HostBuilder()
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
-            .AddMemoryGrainStorage(name: "ArchiveStorage");
+            .AddRedisGrainStorage("Redis", optionsBuilder => optionsBuilder.Configure(options =>
+            {
+                options.DataConnectionString = "localhost:6379"; 
+                options.UseJson = true;
+                options.DatabaseNumber = 1;
+            }));
     })
     .ConfigureServices(services =>
     {
