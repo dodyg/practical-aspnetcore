@@ -1,4 +1,4 @@
-# Hello World with Redis persistent storage
+# Hello World with Redis storage
 
 This is the hello world of an Orleans system (["Orleans is a cross-platform framework for building robust, scalable distributed applications"](https://github.com/dotnet/orleans)). 
 

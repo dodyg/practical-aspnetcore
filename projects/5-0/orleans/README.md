@@ -1,4 +1,4 @@
-# Microsoft Orleans
+# Microsoft Orleans (2)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
@@ -16,3 +16,7 @@ The order to create a simple Orleans project seems to be:
 - [Hello World](hello-world)
 
   This sample is a sample from Orleans that I simplify and port to C# 9. 
+
+- [Hello World with Redis storage](hello-world-2)
+
+  In the previous Hello World sample, once you stop the `silo`, the messages are gone. In this sample we use Redis to store the Grain between `silo` restarts so we won't lose the messages.
