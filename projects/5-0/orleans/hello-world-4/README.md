@@ -2,6 +2,7 @@
 
 This sample shows how to use Orleans with ASP.NET Core. In this case we are using Redis Storage. This means that all the messages persist beyond restart.
 
+- Make sure you have redis installed and running.
 - Run the app using `dotnet run`.
 - Open `localhost:5000`
 - Keep refeshing the browser. You will see the messages will continue to grow.
