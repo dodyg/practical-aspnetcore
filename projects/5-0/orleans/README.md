@@ -1,4 +1,4 @@
-# Microsoft Orleans (4)
+# Microsoft Orleans (5)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
@@ -21,3 +21,7 @@ This section is very early in development. My experience in using an Actor frame
 - [ASP.NET Core and Orleans with Redis storage](hello-world-4)
 
   Co-host Orleans and ASP.NET Core together with Redis storage. Everything in a single `Program.cs` file. This sample also use C# 9 records.
+
+- [Timer](timer)
+
+  This sample demonstrate the functionality of `Grain.RegisterTimer`.
