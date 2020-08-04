@@ -1,4 +1,4 @@
-# Microsoft Orleans (5)
+# Microsoft Orleans (6)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
@@ -24,4 +24,8 @@ This section is very early in development. My experience in using an Actor frame
 
 - [Timer](timer)
 
-  This sample demonstrate the functionality of `Grain.RegisterTimer`.
+  This sample demonstrates the functionality of `Grain.RegisterTimer`. It's useful to trigger actions to be repeated frequently (less than every minute).
+
+- [Reminder](reminder)
+
+  This sample demonstrate the functionality of `Grain.RegisterOrUpdateReminder`. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days).
