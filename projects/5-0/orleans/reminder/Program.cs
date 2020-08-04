@@ -78,6 +78,7 @@ class Startup
                 await context.Response.WriteAsync("</body></html>");
             });
 
+            // WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
             endpoints.MapGet("/set-reminder", async context =>
             {
                 IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
@@ -88,6 +89,7 @@ class Startup
                 context.Response.Redirect("/");
             });
             
+            // WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
             endpoints.MapGet("/remove-reminder", async context =>
             {
                 IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
