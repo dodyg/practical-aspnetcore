@@ -24,8 +24,8 @@ This section is very early in development. My experience in using an Actor frame
 
 - [Timer](timer)
 
-  This sample demonstrates the functionality of `Grain.RegisterTimer`. It's useful to trigger actions to be repeated frequently (less than every minute).
+  This sample demonstrates the functionality of `Grain.RegisterTimer`. It's useful to trigger actions to be repeated frequently (less than every minute). 
 
 - [Reminder](reminder)
 
-  This sample demonstrate the functionality of `Grain.RegisterOrUpdateReminder`. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days).
+  This sample demonstrate the functionality of `Grain.RegisterOrUpdateReminder`. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days). This is a persistent timer that survives grain restarts.
