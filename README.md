@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 3.1.300 (310)
 
-## Black Lives Matter. [Support National Bail Fund Network](https://www.communityjusticeexchange.org/nbfn-directory).
+## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
 
 ## Welcome
 
