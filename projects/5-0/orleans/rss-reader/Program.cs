@@ -36,7 +36,7 @@ await Host.CreateDefaultBuilder(args)
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage("redis-http-client", optionsBuilder => optionsBuilder.Configure(options =>
+            .AddRedisGrainStorage("redis-rss-reader", optionsBuilder => optionsBuilder.Configure(options =>
             {
                 options.DataConnectionString = "localhost:6379";
                 options.UseJson = true;
@@ -72,11 +72,32 @@ class Startup
                 var client = context.RequestServices.GetService<IGrainFactory>()!;
                 var grain = client.GetGrain<IFeedSource>(0)!;
 
+                await grain.Add(new FeedSource
+                {
+                    Type = FeedType.Rss,
+                    Url = "http://www.scripting.com/rss.xml",
+                    Website = "http://www.scripting.com",
+                    Title = "Scripting News"                    
+                });
+
+                var sources = await grain.GetAll();
+
+                foreach(var s in sources)
+                {
+                    var g = client.GetGrain<IFeedFetcher>(s.Url.ToString());
+                    await g.FetchAsync(s);
+                }
+
+                var resultGrain = client.GetGrain<IFeedItemResults>(0);
+                var items = await resultGrain.GetAll();
+
                 await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
                 await context.Response.WriteAsync("<body>");
-                await context.Response.WriteAsync("Click on Set reminder to start the reminder (it will run every 1 minute). Then refresh this page to see the messages being addded.<br>");
-                await context.Response.WriteAsync(@"<a href=""set-reminder"">Set reminder</a> - <a href=""remove-reminder"">Remove reminder</a><br/>");
                 await context.Response.WriteAsync("<ul>");
+                foreach(var i in items)
+                {
+                    await context.Response.WriteAsync($"<li>{ i.Item.Title }<br/> { i.Item.Description }</li>");
+                }
                 await context.Response.WriteAsync("</ul>");
                 await context.Response.WriteAsync("</body></html>");
             });
@@ -84,12 +105,40 @@ class Startup
     }
 }
 
+public class FeedItemResultGrain : Grain, IFeedItemResults
+{
+    private readonly IPersistentState<FeedItemStore> _storage;
 
-public class FeedSourceGrain : IFeedSource
+    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader")] IPersistentState<FeedItemStore> storage)
+    {
+        _storage = storage;
+    }
+
+    public async Task Add(List<FeedItem> items)
+    {
+        _storage.State.Results.AddRange(items);
+        await _storage.WriteStateAsync();
+    }
+
+    public Task<List<FeedItem>> GetAll() => Task.FromResult(_storage.State.Results);
+}
+
+public record FeedItemStore
+{
+    public List<FeedItem> Results { get; set; } = new List<FeedItem>();
+}
+
+public interface IFeedItemResults : Orleans.IGrainWithIntegerKey
+{
+    Task Add(List<FeedItem> items);
+    Task<List<FeedItem>> GetAll();
+}
+
+public class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source", "rss-reader")] IPersistentState<FeedSourceStore> storage)
+    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader")] IPersistentState<FeedSourceStore> storage)
     {
         _storage = storage;
     }
@@ -119,8 +168,27 @@ public interface IFeedSource : Orleans.IGrainWithIntegerKey
     Task<List<FeedSource>> GetAll();
 } 
 
-public class FeedFetchGrain : Grain
+public interface IFeedFetcher : Orleans.IGrainWithStringKey
 {
+    Task FetchAsync(FeedSource source);
+}
+
+public class FeedFetchGrain : Grain, IFeedFetcher
+{
+    readonly IGrainFactory _grainFactory;
+
+    public FeedFetchGrain(IGrainFactory grainFactory)
+    {
+        _grainFactory = grainFactory;
+    }
+
+    public async Task FetchAsync(FeedSource source)
+    {
+        var storage = _grainFactory.GetGrain<IFeedItemResults>(0);
+        var results = await ReadFeedAsync(source);
+        await storage.Add(results);
+    }
+
     public async Task<List<FeedItem>> ReadFeedAsync(FeedSource source)
     {
         var feed = new List<FeedItem>();
