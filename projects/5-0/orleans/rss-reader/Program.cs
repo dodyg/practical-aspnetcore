@@ -16,6 +16,7 @@ using System.Xml;
 using Microsoft.SyndicationFeed.Atom;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
+using System.Linq;
 
 await Host.CreateDefaultBuilder(args)
     .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
@@ -49,15 +50,9 @@ class Startup
 {
     IHostEnvironment _env;
 
-    public Startup(IHostEnvironment env)
-    {
-        _env = env;
-    }
+    public Startup(IHostEnvironment env) => _env = env;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddHttpClient();
-    }
+    public void ConfigureServices(IServiceCollection services) => services.AddHttpClient();
 
     public void Configure(IApplicationBuilder app)
     {
@@ -72,7 +67,7 @@ class Startup
                 var client = context.RequestServices.GetService<IGrainFactory>()!;
                 var grain = client.GetGrain<IFeedSource>(0)!;
 
-                await grain.Add(new FeedSource
+                await grain.AddAsync(new FeedSource
                 {
                     Type = FeedType.Rss,
                     Url = "http://www.scripting.com/rss.xml",
@@ -80,7 +75,15 @@ class Startup
                     Title = "Scripting News"                    
                 });
 
-                var sources = await grain.GetAll();
+                await grain.AddAsync(new FeedSource
+                {
+                    Type = FeedType.Atom,
+                    Url = "https://www.reddit.com/r/dotnet.rss",
+                    Website = "https://www.reddit.com",
+                    Title = "Reddit/r/dotnet"
+                });
+
+                var sources = await grain.GetAllAsync();
 
                 foreach(var s in sources)
                 {
@@ -89,14 +92,24 @@ class Startup
                 }
 
                 var resultGrain = client.GetGrain<IFeedItemResults>(0);
-                var items = await resultGrain.GetAll();
+                var items = await resultGrain.GetAllAsync();
 
                 await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
                 await context.Response.WriteAsync("<body>");
                 await context.Response.WriteAsync("<ul>");
                 foreach(var i in items)
                 {
-                    await context.Response.WriteAsync($"<li>{ i.Item.Title }<br/> { i.Item.Description }</li>");
+                    await context.Response.WriteAsync("<li>");
+                    if (!string.IsNullOrWhiteSpace(i.Title))
+                        await context.Response.WriteAsync($"{ i.Title }<br/>");
+
+                    await context.Response.WriteAsync(i.Description ?? "");
+                    
+                    if (i.Url is object)
+                        await context.Response.WriteAsync($"<br/><a href=\"{i.Url}\">link</a>");
+
+                    await context.Response.WriteAsync($"<br/><span style=\"font-size:small;\">published on: {i.PublishedOn}</span>");
+                    await context.Response.WriteAsync("</li>");
                 }
                 await context.Response.WriteAsync("</ul>");
                 await context.Response.WriteAsync("</body></html>");
@@ -109,18 +122,26 @@ public class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
-    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader")] IPersistentState<FeedItemStore> storage)
-    {
-        _storage = storage;
-    }
+    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader")] IPersistentState<FeedItemStore> storage) => _storage = storage;
 
-    public async Task Add(List<FeedItem> items)
+    public async Task AddAsync(List<FeedItem> items)
     {
-        _storage.State.Results.AddRange(items);
+        //make sure there is no duplication
+        foreach(var i in items.Where(x => !string.IsNullOrWhiteSpace(x.Id)))
+        {
+            if (!_storage.State.Results.Exists(x => x.Id?.Equals(i.Id, StringComparison.OrdinalIgnoreCase) ?? false))
+                _storage.State.Results.Add(i);
+        }
         await _storage.WriteStateAsync();
     }
 
-    public Task<List<FeedItem>> GetAll() => Task.FromResult(_storage.State.Results);
+    public Task<List<FeedItem>> GetAllAsync() => Task.FromResult(_storage.State.Results.OrderByDescending(x => x.PublishedOn ).ToList());
+
+    public async Task ClearAsync()
+    {
+        _storage.State.Results.Clear();
+        await _storage.WriteStateAsync();
+    }
 }
 
 public record FeedItemStore
@@ -130,20 +151,20 @@ public record FeedItemStore
 
 public interface IFeedItemResults : Orleans.IGrainWithIntegerKey
 {
-    Task Add(List<FeedItem> items);
-    Task<List<FeedItem>> GetAll();
+    Task AddAsync(List<FeedItem> items);
+
+    Task<List<FeedItem>> GetAllAsync();
+
+    Task ClearAsync();
 }
 
 public class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader")] IPersistentState<FeedSourceStore> storage)
-    {
-        _storage = storage;
-    }
+    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader")] IPersistentState<FeedSourceStore> storage) => _storage = storage;
 
-    public async Task Add(FeedSource source)
+    public async Task AddAsync(FeedSource source)
     {
         if (_storage.State.Sources.Find(x => x.Url == source.Url) is null)
         {
@@ -152,8 +173,7 @@ public class FeedSourceGrain : Grain, IFeedSource
         }
     }
 
-    public Task<List<FeedSource>> GetAll() => Task.FromResult(_storage.State.Sources);
-    
+    public Task<List<FeedSource>> GetAllAsync() => Task.FromResult(_storage.State.Sources);
 }
 
 public record FeedSourceStore 
@@ -163,9 +183,9 @@ public record FeedSourceStore
 
 public interface IFeedSource : Orleans.IGrainWithIntegerKey
 {
-    Task Add(FeedSource source);
+    Task AddAsync(FeedSource source);
 
-    Task<List<FeedSource>> GetAll();
+    Task<List<FeedSource>> GetAllAsync();
 } 
 
 public interface IFeedFetcher : Orleans.IGrainWithStringKey
@@ -177,16 +197,13 @@ public class FeedFetchGrain : Grain, IFeedFetcher
 {
     readonly IGrainFactory _grainFactory;
 
-    public FeedFetchGrain(IGrainFactory grainFactory)
-    {
-        _grainFactory = grainFactory;
-    }
+    public FeedFetchGrain(IGrainFactory grainFactory) => _grainFactory = grainFactory;
 
     public async Task FetchAsync(FeedSource source)
     {
         var storage = _grainFactory.GetGrain<IFeedItemResults>(0);
         var results = await ReadFeedAsync(source);
-        await storage.Add(results);
+        await storage.AddAsync(results);
     }
 
     public async Task<List<FeedItem>> ReadFeedAsync(FeedSource source)
@@ -208,7 +225,7 @@ public class FeedFetchGrain : Grain, IFeedFetcher
                         // Read Item
                         case SyndicationElementType.Item:
                             var item = await feedReader.ReadItem();
-                            feed.Add(new FeedItem(source.ToChannel(), item));
+                            feed.Add(new FeedItem(source.ToChannel(), new SyndicationItem(item)));
                             break;
 
                         default:
@@ -229,12 +246,11 @@ public class FeedFetchGrain : Grain, IFeedFetcher
                         // Read Item
                         case SyndicationElementType.Item:
                             var entry = await feedReader.ReadEntry();
-                            feed.Add(new FeedItem(source.ToChannel(), entry));
+                            feed.Add(new FeedItem(source.ToChannel(), new SyndicationItem(entry)));
                             break;
 
                         default:
                             var content = await feedReader.ReadContent();
-
                             break;
                     }
                 }
@@ -247,13 +263,6 @@ public class FeedFetchGrain : Grain, IFeedFetcher
             return new List<FeedItem>();
         }
     }
-}
-
-public interface IFeedScheduler : Orleans.IGrainWithIntegerKey
-{
-    Task AddReminder(string reminder, TimeSpan repeatEvery);
-
-    Task RemoveReminder(string reminder);
 }
 
 public record FeedChannel
@@ -297,14 +306,37 @@ public class FeedSource
 
 public record FeedItem
 {
-    public FeedChannel Channel { get; set; }
+    public FeedChannel? Channel { get; set; }
 
-    public ISyndicationItem Item { get; set; }
+    public string? Id { get; set; }
 
-    public FeedItem(FeedChannel channel, ISyndicationItem item)
+    public string? Title { get; set; }
+
+    public string? Description { get; set; }
+
+    public Uri? Url { get; set;}
+
+    public DateTimeOffset PublishedOn { get; set; }
+
+    public FeedItem()
+    {
+
+    }
+
+    public FeedItem(FeedChannel channel, SyndicationItem item)
     {
         Channel = channel;
-        Item = item;
+        Id = item.Id;
+        Title = item.Title;
+        Description = item.Description;
+        var link = item.Links.FirstOrDefault();
+        if (link is object)
+            Url = link.Uri;        
+
+        if (item.LastUpdated == default(DateTimeOffset))
+            PublishedOn = item.Published;
+        else
+            PublishedOn = item.LastUpdated;
     }
 }
 
