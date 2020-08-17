@@ -35,7 +35,7 @@ await Host.CreateDefaultBuilder(args)
                 options.ServiceId = "http-client";
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloReminderGrain).Assembly).WithReferences())
+            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
             .AddRedisGrainStorage("redis-http-client", optionsBuilder => optionsBuilder.Configure(options =>
             {
                 options.DataConnectionString = "localhost:6379";
@@ -69,9 +69,8 @@ class Startup
         {
             endpoints.MapGet("/", async context =>
             {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-                await grain.SayHello("Hello world " + new Random().Next());
+                var client = context.RequestServices.GetService<IGrainFactory>()!;
+                var grain = client.GetGrain<IFeedSource>(0)!;
 
                 await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
                 await context.Response.WriteAsync("<body>");
@@ -81,91 +80,55 @@ class Startup
                 await context.Response.WriteAsync("</ul>");
                 await context.Response.WriteAsync("</body></html>");
             });
-
-            // WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
-            endpoints.MapGet("/set-reminder", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-
-                await grain.AddReminder("repeat-hello", repeatEvery: TimeSpan.FromMinutes(1));
-
-                context.Response.Redirect("/");
-            });
-
-            // WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
-            endpoints.MapGet("/remove-reminder", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-
-                await grain.RemoveReminder("repeat-hello");
-                context.Response.Redirect("/");
-            });
         });
     }
 }
 
-public class HelloReminderGrain : Grain, IHelloArchive, IRemindable
+
+public class FeedSourceGrain : IFeedSource
 {
-    private readonly IPersistentState<FeedItem> _archive;
-    private readonly ILogger _log;
+    private readonly IPersistentState<FeedSourceStore> _storage;
 
-    private string _greeting = "hello world";
-
-    public HelloReminderGrain([PersistentState("archive", "redis-http-client")] IPersistentState<FeedItem> archive, ILogger<HelloReminderGrain> log)
+    public FeedSourceGrain([PersistentState("feed-source", "rss-reader")] IPersistentState<FeedSourceStore> storage)
     {
-        _archive = archive;
-        _log = log;
+        _storage = storage;
     }
 
-    public Task SayHello(string greeting)
+    public async Task Add(FeedSource source)
     {
-        _greeting = greeting;
-        return Task.CompletedTask;
+        if (_storage.State.Sources.Find(x => x.Url == source.Url) is null)
+        {
+            _storage.State.Sources.Add(source);
+            await _storage.WriteStateAsync();
+        }
     }
 
-    public async Task ReceiveReminder(string reminderName, TickStatus status)
-    {
-        _log.Info($"Receive reminder {reminderName} on { DateTime.UtcNow } with status { status }");
-        //var g = new Greeting(_greeting, DateTime.UtcNow);
-        //_archive!.State.Greetings.Insert(0, g);
-        await _archive!.WriteStateAsync();
-    }
-
-    public async Task AddReminder(string reminder, TimeSpan repeatEvery)
-    {
-        if (string.IsNullOrWhiteSpace(reminder))
-            throw new ArgumentNullException(nameof(reminder));
-
-        var r = await GetReminder(reminder);
-
-        if (r is not object)
-            await RegisterOrUpdateReminder(reminder, TimeSpan.FromSeconds(1), repeatEvery);
-    }
-
-    public async Task RemoveReminder(string reminder)
-    {
-        if (string.IsNullOrWhiteSpace(reminder))
-            throw new ArgumentNullException(nameof(reminder));
-
-        var r = await GetReminder(reminder);
-
-        if (r is object)
-            await UnregisterReminder(r);
-    }
+    public Task<List<FeedSource>> GetAll() => Task.FromResult(_storage.State.Sources);
+    
 }
 
-public class FeedGrain : Grain
+public record FeedSourceStore 
 {
-    public async Task<List<FeedItem>> ReadFeedAsync(Uri uri, FeedType type, FeedChannel channel)
+    public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
+}
+
+public interface IFeedSource : Orleans.IGrainWithIntegerKey
+{
+    Task Add(FeedSource source);
+
+    Task<List<FeedSource>> GetAll();
+} 
+
+public class FeedFetchGrain : Grain
+{
+    public async Task<List<FeedItem>> ReadFeedAsync(FeedSource source)
     {
         var feed = new List<FeedItem>();
 
         try
         {
-            using var xmlReader = XmlReader.Create(uri.ToString(), new XmlReaderSettings() { Async = true });
-            if (type == FeedType.Rss)
+            using var xmlReader = XmlReader.Create(source.Url.ToString(), new XmlReaderSettings() { Async = true });
+            if (source.Type == FeedType.Rss)
             {
                 var feedReader = new RssFeedReader(xmlReader);
 
@@ -177,7 +140,7 @@ public class FeedGrain : Grain
                         // Read Item
                         case SyndicationElementType.Item:
                             var item = await feedReader.ReadItem();
-                            feed.Add(new FeedItem(channel, item));
+                            feed.Add(new FeedItem(source.ToChannel(), item));
                             break;
 
                         default:
@@ -198,7 +161,7 @@ public class FeedGrain : Grain
                         // Read Item
                         case SyndicationElementType.Item:
                             var entry = await feedReader.ReadEntry();
-                            feed.Add(new FeedItem(channel, entry));
+                            feed.Add(new FeedItem(source.ToChannel(), entry));
                             break;
 
                         default:
@@ -218,17 +181,14 @@ public class FeedGrain : Grain
     }
 }
 
-
-public interface IHelloArchive : Orleans.IGrainWithIntegerKey
+public interface IFeedScheduler : Orleans.IGrainWithIntegerKey
 {
     Task AddReminder(string reminder, TimeSpan repeatEvery);
 
     Task RemoveReminder(string reminder);
-
-    Task SayHello(string greeting);
 }
 
-public class FeedChannel
+public record FeedChannel
 {
     public string? Title { get; set; }
 
@@ -241,7 +201,33 @@ public class FeedChannel
     public bool HideDescription { get; set; }
 }
 
-public class FeedItem
+public class FeedSource
+{
+    public string Url { get; set; } = string.Empty;
+
+    public string Title { get; set; } = string.Empty;
+
+    public string? Website { get; set; }
+
+    public FeedType Type { get; set; }
+
+    public bool HideTitle { get; set; }
+
+    public bool HideDescription { get; set; }
+
+    public FeedChannel ToChannel()
+    {
+        return new FeedChannel
+        {
+            Title = Title,
+            Website = Website,
+            HideTitle = HideTitle,
+            HideDescription = HideDescription
+        };
+    }
+}
+
+public record FeedItem
 {
     public FeedChannel Channel { get; set; }
 
