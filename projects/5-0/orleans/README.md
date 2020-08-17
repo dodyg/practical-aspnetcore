@@ -1,4 +1,4 @@
-# Microsoft Orleans (7)
+# Microsoft Orleans (8)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
@@ -33,3 +33,7 @@ This section is very early in development. My experience in using an Actor frame
 - [HttpClient and Stateless Worker Grain](http-client)
 
   This sample demonstrates using HttpClient in a `grain` and also introduces the concept of a Stateless Worker `grain`. 
+
+- [RSS Reader - Simple](rss-reader)
+
+  This is a simple RSS Reader that reads syndication items and only store and display unique ones. 
