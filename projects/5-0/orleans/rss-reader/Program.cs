@@ -65,9 +65,9 @@ class Startup
             endpoints.MapGet("/", async context =>
             {
                 var client = context.RequestServices.GetService<IGrainFactory>()!;
-                var grain = client.GetGrain<IFeedSource>(0)!;
+                var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
 
-                await grain.AddAsync(new FeedSource
+                await feedSourceGrain.AddAsync(new FeedSource
                 {
                     Type = FeedType.Rss,
                     Url = "http://www.scripting.com/rss.xml",
@@ -75,31 +75,35 @@ class Startup
                     Title = "Scripting News"                    
                 });
 
-                await grain.AddAsync(new FeedSource
+                await feedSourceGrain.AddAsync(new FeedSource
                 {
                     Type = FeedType.Atom,
                     Url = "https://www.reddit.com/r/dotnet.rss",
-                    Website = "https://www.reddit.com",
+                    Website = "https://www.reddit.com/r/dotnet",
                     Title = "Reddit/r/dotnet"
                 });
 
-                var sources = await grain.GetAllAsync();
+                var sources = await feedSourceGrain.GetAllAsync();
 
                 foreach(var s in sources)
                 {
-                    var g = client.GetGrain<IFeedFetcher>(s.Url.ToString());
-                    await g.FetchAsync(s);
+                    var feedFetcherGrain = client.GetGrain<IFeedFetcher>(s.Url.ToString());
+                    await feedFetcherGrain.FetchAsync(s);
                 }
 
-                var resultGrain = client.GetGrain<IFeedItemResults>(0);
-                var items = await resultGrain.GetAllAsync();
+                var feedResultsGrain = client.GetGrain<IFeedItemResults>(0);
+                var feedItems = await feedResultsGrain.GetAllAsync();
 
-                await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
-                await context.Response.WriteAsync("<body>");
-                await context.Response.WriteAsync("<ul>");
-                foreach(var i in items)
+                await context.Response.WriteAsync(@"<html>
+                    <head>
+                        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
+                        <title>Orleans RSS Reader</title>
+                    </head>");
+                await context.Response.WriteAsync("<body><div class=\"uk-container\">");
+                await context.Response.WriteAsync("<ul class=\"uk-list\">");
+                foreach(var i in feedItems)
                 {
-                    await context.Response.WriteAsync("<li>");
+                    await context.Response.WriteAsync("<li class=\"uk-card uk-card-default uk-card-body\">");
                     if (!string.IsNullOrWhiteSpace(i.Title))
                         await context.Response.WriteAsync($"{ i.Title }<br/>");
 
@@ -108,17 +112,18 @@ class Startup
                     if (i.Url is object)
                         await context.Response.WriteAsync($"<br/><a href=\"{i.Url}\">link</a>");
 
-                    await context.Response.WriteAsync($"<br/><span style=\"font-size:small;\">published on: {i.PublishedOn}</span>");
+                    await context.Response.WriteAsync($"<div style=\"font-size:small;\">published on: {i.PublishedOn}</div>");
+                    await context.Response.WriteAsync($"<div style=\"font-size:small;\">source: <a href=\"{i.Channel?.Website}\">{i.Channel?.Title}</a></div>");
                     await context.Response.WriteAsync("</li>");
                 }
                 await context.Response.WriteAsync("</ul>");
-                await context.Response.WriteAsync("</body></html>");
+                await context.Response.WriteAsync("</div></body></html>");
             });
         });
     }
 }
 
-public class FeedItemResultGrain : Grain, IFeedItemResults
+class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
@@ -144,12 +149,12 @@ public class FeedItemResultGrain : Grain, IFeedItemResults
     }
 }
 
-public record FeedItemStore
+record FeedItemStore
 {
     public List<FeedItem> Results { get; set; } = new List<FeedItem>();
 }
 
-public interface IFeedItemResults : Orleans.IGrainWithIntegerKey
+interface IFeedItemResults : Orleans.IGrainWithIntegerKey
 {
     Task AddAsync(List<FeedItem> items);
 
@@ -158,7 +163,7 @@ public interface IFeedItemResults : Orleans.IGrainWithIntegerKey
     Task ClearAsync();
 }
 
-public class FeedSourceGrain : Grain, IFeedSource
+class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
@@ -176,27 +181,27 @@ public class FeedSourceGrain : Grain, IFeedSource
     public Task<List<FeedSource>> GetAllAsync() => Task.FromResult(_storage.State.Sources);
 }
 
-public record FeedSourceStore 
+record FeedSourceStore 
 {
     public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
 }
 
-public interface IFeedSource : Orleans.IGrainWithIntegerKey
+interface IFeedSource : Orleans.IGrainWithIntegerKey
 {
     Task AddAsync(FeedSource source);
 
     Task<List<FeedSource>> GetAllAsync();
 } 
 
-public interface IFeedFetcher : Orleans.IGrainWithStringKey
+interface IFeedFetcher : Orleans.IGrainWithStringKey
 {
     Task FetchAsync(FeedSource source);
 }
 
-public class FeedFetchGrain : Grain, IFeedFetcher
+class FeedFetchGrain : Grain, IFeedFetcher
 {
     readonly IGrainFactory _grainFactory;
-
+    
     public FeedFetchGrain(IGrainFactory grainFactory) => _grainFactory = grainFactory;
 
     public async Task FetchAsync(FeedSource source)
@@ -265,7 +270,7 @@ public class FeedFetchGrain : Grain, IFeedFetcher
     }
 }
 
-public record FeedChannel
+record FeedChannel
 {
     public string? Title { get; set; }
 
@@ -278,7 +283,7 @@ public record FeedChannel
     public bool HideDescription { get; set; }
 }
 
-public class FeedSource
+class FeedSource
 {
     public string Url { get; set; } = string.Empty;
 
@@ -304,7 +309,7 @@ public class FeedSource
     }
 }
 
-public record FeedItem
+record FeedItem
 {
     public FeedChannel? Channel { get; set; }
 
@@ -340,7 +345,7 @@ public record FeedItem
     }
 }
 
-public enum FeedType
+enum FeedType
 {
     Atom,
     Rss
