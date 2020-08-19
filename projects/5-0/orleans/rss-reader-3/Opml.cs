@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 public class Opml
 {
-    public string Title { get; set; } = string.Empty;
+    public string? Title { get; set; }
     public DateTime? DateCreated { get; set; }
     public DateTime? DateModified { get; set; }
     public string? OwnerName { get; set; }
@@ -31,26 +31,17 @@ public class Opml
         var elements = XElement.Parse(xml);
         var heads = elements.Element("head").Descendants();
 
-        Func<string, string> selectString = (filter) =>
-            {
-                return heads.Where(x => x.Name == filter).Select(x => x.Value).FirstOrDefault();
-            };
+        Func<string, string?> selectString = (filter) =>
+            heads!.Where(x => x.Name == filter).Select(x => x.Value).FirstOrDefault();
 
         Func<string, int?> selectInt = (filter) =>
-        {
-            return heads.Where(x => x.Name == filter).Select(x => Convert.ToInt32(x.Value)).FirstOrDefault();
-        };
+            heads!.Where(x => x.Name == filter).Select(x => Convert.ToInt32(x.Value)).FirstOrDefault();
 
         Func<string, DateTime?> selectDate = (filter) =>
-        {
-            return heads.Where(x => x.Name == filter).Select(x => Convert.ToDateTime(x.Value)).FirstOrDefault();
-        };
+            heads!.Where(x => x.Name == filter).Select(x => Convert.ToDateTime(x.Value)).FirstOrDefault();
 
-        Func<string, Uri> selectUri = (filter) =>
-        {
-            return heads.Where(x => x.Name == filter).Select(x => new Uri(x.Value)).FirstOrDefault();
-        };
-
+        Func<string, Uri?> selectUri = (filter) =>
+            heads!.Where(x => x.Name == filter).Select(x => new Uri(x.Value)).FirstOrDefault();
 
         Title = selectString("title");
         DateCreated = selectDate("dateCreated");
@@ -84,6 +75,7 @@ public class Opml
             {
                 ot.Attributes[att.Name.ToString()] = att.Value;
             }
+            
             foreach (var x in outline.Elements())
             {
                 var o = new Outline();
@@ -134,43 +126,28 @@ public class Opml
 
 }
 
-public class Outline
+public record Outline
 {
-    public Dictionary<string, string> Attributes { get; private set; }
-    public Outline()
-    {
-        Attributes = new Dictionary<string, string>();
-        Outlines = new List<Outline>();
-    }
+    public Dictionary<string, string> Attributes { get; private set; } = new Dictionary<string, string>();
 
-    public List<Outline> Outlines { get; private set; }
+    public List<Outline> Outlines { get; private set; } = new List<Outline>();
 }
 
-public class RssSubscription
+public record RssSubscription
 {
-    public string Title { get; set; }
-    public string OwnerName { get; set; }
-    public string OwnerEmail { get; set; }
+    public string? Title { get; set; }
+    public string? OwnerName { get; set; }
+    public string? OwnerEmail { get; set; }
     public DateTime? DateCreated { get; set; }
     public DateTime? DateModified { get; set; }
-    public List<RssSubscriptionItem> Items { get; set; }
-
-    public RssSubscription()
-    {
-        Items = new List<RssSubscriptionItem>();
-        ParsingErrors = new List<string>();
-    }
+    public List<RssSubscriptionItem> Items { get; set; } = new List<RssSubscriptionItem>();
 
     /// <summary>
     /// List errors in parsing opml attributes
     /// </summary>
-    public List<string> ParsingErrors
-    {
-        get;
-        set;
-    }
+    public List<string> ParsingErrors { get; set; } = new List<string>();
 
-    public RssSubscription(Opml opml): this()
+    public RssSubscription(Opml opml)
     {
         Title = opml.Title;
         DateCreated = opml.DateCreated;
@@ -210,7 +187,7 @@ public class RssSubscription
     }
 }
 
-public class RssSubscriptionItem
+public record RssSubscriptionItem
 {
     public string? Text { get; set; }
     public string? Name { get; set; }
