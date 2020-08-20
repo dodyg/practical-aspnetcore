@@ -26,6 +26,11 @@ public class Opml
         Outlines = new List<Outline>();
     }
 
+    public Opml(string xml):this()
+    {
+        LoadFromXML(xml);
+    }
+
     public void LoadFromXML(string xml)
     {
         var elements = XElement.Parse(xml);

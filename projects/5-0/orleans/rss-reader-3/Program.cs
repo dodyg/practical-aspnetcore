@@ -17,6 +17,8 @@ using Microsoft.SyndicationFeed.Atom;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
 using System.Linq;
+using System.Net.Http;
+using System.IO;
 
 await Host.CreateDefaultBuilder(args)
     .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
@@ -37,7 +39,7 @@ await Host.CreateDefaultBuilder(args)
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage("redis-rss-reader-2", optionsBuilder => optionsBuilder.Configure(options =>
+            .AddRedisGrainStorage("redis-rss-reader-3", optionsBuilder => optionsBuilder.Configure(options =>
             {
                 options.DataConnectionString = "localhost:6379";
                 options.UseJson = true;
@@ -45,6 +47,7 @@ await Host.CreateDefaultBuilder(args)
             }));
     })
     .RunConsoleAsync();
+
 
 class Startup
 {
@@ -64,21 +67,18 @@ class Startup
         {
             endpoints.MapGet("/", async context =>
             {
+                var httpClientFactory = context.RequestServices.GetService<IHttpClientFactory>();
+                var httpClient = httpClientFactory.CreateClient();
+
+                var opmlSubscriptionList = await httpClient.GetStringAsync("http://scripting.com/misc/mlb.opml");
+                var opml = new Opml(opmlSubscriptionList);
+                var subscriptionList = new RssSubscription(opml);
+
                 var client = context.RequestServices.GetService<IGrainFactory>()!;
                 var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
 
                 await feedSourceGrain.AddAsync(new FeedSource
                 {
-                    Type = FeedType.Rss,
-                    Url = "http://www.scripting.com/rss.xml",
-                    Website = "http://www.scripting.com",
-                    Title = "Scripting News",
-                    UpdateFrequencyInMinutes = 15                    
-                });
-
-                await feedSourceGrain.AddAsync(new FeedSource
-                {
-                    Type = FeedType.Atom,
                     Url = "https://www.reddit.com/r/dotnet.rss",
                     Website = "https://www.reddit.com/r/dotnet",
                     Title = "Reddit/r/dotnet",
@@ -179,7 +179,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
-    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader-2")] IPersistentState<FeedItemStore> storage) => _storage = storage;
+    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader-3")] IPersistentState<FeedItemStore> storage) => _storage = storage;
 
     public async Task AddAsync(List<FeedItem> items)
     {
@@ -219,7 +219,7 @@ class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader-2")] IPersistentState<FeedSourceStore> storage) => _storage = storage;
+    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader-3")] IPersistentState<FeedSourceStore> storage) => _storage = storage;
 
     public async Task AddAsync(FeedSource source)
     {
@@ -259,8 +259,17 @@ interface IFeedFetcher : Orleans.IGrainWithStringKey
 class FeedFetchGrain : Grain, IFeedFetcher
 {
     readonly IGrainFactory _grainFactory;
+
+    readonly ILogger _logger;
+
+    readonly IHttpClientFactory _httpClientFactory;
     
-    public FeedFetchGrain(IGrainFactory grainFactory) => _grainFactory = grainFactory;
+    public FeedFetchGrain(IGrainFactory grainFactory, ILogger<FeedFetchGrain> logger, IHttpClientFactory httpClientFactory)
+    {
+        _grainFactory = grainFactory;
+        _logger = logger;
+        _httpClientFactory = httpClientFactory;
+    }
 
     public async Task FetchAsync(FeedSource source)
     {
@@ -272,14 +281,28 @@ class FeedFetchGrain : Grain, IFeedFetcher
     public async Task<List<FeedItem>> ReadFeedAsync(FeedSource source)
     {
         var feed = new List<FeedItem>();
-
+        FeedType feedType = FeedType.Rss;
         try
         {
-            using var xmlReader = XmlReader.Create(source.Url.ToString(), new XmlReaderSettings() { Async = true });
-            if (source.Type == FeedType.Rss)
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync(source.Url.ToString());
+
+            var memory = new MemoryStream();
+            await response.Content.CopyToAsync(memory);
+
+            char[] buf = new char[300];
+            var sr = new StreamReader(memory);
+            sr.ReadBlock(buf, 0, buf.Length);
+
+            if (!new string(buf).Contains("rss", StringComparison.OrdinalIgnoreCase))
+                feedType = FeedType.Atom;
+
+            memory.Seek(0, SeekOrigin.Begin);
+            using var xmlReader = XmlReader.Create(memory);
+            
+            if (feedType == FeedType.Rss)
             {
                 var feedReader = new RssFeedReader(xmlReader);
-
                 // Read the feed
                 while (await feedReader.Read())
                 {
@@ -321,92 +344,10 @@ class FeedFetchGrain : Grain, IFeedFetcher
 
             return feed;
         }
-        catch
+        catch (Exception ex)
         {
+            _logger.LogError($"({feedType}) {source.Url} Exception: {ex.Message}");
             return new List<FeedItem>();
         }
     }
-}
-
-record FeedChannel
-{
-    public string? Title { get; set; }
-
-    public string? Website { get; set; }
-
-    public Uri? Url { get; set; }
-
-    public bool HideTitle { get; set; }
-
-    public bool HideDescription { get; set; }
-}
-
-class FeedSource
-{
-    public string Url { get; set; } = string.Empty;
-
-    public string Title { get; set; } = string.Empty;
-
-    public string? Website { get; set; }
-
-    public FeedType Type { get; set; }
-
-    public bool HideTitle { get; set; }
-
-    public bool HideDescription { get; set; }
-
-    public short UpdateFrequencyInMinutes { get; set; } = 1;
-
-    public FeedChannel ToChannel()
-    {
-        return new FeedChannel
-        {
-            Title = Title,
-            Website = Website,
-            HideTitle = HideTitle,
-            HideDescription = HideDescription
-        };
-    }
-}
-
-record FeedItem
-{
-    public FeedChannel? Channel { get; set; }
-
-    public string? Id { get; set; }
-
-    public string? Title { get; set; }
-
-    public string? Description { get; set; }
-
-    public Uri? Url { get; set;}
-
-    public DateTimeOffset PublishedOn { get; set; }
-
-    public FeedItem()
-    {
-
-    }
-
-    public FeedItem(FeedChannel channel, SyndicationItem item)
-    {
-        Channel = channel;
-        Id = item.Id;
-        Title = item.Title;
-        Description = item.Description;
-        var link = item.Links.FirstOrDefault();
-        if (link is object)
-            Url = link.Uri;        
-
-        if (item.LastUpdated == default(DateTimeOffset))
-            PublishedOn = item.Published;
-        else
-            PublishedOn = item.LastUpdated;
-    }
-}
-
-enum FeedType
-{
-    Atom,
-    Rss
 }
