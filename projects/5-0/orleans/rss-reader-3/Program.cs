@@ -77,13 +77,19 @@ class Startup
                 var client = context.RequestServices.GetService<IGrainFactory>()!;
                 var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
 
-                await feedSourceGrain.AddAsync(new FeedSource
+                var logger = context.RequestServices.GetService<ILogger<Startup>>();
+
+                foreach(var source in subscriptionList.Items)
                 {
-                    Url = "https://www.reddit.com/r/dotnet.rss",
-                    Website = "https://www.reddit.com/r/dotnet",
-                    Title = "Reddit/r/dotnet",
-                    UpdateFrequencyInMinutes = 1
-                });
+                    logger.LogInformation("Adding " + source.XmlUri?.ToString() ?? String.Empty);
+                    await feedSourceGrain.AddAsync(new FeedSource
+                    {
+                        Url = source.XmlUri?.ToString() ?? string.Empty,
+                        Website = source.HtmlUri?.ToString() ?? string.Empty,
+                        Title = source.Title ?? string.Empty,
+                        UpdateFrequencyInMinutes = 3
+                    });
+                }
 
                 var sources = await feedSourceGrain.GetAllAsync();
 
@@ -223,6 +229,9 @@ class FeedSourceGrain : Grain, IFeedSource
 
     public async Task AddAsync(FeedSource source)
     {
+        if (string.IsNullOrWhiteSpace(source.Url))
+            return;
+
         if (_storage.State.Sources.Find(x => x.Url == source.Url) is null)
         {
             _storage.State.Sources.Add(source);
@@ -235,6 +244,19 @@ class FeedSourceGrain : Grain, IFeedSource
     
     public Task<FeedSource?> FindFeedSourceByUrlAsync(string url) => 
         Task.FromResult(_storage.State.Sources.Find(x => x.Url.Equals(url, StringComparison.Ordinal)));
+
+    public async Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus)
+    {
+        var feed = await FindFeedSourceByUrlAsync(url);
+        if (feed is object)
+        {
+            feed.IsValid = activeStatus;
+            await _storage.WriteStateAsync();
+        }
+
+        return feed; 
+    }
+
 }
 
 record FeedSourceStore 
@@ -249,6 +271,8 @@ interface IFeedSource : Orleans.IGrainWithIntegerKey
     Task<List<FeedSource>> GetAllAsync();
 
     Task<FeedSource?> FindFeedSourceByUrlAsync(string url);
+
+    Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus);
 } 
 
 interface IFeedFetcher : Orleans.IGrainWithStringKey
@@ -280,6 +304,12 @@ class FeedFetchGrain : Grain, IFeedFetcher
 
     public async Task<List<FeedItem>> ReadFeedAsync(FeedSource source)
     {
+        if (string.IsNullOrWhiteSpace(source.Url))
+            return new List<FeedItem>();
+
+        if (!source.IsValid)
+            return new List<FeedItem>();
+
         var feed = new List<FeedItem>();
         FeedType feedType = FeedType.Rss;
         try
@@ -290,7 +320,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
             var memory = new MemoryStream();
             await response.Content.CopyToAsync(memory);
 
-            char[] buf = new char[300];
+            char[] buf = new char[300]; // We need large buffer because to skip xml metadata and comments before the root of the xml document starts
             var sr = new StreamReader(memory);
             sr.ReadBlock(buf, 0, buf.Length);
 
@@ -347,6 +377,11 @@ class FeedFetchGrain : Grain, IFeedFetcher
         catch (Exception ex)
         {
             _logger.LogError($"({feedType}) {source.Url} Exception: {ex.Message}");
+
+            // Mark feed as invalid
+            var feedSource = _grainFactory.GetGrain<IFeedSource>(0)!;
+            await feedSource.UpdateFeedSourceStatus(source.Url, false);
+
             return new List<FeedItem>();
         }
     }

@@ -30,6 +30,8 @@ class FeedSource
 
     public short UpdateFrequencyInMinutes { get; set; } = 1;
 
+    public bool IsValid { get; set; } = true;
+
     public FeedChannel ToChannel()
     {
         return new FeedChannel
