@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1.300 (313)
+# Samples for ASP.NET Core 3.1.300 (314)
 
 ## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
 
@@ -21,7 +21,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 
 | Section                                                        |      |                                                                                                                 |      |
 |-----------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------|------|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (18) | [Middleware](/projects/middleware)                                                                              | (13) |
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (19) | [Middleware](/projects/middleware)                                                                              | (13) |
 | [Blazor Server Side](/projects/blazor-ss) (Localization)                       | (15)  | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)                                                                                            | (46) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                                                                            | (9)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                                                                          | (4)  |

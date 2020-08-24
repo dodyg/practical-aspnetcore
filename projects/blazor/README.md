@@ -1,4 +1,4 @@
-# Blazor (18)
+# Blazor (19)
 
 Make sure you installed the latest [.NET Core 3.1.4 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
@@ -75,6 +75,10 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Component Fifteen](/projects/blazor/ComponentFifteen)
 
     This sample demonstrates how to use partial class in a razor component. This allows you to separate your C# code from the markup.
+
+  * [Component Sixteen](/projects/blazor/ComponentSixteen)
+
+    This sample demonstrates cascading value by type feature. This is a parameter that get passed through a component without having to explicitly assign them.
     
   * [Data Binding - Form](/projects/blazor/DataBinding)
 

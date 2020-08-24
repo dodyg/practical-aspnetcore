@@ -1,0 +1,31 @@
+
+Below message is printed on @CurrentTime <br/>
+
+@Message @Name
+
+<br/><br/>
+Location: @Location
+<p>
+    <strong>Note</strong> You can see here that Name parameter and Location parameter share the same cascading value because they are both string.
+</p>
+<br>
+Person<br/>
+Name: @Person.Name<br/>
+Age: @Person.Age<br/>
+
+@code{
+    [CascadingParameter]
+    private DateTimeOffset CurrentTime { get; set;}
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [CascadingParameter]
+    private string Name { get; set;}
+
+    [CascadingParameter]
+    private string Location { get; set;}
+
+    [CascadingParameter]
+    private Person Person { get; set;}
+}
