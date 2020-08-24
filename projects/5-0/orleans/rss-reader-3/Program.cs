@@ -39,7 +39,7 @@ await Host.CreateDefaultBuilder(args)
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage("redis-rss-reader-3", optionsBuilder => optionsBuilder.Configure(options =>
+            .AddRedisGrainStorage(Config.RedisStorage, optionsBuilder => optionsBuilder.Configure(options =>
             {
                 options.DataConnectionString = "localhost:6379";
                 options.UseJson = true;
@@ -47,6 +47,11 @@ await Host.CreateDefaultBuilder(args)
             }));
     })
     .RunConsoleAsync();
+
+static class Config
+{
+    public const string RedisStorage = "redis-rss-reader-3";
+}
 
 
 class Startup
@@ -92,10 +97,10 @@ class Startup
                 }
 
                 var sources = await feedSourceGrain.GetAllAsync();
+                var feedFetcherReminderGrain = client.GetGrain<IFeedFetcherReminder>(0);
 
                 foreach(var s in sources)
                 {
-                    var feedFetcherReminderGrain = client.GetGrain<IFeedFetcherReminder>(0);
                     // AddReminder is indempotent
                     await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
                 }
@@ -217,7 +222,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
-    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader-3")] IPersistentState<FeedItemStore> storage) => _storage = storage;
+    public FeedItemResultGrain([PersistentState("feed-item-results", Config.RedisStorage)] IPersistentState<FeedItemStore> storage) => _storage = storage;
 
     public async Task AddAsync(List<FeedItem> items)
     {
@@ -257,7 +262,7 @@ class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader-3")] IPersistentState<FeedSourceStore> storage) => _storage = storage;
+    public FeedSourceGrain([PersistentState("feed-source", Config.RedisStorage)] IPersistentState<FeedSourceStore> storage) => _storage = storage;
 
     public async Task AddAsync(FeedSource source)
     {
@@ -346,6 +351,8 @@ class FeedFetchGrain : Grain, IFeedFetcher
         FeedType feedType = FeedType.Rss;
         try
         {
+            _logger.LogInformation($"Fetching {source.Url}");
+
             var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync(source.Url.ToString());
 
