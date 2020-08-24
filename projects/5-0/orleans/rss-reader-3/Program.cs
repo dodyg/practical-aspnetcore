@@ -109,7 +109,7 @@ class Startup
                         <title>Orleans RSS Reader</title>
                     </head>");
                 await context.Response.WriteAsync("<body><div class=\"uk-container\">");
-                
+                await context.Response.WriteAsync("<a href=\"/feed-sources\">Feed Sources</a><br/>");
                 if (feedItems.Count == 0)
                     await context.Response.WriteAsync("<p>Please refresh your browser again if you see no feeds displayed.</p>");
 
@@ -130,6 +130,38 @@ class Startup
                     await context.Response.WriteAsync("</li>");
                 }
                 await context.Response.WriteAsync("</ul>");
+                await context.Response.WriteAsync("</div></body></html>");
+            });
+
+            endpoints.MapGet("/feed-sources", async context =>
+            {
+                var client = context.RequestServices.GetService<IGrainFactory>()!;
+                var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
+                var sources = await feedSourceGrain.GetAllAsync();
+
+                await context.Response.WriteAsync(@"<html>
+                    <head>
+                        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
+                        <title>Orleans RSS Reader</title>
+                    </head>");
+                await context.Response.WriteAsync("<body><div class=\"uk-container\">");
+                await context.Response.WriteAsync("<a href=\"/\">Home</a><br/>");
+                await context.Response.WriteAsync("<strong>Valid</strong>");
+                await context.Response.WriteAsync("<ul>");
+                foreach(var s in sources.Where(x => x.IsValid))
+                {
+                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a></li>");
+                }
+                await context.Response.WriteAsync("</ul>");
+
+                await context.Response.WriteAsync("<strong>Invalid</strong>");
+                await context.Response.WriteAsync("<ul>");
+                foreach(var s in sources.Where(x => !x.IsValid))
+                {
+                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a></li>");
+                }
+                await context.Response.WriteAsync("</ul>");
+
                 await context.Response.WriteAsync("</div></body></html>");
             });
         });

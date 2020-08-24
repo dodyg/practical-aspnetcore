@@ -26,3 +26,4 @@ http://scripting.com/river/
         https://hnrss.org/newest
 
         https://docs.github.com/en/rest/reference/activity#feeds
+		https://docs.rsshub.app/blog.html#hexo
