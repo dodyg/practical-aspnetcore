@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.SyndicationFeed;
 
@@ -30,7 +31,23 @@ class FeedSource
 
     public short UpdateFrequencyInMinutes { get; set; } = 1;
 
-    public bool IsValid { get; set; } = true;
+    public bool CanFetch ()=> History.Take(10).Count(x => !x.IsValid) <= 3;  
+
+    public bool IsLatestValid 
+    {
+        get
+        {
+            if (History.Count == 0)
+                return true;
+
+            return History.First().IsValid;
+        }
+    }
+
+    public List<FeedHistory> History { get; set; } = new List<FeedHistory>();
+
+    public void LogFetchAttempt(bool isValid, string? message = null) =>
+        History.Insert(0, new FeedHistory { Timestamp = DateTimeOffset.UtcNow, IsValid = isValid, Message = message });
 
     public FeedChannel ToChannel()
     {
@@ -42,6 +59,15 @@ class FeedSource
             HideDescription = HideDescription
         };
     }
+}
+
+record FeedHistory 
+{
+    public DateTimeOffset Timestamp { get; set; }
+
+    public bool IsValid { get; set; }
+
+    public string? Message { get; set; }
 }
 
 record FeedItem

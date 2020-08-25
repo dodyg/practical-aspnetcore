@@ -153,17 +153,31 @@ class Startup
                 await context.Response.WriteAsync("<a href=\"/\">Home</a><br/>");
                 await context.Response.WriteAsync("<strong>Valid</strong>");
                 await context.Response.WriteAsync("<ul>");
-                foreach(var s in sources.Where(x => x.IsValid))
+                foreach(var s in sources.Where(x => x.IsLatestValid))
                 {
-                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a></li>");
+                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a>");
+                    await context.Response.WriteAsync("<ul>");
+                    foreach(var h in s.History)
+                    {
+                        await context.Response.WriteAsync($"<li>{h.Timestamp} - {h.IsValid}<p>{h.Message}</p></li>");
+                    }
+                    await context.Response.WriteAsync("</ul>");
+                    await context.Response.WriteAsync("</li>");
                 }
                 await context.Response.WriteAsync("</ul>");
 
                 await context.Response.WriteAsync("<strong>Invalid</strong>");
                 await context.Response.WriteAsync("<ul>");
-                foreach(var s in sources.Where(x => !x.IsValid))
+                foreach(var s in sources.Where(x => !x.IsLatestValid))
                 {
-                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a></li>");
+                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a>");
+                    await context.Response.WriteAsync("<ul>");
+                    foreach(var h in s.History)
+                    {
+                        await context.Response.WriteAsync($"<li>{h.Timestamp} - {h.IsValid}<p>{h.Message}</p></li>");
+                    }
+                    await context.Response.WriteAsync("</ul>");
+                    await context.Response.WriteAsync("</li>");
                 }
                 await context.Response.WriteAsync("</ul>");
 
@@ -282,18 +296,17 @@ class FeedSourceGrain : Grain, IFeedSource
     public Task<FeedSource?> FindFeedSourceByUrlAsync(string url) => 
         Task.FromResult(_storage.State.Sources.Find(x => x.Url.Equals(url, StringComparison.Ordinal)));
 
-    public async Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus)
+    public async Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus, string? message)
     {
         var feed = await FindFeedSourceByUrlAsync(url);
         if (feed is object)
         {
-            feed.IsValid = activeStatus;
+            feed.LogFetchAttempt(activeStatus, message);
             await _storage.WriteStateAsync();
         }
 
         return feed; 
     }
-
 }
 
 record FeedSourceStore 
@@ -309,7 +322,7 @@ interface IFeedSource : Orleans.IGrainWithIntegerKey
 
     Task<FeedSource?> FindFeedSourceByUrlAsync(string url);
 
-    Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus);
+    Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus, string? message);
 } 
 
 interface IFeedFetcher : Orleans.IGrainWithStringKey
@@ -344,7 +357,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
         if (string.IsNullOrWhiteSpace(source.Url))
             return new List<FeedItem>();
 
-        if (!source.IsValid)
+        if (!source.CanFetch())
             return new List<FeedItem>();
 
         var feed = new List<FeedItem>();
@@ -359,15 +372,16 @@ class FeedFetchGrain : Grain, IFeedFetcher
             var memory = new MemoryStream();
             await response.Content.CopyToAsync(memory);
 
-            char[] buf = new char[300]; // We need large buffer because to skip xml metadata and comments before the root of the xml document starts
+            memory.Seek(0, SeekOrigin.Begin);
+            char[] buf = new char[400]; // We need large buffer because to skip xml metadata and comments before the root of the xml document starts
             var sr = new StreamReader(memory);
-            sr.ReadBlock(buf, 0, buf.Length);
+            var charRead = sr.ReadBlock(buf, 0, buf.Length);
 
             if (!new string(buf).Contains("rss", StringComparison.OrdinalIgnoreCase))
                 feedType = FeedType.Atom;
 
             memory.Seek(0, SeekOrigin.Begin);
-            using var xmlReader = XmlReader.Create(memory);
+            using var xmlReader = XmlReader.Create(memory, new XmlReaderSettings { DtdProcessing = DtdProcessing.Ignore });
             
             if (feedType == FeedType.Rss)
             {
@@ -411,6 +425,9 @@ class FeedFetchGrain : Grain, IFeedFetcher
                 }
             }
 
+            var feedSource = _grainFactory.GetGrain<IFeedSource>(0)!;
+            await feedSource.UpdateFeedSourceStatus(source.Url, true, $"{feed.Count} items fetched");
+
             return feed;
         }
         catch (Exception ex)
@@ -419,7 +436,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
 
             // Mark feed as invalid
             var feedSource = _grainFactory.GetGrain<IFeedSource>(0)!;
-            await feedSource.UpdateFeedSourceStatus(source.Url, false);
+            await feedSource.UpdateFeedSourceStatus(source.Url, false, ex.Message);
 
             return new List<FeedItem>();
         }
