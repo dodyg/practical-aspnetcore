@@ -1,4 +1,4 @@
-# Blazor (19)
+# Blazor (20)
 
 Make sure you installed the latest [.NET Core 3.1.4 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
@@ -78,8 +78,12 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
   * [Component Sixteen](/projects/blazor/ComponentSixteen)
 
-    This sample demonstrates cascading value by type feature. This is a parameter that get passed through a component without having to explicitly assign them.
+    This sample demonstrates cascading value by type feature. This is a parameter that get passed through a component without having to explicitly assign them. All parameters that share the type will share the value.
     
+  * [Component Seventeen](/projects/blazor/ComponentSeventeen)
+
+    This sample demonstrates cascading value by name feature. In contrast to cascading value by type, only parameters that match the type and name will receive the value.
+
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
     Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
