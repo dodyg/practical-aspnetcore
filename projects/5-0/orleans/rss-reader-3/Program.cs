@@ -367,6 +367,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
             _logger.LogInformation($"Fetching {source.Url}");
 
             var client = _httpClientFactory.CreateClient();
+            client.Timeout = TimeSpan.FromSeconds(10);
             var response = await client.GetAsync(source.Url.ToString());
 
             var memory = new MemoryStream();
