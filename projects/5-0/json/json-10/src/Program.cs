@@ -20,10 +20,14 @@ namespace PracticalAspNetCore
         [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         public bool? IsMarried { get; set; }
 
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTimeOffset CurrentTime { get; set; }
 
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenNull)]// Do not serialize this property when null
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]// Do not serialize this property when null
         public bool? IsWorking { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool IsHealthy { get; set; }
     }
 
     public class Startup
@@ -54,8 +58,7 @@ namespace PracticalAspNetCore
                             Name = "Dody",
                             Age = 42,
                             IsMarried = false,
-                            CurrentTime = DateTimeOffset.UtcNow,
-                            IsWorking = null
+                            IsHealthy = true
                         },
                     };
 
