@@ -19,9 +19,10 @@ using Microsoft.SyndicationFeed.Rss;
 using System.Linq;
 using System.Net.Http;
 using System.IO;
+using System.Diagnostics;
+using Orleans.Transactions;
 
 await Host.CreateDefaultBuilder(args)
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .ConfigureLogging(builder =>
     {
         builder.SetMinimumLevel(LogLevel.Information);
@@ -46,6 +47,7 @@ await Host.CreateDefaultBuilder(args)
                 options.DatabaseNumber = 1;
             }));
     })
+    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .RunConsoleAsync();
 
 static class Config
@@ -187,11 +189,12 @@ class Startup
     }
 }
 
-class FeedFetcherReminder: Grain, IRemindable, IFeedFetcherReminder
+class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
 {
     readonly IGrainFactory _grainFactory;
-
     readonly ILogger _logger;
+
+    readonly Dictionary<string, (Task FetchTask, Stopwatch FetchDuration)> _runningReminders = new Dictionary<string, (Task FetchTask, Stopwatch FetchDuration)>();
 
     public FeedFetcherReminder(IGrainFactory grainFactory, ILogger<FeedFetcherReminder> logger)
     {
@@ -214,6 +217,18 @@ class FeedFetcherReminder: Grain, IRemindable, IFeedFetcherReminder
     {
         _logger.Info($"Receive {reminderName} reminder");
 
+        if (_runningReminders.TryGetValue(reminderName, out var reminder))
+        {
+            if (!reminder.FetchTask.IsCompleted)
+            {
+                _logger.LogInformation(
+                    "Received reminder {ReminderName}, but previous refresh task is still running and has been running for {TaskRunTime}",
+                    reminderName,
+                    reminder.FetchDuration.Elapsed);
+                return;
+            }
+        }
+
         var feedSourceGrain = _grainFactory.GetGrain<IFeedSource>(0)!;
 
         var feedSource = await feedSourceGrain.FindFeedSourceByUrlAsync(reminderName);
@@ -222,7 +237,11 @@ class FeedFetcherReminder: Grain, IRemindable, IFeedFetcherReminder
         {
             _logger.Info($"Fetching {feedSource.Url}");
             var feedFetcherGrain = _grainFactory.GetGrain<IFeedFetcher>(feedSource.Url);
-            await feedFetcherGrain.FetchAsync(feedSource);
+            var task = feedFetcherGrain.FetchAsync(feedSource);
+            task.Ignore();
+            var stopwatch = reminder.FetchDuration ?? new Stopwatch();
+            stopwatch.Restart();
+            _runningReminders[reminderName] = (task, stopwatch);
         }
     }
 }
