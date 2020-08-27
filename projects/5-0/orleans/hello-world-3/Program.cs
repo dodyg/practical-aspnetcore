@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
 await Host.CreateDefaultBuilder(args)
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .ConfigureLogging(builder =>
     {
         builder.SetMinimumLevel(LogLevel.Information);
@@ -34,6 +33,7 @@ await Host.CreateDefaultBuilder(args)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloArchiveGrain).Assembly).WithReferences())
             .AddMemoryGrainStorage(name: "ArchiveStorage");
     })
+    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .RunConsoleAsync();
 
 class Startup

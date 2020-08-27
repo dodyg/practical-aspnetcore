@@ -255,7 +255,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
-    public FeedItemResultGrain([PersistentState("feed-item-results", Config.RedisStorage)] IPersistentState<FeedItemStore> storage) => _storage = storage;
+    public FeedItemResultGrain([PersistentState("feed-item-results-3", Config.RedisStorage)] IPersistentState<FeedItemStore> storage) => _storage = storage;
 
     public async Task AddAsync(List<FeedItem> items)
     {
@@ -295,7 +295,7 @@ class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source", Config.RedisStorage)] IPersistentState<FeedSourceStore> storage) => _storage = storage;
+    public FeedSourceGrain([PersistentState("feed-source-3", Config.RedisStorage)] IPersistentState<FeedSourceStore> storage) => _storage = storage;
 
     public async Task AddAsync(FeedSource source)
     {

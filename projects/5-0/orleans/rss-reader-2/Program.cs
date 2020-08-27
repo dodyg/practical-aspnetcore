@@ -19,7 +19,6 @@ using Microsoft.SyndicationFeed.Rss;
 using System.Linq;
 
 await Host.CreateDefaultBuilder(args)
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .ConfigureLogging(builder =>
     {
         builder.SetMinimumLevel(LogLevel.Information);
@@ -44,6 +43,7 @@ await Host.CreateDefaultBuilder(args)
                 options.DatabaseNumber = 1;
             }));
     })
+    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .RunConsoleAsync();
 
 class Startup
@@ -179,7 +179,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
-    public FeedItemResultGrain([PersistentState("feed-item-results", "redis-rss-reader-2")] IPersistentState<FeedItemStore> storage) => _storage = storage;
+    public FeedItemResultGrain([PersistentState("feed-item-results-2", "redis-rss-reader-2")] IPersistentState<FeedItemStore> storage) => _storage = storage;
 
     public async Task AddAsync(List<FeedItem> items)
     {
@@ -219,7 +219,7 @@ class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source", "redis-rss-reader-2")] IPersistentState<FeedSourceStore> storage) => _storage = storage;
+    public FeedSourceGrain([PersistentState("feed-source-2", "redis-rss-reader-2")] IPersistentState<FeedSourceStore> storage) => _storage = storage;
 
     public async Task AddAsync(FeedSource source)
     {

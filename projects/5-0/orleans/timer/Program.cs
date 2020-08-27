@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
 await Host.CreateDefaultBuilder(args)
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .ConfigureLogging(builder =>
     {
         builder.SetMinimumLevel(LogLevel.Information);
@@ -38,6 +37,7 @@ await Host.CreateDefaultBuilder(args)
                 options.DatabaseNumber = 1;
             }));
     })
+    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .RunConsoleAsync();
 
 class Startup

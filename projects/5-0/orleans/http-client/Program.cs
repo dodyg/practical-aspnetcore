@@ -18,7 +18,6 @@ using System.Net.Http.Json;
 using Orleans.Concurrency;
 
 await Host.CreateDefaultBuilder(args)
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .ConfigureLogging(builder =>
     {
         builder.SetMinimumLevel(LogLevel.Information);
@@ -37,6 +36,7 @@ await Host.CreateDefaultBuilder(args)
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(TimeKeeperGrain).Assembly).WithReferences());
     })
+    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
     .RunConsoleAsync();
 
 class Startup
