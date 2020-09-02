@@ -1,4 +1,4 @@
-# .NET 5.0 (39)
+# .NET 5.0 (40)
 
 This is the section containing samples for .NET 5.0 new features and changes. *If you are looking for ASP.NET Core 3.1 samples, hundreds of them are [here](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS)*.
 
@@ -8,7 +8,7 @@ The following sample runs on `5.0.100-preview.8.20417.9`. Please install the SDK
 |--- | --- |
 | [Json](json) | 11 |
 | [Blazor Wasm](blazor) | 18|
-| [Orleans](orleans) | 10 |
+| [Orleans](orleans) | 11 |
 
 * [Hello World](/projects/5-0/hello-world)
 

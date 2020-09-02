@@ -1,4 +1,4 @@
-# Microsoft Orleans (10)
+# Microsoft Orleans (11)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
@@ -28,7 +28,7 @@ This section is very early in development. My experience in using an Actor frame
 
 - [Reminder](reminder)
 
-  This sample demonstrates the functionality of `Grain.RegisterOrUpdateReminder`. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days). This is a persistent timer that survives  grain  restarts. [Reminder is much expensive than Timer](https://github.com/dotnet/orleans/issues/4218#issuecomment-373162275).
+  This sample demonstrates the functionality of `Grain.RegisterOrUpdateReminder`. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days). This is a persistent timer that survives grain restarts. [Reminder is much expensive than Timer](https://github.com/dotnet/orleans/issues/4218#issuecomment-373162275).
 
 - [HttpClient and Stateless Worker Grain](http-client)
 
@@ -44,5 +44,8 @@ This section is very early in development. My experience in using an Actor frame
 
 - [RSS Reader with Reminder + Subscription List](rss-reader-3)
 
-  This is an RSS reader that read RSS feed sources from an OPML subscription list and refresh each feed source every x minutes (configurable). It uses a single grain
-  to handle all the reminders created for each feed.
+  This is an RSS reader that read RSS feed sources from an OPML subscription list and refresh each feed source every x minutes (configurable). It uses a single Reminder grain to handle all the reminders created for each feed.
+
+- [RSS Reader with Reminder + Subscription List 2](rss-reader-4)
+
+  This is an RSS reader that read RSS feed sources from an OPML subscription list and refresh each feed source every x minutes (configurable). It uses one Reminder grain for each feed.
