@@ -1,4 +1,4 @@
-# Microsoft Orleans (9)
+# Microsoft Orleans (10)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
@@ -41,3 +41,8 @@ This section is very early in development. My experience in using an Actor frame
 - [RSS Reader with Reminder](rss-reader-2)
 
   This is an RSS Reader that reads syndication items and refresh each feed source every x minutes (configurable). 
+
+- [RSS Reader with Reminder + Subscription List](rss-reader-3)
+
+  This is an RSS reader that read RSS feed sources from an OPML subscription list and refresh each feed source every x minutes (configurable). It uses a single grain
+  to handle all the reminders created for each feed.

@@ -20,7 +20,6 @@ using System.Linq;
 using System.Net.Http;
 using System.IO;
 using System.Diagnostics;
-using Orleans.Transactions;
 
 await Host.CreateDefaultBuilder(args)
     .ConfigureLogging(builder =>
@@ -54,7 +53,6 @@ static class Config
 {
     public const string RedisStorage = "redis-rss-reader-3";
 }
-
 
 class Startup
 {
