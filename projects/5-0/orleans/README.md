@@ -50,6 +50,6 @@ This section is very early in development. My experience in using an Actor frame
 
   This is an RSS reader that read RSS feed sources from an OPML subscription list and refresh each feed source every x minutes (configurable). It uses one Reminder grain for each feed.
 
-- [RSS Reader with Reminder + Subscription List + Orleans Stream](rss-reader-5)
+- [RSS Reader with Reminder + Subscription List + Orleans Streams](rss-reader-5)
 
   This is an RSS reader that read RSS feed sources from an OPML subscription list and publish it into a single stream with a single channel. The data then processed by implicit susbcriber. 
