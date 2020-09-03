@@ -261,12 +261,12 @@ class FeedStreamReaderGrain: Grain, IFeedStreamReader
     public override async Task OnActivateAsync()
     {
         var streamProvider = GetStreamProvider(Config.StreamProvider); 
-        var stream = streamProvider.GetStream<FeedItem>(Config.StreamId, Config.StreamChannel);
+        var stream = streamProvider.GetStream<List<FeedItem>>(Config.StreamId, Config.StreamChannel);
 
         var feedItemResultGrain = _grainFactory.GetGrain<IFeedItemResults>(0);
-        await stream.SubscribeAsync<FeedItem>(async (data, token) =>
+        await stream.SubscribeAsync<List<FeedItem>>(async (data, token) =>
         {
-            _logger.Info($"{data.Title}");
+            _logger.Info($"Feed Items {data.Count}");
             await feedItemResultGrain.AddAsync(data);
         });
     }
@@ -277,14 +277,6 @@ class FeedItemResultGrain : Grain, IFeedItemResults
     private readonly IPersistentState<FeedItemStore> _storage;
 
     public FeedItemResultGrain([PersistentState("feed-item-results-5", Config.RedisStorage)] IPersistentState<FeedItemStore> storage) => _storage = storage;
-
-    public async Task AddAsync(FeedItem item)
-    {
-        if (!_storage.State.Results.Exists(x => x.Id?.Equals(item.Id, StringComparison.OrdinalIgnoreCase) ?? false))
-            _storage.State.Results.Add(item);
-                
-        await _storage.WriteStateAsync();
-    }
 
     public async Task AddAsync(List<FeedItem> items)
     {
@@ -313,8 +305,6 @@ record FeedItemStore
 
 interface IFeedItemResults : Orleans.IGrainWithIntegerKey
 {
-    Task AddAsync (FeedItem item);
-
     Task AddAsync(List<FeedItem> items);
 
     Task<List<FeedItem>> GetAllAsync();
@@ -400,10 +390,9 @@ class FeedFetchGrain : Grain, IFeedFetcher
         var results = await ReadFeedAsync(source);
 
         var streamProvider = GetStreamProvider(Config.StreamProvider);
-        var stream = streamProvider.GetStream<FeedItem>(Config.StreamId, Config.StreamChannel);
+        var stream = streamProvider.GetStream<List<FeedItem>>(Config.StreamId, Config.StreamChannel);
 
-        foreach(var f in results)
-            await stream.OnNextAsync(f);
+        await stream.OnNextAsync(results);
     }
 
     public async Task<List<FeedItem>> ReadFeedAsync(FeedSource source)
