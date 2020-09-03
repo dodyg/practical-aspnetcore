@@ -19,7 +19,6 @@ using Microsoft.SyndicationFeed.Rss;
 using System.Linq;
 using System.Net.Http;
 using System.IO;
-using System.Diagnostics;
 using Orleans.Streams;
 
 await Host.CreateDefaultBuilder(args)
@@ -238,13 +237,6 @@ class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
     }
 }
 
-interface IFeedFetcherReminder  : Orleans.IGrainWithStringKey
-{
-    Task AddReminder(string reminder, short repeatEveryMinute);
-}
-
-interface IFeedStreamReader : Orleans.IGrain { }
-
 [ImplicitStreamSubscription(Config.StreamChannel)]
 class FeedStreamReaderGrain: Grain, IFeedStreamReader
 {
@@ -303,15 +295,6 @@ record FeedItemStore
     public List<FeedItem> Results { get; set; } = new List<FeedItem>();
 }
 
-interface IFeedItemResults : Orleans.IGrainWithIntegerKey
-{
-    Task AddAsync(List<FeedItem> items);
-
-    Task<List<FeedItem>> GetAllAsync();
-
-    Task ClearAsync();
-}
-
 class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
@@ -331,7 +314,6 @@ class FeedSourceGrain : Grain, IFeedSource
     }
 
     public Task<List<FeedSource>> GetAllAsync() => Task.FromResult(_storage.State.Sources);
-
     
     public Task<FeedSource?> FindFeedSourceByUrlAsync(string url) => 
         Task.FromResult(_storage.State.Sources.Find(x => x.Url.Equals(url, StringComparison.Ordinal)));
@@ -352,22 +334,6 @@ class FeedSourceGrain : Grain, IFeedSource
 record FeedSourceStore 
 {
     public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
-}
-
-interface IFeedSource : Orleans.IGrainWithIntegerKey
-{
-    Task AddAsync(FeedSource source);
-
-    Task<List<FeedSource>> GetAllAsync();
-
-    Task<FeedSource?> FindFeedSourceByUrlAsync(string url);
-
-    Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus, string? message);
-} 
-
-interface IFeedFetcher : Orleans.IGrainWithStringKey
-{
-    Task FetchAsync(FeedSource source);
 }
 
 class FeedFetchGrain : Grain, IFeedFetcher
