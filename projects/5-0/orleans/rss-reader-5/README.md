@@ -10,4 +10,4 @@ This is a simple RSS reader that uses two storage, one for storing a feed source
 - This Rss Reader will read a list of RSS sources from an OPML subscription feed http://scripting.com/misc/mlb.opml
 
 In this RSS Reader, there is a single stream with a single channel. Each Reminder will fetch a RSS news feed on a regular basis and publish the results into the stream.
-The we will have an implicit subscriber to the stream that will process the feed and store it.
+Then we will have one (grain) implicit subscriber to the stream that will process the feed and store it. The rule is one grain is created per stream id for implicit subscriber.
