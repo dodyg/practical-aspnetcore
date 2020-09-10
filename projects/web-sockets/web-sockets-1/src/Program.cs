@@ -33,7 +33,7 @@ namespace PracticalAspNetCore
                 {
                     if (result.MessageType == WebSocketMessageType.Text)
                     {
-                        var clientRequest = Encoding.UTF8.GetString(receiveBuffer.Array, receiveBuffer.Offset, receiveBuffer.Count);
+                        var clientRequest = Encoding.UTF8.GetString(receiveBuffer.Array, receiveBuffer.Offset, result.Count);
 
                         var serverReply = Encoding.UTF8.GetBytes("Echo " + clientRequest);
                         var replyBuffer = new ArraySegment<byte>(serverReply);
