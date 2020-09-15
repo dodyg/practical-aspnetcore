@@ -1,21 +1,6 @@
-# Samples for ASP.NET Core 3.1.300 (318)
+# Samples for ASP.NET Core 5.0 (318)
 
-## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
-
-## Welcome
-
-The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
-
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2019 as well.
-
-Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
-
-**Note** There is a section containing **.NET 5 Preview RC 1** specific samples [here](/projects/5-0) (41). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS).
-
-If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**. Otherwise just create a new issue and I will try to answer the best I can.
-
-Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
-
+This is a WIP to upgrade all existing ASP.NET Core 3.1 samples to .NET 5.0
 
 ## Sections
 
