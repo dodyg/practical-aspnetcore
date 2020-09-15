@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>json-8</AssemblyName>
-    <OutputType>Exe</OutputType>
-    <PackageId>new-routing</PackageId>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Watch Include="**\*.cshtml" />
