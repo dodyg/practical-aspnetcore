@@ -14,7 +14,7 @@ namespace PracticalAspNetCore
             app.UseRouting();
 
             var options = new RewriteOptions()
-               .AddRedirect("([/_0-9a-z-]+)+(.*)$", "/?path=$1&ext=$2"); //redirect any path that ends with .html 
+               .AddRedirect("([/_0-9a-zA-Z-]+)\\.([^/]+)$", "/?path=$1&ext=$2"); //redirect any path that ends with .html 
 
             app.UseRewriter(options);
 
