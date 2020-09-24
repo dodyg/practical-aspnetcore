@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 3.1.300 (319)
+# 319 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC1
 
 ## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
 
