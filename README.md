@@ -21,23 +21,23 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 
 | Section                                                        |      |                                                                                                                 |      |
 |-----------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------|------|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (20) | [Middleware](/projects/middleware)                                                                              | (14) |
-| [Blazor Server Side](/projects/blazor-ss) (Localization)                       | (15)  | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)                                                                                            | (46) |
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (20) | [Middleware](/projects/middleware)                                                   | (14) |
+| [Blazor Server Side](/projects/blazor-ss) (Localization)        | (15) | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)            | (46) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                                                                            | (9)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                                                                          | (4)  |
-| [Dependency Injection](/projects/dependency-injection/)         | (3)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
+| [Dependency Injection](/projects/dependency-injection/)         | (3)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                             | (14) |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                                                                                  | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider)                                                       | (8)  |
-| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (10)  |
+| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (10) |
 | [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                                                                                    | (12) |
 | [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                                                                       | (6)  |
 | [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                                                                          | (3)  |
 | [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                                                                              | (5)  |
-| [gRPC](/projects/grpc) (including grpc-Web)                                          | (12) | [Web Sockets](/projects/web-sockets)                                                                            | (5)  |
+| [gRPC](/projects/grpc) (including grpc-Web)                     | (12) | [Web Sockets](/projects/web-sockets)                                                                            | (5)  |
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
-| [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
-| [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (1) | | |
-|                                                                 | 125  |                                                                                                                 | 142  |
+| [Localization and Globalization](projects/localization)         | (6)  | [Azure Functions](/projects/azure-functions) 																   | (1)  |
+| [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (1) | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). | |
+|                                                                 | 125  |                                                                                                                 | 143  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
@@ -154,6 +154,9 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
 
+### Azure Functions (1)
+
+ The sample shows how you can add your own code to the startup of the Azure Functions host by adding a custom Startup class.
 
 ## Misc
 
