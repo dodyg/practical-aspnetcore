@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 5.0 (318)
 
-This is a WIP to upgrade all existing ASP.NET Core 3.1 samples to .NET 5.0
+This is a WIP to upgrade all existing ASP.NET Core 3.1 samples to .NET 5.0 RC 2
 
 ## Sections
 
