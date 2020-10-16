@@ -27,7 +27,7 @@ This is a WIP to upgrade all existing ASP.NET Core 3.1 samples to .NET 5.0 RC 2
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
 
-## Foundation ASP.NET Core 3.1 Samples
+## Foundation ASP.NET Core 5 Samples
 
 ### Basic (5)
 
