@@ -1,4 +1,4 @@
-# 320 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC1
+# 320 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC2
 
 ## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
 
@@ -10,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
 
-**Note** There is a section containing **.NET 5 Preview RC 1** specific samples [here](/projects/5-0) (41). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS).
+**Note** There is a section containing **.NET 5 Preview RC 2** specific samples [here](/projects/5-0) (41). For samples for older version of ASP.NET Core (e.g 2.1), you can find them [here](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS).
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**. Otherwise just create a new issue and I will try to answer the best I can.
 
