@@ -59,3 +59,7 @@
   * [Middleware 12](/projects/middleware/middleware-12)
 
     Contrast the usage of `MapWhen` (which branch execution) and `UseWhen` (which doesn't branch execution) in configuring your Middleware.
+
+  * [Middleware 13](/projects/middleware/middleware-13)
+
+    Demonstrate how to implement basic error handling mechanism and how to return error object (same for all api exceptions).
