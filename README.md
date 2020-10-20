@@ -1,4 +1,4 @@
-# 319 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC2
+# 323 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC2
 
 ## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
 
@@ -37,7 +37,7 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | [Azure Functions](/projects/azure-functions) 																   | (2)  |
 | [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (1) | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). | |
-|                                                                 | 125  |                                                                                                                 | 143  |
+|                                                                 | 138  |                                                                                                                 | 144  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
