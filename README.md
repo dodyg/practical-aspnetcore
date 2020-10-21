@@ -1,4 +1,4 @@
-# 320 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC2
+# 324 Samples for ASP.NET Core 3.1.300 and ASP.NET Core 5 RC2
 
 ## People of Beirut needs our help. [Please support them](https://lebanoncrisis.carrd.co/#donate).
 
@@ -35,9 +35,9 @@ Hi Nuget visitors, if you have problem finding the sample you are looking for, p
 | [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                                                                              | (5)  |
 | [gRPC](/projects/grpc) (including grpc-Web)                     | (12) | [Web Sockets](/projects/web-sockets)                                                                            | (5)  |
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
-| [Localization and Globalization](projects/localization)         | (6)  | [Azure Functions](/projects/azure-functions) 																   | (1)  |
+| [Localization and Globalization](projects/localization)         | (6)  | [Azure Functions](/projects/azure-functions) 																   | (2)  |
 | [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (1) | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). | |
-|                                                                 | 125  |                                                                                                                 | 143  |
+|                                                                 | 138  |                                                                                                                 | 144  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
@@ -154,9 +154,17 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 
     This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
 
-### Azure Functions (1)
+### Azure Functions (2)
+
+ These samples show you how to achieve different scenarios without out-of-the-box templates, such as referencing an Entity Framework Core database context in the function.
+
+* [How to modify Startup.cs in an Azure Function?](/projects/azure-functions/StartupExample)
 
  The sample shows how you can add your own code to the startup of the Azure Functions host by adding a custom Startup class.
+ 
+* [How to include an EF Core dbcontext in an Azure Function?](/projects/azure-functions/DbContextExample)
+
+ The sample shows an example on how to include an Entity Framework Core database context in your Azure Function, and access entities in it.
 
 ## Misc
 
