@@ -14,4 +14,4 @@
 
 # Questions ?
 
- If you have issues with the samples, either tag [@koskila](https://github.com/koskila) when opening an issue, or (get in touch with him directly)[https://www.koskila.net/contact/].
+ If you have issues with the samples, either tag [@koskila](https://github.com/koskila) when opening an issue, or [get in touch with him directly](https://www.koskila.net/contact/).
