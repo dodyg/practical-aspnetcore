@@ -156,15 +156,7 @@ The samples in this section rely on [Wangkanai.Detection](https://github.com/wan
 
 ### Azure Functions (2)
 
- These samples show you how to achieve different scenarios without out-of-the-box templates, such as referencing an Entity Framework Core database context in the function.
-
-* [How to modify Startup.cs in an Azure Function?](/projects/azure-functions/StartupExample)
-
- The sample shows how you can add your own code to the startup of the Azure Functions host by adding a custom Startup class.
- 
-* [How to include an EF Core dbcontext in an Azure Function?](/projects/azure-functions/DbContextExample)
-
- The sample shows an example on how to include an Entity Framework Core database context in your Azure Function, and access entities in it.
+ These samples show you how to achieve different scenarios without out-of-the-box templates, such as referencing an Entity Framework Core database context in the function. See details [here](/projects/azure-functions/readme.md)!
 
 ## Misc
 
