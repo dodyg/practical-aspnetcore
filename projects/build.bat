@@ -152,6 +152,9 @@ dotnet build json\json-6
 dotnet build json\json-7
 dotnet build json\json-8
 dotnet build json\json-9
+dotnet build json\json-10
+dotnet build json\json-11
+
 dotnet build localization\localization-1
 dotnet build localization\localization-2
 dotnet build localization\localization-3

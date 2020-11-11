@@ -1,4 +1,4 @@
-# Samples for ASP.NET 5.0 (318)
+# Samples for ASP.NET 5.0 (319)
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
@@ -19,7 +19,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                                                                                  | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider)                                                       | (8)  |
-| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (10)  |
+| [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (11)  |
 | [Health Check](/projects/health-check)                          | (6)  | [Startup](/projects/startup)                                                                                    | (12) |
 | [IHttpClientFactory](/projects/httpclientfactory)               | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                                                                       | (6)  |
 | [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                                                                          | (3)  |
