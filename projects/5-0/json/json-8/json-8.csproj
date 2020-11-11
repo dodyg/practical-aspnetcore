@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <Watch Include="**\*.cshtml" />
-    <PackageReference Include="BenchmarkDotNet" Version="0.11.5" />
-  </ItemGroup>
-</Project>
