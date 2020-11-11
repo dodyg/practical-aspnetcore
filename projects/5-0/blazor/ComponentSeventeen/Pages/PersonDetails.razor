@@ -1,0 +1,21 @@
+
+Person 1<br/>
+Name: @Person.Name<br/>
+Age: @Person.Age<br/>
+
+<br/><br/>
+
+Person 2<br/>
+Name: @Person2.Name<br/>
+Age: @Person2.Age<br/>
+
+@code {
+    
+    [CascadingParameter(Name = "PersonInfo")]
+    private Person Person { get; set;}
+
+    
+    [CascadingParameter(Name = "PersonInfo")]
+    private Person Person2 { get; set;}
+
+}

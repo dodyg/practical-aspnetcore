@@ -1,0 +1,26 @@
+﻿@page "/"
+
+<h1>Cascading Parameter via type</h1>
+
+<CascadingValue Value="CurrentTime">
+    <CascadingValue Value="Name">
+        <CascadingValue Value="Person">
+            <Greet Message="@Message" />
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
+@code
+{
+    public DateTimeOffset CurrentTime = DateTimeOffset.Now;
+
+    public string Name = "Annie";
+
+    public string Message { get; set; } = "Hello world";
+
+    public Person Person { get; set; } = new Person
+    {
+        Name = "Annie",
+        Age = 33
+    };
+}

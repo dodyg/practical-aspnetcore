@@ -7,7 +7,9 @@ dotnet build ComponentFour
 dotnet build ComponentFourteen
 dotnet build ComponentNine
 dotnet build ComponentSeven
+dotnet build ComponentSeventeen
 dotnet build ComponentSix
+dotnet build ComponentSixteen
 dotnet build ComponentTen
 dotnet build ComponentThirteen
 dotnet build ComponentThree

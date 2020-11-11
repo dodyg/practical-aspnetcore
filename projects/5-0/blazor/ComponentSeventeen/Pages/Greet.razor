@@ -1,0 +1,25 @@
+
+Below message is printed on @CurrentTime <br/>
+
+@Message @Name
+
+<br/><br/>
+Location: @Location
+<br>
+
+<PersonDetails/>
+
+@code{
+    [CascadingParameter(Name = "Time")]
+    private DateTimeOffset CurrentTime { get; set;}
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [CascadingParameter(Name = "Name")]
+    private string Name { get; set;}
+
+    [CascadingParameter(Name = "CurrentLocation")]
+    private string Location { get; set;}
+
+}
