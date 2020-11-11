@@ -28,7 +28,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
 | [Single File Application](projects/sfa) | (1) | [Orleans](projects/orleans) | (12) |
-|                                                                 | 125  |                                                                                                                 | 142  |
+|                                                                 | 137  |                                                                                                                 | 143  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
