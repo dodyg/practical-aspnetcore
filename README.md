@@ -19,7 +19,7 @@
 | [gRPC](/projects/grpc) (including grpc-Web)                                          | (12) | [Web Sockets](/projects/web-sockets)                                                                            | (5)  |
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
-| [Single File Application](projects/5-0/sfa) - C# 9, ASP.NET Core 5| (1) | | |
+| [Single File Application](projects/sfa) | (1) | [Orleans](projects/orleans) | (12) |
 |                                                                 | 125  |                                                                                                                 | 142  |
 ## How to run these samples
 

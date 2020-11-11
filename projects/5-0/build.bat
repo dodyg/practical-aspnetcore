@@ -1,6 +1,5 @@
 dotnet build hello-world
 
-dotnet build sfa\wiki
 
 dotnet build json\json
 dotnet build json\json-2
@@ -32,20 +31,3 @@ dotnet build blazor\ComponentTwo
 dotnet build blazor\DataBinding
 dotnet build blazor\DataBindingTwo
 dotnet build blazor\HelloWorld
-
-dotnet build orleans\hello-world\client\
-dotnet build orleans\hello-world\silo\
-dotnet build orleans\hello-world-2\client
-dotnet build orleans\hello-world-2\silo
-dotnet build orleans\hello-world-3
-dotnet build orleans\hello-world-4
-dotnet build orleans\http-client
-dotnet build orleans\reminder
-dotnet build orleans\rss-reader
-dotnet build orleans\rss-reader-2
-dotnet build orleans\rss-reader-3
-dotnet build orleans\rss-reader-4
-dotnet build orleans\rss-reader-5
-dotnet build orleans\rss-reader-6
-dotnet build orleans\timer
-
