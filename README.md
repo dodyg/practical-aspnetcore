@@ -47,9 +47,9 @@ To run these samples, simply open your command line console,  go to each folder 
 
   This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
 
-* [Hello World](/projects/basic/hello-world-3)
+* [Hello World - 3](/projects/basic/hello-world-3)
 
-  Classic sample running on .NET 5 using C# 9 top level statements.
+  This sample uses C# 9 top level statements.
 
 * [IWebHostConfiguration](/projects/basic/i-webhost-environment)
 

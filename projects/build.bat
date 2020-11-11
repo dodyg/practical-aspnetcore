@@ -4,6 +4,7 @@ dotnet build anonymous-id
 dotnet build application-environment
 dotnet build basic\hello-world
 dotnet build basic\hello-world-2
+dotnet build basic\hello-world-3
 dotnet build basic\i-host-environment
 dotnet build basic\i-webhost-environment
 dotnet build basic\iconfiguration
