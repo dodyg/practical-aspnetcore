@@ -16,7 +16,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Blazor Server Side](/projects/blazor-ss) (Localization)                       | (15)  | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)                                                                                            | (46) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                                                                            | (9)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                                                                          | (4)  |
-| [Dependency Injection](/projects/dependency-injection/)         | (2)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
+| [Dependency Injection](/projects/dependency-injection/)         | (3)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                                                                                  | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider)                                                       | (8)  |
 | [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (11)  |
@@ -28,7 +28,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
 | [Single File Application](projects/sfa) | (1) | [Orleans](projects/orleans) | (12) |
-|                                                                 | 137  |                                                                                                                 | 156  |
+|                                                                 | 138  |                                                                                                                 | 156  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.

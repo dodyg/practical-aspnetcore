@@ -1,10 +1,14 @@
-# Dependency Injection (2)
+# Dependency Injection (3)
 
   ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. 
 
   * [Dependency Injection 1 - The basic](/projects/dependency-injection/dependency-injection-1)
 
     Demonstrate the three lifetime registrations for the out of the box DI functionality: singleton (one and only forever), scoped (one in every request) and transient (new everytime).
+
+  * [Dependency Injection 2 - IServiceProvider](/projects/dependency-injection/dependency-injection-2)
+
+    `IServiceProvider` is a service locator. It allows you to obtain objects from the dependency injection system.
 
   * [Dependency Injection 3 - Easy registration](/projects/dependency-injection/dependency-injection-3)
   
