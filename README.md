@@ -1,4 +1,4 @@
-# Samples for ASP.NET 5.0 (319)
+# Samples for ASP.NET 5.0 (316)
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
@@ -35,7 +35,7 @@ To run these samples, simply open your command line console,  go to each folder 
 
 ## Foundation ASP.NET Core 5 Samples
 
-### Basic (5)
+### Basic (6)
 
 * [Hello World](/projects/basic/hello-world)
 
@@ -46,6 +46,10 @@ To run these samples, simply open your command line console,  go to each folder 
 * [Hello World - 2](/projects/basic/hello-world-2)
 
   This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
+
+* [Hello World](/projects/basic/hello-world-3)
+
+  Classic sample running on .NET 5 using C# 9 top level statements.
 
 * [IWebHostConfiguration](/projects/basic/i-webhost-environment)
 
