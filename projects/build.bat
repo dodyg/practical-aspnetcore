@@ -174,6 +174,7 @@ dotnet build middleware\middleware-1
 dotnet build middleware\middleware-10
 dotnet build middleware\middleware-11
 dotnet build middleware\middleware-12
+dotnet build middleware\middleware-13
 dotnet build middleware\middleware-2
 dotnet build middleware\middleware-3
 dotnet build middleware\middleware-4

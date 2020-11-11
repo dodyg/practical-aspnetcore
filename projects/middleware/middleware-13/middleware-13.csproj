@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>middleware-13</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>middleware-13</PackageId>
+  </PropertyGroup>
+</Project>
+
+

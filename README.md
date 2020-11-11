@@ -12,7 +12,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 | Section                                                        |      |                                                                                                                 |      |
 |-----------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------|------|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (20) | [Middleware](/projects/middleware)                                                                              | (13) |
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (20) | [Middleware](/projects/middleware)                                                                              | (14) |
 | [Blazor Server Side](/projects/blazor-ss) (Localization)                       | (15)  | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)                                                                                            | (46) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                                                                            | (9)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                                                                          | (4)  |
@@ -28,7 +28,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
 | [Single File Application](projects/sfa) | (1) | [Orleans](projects/orleans) | (12) |
-|                                                                 | 137  |                                                                                                                 | 143  |
+|                                                                 | 137  |                                                                                                                 | 144  |
 ## How to run these samples
 
 To run these samples, simply open your command line console,  go to each folder and execute `dotnet watch run`.
