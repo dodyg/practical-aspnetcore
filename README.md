@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (318)
+# Samples for ASP.NET Core 5.0 (319)
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
@@ -16,7 +16,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Blazor Server Side](/projects/blazor-ss) (Localization)                       | (15)  | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc)                                                                                            | (46) |
 | [Caching](/projects/caching)                                    | (5)  | [Razor Pages](/projects/razor-pages)                                                                            | (9)  |
 | [Configurations](/projects/configurations)                      | (7)  | [Orchard Core](/projects/orchard-core)                                                                          | (4)  |
-| [Dependency Injection](/projects/dependency-injection/)         | (3)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
+| [Dependency Injection](/projects/dependency-injection/)         | (4)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                                                                    | (14) |
 | [Diagnostics](/projects/diagnostics)                            | (6)  | [Response](/projects/response)                                                                                  | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (31) | [Static Files and File Provider](/projects/file-provider)                                                       | (9)  |
 | [Features](/projects/features)                                  | (10) | [System.Text.Json](/projects/json)                                                                              | (11)  |
