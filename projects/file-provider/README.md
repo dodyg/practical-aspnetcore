@@ -29,7 +29,7 @@ more complex scenario in the next sample.
 
   Use Directory Browsing on a certain path using ```DirectoryBrowserOptions.RequestPath```, e.g. ```/browse```.
 
-* [Serve Static Files from more than one folders](server-static-files-7)
+* [Serve Static Files from more than one folders](serve-static-files-7)
 
   This example shows how to serve static files from multiple directories (even outside your application path).
 
