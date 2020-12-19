@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (317)
+# Samples for ASP.NET Core 5.0 (318)
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
@@ -25,7 +25,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [IHostedService](/projects/ihosted-service)                     | (1)  | [Syndications](/projects/syndications)                                                                          | (3)  |
 | [Generic Hosting](/projects/generic-host)                       | (9)  | [Uri Helper](/projects/uri-helper)                                                                              | (5)  |
 | [gRPC](/projects/grpc) (including grpc-Web)                                          | (12) | [Web Sockets](/projects/web-sockets)                                                                            | (5)  |
-| [Logging](/projects/logging)                                    | (2)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
+| [Logging](/projects/logging)                                    | (3)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
 | [Single File Application](projects/sfa) | (1) | [Orleans](projects/orleans) | (12) |
 |                                                                 | 138  |                                                                                                                 | 156  |
