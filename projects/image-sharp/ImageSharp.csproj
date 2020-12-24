@@ -4,10 +4,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--
-    Temporarily add an explicit ImageSharp reference until the next ImageSharp.Web release is finalised
-    due to API changes within System.Memory API between beta and RC
-    -->
-    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.0-beta0009" />
+    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.1" />
   </ItemGroup>
 </Project>
