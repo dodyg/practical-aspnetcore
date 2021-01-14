@@ -1,4 +1,4 @@
-# Endpoint Routing (31)
+# Endpoint Routing (32)
 
 * [Endpoint Routing - Razor Page](/projects/endpoint-routing/new-routing)
 
@@ -122,6 +122,10 @@
 
   This sample shows how to return different fallback page located in areas depending on the route pattern that matches the request.
   
+* [Endpoint routing - anonymous access and authorization](/projects/endpoint-routing/new-routing-31)
+
+   Allow anonymous access and require authorization to endpoints.
+
 * [Parameter Transformer ](/projects/endpoint-routing/parameter-transformer)
      
   Use Parameter Transformer to control the creation of route token `[area]`, `[controller]` and `[action]`. In this example we use it on `[controller]` and `[action]`.
