@@ -1,6 +1,6 @@
 # Blazor (18)
 
-The following sample runs on `5.0.100-preview.7.20366.6`. Please install the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/5.0).
+The following sample runs on `5.0.0`. Please install the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/5.0).
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. Make sure you pay attention which port Kestrel is running on.
 
