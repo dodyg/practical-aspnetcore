@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (321)
+# Samples for ASP.NET Core 5.0 (322)
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
@@ -28,7 +28,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 | [Logging](/projects/logging)                                    | (3)  | [Web Utilities](/projects/web-utilities)                                                                        | (3)  |
 | [Localization and Globalization](projects/localization)         | (6)  | For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). |      |
 | [Single File Application](projects/sfa) | (1) | [Orleans](projects/orleans) | (12) |
-| [Path String (HttpContext.Request.Path)](projects/path-string) | (1) | | |
+| [Path String (HttpContext.Request.Path)](projects/path-string) | (1) |[Mini Apps](projects/mini) | 1 |
 |                                                                 | 138  |                                                                                                                 | 156  |
 ## How to run these samples
 
