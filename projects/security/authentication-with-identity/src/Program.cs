@@ -76,6 +76,12 @@ namespace WebApplication
             {
                 endpoints.MapDefaultControllerRoute();
             });
+
+            var context = app.ApplicationServices.GetService<ApplicationDbContext>();
+            using (var client = context)
+            {
+                client.Database.EnsureCreated();
+            }
         }
     }
 }
