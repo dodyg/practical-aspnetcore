@@ -8,9 +8,9 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 Preview 1 Section (1)
+## .NET 6 Preview 2 Section (1)
 
-You can access .NET 6 Preview 1 specific samples [here](projects/net6).
+You can access .NET 6 Preview 2 specific samples [here](projects/net6).
 
 ## Sections
 
