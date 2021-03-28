@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (326)
+# Samples for ASP.NET Core 5.0 (327)
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
@@ -8,7 +8,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 Preview 2 Section (2)
+## .NET 6 Preview 2 Section (3)
 
 You can access .NET 6 Preview 2 specific samples [here](projects/net6).
 
