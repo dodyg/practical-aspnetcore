@@ -1,4 +1,4 @@
-# .NET 6 (3)
+# .NET 6 (4)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 2 (`6.0.100-preview.2.21155.3`).
 
@@ -13,3 +13,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [Accessing HttpContext in Map Action](map-action-2)
 
   This sample shows how to access HttpContext in MapAction.
+
+* [Accessing Objects in Map Action](map-action-2)
+
+  This sample shows how to access objects MapAction.
