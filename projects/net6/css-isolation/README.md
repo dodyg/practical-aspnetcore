@@ -1,3 +1,3 @@
-# Accessing your objects in MapAction
+# CSS Isolation for MVC
 
-This example shows how to access your objects in MapAction.
+Still not working (WIP)
