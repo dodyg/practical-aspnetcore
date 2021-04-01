@@ -6,14 +6,14 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
   
   This is Hello World ASP.NET Core 6 app. 
 
-* [Map Action](map-action)
+* [Map](map)
 
   This is a brand new feature that allows the creation of Web API without using Controllers.
   
-* [Accessing HttpContext in Map Action](map-action-2)
+* [Accessing HttpContext in Map](map-2)
 
-  This sample shows how to access HttpContext in MapAction.
+  This sample shows how to access HttpContext in Map.
 
-* [Accessing Objects in Map Action](map-action-2)
+* [Accessing Objects in Map Action](map-3)
 
-  This sample shows how to access objects MapAction.
+  This sample shows how to access objects Map.
