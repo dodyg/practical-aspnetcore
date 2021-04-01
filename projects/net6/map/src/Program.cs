@@ -20,11 +20,10 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                [HttpGet("/")]
                 JsonResult Index() => new JsonResult(new Greeting("Hello World"));
 
-                endpoints.MapAction((Func<JsonResult>)Index);
-                endpoints.MapAction((Func<JsonResult>)About);
+                endpoints.Map("/", (Func<JsonResult>)Index);
+                endpoints.Map("/about",(Func<JsonResult>)About);
             });
         }
     }

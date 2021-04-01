@@ -1,6 +1,6 @@
 # .NET 6 (4)
 
-This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 2 (`6.0.100-preview.2.21155.3`).
+This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 3 (`6.0.100-preview.3.21181.5`). It's not officially out yet but you can get the nightly build version [here](https://github.com/dotnet/installer).
 
 * [Hello World](hello-world)
   
