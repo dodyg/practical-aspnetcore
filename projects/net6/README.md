@@ -14,6 +14,6 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
   This sample shows how to access HttpContext in Map.
 
-* [Accessing Objects in Map Action](map-3)
+* [Accessing Objects in Map](map-3)
 
   This sample shows how to access objects Map.

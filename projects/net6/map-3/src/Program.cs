@@ -14,7 +14,6 @@ namespace PracticalAspNetCore
 
     public class Startup
     {
-        [HttpGet("/")]
         JsonResult TryContext([FromServices] MyData data) => new JsonResult(new { greetings = $"Hello {data.Name}" });
 
         public void ConfigureServices(IServiceCollection services)
@@ -28,7 +27,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAction((Func<MyData, JsonResult>)TryContext);
+                endpoints.Map("/", (Func<MyData, JsonResult>)TryContext);
             });
         }
     }
