@@ -11,7 +11,6 @@ namespace PracticalAspNetCore
     {
         public record Greeting(string Message);
 
-        [HttpGet("/about")]
         JsonResult About() => new JsonResult(new { about = "me" });
 
         public void Configure(IApplicationBuilder app)
