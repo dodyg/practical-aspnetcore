@@ -9,7 +9,6 @@ namespace PracticalAspNetCore
 {
     public class Startup
     {
-        [HttpGet("/")]
         JsonResult TryContext(HttpContext context) => new JsonResult(new { path = context.Request.Path });
 
         public void Configure(IApplicationBuilder app)
@@ -18,7 +17,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAction((Func<HttpContext, JsonResult>)TryContext);
+                endpoints.Map("/", (Func<HttpContext, JsonResult>)TryContext);
             });
         }
     }
