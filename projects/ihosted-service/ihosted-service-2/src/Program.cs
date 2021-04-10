@@ -30,7 +30,7 @@ namespace PracticalAspNetCore
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-             _logger.LogInformation($"{nameof(GreeterUpdaterService)} running.");
+            _logger.LogInformation($"{nameof(GreeterUpdaterService)} running.");
 
             _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
 
@@ -39,7 +39,7 @@ namespace PracticalAspNetCore
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-             _logger.LogInformation($"{nameof(GreeterUpdaterService)} is stopping.");
+            _logger.LogInformation($"{nameof(GreeterUpdaterService)} is stopping.");
             
             _timer?.Change(Timeout.Infinite, 0);
 
