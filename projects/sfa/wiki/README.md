@@ -1,6 +1,6 @@
 # Wiki
 
-**Note**. This sample uses preview features of C# 9 that is only available on [.NET 5 SDK Preview 7](https://dotnet.microsoft.com/download/dotnet/5.0).
+**Note**. This sample uses features only available in [.NET 6 Preview 4 nighlty build](https://github.com/dotnet/installer). 
 
 This is a Single File Application (SFA) that provide wiki functionality.
 
