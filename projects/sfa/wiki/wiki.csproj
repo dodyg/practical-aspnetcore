@@ -8,7 +8,6 @@
     <PackageReference Include="Scriban" Version="3.6.0" />
     <PackageReference Include="Markdig" Version="0.24.0" />
     <PackageReference Include="LiteDB" Version="5.0.10" />
-    <PackageReference Include="FeatherHttp" Version="0.1.83-*"  />
     <PackageReference Include="HtmlBuilders" Version="6.0.1" />
     <PackageReference Include="HtmlSanitizer" Version="5.0.376" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.0.4" />

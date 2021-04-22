@@ -29,7 +29,7 @@ using static HtmlBuilders.HtmlTags;
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder();
 builder.Services
   .AddSingleton<Wiki>()
   .AddSingleton<Render>()

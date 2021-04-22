@@ -10,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 ## .NET 6 Preview 3 Section (7)
 
-You can access .NET 6 Preview 3 specific samples [here](projects/net6).
+You can access .NET 6 Preview 4 specific samples [here](projects/net6).
 
 ## Sections
 
