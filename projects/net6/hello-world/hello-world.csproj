@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>hello-world</AssemblyName>
-    <OutputType>Exe</OutputType>
-    <PackageId>hello-world</PackageId>
+    <LanguageVersion>preview</LanguageVersion>
   </PropertyGroup>
 </Project>
