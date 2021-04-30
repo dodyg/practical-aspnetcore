@@ -2,10 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>result</AssemblyName>
-    <OutputType>Exe</OutputType>
-    <PackageId>result</PackageId>
   </PropertyGroup>
-
-
+  
 </Project>
+

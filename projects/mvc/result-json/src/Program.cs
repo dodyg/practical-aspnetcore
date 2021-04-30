@@ -8,7 +8,7 @@ using System;
 namespace PracticalAspNetCore
 {
 	public class Startup
-	{
+    {
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
@@ -49,6 +49,25 @@ namespace PracticalAspNetCore
 			};
 			return Json(person);
 		}
+
+        public ActionResult Index()
+        {
+			var jsonData = JsonPersonResult();
+			var person = (Person)jsonData.Value;
+
+            return new ContentResult
+            {
+                Content = $@"<html>
+							<body>
+							This index screen is gettin JSON data using JsonResult from another endpoint named 'JsonPersonResult'.
+							<hr/>
+							The data from Json result is a new person:
+							Name: {person.Name}, last name: {person.LastName}, id: {person.Id.ToString()}
+							</body>
+						</html>",
+                ContentType = "text/html"
+            };
+        }
 	}
 
 	public class Person 
