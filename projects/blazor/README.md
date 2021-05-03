@@ -1,4 +1,4 @@
-# Blazor (18)
+# Blazor (21)
 
 The following sample runs on `5.0.0`. Please install the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/5.0).
 
@@ -89,3 +89,7 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [Date Binding - EditForm](/projects/blazor/DataBindingTwo)
 
     Show an example of `EditForm` and its 6 input controls, including form validation.
+
+  * [RenderFragment](/projects/blazor/RenderFragment)
+
+    Show an example of `RenderFragment` or Show an example of Templated component.
