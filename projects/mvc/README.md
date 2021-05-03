@@ -1,4 +1,4 @@
-# MVC (46)
+# MVC (47)
 
 | Sections                                                       |     |
 |----------------------------------------------------------------|-----|
@@ -44,7 +44,7 @@
     Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
 
 
-## Action Results (2)
+## Action Results (3)
   
   We are exploring various  that an Action returns.
 
@@ -55,6 +55,10 @@
   * [PhysicalFileResult](/projects/mvc/result-physicalfile)
 
     An example on how to return a file to the browser when you have a path to a file on disk.
+
+  * [JsonResult](/projects/mvc/result-json)
+
+    Makes it easy to returns JSON content from an action.
  
 
 ## Formatters (2)

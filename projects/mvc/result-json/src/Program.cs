@@ -53,16 +53,12 @@ namespace PracticalAspNetCore
         public ActionResult Index()
         {
 			var jsonData = JsonPersonResult();
-			var person = (Person)jsonData.Value;
 
             return new ContentResult
             {
                 Content = $@"<html>
 							<body>
-							This index screen is gettin JSON data using JsonResult from another endpoint named 'JsonPersonResult'.
-							<hr/>
-							The data from Json result is a new person:
-							Name: {person.Name}, last name: {person.LastName}, id: {person.Id.ToString()}
+							<a href=""/Home/JsonPersonResult"">Click here</a> to view the endpoint with JsonResult
 							</body>
 						</html>",
                 ContentType = "text/html"
