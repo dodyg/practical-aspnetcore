@@ -92,4 +92,4 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
   * [RenderFragment](/projects/blazor/RenderFragment)
 
-    Show an example of `RenderFragment` or Show an example of Templated component.
+    Show an example of `RenderFragment` or show an example of Templated component.
