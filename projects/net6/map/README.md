@@ -6,6 +6,7 @@ In this example we create two endpoints, `/` and `/about`.
 
 `IEndpointConventionBuilder.Map` responds to all HTTP Verbs. 
 
-This sample is using the latest daily build Roslyn compiler. You can do this in all your projects by adding the following package 
+This sample is using the latest daily build Roslyn compiler. Make sure you execute the following command in your terminal before trying to run the sample. 
 
 ```dotnet add package Microsoft.Net.Compilers.Toolset --prerelease   --source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json```
+
