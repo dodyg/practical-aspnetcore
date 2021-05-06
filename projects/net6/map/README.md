@@ -5,3 +5,7 @@ This is a new functionality in ASP.NET Core to enable creating API without using
 In this example we create two endpoints, `/` and `/about`.
 
 `IEndpointConventionBuilder.Map` responds to all HTTP Verbs. 
+
+This sample is using the latest daily build Roslyn compiler. You can do this in all your projects by adding the following package 
+
+```dotnet add package Microsoft.Net.Compilers.Toolset --prerelease   --source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json```
