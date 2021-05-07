@@ -19,7 +19,7 @@ You can access .NET 6 Preview 4 specific samples [here](projects/net6).
 
 | Section                                                                                    |      |                                                                                                      |      |
 |--------------------------------------------------------------------------------------------|------|------------------------------------------------------------------------------------------------------|------|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (21) | [Mini Apps](projects/mini)                                                                           | (1)  |
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (22) | [Mini Apps](projects/mini)                                                                           | (1)  |
 | [Blazor Server Side](/projects/blazor-ss) (Localization)                                   | (15) | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc) | (47) |
 | [Caching](/projects/caching)                                                               | (5)  | [Orchard Core](/projects/orchard-core)                                                               | (4)  |
 | [Configurations](/projects/configurations)                                                 | (7)  | [Path String (HttpContext.Request.Path)](projects/path-string)                                       | (1)  |
