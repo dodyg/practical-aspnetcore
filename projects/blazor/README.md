@@ -1,4 +1,4 @@
-# Blazor (21)
+# Blazor (22)
 
 The following sample runs on `5.0.0`. Please install the SDK [here](https://dotnet.microsoft.com/download/dotnet-core/5.0).
 
@@ -93,3 +93,8 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
   * [RenderFragment](/projects/blazor/RenderFragment)
 
     Show an example of `RenderFragment` or show an example of Templated component.
+
+  * [RadioButton](/projects/blazor/RadioButton)
+
+    Show an example of `RadioButton` handling.
+
