@@ -1,6 +1,6 @@
 # Samples for ASP.NET Core 5.0 (333)
 
-While I got your attention, India needs helps. Go to https://mutualaidindia.com/ to support them.
+While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
