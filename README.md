@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (334)
+# Samples for ASP.NET Core 5.0 (335)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -12,7 +12,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 ## .NET 6 Preview 4 Section (8)
 
-You can access .NET 6 Preview 4 specific samples [here](projects/net6).
+You can access .NET 6 Preview 5 specific samples [here](projects/net6).
 
 ## Sections
 

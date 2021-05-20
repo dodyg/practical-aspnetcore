@@ -1,6 +1,6 @@
-# .NET 6 (8)
+# .NET 6 (9)
 
-This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 4 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
+This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 4 nightly build(`6.0.100-preview.4.21219.6`) which you can obtain [here](https://github.com/dotnet/installer).
 
 * [Hello World](hello-world)
   
@@ -33,3 +33,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [WebApplication - Welcome Page](web-application)
 
   This uses the new minimalistic hosting code `WebApplication` and show ASP.NET Core welcome page.
+
+* [WebApplication - UseFileServer](web-application-2)
+
+  This uses the new minimalistic hosting code `WebApplication` and server default static files.
