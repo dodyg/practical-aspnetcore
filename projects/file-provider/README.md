@@ -1,4 +1,4 @@
-# File Provider (9)
+# File Provider (10)
 
 * [Serve static files](serve-static-files-1)
 
@@ -40,5 +40,9 @@ more complex scenario in the next sample.
 * [Custom File Provider](file-provider-custom)
 
   Implement a simple and largely nonsense file provider. It is a good starting point to implement your own proper File Provider.
+
+* [Log Static File Servings](serve-static-files-8)
+
+  Log information about the static file being served.
     
 
