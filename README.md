@@ -27,7 +27,7 @@ You can access .NET 6 Preview 4 specific samples [here](projects/net6).
 | [Dependency Injection](/projects/dependency-injection/)                                    | (4)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                  | (14) |
 | [Diagnostics](/projects/diagnostics)                                                       | (6)  | [Response](/projects/response)                                                                       | (4)  |
 | [Endpoint Routing](/projects/endpoint-routing)                                             | (32) | [Single File Application](projects/sfa)                                                              | (1)  |
-| [Features](/projects/features)                                                             | (10) | [Static Files and File Provider](/projects/file-provider)                                            | (9)  |
+| [Features](/projects/features)                                                             | (10) | [Static Files and File Provider](/projects/file-provider)                                            | (10)  |
 | [Generic Hosting](/projects/generic-host)                                                  | (9)  | [System.Text.Json](/projects/json)                                                                   | (11) |
 | [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Startup](/projects/startup)                                                                         | (12) |
 | [Health Check](/projects/health-check)                                                     | (6)  | [Syndications](/projects/syndications)                                                               | (3)  |
