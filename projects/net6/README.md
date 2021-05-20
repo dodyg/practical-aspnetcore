@@ -1,4 +1,4 @@
-# .NET 6 (7)
+# .NET 6 (8)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 4 nightly build(`6.0.100-preview.4.21219.6`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -29,3 +29,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [MapMethods with JSON model binder](map-methods)
 
   This sample shows how to handle multiple HTTP Verbs request using `MapMethods`.
+
+* [WebApplication - Welcome Page](web-application)
+
+  This uses the new minimalistic hosting code `WebApplication` and show ASP.NET Core welcome page.

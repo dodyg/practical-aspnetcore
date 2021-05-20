@@ -51,3 +51,5 @@ app.Run(async context =>
 
 await app.RunAsync();
 ```
+
+You can read the implementation of ```WebApplication``` [here](https://github.com/dotnet/aspnetcore/blob/main/src/DefaultBuilder/src/WebApplication.cs). 

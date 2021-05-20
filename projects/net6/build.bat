@@ -6,3 +6,4 @@ dotnet build map-3
 dotnet build map-post
 dotnet build map-post-2
 dotnet build map-methods
+dotnet build web-application
