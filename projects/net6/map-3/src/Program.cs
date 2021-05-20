@@ -27,7 +27,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.Map("/", (Func<MyData, JsonResult>)TryContext);
+                endpoints.Map("/", TryContext);
             });
         }
     }

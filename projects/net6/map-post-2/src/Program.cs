@@ -22,7 +22,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapPost("/greet",(Func<Greeting, JsonResult>) MyApi.Greet);
+                endpoints.MapPost("/greet", MyApi.Greet);
            
                 endpoints.MapGet("/", async context =>
                 {

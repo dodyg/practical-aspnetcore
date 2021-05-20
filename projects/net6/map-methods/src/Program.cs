@@ -20,7 +20,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapMethods("/greet", new[] { "POST", "PUT" }, (Func<Greeting, HttpContext, object>) Greet);
+                endpoints.MapMethods("/greet", new[] { "POST", "PUT" }, Greet);
            
                 endpoints.MapGet("/", async context =>
                 {
