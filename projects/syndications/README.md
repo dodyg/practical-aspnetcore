@@ -10,8 +10,8 @@
 
     This sample process RSS Outline Extension. 
 
-  *  [Syndication - NewsServer](/projects/syndications/NewsServer-MVC)
+  *  [Syndication - NewsServer](/projects/syndications/newsnerver-mvc)
 
       This sample showcases storing feed url in appsettings and reading the feed items from those feed url at runtime.
 
-      ![NewsServer](/newsserver-mvc/assets/newsserver.png "a title")
+      <img src="newsserver-mvc/assets/newsserver.png">
