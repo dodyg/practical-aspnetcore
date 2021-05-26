@@ -1,4 +1,4 @@
-# Syndications (3)
+# Syndications (4)
 
   We are using ```Microsoft.SyndicationFeed.ReaderWriter``` package to read RSS and ATOM feeds.
 
@@ -9,3 +9,9 @@
   * [Syndication - Read RSS with extensions](/projects/syndications/syndication-2)
 
     This sample process RSS Outline Extension. 
+
+  *  [Syndication - NewsServer](/projects/syndications/NewsServer-MVC)
+
+      This sample showcases storing feed url in appsettings and reading the feed items from those feed url at runtime.
+
+      ![NewsServer](/newsserver-mvc/assets/newsserver.png "a title")
