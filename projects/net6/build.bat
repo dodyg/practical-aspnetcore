@@ -9,3 +9,4 @@ dotnet build map-methods
 dotnet build web-application
 dotnet build web-application-2
 dotnet build web-application-3
+dotnet build web-application-4
