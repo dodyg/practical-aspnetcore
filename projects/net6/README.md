@@ -1,4 +1,4 @@
-# .NET 6 (9)
+# .NET 6 (10)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -37,3 +37,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [WebApplication - UseFileServer](web-application-2)
 
   This uses the new minimalistic hosting code `WebApplication` and server default static files.
+
+* [WebApplication - Default Logger](web-application-3)
+
+  `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
