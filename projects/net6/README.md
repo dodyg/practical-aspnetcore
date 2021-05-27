@@ -1,4 +1,4 @@
-# .NET 6 (14)
+# .NET 6 (15)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -60,3 +60,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
   * [WebApplication - Configuration](web-application-7)
 
     This sample list all the information available in the `Configuration` property. 
+
+  * [WebApplication - Configuration](web-application-8)
+
+    This sample list all the information available in the `Configuration` property and return it as JSON.

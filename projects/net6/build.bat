@@ -10,3 +10,7 @@ dotnet build web-application
 dotnet build web-application-2
 dotnet build web-application-3
 dotnet build web-application-4
+dotnet build web-application-5
+dotnet build web-application-6
+dotnet build web-application-7
+dotnet build web-application-8
