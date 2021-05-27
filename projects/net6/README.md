@@ -1,4 +1,4 @@
-# .NET 6 (12)
+# .NET 6 (13)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -30,22 +30,29 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
   This sample shows how to handle multiple HTTP Verbs request using `MapMethods`.
 
-* [WebApplication - Welcome Page](web-application)
+## Minimal Hosting Default Configuration
+  This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 
 
-  This uses the new minimalistic hosting code `WebApplication` and show ASP.NET Core welcome page.
+  * [WebApplication - Welcome Page](web-application)
 
-* [WebApplication - UseFileServer](web-application-2)
+    This uses the new minimalistic hosting code `WebApplication` and show ASP.NET Core welcome page.
 
-  This uses the new minimalistic hosting code `WebApplication` and server default static files.
+  * [WebApplication - UseFileServer](web-application-2)
 
-* [WebApplication - Default Logger](web-application-3)
+    This uses the new minimalistic hosting code `WebApplication` and server default static files.
 
-  `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
+  * [WebApplication - Default Logger](web-application-3)
 
-* [WebApplication - Default Urls](web-application-4)
+    `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
 
-  This sample shows the default Urls that the built in Kestrel web server listens to.
-  
-* [WebApplication - Set Url and Port](web-application-5)
+  * [WebApplication - Default Urls](web-application-4)
 
-  This sample shows how to set the Kestrel web server to listen to a specific Url and port.
+    This sample shows the default Urls that the built in Kestrel web server listens to.
+    
+  * [WebApplication - Set Url and Port](web-application-5)
+
+    This sample shows how to set the Kestrel web server to listen to a specific Url and port.
+
+  * [WebApplication - Application lifetime events](web-application-6)
+
+    In this example we learn how to respond to the application lifetime events.
