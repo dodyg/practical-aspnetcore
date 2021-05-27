@@ -1,4 +1,4 @@
-# .NET 6 (11)
+# .NET 6 (12)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -45,3 +45,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [WebApplication - Default Urls](web-application-4)
 
   This sample shows the default Urls that the built in Kestrel web server listens to.
+  
+* [WebApplication - Set Url and Port](web-application-5)
+
+  This sample shows how to set the Kestrel web server to listen to a specific Url and port.
