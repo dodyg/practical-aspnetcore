@@ -1,4 +1,4 @@
-# .NET 6 (13)
+# .NET 6 (14)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -55,4 +55,8 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
   * [WebApplication - Application lifetime events](web-application-6)
 
-    In this example we learn how to respond to the application lifetime events.
+    In this sample we learn how to respond to the application lifetime events.
+
+  * [WebApplication - Configuration](web-application-7)
+
+    This sample list all the information available in the `Configuration` property. 
