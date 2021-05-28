@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (342)
+# Samples for ASP.NET Core 5.0 (341)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -30,7 +30,7 @@ You can access .NET 6 Preview 5 specific samples [here](projects/net6).
 | [Features](/projects/features)                                                             | (10) | [Static Files and File Provider](/projects/file-provider)                                            | (10)  |
 | [Generic Hosting](/projects/generic-host)                                                  | (9)  | [System.Text.Json](/projects/json)                                                                   | (11) |
 | [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Startup](/projects/startup)                                                                         | (12) |
-| [Health Check](/projects/health-check)                                                     | (6)  | [Syndications](/projects/syndications)                                                               | (4)  |
+| [Health Check](/projects/health-check)                                                     | (6)  | [Syndications](/projects/syndications)                                                               | (3)  |
 | [IHttpClientFactory](/projects/httpclientfactory)                                          | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                                                            | (6)  |
 | [IHostedService](/projects/ihosted-service)                                                | (2)  | [Uri Helper](/projects/uri-helper)                                                                   | (5)  |
 | [Logging](/projects/logging)                                                               | (3)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
