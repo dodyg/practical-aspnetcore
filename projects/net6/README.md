@@ -61,6 +61,6 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
     This sample list all the information available in the `Configuration` property. 
 
-  * [WebApplication - Configuration](web-application-8)
+  * [WebApplication - Configuration as JSON](web-application-8)
 
-    This sample list all the information available in the `Configuration` property and return it as JSON.
+    This sample list all the information available in the `Configuration` property and return it as JSON. WARNING: Do not use this in your application. It is a terrible idea. Do not expose your configuration information over the wire. This sample is just to demonstrate a technique. 
