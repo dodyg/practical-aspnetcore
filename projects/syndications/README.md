@@ -12,6 +12,4 @@
 
   *  [Syndication - NewsServer](/projects/syndications/newsserver-mvc)
 
-      This sample showcases storing feed url in appsettings and reading the feed items from those feed url at runtime.
-
-      <img src="newsserver-mvc/assets/newsserver.png">
+     RSS reader demo using ```Microsoft.ServiceModel.Syndication```.
