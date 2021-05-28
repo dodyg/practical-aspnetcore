@@ -1,0 +1,40 @@
+﻿@model IndexViewModel
+
+@{
+	ViewData["Title"] = @Model.SelectedFeedOption.Name;
+}
+
+<div class="row mt-5">
+ <div class="col-lg-3">
+  <ul class="list-group list-group-flush">
+	@foreach (var feed in @Model.Feeds)
+	{
+		<a href="/home/index/@Uri.EscapeDataString(feed.Name)" class="list-group-item list-group-item-action @(Model.SelectedFeedOption.Name == feed.Name ? "active" : "")" aria-current="true">
+			@feed.Name
+	   </a>
+	}
+  </ul>
+ </div>
+ <div class="col-lg-9">
+  <div class="text-center mb-3 bg-dark text-white p-5">
+   <h3>@Model.CurrentFeed.Title.Text</h3>
+   <small>@Model.CurrentFeed.Description?.Text</small>
+  </div>
+		@foreach (var item in Model.CurrentFeed.Items)
+		{
+			<div class="card shadow my-4">
+				<div class="card-body">
+					<h5 class="card-title"><a href="@item.Links[0].Uri" target="_blank" title="@item.Title.Text">@item.Title.Text</a></h5>
+					<small class="fs-6">
+						@if(item.Authors.Count > 0)
+						{
+							<text>@item.Authors[0].Name |</text>
+						}
+						@item.PublishDate.DateTime.ToString("MMM dd, yyyy")
+					</small>
+					<p class="card-text mt-2">@item.Summary?.Text </p>
+				</div>
+			</div>
+		}
+ </div>
+</div>
