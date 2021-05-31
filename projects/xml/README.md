@@ -1,6 +1,6 @@
-# XML Validation (1)
+# XML (1)
 
-  This section shows XML Validation examples. 
+  This section shows XML related samples. 
 
   * [XML Validation using xsd](/projects/xml/xml-validation/)
 
