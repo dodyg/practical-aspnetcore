@@ -1,0 +1,60 @@
+﻿@model IndexViewModel
+@{
+	ViewData["Title"] = "Home Page";
+}
+<SuccessAlertViewComponent></SuccessAlertViewComponent>
+@if (Model.XmlValidated)
+{
+	<div class="row">
+	 <div class="col-lg-12">
+			@if (!string.IsNullOrEmpty(Model.XmlSchema))
+			{
+				if(Model.SchemaValid)
+				{
+				  <vc:success-alert text="XSD is Valid" />
+				}
+				if (!Model.SchemaValid)
+				{
+				  <vc:danger-alert text="XSD is Not-Valid" errors="@Model.SchemaErrors" />
+				}
+			}
+			@if (Model.SchemaValid)
+			{
+				if(Model.XmlValid)
+				{
+				  <vc:success-alert text="XML Document is Valid" />
+				}
+				else
+				{
+					<vc:danger-alert text="XML Document is Not-Valid" errors="@Model.XmlErrors" />
+				}
+			}
+	 </div>
+	</div>
+}
+<form asp-controller="Home" asp-action="Index" method="post">
+ <div class="row">
+  <div class="col-lg-6">
+   <div class="mb-3">
+	<label for="xmlSchema" class="form-label display-6">XML Schema</label>
+	<textarea class="form-control shadow" asp-for="XmlSchema" rows="15">@Model.XmlSchema</textarea>
+   </div>
+  </div>
+  <div class="col-lg-6">
+   <div class="mb-3">
+	<label for="xmlDoc" class="form-label display-6">XML Document</label>
+	<textarea class="form-control shadow" asp-for="XmlDocument" rows="15">@Model.XmlDocument</textarea>
+	<span asp-validation-for="XmlDocument" class="py-2 text-danger"></span>
+   </div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-lg-12">
+   <button type="submit" class="btn btn-primary">Validate</button>
+  </div>
+ </div>
+</form>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

@@ -36,7 +36,7 @@ You can access .NET 6 Preview 5 specific samples [here](projects/net6).
 | [Logging](/projects/logging)                                                               | (3)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
 | [Localization and Globalization](projects/localization)                                    | (6)  | [Web Utilities](/projects/web-utilities)                                                             | (3)  |
 | [Middleware](/projects/middleware)                                                         | (14) | [Orleans](projects/orleans)                                                                          | (12) |
-
+|                                                          | | [Xml](projects/xml)                                                                          | (1) |
   
 For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
 ## How to run these samples
