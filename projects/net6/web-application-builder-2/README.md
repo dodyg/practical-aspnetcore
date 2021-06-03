@@ -20,22 +20,22 @@ await app.RunAsync();
 In contrast this is how it is done using [Startup.cs](/projects/razor-pages/hello-world/src/Program.cs) (not all codes included). 
 
 ``` csharp
-    public class Startup
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddRazorPages();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
-        }
+        services.AddRazorPages();
     }
+
+    public void Configure(IApplicationBuilder app)
+    {
+        app.UseRouting();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapRazorPages();
+        });
+    }
+}
 ```    
 
 
