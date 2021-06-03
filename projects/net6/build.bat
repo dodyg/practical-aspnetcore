@@ -14,3 +14,4 @@ dotnet build web-application-5
 dotnet build web-application-6
 dotnet build web-application-7
 dotnet build web-application-8
+dotnet build web-application-builder

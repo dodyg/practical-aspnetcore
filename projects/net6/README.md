@@ -1,4 +1,4 @@
-# .NET 6 (15)
+# .NET 6 (16)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5 nightly build(`6.0.100-preview.5.21269.9`) which you can obtain [here](https://github.com/dotnet/installer).
 
@@ -31,6 +31,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
   This sample shows how to handle multiple HTTP Verbs request using `MapMethods`.
 
 ## Minimal Hosting Default Configuration
+
   This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 
 
   * [WebApplication - Welcome Page](web-application)
@@ -64,3 +65,9 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
   * [WebApplication - Configuration as JSON](web-application-8)
 
     This sample list all the information available in the `Configuration` property and return it as JSON. WARNING: Do not use this in your application. It is a terrible idea. Do not expose your configuration information over the wire. This sample is just to demonstrate a technique. 
+
+In most cases using ```WebApplication``` isn't enough because you need to configure additional services to be used in your system. This is where ```WebApplicationBuilder``` comes. It allows you to configure services and other properties.
+
+  * [WebApplicationBuilder - enable MVC](web-application-builder)
+
+    This sample shows how to enable MVC.
