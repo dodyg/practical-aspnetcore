@@ -17,7 +17,7 @@ app.MapControllers();
 await app.RunAsync();
 ```
 
-In contrast this is how it is done using [`Startup`](/projects/mvc/hello-world/src/Program.cs) class (not all code included)
+In contrast this is how it is done using [Startup](/projects/mvc/hello-world/src/Program.cs) class (not all code included)
 
 ``` csharp
 
