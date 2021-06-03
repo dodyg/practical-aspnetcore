@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder();
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 app.MapControllers();
