@@ -1,4 +1,4 @@
-# WebApplicationBuilder - MVC
+# WebApplicationBuilder - Razor Pages
 
 In most cases using ```WebApplication``` isn't enough because you need to configure additional services to be used in your system. This is where ```WebApplicationBuilder``` comes. It allows you to configure services and other properties.
 
