@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h4 class="display-6">Default Settings Example</h4>
+    <p>Learn about <a
+            href="https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/configuration/default-settings?view=aspnetcore-5.0">Data
+            Protection Default Settings</a>.</p>
+</div>
+
+<div class="my-5 d-flex align-items-center justify-content-center">
+    <div class="w-75 bg-light p-5">
+        <form  method="post">
+        <div class="mb-3">
+            <label asp-for="@Model.StringToEncrypt" class="form-label">String to encrypt</label>
+            <input  class="form-control" asp-for="@Model.StringToEncrypt">
+            <span asp-validation-for="@Model.StringToEncrypt" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @if(!string.IsNullOrEmpty(Model.EncryptedString))
+    {
+        <div class="py-4">
+            Encrypted String: <br />
+            <b class="w-75 text-wrap">@Model.EncryptedString</b>
+        </div>
+        <div class="py-4">
+            DeCrypted String: <br />
+            <b>@Model.DeCryptedString</b>
+        </div>
+    }    
+    </div> 
+    
+</div>
+
