@@ -12,6 +12,11 @@ This sample showcases data protection with default settings.
     }
     ```
 
+
+## Reference
+[Data Protection with Default Settings](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/configuration/default-settings?view=aspnetcore-5.0)
+
+
 ## Screenshot
 <img src="assets/main-page.png">
 

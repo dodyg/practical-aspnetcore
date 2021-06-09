@@ -25,6 +25,9 @@ This sample showcases data protection with keys stored in Azure Blob Storage.
         }
     ```
 
+## Reference
+[Data Protection Key Persistenc using Azure Storage Blob](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.2.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/README.md)
+
 ## Screenshot
 <img src="assets/main-page.png">
 
