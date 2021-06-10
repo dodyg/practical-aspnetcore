@@ -19,3 +19,7 @@ Section about data protection stack for ASP.NET Core
 * [Data Protection with EF Core Key Store](/projects/security/dataprotection/ef-core-key-store)
  
     Sample to show data protection with keys stored in relational database using Entity Framework Core.    
+
+* [Data Protection with Redis Key Store](/projects/security/dataprotection/redis-key-store)
+ 
+    Sample to show data protection with keys stored in Redis.    
