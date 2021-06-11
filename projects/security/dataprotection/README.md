@@ -23,3 +23,7 @@ Section about data protection stack for ASP.NET Core
 * [Data Protection with Redis Key Store](/projects/security/dataprotection/redis-key-store)
  
     Sample to show data protection with keys stored in Redis.    
+
+* [Data Protection with Custom XML Encryptor](/projects/security/dataprotection/custom-encryptor)
+ 
+    Sample to show data protection with keys encrypted by custom XML encryptor.    
