@@ -27,7 +27,7 @@ You can access .NET 6 Preview 5 specific samples [here](projects/net6).
 | [Dependency Injection](/projects/dependency-injection/)                                    | (4)  | [Response](/projects/response)                                                                       | (4)  |
 | [Diagnostics](/projects/diagnostics)                                                       | (6)  | [Security](/projects/security)                                                                       | (7)  |
 | [Endpoint Routing](/projects/endpoint-routing)                                             | (32) | [Single File Application](projects/sfa)                                                              | (1)  |
-| [Email](/projects/email)                                                                   | (2)  | [Static Files and File Provider](/projects/file-provider)                                            | (10) |
+| [Email](/projects/mailkit)                                                                 | (2)  | [Static Files and File Provider](/projects/file-provider)                                            | (10) |
 | [Features](/projects/features)                                                             | (10) | [System.Text.Json](/projects/json)                                                                   | (11) |
 | [Generic Hosting](/projects/generic-host)                                                  | (9)  | [Startup](/projects/startup)                                                                         | (12) |
 | [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Syndications](/projects/syndications)                                                               | (3)  |
