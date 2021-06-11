@@ -50,6 +50,7 @@ namespace PracticalAspNetCore
                     webBuilder.UseStartup<Startup>()
                 );
     }
+    
     public interface IEmailService
     {
         List<EmailMessage> ReceiveEmail(int maxCount = 10);
