@@ -25,19 +25,19 @@ You can access .NET 6 Preview 5 specific samples [here](projects/net6).
 | [Configurations](/projects/configurations)                                                 | (7)  | [Razor Pages](/projects/razor-pages)                                                                 | (9)  |
 | [CoreWCF](/projects/corewcf)                                                               | (1)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                  | (14) |
 | [Dependency Injection](/projects/dependency-injection/)                                    | (4)  | [Response](/projects/response)                                                                       | (4)  |
-| [Diagnostics](/projects/diagnostics)                                                       | (6)  | [Security](/projects/security)                                                                       | (7)  |
-| [Endpoint Routing](/projects/endpoint-routing)                                             | (32) | [Single File Application](projects/sfa)                                                              | (1)  |
-| [Email](/projects/mailkit)                                                                 | (2)  | [Static Files and File Provider](/projects/file-provider)                                            | (10) |
-| [Features](/projects/features)                                                             | (10) | [System.Text.Json](/projects/json)                                                                   | (11) |
-| [Generic Hosting](/projects/generic-host)                                                  | (9)  | [Startup](/projects/startup)                                                                         | (12) |
-| [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Syndications](/projects/syndications)                                                               | (3)  |
-| [Health Check](/projects/health-check)                                                     | (6)  | [URL Redirect/Rewrite](/projects/rewrite)                                                            | (6)  |
-| [IHttpClientFactory](/projects/httpclientfactory)                                          | (4)  | [Uri Helper](/projects/uri-helper)                                                                   | (5)  |
-| [IHostedService](/projects/ihosted-service)                                                | (2)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
-| [Logging](/projects/logging)                                                               | (3)  | [Web Utilities](/projects/web-utilities)                                                             | (3)  |
-| [Localization and Globalization](projects/localization)                                    | (6)  | [Orleans](projects/orleans)                                                                          | (12) |
-| [Middleware](/projects/middleware)                                                         | (14) | [Xml](projects/xml)                                                                                  | (1)  | 
-| [Mini Apps](projects/mini)                                                                 | (1)  | | |
+| [Diagnostics](/projects/diagnostics)                                                       | (6)  | [SignalR](/projects/signalr)                                                                         | (1)  |
+| [Endpoint Routing](/projects/endpoint-routing)                                             | (32) | [Security](/projects/security)                                                                       | (7)  |
+| [Email](/projects/mailkit)                                                                 | (2)  | [Single File Application](projects/sfa)                                                              | (1)  |
+| [Features](/projects/features)                                                             | (10) | [Static Files and File Provider](/projects/file-provider)                                            | (10) |
+| [Generic Hosting](/projects/generic-host)                                                  | (9)  | [System.Text.Json](/projects/json)                                                                   | (11) |
+| [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Startup](/projects/startup)                                                                         | (12) |
+| [Health Check](/projects/health-check)                                                     | (6)  | [Syndications](/projects/syndications)                                                               | (3)  |
+| [IHttpClientFactory](/projects/httpclientfactory)                                          | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                                                            | (6)  |
+| [IHostedService](/projects/ihosted-service)                                                | (2)  | [Uri Helper](/projects/uri-helper)                                                                   | (5)  |
+| [Logging](/projects/logging)                                                               | (3)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
+| [Localization and Globalization](projects/localization)                                    | (6)  | [Web Utilities](/projects/web-utilities)                                                             | (3)  |
+| [Middleware](/projects/middleware)                                                         | (14) | [Orleans](projects/orleans)                                                                          | (12) | 
+| [Mini Apps](projects/mini)                                                                 | (1)  | [Xml](projects/xml)                                                                                  | (1)  |
 
 For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
 ## How to run these samples
