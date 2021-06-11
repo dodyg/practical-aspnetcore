@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (350)
+# Samples for ASP.NET Core 5.0 (356)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -38,7 +38,7 @@ You can access .NET 6 Preview 5 specific samples [here](projects/net6).
 | [Localization and Globalization](projects/localization)                                    | (6)  | [Web Utilities](/projects/web-utilities)                                                             | (3)  |
 | [Middleware](/projects/middleware)                                                         | (14) | [Orleans](projects/orleans)                                                                          | (12) | 
 | [Mini Apps](projects/mini)                                                                 | (1)  | [Xml](projects/xml)                                                                                  | (1)  |
-
+|                                                                                            | 161  |                                                                                                      | 156  |
 For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
 ## How to run these samples
 
