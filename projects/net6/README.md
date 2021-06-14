@@ -75,3 +75,9 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 * [WebApplicationBuilder - enable Razor Pages](web-application-builder-2)
 
     This sample shows how to enable Razor Pages.
+
+## Reverse Proxy - YARP
+This section showcases creating reverse proxy using YARP package.
+* [Basic Demo](yarp/basic-demo)
+
+  Basic demo with simple YARP routing.
