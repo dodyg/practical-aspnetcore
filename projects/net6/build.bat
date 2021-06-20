@@ -16,3 +16,4 @@ dotnet build web-application-7
 dotnet build web-application-8
 dotnet build web-application-builder
 dotnet build web-application-builder-2
+dotnet build yarp/basic-demo/
