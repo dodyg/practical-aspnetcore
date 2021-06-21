@@ -1,4 +1,4 @@
-# .NET 6 (18)
+# .NET 6 (19)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -81,3 +81,9 @@ This section showcases creating reverse proxy using YARP package.
 * [Basic Demo](yarp/basic-demo)
 
   Basic demo with simple YARP routing.
+
+## Writable JSON DOM
+
+* [Primitives](json/json-12)
+  
+  This sample shows how to parse and access number, string and an array values from JSON string.
