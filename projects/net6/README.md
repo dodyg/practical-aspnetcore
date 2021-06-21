@@ -1,4 +1,4 @@
-# .NET 6 (19)
+# .NET 6 (20)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -87,3 +87,7 @@ This section showcases creating reverse proxy using YARP package.
 * [Primitives](json/json-12)
   
   This sample shows how to parse and access number, string and an array values from JSON string.
+
+* [Object](json/json-13)
+
+  This sample shows how to parse and access objects from JSON string. We will be using `JsonObject` as well.
