@@ -1,4 +1,4 @@
-# .NET 6 (22)
+# .NET 6 (23)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -101,3 +101,7 @@ This section showcases creating reverse proxy using YARP package.
 * [Finding a node using LINQ 2](json/json-15)
 
   This sample shows how to find a node based on two of its values (a string and an array) using LINQ.
+
+* [Finding a node using LINQ 3](json/json-16)
+
+  This sample shows how to find a node based of an absence of a property using LINQ.
