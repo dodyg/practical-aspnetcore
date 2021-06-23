@@ -1,4 +1,4 @@
-# .NET 6 (20)
+# .NET 6 (21)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -84,6 +84,8 @@ This section showcases creating reverse proxy using YARP package.
 
 ## Writable JSON DOM
 
+   [Design document for the Writable JSON API](https://github.com/dotnet/designs/blob/main/accepted/2020/serializer/WriteableDomAndDynamic.md)
+
 * [Primitives](json/json-12)
   
   This sample shows how to parse and access number, string and an array values from JSON string.
@@ -91,3 +93,7 @@ This section showcases creating reverse proxy using YARP package.
 * [Object](json/json-13)
 
   This sample shows how to parse and access objects from JSON string. We will be using `JsonObject` as well.
+
+* [Finding a node using LINQ](json/json-14)
+
+  This sample shows how to find a node based on of its value using LINQ.
