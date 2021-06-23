@@ -33,15 +33,15 @@ app.Run(async context =>
     await context.Response.WriteAsync("\n");
     await context.Response.WriteAsync($"Path: {objectNode.GetPath()}");
 
-    await context.Response.WriteAsync("\n\nNow lets find the person who has no `favoriteNumbers`\n");
+    await context.Response.WriteAsync("\n\nNow lets find the person whose 3rd `favoriteNumbers` is 10\n");
 
-    var anne = objectNode.AsArray().Where(x => x["favoriteNumbers"] is null).FirstOrDefault();
+    var abdelfattah = objectNode.AsArray().Where(x => x["favoriteNumbers"]?[2]?.GetValue<int>() == 10).FirstOrDefault();
 
-    if (anne is object)
+    if (abdelfattah is object)
     {
         await context.Response.WriteAsync("\n");
-        await context.Response.WriteAsync(anne.ToString());
-        await context.Response.WriteAsync($"\nPath : {anne.GetPath()}");
+        await context.Response.WriteAsync(abdelfattah.ToString());
+        await context.Response.WriteAsync($"\nPath : {abdelfattah.GetPath()}");
     }    
 });
 
