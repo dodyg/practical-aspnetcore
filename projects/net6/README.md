@@ -1,4 +1,4 @@
-# .NET 6 (24)
+# .NET 6 (25)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -109,3 +109,7 @@ This section showcases creating reverse proxy using YARP package.
 * [Finding a node using LINQ 4](json/json-17)
 
   In this example we are trying to find a node in an array that has a specific value on its array property.
+
+* [Construct a JSON document](json/json-18)
+
+  This sample shows how to construct a JSON document using `JsonObject`.
