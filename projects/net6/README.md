@@ -1,4 +1,4 @@
-# .NET 6 (25)
+# .NET 6 (26)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -113,3 +113,7 @@ This section showcases creating reverse proxy using YARP package.
 * [Construct a JSON document](json/json-18)
 
   This sample shows how to construct a JSON document using `JsonObject`.
+
+* [Construct a JSON document](json/json-19)
+
+  This sample shows how to construct a JSON document using `JsonArray`.
