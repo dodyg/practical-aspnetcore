@@ -1,4 +1,4 @@
-# .NET 6 (28)
+# .NET 6 (29)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -125,3 +125,7 @@ This section showcases creating reverse proxy using YARP package.
 * [Delete elements in a JSON document](json/json-21)
 
   This example shows how to update remove an object property and an element in an array.
+
+* [Add items into a JSON array](json/json-22)
+  
+  This example shows how to add items at the first position of an array and at the last position.
