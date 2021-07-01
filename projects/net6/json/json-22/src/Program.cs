@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System.Text.Json.Nodes;
 
 WebApplication app = WebApplication.Create();
+
 app.Run(async context =>
 {
     var objectNode = JsonNode.Parse(@"

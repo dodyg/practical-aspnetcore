@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <RestoreSources>
+      $(RestoreSources);
+      https://api.nuget.org/v3/index.json;
+      https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json;
+      https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet6/nuget/v3/index.json
+    </RestoreSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.0.0-2.21269.40" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+  </ItemGroup>
+</Project>

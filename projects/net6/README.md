@@ -1,4 +1,4 @@
-# .NET 6 (29)
+# .NET 6 (30)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 5(`6.0.100-preview.5.21302.13`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -17,6 +17,10 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [Accessing Objects in Map](map-3)
 
   This sample shows how to access objects `Map`.
+
+* [Setup Open API support](map-4)
+
+  This sample shows how to setup Open API support with Swashbuckle.
 
 * [MapPost with JSON model binder](map-post)
 
