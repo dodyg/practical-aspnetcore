@@ -1,4 +1,4 @@
-# .NET 6 (30)
+# .NET 6 (31)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 6(`6.0.100-preview.6.21355.2`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -21,6 +21,10 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 * [Setup Open API support](map-4)
 
   This sample shows how to setup Open API support with Swashbuckle.
+
+* [HttpRequest injection](map-5)
+
+  This sample shows how to use `HttpRequest` directly without relying on `HttpContext`.
 
 * [MapPost with JSON model binder](map-post)
 
