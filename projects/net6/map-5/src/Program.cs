@@ -9,7 +9,6 @@ string Plaintext(HttpRequest request)
         return "hello";
 }
 
-// return Mime type: text/html
 app.MapGet("/hello", Plaintext);
 
 app.MapGet("/", async context =>
