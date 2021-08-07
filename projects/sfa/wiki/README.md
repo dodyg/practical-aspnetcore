@@ -1,6 +1,6 @@
 # Wiki
 
-**Note**. This sample uses features only available in [.NET 6 Preview 4 nighlty build](https://github.com/dotnet/installer). 
+**Note**. This sample uses features only available in [.NET 6 Preview 7 nighlty build](https://github.com/dotnet/installer). 
 
 This is a Single File Application (SFA) that provide wiki functionality.
 
@@ -15,14 +15,9 @@ This is a Single File Application (SFA) that provide wiki functionality.
 
 All the code (864 lines) is contained within `Program.cs`. 
 
-This SFA won't receive any further features because it will increase the lines of code and it will make it harder to read in one sitting. Additional development will be done at separate [repository](https://github.com/dodyg/fanon).
-
-Please be noted that SFA is a very limited approach in web system development. It is really fun for quick hacking but as of now, there is a lot of nice functionality such as Model Binding that is not available for this style of development.
-
 Used libraries:
 
 * Storage - [LiteDB](https://github.com/mbdavid/LiteDB).
-* Framework - [FeatherHttp](https://github.com/featherhttp/framework).
 * Text Template - [Scriban](https://github.com/lunet-io/scriban).
 * Markdown Support - [Markdig](https://github.com/lunet-io/markdig).
 * Validation - [FluentValidation](https://github.com/FluentValidation/FluentValidation).
