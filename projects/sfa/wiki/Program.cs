@@ -351,7 +351,7 @@ static string RenderPageAttachments(Page page)
 // Build the wiki input form 
 static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
-    bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key].ValidationState == ModelValidationState.Invalid;
+    bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key]!.ValidationState == ModelValidationState.Invalid;
 
     var antiForgeryField = Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
@@ -378,7 +378,7 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
     {
         if (IsFieldOK("Name"))
         {
-            foreach (var er in modelState["Name"].Errors)
+            foreach (var er in modelState["Name"]!.Errors)
             {
                 nameField = nameField.Append(Div.Class("uk-form-danger uk-text-small").Append(er.ErrorMessage));
             }
@@ -386,7 +386,7 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
 
         if (IsFieldOK("Content"))
         {
-            foreach (var er in modelState["Content"].Errors)
+            foreach (var er in modelState["Content"]!.Errors)
             {
                 contentField = contentField.Append(Div.Class("uk-form-danger uk-text-small").Append(er.ErrorMessage));
             }
