@@ -48,10 +48,9 @@ app.MapGet("/", (Wiki wiki, Render render) =>
       ).ToString(), HtmlMime);
 });
 
-app.MapGet("/new-page", (HttpRequest request) =>
+app.MapGet("/new-page", (string? pageName) =>
 {
-    var pageName = request.Query["pageName"];
-    if (StringValues.IsNullOrEmpty(pageName))
+    if (string.IsNullOrEmpty(pageName))
         Results.Redirect("/");
 
     // Copied from https://www.30secondsofcode.org/c-sharp/s/to-kebab-case
@@ -61,7 +60,7 @@ app.MapGet("/new-page", (HttpRequest request) =>
         return string.Join("-", pattern.Matches(str)).ToLower();
     }
 
-    var page = ToKebabCase(pageName);
+    var page = ToKebabCase(pageName!);
     return Results.Redirect($"/{page}");
 });
 
@@ -109,7 +108,7 @@ app.MapGet("/attachment", (HttpRequest request, HttpResponse response, Wiki wiki
 });
 
 // Load a wiki page
-app.MapGet("/{pageName}", async (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
+app.MapGet("/{pageName}", (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
     var pageName = context.Request.RouteValues["pageName"] as string ?? "";
 
