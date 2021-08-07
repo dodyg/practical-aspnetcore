@@ -11,8 +11,6 @@ using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
 using Scriban;
@@ -28,6 +26,7 @@ using static HtmlBuilders.HtmlTags;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";
+const string HtmlMime = "text/html";
 
 var builder = WebApplication.CreateBuilder();
 builder.Services
@@ -41,19 +40,14 @@ builder.Logging.AddConsole().SetMinimumLevel(LogLevel.Warning);
 var app = builder.Build();
 
 // Load home page
-app.MapGet("/", async context =>
+app.MapGet("/", (Wiki wiki, Render render) =>
 {
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
     Page? page = wiki.GetPage(HomePageName);
 
     if (page is not object)
-    {
-        context.Response.Redirect($"/{HomePageName}");
-        return;
-    }
+        return Results.Redirect($"/{HomePageName}");
 
-    await context.Response.WriteAsync(render.BuildPage(HomePageName, atBody: () =>
+    return Results.Text(render.BuildPage(HomePageName, atBody: () =>
         new[]
         {
           RenderPageContent(page),
@@ -61,17 +55,14 @@ app.MapGet("/", async context =>
           A.Href($"/edit?pageName={HomePageName}").Class("uk-button uk-button-default uk-button-small").Append("Edit").ToHtmlString()
         },
         atSidePanel: () => AllPages(wiki)
-      ).ToString());
+      ).ToString(), HtmlMime);
 });
 
-app.MapGet("/new-page", context =>
+app.MapGet("/new-page", (HttpRequest request) =>
 {
-    var pageName = context.Request.Query["pageName"];
+    var pageName = request.Query["pageName"];
     if (StringValues.IsNullOrEmpty(pageName))
-    {
-        context.Response.Redirect("/");
-        return Task.CompletedTask;
-    }
+        Results.Redirect("/");
 
     // Copied from https://www.30secondsofcode.org/c-sharp/s/to-kebab-case
     string ToKebabCase(string str)
@@ -81,28 +72,19 @@ app.MapGet("/new-page", context =>
     }
 
     var page = ToKebabCase(pageName);
-    context.Response.Redirect($"/{page}");
-    return Task.CompletedTask;
+    return Results.Redirect($"/{page}");
 });
 
-
 // Edit a wiki page
-app.MapGet("/edit", async context =>
+app.MapGet("/edit", (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
-
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     var pageName = context.Request.Query["pageName"];
 
     Page? page = wiki.GetPage(pageName);
     if (page is not object)
-    {
-        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-        return;
-    }
+        return Results.NotFound();
 
-    await context.Response.WriteAsync(render.BuildEditorPage(pageName,
+    return Results.Text(render.BuildEditorPage(pageName,
       atBody: () =>
         new[]
         {
@@ -119,25 +101,21 @@ app.MapGet("/edit", async context =>
           list.Add(Br.ToHtmlString());
           list.AddRange(AllPagesForEditing(wiki));
           return list;
-      }).ToString());
+      }).ToString(), HtmlMime);
 });
 
 // Deal with attachment download
-app.MapGet("/attachment", async context =>
+app.MapGet("/attachment", (HttpRequest request, HttpResponse response, Wiki wiki) =>
 {
-    var fileId = context.Request.Query["fileId"];
-    var wiki = context.RequestServices.GetService<Wiki>()!;
+    var fileId = request.Query["fileId"];
 
     var file = wiki.GetFile(fileId);
     if (file is not object)
-    {
-        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-        return;
-    }
+      return Results.NotFound();
 
     app!.Logger.LogInformation("Attachment " + file.Value.meta.Id + " - " + file.Value.meta.Filename);
-    context.Response.Headers.Append(HeaderNames.ContentType, file.Value.meta.MimeType);
-    await context.Response.Body.WriteAsync(file.Value.file);
+
+    return Results.File(file.Value.file, file.Value.meta.MimeType);
 });
 
 // Load a wiki page

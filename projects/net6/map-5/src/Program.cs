@@ -1,21 +1,20 @@
 var app = WebApplication.Create();
 
-string Plaintext(HttpRequest request)
+IResult Plaintext(HttpRequest request)
 {
     var name = request.Query["name"];
     if (!string.IsNullOrWhiteSpace(name))
-        return "hello " + name;
+        return Results.Text("hello " + name, "text/html");
     else
-        return "hello";
+        return Results.Text("hello", "text/html");
 }
 
 app.MapGet("/hello", Plaintext);
 
-app.MapGet("/", async context =>
+app.MapGet("/", () =>
 {
-    await context.Response.WriteAsync(
-$@"
-    <html>
+    return Results.Text(
+$@"<html>
         <body>
             <ul>
                 <li><a href=""/hello?name=anne"">Greet with name</a></li>
@@ -23,7 +22,7 @@ $@"
             </ul>
         </body>
     </html>
-");
+", "text/html");
 });
 
 app.Run();
