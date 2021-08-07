@@ -108,9 +108,9 @@ app.MapGet("/attachment", (HttpRequest request, HttpResponse response, Wiki wiki
 });
 
 // Load a wiki page
-app.MapGet("/{pageName}", (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
+app.MapGet("/{pageName}", (string pageName, HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
-    var pageName = context.Request.RouteValues["pageName"] as string ?? "";
+    pageName = pageName ?? "";
 
     Page? page = wiki.GetPage(pageName);
 
