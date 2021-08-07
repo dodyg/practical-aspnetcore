@@ -94,10 +94,8 @@ app.MapGet("/edit", (HttpContext context, Wiki wiki, Render render, IAntiforgery
 });
 
 // Deal with attachment download
-app.MapGet("/attachment", (HttpRequest request, HttpResponse response, Wiki wiki) =>
+app.MapGet("/attachment", (string fileId, Wiki wiki) =>
 {
-    var fileId = request.Query["fileId"];
-
     var file = wiki.GetFile(fileId);
     if (file is not object)
       return Results.NotFound();
