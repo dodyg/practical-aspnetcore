@@ -119,19 +119,15 @@ app.MapGet("/attachment", (HttpRequest request, HttpResponse response, Wiki wiki
 });
 
 // Load a wiki page
-app.MapGet("/{pageName}", async context =>
+app.MapGet("/{pageName}", async (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
-
     var pageName = context.Request.RouteValues["pageName"] as string ?? "";
 
     Page? page = wiki.GetPage(pageName);
 
     if (page is object)
     {
-        await context.Response.WriteAsync(render.BuildPage(pageName, atBody: () =>
+        return Results.Text(render.BuildPage(pageName, atBody: () =>
           new[]
           {
             RenderPageContent(page),
@@ -140,33 +136,30 @@ app.MapGet("/{pageName}", async context =>
             A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
           },
           atSidePanel: () => AllPages(wiki)
-        ).ToString());
+        ).ToString(), HtmlMime);
     }
     else
     {
-        await context.Response.WriteAsync(render.BuildEditorPage(pageName,
+        return Results.Text(render.BuildEditorPage(pageName,
         atBody: () =>
           new[]
           {
             BuildForm(new PageInput(null, pageName, string.Empty, null), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
           },
-        atSidePanel: () => AllPagesForEditing(wiki)).ToString());
+        atSidePanel: () => AllPagesForEditing(wiki)).ToString(), HtmlMime);
     }
 });
 
 // Delete a page
-app.MapPost("/delete-page", async context =>
+app.MapPost("/delete-page", async (HttpContext context, IAntiforgery antiForgery, Wiki wiki) =>
 {
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
-    var wiki = context.RequestServices.GetService<Wiki>()!;
     var id = context.Request.Form["Id"];
 
     if (StringValues.IsNullOrEmpty(id))
     {
         app.Logger.LogWarning($"Unable to delete page because form Id is missing");
-        context.Response.Redirect("/");
-        return;
+        return Results.Redirect("/");
     }
 
     var (isOk, exception) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
@@ -176,29 +169,25 @@ app.MapPost("/delete-page", async context =>
     else if (!isOk)
         app.Logger.LogError($"Unable to delete page id {id}");
 
-    context.Response.Redirect("/");
+    return Results.Redirect("/");
 });
 
-app.MapPost("/delete-attachment", async context =>
+app.MapPost("/delete-attachment", async (HttpContext context, IAntiforgery antiForgery, Wiki wiki)=>
 {
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
-    var wiki = context.RequestServices.GetService<Wiki>()!;
     var id = context.Request.Form["Id"];
 
     if (StringValues.IsNullOrEmpty(id))
     {
         app.Logger.LogWarning($"Unable to delete attachment because form Id is missing");
-        context.Response.Redirect("/");
-        return;
+        return Results.Redirect("/");
     }
 
     var pageId = context.Request.Form["PageId"];
     if (StringValues.IsNullOrEmpty(pageId))
     {
         app.Logger.LogWarning($"Unable to delete attachment because form PageId is missing");
-        context.Response.Redirect("/");
-        return;
+        return Results.Redirect("/");
     }
 
     var (isOk, page, exception) = wiki.DeleteAttachment(Convert.ToInt32(pageId), id.ToString());
@@ -211,23 +200,18 @@ app.MapPost("/delete-attachment", async context =>
             app.Logger.LogError($"Unable to delete page attachment id {id}");
 
         if (page is object)
-            context.Response.Redirect($"/{page.Name}");
+            return Results.Redirect($"/{page.Name}");
         else
-            context.Response.Redirect("/");
-
-        return;
+            return Results.Redirect("/");
     }
 
-    context.Response.Redirect($"/{page!.Name}");
+    return Results.Redirect($"/{page!.Name}");
 });
 
 // Add or update a wiki page
-app.MapPost("/{pageName}", async context =>
+app.MapPost("/{pageName}", async (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery)  =>
 {
     var pageName = context.Request.RouteValues["pageName"] as string ?? "";
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
 
     PageInput input = PageInput.From(context.Request.Form);
@@ -238,24 +222,23 @@ app.MapPost("/{pageName}", async context =>
 
     if (!modelState.IsValid)
     {
-        await context.Response.WriteAsync(render.BuildEditorPage(pageName,
+        return Results.Text(render.BuildEditorPage(pageName,
           atBody: () =>
             new[]
             {
               BuildForm(input, path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
             },
-          atSidePanel: () => AllPages(wiki)).ToString());
-        return;
+          atSidePanel: () => AllPages(wiki)).ToString(), HtmlMime);
     }
 
     var (isOk, p, ex) = wiki.SavePage(input);
     if (!isOk)
     {
         app.Logger.LogError(ex, "Problem in saving page");
-        return;
+        return Results.Problem("Progblem in saving page");
     }
 
-    context.Response.Redirect($"/{p!.Name}");
+    return Results.Redirect($"/{p!.Name}");
 });
 
 await app.RunAsync();
