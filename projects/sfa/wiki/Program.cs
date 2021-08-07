@@ -65,10 +65,8 @@ app.MapGet("/new-page", (string? pageName) =>
 });
 
 // Edit a wiki page
-app.MapGet("/edit", (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
+app.MapGet("/edit", (string pageName, HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
-    var pageName = context.Request.Query["pageName"];
-
     Page? page = wiki.GetPage(pageName);
     if (page is not object)
         return Results.NotFound();
