@@ -1,6 +1,6 @@
 # Wiki
 
-**Note**. This sample uses features only available in [.NET 6 Preview 7 nighlty build](https://github.com/dotnet/installer). 
+**Note**. This sample uses features only available in [.NET 6 Preview 7 nightly build](https://github.com/dotnet/installer). 
 
 This is a Single File Application (SFA) that provide wiki functionality.
 
