@@ -12,7 +12,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 ## .NET 6 Preview 7 Section (31)
 
-You can access .NET 6 Preview 6 specific samples [here](projects/net6).
+You can access .NET 6 Preview 7 specific samples [here](projects/net6).
 
 ## Sections
 
