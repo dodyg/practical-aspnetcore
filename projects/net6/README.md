@@ -1,6 +1,6 @@
 # .NET 6 (31)
 
-This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 6(`6.0.100-preview.6.21355.2`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-preview.7.21379.14`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 * [Hello World](hello-world)
   
