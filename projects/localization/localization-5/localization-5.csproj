@@ -6,6 +6,6 @@
     <PackageId>localization-5</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0" />
   </ItemGroup>
 </Project>
