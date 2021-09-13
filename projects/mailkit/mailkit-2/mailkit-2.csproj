@@ -2,13 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>mailkit-2</AssemblyName>
-    <OutputType>Exe</OutputType>
-    <PackageId>mailkit-2</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MailKit" Version="2.6.0" />
+    <PackageReference Include="MailKit" Version="2.12.0" />
   </ItemGroup>
 
 </Project>

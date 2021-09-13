@@ -1,8 +1,13 @@
-Security
-========
+# Security (7)
+
 
 Section about authentication, authorization and other things related to the security with .NET Core.
 ----------------------------------------------------------------------------------------------------
+
+| Sections                                                       |     |
+|----------------------------------------------------------------|-----|
+| [Data Protection](/projects/security/dataprotection)           | (6) |
+
 
  * [Basic authentication sample with Identity Core and SQLite](/projects/security/authentication-with-identity)
  

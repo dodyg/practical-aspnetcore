@@ -5,31 +5,20 @@ using HtmlBuilders;
 using LiteDB;
 using Markdig;
 using Microsoft.AspNetCore.Antiforgery;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using Microsoft.Net.Http.Headers;
 using Scriban;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using static HtmlBuilders.HtmlTags;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";
+const string HtmlMime = "text/html";
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder();
 builder.Services
   .AddSingleton<Wiki>()
   .AddSingleton<Render>()
@@ -41,19 +30,14 @@ builder.Logging.AddConsole().SetMinimumLevel(LogLevel.Warning);
 var app = builder.Build();
 
 // Load home page
-app.MapGet("/", async context =>
+app.MapGet("/", (Wiki wiki, Render render) =>
 {
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
     Page? page = wiki.GetPage(HomePageName);
 
     if (page is not object)
-    {
-        context.Response.Redirect($"/{HomePageName}");
-        return;
-    }
+        return Results.Redirect($"/{HomePageName}");
 
-    await context.Response.WriteAsync(render.BuildPage(HomePageName, atBody: () =>
+    return Results.Text(render.BuildPage(HomePageName, atBody: () =>
         new[]
         {
           RenderPageContent(page),
@@ -61,17 +45,13 @@ app.MapGet("/", async context =>
           A.Href($"/edit?pageName={HomePageName}").Class("uk-button uk-button-default uk-button-small").Append("Edit").ToHtmlString()
         },
         atSidePanel: () => AllPages(wiki)
-      ).ToString());
+      ).ToString(), HtmlMime);
 });
 
-app.MapGet("/new-page", context =>
+app.MapGet("/new-page", (string? pageName) =>
 {
-    var pageName = context.Request.Query["pageName"];
-    if (StringValues.IsNullOrEmpty(pageName))
-    {
-        context.Response.Redirect("/");
-        return Task.CompletedTask;
-    }
+    if (string.IsNullOrEmpty(pageName))
+        Results.Redirect("/");
 
     // Copied from https://www.30secondsofcode.org/c-sharp/s/to-kebab-case
     string ToKebabCase(string str)
@@ -80,29 +60,18 @@ app.MapGet("/new-page", context =>
         return string.Join("-", pattern.Matches(str)).ToLower();
     }
 
-    var page = ToKebabCase(pageName);
-    context.Response.Redirect($"/{page}");
-    return Task.CompletedTask;
+    var page = ToKebabCase(pageName!);
+    return Results.Redirect($"/{page}");
 });
 
-
 // Edit a wiki page
-app.MapGet("/edit", async context =>
+app.MapGet("/edit", (string pageName, HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
-
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
-    var pageName = context.Request.Query["pageName"];
-
     Page? page = wiki.GetPage(pageName);
     if (page is not object)
-    {
-        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-        return;
-    }
+        return Results.NotFound();
 
-    await context.Response.WriteAsync(render.BuildEditorPage(pageName,
+    return Results.Text(render.BuildEditorPage(pageName,
       atBody: () =>
         new[]
         {
@@ -119,41 +88,31 @@ app.MapGet("/edit", async context =>
           list.Add(Br.ToHtmlString());
           list.AddRange(AllPagesForEditing(wiki));
           return list;
-      }).ToString());
+      }).ToString(), HtmlMime);
 });
 
 // Deal with attachment download
-app.MapGet("/attachment", async context =>
+app.MapGet("/attachment", (string fileId, Wiki wiki) =>
 {
-    var fileId = context.Request.Query["fileId"];
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-
     var file = wiki.GetFile(fileId);
     if (file is not object)
-    {
-        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-        return;
-    }
+      return Results.NotFound();
 
     app!.Logger.LogInformation("Attachment " + file.Value.meta.Id + " - " + file.Value.meta.Filename);
-    context.Response.Headers.Append(HeaderNames.ContentType, file.Value.meta.MimeType);
-    await context.Response.Body.WriteAsync(file.Value.file);
+
+    return Results.File(file.Value.file, file.Value.meta.MimeType);
 });
 
 // Load a wiki page
-app.MapGet("/{pageName}", async context =>
+app.MapGet("/{pageName}", (string pageName, HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery) =>
 {
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
-
-    var pageName = context.Request.RouteValues["pageName"] as string ?? "";
+    pageName = pageName ?? "";
 
     Page? page = wiki.GetPage(pageName);
 
     if (page is object)
     {
-        await context.Response.WriteAsync(render.BuildPage(pageName, atBody: () =>
+        return Results.Text(render.BuildPage(pageName, atBody: () =>
           new[]
           {
             RenderPageContent(page),
@@ -162,33 +121,30 @@ app.MapGet("/{pageName}", async context =>
             A.Href($"/edit?pageName={pageName}").Append("Edit").ToHtmlString()
           },
           atSidePanel: () => AllPages(wiki)
-        ).ToString());
+        ).ToString(), HtmlMime);
     }
     else
     {
-        await context.Response.WriteAsync(render.BuildEditorPage(pageName,
+        return Results.Text(render.BuildEditorPage(pageName,
         atBody: () =>
           new[]
           {
             BuildForm(new PageInput(null, pageName, string.Empty, null), path: pageName, antiForgery: antiForgery.GetAndStoreTokens(context))
           },
-        atSidePanel: () => AllPagesForEditing(wiki)).ToString());
+        atSidePanel: () => AllPagesForEditing(wiki)).ToString(), HtmlMime);
     }
 });
 
 // Delete a page
-app.MapPost("/delete-page", async context =>
+app.MapPost("/delete-page", async (HttpContext context, IAntiforgery antiForgery, Wiki wiki) =>
 {
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
-    var wiki = context.RequestServices.GetService<Wiki>()!;
     var id = context.Request.Form["Id"];
 
     if (StringValues.IsNullOrEmpty(id))
     {
         app.Logger.LogWarning($"Unable to delete page because form Id is missing");
-        context.Response.Redirect("/");
-        return;
+        return Results.Redirect("/");
     }
 
     var (isOk, exception) = wiki.DeletePage(Convert.ToInt32(id), HomePageName);
@@ -198,29 +154,25 @@ app.MapPost("/delete-page", async context =>
     else if (!isOk)
         app.Logger.LogError($"Unable to delete page id {id}");
 
-    context.Response.Redirect("/");
+    return Results.Redirect("/");
 });
 
-app.MapPost("/delete-attachment", async context =>
+app.MapPost("/delete-attachment", async (HttpContext context, IAntiforgery antiForgery, Wiki wiki)=>
 {
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
-    var wiki = context.RequestServices.GetService<Wiki>()!;
     var id = context.Request.Form["Id"];
 
     if (StringValues.IsNullOrEmpty(id))
     {
         app.Logger.LogWarning($"Unable to delete attachment because form Id is missing");
-        context.Response.Redirect("/");
-        return;
+        return Results.Redirect("/");
     }
 
     var pageId = context.Request.Form["PageId"];
     if (StringValues.IsNullOrEmpty(pageId))
     {
         app.Logger.LogWarning($"Unable to delete attachment because form PageId is missing");
-        context.Response.Redirect("/");
-        return;
+        return Results.Redirect("/");
     }
 
     var (isOk, page, exception) = wiki.DeleteAttachment(Convert.ToInt32(pageId), id.ToString());
@@ -233,23 +185,18 @@ app.MapPost("/delete-attachment", async context =>
             app.Logger.LogError($"Unable to delete page attachment id {id}");
 
         if (page is object)
-            context.Response.Redirect($"/{page.Name}");
+            return Results.Redirect($"/{page.Name}");
         else
-            context.Response.Redirect("/");
-
-        return;
+            return Results.Redirect("/");
     }
 
-    context.Response.Redirect($"/{page!.Name}");
+    return Results.Redirect($"/{page!.Name}");
 });
 
 // Add or update a wiki page
-app.MapPost("/{pageName}", async context =>
+app.MapPost("/{pageName}", async (HttpContext context, Wiki wiki, Render render, IAntiforgery antiForgery)  =>
 {
     var pageName = context.Request.RouteValues["pageName"] as string ?? "";
-    var wiki = context.RequestServices.GetService<Wiki>()!;
-    var render = context.RequestServices.GetService<Render>()!;
-    var antiForgery = context.RequestServices.GetService<IAntiforgery>()!;
     await antiForgery.ValidateRequestAsync(context);
 
     PageInput input = PageInput.From(context.Request.Form);
@@ -260,24 +207,23 @@ app.MapPost("/{pageName}", async context =>
 
     if (!modelState.IsValid)
     {
-        await context.Response.WriteAsync(render.BuildEditorPage(pageName,
+        return Results.Text(render.BuildEditorPage(pageName,
           atBody: () =>
             new[]
             {
               BuildForm(input, path: $"{pageName}", antiForgery: antiForgery.GetAndStoreTokens(context), modelState)
             },
-          atSidePanel: () => AllPages(wiki)).ToString());
-        return;
+          atSidePanel: () => AllPages(wiki)).ToString(), HtmlMime);
     }
 
     var (isOk, p, ex) = wiki.SavePage(input);
     if (!isOk)
     {
         app.Logger.LogError(ex, "Problem in saving page");
-        return;
+        return Results.Problem("Progblem in saving page");
     }
 
-    context.Response.Redirect($"/{p!.Name}");
+    return Results.Redirect($"/{p!.Name}");
 });
 
 await app.RunAsync();
@@ -405,7 +351,7 @@ static string RenderPageAttachments(Page page)
 // Build the wiki input form 
 static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiForgery, ModelStateDictionary? modelState = null)
 {
-    bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key].ValidationState == ModelValidationState.Invalid;
+    bool IsFieldOK(string key) => modelState!.ContainsKey(key) && modelState[key]!.ValidationState == ModelValidationState.Invalid;
 
     var antiForgeryField = Input.Hidden.Name(antiForgery.FormFieldName).Value(antiForgery.RequestToken);
 
@@ -432,7 +378,7 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
     {
         if (IsFieldOK("Name"))
         {
-            foreach (var er in modelState["Name"].Errors)
+            foreach (var er in modelState["Name"]!.Errors)
             {
                 nameField = nameField.Append(Div.Class("uk-form-danger uk-text-small").Append(er.ErrorMessage));
             }
@@ -440,7 +386,7 @@ static string BuildForm(PageInput input, string path, AntiforgeryTokenSet antiFo
 
         if (IsFieldOK("Content"))
         {
-            foreach (var er in modelState["Content"].Errors)
+            foreach (var er in modelState["Content"]!.Errors)
             {
                 contentField = contentField.Append(Div.Class("uk-form-danger uk-text-small").Append(er.ErrorMessage));
             }

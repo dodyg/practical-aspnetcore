@@ -1,16 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Routing.Matching;
 using Microsoft.AspNetCore.Routing;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Routing.Patterns;
 
-namespace HelloWorldWithReload 
+namespace PracticalAspNetCore 
 {
     public class Startup
     {

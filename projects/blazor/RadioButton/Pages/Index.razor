@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<h1>RadioButton Example</h1>
+
+<div class="card p-3 my-5">
+    <h6>What web technology are you using?</h6>
+    @foreach (var item in new string[] { "AspNetCore", "AspNet", "SomeJsThingWhatever" })
+    {
+        <div>
+            <input class="form-check-input"  type="radio" name="technology" id="@item" value="@item" @onchange="TechnologyRadioSelection"
+            checked=@(TechnologyChoice.Equals(item,StringComparison.OrdinalIgnoreCase)) />
+            <label class="form-check-label" for="@item">@item</label>
+        </div>
+    }
+
+    <div class="py-4">
+        <label>Technology selected is <b>@TechnologyChoice</b></label>
+    </div>
+</div>
+
+<div class="card p-3 my-5">
+    <h6>What is your favorite fruit?</h6>
+    @foreach (var item in new string[] { "Mango", "Banana", "Strawberry" })
+    {
+        <div>
+            <input class="form-check-input" type="radio" name="fruit" id="@item" value="@item" @onchange="FruitRadioSelection"
+            checked=@(FruitChoice.Equals(item,StringComparison.OrdinalIgnoreCase)) />
+            <label class="form-check-label" for="@item">@item</label>
+        </div>
+    }
+
+    <div class="py-4">
+        <label>Fruit selected is <b>@FruitChoice</b></label>
+    </div>
+</div>
+@code
+{
+    string TechnologyChoice = "aspnetcore";
+    void TechnologyRadioSelection(ChangeEventArgs args)
+    {
+        TechnologyChoice = args.Value.ToString();
+    }
+    string FruitChoice = "Mango";
+    void FruitRadioSelection(ChangeEventArgs args)
+    {
+        FruitChoice = args.Value.ToString();
+    }
+}
