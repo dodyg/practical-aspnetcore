@@ -13,7 +13,7 @@ This is a Single File Application (SFA) that provide wiki functionality.
 - You can delete pages
 - It has pages and attachment markdown linking helpers
 
-All the code (864 lines) is contained within `Program.cs`. 
+All the code (810 lines) is contained within `Program.cs`. 
 
 Used libraries:
 
