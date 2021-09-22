@@ -6,7 +6,3 @@ In this example we create two endpoints, `/` and `/about`.
 
 `IEndpointConventionBuilder.Map` responds to all HTTP Verbs. 
 
-Note:
-
-```<PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.0.0-2.21269.40" />``` is temporary so we can use the latest unreleased version of C# compiler that support lambda improvements.
-
