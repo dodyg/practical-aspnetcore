@@ -1,4 +1,4 @@
-# .NET 6 (33)
+# .NET 6 (34)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-preview.7.21379.14`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
