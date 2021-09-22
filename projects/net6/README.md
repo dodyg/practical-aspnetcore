@@ -1,4 +1,4 @@
-# .NET 6 (34)
+# .NET 6 (35)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-preview.7.21379.14`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -73,6 +73,10 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
   * [WebApplication - Set Urls and Port via ASPNETCORE_URLS Environment Variable](web-application-11)
 
     This sample shows how to set the Kestrel web server to listen to a specific url and port via `ASPNETCORE_URLS` environment variable.
+
+  * [WebApplication - Listening to all interfaces on a specific port](web-application-12)
+
+    This sample shows how to set the Kestrel web server to listen to all IPs (IP4/IP6) on a specific port.
 
   * [WebApplication - Application lifetime events](web-application-6)
 
