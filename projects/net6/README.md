@@ -70,6 +70,10 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
     This sample shows how to set the Kestrel web server to listen to a specific port set from an environment variable.
 
+  * [WebApplication - Set Urls and Port via ASPNETCORE_URLS Environment Variable](web-application-11)
+
+    This sample shows how to set the Kestrel web server to listen to a specific url and port via `ASPNETCORE_URLS` environment variable.
+
   * [WebApplication - Application lifetime events](web-application-6)
 
     In this sample we learn how to respond to the application lifetime events.
