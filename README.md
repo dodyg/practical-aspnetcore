@@ -1,5 +1,4 @@
-# Samples for ASP.NET Core 5.0 (373)
-
+# Samples for ASP.NET Core 5.0 (372)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -11,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 RC1 Section (34)
+## .NET 6 RC1 Section (33)
 
 You can access .NET 6 RC1 specific samples [here](projects/net6).
 
@@ -19,8 +18,8 @@ You can access .NET 6 RC1 specific samples [here](projects/net6).
 
 
 | Section                                                                                    |      |                                                                                                      |      |
-|--------------------------------------------------------------------------------------------|------|------------------------------------------------------------------------------------------------------|------|
-| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (22) | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc) | (47) |                                                                         
+| ------------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------- | ---- |
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (22) | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc) | (47) |
 | [Blazor Server Side](/projects/blazor-ss) (Localization)                                   | (15) | [Orchard Core](/projects/orchard-core)                                                               | (4)  |
 | [Caching](/projects/caching)                                                               | (5)  | [Path String (HttpContext.Request.Path)](projects/path-string)                                       | (1)  |
 | [Configurations](/projects/configurations)                                                 | (7)  | [Razor Pages](/projects/razor-pages)                                                                 | (9)  |
@@ -33,13 +32,15 @@ You can access .NET 6 RC1 specific samples [here](projects/net6).
 | [Generic Hosting](/projects/generic-host)                                                  | (9)  | [System.Text.Json](/projects/json)                                                                   | (11) |
 | [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Startup](/projects/startup)                                                                         | (12) |
 | [Health Check](/projects/health-check)                                                     | (6)  | [Syndications](/projects/syndications)                                                               | (3)  |
-| [IHttpClientFactory](/projects/httpclientfactory)                                          | (4)  | [URL Redirect/Rewrite](/projects/rewrite)                                                            | (6)  |
-| [IHostedService](/projects/ihosted-service)                                                | (2)  | [Uri Helper](/projects/uri-helper)                                                                   | (5)  |
-| [Logging](/projects/logging)                                                               | (3)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
-| [Localization and Globalization](projects/localization)                                    | (6)  | [Web Utilities](/projects/web-utilities)                                                             | (3)  |
-| [Middleware](/projects/middleware)                                                         | (14) | [Orleans](projects/orleans)                                                                          | (12) | 
-| [Mini Apps](projects/mini)                                                                 | (1)  | [Xml](projects/xml)                                                                                  | (1)  |
-|                                                                                            | 161  |                                                                                                      | 156  |
+| [IHttpClientFactory](/projects/httpclientfactory)                                          | (4)  | [Testings](/projects/testing)                                                                        | (1)  |
+| [IHostedService](/projects/ihosted-service)                                                | (2)  | [URL Redirect/Rewrite](/projects/rewrite)                                                            | (6)  |
+| [Logging](/projects/logging)                                                               | (3)  | [Uri Helper](/projects/uri-helper)                                                                   | (5)  |
+| [Localization and Globalization](projects/localization)                                    | (6)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
+| [Middleware](/projects/middleware)                                                         | (14) | [Web Utilities](/projects/web-utilities)                                                             | (3)  |
+| [Mini Apps](projects/mini)                                                                 | (1)  | [Orleans](projects/orleans)                                                                          | (12) |
+|                                                                                            |      | [Xml](projects/xml)                                                                                  | (1)  |
+|                                                                                            | 161  |                                                                                                      | 157  |
+
 For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
 ## How to run these samples
 
