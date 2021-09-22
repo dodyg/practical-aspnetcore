@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (372)
+# Samples for ASP.NET Core 5.0 (373)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
