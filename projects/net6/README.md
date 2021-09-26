@@ -1,4 +1,4 @@
-# .NET 6 (35)
+# .NET 6 (36)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -99,6 +99,12 @@ In most cases using ```WebApplication``` isn't enough because you need to config
   * [WebApplicationBuilder - enable Razor Pages](web-application-builder-2)
 
     This sample shows how to enable Razor Pages.
+
+Use ```WebApplicationOptions``` to configure initial values of the ```WebApplication``` and ```WebApplicationBuilder``` objects.
+
+  * [WebApplicationOptions - set environment](web-application-options)
+
+    This sample shows how to set the environment.  
 
 ## Reverse Proxy - YARP
 This section showcases creating reverse proxy using YARP package.
