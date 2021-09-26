@@ -100,7 +100,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
     This sample shows how to enable Razor Pages.
 
-Use ```WebApplicationOptions``` to configure initial values of the ```WebApplication``` and ```WebApplicationBuilder``` objects.
+Use ```WebApplicationOptions``` to configure initial values of the ```WebApplicationBuilder``` object.
 
   * [WebApplicationOptions - set environment](web-application-options)
 

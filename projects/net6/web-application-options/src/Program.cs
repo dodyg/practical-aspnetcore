@@ -7,7 +7,8 @@ var options = new WebApplicationOptions
     EnvironmentName = Environments.Development
 };
 
-var app = WebApplication.Create(args);
+var builder = WebApplication.CreateBuilder(options);
+var app = builder.Build();
 
 app.Run(async (context) =>
 {
