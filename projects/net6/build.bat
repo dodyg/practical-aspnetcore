@@ -20,6 +20,7 @@ dotnet build web-application-10
 dotnet build web-application-11
 dotnet build web-application-12
 dotnet build web-application-options
+dotnet build web-application-options-2
 dotnet build web-application-builder
 dotnet build web-application-builder-2
 dotnet build web-application-builder-3
