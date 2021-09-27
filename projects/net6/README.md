@@ -1,10 +1,14 @@
 # .NET 6 (39)
 
-This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 * [Hello World](hello-world)
   
   This is Hello World ASP.NET Core 6 app using the new `WebApplication` instead of `IHostBuilder`.
+
+## Minimal Routing
+
+In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` host configuration style to emphasis that the new Minimal Routing feature works in both existing style and also in the new minimal hosting API.
 
 * [Map](map)
 
@@ -38,7 +42,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
   This sample shows how to handle multiple HTTP Verbs request using `MapMethods`.
 
-## Minimal Hosting Default Configuration
+## WebApplication - Minimal Hosting
 
   This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 
 
@@ -46,13 +50,25 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
     This uses the new minimalistic hosting code `WebApplication` and show ASP.NET Core welcome page.
 
-  * [WebApplication - UseFileServer](web-application-use-file-server)
-
-    This uses the new minimalistic hosting code `WebApplication` and server default static files.
-
   * [WebApplication - Default Logger](web-application-logging)
 
     `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
+
+  * [WebApplication - Application lifetime events](web-application-6)
+
+    In this sample we learn how to respond to the application lifetime events.
+
+### Configuration
+
+  * [WebApplication - Configuration](web-application-7)
+
+    This sample list all the information available in the `Configuration` property. 
+
+  * [WebApplication - Configuration as JSON](web-application-8)
+
+    This sample list all the information available in the `Configuration` property and return it as JSON. WARNING: Do not use this in your application. It is a terrible idea. Do not expose your configuration information over the wire. This sample is just to demonstrate a technique. 
+
+### Server
 
   * [WebApplication - Default Urls](web-application-server-default-urls)
 
@@ -78,21 +94,18 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
     This sample shows how to set the Kestrel web server to listen to all IPs (IP4/IP6) on a specific port.
 
-  * [WebApplication - Application lifetime events](web-application-6)
 
-    In this sample we learn how to respond to the application lifetime events.
+### Standard ASP.NET Core Middlewares
 
-  * [WebApplication - Configuration](web-application-7)
+  * [WebApplication - UseFileServer](web-application-use-file-server)
 
-    This sample list all the information available in the `Configuration` property. 
-
-  * [WebApplication - Configuration as JSON](web-application-8)
-
-    This sample list all the information available in the `Configuration` property and return it as JSON. WARNING: Do not use this in your application. It is a terrible idea. Do not expose your configuration information over the wire. This sample is just to demonstrate a technique. 
+    This uses the new minimalistic hosting code `WebApplication` and server default static files.
 
   * [WebApplication - UseWebSockets](web-application-13)
 
     This sample shows how to use WebSockets by creating a simple echo server.
+
+## WebApplicationBuilder - Minimal Hosting
 
 In most cases using ```WebApplication``` isn't enough because you need to configure additional services to be used in your system. This is where ```WebApplicationBuilder``` comes. It allows you to configure services and other properties.
 
@@ -111,6 +124,8 @@ In most cases using ```WebApplication``` isn't enough because you need to config
   * [WebApplicationBuilder - change logging minimum level](web-application-builder-5)
 
     This sample shows how to set logging minimum level via code.
+
+### WebApplicationOptions
 
   Use ```WebApplicationOptions``` to configure initial values of the ```WebApplicationBuilder``` object.
 
