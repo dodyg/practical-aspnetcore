@@ -82,7 +82,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
     This sample shows how to set the Kestrel web server to listen to multiple Urls and Ports.
 
-  * [WebApplication - Set Port from an Environment Variable](web-application-10)
+  * [WebApplication - Set Port from an Environment Variable](web-application-server-port-env-variable)
 
     This sample shows how to set the Kestrel web server to listen to a specific port set from an environment variable.
 
