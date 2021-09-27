@@ -90,10 +90,9 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
     This sample shows how to set the Kestrel web server to listen to a specific url and port via `ASPNETCORE_URLS` environment variable.
 
-  * [WebApplication - Listening to all interfaces on a specific port](web-application-12)
+  * [WebApplication - Listening to all interfaces on a specific port](web-application-server-listen-all)
 
     This sample shows how to set the Kestrel web server to listen to all IPs (IP4/IP6) on a specific port.
-
 
 ### Standard ASP.NET Core Middlewares
 
@@ -101,7 +100,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
     This uses the new minimalistic hosting code `WebApplication` and server default static files.
 
-  * [WebApplication - UseWebSockets](web-application-13)
+  * [WebApplication - UseWebSockets](web-application-use-web-sockets)
 
     This sample shows how to use WebSockets by creating a simple echo server.
 
