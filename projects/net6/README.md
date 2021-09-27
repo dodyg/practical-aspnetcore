@@ -54,11 +54,11 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
     `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
 
-  * [WebApplication - Default Urls](web-application-4)
+  * [WebApplication - Default Urls](web-application-server-default-urls)
 
-    This sample shows the default Urls that the built in Kestrel web server listens to.
+    This sample shows the default Urls that the web server listens to.
     
-  * [WebApplication - Set Url and Port](web-application-5)
+  * [WebApplication - Set Url and Port](web-application-server-specific-url-port)
 
     This sample shows how to set the Kestrel web server to listen to a specific Url and port.
 
