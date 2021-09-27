@@ -24,6 +24,8 @@ dotnet build web-application-options-2
 dotnet build web-application-builder
 dotnet build web-application-builder-2
 dotnet build web-application-builder-3
+dotnet build web-application-builder-4
+dotnet build web-application-builder-5
 dotnet build yarp/basic-demo/
 dotnet build json/json-12
 dotnet build json/json-13

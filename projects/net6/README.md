@@ -1,4 +1,4 @@
-# .NET 6 (37)
+# .NET 6 (38)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -99,6 +99,14 @@ In most cases using ```WebApplication``` isn't enough because you need to config
   * [WebApplicationBuilder - enable Razor Pages](web-application-builder-2)
 
     This sample shows how to enable Razor Pages.
+
+  * [WebApplicationBuilder - change environment](web-application-builder-3)
+
+    This sample shows how to change the environment via code.
+
+  * [WebApplicationBuilder - change logging minimum level](web-application-builder-5)
+
+    This sample shows how to set logging minimum level via code.
 
   Use ```WebApplicationOptions``` to configure initial values of the ```WebApplicationBuilder``` object.
 
