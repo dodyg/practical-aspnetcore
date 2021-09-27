@@ -42,11 +42,11 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
   This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 
 
-  * [WebApplication - Welcome Page](web-application)
+  * [WebApplication - Welcome Page](web-application-welcome-page)
 
     This uses the new minimalistic hosting code `WebApplication` and show ASP.NET Core welcome page.
 
-  * [WebApplication - UseFileServer](web-application-2)
+  * [WebApplication - UseFileServer](web-application-use-file-server)
 
     This uses the new minimalistic hosting code `WebApplication` and server default static files.
 
