@@ -1,4 +1,4 @@
-# .NET 6 (38)
+# .NET 6 (39)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6 Preview 7(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -89,6 +89,10 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
   * [WebApplication - Configuration as JSON](web-application-8)
 
     This sample list all the information available in the `Configuration` property and return it as JSON. WARNING: Do not use this in your application. It is a terrible idea. Do not expose your configuration information over the wire. This sample is just to demonstrate a technique. 
+
+  * [WebApplication - UseWebSockets](web-application-13)
+
+    This sample shows how to use WebSockets by creating a simple echo server.
 
 In most cases using ```WebApplication``` isn't enough because you need to configure additional services to be used in your system. This is where ```WebApplicationBuilder``` comes. It allows you to configure services and other properties.
 
