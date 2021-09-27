@@ -50,7 +50,7 @@ This section has for .NET 6 new functionalities. All these samples require .NET 
 
     This uses the new minimalistic hosting code `WebApplication` and server default static files.
 
-  * [WebApplication - Default Logger](web-application-3)
+  * [WebApplication - Default Logger](web-application-logging)
 
     `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
 
