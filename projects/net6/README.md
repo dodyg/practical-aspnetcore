@@ -60,7 +60,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
 ### Configuration
 
-  * [WebApplication - Configuration](web-application-7)
+  * [WebApplication - Configuration](web-application-configuration)
 
     This sample list all the information available in the `Configuration` property. 
 
