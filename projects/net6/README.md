@@ -132,7 +132,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
     This sample shows how to set the environment.  
 
-  * [WebApplicationOptions - change the content root path](web-application-options-2)
+  * [WebApplicationOptions - change the content root path](web-application-options-change-content-root-path)
 
     This sample shows how to change the content root path of the application.
 
