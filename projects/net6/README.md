@@ -120,7 +120,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
     This sample shows how to change the environment via code.
 
-  * [WebApplicationBuilder - change logging minimum level](web-application-builder-5)
+  * [WebApplicationBuilder - change logging minimum level](web-application-builder-logging-set-minimum-level)
 
     This sample shows how to set logging minimum level via code.
 
