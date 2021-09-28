@@ -112,7 +112,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
     This sample shows how to enable MVC.
 
-  * [WebApplicationBuilder - enable Razor Pages](web-application-builder-2)
+  * [WebApplicationBuilder - enable Razor Pages](web-application-builder-razor-pages)
 
     This sample shows how to enable Razor Pages.
 
