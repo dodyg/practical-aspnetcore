@@ -86,7 +86,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
     This sample shows how to set the Kestrel web server to listen to a specific port set from an environment variable.
 
-  * [WebApplication - Set Urls and Port via ASPNETCORE_URLS Environment Variable](web-application-11)
+  * [WebApplication - Set Urls and Port via ASPNETCORE_URLS Environment Variable](web-application-server-aspnetcore-urls)
 
     This sample shows how to set the Kestrel web server to listen to a specific url and port via `ASPNETCORE_URLS` environment variable.
 
