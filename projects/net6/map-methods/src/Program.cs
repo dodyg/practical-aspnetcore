@@ -1,9 +1,7 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 namespace PracticalAspNetCore
 {
@@ -20,7 +18,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapMethods("/greet", new[] { "POST", "PUT" }, Greet);
+                endpoints.MapMethods("/greet", new[] { "POST", "PUT", "PATCH" }, Greet);
            
                 endpoints.MapGet("/", async context =>
                 {
@@ -28,6 +26,7 @@ namespace PracticalAspNetCore
                             <div id=""response""></div>
                             <button type=""button"" onclick=""send('POST')"">Send POST</button>
                             <button type=""button"" onclick=""send('PUT')"">Send PUT</button>
+                            <button type=""button"" onclick=""send('PATCH')"">Send PATCH</button>
                             <script>
                                 async function postData(method, url = '', data = {}) {
                                 const response = await fetch(url, {

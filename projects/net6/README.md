@@ -40,7 +40,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
 * [MapMethods with JSON model binder](map-methods)
 
-  This sample shows how to handle multiple HTTP Verbs request using `MapMethods`.
+  This sample shows how to handle multiple HTTP Verbs request using `MapMethods`. In this example we send 'PUT', 'POST' and 'PATCH' requests.
 
 ## WebApplication - Minimal Hosting
 
