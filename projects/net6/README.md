@@ -108,7 +108,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
 In most cases using ```WebApplication``` isn't enough because you need to configure additional services to be used in your system. This is where ```WebApplicationBuilder``` comes. It allows you to configure services and other properties.
 
-  * [WebApplicationBuilder - enable MVC](web-application-builder)
+  * [WebApplicationBuilder - enable MVC](web-application-builder-mvc)
 
     This sample shows how to enable MVC.
 
