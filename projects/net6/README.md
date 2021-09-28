@@ -128,7 +128,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
   Use ```WebApplicationOptions``` to configure initial values of the ```WebApplicationBuilder``` object.
 
-  * [WebApplicationOptions - set environment](web-application-options)
+  * [WebApplicationOptions - set environment](web-application-options-set-environment)
 
     This sample shows how to set the environment.  
 
