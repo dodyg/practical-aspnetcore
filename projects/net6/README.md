@@ -1,4 +1,4 @@
-# .NET 6 (40)
+# .NET 6 (41)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -48,6 +48,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
     
    This sample shows how to generate a url path from a route name.
    
+ * [Link Generator - Generate path from an inferred route name](link-generator-path-by-route-name-inferred)
+    
+   This sample shows how to generate a url path from an inferred route name.
+      
 ## WebApplication - Minimal Hosting
 
   This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 
