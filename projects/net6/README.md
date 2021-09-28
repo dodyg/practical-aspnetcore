@@ -116,7 +116,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
     This sample shows how to enable Razor Pages.
 
-  * [WebApplicationBuilder - change environment](web-application-builder-3)
+  * [WebApplicationBuilder - change environment](web-application-builder-change-environment)
 
     This sample shows how to change the environment via code.
 
