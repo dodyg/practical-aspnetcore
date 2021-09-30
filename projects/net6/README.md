@@ -1,4 +1,4 @@
-# .NET 6 (41)
+# .NET 6 (42)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -41,6 +41,12 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 * [MapMethods with JSON model binder](map-methods)
 
   This sample shows how to handle multiple HTTP Verbs request using `MapMethods`. In this example we send 'PUT', 'POST' and 'PATCH' requests.
+
+## Route Constraints
+
+  * [Route Constraints - int, min, max and range](route-constraints-int)
+  
+    This example shows route constraint for integer, the minimum and maximum value, and the range.
 
 ## Link Generator
 
