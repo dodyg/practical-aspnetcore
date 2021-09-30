@@ -19,6 +19,7 @@ app.MapGet("/", () =>
                 <li>/{id:int} <a href=""/10"">/10</a></li>
                 <li>/{id:int} <a href=""/10f"">/10f</a> (404)</li>
                 <li>/{id:int} <a href=""/10_000"">/10_000</a> (404)</li>
+                <li>/{id:int} <a href=""/10.4"">/10.4</a> (404)</li>
                 <li>/min/{minId:min(1)} <a href=""/min/100"">/min/100</a></li>
                 <li>/min/{minId:min(1)} <a href=""/min/0"">/min/0</a> (404)</li>
                 <li>/max/{maxId:max(10)} <a href=""/max/10"">/max/10</a></li>
