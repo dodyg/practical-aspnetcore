@@ -5,9 +5,15 @@ var app = WebApplication.Create();
 
 app.Use((context, next) => 
 {
-    context.Items["start"] = "<html><body>";
+    context.Items["start"] = context.Request.Path.ToString() switch
+    {
+        "/about-us" =>  @"<html><body style=""color:red;"">",
+        _ => "<html><body>"
+    };
+
     return next(context);
 });
+
 
 app.Use((context, next) => 
 {
@@ -17,7 +23,13 @@ app.Use((context, next) =>
 
 app.MapGet("/", (HttpContext context) =>
 {
-    return Results.Text(context.Items["start"] + "Hello world" + context.Items["end"], "text/html");
+    return Results.Text(context.Items["start"] + @"Hello world<br/> Go to <a href=""/about-us"">about us</a>" + context.Items["end"], "text/html");
 });
+
+app.MapGet("/about-us", (HttpContext context) =>
+{
+    return Results.Text(context.Items["start"] + "About Us" + context.Items["end"], "text/html");
+});
+
 
 app.Run();
