@@ -1,4 +1,4 @@
-# .NET 6 (43)
+# .NET 6 (44)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -77,6 +77,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
   * [WebApplication - Application lifetime events](web-application-6)
 
     In this sample we learn how to respond to the application lifetime events.
+
+  * [WebApplication - Middleware](web-application-middleware)
+
+    In this sample we learn how to use middleware by creating two simple middleware. 
 
 ### Configuration
 
