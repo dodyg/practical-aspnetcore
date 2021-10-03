@@ -84,7 +84,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
   * [WebApplication - Middleware Pipelines](web-application-middleware-pipeline)
 
-    In this sample we learn how to use `UseRouter` to compose two different middleware pipelines. 
+    In this sample we learn how to use `UseRouter` and `MapMiddlewareGet` to compose two different middleware pipelines. 
 
 ### Configuration
 
