@@ -1,4 +1,4 @@
-# .NET 6 (45)
+# .NET 6 (46)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -85,6 +85,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
   * [WebApplication - Middleware Pipelines](web-application-middleware-pipeline)
 
     In this sample we learn how to use `UseRouter` and `MapMiddlewareGet` to compose two different middleware pipelines. 
+
+  * [WebApplication - Middleware Pipelines 2](web-application-middleware-pipeline-2)
+
+    In this sample we use `EndpointRouteBuilderExtensions.Map` and `IEndPointRouteBuilder.CreateApplicationBuilder` to build two separate middleware pipelines. 
 
 ### Configuration
 
