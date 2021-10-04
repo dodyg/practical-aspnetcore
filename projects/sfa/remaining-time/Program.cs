@@ -1,11 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 
-var builder = WebApplication.CreateBuilder();
-builder.Logging.AddConsole().SetMinimumLevel(LogLevel.Warning);
-
-var app = builder.Build();
+var app = WebApplication.Create();
 
 app.MapGet("/", () =>
 {
@@ -78,7 +74,7 @@ app.MapGet("/", () =>
 
     var page = header + @"
         <div class=""container"">
-        <h1>Progress Generator</h1>
+        <h1>Remaining Time</h1>
 
         <canvas id=""chart"" width=""600"" height=""500""></canvas>
         <form>
