@@ -60,7 +60,8 @@ app.MapGet("/", () =>
                             display: true,
                             text: 'Remaining Project Time'
                         }
-                    }
+                    },
+                    responsive : false
                 }
             });
         }
@@ -71,7 +72,7 @@ app.MapGet("/", () =>
         <div class=""container"">
         <h1>Progress Generator</h1>
 
-        <canvas id=""chart"" width=""400"" height=""400""></canvas>
+        <canvas id=""chart"" width=""600"" height=""500""></canvas>
         <form>
             <div class=""row col-md-6"">
                 <div class=""col"">
