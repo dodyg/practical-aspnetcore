@@ -11,4 +11,4 @@ This style of development is not necessarily the best way to organize your code 
 
 * [Time Remaining](remaining-time)
 
-  This is a wiki system with markdown support in less than 500 lines of code. Everything is written in a single `Program.cs`.  
+  This is a tiny system to generate chart of a project remaining time in weeks. Everything is written in a single `Program.cs`.  
