@@ -22,6 +22,7 @@ app.MapGet("/", () =>
     var script = @"
     <script src=""https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"" integrity=""sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="" crossorigin=""anonymous"" referrerpolicy=""no-referrer""></script>
     <script src=""https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"" integrity=""sha256-bC3LCZCwKeehY6T4fFi9VfOU0gztUa+S4cnkIhVPZ5E="" crossorigin=""anonymous""></script>
+    <script src=""https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0""></script>
     <script>
         $(function()
         {
@@ -34,6 +35,7 @@ app.MapGet("/", () =>
             var ctx = document.getElementById('chart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'doughnut',
+                plugins: [ChartDataLabels],
                 data: {
                 labels: [
                     'So Far',
@@ -58,7 +60,13 @@ app.MapGet("/", () =>
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Remaining Project Time'
+                            text: 'Remaining Project Time (weeks)'
+                        },
+                        datalabels: {
+                            color: 'white',
+                            font: {
+                                size : '40px'
+                            },
                         }
                     },
                     responsive : false
