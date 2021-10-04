@@ -1,4 +1,4 @@
-#Remaining Time
+# Remaining Time
 
 This is a simple program to visual the remaining weeks in a project. Everything is written in a single `program.cs` file.
 
