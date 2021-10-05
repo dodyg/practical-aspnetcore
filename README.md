@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (387)
+# Samples for ASP.NET Core 5.0 (388)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -55,10 +55,10 @@ To run these samples, simply open your command line console,  go to each folder 
   This is the simplest ASP.NET Core application you can create. An ASP.NET Core application includes a super fast web server called Kestrel. In a few lines of code we set up the web server and a simple app.
 
   In this sample we use a `Startup` class to configure your application. This is the canonical way of doing thing.
-  
+
 * [Hello World - 2](/projects/basic/hello-world-2)
 
-  This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.  
+  This is the equivalent of the previous Hello World sample except that in this case we don't use a `Startup` class. This way of configuring things is not common.
 
 * [Hello World - 3](/projects/basic/hello-world-3)
 
@@ -70,17 +70,17 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * [IHostEnvironment](/projects/basic/i-host-environment)
 
-  This sample shows how to access `IHostEnvironment` from `ConfigureServices`. 
+  This sample shows how to access `IHostEnvironment` from `ConfigureServices`.
 
 * [IConfiguration](/projects/basic/iconfiguration)
 
   This sample demonstrates the usage of `IConfiguration` from `Configure' method.
 
-### Misc (8)
+### Misc (9)
 * [Application Environment](/projects/application-environment)
 
   This sample shows how to obtain application environment information (target framework, etc).
-  
+
 * [Show Connection info](/projects/connection-info)
 
   Enumerate the connection information of a HTTP request.
@@ -98,7 +98,7 @@ To run these samples, simply open your command line console,  go to each folder 
   ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
 
 * [Version info](/projects/version)
- 
+
   Show various version info of the framework your system is running on.
 
 * [IApplicationLifetime](/projects/i-application-lifetime)
@@ -110,6 +110,10 @@ To run these samples, simply open your command line console,  go to each folder 
 * [CommandLine](/projects/command-line/command-line-1)
 
   This project shows a simple integration between `System.CommandLine`, a command line parsing library with ASP.NET Core app.
+
+* [ExtensionMethods](/projects/extension-methods)
+
+  This project shows a simple extension method for `DateTime`, which essentially adds new class methods for a class you do not own. There is a sample with lambda as well.
 
 ### Server-Sent Events (1)
 
@@ -123,13 +127,13 @@ To run these samples, simply open your command line console,  go to each folder 
 
   Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
-  We take ```"Markdig"``` as dependency. 
-    
+  We take ```"Markdig"``` as dependency.
+
 * [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
 
   Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
 
-  We take ```"Markdig"``` as dependency. 
+  We take ```"Markdig"``` as dependency.
 
 ### Utils (3)
 
@@ -139,14 +143,14 @@ To run these samples, simply open your command line console,  go to each folder 
 
 * [MediaTypeNames](/projects/utils/media-type-names)
 
-  This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.  
+  This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.
 
 * [MediaTypeNames - 2](/projects/utils/media-type-names-2)
 
   Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
 
 ### Device Detection (1)
-  
+
 The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
 
 * [Device Detection](/projects/device-detection)
