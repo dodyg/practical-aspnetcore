@@ -1,4 +1,4 @@
-# .NET 6 (46)
+# .NET 6 (47)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -29,6 +29,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 * [HttpRequest injection](map-5)
 
   This sample shows how to use `HttpRequest` directly without relying on `HttpContext`.
+
+* [IEndpointRouteBuilder](map-6)
+
+  This sample shows the use of `IEndPointRouteBuilder` to organize code.
 
 * [MapPost with JSON model binder](map-post)
 
