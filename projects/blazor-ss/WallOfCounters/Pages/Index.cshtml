@@ -11,11 +11,10 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    <link href="css/site.css" rel="stylesheet" />
+    <link href="WallOfCounters.styles.css" rel="stylesheet">
 </head>
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
-
 
     <script src="_framework/blazor.server.js"></script>
 </body>

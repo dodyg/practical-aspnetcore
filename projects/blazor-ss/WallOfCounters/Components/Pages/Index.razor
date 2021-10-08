@@ -46,14 +46,9 @@
     </div>
 </div>
 
-<Styled @bind-Classname="ClassWall">
-    font-size: 96px;
-    text-align: center;
-</Styled>
-
 @code {
 
-    string ClassWall { get; set; }
+    string ClassWall { get; set; } = "wall";
 
     int Counter1 { get; set; }
     int Counter2 { get; set; }
