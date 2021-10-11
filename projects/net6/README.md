@@ -1,4 +1,4 @@
-# .NET 6 (47)
+# .NET 6 (48)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -65,6 +65,12 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Link Generator - Generate path from an inferred route name](link-generator-path-by-route-name-inferred)
     
    This sample shows how to generate a url path from an inferred route name.
+
+## Parameter Binding
+
+ * [Route binding - implicit](parameter-binding-route-implicit)
+
+   This example shows usage of implicit route parameter binding of `int` and `string` types.
       
 ## WebApplication - Minimal Hosting
 
