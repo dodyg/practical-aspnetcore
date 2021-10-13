@@ -1,7 +1,5 @@
 # Wiki
 
-**Note**. This sample uses features only available in .NET 6 Preview 7(`6.0.100-preview.7.21379.14`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
-
 This is a Single File Application (SFA) that provide wiki functionality.
 
 - It supports markdown
