@@ -1,8 +1,6 @@
 dotnet build css-isolation
 dotnet build hello-world
 dotnet build link-generator-path-by-route-name
-dotnet build link-generator-path-by-route-name-inferred
-dotnet build link-generator-path-by-route-name-inferred-duplicated
 dotnet build map
 dotnet build map-2
 dotnet build map-3

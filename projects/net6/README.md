@@ -1,4 +1,4 @@
-# .NET 6 (48)
+# .NET 6 (47)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -61,10 +61,6 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Link Generator - Generate path from a route name](link-generator-path-by-route-name)
     
    This sample shows how to generate a url path from a route name.
-   
- * [Link Generator - Generate path from an inferred route name](link-generator-path-by-route-name-inferred)
-    
-   This sample shows how to generate a url path from an inferred route name.
 
 ## Parameter Binding
 
