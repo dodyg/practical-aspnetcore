@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 namespace PracticalAspNetCore
@@ -12,7 +12,7 @@ namespace PracticalAspNetCore
 
     public class Startup
     {
-        JsonResult TryContext(MyData data) => new JsonResult(new { greetings = $"Hello {data.Name}" });
+        IResult TryContext(MyData data) => Results.Json(new { greetings = $"Hello {data.Name}" });
 
         public void ConfigureServices(IServiceCollection services)
         {
