@@ -2,13 +2,12 @@ using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 namespace PracticalAspNetCore
 {
     public class Startup
     {
-        JsonResult TryContext(HttpContext context) => new JsonResult(new { path = context.Request.Path });
+        IResult TryContext(HttpContext context) => Results.Json(new { path = context.Request.Path });
 
         public void Configure(IApplicationBuilder app)
         {
