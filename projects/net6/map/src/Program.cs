@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 namespace PracticalAspNetCore
 {
@@ -8,7 +8,7 @@ namespace PracticalAspNetCore
     {
         public record Greeting(string Message);
 
-        JsonResult About() => new JsonResult(new { about = "me" });
+        IResult About() => Results.Json(new { about = "me" });
 
         public void Configure(IApplicationBuilder app)
         {
@@ -16,7 +16,7 @@ namespace PracticalAspNetCore
                 
             app.UseEndpoints(endpoints =>
             {
-                JsonResult Index() => new JsonResult(new Greeting("Hello World"));
+                IResult Index() => Results.Json(new Greeting("Hello World"));
 
                 endpoints.Map("/", Index);
                 endpoints.Map("/about", About);
