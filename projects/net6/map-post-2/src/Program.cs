@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 namespace PracticalAspNetCore
 {
@@ -11,7 +10,7 @@ namespace PracticalAspNetCore
 
     public static class MyApi
     {
-        public static JsonResult Greet([FromBody] Greeting greet) => new JsonResult(new { greet.Message });
+        public static IResult Greet([FromBody] Greeting greet) => Results.Json(new { greet.Message });
     }
 
     public class Startup
