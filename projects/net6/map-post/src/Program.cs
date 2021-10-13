@@ -1,17 +1,16 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 namespace PracticalAspNetCore
 {
     public class Startup
     {
         public record Greeting(string Message);
 
-        JsonResult Greet([FromBody] Greeting greet) => new JsonResult(new { greet.Message });
+        IResult Greet([FromBody] Greeting greet) => Results.Json(new { greet.Message });
 
         public void Configure(IApplicationBuilder app)
         {
