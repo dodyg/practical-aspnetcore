@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+
 var app = WebApplication.Create();
 
 IResult Plaintext(HttpRequest request)
