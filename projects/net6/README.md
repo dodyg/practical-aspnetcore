@@ -1,6 +1,6 @@
 # .NET 6 (48)
 
-This section has for .NET 6 new functionalities. All these samples require .NET 6RC1(`6.0.100-rc.1.21463.6`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 * [Hello World](hello-world)
   
