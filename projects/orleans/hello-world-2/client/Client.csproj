@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Orleans.Core" Version="3.4.0" />
+    <PackageReference Include="Microsoft.Orleans.Core" Version="3.5.0" />
     <PackageReference Include="FeatherHttp" Version="0.1.67-*"  />
   </ItemGroup>
   <ItemGroup>

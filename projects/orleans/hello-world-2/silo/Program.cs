@@ -20,7 +20,7 @@ await new HostBuilder()
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
             .AddRedisGrainStorage("Redis", optionsBuilder => optionsBuilder.Configure(options =>
             {
-                options.DataConnectionString = "localhost:6379"; 
+                options.ConnectionString = "localhost:6379";
                 options.UseJson = true;
                 options.DatabaseNumber = 1;
             }));
