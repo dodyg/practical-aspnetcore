@@ -33,7 +33,7 @@ await Host.CreateDefaultBuilder(args)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloArchiveGrain).Assembly).WithReferences())
             .AddRedisGrainStorage("redis-4", optionsBuilder => optionsBuilder.Configure(options =>
             {
-                options.DataConnectionString = "localhost:6379"; 
+                options.ConnectionString = "localhost:6379"; 
                 options.UseJson = true;
                 options.DatabaseNumber = 1;
             }));

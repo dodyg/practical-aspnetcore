@@ -38,7 +38,7 @@ await Host.CreateDefaultBuilder(args)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
             .AddRedisGrainStorage("redis-rss-reader", optionsBuilder => optionsBuilder.Configure(options =>
             {
-                options.DataConnectionString = "localhost:6379";
+                options.ConnectionString = "localhost:6379";
                 options.UseJson = true;
                 options.DatabaseNumber = 1;
             }));
