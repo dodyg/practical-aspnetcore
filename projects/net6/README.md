@@ -1,4 +1,4 @@
-# .NET 6 (48)
+# .NET 6 (49)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -71,7 +71,11 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Route binding - explicit](parameter-binding-route-explicit)
 
    This example shows usage of explicit route parameter binding of `int` and `string` types using `[FromRoute]` attribute.
-      
+
+ * [Query string binding - implicit](parameter-binding-query-string-implicit)
+
+   This example shows usage of implicit query string parameter binding of `int` and `string` types.
+
 ## WebApplication - Minimal Hosting
 
   This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 

@@ -1,4 +1,4 @@
-# Implicity parameter binding
+# Explicit route parameter binding
 
 This example shows usage of explicit route parameter binding of `int` and `string` types using `[FromRoute]` attribute.
 
