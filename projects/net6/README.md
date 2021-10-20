@@ -1,4 +1,4 @@
-# .NET 6 (47)
+# .NET 6 (48)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -67,6 +67,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Route binding - implicit](parameter-binding-route-implicit)
 
    This example shows usage of implicit route parameter binding of `int` and `string` types.
+
+ * [Route binding - explicit](parameter-binding-route-explicit)
+
+   This example shows usage of explicit route parameter binding of `int` and `string` types using `[FromRoute]` attribute.
       
 ## WebApplication - Minimal Hosting
 

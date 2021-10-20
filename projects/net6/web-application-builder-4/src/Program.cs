@@ -8,7 +8,7 @@ using System.IO;
 const string WebRootName = "wwwroot2";
 const string Page = @"<html><body><img src=""/cute-kitty.jpg"" width=""100%"" /></body></html>";
 
-var builder = WebApplication.CreateBuilder();
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions());
 builder.WebHost.UseWebRoot(WebRootName);
 var app = builder.Build();
 app.UseStaticFiles();
