@@ -80,7 +80,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
     `WebApplication.Logger` is available for use immediately without any further configuration. However the default logger is not available via DI.
 
-  * [WebApplication - Application lifetime events](web-application-6)
+  * [WebApplication - Application lifetime events](web-application-lifetime-events)
 
     In this sample we learn how to respond to the application lifetime events.
 

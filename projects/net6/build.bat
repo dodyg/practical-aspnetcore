@@ -13,7 +13,7 @@ dotnet build map-post-2
 dotnet build parameter-binding-route-implicit
 dotnet build route-constraints-decimal
 dotnet build route-constraints-int
-dotnet build web-application-6
+dotnet build web-application-lifetime-events
 dotnet build web-application-builder-4
 dotnet build web-application-builder-change-environment
 dotnet build web-application-builder-logging-set-minimum-level
