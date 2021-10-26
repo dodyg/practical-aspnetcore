@@ -239,3 +239,9 @@ This section showcases creating reverse proxy using YARP package.
 * [Add items into a JSON array](json/json-22)
   
   This example shows how to add items at the first position of an array and at the last position.
+
+## Web API - Minimal Hosting
+
+* [Pokedex API](minimal-api-pokedex)
+
+  This example shows how to build Web API using .NET 6 Minimal API pattern using Pokedex as a data source.
