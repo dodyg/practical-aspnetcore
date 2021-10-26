@@ -10,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 RC2 Section (47)
+## .NET 6 RC2 Section (48)
 
 You can access .NET 6 RC2 specific samples [here](projects/net6).
 
