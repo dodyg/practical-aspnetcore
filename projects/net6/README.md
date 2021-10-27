@@ -1,4 +1,4 @@
-# .NET 6 (51)
+# .NET 6 (52)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -79,6 +79,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Query string binding - explicit](parameter-binding-query-string-explicit)
 
    This example shows usage of explicit query string parameter binding of `int` and `string` types using '[FromQuery]' attribute.
+
+ * [Special types binding](parameter-binding-special-types)
+
+   This example shows usage of special types binding e.g. - `HttpContext`, `HttpRequest`, `HttpResponse`, `CancellationToken`, and `ClaimsPrincipal`.
 
 ## WebApplication - Minimal Hosting
 
