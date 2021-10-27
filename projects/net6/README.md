@@ -1,4 +1,4 @@
-# .NET 6 (50)
+# .NET 6 (51)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
