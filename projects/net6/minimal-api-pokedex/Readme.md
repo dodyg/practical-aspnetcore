@@ -8,7 +8,7 @@ The project uses a static pokedex JSON file as a data store to read. The JSON fi
 
 - Changes to Program.cs
     - In program.cs, we add API explorer and Swagger.
-        ```
+        ```csharp
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
         {
@@ -23,16 +23,16 @@ The project uses a static pokedex JSON file as a data store to read. The JSON fi
         }));
         ```
     - Next, we add our required services to service collection.
-        ```
+        ```csharp
             services.AddScoped<IPokedexRepository, PokedexRepository>();
             services.AddScoped<IPokedexService, PokedexService>();
         ```
     - We then build the app
-        ```
+        ```csharp
             var app = builder.Build();
         ```
     - Once app is built, we configure services to use
-        ```
+        ```csharp
             app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -42,7 +42,7 @@ The project uses a static pokedex JSON file as a data store to read. The JSON fi
             });
         ```
     - We then add our Pokedex API routes
-        ```
+        ```csharp
              builder.MapGet("/pokedex", async (int? page, int? pageSize, IPokedexService service) =>
             {
                 //...call to service
@@ -71,7 +71,7 @@ The project uses a static pokedex JSON file as a data store to read. The JSON fi
 
         ```
     - We then run the app
-        ```
+        ```csharp
             app.Run();
         ```        
 - Run the app. Navigate to root of the site. Swagger UI will be rendered at the root of the site (we set Swagger route prefix to empty).
