@@ -1,4 +1,4 @@
-# .NET 6 (55)
+# .NET 6 (56)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -95,6 +95,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Json binding - explicit](parameter-binding-json-explicit)
 
    This example shows usage of explicit json parameter binding using '[FromBody]' attribute.
+
+ * [Custom binding to types over Route, Query or Header](parameter-binding-custom)
+
+   This example shows usage of custom binding to types over Route, Query or Header via implementation of static `TryParse` method.
 
 ## WebApplication - Minimal Hosting
 
