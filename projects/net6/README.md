@@ -1,4 +1,4 @@
-# .NET 6 (52)
+# .NET 6 (53)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -83,6 +83,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Special types binding](parameter-binding-special-types)
 
    This example shows usage of special types binding e.g. - `HttpContext`, `HttpRequest`, `HttpResponse`, `CancellationToken`, and `ClaimsPrincipal`.
+
+ * [Header binding - explicity](parameter-binding-header-explicit)
+
+   This example shows usage of explicit header parameter binding of `string` type using '[FromHeader]' attribute.
 
 ## WebApplication - Minimal Hosting
 
