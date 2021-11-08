@@ -1,4 +1,4 @@
-# .NET 6 (54)
+# .NET 6 (55)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100-rc.2.21505.57`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -87,6 +87,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Header binding - explicit](parameter-binding-header-explicit)
 
    This example shows usage of explicit header parameter binding of `string` type using '[FromHeader]' attribute.
+
+ * [Json binding - implicit](parameter-binding-json-implicit)
+
+   This example shows usage of explicit json parameter.
 
  * [Json binding - explicit](parameter-binding-json-explicit)
 
