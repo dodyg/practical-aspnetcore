@@ -96,7 +96,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
    This example shows usage of explicit json parameter binding using '[FromBody]' attribute.
 
- * [Custom binding to types over Route, Query or Header](parameter-binding-custom)
+ * [Custom binding to types over Route, Query or Header](parameter-binding-custom-try-parse)
 
    This example shows usage of custom binding to types over Route, Query or Header via implementation of static `TryParse` method.
 
