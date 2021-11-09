@@ -1,4 +1,4 @@
-# .NET 6 (57)
+# .NET 6 (58)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -269,3 +269,9 @@ This section showcases creating reverse proxy using YARP package.
 * [Pokedex API](minimal-api-pokedex)
 
   This example shows how to build Web API using .NET 6 Minimal API pattern using Pokedex as a data source.
+
+## Blazor Server Side
+
+* [RenderTreeBuilder](RenderTreeBuilder)
+
+  `RenderTreeBuilder` shows a Blazor (server) component implemented without Razor syntax. Requires .NET 6.

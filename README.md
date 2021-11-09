@@ -10,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 Section (57)
+## .NET 6 Section (58)
 
 You can access .NET 6 specific samples [here](projects/net6).
 
@@ -20,7 +20,7 @@ You can access .NET 6 specific samples [here](projects/net6).
 | Section                                                                                    |      |                                                                                                      |      |
 | ------------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------- | ---- |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (22) | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc) | (47) |
-| [Blazor Server Side](/projects/blazor-ss) (Localization)                                   | (16) | [Orchard Core](/projects/orchard-core)                                                               | (4)  |
+| [Blazor Server Side](/projects/blazor-ss) (Localization)                                   | (15) | [Orchard Core](/projects/orchard-core)                                                               | (4)  |
 | [Caching](/projects/caching)                                                               | (5)  | [Path String (HttpContext.Request.Path)](projects/path-string)                                       | (1)  |
 | [Configurations](/projects/configurations)                                                 | (7)  | [Razor Pages](/projects/razor-pages)                                                                 | (9)  |
 | [CoreWCF](/projects/corewcf)                                                               | (1)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                  | (14) |
