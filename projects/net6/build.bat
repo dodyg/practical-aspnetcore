@@ -10,7 +10,13 @@ dotnet build map-6
 dotnet build map-methods
 dotnet build map-post
 dotnet build map-post-2
+dotnet build minimal-api-pokedex
+dotnet build parameter-binding-json-implicit
+dotnet build parameter-binding-query-string-explicit
+dotnet build parameter-binding-query-string-implicit
+dotnet build parameter-binding-route-explicit
 dotnet build parameter-binding-route-implicit
+dotnet build parameter-binding-special-types
 dotnet build route-constraints-decimal
 dotnet build route-constraints-int
 dotnet build web-application-lifetime-events
