@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (397)
+# Samples for ASP.NET Core 5.0 (398)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -10,7 +10,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 Section (56)
+## .NET 6 Section (57)
 
 You can access .NET 6 specific samples [here](projects/net6).
 

@@ -1,4 +1,4 @@
-# .NET 6 (56)
+# .NET 6 (57)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -193,6 +193,10 @@ In most cases using ```WebApplication``` isn't enough because you need to config
   * [WebApplicationBuilder - change logging minimum level](web-application-builder-logging-set-minimum-level)
 
     This sample shows how to set logging minimum level via code.
+
+  * [WebApplicationBuilder - change web root folder](web-application-builder-change-default-web-root-folder)
+
+    This samples shows how to use `WebApplicationOptions.WebRootPath` to change the default web root folder.
 
 ### WebApplicationOptions
 
