@@ -11,6 +11,10 @@ dotnet build map-methods
 dotnet build map-post
 dotnet build map-post-2
 dotnet build minimal-api-pokedex
+dotnet build parameter-binding-custom-bind-async
+dotnet build parameter-binding-custom-try-parse
+dotnet build parameter-binding-header-explicit
+dotnet build parameter-binding-json-explicit
 dotnet build parameter-binding-json-implicit
 dotnet build parameter-binding-query-string-explicit
 dotnet build parameter-binding-query-string-implicit
