@@ -1,10 +1,6 @@
-# Samples for ASP.NET Core 5.0 (400)
+# Samples for ASP.NET Core 6.0 (400)
 
-While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
-
-The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
-
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2019 as well.
+**WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's not ready yet. Please use the main branch in the meantime.
 
 ## Previous versions
 
