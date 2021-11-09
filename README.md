@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 5.0 (398)
+# Samples for ASP.NET Core 5.0 (399)
 
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
@@ -20,7 +20,7 @@ You can access .NET 6 specific samples [here](projects/net6).
 | Section                                                                                    |      |                                                                                                      |      |
 | ------------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------- | ---- |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) (Components, Data Binding) | (22) | [MVC](/projects/mvc)  (Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc) | (47) |
-| [Blazor Server Side](/projects/blazor-ss) (Localization)                                   | (15) | [Orchard Core](/projects/orchard-core)                                                               | (4)  |
+| [Blazor Server Side](/projects/blazor-ss) (Localization)                                   | (16) | [Orchard Core](/projects/orchard-core)                                                               | (4)  |
 | [Caching](/projects/caching)                                                               | (5)  | [Path String (HttpContext.Request.Path)](projects/path-string)                                       | (1)  |
 | [Configurations](/projects/configurations)                                                 | (7)  | [Razor Pages](/projects/razor-pages)                                                                 | (9)  |
 | [CoreWCF](/projects/corewcf)                                                               | (1)  | [Request](/projects/request) (Form, Cookies, Query String, Headers)                                  | (14) |
