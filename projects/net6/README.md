@@ -274,4 +274,4 @@ This section showcases creating reverse proxy using YARP package.
 
 * [RenderTreeBuilder](RenderTreeBuilder)
 
-  `RenderTreeBuilder` shows a Blazor (server) component implemented without Razor syntax. Requires .NET 6.
+  `RenderTreeBuilder` shows a Blazor (server) component implemented without Razor syntax.
