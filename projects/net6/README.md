@@ -1,4 +1,4 @@
-# .NET 6 (58)
+# .NET 6 (59)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -99,6 +99,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
  * [Custom binding to types over Route, Query or Header](parameter-binding-custom-try-parse)
 
    This example shows usage of custom binding to types over Route, Query or Header via implementation of static `TryParse` method.
+
+*  [Custom binding - full control](parameter-binding-custom-bind-async)
+
+   This shows how to take full control of the binding process by implementing `BindAsync` static method in your type.
 
 ## WebApplication - Minimal Hosting
 
