@@ -1,2 +1,4 @@
 namespace SK.Framework;
-public record Person(string FirstName, string LastName);
+public record class Person(string FirstName, string LastName);
+
+public record struct Id(int Value);

@@ -1,5 +1,5 @@
 WebApplication app = WebApplication.Create();
-
+app.UseDeveloperExceptionPage();
 app.MapGet("/", () => Results.Text(@"
 <html>
 
@@ -11,6 +11,10 @@ app.MapGet("/", () => Results.Text(@"
         <li><a href=""/natural-lambda"">Natural Lambda</a></li>
         <li><a href=""/first-or-default"">FirstOrDefault</a></li>
         <li><a href=""/constant"">const string interpolation</a></li>
+        <li><a href=""/assign-and-init"">assign and init</a></li>
+        <li><a href=""/record-struct"">record struct</a></li>
+        <li><a href=""/name/?title=sir"">ArgumentNullException.ThrowIfNull</a></li>
+        <li><a href=""/name/"">ArgumentNullException.ThrowIfNull 2</a></li>
     </ul>
 </body>
 </html>
@@ -29,7 +33,7 @@ app.MapGet("/anonymous", () =>
 
 app.MapGet("/natural-lambda", () => 
 {
-    var result = () => Results.Json(new Person("Dody", "Gunawinata"));
+    var result = IResult () => Results.Json(new Person("Dody", "Gunawinata"));
     Func<IResult> result2 = result;
     return result2();
 });
@@ -45,6 +49,40 @@ app.MapGet("/first-or-default", () =>
 
     return find;
 });
+
+app.MapGet("/assign-and-init", () =>
+{
+    Person GetPerson() => new Person("Dody", "Gunawinata");
+
+    string firstName;
+
+    (firstName, var lastName) = GetPerson();
+
+    return firstName + " " + lastName;
+});
+
+app.MapGet("/record-struct", () =>
+{
+    var id = new Id(11);
+
+    var id2 = new Id 
+    {
+        Value = 10
+    };
+
+    var id3 = id with { Value = 10};
+
+    var isTheSame = id2 == id3;
+
+    return id + " | " + id2 + " == " + id3 + " is " + isTheSame;
+});
+
+app.MapGet("/name", (string? title) =>
+{
+    ArgumentNullException.ThrowIfNull(title);
+    return title;
+});
+
 
 const string MyName = "Dody Gunawinata";
 const string Profile = $"{MyName}";
