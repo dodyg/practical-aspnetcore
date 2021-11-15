@@ -1,5 +1,9 @@
 WebApplication app = WebApplication.Create();
 app.UseDeveloperExceptionPage();
+Demo demoSettings = new();
+
+app.Configuration.GetRequiredSection("demo").Bind(demoSettings);
+
 app.MapGet("/", () => Results.Text(@"
 <html>
 
@@ -15,6 +19,10 @@ app.MapGet("/", () => Results.Text(@"
         <li><a href=""/record-struct"">record struct</a></li>
         <li><a href=""/name/?title=sir"">ArgumentNullException.ThrowIfNull</a></li>
         <li><a href=""/name/"">ArgumentNullException.ThrowIfNull 2</a></li>
+        <li><a href=""/process-path"">Environment.ProcessPath</a></li>
+        <li><a href=""/periodic-timer"">Periodic Timer</a></li>
+        <li><a href=""/random"">random generator</a></li>
+        <li><a href=""/settings"">settings</a></li>
     </ul>
 </body>
 </html>
@@ -83,6 +91,19 @@ app.MapGet("/name", (string? title) =>
     return title;
 });
 
+app.MapGet("/process-path", () => Environment.ProcessPath);
+
+async IAsyncEnumerable<DateTime> Timer ()
+{
+    using PeriodicTimer timer = new (TimeSpan.FromSeconds(2));
+
+    while(await timer.WaitForNextTickAsync())
+        yield return DateTime.UtcNow;
+}
+
+app.MapGet("/periodic-timer", Timer);
+app.MapGet("/random", () => BitConverter.ToInt32(System.Security.Cryptography.RandomNumberGenerator.GetBytes(3000)));
+app.MapGet("/settings", () => demoSettings);
 
 const string MyName = "Dody Gunawinata";
 const string Profile = $"{MyName}";
