@@ -32,7 +32,7 @@ You can access .NET 6 specific samples [here](projects/net6).
 | [Generic Hosting](/projects/generic-host)                                                  | (9)  | [System.Text.Json](/projects/json)                                                                   | (11) |
 | [gRPC](/projects/grpc) (including grpc-Web)                                                | (12) | [Startup](/projects/startup)                                                                         | (12) |
 | [Health Check](/projects/health-check)                                                     | (6)  | [Syndications](/projects/syndications)                                                               | (3)  |
-| [IHttpClientFactory](/projects/httpclientfactory)                                          | (5)  | [Testing](/projects/testing)                                                                        | (1)  |
+| [IHttpClientFactory](/projects/httpclientfactory)                                          | (5)  | [Testing](/projects/testing)                                                                         | (1)  |
 | [IHostedService](/projects/ihosted-service)                                                | (2)  | [URL Redirect/Rewrite](/projects/rewrite)                                                            | (6)  |
 | [Logging](/projects/logging)                                                               | (3)  | [Uri Helper](/projects/uri-helper)                                                                   | (5)  |
 | [Localization and Globalization](projects/localization)                                    | (6)  | [Web Sockets](/projects/web-sockets)                                                                 | (5)  |
