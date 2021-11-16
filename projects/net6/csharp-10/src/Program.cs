@@ -1,3 +1,4 @@
+
 WebApplication app = WebApplication.Create();
 app.UseDeveloperExceptionPage();
 Demo demoSettings = new();
@@ -23,6 +24,7 @@ app.MapGet("/", () => Results.Text(@"
         <li><a href=""/periodic-timer"">Periodic Timer</a></li>
         <li><a href=""/random"">random generator</a></li>
         <li><a href=""/settings"">settings</a></li>
+        <li><a href=""/caller-argument"">caller argument</a></li>
     </ul>
 </body>
 </html>
@@ -104,6 +106,11 @@ async IAsyncEnumerable<DateTime> Timer ()
 app.MapGet("/periodic-timer", Timer);
 app.MapGet("/random", () => BitConverter.ToInt32(System.Security.Cryptography.RandomNumberGenerator.GetBytes(3000)));
 app.MapGet("/settings", () => demoSettings);
+
+string SayHello(string name, [CallerArgumentExpression("name")] string exp = "")
+    => @$"called ""{exp}"" parameter with value {name}";
+
+app.MapGet("/caller-argument", () => SayHello((1 + 33).ToString()));
 
 const string MyName = "Dody Gunawinata";
 const string Profile = $"{MyName}";
