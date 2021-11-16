@@ -24,6 +24,7 @@ app.MapGet("/", () => Results.Text(@"
         <li><a href=""/random"">Random number generator</a></li>
         <li><a href=""/settings"">Required settings</a></li>
         <li><a href=""/caller-argument"">Caller argument expression</a></li>
+        <li><a href=""extended-property-pattern"">Extended property pattern</a></li>
     </ul>
 </body>
 </html>
@@ -115,5 +116,23 @@ const string MyName = "Dody Gunawinata";
 const string Profile = $"{MyName}";
 
 app.MapGet("/constant", () => Profile);
+
+app.MapGet("/extended-property-pattern/", () =>
+{
+    var clubs = new List<Club>
+    { 
+        new Club(new(1), "The Club at The Ivy"), 
+        new Club(new(2), "CORE"), 
+        new Club(new(3), "Cercle de Lorraine")
+    };
+
+    foreach(var c in clubs)
+    {
+        if (c is Club { Id.Value: 1} matched) //change 1 to 2 or 3
+            return matched.Name;
+    }
+
+    return string.Empty;
+});
 
 await app.RunAsync();

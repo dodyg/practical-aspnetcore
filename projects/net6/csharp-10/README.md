@@ -79,3 +79,9 @@ This example shows various features of C# 10 that is relevant for Web Developmen
     const string MyName = "Dody Gunawinata";
     const string Profile = $"{MyName}";
 ```
+
+## Extended property patterns
+```csharp
+    if (c is Club { Id.Value: 1} matched) 
+        return matched.Name;
+```
