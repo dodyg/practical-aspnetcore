@@ -1,10 +1,14 @@
-# .NET 6 (59)
+# .NET 6 (60)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 * [Hello World](hello-world)
   
   This is Hello World ASP.NET Core 6 app using the new `WebApplication` instead of `IHostBuilder`.
+
+* [What's new in C# 10](csharp-10)
+
+  This sample shows various new features in C# 10 that are useful for ASP.NET Core development.
 
 ## Minimal Routing
 

@@ -2,7 +2,6 @@
 WebApplication app = WebApplication.Create();
 app.UseDeveloperExceptionPage();
 Demo demoSettings = new();
-
 app.Configuration.GetRequiredSection("demo").Bind(demoSettings);
 
 app.MapGet("/", () => Results.Text(@"
@@ -14,17 +13,17 @@ app.MapGet("/", () => Results.Text(@"
         <li><a href=""/person"">File namespace and global using</a></li>
         <li><a href=""/anonymous"">Anonymous With</a></li>
         <li><a href=""/natural-lambda"">Natural Lambda</a></li>
-        <li><a href=""/first-or-default"">FirstOrDefault</a></li>
+        <li><a href=""/first-or-default"">LINQ FirstOrDefault</a></li>
         <li><a href=""/constant"">const string interpolation</a></li>
-        <li><a href=""/assign-and-init"">assign and init</a></li>
+        <li><a href=""/assign-and-init"">Assign and init</a></li>
         <li><a href=""/record-struct"">record struct</a></li>
         <li><a href=""/name/?title=sir"">ArgumentNullException.ThrowIfNull</a></li>
         <li><a href=""/name/"">ArgumentNullException.ThrowIfNull 2</a></li>
         <li><a href=""/process-path"">Environment.ProcessPath</a></li>
         <li><a href=""/periodic-timer"">Periodic Timer</a></li>
-        <li><a href=""/random"">random generator</a></li>
-        <li><a href=""/settings"">settings</a></li>
-        <li><a href=""/caller-argument"">caller argument</a></li>
+        <li><a href=""/random"">Random number generator</a></li>
+        <li><a href=""/settings"">Required settings</a></li>
+        <li><a href=""/caller-argument"">Caller argument expression</a></li>
     </ul>
 </body>
 </html>
