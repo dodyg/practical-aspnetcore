@@ -3,6 +3,6 @@ builder.Services.AddFluid();
 
 var app = builder.Build();
 
-app.MapGet("/", ()=> Results.Extensions.View("Index"));
+app.MapGet("/", ()=> Results.Extensions.View("Index", new { Year = DateTime.Now.Year }));
 
 app.Run();
