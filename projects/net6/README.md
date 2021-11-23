@@ -1,4 +1,4 @@
-# .NET 6 (60)
+# .NET 6 (61)
 
 This section has for .NET 6 new functionalities. All these samples require .NET 6RC2(`6.0.100`) which you can obtain [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
@@ -283,3 +283,10 @@ This section showcases creating reverse proxy using YARP package.
 * [RenderTreeBuilder](RenderTreeBuilder)
 
   `RenderTreeBuilder` shows a Blazor (server) component implemented without Razor syntax.
+
+
+## Liquid View
+
+* [Liquid View](liquid-view)
+
+  This sample how to use a Liquid template engine to render HTML from Minimal APIs. 

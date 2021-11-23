@@ -5,6 +5,6 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MinimalApis.LiquidViews" Version="2.2.2" />
+    <PackageReference Include="MinimalApis.LiquidViews" Version="2.2.3" />
   </ItemGroup>
 </Project>
