@@ -1,46 +1,29 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddTransient<RssReader>();
+builder.Services.AddHttpClient<RssReader>();
+       
+var app = builder.Build();
 
-namespace PracticalAspNetCore
+app.Run(async context =>
+    {
+        var rss = context.RequestServices.GetService<RssReader>();
+        var result = await rss.Get("http://scripting.com/rss.xml");
+
+        context.Response.Headers.Add("Content-Type", "application/rss+xml");
+        await context.Response.WriteAsync(result);
+    });
+
+app.Run();
+
+
+public class RssReader
 {
-    public class Startup
+    readonly HttpClient _client;
+
+    public RssReader(HttpClient client)
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // The order is important. If you switch it, it won't work.
-            services.AddTransient<RssReader>();
-            services.AddHttpClient<RssReader>();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.Run(async context =>
-            {
-                var rss = context.RequestServices.GetService<RssReader>();
-                var result = await rss.Get("http://scripting.com/rss.xml");
-
-                context.Response.Headers.Add("Content-Type", "application/rss+xml");
-                await context.Response.WriteAsync(result);
-            });
-        }
+        _client = client;
     }
 
-    public class RssReader
-    {
-        readonly HttpClient _client;
-
-        public RssReader(HttpClient client)
-        {
-            _client = client;
-        }
-
-        public Task<string> Get(string url) => _client.GetStringAsync(url);
-    }
-
-
+    public Task<string> Get(string url) => _client.GetStringAsync(url);
 }
