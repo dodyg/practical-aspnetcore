@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>mvc-localization</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>mvc-localization</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

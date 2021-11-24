@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>generic-host-configure-app</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>generic-host-configure-app</PackageId>
     <LangVersion>latest</LangVersion>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

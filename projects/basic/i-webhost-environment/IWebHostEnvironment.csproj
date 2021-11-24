@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>i-webhost-environment</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>i-webhost-environment</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

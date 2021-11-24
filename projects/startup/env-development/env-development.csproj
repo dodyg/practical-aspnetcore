@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>env-development</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>env-development</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

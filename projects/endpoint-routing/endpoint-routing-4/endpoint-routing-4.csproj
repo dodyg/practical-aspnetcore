@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>endpoint-routing-4</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>endpoint-routing-4</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

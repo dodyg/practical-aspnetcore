@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>dependency-injection-1</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>dependency-injection-1</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

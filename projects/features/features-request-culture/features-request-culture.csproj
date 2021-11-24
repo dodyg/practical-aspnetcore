@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>features-request-culture</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>features-request-culture</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
 

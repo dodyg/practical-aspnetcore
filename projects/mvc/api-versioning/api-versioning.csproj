@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>api-versioning</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>api-versioning</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

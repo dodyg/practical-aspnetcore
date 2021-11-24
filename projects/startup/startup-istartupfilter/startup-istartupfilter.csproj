@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>hello-world-startup-istartupfilter</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>hello-world-startup-istartupfilter</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

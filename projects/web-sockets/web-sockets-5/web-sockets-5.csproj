@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>web-sockets-5</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>web-sockets-5</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

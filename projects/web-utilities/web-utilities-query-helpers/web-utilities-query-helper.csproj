@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>web-utilities-query-helper</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>web-utilities-query-helper</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

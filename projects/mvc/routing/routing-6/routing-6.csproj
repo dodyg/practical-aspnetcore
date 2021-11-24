@@ -2,7 +2,8 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <AssemblyName>mvc-routing-6</AssemblyName>
-        <OutputType>Exe</OutputType>
+    
         <PackageId>mvc-routing-6</PackageId>
-    </PropertyGroup>
+        <ImplicitUsings>true</ImplicitUsings>
+  </PropertyGroup>
 </Project>

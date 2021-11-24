@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>diagnostics-6</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>diagnostics-6</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

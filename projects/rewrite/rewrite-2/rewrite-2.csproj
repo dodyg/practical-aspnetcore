@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>rewrite-2</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>rewrite-2</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

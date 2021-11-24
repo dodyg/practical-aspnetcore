@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>uri-helper-get-encoded-url</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>uri-helper-get-encoded-url</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

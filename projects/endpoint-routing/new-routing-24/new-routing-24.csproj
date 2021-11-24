@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>new-routing-23</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>new-routing-23</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

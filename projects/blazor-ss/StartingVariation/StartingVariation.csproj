@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-    </PropertyGroup>
+        <ImplicitUsings>true</ImplicitUsings>
+  </PropertyGroup>
 
     <ItemGroup>
         <Watch Include="**\*.cshtml" />

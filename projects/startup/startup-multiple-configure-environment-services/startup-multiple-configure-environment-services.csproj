@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>hello-world-startup-multiple-configure-environment-services</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>hello-world-startup-multiple-configure-environment-services</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

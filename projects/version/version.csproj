@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>hello-world-with-reload</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>hello-world-with-reload</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

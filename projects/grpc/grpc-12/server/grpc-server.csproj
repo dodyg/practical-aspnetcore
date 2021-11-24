@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>grpc-server</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>grpc-server</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Tools" Version="2.29.0">

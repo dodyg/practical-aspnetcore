@@ -3,9 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>grpc-client</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>grpc-client</PackageId>
     <LangVersion>8.0</LangVersion>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Tools" Version="2.27.0">

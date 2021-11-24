@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>configuration-xml</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>configuration-xml</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

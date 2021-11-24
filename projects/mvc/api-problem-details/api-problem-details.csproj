@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>ApiProblemDetails</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>Api-Problem-Details</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

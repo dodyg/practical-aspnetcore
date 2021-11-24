@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>view-component-4</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>view-component-4</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>    

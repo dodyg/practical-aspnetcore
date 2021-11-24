@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>httpclientfactory-3</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>httpclientfactory-3</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

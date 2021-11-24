@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>routing</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>hello-world</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>features-http-body-response</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>features-http-body-response</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Localization</AssemblyName>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0-rc1-13433" />

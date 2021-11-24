@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>new-redis-caching-package</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>new-redis-caching-package</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

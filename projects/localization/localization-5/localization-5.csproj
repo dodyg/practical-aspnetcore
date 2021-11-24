@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>localization-5</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>localization-5</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0" />

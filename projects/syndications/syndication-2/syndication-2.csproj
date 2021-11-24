@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>syndication2</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>syndication2</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

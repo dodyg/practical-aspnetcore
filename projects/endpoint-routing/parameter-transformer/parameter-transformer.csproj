@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>parameter-transformer</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>parameter-transformer</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

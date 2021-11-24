@@ -2,9 +2,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>generic-host-3</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>generic-host-3</PackageId>
     <LangVersion>latest</LangVersion>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

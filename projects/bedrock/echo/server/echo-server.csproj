@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>EchoServer</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>echo-server</PackageId>
     <LangVersion>8.0</LangVersion>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

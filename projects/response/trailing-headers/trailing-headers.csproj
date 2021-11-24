@@ -3,8 +3,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>endpoint-routing</AssemblyName>
     <LangVersion>8.0</LangVersion>
-    <OutputType>Exe</OutputType>
+
     <PackageId>endpoint-routing</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,9 +2,10 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <AssemblyName/>
-        <OutputType>Exe</OutputType>
+    
         <PackageId>output-formatter-syndication</PackageId>
-    </PropertyGroup>
+        <ImplicitUsings>true</ImplicitUsings>
+  </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.2" />
     </ItemGroup>

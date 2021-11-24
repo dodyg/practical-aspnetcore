@@ -3,9 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>custom-html-generator</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>custom-html-generator</PackageId>
     <LangVersion>7.3</LangVersion>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

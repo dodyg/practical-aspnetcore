@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>newtonsoft-json</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>newtonsoft-json</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

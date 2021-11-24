@@ -2,9 +2,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>generic-host-configure-logging</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>generic-host-configure-logging</PackageId>
     <LangVersion>latest</LangVersion>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

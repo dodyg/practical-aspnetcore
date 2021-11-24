@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>features-server-custom</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>features-server-custom</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 </Project>

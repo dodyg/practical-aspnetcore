@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>middleware-7</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>middleware-7</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>
 

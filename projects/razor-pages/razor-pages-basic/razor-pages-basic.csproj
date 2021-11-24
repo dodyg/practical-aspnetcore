@@ -3,6 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>RazorPagesBasic</RootNamespace>
     <AssemblyName>RazorPagesBasic</AssemblyName>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

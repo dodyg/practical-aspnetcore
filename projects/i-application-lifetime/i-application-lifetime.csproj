@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>hello-world-with-IApplicationLifetime</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>hello-world-with-IApplicationLifetime</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

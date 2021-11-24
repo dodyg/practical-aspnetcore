@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>supress-status-message</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>supress-status-message</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

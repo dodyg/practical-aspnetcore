@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>features-server-custom-override</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>features-server-custom-override</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>

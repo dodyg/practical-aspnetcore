@@ -3,6 +3,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <DisableImplicitComponentsAnalyzers>true</DisableImplicitComponentsAnalyzers>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Tools" Version="2.29.0">

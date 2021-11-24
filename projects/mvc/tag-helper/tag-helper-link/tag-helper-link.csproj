@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>tag-helper-link</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>tag-helper-link</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

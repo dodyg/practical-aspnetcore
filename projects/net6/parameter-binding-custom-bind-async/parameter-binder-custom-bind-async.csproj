@@ -3,6 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 </Project>

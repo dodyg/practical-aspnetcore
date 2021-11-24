@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>health-check-5</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>health-check-5</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 

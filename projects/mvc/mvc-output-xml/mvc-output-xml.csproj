@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>mvc-output-xml</AssemblyName>
-    <OutputType>Exe</OutputType>
+
     <PackageId>mvc-output-xml</PackageId>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
 
