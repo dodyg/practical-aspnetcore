@@ -47,17 +47,5 @@ namespace PracticalAspNetCore
         public Task<string> Get(string url) => _client.GetStringAsync(url);
     }
 
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.UseStartup<Startup>()
-                );
-    }
 }
