@@ -21,4 +21,3 @@ app.Run();
 
 public record User();
 
-    
