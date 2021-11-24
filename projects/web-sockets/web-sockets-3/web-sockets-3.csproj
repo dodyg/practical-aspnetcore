@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>web-sockets-3</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>web-sockets-3</PackageId>
