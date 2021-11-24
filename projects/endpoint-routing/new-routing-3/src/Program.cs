@@ -31,19 +31,4 @@ namespace PracticalAspNetCore
         public IActionResult Index() => Content("Hello World. We are using default controller route.");
     }
 
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().
-                    UseEnvironment(Environments.Development);
-                });
-    }
 }
