@@ -1,59 +1,39 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var builder = WebApplication.CreateBuilder();
+
+builder.Services.AddHealthChecks().AddCheck<AlwaysBadHealthCheck>("Bad");
+
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+app.MapHealthChecks("/IsUp");
+app.MapDefaultControllerRoute();
+
+app.Run();
+
+public class AlwaysBadHealthCheck : IHealthCheck
 {
-    public class Startup
+    public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default(CancellationToken))
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddHealthChecks()
-                .AddCheck<AlwaysBadHealthCheck>("Bad");
-
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseEndpoints(route =>
-            {
-                route.MapHealthChecks("/IsUp");
-                route.MapDefaultControllerRoute();
-            });
-        }
+        throw new NotImplementedException();
     }
+}
 
-    public class AlwaysBadHealthCheck : IHealthCheck
+public class HomeController : Controller
+{
+    public ActionResult Index()
     {
-        public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default(CancellationToken))
+        return new ContentResult
         {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            return new ContentResult
-            {
-                Content = @"
+            Content = @"
                 <html><body>
                 <h1>Health Check - Failed check</h1>
                 This <a href=""/IsUp"">/IsUp</a> always fails.
                 </body></html> ",
-                ContentType = "text/html"
-            };
-        }
+            ContentType = "text/html"
+        };
     }
-
-
 }
