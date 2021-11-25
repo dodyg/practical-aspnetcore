@@ -11,7 +11,7 @@ app.Use(async (context, next) =>
     if (!context.WebSockets.IsWebSocketRequest)
     {
         // Not a web socket request
-        await next();
+        await next(context);
         return;
     }
 
