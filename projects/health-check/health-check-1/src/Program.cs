@@ -1,55 +1,29 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var builder = WebApplication.CreateBuilder();
+
+builder.Services.AddHealthChecks();
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+app.MapHealthChecks("/WhatsUp");
+app.MapDefaultControllerRoute();
+ 
+app.Run();
+
+public class HomeController : Controller
 {
-    public class Startup
+    public ActionResult Index()
     {
-        public void ConfigureServices(IServiceCollection services)
+        return new ContentResult
         {
-            services.AddHealthChecks();
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseEndpoints(route =>
-            {
-                route.MapHealthChecks("/WhatsUp");
-                route.MapDefaultControllerRoute();
-            });
-        }
-    }
-
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            return new ContentResult
-            {
-                Content = @"
+            Content = @"
                 <html><body>
                 <h1>Health Check</h1>
                 The health check service checks on this url <a href=""/WhatsUp"">/WhatsUp</a>. 
                 </body></html> ",
-                ContentType = "text/html"
-            };
-        }
-    }
-
-    public class Program
-    {
-        public static void Main(string[] args) =>
-            CreateHostBuilder(args).Build().Run();
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.UseStartup<Startup>()
-                );
+            ContentType = "text/html"
+        };
     }
 }
