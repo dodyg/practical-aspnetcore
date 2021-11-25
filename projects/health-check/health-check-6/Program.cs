@@ -14,7 +14,6 @@ builder.Services.AddSingleton<StatusOK>().AddSingleton<StatusBadRequest>();
 builder.Services.AddHealthChecks()
     .AddCheck<OKHttpStatusCodeHealthCheck>("OK Status Check")
     .AddCheck<Error2HttpStatusCodeHealthCheck>("Error Status 2 Check");
-
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

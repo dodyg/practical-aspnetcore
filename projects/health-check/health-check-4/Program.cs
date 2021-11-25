@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<HttpStatusCodeHealthCheck>();
 builder.Services.AddHealthChecks().AddCheck<HttpStatusCodeHealthCheck>("HttpStatusCheck");
-
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

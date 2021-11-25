@@ -4,7 +4,6 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 var builder = WebApplication.CreateBuilder();
 
 builder.Services.AddHealthChecks().AddCheck<AlwaysBadHealthCheck>("Bad");
-
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

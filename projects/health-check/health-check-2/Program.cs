@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
-
 var builder = WebApplication.CreateBuilder();
 
 builder.Services.AddHealthChecks();
