@@ -23,3 +23,5 @@
   * [Health Check - Check URL - 6](health-check-6)
 
     Similar to the previous example except that one of the check reports "Degraded" status by using `context.Registration.FailureStatus = HealthStatus.Degraded;`.
+
+dotnet6
