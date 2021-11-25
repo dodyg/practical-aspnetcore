@@ -1,65 +1,38 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+
+var builder = WebApplication.CreateBuilder();
+
+builder.Services.AddHealthChecks();
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+app.MapHealthChecks("/IsUp", new HealthCheckOptions
 {
-    public class Startup
+    ResponseWriter = async (context, health) =>
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddHealthChecks();
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-
-            app.UseRouting();
-            app.UseEndpoints(route =>
-            {
-                route.MapHealthChecks("/IsUp", new HealthCheckOptions
-                {
-                    ResponseWriter = async (context, health) =>
-                    {
-                        await context.Response.WriteAsync("Mucho Bien");
-                    }
-                });
-
-                route.MapDefaultControllerRoute();
-            });
-        }
+        await context.Response.WriteAsync("Mucho Bien");
     }
+});
 
-    public class HomeController : Controller
+app.MapDefaultControllerRoute();
+
+app.Run();
+
+public class HomeController : Controller
+{
+    public ActionResult Index()
     {
-        public ActionResult Index()
+        return new ContentResult
         {
-            return new ContentResult
-            {
-                Content = @"
+            Content = @"
                 <html><body>
                 <h1>Health Check - custom message</h1>
                 The health check service checks on this url <a href=""/isup"">/isup</a>. It will return  `Mucho Bien` thanks to the customized health message.
                 </body></html> ",
-                ContentType = "text/html"
-            };
-        }
-    }
-
-    public class Program
-    {
-        public static void Main(string[] args) =>
-            CreateHostBuilder(args).Build().Run();
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.UseStartup<Startup>()
-                );
+            ContentType = "text/html"
+        };
     }
 }
