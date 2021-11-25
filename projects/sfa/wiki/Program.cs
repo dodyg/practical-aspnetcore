@@ -13,15 +13,6 @@ using Scriban;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using static HtmlBuilders.HtmlTags;
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using System.IO;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
 
 const string DisplayDateFormat = "MMMM dd, yyyy";
 const string HomePageName = "home-page";

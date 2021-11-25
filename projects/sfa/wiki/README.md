@@ -25,3 +25,5 @@ Used libraries:
 
 **Screenshot**
 ![screenshot of the running wiki](fanon.png)
+
+dotnet6
