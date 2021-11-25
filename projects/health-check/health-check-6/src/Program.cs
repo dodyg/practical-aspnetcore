@@ -110,7 +110,6 @@ public class Error2HttpStatusCodeHealthCheck : HttpStatusCodeHealthCheck
     }
 }
 
-
 public class HomeController : Controller
 {
     public ActionResult Index()
