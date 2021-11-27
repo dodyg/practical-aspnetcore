@@ -16,13 +16,9 @@ builder.WebHost.ConfigureKestrel(k =>
 var app = builder.Build();
 
 app.MapGrpcService<BillboardService>();
-app.MapGet("/", context =>
-{
-    return context.Response.WriteAsync("This server contains a gRPC service");
-});
+app.MapGet("/", () => "This server contains a gRPC service");
 
 app.Run();
-
 
 public class BillboardService : Billboard.Board.BoardBase
 {
