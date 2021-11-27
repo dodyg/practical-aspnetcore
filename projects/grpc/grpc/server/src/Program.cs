@@ -5,11 +5,7 @@ var builder = WebApplication.CreateBuilder();
 builder.Services.AddGrpc();
 builder.WebHost.ConfigureKestrel(k =>
 {
-    k.ConfigureEndpointDefaults(options =>
-    {
-        options.Protocols = HttpProtocols.Http2;
-    });
-
+    k.ConfigureEndpointDefaults(options => options.Protocols = HttpProtocols.Http2);
     k.ListenLocalhost(5500, o => o.UseHttps());
 });
 
