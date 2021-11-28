@@ -12,7 +12,7 @@
     <PackageReference Include="Grpc.AspNetCore.Server" Version="2.34.0" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="src\billboard.proto" GrpcServices="Server" />
+    <Protobuf Include="billboard.proto" GrpcServices="Server" />
     <Watch Include="**\*.proto" />
   </ItemGroup>
 </Project>

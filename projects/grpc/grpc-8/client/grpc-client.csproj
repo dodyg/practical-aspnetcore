@@ -16,7 +16,7 @@
     <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="src\billboard.proto" GrpcServices="Client"/>
+    <Protobuf Include="billboard.proto" GrpcServices="Client"/>
     <Watch Include="**\*.proto" />
   </ItemGroup>
 </Project>

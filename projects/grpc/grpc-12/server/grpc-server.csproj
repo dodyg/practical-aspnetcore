@@ -17,7 +17,7 @@
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.29.0 " />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="src\billboard.proto" GrpcServices="Server"/>
+    <Protobuf Include="billboard.proto" GrpcServices="Server"/>
     <Watch Include="**\*.proto" />
   </ItemGroup>
 </Project>
