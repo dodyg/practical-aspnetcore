@@ -4,7 +4,7 @@ var app = WebApplication.Create();
 
 app.Run(async context =>
 {
-    var channel = GrpcChannel.ForAddress("http://localhost:5500"); //check the values at /server project
+    var channel = GrpcChannel.ForAddress("https://localhost:5500"); //check the values at /server project
     var client = new Billboard.Board.BoardClient(channel);
     var request = new Billboard.MessageRequest();
     request.Capabilities.Add(new Billboard.MessageRequest.Types.SuperPower { Name = "Flying", Level = 1 });
