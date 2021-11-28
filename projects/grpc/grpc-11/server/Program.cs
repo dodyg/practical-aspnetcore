@@ -1,13 +1,6 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
 using Grpc.Core;
-using System;
-using Microsoft.Extensions.DependencyInjection;
 using Billboard;
-using System.Linq;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddGrpc();
@@ -20,67 +13,27 @@ builder.WebHost.ConfigureKestrel(k =>
 
 var app = builder.Build();
 
-namespace GrpcServer
+app.UseGrpcWeb();
+app.MapGrpcService<BillboardService>().EnableGrpcWeb();
+app.MapGet("/", () => "This server contains a gRPCWeb service");
+
+app.Run();
+
+public class BillboardService : Billboard.Board.BoardBase
 {
-    public class Startup
+    public override async Task ShowMessage(MessageRequest request, IServerStreamWriter<MessageReply> responseStream, ServerCallContext context)
     {
-        public void ConfigureServices(IServiceCollection services)
+        foreach (var x in Enumerable.Range(1, 10))
         {
-            services.AddGrpc();
-        }
+            var now = DateTime.UtcNow;
 
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-
-            app.UseGrpcWeb();
-
-            app.UseEndpoints(endpoints =>
+            await responseStream.WriteAsync(new Billboard.MessageReply
             {
-                endpoints.MapGrpcService<BillboardService>().EnableGrpcWeb();
-                endpoints.MapGet("/", context =>
-                {
-                    return context.Response.WriteAsync("This server contains a gRPCWeb service");
-                });
+                DisplayTime = now.Ticks,
+                Message = $"Hello {request.Name}"
             });
+
+            await Task.Delay(5000);
         }
-    }
-
-    public class BillboardService : Billboard.Board.BoardBase
-    {
-        public override async Task ShowMessage(MessageRequest request, IServerStreamWriter<MessageReply> responseStream, ServerCallContext context)
-        {
-            foreach (var x in Enumerable.Range(1, 10))
-            {
-                var now = DateTime.UtcNow;
-
-                await responseStream.WriteAsync(new Billboard.MessageReply
-                {
-                    DisplayTime = now.Ticks,
-                    Message = $"Hello {request.Name}"
-                });
-
-                await Task.Delay(5000);
-            }
-        }
-    }
-
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().
-                    ConfigureKestrel(k =>
-                    {
-                        k.ListenLocalhost(5500);
-                    });
-                });
     }
 }
