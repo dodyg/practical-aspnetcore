@@ -19,6 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="billboard.proto" GrpcServices="Client"/>
-    <Watch Include="**\*.proto" />
+    <Watch Include="*.proto" />
   </ItemGroup>
 </Project>

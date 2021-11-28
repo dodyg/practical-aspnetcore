@@ -13,6 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="src\billboard.proto" GrpcServices="Server"/>
-    <Watch Include="**\*.proto" />
+    <Watch Include="*.proto" />
   </ItemGroup>
 </Project>
