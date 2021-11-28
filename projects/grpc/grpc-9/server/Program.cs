@@ -13,6 +13,17 @@ using System.IO;
 using System.Threading;
 using Google.Protobuf;
 
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddGrpc();
+
+builder.WebHost.ConfigureKestrel(k =>
+{
+    k.ConfigureEndpointDefaults(options => options.Protocols = HttpProtocols.Http2);
+    k.ListenLocalhost(5500, o => o.UseHttps());
+});
+
+var app = builder.Build();
+
 namespace GrpcServer
 {
     public class Startup
