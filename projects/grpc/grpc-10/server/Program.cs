@@ -1,14 +1,5 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
 using Grpc.Core;
-using System;
-using Microsoft.Extensions.DependencyInjection;
-using Billboard;
-using System.Threading;
-using System.Linq;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddGrpc();
@@ -19,62 +10,22 @@ builder.WebHost.ConfigureKestrel(k =>
     k.ListenLocalhost(5500, o => o.UseHttps());
 });
 
+var app = builder.Build();
 
-namespace GrpcServer
+app.UseGrpcWeb();
+app.MapGrpcService<BillboardService>().EnableGrpcWeb();
+app.MapGet("/", () => "This server contains a gRPCWeb service");
+app.Run();
+
+public class BillboardService : Billboard.Board.BoardBase
 {
-    public class Startup
+    public override Task<Billboard.MessageReply> ShowMessage(Billboard.MessageRequest request, ServerCallContext context)
     {
-        public void ConfigureServices(IServiceCollection services)
+        var now = DateTime.UtcNow;
+        return Task.FromResult(new Billboard.MessageReply
         {
-            services.AddGrpc();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-
-            app.UseGrpcWeb();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGrpcService<BillboardService>().EnableGrpcWeb();
-                endpoints.MapGet("/", context =>
-                {
-                    return context.Response.WriteAsync("This server contains a gRPCWeb service");
-                });
-            });
-        }
-    }
-
-    public class BillboardService : Billboard.Board.BoardBase
-    {
-        public override Task<Billboard.MessageReply> ShowMessage(Billboard.MessageRequest request, ServerCallContext context)
-        {
-            var now = DateTime.UtcNow;
-            return Task.FromResult(new Billboard.MessageReply
-            {
-                DisplayTime = now.Ticks,
-                ReceiveFrom = request.Sender
-            });
-        }
-    }
-
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().
-                    ConfigureKestrel(k =>
-                    {
-                        k.ListenLocalhost(5500);
-                    });
-                });
+            DisplayTime = now.Ticks,
+            ReceiveFrom = request.Sender
+        });
     }
 }
