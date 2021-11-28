@@ -8,7 +8,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Google.Protobuf" Version="3.12.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.19.1" />
     <PackageReference Include="Grpc.AspNetCore.Server" Version="2.40.0" />
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.40.0" />
   </ItemGroup>

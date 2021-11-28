@@ -6,7 +6,6 @@ service Board {
   rpc ShowMessage (MessageRequest) returns (stream MessageReply) {}
 }
 
-
 message MessageRequest {
   string name = 1;
 }
