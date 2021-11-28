@@ -1,32 +1,22 @@
-using System.Net.Http;
-using System.Threading.Tasks;
 using Grpc.Net.Client;
 using Grpc.Net.Client.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
+using GrpcClient;
 
-namespace GrpcClient
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("app");
+
+builder.Services.AddSingleton(x =>
 {
-    public class Program
+    var handler = new GrpcWebHandler(GrpcWebMode.GrpcWebText, new HttpClientHandler());
+    var channel = GrpcChannel.ForAddress("https://localhost:5500", new GrpcChannelOptions
     {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
+        HttpClient = new HttpClient(handler)
+    });
 
-            builder.Services.AddSingleton(x =>
-            {
-                var handler = new GrpcWebHandler(GrpcWebMode.GrpcWebText, new HttpClientHandler());
-                var channel = GrpcChannel.ForAddress("http://localhost:5500", new GrpcChannelOptions
-                {
-                    HttpClient = new HttpClient(handler)
-                });
+    var client = new Billboard.Board.BoardClient(channel);
+    return client;
+});
 
-                var client = new Billboard.Board.BoardClient(channel);
-                return client;
-            });
-
-            await builder.Build().RunAsync();
-        }
-    }
-}
+var app = builder.Build();
+await app.RunAsync();
