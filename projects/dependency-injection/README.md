@@ -17,3 +17,5 @@
   * [Lazy Type](/projects/dependency-injection/dependency-injection-4)
 
     This shows how to register [Lazy](https://docs.microsoft.com/en-us/dotnet/api/system.lazy-1?view=net-5.0) types in the built in Dependency Injection. 
+
+dotnet6

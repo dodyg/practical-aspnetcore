@@ -15,7 +15,6 @@ foreach (var p in types)
     config.Register(builder.Services);
 }
 
-
 var app = builder.Build();
 
 app.Run(context =>
