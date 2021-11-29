@@ -18,3 +18,5 @@ dotnet build ComponentTwo
 dotnet build DataBinding
 dotnet build DataBindingTwo
 dotnet build HelloWorld
+dotnet build RadioButton
+dotnet build RenderFragment

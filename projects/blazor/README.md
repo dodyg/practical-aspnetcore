@@ -98,3 +98,5 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     Show an example of `RadioButton` handling.
 
+    dotnet6
+
