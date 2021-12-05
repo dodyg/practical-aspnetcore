@@ -21,3 +21,5 @@
   * [Redis Caching Package](/projects/caching/redis-cache)
 
     This sample uses the `Microsoft.Extensions.Caching.StackExchangeRedis` to store caching value in Redis.
+
+dotnet6
