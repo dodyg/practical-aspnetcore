@@ -46,3 +46,4 @@ more complex scenario in the next sample.
   Log information about the static file being served.
     
 
+dotnet6
