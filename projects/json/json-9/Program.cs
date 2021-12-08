@@ -1,71 +1,45 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Net.Http.Headers;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+app.MapGet("/", () =>
 {
-    public class Person
+    var payload = new Person
     {
-        public string Name { get; set; }
+        Name = "Annie",
+        TimeWaiting = new TimeSpan(1000, 0, 0, 0) // 1000 days
+    };
 
-        public TimeSpan TimeWaiting { get; set; }
+    var options = new JsonSerializerOptions
+    {
+        WriteIndented = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
+        Converters = { new TimeSpanConverter() }
+    };
+
+    return Results.Json(payload, options);
+});
+
+app.Run();
+
+public class Person
+{
+    public string Name { get; set; }
+
+    public TimeSpan TimeWaiting { get; set; }
+}
+
+public class TimeSpanConverter : JsonConverter<TimeSpan>
+{
+    public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        return TimeSpan.Parse(reader.GetString());
     }
 
-    public class Startup
+    public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseEndpoints(route =>
-            {
-                route.MapGet("/", async context =>
-                {
-                    var payload = new Person
-                    {
-                        Name = "Annie",
-                        TimeWaiting = new TimeSpan(1000, 0, 0, 0) // 1000 days
-                    };
-
-                    var options = new JsonSerializerOptions
-                    {
-                        WriteIndented = true,
-                        IgnoreNullValues = true,
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
-                        Converters = { new TimeSpanConverter() }
-                    };
-
-                    context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await JsonSerializer.SerializeAsync(context.Response.Body, payload, typeof(Person), options);
-                });
-            });
-        }
+        writer.WriteStringValue(value.ToString());
     }
-
-    public class TimeSpanConverter : JsonConverter<TimeSpan>
-    {
-        public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            return TimeSpan.Parse(reader.GetString());
-        }
-
-        public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
-        {
-            writer.WriteStringValue(value.ToString());
-        }
-    }
-
 }
