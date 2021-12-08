@@ -1,4 +1,4 @@
-# Json (11)
+# Json (22)
 
 All about the new `System.Text.Json` namespace.
 
@@ -45,3 +45,52 @@ All about the new `System.Text.Json` namespace.
 * [Json - Custom Converter 2](/projects/json/json-11)
 
   Implement a custom type coverter for DateTime type for JsonSerializer in the format of JSON date ticks.
+
+
+## Writable JSON DOM
+
+   [Design document for the Writable JSON API](https://github.com/dotnet/designs/blob/main/accepted/2020/serializer/WriteableDomAndDynamic.md)
+
+* [Primitives](/projects/json/json-12)
+  
+  This sample shows how to parse and access number, string and an array values from JSON string.
+
+* [Object](/projects/json/json-13)
+
+  This sample shows how to parse and access objects from JSON string. We will be using `JsonObject` as well.
+
+* [Finding a node using LINQ](/projects/json/json-14)
+
+  This sample shows how to find a node based on of its value using LINQ.
+
+* [Finding a node using LINQ 2](/projects/json/json-15)
+
+  This sample shows how to find a node based on two of its values (a string and an array) using LINQ.
+
+* [Finding a node using LINQ 3](/projects/json/json-16)
+
+  This sample shows how to find a node based of an absence of a property using LINQ.
+
+* [Finding a node using LINQ 4](/projects/json/json-17)
+
+  In this example we are trying to find a node in an array that has a specific value on its array property.
+
+* [Construct a JSON document](/projects/json/json-18)
+
+  This sample shows how to construct a JSON document using `JsonObject`.
+
+* [Construct a JSON document](/projects/json/json-19)
+
+  This sample shows how to construct a JSON document using `JsonArray`.
+
+* [Update a JSON document](/projects/json/json-20)
+
+  This sample shows how to update properties of a JSON document.
+
+* [Delete elements in a JSON document](/projects/json/json-21)
+
+  This example shows how to update remove an object property and an element in an array.
+
+* [Add items into a JSON array](/projects/json/json-22)
+  
+  This example shows how to add items at the first position of an array and at the last position.
