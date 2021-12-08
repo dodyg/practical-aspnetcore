@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
 using System.Text.Json.Nodes;
 
 WebApplication app = WebApplication.Create();
@@ -41,4 +37,4 @@ app.Run(async context =>
     await context.Response.WriteAsync("\n\n");
 });
 
-await app.RunAsync();
+app.Run();
