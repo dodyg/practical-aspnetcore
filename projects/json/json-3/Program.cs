@@ -1,59 +1,33 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using Microsoft.Net.Http.Headers;
-using System;
-using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+app.MapGet("/", () =>
 {
-    public class Startup
+    var payload = new
     {
-        public void ConfigureServices(IServiceCollection services)
+        Name = "Annie",
+        Age = 33,
+        IsMarried = false,
+        CurrentTime = DateTimeOffset.UtcNow,
+        Characters = new Dictionary<string, bool>
         {
-            services.AddControllersWithViews();
+            {"Funny" , true},
+            {"Feisty" , true},
+            {"Brilliant" , true},
+            {"FOMA", false}
         }
+    };
 
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseEndpoints(route =>
-            {
-                route.MapGet("/", async context =>
-                {
-                    var payload = new
-                    {
-                        Name = "Annie",
-                        Age = 33,
-                        IsMarried = false,
-                        CurrentTime = DateTimeOffset.UtcNow,
-                        Characters = new Dictionary<string, bool>
-                        {
-                            {"Funny" , true},
-                            {"Feisty" , true},
-                            {"Brilliant" , true},
-                            {"FOMA", false}
-                        }
-                    };
+    var options = new JsonSerializerOptions
+    {
+        WriteIndented = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase
+    };
 
-                    var options = new JsonSerializerOptions
-                    {
-                        WriteIndented = true,
-                        IgnoreNullValues = true,
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase
-                    };
+    return Results.Json(payload, options);
+});
 
-                    context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await JsonSerializer.SerializeAsync(context.Response.Body, payload, options);
-                });
-            });
-        }
-    }
-
-}
+app.Run();
