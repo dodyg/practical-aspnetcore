@@ -9,10 +9,10 @@ app.MapGet("/",  () =>
         CurrentTime = DateTimeOffset.UtcNow,
         Characters = new Dictionary<string, bool>
         {
-                    {"Funny" , true},
-                    {"Feisty" , true},
-                    {"Brilliant" , true},
-                    {"FOMA", false}
+            {"Funny" , true},
+            {"Feisty" , true},
+            {"Brilliant" , true},
+            {"FOMA", false}
         },
         IsWorking = true
     };
