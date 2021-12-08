@@ -1,80 +1,57 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
-using Microsoft.Net.Http.Headers;
-using System;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+app.MapGet("/", () =>
 {
-    public class Person
-    {
-        public string Name { get; set; }
-
-        [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
-        public int? Age { get; set; }
-
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
-        public bool? IsMarried { get; set; }
-
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTimeOffset CurrentTime { get; set; }
-
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]// Do not serialize this property when null
-        public bool? IsWorking { get; set; }
-
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool IsHealthy { get; set; }
-    }
-
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
+    var payload = new List<Person> {
+        new Person
         {
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app)
+            Name = "Annie",
+            Age = 33,
+            IsMarried = null,
+            CurrentTime = DateTimeOffset.UtcNow,
+            IsWorking = true
+        },
+        new Person
         {
-            app.UseRouting();
-            app.UseEndpoints(route =>
-            {
-                route.MapGet("/", async context =>
-                {
-                    var payload = new List<Person> { 
-                        new Person
-                        {
-                            Name = "Annie",
-                            Age = 33,
-                            IsMarried = null,
-                            CurrentTime = DateTimeOffset.UtcNow,
-                            IsWorking = true
-                        },
-                        new Person
-                        {
-                            Name = "Dody",
-                            Age = 42,
-                            IsMarried = false,
-                            IsHealthy = true
-                        },
-                    };
+            Name = "Dody",
+            Age = 42,
+            IsMarried = false,
+            IsHealthy = true
+        },
+    };
 
-                    var options = new JsonSerializerOptions
-                    {
-                        WriteIndented = true,
-                        IgnoreNullValues = false, //Pay attention here with interaction with the IsMarried and IsWorking properties
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase
-                    };
+    var options = new JsonSerializerOptions
+    {
+        WriteIndented = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, //Pay attention here with interaction with the IsMarried and IsWorking properties
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase
+    };
 
-                    context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
-                    await JsonSerializer.SerializeAsync(context.Response.Body, payload, typeof(List<Person>), options);
-                });
-            });
-        }
-    }
+    return Results.Json(payload, options);
+});
 
+app.Run();
+
+public class Person
+{
+    public string Name { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public int? Age { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public bool? IsMarried { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public DateTimeOffset CurrentTime { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]// Do not serialize this property when null
+    public bool? IsWorking { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public bool IsHealthy { get; set; }
 }
+
