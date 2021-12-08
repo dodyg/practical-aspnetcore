@@ -1,10 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>json-11</AssemblyName>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-  <ItemGroup>
-    <Watch Include="**\*.cshtml" />
-  </ItemGroup>
 </Project>
