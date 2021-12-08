@@ -1,6 +1,6 @@
 using System.Text.Json.Nodes;
 
-WebApplication app = WebApplication.Create();
+var app = WebApplication.Create();
 app.Run(async context =>
 {
     var objectNode = JsonNode.Parse(@"

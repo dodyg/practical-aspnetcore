@@ -94,3 +94,5 @@ All about the new `System.Text.Json` namespace.
 * [Add items into a JSON array](/projects/json/json-22)
   
   This example shows how to add items at the first position of an array and at the last position.
+
+  dotnet6
