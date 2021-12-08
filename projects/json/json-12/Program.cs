@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using System.Text.Json;
 using System.Text.Json.Nodes;
 
 WebApplication app = WebApplication.Create();
@@ -14,7 +9,6 @@ app.Run(async context =>
     await context.Response.WriteAsync($"{numberNode} \n");
     await context.Response.WriteAsync($"Value of age is {age}\n\n\n");
     
-
     var stringNode = JsonNode.Parse(@"{""name"" : ""anne""}");
     string name = (string) stringNode["name"];
     await context.Response.WriteAsync($"{stringNode} \n");
@@ -36,4 +30,4 @@ app.Run(async context =>
     }
 });
 
-await app.RunAsync();
+app.Run();
