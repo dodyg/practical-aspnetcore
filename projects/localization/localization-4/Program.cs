@@ -12,10 +12,10 @@ var local = stringLocalizerFactory.Create("Common", typeof(Program).Assembly.Ful
 
 //This section is important otherwise aspnet won't be able to pick up the resource
 var supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo("fr-FR"),
-                new CultureInfo("en-US")
-            };
+{
+    new CultureInfo("fr-FR"),
+    new CultureInfo("en-US")
+};
 
 var options = new RequestLocalizationOptions
 {
