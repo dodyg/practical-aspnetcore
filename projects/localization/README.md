@@ -25,3 +25,6 @@
   * [Localization - 6](/projects/localization/localization-6)
 
     This is a continuation of previous sample but with context, which allows the same translation key to return different strings.
+
+
+dotnet6
