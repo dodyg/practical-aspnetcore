@@ -6,3 +6,6 @@ This is a collection of useful mini applications written in ASP.NET Core 5 desig
 - [PDF Viewer](pdf-viewer)
 
   This sample shows you how to build a PDF viewer using PDF.js
+
+
+dotnet6
