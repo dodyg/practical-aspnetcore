@@ -63,3 +63,5 @@
   * [Middleware 13](/projects/middleware/middleware-13)
 
     Demonstrate how to implement basic error handling mechanism and how to return error object (same for all api exceptions).
+
+dotnet6
