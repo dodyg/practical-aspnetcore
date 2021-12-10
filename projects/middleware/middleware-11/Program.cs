@@ -1,46 +1,26 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Logging;
-using System;
-using Microsoft.Extensions.Hosting;
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddTransient<TerminalMiddleware>();
 
-namespace PracticalAspNetCore
+var app = builder.Build();
+app.UseMiddleware(typeof(TerminalMiddleware));
+app.Run();
+
+
+public class TerminalMiddleware : IMiddleware
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddTransient<TerminalMiddleware>();
-        }
+    ILogger<TerminalMiddleware> _log;
 
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseMiddleware(typeof(TerminalMiddleware));
-        }
+    DateTime _date = DateTime.Now;
+
+    public TerminalMiddleware(ILogger<TerminalMiddleware> log)
+    {
+        _log = log;
     }
 
-    public class TerminalMiddleware : IMiddleware
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        ILogger<TerminalMiddleware> _log;
-
-        DateTime _date = DateTime.Now;
-
-        public TerminalMiddleware(ILogger<TerminalMiddleware> log)
-        {
-            _log = log;
-        }
-
-        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
-        {
-            _log.LogDebug($"Request: {context.Request.Path}");
-            context.Response.Headers.Add("Content-Type", "text/plain");
-            await context.Response.WriteAsync($"This Middleware is transient. Keep refreshing your page. The date will keep changing: {_date}.");
-        }
+        _log.LogDebug($"Request: {context.Request.Path}");
+        context.Response.Headers.Add("Content-Type", "text/plain");
+        await context.Response.WriteAsync($"This Middleware is transient. Keep refreshing your page. The date will keep changing: {_date}.");
     }
-
-
 }
