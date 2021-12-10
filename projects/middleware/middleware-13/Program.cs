@@ -5,6 +5,7 @@ builder.Services.AddSingleton<ErrorHandlingMiddleware>();
 
 var app = builder.Build();
 app.UseMiddleware<ErrorHandlingMiddleware>();
+app.Run(context => throw new ExampleApiException("oops"));
 app.Run();
 
 public interface ICustomApiException
@@ -42,7 +43,7 @@ public class ErrorHandlingMiddleware : IMiddleware
     {
         try
         {
-            throw new ExampleApiException("oops"); 
+            await next(context);
         }
         catch (Exception ex)
         {
