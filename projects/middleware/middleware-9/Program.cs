@@ -1,51 +1,32 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Hosting;
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddSingleton<Greeting>();
+builder.Services.AddSingleton<Goodbye>();
 
-namespace PracticalAspNetCore
+var app = builder.Build();
+app.UseMiddleware(typeof(TerminalMiddleware));
+app.Run();
+
+public class Greeting
 {
-    public class Greeting
+    public string Greet() => "Good morning";
+}
+
+public class Goodbye
+{
+    public string Say() => "Goodbye";
+}
+
+public class TerminalMiddleware
+{
+    Greeting _greet;
+
+    public TerminalMiddleware(RequestDelegate next, Greeting greet)
     {
-        public string Greet() => "Good morning";
+        _greet = greet;
     }
 
-    public class Goodbye
+    public async Task Invoke(HttpContext context, Goodbye goodbye)
     {
-        public string Say() => "Goodbye";
+        await context.Response.WriteAsync($"{_greet.Greet()} {goodbye.Say()}");
     }
-
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddSingleton<Greeting>();
-            services.AddSingleton<Goodbye>();
-        }
-        
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseMiddleware(typeof(TerminalMiddleware));
-        }
-    }
-
-    public class TerminalMiddleware
-    {
-        Greeting _greet;
-
-        public TerminalMiddleware(RequestDelegate next, Greeting greet)
-        {
-            _greet = greet;
-        }
-
-        public async Task Invoke(HttpContext context, Goodbye goodbye)
-        {
-            await context.Response.WriteAsync($"{_greet.Greet()} {goodbye.Say()}");
-        }
-    }
-
-
 }
