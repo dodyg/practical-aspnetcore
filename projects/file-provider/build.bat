@@ -1,0 +1,10 @@
+dotnet build file-provider-custom
+dotnet build file-provider-physical
+dotnet build serve-static-files-1
+dotnet build serve-static-files-2
+dotnet build serve-static-files-3
+dotnet build serve-static-files-4
+dotnet build serve-static-files-5
+dotnet build serve-static-files-6
+dotnet build serve-static-files-7
+dotnet build serve-static-files-8

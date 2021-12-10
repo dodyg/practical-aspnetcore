@@ -1,0 +1,14 @@
+dotnet build middleware-0
+dotnet build middleware-1
+dotnet build middleware-2
+dotnet build middleware-3
+dotnet build middleware-4
+dotnet build middleware-5
+dotnet build middleware-6
+dotnet build middleware-7
+dotnet build middleware-8
+dotnet build middleware-9
+dotnet build middleware-10
+dotnet build middleware-11
+dotnet build middleware-12
+dotnet build middleware-13
