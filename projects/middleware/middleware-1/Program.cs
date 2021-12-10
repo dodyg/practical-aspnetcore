@@ -1,33 +1,20 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
+var app = WebApplication.Create();
 
-namespace PracticalAspNetCore
+//The order of these things are important. 
+//Only one Middleware should write to the Response. 
+//Do not write to Response before next.Invoke()
+app.Use(async (context, next) =>
 {
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app)
-        {
-            //The order of these things are important. 
-            //Only one Middleware should write to the Response. 
-            //Do not write to Response before next.Invoke()
-            app.Use(async (context, next) =>
-            {
-                context.Items["Greeting"] = "Hello World";
-                await next.Invoke();
-                await context.Response.WriteAsync($"{context.Items["Greeting"]}\n");
-                await context.Response.WriteAsync($"{context.Items["Goodbye"]}\n");
-            });
+    context.Items["Greeting"] = "Hello World";
+    await next(context);
+    await context.Response.WriteAsync($"{context.Items["Greeting"]}\n");
+    await context.Response.WriteAsync($"{context.Items["Goodbye"]}\n");
+});
 
-            app.Use((context, next) =>
-            {
-                context.Items["Goodbye"] = "Goodbye for now";
-                return Task.CompletedTask;
-            });
-        }
-    }
+app.Use(async(context, next) =>
+{
+    context.Items["Goodbye"] = "Goodbye for now";
+    await next(context);
+});
 
-
-}
+app.Run();
