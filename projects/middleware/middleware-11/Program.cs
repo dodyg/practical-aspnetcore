@@ -5,7 +5,6 @@ var app = builder.Build();
 app.UseMiddleware(typeof(TerminalMiddleware));
 app.Run();
 
-
 public class TerminalMiddleware : IMiddleware
 {
     ILogger<TerminalMiddleware> _log;

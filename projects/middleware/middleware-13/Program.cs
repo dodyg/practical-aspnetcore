@@ -1,99 +1,72 @@
-using System;
 using System.Net;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddSingleton<ErrorHandlingMiddleware>();
 
-namespace middleware_13
+var app = builder.Build();
+app.UseMiddleware<ErrorHandlingMiddleware>();
+app.Run();
+
+public interface ICustomApiException
 {
-    public class Program
+    HttpStatusCode HttpStatus { get; }
+    string HttpMessage { get; }
+}
+
+public class ExampleApiException : Exception, ICustomApiException
+{
+    public HttpStatusCode HttpStatus => HttpStatusCode.Forbidden;
+    public string HttpMessage => "Resource cannot be accessed.";
+
+    public ExampleApiException(string message) : base(message)
     {
-        public static void Main(string[] args)
+    }
+}
+
+public class ErrorDto
+{
+    public int Status { get; set; }
+    public string Message { get; set; }
+}
+
+public class ErrorHandlingMiddleware : IMiddleware
+{
+    private readonly ILogger<ErrorHandlingMiddleware> _logger;
+
+    public ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger)
+    {
+        _logger = logger;
+    }
+
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    {
+        try
         {
-            CreateHostBuilder(args).Build().Run();
+            throw new ExampleApiException("oops"); 
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-    
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        catch (Exception ex)
         {
-            app.UseMiddleware<ErrorHandlingMiddleware>();
-        }
-    }
+            _logger.LogError(ex, ex.Message);
 
-    public interface ICustomApiException
-    {
-        HttpStatusCode HttpStatus { get; }
-        string HttpMessage { get; }
-    }
-    
-    public class ExampleApiException : Exception, ICustomApiException
-    {
-        public HttpStatusCode HttpStatus => HttpStatusCode.Forbidden;
-        public string HttpMessage => "Resource cannot be accessed.";
+            var httpStatus = HttpStatusCode.InternalServerError;
+            var httpMessage = "Internal Server Error";
 
-        public ExampleApiException(string message) : base(message)
-        {
-        }
-    }
-
-    public class ErrorDto
-    {
-        public int Status { get; set; }
-        public string Message { get; set; }
-    }
-
-    public class ErrorHandlingMiddleware : IMiddleware
-    {
-        private readonly ILogger<ErrorHandlingMiddleware> _logger;
-
-        public ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger)
-        {
-            _logger = logger;
-        }
-
-        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
-        {
-            try
+            if (ex is ICustomApiException customException)
             {
-                await next.Invoke(context);
+                httpStatus = customException.HttpStatus;
+                httpMessage = customException.HttpMessage;
             }
-            catch (Exception ex)
+
+            context.Response.StatusCode = (int)httpStatus;
+            context.Response.ContentType = "application/json";
+
+            var error = new ErrorDto()
             {
-                _logger.LogError(ex, ex.Message);
+                Status = (int)httpStatus,
+                Message = httpMessage
+            };
 
-                var httpStatus = HttpStatusCode.InternalServerError;
-                var httpMessage = "Internal Server Error";
-                
-                if (ex is ICustomApiException customException)
-                {
-                    httpStatus = customException.HttpStatus;
-                    httpMessage = customException.HttpMessage;
-                }
-                
-                context.Response.StatusCode = (int)httpStatus;
-                context.Response.ContentType = "application/json";
-
-                var error = new ErrorDto()
-                {
-                    Status = (int)httpStatus,
-                    Message = httpMessage
-                };
-
-                await context.Response.WriteAsync(JsonSerializer.Serialize(error));
-            }
+            await context.Response.WriteAsync(JsonSerializer.Serialize(error));
         }
     }
 }
