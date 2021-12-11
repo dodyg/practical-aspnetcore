@@ -4,7 +4,7 @@
 
   * [Configuration](/projects/configurations/configuration-1)
 
-    This is the 'hello world' of configuration. Just use a memory based configuration and read/write values to/from it.
+    This is the 'hello world' of configuration. Just use `WebApplication.Configuration` read/write values to/from it.
 
   * [Configuration - Options](/projects/configurations/configuration-options)
 
