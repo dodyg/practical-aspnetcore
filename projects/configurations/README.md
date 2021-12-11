@@ -43,3 +43,4 @@
 
     Read from XML file and use IOptions. 
 
+dotnet6
