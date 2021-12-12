@@ -1,36 +1,32 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
 using System.Xml;
-using System.Text;
-namespace RssReader.Services
+namespace RssReader.Services;
+
+public class RssNews
 {
-    public class RssNews
+    public async Task<List<SyndicationItem>> GetNewsAsync()
     {
-        public async Task<List<SyndicationItem>> GetNewsAsync()
+        var items = new List<SyndicationItem>();
+
+        using (var xmlReader = XmlReader.Create("http://scripting.com/rss.xml", new XmlReaderSettings { Async = true }))
         {
-            var items = new List<SyndicationItem>();
+            var feedReader = new RssFeedReader(xmlReader);
 
-            using (var xmlReader = XmlReader.Create("http://scripting.com/rss.xml", new XmlReaderSettings { Async = true }))
+            while (await feedReader.Read())
             {
-                var feedReader = new RssFeedReader(xmlReader);
-
-                while (await feedReader.Read())
+                switch (feedReader.ElementType)
                 {
-                    switch (feedReader.ElementType)
-                    {
-                        case SyndicationElementType.Item:
-                            ISyndicationItem item = await feedReader.ReadItem();
-                            items.Add(new SyndicationItem(item));
-                            break;
-                        default:
-                            break;
-                    }
+                    case SyndicationElementType.Item:
+                        ISyndicationItem item = await feedReader.ReadItem();
+                        items.Add(new SyndicationItem(item));
+                        break;
+                    default:
+                        break;
                 }
             }
-
-            return items;
         }
+
+        return items;
     }
 }
