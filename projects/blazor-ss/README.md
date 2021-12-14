@@ -41,7 +41,7 @@ All the samples in this section runs on SSL. If you have not gotten your local s
 
   * [Wall of Counters](WallOfCounters)
 
-    In this sample we will use System.Timers.Timer to perform multiple counters. It will also demonstrate the usage of [BlazorStyled](https://github.com/chanan/BlazorStyled), a component that allows the usage of scoped CSS inside a Blazor component.
+    In this sample we will use System.Timers.Timer to perform multiple counters. 
   
   * [ChatR](ChatR)
 
