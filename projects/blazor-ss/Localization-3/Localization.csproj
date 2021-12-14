@@ -1,15 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>Localization</AssemblyName>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Watch Include="**\*.cshtml" />
-    <Watch Include="**\*.razor" />
-    <Watch Include="**\*.po" />
   </ItemGroup>
 </Project>
