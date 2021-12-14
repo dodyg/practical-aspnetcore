@@ -3,10 +3,4 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-
-    <ItemGroup>
-        <Watch Include="**\*.cshtml" />
-        <Watch Include="**\*.razor" />
-    </ItemGroup>
-
 </Project>
