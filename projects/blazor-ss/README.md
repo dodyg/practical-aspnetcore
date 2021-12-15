@@ -70,3 +70,5 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Localization RTL/LTR support](Localization-4)
 
     This sample shows how to implement LTR/RTL support in Blazor.
+
+dotnet6

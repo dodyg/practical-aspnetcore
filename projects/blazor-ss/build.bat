@@ -1,7 +1,15 @@
+dotnet build ChatR
+dotnet build ComponentEvents
+dotnet build ComponentEvents-2
+dotnet build DependencyInjection
 dotnet build HelloWorld
 dotnet build JsIntegration
-dotnet build DependencyInjection
 dotnet build Layout
+dotnet build Localization
+dotnet build Localization-2
+dotnet build Localization-3
+dotnet build Localization-4
 dotnet build RssReader
 dotnet build RssReader-2
 dotnet build StartingVariation
+dotnet build WallOfCounters
