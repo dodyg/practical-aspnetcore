@@ -1,28 +1,14 @@
-using System;
 using System.Net;
-using System.Threading;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
 using Orleans.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(builder =>
+var builder = WebApplication.CreateBuilder();
+builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
+builder.Host.UseOrleans(b =>
     {
-        builder.SetMinimumLevel(LogLevel.Information);
-        builder.AddConsole();
-    })
-    .UseOrleans(builder =>
-    {
-        builder
+        b
             .UseLocalhostClustering()
             .Configure<ClusterOptions>(options =>
             {
@@ -32,39 +18,21 @@ await Host.CreateDefaultBuilder(args)
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloArchiveGrain).Assembly).WithReferences())
             .AddMemoryGrainStorage(name: "ArchiveStorage");
-    })
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-    .RunConsoleAsync();
+    });
 
-class Startup
+var app = builder.Build();
+
+app.MapGet("/", async (HttpContext context) =>
 {
-     IHostEnvironment _env;
+    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+    IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
+    await grain.SayHello("Hello world");
+    await context.Response.WriteAsync("Keep refreshing your browser \n");
+    var res2 = await grain.GetGreetings();
+    await context.Response.WriteAsync(string.Join("\n", res2));
+});
 
-    public Startup(IHostEnvironment env) 
-    {
-        _env = env;
-    }
-
-    public void Configure(IApplicationBuilder app) 
-    {
-        if (_env.IsDevelopment())
-            app.UseDeveloperExceptionPage();
-
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet("/", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-                await grain.SayHello("Hello world");
-                await context.Response.WriteAsync("Keep refreshing your browser \n");
-                var res2 = await grain.GetGreetings();
-                await context.Response.WriteAsync(string.Join("\n", res2));
-            });
-        });
-    }
-}
+app.Run();
 
 public class HelloArchiveGrain : Grain, IHelloArchive
 {
