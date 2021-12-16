@@ -1,12 +1,5 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Orleans;
 using Orleans.Runtime;
-using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
@@ -22,7 +15,8 @@ builder.Services
 builder.Logging
     .AddConsole().SetMinimumLevel(LogLevel.Information);
 
-await builder.Build().RunAsync();
+var app = builder.Build();
+app.Run();
 
 public class HelloWorldClientHostedService : IHostedService
 {
