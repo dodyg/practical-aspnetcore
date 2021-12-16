@@ -1,31 +1,16 @@
-using System;
 using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Orleans;
-using Orleans.Runtime;
 using Orleans.Configuration;
 using Orleans.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using System.Net.Http;
-using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Net.Http.Json;
 using Orleans.Concurrency;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(builder =>
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddHttpClient();
+builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
+builder.Host.UseOrleans(b =>
     {
-        builder.SetMinimumLevel(LogLevel.Information);
-        builder.AddConsole();
-    })
-    .UseOrleans(builder =>
-    {
-        builder
+        b
             .UseLocalhostClustering()
             .UseInMemoryReminderService()
             .Configure<ClusterOptions>(options =>
@@ -35,46 +20,23 @@ await Host.CreateDefaultBuilder(args)
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(TimeKeeperGrain).Assembly).WithReferences());
-    })
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-    .RunConsoleAsync();
+    });
 
-class Startup
+var app = builder.Build();
+
+app.MapGet("/", async context =>
 {
-    IHostEnvironment _env;
+    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+    var timezone = "Africa/Cairo";
+    ITimeKeeper grain = client.GetGrain<ITimeKeeper>(timezone)!;
+    var localTime = await grain.GetCurrentTime(timezone);
+    await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
+    await context.Response.WriteAsync("<body>");
+    await context.Response.WriteAsync($"Local time in {localTime.timeZone} is {localTime.dateTime}");
+    await context.Response.WriteAsync("</body></html>");
+});
 
-    public Startup(IHostEnvironment env)
-    {
-        _env = env;
-    }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddHttpClient();
-    }
-
-    public void Configure(IApplicationBuilder app)
-    {
-        if (_env.IsDevelopment())
-            app.UseDeveloperExceptionPage();
-
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet("/", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                var timezone = "Africa/Cairo";
-                ITimeKeeper grain = client.GetGrain<ITimeKeeper>(timezone)!;
-                var localTime = await grain.GetCurrentTime(timezone);
-                await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
-                await context.Response.WriteAsync("<body>");
-                await context.Response.WriteAsync($"Local time in {localTime.timeZone} is {localTime.dateTime}");
-                await context.Response.WriteAsync("</body></html>");
-            });
-        });
-    }
-}
+app.Run();
 
 [StatelessWorker]
 public class TimeKeeperGrain : Grain, ITimeKeeper
@@ -100,7 +62,7 @@ public class TimeKeeperGrain : Grain, ITimeKeeper
     }
 }
 
-public interface ITimeKeeper: IGrainWithStringKey
+public interface ITimeKeeper : IGrainWithStringKey
 {
     Task<(DateTimeOffset dateTime, string timeZone)> GetCurrentTime(string timeZone);
 }
