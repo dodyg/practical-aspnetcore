@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <LangVersion>preview</LangVersion>
+
     <Nullable>enable</Nullable>
       <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0-rc.1.20451.14" />
     <PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="3.3.0" />
     <PackageReference Include="Microsoft.Orleans.Runtime.Abstractions" Version="3.3.0" />
-<PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.4.0">
+<PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.5.1">
   <PrivateAssets>all</PrivateAssets>
   <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 </PackageReference>
