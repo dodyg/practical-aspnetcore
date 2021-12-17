@@ -1,5 +1,7 @@
 # Orleans Hello World with ASP.NET Core and Redis Storage
 
+**This sample requires redis**.
+
 This sample shows how to use Orleans with ASP.NET Core. In this case we are using Redis Storage. This means that all the messages persist beyond restart.
 
 - Make sure you have redis installed and running.

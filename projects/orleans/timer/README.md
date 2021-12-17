@@ -1,5 +1,7 @@
 # Timer
 
+**This sample requires redis**.
+
 This is a sample for `Grain.RegisterTimer` method. You can find out more about this functionality [here](https://dotnet.github.io/orleans/1.5/Documentation/Core-Features/Timers-and-Reminders.html).
 
 - Make sure you have redis installed and running.
