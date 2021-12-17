@@ -200,10 +200,7 @@ class FeedSourceGrain : Grain, IFeedSource
             await _storage.WriteStateAsync();
         }
     }
-
     public Task<List<FeedSource>> GetAllAsync() => Task.FromResult(_storage.State.Sources);
-
-
     public Task<FeedSource?> FindFeedSourceByUrlAsync(string url) =>
         Task.FromResult(_storage.State.Sources.Find(x => x.Url.Equals(url, StringComparison.Ordinal)));
 }

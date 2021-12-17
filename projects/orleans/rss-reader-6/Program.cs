@@ -154,7 +154,7 @@ app.Run();
 
 static class Config
 {
-    public const string RedisStorage = "redis-rss-reader-5";
+    public const string RedisStorage = "redis-rss-reader-6";
 
     public const string StreamProvider = "SMSProvider";
 
