@@ -53,3 +53,5 @@ This section is very early in development. My experience in using an Actor frame
 - [RSS Reader with Reminder + Subscription List + Orleans Streams](rss-reader-5)
 
   This is an RSS reader that read RSS feed sources from an OPML subscription list and publish it into a single stream with a single channel. The data then processed by implicit susbcriber. 
+
+dotnet6
