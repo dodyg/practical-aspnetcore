@@ -48,7 +48,7 @@ app.MapGet("/", async context =>
     var client = context.RequestServices.GetService<IGrainFactory>()!;
     var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
 
-    var logger = context.RequestServices.GetService<ILogger<Startup>>();
+    var logger = context.RequestServices.GetService<ILoggerFactory>()!.CreateLogger("rss-reader");
 
     foreach (var source in subscriptionList.Items)
     {
@@ -162,7 +162,6 @@ static class Config
 
     public const string StreamChannel = "RSS";
 }
-
 
 class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
 {
