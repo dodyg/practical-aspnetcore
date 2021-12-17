@@ -1,191 +1,159 @@
-using System;
 using System.Net;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
 using Orleans.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using System.Xml;
 using Microsoft.SyndicationFeed.Atom;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
-using System.Linq;
-using System.Net.Http;
-using System.IO;
 using System.Diagnostics;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(builder =>
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddHttpClient();
+builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
+builder.Host.UseOrleans(builder =>
+{
+    builder
+        .UseLocalhostClustering()
+        .UseInMemoryReminderService()
+        .Configure<ClusterOptions>(options =>
+        {
+            options.ClusterId = "dev";
+            options.ServiceId = "http-client";
+        })
+        .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
+        .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
+        .AddRedisGrainStorage(Config.RedisStorage, optionsBuilder => optionsBuilder.Configure(options =>
+        {
+            options.ConnectionString = "localhost:6379";
+            options.UseJson = true;
+            options.DatabaseNumber = 1;
+        }));
+});
+
+var app = builder.Build();
+app.MapGet("/", async context =>
+{
+    var logger = context.RequestServices.GetService<ILoggerFactory>()!.CreateLogger("rss-reader");
+
+    var httpClientFactory = context.RequestServices.GetService<IHttpClientFactory>();
+    var httpClient = httpClientFactory.CreateClient();
+
+    var opmlSubscriptionList = await httpClient.GetStringAsync("http://scripting.com/misc/mlb.opml");
+    var opml = new Opml(opmlSubscriptionList);
+    var subscriptionList = new RssSubscription(opml);
+
+    var client = context.RequestServices.GetService<IGrainFactory>()!;
+    var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
+
+    foreach (var source in subscriptionList.Items)
     {
-        builder.SetMinimumLevel(LogLevel.Information);
-        builder.AddConsole();
-    })
-    .UseOrleans(builder =>
+        logger.LogInformation("Adding " + source.XmlUri?.ToString() ?? String.Empty);
+        await feedSourceGrain.AddAsync(new FeedSource
+        {
+            Url = source.XmlUri?.ToString() ?? string.Empty,
+            Website = source.HtmlUri?.ToString() ?? string.Empty,
+            Title = source.Title ?? string.Empty,
+            UpdateFrequencyInMinutes = 3
+        });
+    }
+
+    var sources = await feedSourceGrain.GetAllAsync();
+    var feedFetcherReminderGrain = client.GetGrain<IFeedFetcherReminder>(0);
+
+    foreach (var s in sources)
     {
-        builder
-            .UseLocalhostClustering()
-            .UseInMemoryReminderService()
-            .Configure<ClusterOptions>(options =>
-            {
-                options.ClusterId = "dev";
-                options.ServiceId = "http-client";
-            })
-            .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage(Config.RedisStorage, optionsBuilder => optionsBuilder.Configure(options =>
-            {
-                options.ConnectionString = "localhost:6379";
-                options.UseJson = true;
-                options.DatabaseNumber = 1;
-            }));
-    })
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-    .RunConsoleAsync();
+                    // AddReminder is indempotent
+                    await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
+    }
+
+    var feedResultsGrain = client.GetGrain<IFeedItemResults>(0);
+    var feedItems = await feedResultsGrain.GetAllAsync();
+
+    await context.Response.WriteAsync(@"<html>
+                    <head>
+                        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
+                        <title>Orleans RSS Reader</title>
+                    </head>");
+    await context.Response.WriteAsync("<body><div class=\"uk-container\">");
+    await context.Response.WriteAsync("<a href=\"/feed-sources\">Feed Sources</a><br/>");
+    if (feedItems.Count == 0)
+        await context.Response.WriteAsync("<p>Please refresh your browser again if you see no feeds displayed.</p>");
+
+    await context.Response.WriteAsync("<ul class=\"uk-list\">");
+    foreach (var i in feedItems)
+    {
+        await context.Response.WriteAsync("<li class=\"uk-card uk-card-default uk-card-body\">");
+        if (!string.IsNullOrWhiteSpace(i.Title))
+            await context.Response.WriteAsync($"{ i.Title }<br/>");
+
+        await context.Response.WriteAsync(i.Description ?? "");
+
+        if (i.Url is object)
+            await context.Response.WriteAsync($"<br/><a href=\"{i.Url}\">link</a>");
+
+        await context.Response.WriteAsync($"<div style=\"font-size:small;\">published on: {i.PublishedOn}</div>");
+        await context.Response.WriteAsync($"<div style=\"font-size:small;\">source: <a href=\"{i.Channel?.Website}\">{i.Channel?.Title}</a></div>");
+        await context.Response.WriteAsync("</li>");
+    }
+    await context.Response.WriteAsync("</ul>");
+    await context.Response.WriteAsync("</div></body></html>");
+});
+
+app.MapGet("/feed-sources", async context =>
+{
+    var client = context.RequestServices.GetService<IGrainFactory>()!;
+    var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
+    var sources = await feedSourceGrain.GetAllAsync();
+
+    await context.Response.WriteAsync(@"<html>
+                    <head>
+                        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
+                        <title>Orleans RSS Reader</title>
+                    </head>");
+    await context.Response.WriteAsync("<body><div class=\"uk-container\">");
+    await context.Response.WriteAsync("<a href=\"/\">Home</a><br/>");
+    await context.Response.WriteAsync("<strong>Valid</strong>");
+    await context.Response.WriteAsync("<ul>");
+    foreach (var s in sources.Where(x => x.IsLatestValid))
+    {
+        await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a>");
+        await context.Response.WriteAsync("<ul>");
+        foreach (var h in s.History)
+        {
+            await context.Response.WriteAsync($"<li>{h.Timestamp} - {h.IsValid}<p>{h.Message}</p></li>");
+        }
+        await context.Response.WriteAsync("</ul>");
+        await context.Response.WriteAsync("</li>");
+    }
+    await context.Response.WriteAsync("</ul>");
+
+    await context.Response.WriteAsync("<strong>Invalid</strong>");
+    await context.Response.WriteAsync("<ul>");
+    foreach (var s in sources.Where(x => !x.IsLatestValid))
+    {
+        await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a>");
+        await context.Response.WriteAsync("<ul>");
+        foreach (var h in s.History)
+        {
+            await context.Response.WriteAsync($"<li>{h.Timestamp} - {h.IsValid}<p>{h.Message}</p></li>");
+        }
+        await context.Response.WriteAsync("</ul>");
+        await context.Response.WriteAsync("</li>");
+    }
+    await context.Response.WriteAsync("</ul>");
+
+    await context.Response.WriteAsync("</div></body></html>");
+});
+
+app.Run();
 
 static class Config
 {
     public const string RedisStorage = "redis-rss-reader-3";
 }
 
-class Startup
-{
-    IHostEnvironment _env;
-
-    public Startup(IHostEnvironment env) => _env = env;
-
-    public void ConfigureServices(IServiceCollection services) => services.AddHttpClient();
-
-    public void Configure(IApplicationBuilder app)
-    {
-        if (_env.IsDevelopment())
-            app.UseDeveloperExceptionPage();
-
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet("/", async context =>
-            {
-                var httpClientFactory = context.RequestServices.GetService<IHttpClientFactory>();
-                var httpClient = httpClientFactory.CreateClient();
-
-                var opmlSubscriptionList = await httpClient.GetStringAsync("http://scripting.com/misc/mlb.opml");
-                var opml = new Opml(opmlSubscriptionList);
-                var subscriptionList = new RssSubscription(opml);
-
-                var client = context.RequestServices.GetService<IGrainFactory>()!;
-                var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
-
-                var logger = context.RequestServices.GetService<ILogger<Startup>>();
-
-                foreach(var source in subscriptionList.Items)
-                {
-                    logger.LogInformation("Adding " + source.XmlUri?.ToString() ?? String.Empty);
-                    await feedSourceGrain.AddAsync(new FeedSource
-                    {
-                        Url = source.XmlUri?.ToString() ?? string.Empty,
-                        Website = source.HtmlUri?.ToString() ?? string.Empty,
-                        Title = source.Title ?? string.Empty,
-                        UpdateFrequencyInMinutes = 3
-                    });
-                }
-
-                var sources = await feedSourceGrain.GetAllAsync();
-                var feedFetcherReminderGrain = client.GetGrain<IFeedFetcherReminder>(0);
-
-                foreach(var s in sources)
-                {
-                    // AddReminder is indempotent
-                    await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
-                }
-
-                var feedResultsGrain = client.GetGrain<IFeedItemResults>(0);
-                var feedItems = await feedResultsGrain.GetAllAsync();
-
-                await context.Response.WriteAsync(@"<html>
-                    <head>
-                        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
-                        <title>Orleans RSS Reader</title>
-                    </head>");
-                await context.Response.WriteAsync("<body><div class=\"uk-container\">");
-                await context.Response.WriteAsync("<a href=\"/feed-sources\">Feed Sources</a><br/>");
-                if (feedItems.Count == 0)
-                    await context.Response.WriteAsync("<p>Please refresh your browser again if you see no feeds displayed.</p>");
-
-                await context.Response.WriteAsync("<ul class=\"uk-list\">");
-                foreach(var i in feedItems)
-                {
-                    await context.Response.WriteAsync("<li class=\"uk-card uk-card-default uk-card-body\">");
-                    if (!string.IsNullOrWhiteSpace(i.Title))
-                        await context.Response.WriteAsync($"{ i.Title }<br/>");
-
-                    await context.Response.WriteAsync(i.Description ?? "");
-                    
-                    if (i.Url is object)
-                        await context.Response.WriteAsync($"<br/><a href=\"{i.Url}\">link</a>");
-
-                    await context.Response.WriteAsync($"<div style=\"font-size:small;\">published on: {i.PublishedOn}</div>");
-                    await context.Response.WriteAsync($"<div style=\"font-size:small;\">source: <a href=\"{i.Channel?.Website}\">{i.Channel?.Title}</a></div>");
-                    await context.Response.WriteAsync("</li>");
-                }
-                await context.Response.WriteAsync("</ul>");
-                await context.Response.WriteAsync("</div></body></html>");
-            });
-
-            endpoints.MapGet("/feed-sources", async context =>
-            {
-                var client = context.RequestServices.GetService<IGrainFactory>()!;
-                var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
-                var sources = await feedSourceGrain.GetAllAsync();
-
-                await context.Response.WriteAsync(@"<html>
-                    <head>
-                        <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" />
-                        <title>Orleans RSS Reader</title>
-                    </head>");
-                await context.Response.WriteAsync("<body><div class=\"uk-container\">");
-                await context.Response.WriteAsync("<a href=\"/\">Home</a><br/>");
-                await context.Response.WriteAsync("<strong>Valid</strong>");
-                await context.Response.WriteAsync("<ul>");
-                foreach(var s in sources.Where(x => x.IsLatestValid))
-                {
-                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a>");
-                    await context.Response.WriteAsync("<ul>");
-                    foreach(var h in s.History)
-                    {
-                        await context.Response.WriteAsync($"<li>{h.Timestamp} - {h.IsValid}<p>{h.Message}</p></li>");
-                    }
-                    await context.Response.WriteAsync("</ul>");
-                    await context.Response.WriteAsync("</li>");
-                }
-                await context.Response.WriteAsync("</ul>");
-
-                await context.Response.WriteAsync("<strong>Invalid</strong>");
-                await context.Response.WriteAsync("<ul>");
-                foreach(var s in sources.Where(x => !x.IsLatestValid))
-                {
-                    await context.Response.WriteAsync($"<li><a href=\"{s.Url}\">{s.Url}</a>");
-                    await context.Response.WriteAsync("<ul>");
-                    foreach(var h in s.History)
-                    {
-                        await context.Response.WriteAsync($"<li>{h.Timestamp} - {h.IsValid}<p>{h.Message}</p></li>");
-                    }
-                    await context.Response.WriteAsync("</ul>");
-                    await context.Response.WriteAsync("</li>");
-                }
-                await context.Response.WriteAsync("</ul>");
-
-                await context.Response.WriteAsync("</div></body></html>");
-            });
-        });
-    }
-}
 
 class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
 {
@@ -244,7 +212,7 @@ class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
     }
 }
 
-interface IFeedFetcherReminder  : Orleans.IGrainWithIntegerKey
+interface IFeedFetcherReminder : Orleans.IGrainWithIntegerKey
 {
     Task AddReminder(string reminder, short repeatEveryMinute);
 }
@@ -258,7 +226,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
     public async Task AddAsync(List<FeedItem> items)
     {
         //make sure there is no duplication
-        foreach(var i in items.Where(x => !string.IsNullOrWhiteSpace(x.Id)))
+        foreach (var i in items.Where(x => !string.IsNullOrWhiteSpace(x.Id)))
         {
             if (!_storage.State.Results.Exists(x => x.Id?.Equals(i.Id, StringComparison.OrdinalIgnoreCase) ?? false))
                 _storage.State.Results.Add(i);
@@ -266,7 +234,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
         await _storage.WriteStateAsync();
     }
 
-    public Task<List<FeedItem>> GetAllAsync() => Task.FromResult(_storage.State.Results.OrderByDescending(x => x.PublishedOn ).ToList());
+    public Task<List<FeedItem>> GetAllAsync() => Task.FromResult(_storage.State.Results.OrderByDescending(x => x.PublishedOn).ToList());
 
     public async Task ClearAsync()
     {
@@ -309,8 +277,8 @@ class FeedSourceGrain : Grain, IFeedSource
 
     public Task<List<FeedSource>> GetAllAsync() => Task.FromResult(_storage.State.Sources);
 
-    
-    public Task<FeedSource?> FindFeedSourceByUrlAsync(string url) => 
+
+    public Task<FeedSource?> FindFeedSourceByUrlAsync(string url) =>
         Task.FromResult(_storage.State.Sources.Find(x => x.Url.Equals(url, StringComparison.Ordinal)));
 
     public async Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus, string? message)
@@ -322,11 +290,11 @@ class FeedSourceGrain : Grain, IFeedSource
             await _storage.WriteStateAsync();
         }
 
-        return feed; 
+        return feed;
     }
 }
 
-record FeedSourceStore 
+record FeedSourceStore
 {
     public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
 }
@@ -340,7 +308,7 @@ interface IFeedSource : Orleans.IGrainWithIntegerKey
     Task<FeedSource?> FindFeedSourceByUrlAsync(string url);
 
     Task<FeedSource?> UpdateFeedSourceStatus(string url, bool activeStatus, string? message);
-} 
+}
 
 interface IFeedFetcher : Orleans.IGrainWithStringKey
 {
@@ -354,7 +322,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
     readonly ILogger _logger;
 
     readonly IHttpClientFactory _httpClientFactory;
-    
+
     public FeedFetchGrain(IGrainFactory grainFactory, ILogger<FeedFetchGrain> logger, IHttpClientFactory httpClientFactory)
     {
         _grainFactory = grainFactory;
@@ -400,7 +368,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
 
             memory.Seek(0, SeekOrigin.Begin);
             using var xmlReader = XmlReader.Create(memory, new XmlReaderSettings { DtdProcessing = DtdProcessing.Ignore });
-            
+
             if (feedType == FeedType.Rss)
             {
                 var feedReader = new RssFeedReader(xmlReader);
