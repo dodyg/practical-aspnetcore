@@ -1,25 +1,12 @@
-using System;
 using System.Net;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
 using Orleans.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(builder =>
-    {
-        builder.SetMinimumLevel(LogLevel.Information);
-        builder.AddConsole();
-    })
-    .UseOrleans(builder =>
+var builder = WebApplication.CreateBuilder();
+builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
+builder.Host.UseOrleans(builder =>
     {
         builder
             .UseLocalhostClustering()
@@ -37,70 +24,52 @@ await Host.CreateDefaultBuilder(args)
                 options.UseJson = true;
                 options.DatabaseNumber = 1;
             }));
-    })
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-    .RunConsoleAsync();
+    });
 
-class Startup
+var app = builder.Build();
+
+app.MapGet("/", async context =>
 {
-     IHostEnvironment _env;
+    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+    IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
+    await grain.SayHello("Hello world " + new Random().Next());
+    var res2 = await grain.GetGreetings();
 
-    public Startup(IHostEnvironment env) 
+    await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
+    await context.Response.WriteAsync("<body>");
+    await context.Response.WriteAsync("Click on Set reminder to start the reminder (it will run every 1 minute). Then refresh this page to see the messages being addded.<br>");
+    await context.Response.WriteAsync(@"<a href=""set-reminder"">Set reminder</a> - <a href=""remove-reminder"">Remove reminder</a><br/>");
+    await context.Response.WriteAsync("<ul>");
+    foreach(var g in res2)
     {
-        _env = env;
+        await context.Response.WriteAsync($"<li>{g.Message} at {g.TimestampUtc}</li>");
     }
+    await context.Response.WriteAsync("</ul>");
+    await context.Response.WriteAsync("</body></html>");
+});
 
-    public void Configure(IApplicationBuilder app) 
-    {
-        if (_env.IsDevelopment())
-            app.UseDeveloperExceptionPage();
+// WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
+app.MapGet("/set-reminder", async context =>
+{
+    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+    IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
+    
+    await grain.AddReminder("repeat-hello", repeatEvery: TimeSpan.FromMinutes(1));
 
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet("/", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-                await grain.SayHello("Hello world " + new Random().Next());
-                var res2 = await grain.GetGreetings();
+    context.Response.Redirect("/");
+});
 
-                await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
-                await context.Response.WriteAsync("<body>");
-                await context.Response.WriteAsync("Click on Set reminder to start the reminder (it will run every 1 minute). Then refresh this page to see the messages being addded.<br>");
-                await context.Response.WriteAsync(@"<a href=""set-reminder"">Set reminder</a> - <a href=""remove-reminder"">Remove reminder</a><br/>");
-                await context.Response.WriteAsync("<ul>");
-                foreach(var g in res2)
-                {
-                    await context.Response.WriteAsync($"<li>{g.Message} at {g.TimestampUtc}</li>");
-                }
-                await context.Response.WriteAsync("</ul>");
-                await context.Response.WriteAsync("</body></html>");
-            });
+// WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
+app.MapGet("/remove-reminder", async context =>
+{
+    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+    IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
+    
+    await grain.RemoveReminder("repeat-hello");
+    context.Response.Redirect("/");
+});
 
-            // WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
-            endpoints.MapGet("/set-reminder", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-                
-                await grain.AddReminder("repeat-hello", repeatEvery: TimeSpan.FromMinutes(1));
-
-                context.Response.Redirect("/");
-            });
-            
-            // WARNING - changing state using GET is a terrible terrible practice. I use it here because this is a sample and I am lazy. Don't follow my bad example.
-            endpoints.MapGet("/remove-reminder", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-                
-                await grain.RemoveReminder("repeat-hello");
-                context.Response.Redirect("/");
-            });
-        });
-    }
-}
+app.Run();
 
 public class HelloReminderGrain : Grain, IHelloArchive, IRemindable
 {
