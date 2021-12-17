@@ -1,83 +1,53 @@
-using System;
 using System.Net;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
 using Orleans.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(builder =>
-    {
-        builder.SetMinimumLevel(LogLevel.Information);
-        builder.AddConsole();
-    })
-    .UseOrleans(builder =>
-    {
-        builder
-            .UseLocalhostClustering()
-            .Configure<ClusterOptions>(options =>
-            {
-                options.ClusterId = "dev";
-                options.ServiceId = "HelloWorldApp";
-            })
-            .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloTimerGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage("redis-timer", optionsBuilder => optionsBuilder.Configure(options =>
-            {
-                options.ConnectionString = "localhost:6379"; 
-                options.UseJson = true;
-                options.DatabaseNumber = 1;
-            }));
-    })
-    .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-    .RunConsoleAsync();
-
-class Startup
+var builder = WebApplication.CreateBuilder();
+builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
+builder.Host.UseOrleans(builder =>
 {
-     IHostEnvironment _env;
-
-    public Startup(IHostEnvironment env) 
-    {
-        _env = env;
-    }
-
-    public void Configure(IApplicationBuilder app) 
-    {
-        if (_env.IsDevelopment())
-            app.UseDeveloperExceptionPage();
-
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
+    builder
+        .UseLocalhostClustering()
+        .Configure<ClusterOptions>(options =>
         {
-            endpoints.MapGet("/", async context =>
-            {
-                IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-                IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-                await grain.SayHello("Hello world " + new Random().Next());
-                var res2 = await grain.GetGreetings();
+            options.ClusterId = "dev";
+            options.ServiceId = "HelloWorldApp";
+        })
+        .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
+        .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloTimerGrain).Assembly).WithReferences())
+        .AddRedisGrainStorage("redis-timer", optionsBuilder => optionsBuilder.Configure(options =>
+        {
+            options.ConnectionString = "localhost:6379";
+            options.UseJson = true;
+            options.DatabaseNumber = 1;
+        }));
+});
 
-                await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
-                await context.Response.WriteAsync("<body>");
-                await context.Response.WriteAsync("Refresh your browser. There's a timer that keeps adding messages every 5 seconds.<br>");
-                await context.Response.WriteAsync("<ul>");
-                foreach(var g in res2)
-                {
-                    await context.Response.WriteAsync($"<li>{g.Message} at {g.TimestampUtc}</li>");
-                }
-                await context.Response.WriteAsync("</ul>");
-                await context.Response.WriteAsync("</body></html>");
-            });
-        });
+var app = builder.Build();
+
+app.MapGet("/", async context =>
+{
+    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
+    IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
+    await grain.SayHello("Hello world " + new Random().Next());
+    var res2 = await grain.GetGreetings();
+
+    await context.Response.WriteAsync(@"<html><head><link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"" /></head>");
+    await context.Response.WriteAsync("<body>");
+    await context.Response.WriteAsync("Refresh your browser. There's a timer that keeps adding messages every 5 seconds.<br>");
+    await context.Response.WriteAsync("<ul>");
+    foreach (var g in res2)
+    {
+        await context.Response.WriteAsync($"<li>{g.Message} at {g.TimestampUtc}</li>");
     }
-}
+    await context.Response.WriteAsync("</ul>");
+    await context.Response.WriteAsync("</body></html>");
+});
+
+app.Run();
+
 
 public class HelloTimerGrain : Grain, IHelloArchive
 {
