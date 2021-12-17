@@ -1,6 +1,6 @@
 # Reminder
 
-**This sample requires redis**.
+**This sample requires redis**. Make sure to run FLUSHALL in redis-cli between samples.
 
 This is a sample for `Grain.RegisterOrUpdateReminder` method. You can find out more about this functionality [here](https://dotnet.github.io/orleans/1.5/Documentation/Core-Features/Timers-and-Reminders.html).
 

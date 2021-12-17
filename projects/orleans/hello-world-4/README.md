@@ -1,6 +1,6 @@
 # Orleans Hello World with ASP.NET Core and Redis Storage
 
-**This sample requires redis**.
+**This sample requires redis**. Make sure to run FLUSHALL in redis-cli between samples.
 
 This sample shows how to use Orleans with ASP.NET Core. In this case we are using Redis Storage. This means that all the messages persist beyond restart.
 
