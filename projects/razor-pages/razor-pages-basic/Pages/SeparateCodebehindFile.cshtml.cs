@@ -1,16 +1,14 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
 
-namespace RazorPagesBasic.Pages
+namespace RazorPagesBasic.Pages;
+
+public class SeparateCodebehindFileModel : PageModel
 {
-    public class SeparateCodebehindFileModel : PageModel
-    {
-        public string Title => "Page with separate codebehind file model";
-        public string Message { get; private set; }
+    public string Title => "Page with separate codebehind file model";
+    public string Message { get; private set; }
 
-        public void OnGet()
-        {
-            Message = $"Generated at { DateTime.Now.ToLongTimeString() }.";
-        }
+    public void OnGet()
+    {
+        Message = $"Generated at { DateTime.Now.ToLongTimeString() }.";
     }
 }
