@@ -32,7 +32,7 @@
 						}
 						@item.PublishDate.DateTime.ToString("MMM dd, yyyy")
 					</small>
-					<p class="card-text mt-2">@item.Summary?.Text </p>
+					<p class="card-text mt-2">@Html.Raw(item.Summary?.Text)</p>
 				</div>
 			</div>
 		}
