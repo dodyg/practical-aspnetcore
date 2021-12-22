@@ -13,3 +13,5 @@
   *  [Syndication - NewsServer](/projects/syndications/newsserver-mvc)
 
      RSS reader demo using ```Microsoft.ServiceModel.Syndication```.
+
+dotnet6
