@@ -1,29 +1,15 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+
+app.Run(context =>
 {
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app)
-        {
-            //These are the four default services available at Configure
-
-            app.Run(context =>
-            {
-                context.Response.Headers.Add("Content-Type", "text/html");
-                return context.Response.WriteAsync($@"<html>
+    context.Response.Headers.Add("Content-Type", "text/html");
+    return context.Response.WriteAsync($@"<html>
 <body>                
     <h1>Get Display Url</h1>
     <i>Returns the combined components of the request URL in a fully un-escaped form (except for the QueryString) suitable only for display. This format should not be used in HTTP headers or other HTTP operations.</i>
-    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.getdisplayurl?view=aspnetcore-3.1"">Doc</a><br/><br/>
+    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.getdisplayurl?view=aspnetcore-6.0"">Doc</a><br/><br/>
     <p style=""color:red;"">{ context.Request.GetDisplayUrl() }</p>
 
     <p>Click on the links to see what the helper method shows</p>
@@ -36,10 +22,7 @@ namespace PracticalAspNetCore
         <li><a href=""/"">/</a></li>
     </ul>
 </body>          
-</html>         ");
-            });
-        }
-    }
+</html>");
+});
 
-
-}
+app.Run();
