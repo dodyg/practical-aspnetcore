@@ -34,7 +34,7 @@ app.Run(context =>
 <body>                
     <h1>UriHelper.BuildAbsolute</h1>
     Combines the given URI components into a string that is properly encoded for use in HTTP headers.
-    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.buildabsolute?view=aspnetcore-2.2"">doc</a>
+    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.buildabsolute?view=aspnetcore-6-0"">doc</a>
     <ul>
         <li><a href=""{url1}"">{url1}</a></li>
         <li><a href=""{url2}"">{url2}</a></li>
