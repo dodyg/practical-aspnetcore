@@ -1,50 +1,36 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+app.Run(context =>
 {
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app)
-        {
-            //These are the four default services available at Configure
+    context.Response.Headers.Add("Content-Type", "text/html");
 
-            app.Run(context =>
-            {
-                context.Response.Headers.Add("Content-Type", "text/html");
+    var url1 = UriHelper.BuildAbsolute(scheme: " http", host: new HostString("localhost:5000"));
+    var url2 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"));
+    var url3 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"));
+    var url4 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
+    query: new QueryString("?greeting=Annie&age=32"));
 
-                var url1 = UriHelper.BuildAbsolute(scheme: " http", host: new HostString("localhost:5000"));
-                var url2 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"));
-                var url3 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"));
-                var url4 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
-                query: new QueryString("?greeting=Annie&age=32"));
+    var query5 = new QueryString()
+    .Add("greeting", "Annie")
+    .Add("age", "32");
 
-                var query5 = new QueryString()
-                .Add("greeting", "Annie")
-                .Add("age", "32");
+    var url5 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
+    query: query5);
 
-                var url5 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
-                query: query5);
+    var url6 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
+    query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));
 
-                var url6 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"), path: new PathString("/index"),
-                query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));
+    var url7 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: null, path: new PathString("/index"),
+    query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));
 
-                var url7 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: null, path: new PathString("/index"),
-                query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));
+    var url8 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: null, path: null,
+    query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));
 
-                var url8 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: null, path: null,
-                query: new QueryString("?greeting=Annie&age=32"), fragment: new FragmentString("#phd"));
+    var url9 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: null, path: null,
+    query: QueryString.Empty, fragment: new FragmentString("#phd"));
 
-                var url9 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: null, path: null,
-                query: QueryString.Empty, fragment: new FragmentString("#phd"));
-
-                return context.Response.WriteAsync($@"<html>
+    return context.Response.WriteAsync($@"<html>
 <body>                
     <h1>UriHelper.BuildAbsolute</h1>
     Combines the given URI components into a string that is properly encoded for use in HTTP headers.
@@ -62,9 +48,6 @@ namespace PracticalAspNetCore
     </ul>
 </body>          
 </html>         ");
-            });
-        }
-    }
+});
 
-
-}
+app.Run();
