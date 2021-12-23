@@ -1,31 +1,18 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+
+app.Run(context =>
 {
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app)
-        {
-            //These are the four default services available at Configure
+    context.Response.Headers.Add("Content-Type", "text/html");
 
-            app.Run(context =>
-            {
-                context.Response.Headers.Add("Content-Type", "text/html");
-
-                var requestUrl = context.Request.GetEncodedUrl();
-                UriHelper.FromAbsolute(requestUrl, out string scheme, out HostString host, out PathString path, out QueryString queryString, out FragmentString fragment);
-                return context.Response.WriteAsync($@"<html>
+    var requestUrl = context.Request.GetEncodedUrl();
+    UriHelper.FromAbsolute(requestUrl, out string scheme, out HostString host, out PathString path, out QueryString queryString, out FragmentString fragment);
+    return context.Response.WriteAsync($@"<html>
 <body>                
     <h1>From Absolute</h1>
     <i>Separates the given absolute URI string into components. Assumes no PathBase.</i>
-    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.fromabsolute?view=aspnetcore-2.2#Microsoft_AspNetCore_Http_Extensions_UriHelper_FromAbsolute_System_String_System_String__Microsoft_AspNetCore_Http_HostString__Microsoft_AspNetCore_Http_PathString__Microsoft_AspNetCore_Http_QueryString__Microsoft_AspNetCore_Http_FragmentString__"">Doc</a><br/><br/>
+    <a href=""https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.extensions.urihelper.fromabsolute?view=aspnetcore-6.0#Microsoft_AspNetCore_Http_Extensions_UriHelper_FromAbsolute_System_String_System_String__Microsoft_AspNetCore_Http_HostString__Microsoft_AspNetCore_Http_PathString__Microsoft_AspNetCore_Http_QueryString__Microsoft_AspNetCore_Http_FragmentString__"">Doc</a><br/><br/>
     <p style=""color:red;"">{ requestUrl }</p>
 
     <p>Click on the links to see what the helper method shows</p>
@@ -64,9 +51,6 @@ namespace PracticalAspNetCore
     </table>
 </body>          
 </html>         ");
-            });
-        }
-    }
+});
 
-
-}
+app.Run();
