@@ -21,3 +21,5 @@
 * [Chat Server](/projects/web-sockets/web-sockets-5)
 
   Implement a rudimentary single channel chat server.
+
+dotnet6
