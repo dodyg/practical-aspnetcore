@@ -1,33 +1,16 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Rewrite;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+
+var options = new RewriteOptions()
+    .AddRedirect("/$", "/"); //redirect when path ends with /
+
+app.UseRewriter(options);
+
+app.MapGet("/", (context) =>
 {
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
+    context.Response.Headers.Add("content-type", "text/html");
+    return context.Response.WriteAsync($"Always display this page when path ends with / e.g. <a href=\"/hello-world/\">/hello-world/</a> or <a href=\"/welcome/everybody/inthis/train/\">/welcome/everybody/inthis/train/</a>.");
+});
 
-            var options = new RewriteOptions()
-                .AddRedirect("/$", "/"); //redirect when path ends with /
-
-            app.UseRewriter(options);
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", (context) =>
-                {
-                    context.Response.Headers.Add("content-type", "text/html");
-                    return context.Response.WriteAsync($"Always display this page when path ends with / e.g. <a href=\"/hello-world/\">/hello-world/</a> or <a href=\"/welcome/everybody/inthis/train/\">/welcome/everybody/inthis/train/</a>.");
-                });
-            });
-        }
-    }
-
-
-}
+app.Run();
