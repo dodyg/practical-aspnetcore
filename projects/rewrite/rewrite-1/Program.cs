@@ -10,7 +10,9 @@ app.UseRewriter(options);
 app.MapGet("/", (context) =>
 {
     context.Response.Headers.Add("content-type", "text/html");
-    return context.Response.WriteAsync($"Always display this page when path ends with / e.g. <a href=\"/hello-world/\">/hello-world/</a> or <a href=\"/welcome/everybody/inthis/train/\">/welcome/everybody/inthis/train/</a>.");
+    return context.Response.WriteAsync($@"<html><body>
+    Always display this page when path ends with / e.g. <a href=""/hello-world/"">/hello-world/</a> or 
+    <a href=""/welcome/everybody/inthis/train/"">/welcome/everybody/inthis/train/</a>.</body></html>");
 });
 
 app.Run();
