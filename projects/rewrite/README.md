@@ -31,3 +31,5 @@
     Implement a custom redirect logic using lambda (similar functionality to Rewrite - 5). 
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
+
+dotnet6
