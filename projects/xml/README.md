@@ -6,3 +6,4 @@
 
     XML validation against XML Schema i.e. XSD.
 
+dotnet6
