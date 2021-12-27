@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using XmlValidation.Models;
 
 namespace XmlValidation.Controllers
