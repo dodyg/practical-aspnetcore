@@ -27,3 +27,5 @@
     * ```Microsoft.AspNetCore.MiddlewareAnalysis```
     * ```Microsoft.Extensions.DiagnosticAdapter```
     * ```Microsoft.Extensions.Logging.Console```
+
+dotnet6
