@@ -1,11 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>endpoint-routing-2</AssemblyName>
-
-    <PackageId>endpoint-routing-2</PackageId>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-
-
 </Project>
