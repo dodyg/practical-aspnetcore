@@ -1,5 +1,8 @@
 # Samples for ASP.NET Core 5.0 (402)
 
+> **.NET 6** There is an actively developed [.NET 6 exclusive branch](https://github.com/dodyg/practical-aspnetcore/tree/net6.0). When it is ready it will become the default branch.
+
+
 While I got your attention, Palestine needs helps. Support [Palestine Children's Relief Fund](https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=6421).
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
