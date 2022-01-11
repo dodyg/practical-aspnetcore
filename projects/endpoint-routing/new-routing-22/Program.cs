@@ -1,61 +1,25 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
-namespace PracticalAspNetCore
+var builder = WebApplication.CreateBuilder();
+builder.WebHost.ConfigureKestrel(k =>
 {
-    public class Startup
+    k.ConfigureEndpointDefaults(e =>
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
+        e.Protocols = HttpProtocols.Http2;
+    });
+}   
+);
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment environment)
-        {
-            app.UseRouting();
+var app = builder.Build();
+app.MapGet("/", async context =>
+{
+    await context.Response.WriteAsync(@"
+        <html>
+            <body>
+                This endpoint runs on HTTP/2. It is only accessible from the browser over HTTPS connection. 
+            </body>
+        </html> 
+        ");
+});
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync(@"
-                    <html>
-                        <body>
-                            This endpoint runs on HTTP/2. It is only accessible from the browser over HTTPS connection. 
-                        </body>
-                    </html> 
-                    ");
-                });
-            });
-        }
-    }
-
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().
-                    ConfigureKestrel(k =>
-                    {
-                        k.ConfigureEndpointDefaults(e =>
-                        {
-                            e.Protocols = HttpProtocols.Http2;
-                        });
-                    }).
-                    UseEnvironment(Environments.Development);
-                });
-
-    }
-}
+app.Run();
