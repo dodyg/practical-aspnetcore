@@ -1,11 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <LangVersion>8.0</LangVersion>
-    <AssemblyName>new-routing-25</AssemblyName>
-
-    <PackageId>new-routing-25</PackageId>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>
