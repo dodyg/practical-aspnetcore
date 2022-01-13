@@ -2,11 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>new-routing-29</AssemblyName>
-
-    <PackageId>new-routing-29</PackageId>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-  <ItemGroup>
-    <Watch Include="**\*.cshtml" />
-  </ItemGroup>
 </Project>
