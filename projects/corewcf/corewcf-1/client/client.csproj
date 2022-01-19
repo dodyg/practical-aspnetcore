@@ -1,15 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-
     <TargetFramework>net6.0</TargetFramework>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
   </ItemGroup>
-
 </Project>

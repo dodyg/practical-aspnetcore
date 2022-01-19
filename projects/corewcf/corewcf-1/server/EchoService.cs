@@ -1,19 +1,16 @@
 using Contracts;
 
-namespace CoreWCFServer
+public class EchoService : IEchoService
 {
-    public class EchoService : IEchoService
+    public string Echo(string text)
     {
-        public string Echo(string text)
-        {
-            System.Console.WriteLine($"Received {text} from client!");
-            return text;
-        }
+        System.Console.WriteLine($"Received {text} from client!");
+        return text;
+    }
 
-        public string ComplexEcho(EchoMessage text)
-        {
-            System.Console.WriteLine($"Received {text.Text} from client!");
-            return text.Text;
-        }
+    public string ComplexEcho(EchoMessage text)
+    {
+        System.Console.WriteLine($"Received {text.Text} from client!");
+        return text.Text;
     }
 }

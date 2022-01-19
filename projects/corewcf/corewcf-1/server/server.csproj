@@ -1,15 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-
     <TargetFramework>net6.0</TargetFramework>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
-    <PackageReference Include="CoreWCF.Http" Version="0.1.0" />
-    <PackageReference Include="CoreWCF.Primitives" Version="0.1.0" />
+    <PackageReference Include="CoreWCF.Http" Version="0.4.0" />
+    <PackageReference Include="CoreWCF.Primitives" Version="0.4.0" />
   </ItemGroup>
 
 </Project>
