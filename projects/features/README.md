@@ -41,3 +41,5 @@
   * [IHttpResponseBodyFeature](/projects/features/features-http-body-response)
 
     This new Feature interface consolidate previous version's three response body APIs into one
+
+dotnet6
