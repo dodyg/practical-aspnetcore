@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>hello-world-with-IApplicationLifetime</AssemblyName>
-
-    <PackageId>hello-world-with-IApplicationLifetime</PackageId>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>
