@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.1" />
+    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.5" />
   </ItemGroup>
 </Project>
