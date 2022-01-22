@@ -1,9 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using System.IO;
-using Microsoft.Extensions.Hosting;
-
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     WebRootPath = "markdown"        
