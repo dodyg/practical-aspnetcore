@@ -1,11 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Markdig" Version="0.18.3" />
+    <PackageReference Include="Markdig" Version="0.26.0" />
   </ItemGroup>
 </Project>
