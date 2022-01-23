@@ -1,12 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>tag-helper-link</AssemblyName>
-
-    <PackageId>tag-helper-link</PackageId>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
+    <AssemblyName>TagHelpers</AssemblyName>
   </PropertyGroup>
-
-
 </Project>

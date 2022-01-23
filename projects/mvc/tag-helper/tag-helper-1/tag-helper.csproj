@@ -2,5 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>true</ImplicitUsings>
+    <AssemblyName>TagHelpers</AssemblyName>
   </PropertyGroup>
 </Project>
