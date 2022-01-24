@@ -29,3 +29,5 @@
   * [ View Component - Passing complex object as parameter](/projects/mvc/view-component/view-component-4)
 
     This sample shows you how to pass complex object to the View Component.
+
+    dotnet6
