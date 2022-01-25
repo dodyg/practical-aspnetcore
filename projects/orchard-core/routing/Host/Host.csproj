@@ -1,28 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <TieredCompilation>true</TieredCompilation>
-      <ImplicitUsings>true</ImplicitUsings>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.2.2" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.0.0" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\ForumModule\ForumModule.csproj" />
     <ProjectReference Include="..\TicketModule\TicketModule.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Watch Include="..\ForumModule\**\*.cshtml" />
-    <Watch Include="..\TicketModule\**\*.cshtml" />
-    <Watch Include="**\*.cshtml" />
-  </ItemGroup>
-
 </Project>
