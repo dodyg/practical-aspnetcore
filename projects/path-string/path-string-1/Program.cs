@@ -3,7 +3,7 @@ app.Run(async context =>
 {
     var protocol = context.Request.IsHttps ? "https://": "http://";
     var host = protocol + context.Request.Host;
-    context.Response.Headers["ContentType"] = "text/html";
+    context.Response.Headers["Content-Type"] = "text/html";
 
     await context.Response.WriteAsync($@"
         <html>

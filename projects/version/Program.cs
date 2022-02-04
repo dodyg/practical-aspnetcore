@@ -9,7 +9,6 @@ using System.Reflection;
 
 var app = WebApplication.Create();
 
-
 app.Run(async context =>
 {
     context.Response.Headers["Content-Type"] = "text/html";
