@@ -1,27 +1,15 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
+var app = WebApplication.Create();
 
-namespace PracticalAspNetCore
+app.Run(async context =>
 {
-    public class Startup
+    context.Response.Headers.Add("content-type", "text/html");
+    await context.Response.WriteAsync("<h1>Request Headers</h1>");
+    await context.Response.WriteAsync("<ul>");
+    foreach (var h in context.Request.Headers)
     {
-        public void Configure(IApplicationBuilder app)
-        {
-            app.Run(async context =>
-            {
-                context.Response.Headers.Add("content-type", "text/html");
-                await context.Response.WriteAsync("<h1>Request Headers</h1>");
-                await context.Response.WriteAsync("<ul>");
-                foreach (var h in context.Request.Headers)
-                {
-                    await context.Response.WriteAsync($"<li>{h.Key} : {h.Value}</li>");
-                }
-                await context.Response.WriteAsync("</ul>");
-            });
-        }
+        await context.Response.WriteAsync($"<li>{h.Key} : {h.Value}</li>");
     }
+    await context.Response.WriteAsync("</ul>");
+});
 
-
-}
+app.Run();
