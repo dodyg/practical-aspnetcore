@@ -1,20 +1,7 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-
-namespace PracticalAspNetCore
+var app = WebApplication.Create();
+app.Run(context =>
 {
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app)
-        {
-            app.Run(context =>
-            {
-                return context.Response.WriteAsync($"Request {context.Request.Method}");
-            });
-        }
-    }
+    return context.Response.WriteAsync($"Request {context.Request.Method}");
+});
 
-
-}
+app.Run();
