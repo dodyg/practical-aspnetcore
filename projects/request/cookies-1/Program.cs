@@ -1,37 +1,25 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
+var app = WebApplication.Create();
 
-namespace PracticalAspNetCore 
+app.Run(context =>
 {
-    public class Startup
+    var cookie = context.Request.Cookies["MyCookie"];
+
+    if (string.IsNullOrWhiteSpace(cookie))
     {
-        public void Configure(IApplicationBuilder app)
-        {
-            app.Run(context =>
+        context.Response.Cookies.Append
+        (
+            "MyCookie",
+            "Hello World",
+            new CookieOptions
             {
-                var cookie = context.Request.Cookies["MyCookie"];
-
-                if (string.IsNullOrWhiteSpace(cookie))
-                {
-                    context.Response.Cookies.Append
-                    (
-                        "MyCookie",
-                        "Hello World",
-                        new CookieOptions
-                        {
-                            Path = "/",
-                            HttpOnly = false,
-                            Secure = false
-                        }
-                    );
-                }
-
-                return context.Response.WriteAsync($"Hello World Cookie: {cookie}. Refresh page to see cookie value.");
-            });
-        }
+                Path = "/",
+                HttpOnly = false,
+                Secure = false
+            }
+        );
     }
-    
 
-}
+    return context.Response.WriteAsync($"Hello World Cookie: {cookie}. Refresh page to see cookie value.");
+});
+
+app.Run();
