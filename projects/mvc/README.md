@@ -7,7 +7,7 @@
 | [MVC - Razor Class Library](/projects/mvc/razor-class-library) | (3) |
 | [MVC - Tag Helpers](/projects/mvc/tag-helper)                  | (7) |
 | [MVC - View Component](/projects/mvc/view-component)           | (4) |
-|                                                                | 32  |
+|                                                                | 33  |
 
 * [Hello World Minimalistic](/projects/mvc/hello-world) (1)
   This is the most basic hello world you can do using ASP.NET MVC. It uses `services.AddMvcCore()` with [behavior compatibility](https://blogs.msdn.microsoft.com/webdev/2018/02/27/introducing-compatibility-version-in-mvc/) set to `2.1` and with manually configured route.
