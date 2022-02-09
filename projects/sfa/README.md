@@ -12,3 +12,5 @@ This style of development is not necessarily the best way to organize your code 
 * [Time Remaining](remaining-time)
 
   This is a tiny system to generate chart of a project remaining time in weeks. Everything is written in a single `Program.cs`.  
+
+  dotnet6
