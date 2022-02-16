@@ -1,70 +1,52 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Hosting;
 
-namespace MvcLocalization
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+app.UseStaticFiles();
+
+var supportedCultures = new List<CultureInfo>
 {
-    public class Startup
+    new CultureInfo("fr-FR")
+};
+
+var options = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("fr-FR"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+};
+
+app.UseRequestLocalization(options);
+app.MapDefaultControllerRoute();
+
+app.Run();
+
+// Leave this class empty
+public class Global
+{
+
+}
+public class HomeController : Controller
+{
+    readonly IStringLocalizer<Global> _local;
+
+    public HomeController(IStringLocalizer<Global> local)
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
-
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseStaticFiles();
-
-            var supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo("fr-FR")
-            };
-
-            var options = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("fr-FR"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            };
-
-            app.UseRequestLocalization(options);
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapDefaultControllerRoute();
-            });
-        }
+        _local = local;
     }
-
-    // Leave this class empty
-    public class Global
+    public ActionResult Index()
     {
+        var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
 
-    }
-    public class HomeController : Controller
-    {
-        readonly IStringLocalizer<Global> _local;
-
-        public HomeController(IStringLocalizer<Global> local)
+        return new ContentResult
         {
-            _local = local;
-        }
-        public ActionResult Index()
-        {
-            var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
-
-            return new ContentResult
-            {
-                Content = $@"<html><body>
+            Content = $@"<html><body>
                 <h1>MVC Shared Resources - Home - Where namespace and assembly name are the same</h1>
                 <p>
                     Please note that the project name is `MvcLocalization.csproj`, the Assembly Name value is also `MvcLocalization` and the root namespace is `MvcLocalization` as well. 
@@ -82,26 +64,26 @@ namespace MvcLocalization
                 <b>UI Culture requested</b> {culture.RequestCulture.UICulture} <br/>
                 Text: {_local["Hello"]}<br/>
                 Text: {_local["Goodbye"]}</body></html>",
-                ContentType = "text/html"
-            };
-        }
+            ContentType = "text/html"
+        };
     }
+}
 
-    public class AboutController : Controller
+public class AboutController : Controller
+{
+    readonly IStringLocalizer<Global> _local;
+
+    public AboutController(IStringLocalizer<Global> local)
     {
-        readonly IStringLocalizer<Global> _local;
+        _local = local;
+    }
+    public ActionResult Index()
+    {
+        var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
 
-        public AboutController(IStringLocalizer<Global> local)
+        return new ContentResult
         {
-            _local = local;
-        }
-        public ActionResult Index()
-        {
-            var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
-
-            return new ContentResult
-            {
-                Content = $@"<html><body>
+            Content = $@"<html><body>
                 <h1>MVC Shared Resources - About</h1>
                 <p>
                     <a href=""/"">Home</a>
@@ -110,10 +92,7 @@ namespace MvcLocalization
                 <b>UI Culture requested</b> {culture.RequestCulture.UICulture} <br/>
                 Text: {_local["Hello"]}<br/>
                 Text: {_local["Goodbye"]}</body></html>",
-                ContentType = "text/html"
-            };
-        }
+            ContentType = "text/html"
+        };
     }
-
-
 }
