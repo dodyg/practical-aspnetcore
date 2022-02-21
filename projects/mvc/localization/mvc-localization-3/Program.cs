@@ -27,64 +27,68 @@ app.UseRequestLocalization(options);
 app.MapDefaultControllerRoute();
 app.Run();
 
-// Leave this class empty
-public class Global
+namespace MvcLocalization
 {
-
-}
-
-public class HomeController : Controller
-{
-    readonly IStringLocalizer<Global> _local;
-
-    public HomeController(IStringLocalizer<Global> local)
+    
+    // Leave this class empty
+    public class Global
     {
-        _local = local;
+
     }
-    public ActionResult Index()
-    {
-        var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
 
-        return new ContentResult
+    public class HomeController : Controller
+    {
+        readonly IStringLocalizer<Global> _local;
+
+        public HomeController(IStringLocalizer<Global> local)
         {
-            Content = $@"<html><body>
-                <h1>MVC Shared Resources - Home</h1>
-                <p>
-                    <a href=""/about/index"">About</a>
-                </p>
-                <b>Culture requested</b> {culture.RequestCulture.Culture} <br/>
-                <b>UI Culture requested</b> {culture.RequestCulture.UICulture} <br/>
-                Text: {_local["Hello"]}<br/>
-                Text: {_local["Goodbye"]}</body></html>",
-            ContentType = "text/html"
-        };
-    }
-}
-
-public class AboutController : Controller
-{
-    readonly IStringLocalizer<Global> _local;
-
-    public AboutController(IStringLocalizer<Global> local)
-    {
-        _local = local;
-    }
-    public ActionResult Index()
-    {
-        var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
-
-        return new ContentResult
+            _local = local;
+        }
+        public ActionResult Index()
         {
-            Content = $@"<html><body>
-                <h1>MVC Shared Resources - About</h1>
-                <p>
-                    <a href=""/"">Home</a>
-                </p>
-                <b>Culture requested</b> {culture.RequestCulture.Culture} <br/>
-                <b>UI Culture requested</b> {culture.RequestCulture.UICulture} <br/>
-                Text: {_local["Hello"]}<br/>
-                Text: {_local["Goodbye"]}</body></html>",
-            ContentType = "text/html"
-        };
+            var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
+
+            return new ContentResult
+            {
+                Content = $@"<html><body>
+                    <h1>MVC Shared Resources - Home</h1>
+                    <p>
+                        <a href=""/about/index"">About</a>
+                    </p>
+                    <b>Culture requested</b> {culture.RequestCulture.Culture} <br/>
+                    <b>UI Culture requested</b> {culture.RequestCulture.UICulture} <br/>
+                    Text: {_local["Hello"]}<br/>
+                    Text: {_local["Goodbye"]}</body></html>",
+                ContentType = "text/html"
+            };
+        }
+    }
+
+    public class AboutController : Controller
+    {
+        readonly IStringLocalizer<Global> _local;
+
+        public AboutController(IStringLocalizer<Global> local)
+        {
+            _local = local;
+        }
+        public ActionResult Index()
+        {
+            var culture = this.HttpContext.Features.Get<IRequestCultureFeature>();
+
+            return new ContentResult
+            {
+                Content = $@"<html><body>
+                    <h1>MVC Shared Resources - About</h1>
+                    <p>
+                        <a href=""/"">Home</a>
+                    </p>
+                    <b>Culture requested</b> {culture.RequestCulture.Culture} <br/>
+                    <b>UI Culture requested</b> {culture.RequestCulture.UICulture} <br/>
+                    Text: {_local["Hello"]}<br/>
+                    Text: {_local["Goodbye"]}</body></html>",
+                ContentType = "text/html"
+            };
+        }
     }
 }
