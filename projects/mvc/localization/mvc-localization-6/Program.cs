@@ -40,16 +40,19 @@ app.MapDefaultControllerRoute();
 
 app.Run();
 
-// Leave this class empty
-public class Global
+namespace MvcLocalization 
 {
-
-}
-
-public class HomeController : Controller
-{
-    public ActionResult Index()
+    // Leave this class empty
+    public class Global
     {
-        return View();
+
+    }
+
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }
