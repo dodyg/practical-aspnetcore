@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <AssemblyName>mvc-routing-9</AssemblyName>
-    
-        <PackageId>mvc-routing-9</PackageId>
         <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 </Project>
