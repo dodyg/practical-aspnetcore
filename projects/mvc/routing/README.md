@@ -41,3 +41,6 @@
     The following map routing will search all HomeController.About action accross the assembly regardless of namespace. If you have multiple
     HomeController.About, it will generate error because the framework cannot decide which method to use. This sample demonstrates on how using
     a custom `IActionConstraint` attribute solves this problem.
+
+
+  dotnet6
