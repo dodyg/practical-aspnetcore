@@ -1,68 +1,51 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
-using System;
-using Microsoft.Extensions.Hosting;
 
-namespace PracticalAspNetCore
+var builder = WebApplication.CreateBuilder();
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+app.MapControllerRoute(
+    "About",
+    "{id}/About",
+    defaults: new { controller = "Home", Action = "About" }
+);
+
+app.Run();
+
+public class NumberAttribute : Attribute, IActionConstraint
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-        }
+    private readonly int _number;
 
-        public void Configure(IApplicationBuilder app)
+    public NumberAttribute(int number)
+    {
+        _number = number;
+    }
+
+    public int Order
+    {
+        get
         {
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    "About",
-                    "{id}/About",
-                    defaults: new { controller = "Home", Action = "About" }
-                );
-            });
-            
+            return 0;
         }
     }
 
-    public class NumberAttribute : Attribute, IActionConstraint
+    public bool Accept(ActionConstraintContext context)
     {
-        private readonly int _number;
-
-        public NumberAttribute(int number)
-        {
-            _number = number;
-        }
-
-        public int Order
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public bool Accept(ActionConstraintContext context)
-        {
-            return Convert.ToInt32(context.RouteContext.RouteData.Values["id"]) == _number;
-        }
+        return Convert.ToInt32(context.RouteContext.RouteData.Values["id"]) == _number;
     }
+}
 
-    [Route("[controller]/")]
-    public class HomeController : Controller
+[Route("[controller]/")]
+public class HomeController : Controller
+{
+    [HttpGet("/")]
+    [HttpGet("")]
+    public ActionResult Index()
     {
-        [HttpGet("/")]
-        [HttpGet("")]
-        public ActionResult Index()
+        return new ContentResult
         {
-            return new ContentResult
-            {
-                Content = @"
+            Content = @"
                 <html><body>
                 <h1>Custom Routing Constraint Attribute</h1>
                 <ul>
@@ -72,12 +55,9 @@ namespace PracticalAspNetCore
                     <li><a href=""/3/about"">/3/about</a></li>
                 </ul>
                 </body></html>",
-                ContentType = "text/html"
-            };
-        }
+            ContentType = "text/html"
+        };
     }
-
-
 }
 
 namespace PracticalAspNetCore.Route1
