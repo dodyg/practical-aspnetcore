@@ -41,7 +41,6 @@ dotnet build tag-helper-4
 dotnet build tag-helper-5
 dotnet build tag-helper-img
 dotnet build tag-helper-link
-dotnet build utf8json-formatter
 dotnet build view-component
 dotnet build view-component-2
 dotnet build view-component-3
