@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 (400)
+# Samples for ASP.NET Core 6.0 
 
 **WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's not ready yet. Please use the main branch in the meantime.
 
