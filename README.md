@@ -15,7 +15,7 @@ You can access .NET 6 specific samples [here](projects/net6).
 | Section                                                         |      |                                                                              |
 | --------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------- |
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | (22) | Components, Data Binding                                                     |
-| [Blazor Server Side](/projects/blazor-ss) (Localization)        | (15) |                                                                              |
+| [Blazor Server Side](/projects/blazor-ss)                       | (15) | Localization                                                                 |
 | [Caching](/projects/caching)                                    | (5)  |                                                                              |
 | [Configurations](/projects/configurations)                      | (7)  |                                                                              |
 | [CoreWCF](/projects/corewcf)                                    | (1)  |                                                                              |
