@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>hello-world-startup-istartupfilter</AssemblyName>
-
-    <PackageId>hello-world-startup-istartupfilter</PackageId>
-      <ImplicitUsings>true</ImplicitUsings>
-  </PropertyGroup>
-</Project>
