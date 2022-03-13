@@ -54,7 +54,7 @@ You can access .NET 6 specific samples [here](projects/net6).
 | [Web Utilities](/projects/web-utilities)                        | (3)  |                                                                              |
 | [Orleans](projects/orleans)                                     | (12) |                                                                              |
 | [Xml](projects/xml)                                             | (1)  |                                                                              |
-
+| [YARP](projects/yarp)                                           | (1)  |                                                                              |
 
 For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
 
