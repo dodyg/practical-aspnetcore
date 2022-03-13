@@ -6,10 +6,6 @@
 
 [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
-## .NET 6 Section (59)
-
-You can access .NET 6 specific samples [here](projects/net6).
-
 ## Sections
 
 | Section                                                         |      |                                                                              |

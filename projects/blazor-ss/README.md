@@ -1,4 +1,4 @@
-# Server Size Blazor (15)
+# Server Size Blazor (16)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
@@ -70,5 +70,10 @@ All the samples in this section runs on SSL. If you have not gotten your local s
   * [Localization RTL/LTR support](Localization-4)
 
     This sample shows how to implement LTR/RTL support in Blazor.
+
+  * [RenderTreeBuilder](RenderTreeBuilder)
+
+    `RenderTreeBuilder` shows a Blazor (server) component implemented without Razor syntax.
+
 
 dotnet6
