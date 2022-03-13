@@ -33,6 +33,8 @@ You can access .NET 6 specific samples [here](projects/net6).
 | [Localization and Globalization](projects/localization)         | (6)  |                                                                              |
 | [Middleware](/projects/middleware)                              | (14) |                                                                              |
 | [Mini Apps](projects/mini)                                      | (1)  |                                                                              |
+| [Minimal  API](projects/minimal-api)                            |      |                                                                              |
+| [Minimal Hosting](projects/miniminal-hosting)                   |      |                                                                              |
 | [MVC](/projects/mvc)                                            | (47) | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
 | [Orchard Core](/projects/orchard-core)                          | (4)  |                                                                              |
 | [Path String (HttpContext.Request.Path)](projects/path-string)  | (1)  |                                                                              |
