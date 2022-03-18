@@ -1,10 +1,10 @@
 # Samples for ASP.NET Core 6.0 
 
-**WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's not ready yet. Please use the main branch in the meantime.
+**WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's almost done (tm).
 
 ## Previous versions
 
-[3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
+[5.0](https://github.com/dodyg/practical-aspnetcore/tree/5.0/), [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
 ## Sections
 
