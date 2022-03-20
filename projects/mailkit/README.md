@@ -8,4 +8,4 @@
 
   * [Connect to POP3 Account](/projects/mailkit/mailkit-2)
    
-    Thsi shows how to connect to a POP3 account
+    Thsi shows how to connect to a POP3 account.
