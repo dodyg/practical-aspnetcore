@@ -1,4 +1,4 @@
-# Features (10)
+# Features (11)
 
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
@@ -33,6 +33,10 @@
   * [Session Feature](/projects/features/features-session)
 
     Use session within your middlewares. This sample shows a basic usage of in memory session. 
+
+  * [Session Feature with Redis](/projects/features/features-session-redis-2)
+
+    Use session within your middlewares. This sample uses Redis to store session data. 
 
   * [Maximum Request Body Size Feature](/projects/features/features-max-request-body-size)
 

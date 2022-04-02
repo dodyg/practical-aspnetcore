@@ -19,7 +19,7 @@
 | [Diagnostics](/projects/diagnostics)                            | (6)  |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                  | (32) |                                                                              |
 | [Email](/projects/mailkit)                                      | (2)  |                                                                              |
-| [Features](/projects/features)                                  | (10) |                                                                              |
+| [Features](/projects/features)                                  | (11) |                                                                              |
 | [Generic Hosting](/projects/generic-host)                       | (9)  |                                                                              |
 | [gRPC](/projects/grpc) (including grpc-Web)                     | (12) |                                                                              |
 | [Health Check](/projects/health-check)                          | (6)  |                                                                              |
