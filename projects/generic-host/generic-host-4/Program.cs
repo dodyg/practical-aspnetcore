@@ -1,61 +1,45 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
-using System.Threading;
-using Microsoft.Extensions.Hosting;
-using System;
-using Microsoft.Extensions.Logging;
 
-namespace PracticalAspNetCore
-{
-    public class HelloWorldService : IHostedService
+var host = new HostBuilder()
+    .ConfigureServices((hostContext, services) =>
     {
-        readonly ILogger _log;
-
-        public HelloWorldService(ILogger<HelloWorldService> logger)
+        services.AddHostedService<HelloWorldService>();
+    })
+    .ConfigureLogging(logging =>
+    {
+        logging.ClearProviders();
+        logging.AddConsole();
+        logging.AddFilter((provider, category, logLevel) =>
         {
-            _log = logger;
-        }
+            return !category.Contains("Microsoft");
+        });
+    })
+    .Build();
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Hello world 1");
-            return Task.CompletedTask;
-        }
+using (host)
+{
+    host.Start();
 
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-             _log.LogDebug("Goodbye 1");
-            return Task.CompletedTask;
-        }
+    await host.StopAsync(TimeSpan.FromSeconds(5));
+}
+
+public class HelloWorldService : IHostedService
+{
+    readonly ILogger _log;
+
+    public HelloWorldService(ILogger<HelloWorldService> logger)
+    {
+        _log = logger;
     }
 
-    public class Program
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        public static async Task Main(string[] args)
-        {
-            var host = new HostBuilder()
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<HelloWorldService>();
-                })
-                .ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.AddConsole();
-                    logging.AddFilter((provider, category, logLevel) =>
-                    {
-                        return !category.Contains("Microsoft");
-                    });
-                })
-                .Build();
+        _log.LogDebug("Hello world 1");
+        return Task.CompletedTask;
+    }
 
-            using (host)
-            {
-                host.Start();
-
-                await host.StopAsync(TimeSpan.FromSeconds(5));
-            }
-        }
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        _log.LogDebug("Goodbye 1");
+        return Task.CompletedTask;
     }
 }

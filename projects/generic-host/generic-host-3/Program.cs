@@ -1,4 +1,3 @@
-
 await new HostBuilder()
     .ConfigureServices((hostContext, services) =>
     {
