@@ -1,101 +1,84 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
-using System.Threading;
-using Microsoft.Extensions.Hosting;
-using System;
-using Microsoft.Extensions.Logging;
 
-namespace PracticalAspNetCore
+await new HostBuilder()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddHostedService<HelloWorldService>();
+        services.AddHostedService<HelloWorldService2>();
+        services.AddHostedService<HelloWorldService3>();
+    })
+    .ConfigureLogging(logging =>
+    {
+        logging.ClearProviders();
+        logging.AddConsole();
+        logging.AddFilter((provider, category, logLevel) =>
+        {
+            return !category.Contains("Microsoft");
+        });
+    }).RunConsoleAsync();
+
+
+public class HelloWorldService : IHostedService
 {
-    public class HelloWorldService : IHostedService
+    readonly ILogger _log;
+
+    public HelloWorldService(ILogger<HelloWorldService> logger)
     {
-        readonly ILogger _log;
-
-        public HelloWorldService(ILogger<HelloWorldService> logger)
-        {
-            _log = logger;
-        }
-
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Hello world 1");
-            return Task.CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Goodbye 1");
-            return Task.CompletedTask;
-        }
+        _log = logger;
     }
 
-    public class HelloWorldService2 : IHostedService
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        readonly ILogger _log;
-
-        public HelloWorldService2(ILogger<HelloWorldService2> logger)
-        {
-            _log = logger;
-        }
-
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Hello world 2");
-            return Task.CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Goodbye 2");
-            return Task.CompletedTask;
-        }
+        _log.LogDebug("Hello world 1");
+        return Task.CompletedTask;
     }
 
-    public class HelloWorldService3 : IHostedService
+    public Task StopAsync(CancellationToken cancellationToken)
     {
-        readonly ILogger _log;
+        _log.LogDebug("Goodbye 1");
+        return Task.CompletedTask;
+    }
+}
 
-        public HelloWorldService3(ILogger<HelloWorldService3> logger)
-        {
-            _log = logger;
-        }
+public class HelloWorldService2 : IHostedService
+{
+    readonly ILogger _log;
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Hello world 3");
-            return Task.CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _log.LogDebug("Goodbye 3");
-            return Task.CompletedTask;
-        }
+    public HelloWorldService2(ILogger<HelloWorldService2> logger)
+    {
+        _log = logger;
     }
 
-    public class Program
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        public static async Task Main(string[] args)
-        {
-            var host = new HostBuilder()
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<HelloWorldService>();
-                    services.AddHostedService<HelloWorldService2>();
-                    services.AddHostedService<HelloWorldService3>();
-                })
-                .ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.AddConsole();
-                    logging.AddFilter((provider, category, logLevel) =>
-                    {
-                        return !category.Contains("Microsoft");
-                    });
-                });
+        _log.LogDebug("Hello world 2");
+        return Task.CompletedTask;
+    }
 
-            await host.RunConsoleAsync();
-        }
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        _log.LogDebug("Goodbye 2");
+        return Task.CompletedTask;
+    }
+}
+
+public class HelloWorldService3 : IHostedService
+{
+    readonly ILogger _log;
+
+    public HelloWorldService3(ILogger<HelloWorldService3> logger)
+    {
+        _log = logger;
+    }
+
+    public Task StartAsync(CancellationToken cancellationToken)
+    {
+        _log.LogDebug("Hello world 3");
+        return Task.CompletedTask;
+    }
+
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        _log.LogDebug("Goodbye 3");
+        return Task.CompletedTask;
     }
 }
