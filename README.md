@@ -23,7 +23,7 @@
 | [Generic Hosting](/projects/generic-host)                       | (9)  |                                                                              |
 | [gRPC](/projects/grpc) (including grpc-Web)                     | (12) |                                                                              |
 | [Health Check](/projects/health-check)                          | (6)  |                                                                              |
-| [IHttpClientFactory](/projects/httpclientfactory)               | (5)  |                                                                              |
+| [IHttpClientFactory](/projects/httpclientfactory)               | (4)  |                                                                              |
 | [IHostedService](/projects/ihosted-service)                     | (2)  |                                                                              |
 | [Logging](/projects/logging)                                    | (3)  |                                                                              |
 | [Localization and Globalization](projects/localization)         | (6)  |                                                                              |

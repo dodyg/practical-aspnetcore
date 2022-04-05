@@ -1,2 +1,0 @@
-## rest-ease
-* [RestEase](https://github.com/canton7/restease) is a library for `REST` HTTP calls that aims to make API calls more streamlined and readable. With the definition of the API interface and the request/response models you can register the client as singleton and inject it directly to your services.

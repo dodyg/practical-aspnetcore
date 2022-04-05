@@ -37,3 +37,5 @@
   * [Listen to IHostApplicationLifetime events](/projects/generic-host/generic-host-ihostapplicationlifetime)
 
     Inject `IHostApplicationLifetime` and listen to `ApplicationStarted`, `ApplicationStopping` and `ApplicationStopped` events. This is important to allow services to be shutdown gracefully. The shutdown process blocks until `ApplicatinStopping` and `ApplicationStopped` events complete.
+
+dotnet6
