@@ -41,7 +41,7 @@
 | [Security](/projects/security)                                  | (7)  |                                                                              |
 | [Single File Application](projects/sfa)                         | (2)  |                                                                              |
 | [Static Files and File Provider](/projects/file-provider)       | (10) |                                                                              |
-| [System.Text.Json](/projects/json)                              | (11) |                                                                              |
+| [System.Text.Json](/projects/json)                              | (22) |                                                                              |
 | [Syndications](/projects/syndications)                          | (3)  |                                                                              |
 | [Testing](/projects/testing)                                    | (1)  |                                                                              |
 | [URL Redirect/Rewrite](/projects/rewrite)                       | (6)  |                                                                              |
