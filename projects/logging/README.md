@@ -2,7 +2,7 @@
 
 * [Basic Logging](/projects/logging/logging-1)
 
-  Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
+  Shows how to do basic logging including all its various levels.
 
 * [Logging filtering](/projects/logging/logging-2)
 
@@ -11,3 +11,5 @@
 * [JSON Console Logger](/projects/logging/logging-3)
 
   This example shows how to display log to console in structured JSON logs.
+
+  dotnet6
