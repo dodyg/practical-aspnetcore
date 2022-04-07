@@ -43,3 +43,5 @@
   * [MVC Localization - 10](/projects/mvc/localization/mvc-localization-10)
 
     This sample uses `CustomRequestCultureProvider` to provide fine localization based on the first part of a url segment e.g. /en/my-page, /fr.
+
+    dotnet6
