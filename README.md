@@ -28,7 +28,7 @@
 | [Logging](/projects/logging)                                    | (3)  |                                                                              |
 | [Localization and Globalization](projects/localization)         | (6)  |                                                                              |
 | [Middleware](/projects/middleware)                              | (14) |                                                                              |
-| [Mini Apps](projects/mini)                                      | (1)  |                                                                              |
+| [Mini Apps](projects/mini)                                      | (2)  |                                                                              |
 | [Minimal  API](projects/minimal-api)                            |      |                                                                              |
 | [Minimal Hosting](projects/minimal-hosting)                     |      |                                                                              |
 | [MVC](/projects/mvc)                                            | (47) | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
