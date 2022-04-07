@@ -20,3 +20,5 @@
     This sample demonstrates on how to use Controllers and Views in your Razor Class Library in contrast to previous examples that uses Razor Pages.
     
     Thanks to [@AdrienTorris](https://twitter.com/AdrienTorris).
+
+dotnet6
