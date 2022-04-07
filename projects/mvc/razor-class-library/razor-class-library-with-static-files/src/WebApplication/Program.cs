@@ -1,46 +1,23 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿var builder = WebApplication.CreateBuilder();
+builder.Services.AddRazorPages();
+builder.Services.ConfigureOptions(typeof(RazorClassLibrary1.UiConfigureOptions));
+builder.Services.ConfigureOptions(typeof(RazorClassLibrary2.UiConfigureOptions));
 
-namespace PracticalAspNetCore
+var app = builder.Build();
+app.UseRouting();
+app.UseStaticFiles();
+app.MapRazorPages();
+
+app.Run(async (context) =>
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddRazorPages();
+    context.Response.Headers.Add("Content-Type", "text/html");
 
-            services.ConfigureOptions(typeof(RazorClassLibrary1.UiConfigureOptions));
-            services.ConfigureOptions(typeof(RazorClassLibrary2.UiConfigureOptions));
-        }
+    await context.Response.WriteAsync(@"<html>
+        <body>
+        <h1>Razor Class Library sample with static files (image, css, js)</h1>
+        Visit page from <a href=""/module1"">RazorClassLibrary1</a> and <a href=""/module2"">RazorClassLibrary2</a>.
+        </body>
+        </html>");
+});
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            app.UseStaticFiles();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
-
-            app.Run(async (context) =>
-            {
-                context.Response.Headers.Add("Content-Type", "text/html");
-
-                await context.Response.WriteAsync(@"<html>
-                <body>
-                <h1>Razor Class Library sample with static files (image, css, js)</h1>
-                Visit page from <a href=""/module1"">RazorClassLibrary1</a> and <a href=""/module2"">RazorClassLibrary2</a>.
-                </body>
-                </html>");
-            });
-        }
-    }
-
-    
-
-}
+app.Run();
