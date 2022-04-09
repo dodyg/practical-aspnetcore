@@ -1,13 +1,13 @@
 # MVC (46)
 
 | Sections                                                       |     |
-|----------------------------------------------------------------|-----|
-| [MVC - Localization](/projects/mvc/localization)               | (10) |
-| [MVC - Routing](/projects/mvc/routing)                         | (9) |
-| [MVC - Razor Class Library](/projects/mvc/razor-class-library) | (3) |
-| [MVC - Tag Helpers](/projects/mvc/tag-helper)                  | (7) |
-| [MVC - View Component](/projects/mvc/view-component)           | (4) |
-|                                                                | 32  |
+| -------------------------------------------------------------- | --- |
+| [MVC - Localization](/projects/mvc/localization)               | 10  |
+| [MVC - Routing](/projects/mvc/routing)                         | 9   |
+| [MVC - Razor Class Library](/projects/mvc/razor-class-library) | 3   |
+| [MVC - Tag Helpers](/projects/mvc/tag-helper)                  | 7   |
+| [MVC - View Component](/projects/mvc/view-component)           | 4   |
+|                                                                | 33  |
 
 * [Hello World](/projects/mvc/hello-world)
   A "hello world" MVC app.
