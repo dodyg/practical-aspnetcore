@@ -31,3 +31,4 @@
 
     Use `asp-append-version` to your images to make sure that your visitors always use the latest version of images.
 
+dotnet6
