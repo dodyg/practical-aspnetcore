@@ -30,7 +30,7 @@
 | [Middleware](/projects/middleware)                              | 14  |                                                                              |
 | [Mini Apps](projects/mini)                                      | 2   |                                                                              |
 | [Minimal  API](projects/minimal-api)                            | 33  | Routing, Parameter Bindings, etc                                             |
-| [Minimal Hosting](projects/minimal-hosting)                     |     |                                                                              |
+| [Minimal Hosting](projects/minimal-hosting)                     | 23  |                                                                              |
 | [MVC](/projects/mvc)                                            | 46  | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
 | [Orchard Core](/projects/orchard-core)                          | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](projects/path-string)  | 1   |                                                                              |

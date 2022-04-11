@@ -1,6 +1,6 @@
-# Minimal Hosting
+# Minimal Hosting (23)
 
-## WebApplication 
+## WebApplication (6)
 
   This is a set of samples that demonstrates things that you can do with the default configuration using `WebApplication.Create()` before you have to resort to `WebApplication.CreateBuilder()`. 
 
@@ -28,7 +28,7 @@
 
     In this sample we use `EndpointRouteBuilderExtensions.Map` and `IEndPointRouteBuilder.CreateApplicationBuilder` to build two separate middleware pipelines. 
 
-### Configuration
+### Configuration (2)
 
   * [WebApplication - Configuration](web-application-configuration)
 
@@ -38,7 +38,7 @@
 
     This sample list all the information available in the `Configuration` property and return it as JSON. WARNING: Do not use this in your application. It is a terrible idea. Do not expose your configuration information over the wire. This sample is just to demonstrate a technique. 
 
-### Server
+### Server (6)
 
   * [WebApplication - Default Urls](web-application-server-default-urls)
 
@@ -64,7 +64,7 @@
 
     This sample shows how to set the Kestrel web server to listen to all IPs (IP4/IP6) on a specific port.
 
-### Standard ASP.NET Core Middlewares
+### Standard ASP.NET Core Middlewares (2)
 
   * [WebApplication - UseFileServer](web-application-use-file-server)
 
@@ -74,7 +74,7 @@
 
     This sample shows how to use WebSockets by creating a simple echo server.
 
-## WebApplicationBuilder - Minimal Hosting
+## WebApplicationBuilder - Minimal Hosting (5)
 
 In most cases using ```WebApplication``` isn't enough because you need to configure additional services to be used in your system. This is where ```WebApplicationBuilder``` comes. It allows you to configure services and other properties.
 
@@ -98,7 +98,7 @@ In most cases using ```WebApplication``` isn't enough because you need to config
 
     This samples shows how to use `WebApplicationOptions.WebRootPath` to change the default web root folder.
 
-### WebApplicationOptions
+### WebApplicationOptions (2)
 
   Use ```WebApplicationOptions``` to configure initial values of the ```WebApplicationBuilder``` object.
 
