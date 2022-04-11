@@ -33,13 +33,13 @@
 | [Minimal Hosting](projects/minimal-hosting)                     | 23  |                                                                              |
 | [MVC](/projects/mvc)                                            | 46  | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
 | [Orchard Core](/projects/orchard-core)                          | 4   |                                                                              |
-| [Path String (HttpContext.Request.Path)](/projects/path-string)  | 1   |                                                                              |
+| [Path String (HttpContext.Request.Path)](/projects/path-string) | 1   |                                                                              |
 | [Razor Pages](/projects/razor-pages)                            | 9   |                                                                              |
 | [Request](/projects/request)                                    | 14  | Form, Cookies, Query String, Headers                                         |
 | [Response](/projects/response)                                  | 4   |                                                                              |
 | [SignalR](/projects/signalr)                                    | 1   |                                                                              |
 | [Security](/projects/security)                                  | 7   |                                                                              |
-| [Single File Application](/projects/sfa)                         | 2   |                                                                              |
+| [Single File Application](/projects/sfa)                        | 2   |                                                                              |
 | [Static Files and File Provider](/projects/file-provider)       | 10  |                                                                              |
 | [System.Text.Json](/projects/json)                              | 22  |                                                                              |
 | [Syndications](/projects/syndications)                          | 3   |                                                                              |
@@ -48,9 +48,9 @@
 | [Uri Helper](/projects/uri-helper)                              | 5   |                                                                              |
 | [Web Sockets](/projects/web-sockets)                            | 5   |                                                                              |
 | [Web Utilities](/projects/web-utilities)                        | 3   |                                                                              |
-| [Orleans](/projects/orleans)                                     | 12  |                                                                              |
-| [Xml](/projects/xml)                                             | 1   |                                                                              |
-| [YARP](/projects/yarp)                                           | 1   |                                                                              |
+| [Orleans](/projects/orleans)                                    | 12  |                                                                              |
+| [Xml](/projects/xml)                                            | 1   |                                                                              |
+| [YARP](/projects/yarp)                                          | 1   |                                                                              |
 
 For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
 
