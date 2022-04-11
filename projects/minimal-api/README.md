@@ -1,10 +1,10 @@
-# Minimal API
+# Minimal API (33)
 
 * [Hello World](hello-world)
   
   This is Hello World ASP.NET Core 6 app using the new `WebApplication` instead of `IHostBuilder`.
 
-## Minimal Routing
+## Minimal Routing (9)
 
 In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` host configuration style to emphasis that the new Minimal Routing feature works in both existing style and also in the new minimal hosting API.
 
@@ -44,7 +44,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
   This sample shows how to handle multiple HTTP Verbs request using `MapMethods`. In this example we send 'PUT', 'POST' and 'PATCH' requests.
 
-## Route Constraints
+## Route Constraints (12)
 
   * [Route Constraints - int, min, max and range](route-constraints-int)
   
@@ -54,13 +54,13 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
     
     This example shows route constraint for decimal, float and double.
 
-## Link Generator
+## Link Generator (1)
 
  * [Link Generator - Generate path from a route name](link-generator-path-by-route-name)
     
    This sample shows how to generate a url path from a route name.
 
-## Parameter Binding
+## Parameter Binding (10)
 
  * [Route binding - implicit](parameter-binding-route-implicit)
 
