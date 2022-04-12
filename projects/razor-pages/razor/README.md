@@ -8,3 +8,4 @@
    
   Now you can use markup inside functions at code block.
 
+dotnet6

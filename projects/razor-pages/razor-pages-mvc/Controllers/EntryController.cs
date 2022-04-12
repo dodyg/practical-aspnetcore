@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PracticalAspNetCore.Data;
-using System.Threading.Tasks;
 
 namespace PracticalAspNetCore.Controllers
 {
