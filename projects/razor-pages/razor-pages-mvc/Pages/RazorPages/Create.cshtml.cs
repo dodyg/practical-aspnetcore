@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PracticalAspNetCore.Data;
-using System.Threading.Tasks;
 
 namespace PracticalAspNetCore.Pages
 {
