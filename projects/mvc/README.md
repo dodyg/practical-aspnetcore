@@ -1,4 +1,4 @@
-# MVC (46)
+# MVC (47)
 
 | Sections                                                       |     |
 | -------------------------------------------------------------- | --- |
@@ -82,3 +82,10 @@
 
     This is a very rudimentary RSS output formatter. It's valid but it does not do much other than providing RSS items.
   
+## Newtonsoft.Json (1)
+
+  * [Using Newtonsoft.Json](/projects/mvc/newtonsoft-json)
+
+    Use `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to have MVC use `Newtonsoft.Json` instead of `System.Text.Json`.
+
+dotnet6
