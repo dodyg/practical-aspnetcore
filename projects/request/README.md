@@ -69,3 +69,5 @@
     * [Removing cookies](/projects/request/cookies-2)
 
       Simply demonstrates on how to remove cookies.
+
+dotnet6
