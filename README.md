@@ -36,7 +36,7 @@
 | [Path String (HttpContext.Request.Path)](/projects/path-string) | 1   |                                                                              |
 | [Razor Pages](/projects/razor-pages)                            | 9   |                                                                              |
 | [Request](/projects/request)                                    | 14  | Form, Cookies, Query String, Headers                                         |
-| [Response](/projects/response)                                  | 4   |                                                                              |
+| [Response](/projects/response)                                  | 3   |                                                                              |
 | [SignalR](/projects/signalr)                                    | 1   |                                                                              |
 | [Security](/projects/security)                                  | 7   |                                                                              |
 | [Single File Application](/projects/sfa)                        | 2   |                                                                              |

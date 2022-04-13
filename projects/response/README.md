@@ -1,4 +1,4 @@
-# Response (4)
+# Response (3)
 
 * [Adding HTTP Response Header](/projects/response/response-header)
 
@@ -19,10 +19,8 @@
   * application/json
   * text/json 
 
-* [Response Buffering](/projects/response/response-buffering)
-
-  Use `Microsoft.AspNetCore.Buffering` to implement response buffering facility. This will allow you to change your response after you write them.
-
 * [Trailing headers](/projects/response/trailing-headers)
 
   This example shows how to issue trailing HTTP headers. Normal HTTP headers must be issued before body of the HTTP Response starts being written. Trailing headers allows you to issue headers after the HTTP body has been written. 
+
+  dotnet6
