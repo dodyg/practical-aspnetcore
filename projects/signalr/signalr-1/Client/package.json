@@ -1,10 +1,5 @@
 {
-  "name": "signalr-client",
-  "version": "3.1.2",
-  "description": "",
   "dependencies": {
-    "@microsoft/signalr": "3.1.2"
-  },
-  "devDependencies": {},
-  "license": "MIT"
+    "@microsoft/signalr": "^6.0.4"
+  }
 }
