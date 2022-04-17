@@ -1,5 +1,3 @@
-using System;
-
 namespace Yarp.Demo.BackEnd
 {
     public class WeatherForecast
