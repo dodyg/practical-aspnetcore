@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 
+# Samples for ASP.NET Core 6.0 (390)
 
 **WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's almost done (tm).
 
@@ -26,11 +26,11 @@
 | [IHttpClientFactory](/projects/httpclientfactory)               | 4   |                                                                              |
 | [IHostedService](/projects/ihosted-service)                     | 2   |                                                                              |
 | [Logging](/projects/logging)                                    | 3   |                                                                              |
-| [Localization and Globalization](/projects/localization)         | 6   |                                                                              |
+| [Localization and Globalization](/projects/localization)        | 6   |                                                                              |
 | [Middleware](/projects/middleware)                              | 14  |                                                                              |
-| [Mini Apps](/projects/mini)                                      | 2   |                                                                              |
-| [Minimal  API](/projects/minimal-api)                            | 33  | Routing, Parameter Bindings, etc                                             |
-| [Minimal Hosting](/projects/minimal-hosting)                     | 23  |                                                                              |
+| [Mini Apps](/projects/mini)                                     | 2   |                                                                              |
+| [Minimal  API](/projects/minimal-api)                           | 33  | Routing, Parameter Bindings, etc                                             |
+| [Minimal Hosting](/projects/minimal-hosting)                    | 23  |                                                                              |
 | [MVC](/projects/mvc)                                            | 47  | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
 | [Orchard Core](/projects/orchard-core)                          | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](/projects/path-string) | 1   |                                                                              |
