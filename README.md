@@ -59,7 +59,7 @@ For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/G
 To run these samples, simply open your command line console, go to each folder and execute `dotnet watch run`.
 
 
-### Misc (8)
+### Misc (6)
 
 - [Application Environment](/projects/application-environment)
 
@@ -77,10 +77,6 @@ To run these samples, simply open your command line console, go to each folder a
 
   Give it a string and it will generate a secure hash for you, e.g. `localhost:5000?password=mypassword`.
 
-- [Integrate Newtonsoft.Json back](/projects/newtonsoft-json)
-
-  ASP.NET Core has a new built in JSON Serializer/Deserializer. This sample shows how to integrate Newtonsoft.Json back to your project.
-
 - [Version info](/projects/version)
 
   Show various version info of the framework your system is running on.
@@ -90,10 +86,6 @@ To run these samples, simply open your command line console, go to each folder a
   Responds to application startup and shutdown.
 
   We are using `IApplicationLifetime` that trigger events during application startup and shutdown.
-
-- [CommandLine](/projects/command-line/command-line-1)
-
-  This project shows a simple integration between `System.CommandLine`, a command line parsing library with ASP.NET Core app.
 
 ### Server-Sent Events (1)
 
