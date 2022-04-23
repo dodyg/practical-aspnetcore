@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 (390)
+# Samples for ASP.NET Core 6.0 (391)
 
 **WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's almost done (tm).
 
@@ -46,6 +46,7 @@
 | [Testing](/projects/testing)                                    | 1   |                                                                              |
 | [URL Redirect/Rewrite](/projects/rewrite)                       | 6   |                                                                              |
 | [Uri Helper](/projects/uri-helper)                              | 5   |                                                                              |
+| [Windows Service](/projects/windows-service)                    | 1   |                                                                              |
 | [Web Sockets](/projects/web-sockets)                            | 5   |                                                                              |
 | [Web Utilities](/projects/web-utilities)                        | 3   |                                                                              |
 | [Orleans](/projects/orleans)                                    | 12  |                                                                              |
