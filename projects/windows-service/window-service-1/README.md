@@ -1,6 +1,6 @@
 # Hosting Kestrel from Windows Service
 
-This sample shows how to create a Windows Service that runs a Kestrel server. Further documentation is [here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/windows-service?view=aspnetcore-5.0&tabs=visual-studio).
+This sample shows how to create a Windows Service that runs a Kestrel server. Further documentation is [here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/windows-service?view=aspnetcore-6.0&tabs=visual-studio).
 
 This sample requires dependency from [Microsoft.Extensions.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices).
 
@@ -28,3 +28,5 @@ To stop the service, execute this command `sc stop "{Fill Service Name}"`.
 Run Visual Studio Command Line under administrator mode.
 
 Run the following command `sc delete "{Fill Service Name}"`.
+
+dotnet6
