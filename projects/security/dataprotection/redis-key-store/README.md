@@ -40,3 +40,5 @@ This sample showcases data protection with keys stored in Redis.
 
 ## Credits
 [Lohith GN](https://github.com/lohithgn)
+
+dotnet6
