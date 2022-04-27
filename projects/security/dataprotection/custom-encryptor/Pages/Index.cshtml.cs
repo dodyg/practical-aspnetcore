@@ -11,8 +11,8 @@ namespace PANC.DataProtection.CustomEncryptor.Pages
         private readonly IDataProtector _protector;
         private readonly ILogger<IndexModel> _logger;
 
-        
         public string EncryptedString { get; private set; }
+        
         public string DeCryptedString { get; private set; }
         public IndexModel(ILogger<IndexModel> logger, IDataProtectionProvider dataProtectionProvider)
         {

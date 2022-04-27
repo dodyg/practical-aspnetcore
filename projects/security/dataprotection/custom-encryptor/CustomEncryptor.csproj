@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="6.0.4" />
   </ItemGroup>
 
 </Project>
