@@ -8,4 +8,4 @@ Samples in this section require .NET 7 Preview 4. You can download it from [here
 
 * [Typed Results - 1](typed-results-1)
   
-  `Microsoft.AspNetCore.Http.TypedResults` static class is the “typed” equivalent of the existing `Microsoft.AspNetCore.Http.Results` class
+  `Microsoft.AspNetCore.Http.TypedResults` static class is the “typed” equivalent of the existing `Microsoft.AspNetCore.Http.Results` class.
