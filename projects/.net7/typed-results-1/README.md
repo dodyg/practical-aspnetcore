@@ -4,4 +4,5 @@
 >
 > [Microsoft](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-7-preview-4/)
 
+This allows you to check the full concrete type of the result of your minimal API method. Run `dotnet test` to see the result.
 
