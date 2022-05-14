@@ -53,5 +53,9 @@
 * [Server Streaming - Message Server - Blazor Web Assembly](/projects/grpc/grpc-12)
 
   This sample shows how to do simple gRPC sever streaming with Blazor Web Assembly client.
+  
+## Other collections of gRPC samples
+
+* [grpc-dotnet examples](https://github.com/grpc/grpc-dotnet/tree/master/examples)
 
 dotnet6
