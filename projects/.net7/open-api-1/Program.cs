@@ -30,7 +30,7 @@ app.MapGet("/", () => Results.Content("""
         </ul>
     </div>
 </body>
-</htlm>
+</html>
 """, "text/html"));
 
 app.MapGet("/greeting", Hello.GetGreeting).WithOpenApi(op =>
@@ -41,11 +41,9 @@ app.MapGet("/greeting", Hello.GetGreeting).WithOpenApi(op =>
 });
 
 app.UseSwaggerUI();
-
 app.Run();
 
 public record Person(string Name);
-
 public static class Hello
 {
     public static IResult GetGreeting(string name) => Results.Ok(new Person(name));
