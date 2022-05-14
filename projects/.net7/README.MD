@@ -1,4 +1,4 @@
-# .NET 7 (2)
+# .NET 7 (3)
 
 Samples in this section require .NET 7 Preview 4. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -9,3 +9,7 @@ Samples in this section require .NET 7 Preview 4. You can download it from [here
 * [Typed Results - 1](typed-results-1)
   
   `Microsoft.AspNetCore.Http.TypedResults` static class is the “typed” equivalent of the existing `Microsoft.AspNetCore.Http.Results` class.
+
+* [WithOpenApi - 1](with-openapi-1)
+
+  This sample demonstrate the usage of `WithOpenApi` extension method available in  `Microsoft.AspNetCore.OpenApi` to customize OpenAPI operation information.
