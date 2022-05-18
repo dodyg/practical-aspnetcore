@@ -1,4 +1,4 @@
-# .NET 7 (4)
+# .NET 7 (5)
 
 Samples in this section require .NET 7 Preview 4. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -13,6 +13,10 @@ Samples in this section require .NET 7 Preview 4. You can download it from [here
 * [WithOpenApi - 1](with-openapi-1)
 
   This sample demonstrate the usage of `WithOpenApi` extension method available in  `Microsoft.AspNetCore.OpenApi` to customize OpenAPI operation information.
+
+* [Results<> Union Type](with-openapi-2)
+
+  `Results<TResult1, TResult2, TResultN>` provides better description of the result of the operation that OpenAPI/Swagger can use in describing the API.
 
 * [Route Group - 1](map-group-1)
 
