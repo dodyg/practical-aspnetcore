@@ -1,4 +1,4 @@
-# .NET 7 (5)
+# .NET 7 (6)
 
 Samples in this section require .NET 7 Preview 4. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -21,3 +21,7 @@ Samples in this section require .NET 7 Preview 4. You can download it from [here
 * [Route Group - 1](map-group-1)
 
   `MapGroup()` extension methods allow grouping of endpoints with a common prefix. It also allow group metadata to be attached to the group.
+
+* [gRPC - 13](grpc-13)
+
+  This sample shows how to make a GET HTTP call to a gRPC endpoint via gRPC JSON transcoding.
