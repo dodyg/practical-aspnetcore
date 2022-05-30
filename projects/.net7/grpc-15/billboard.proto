@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package Billboard;
+
+service Board {
+  rpc ShowMessage (MessageRequest) returns (MessageReply) {
+      option (google.api.http) = {
+      post: "/v1/message/{sender}",
+      body: "*"
+    };
+  }
+}
+
+message MessageRequest {
+  string sender = 1;
+  string city = 2;
+  int32 age = 3;
+}
+
+message MessageBody {
+}
+
+message MessageReply {
+  string received_from = 1;
+  int64 display_time = 2;
+  string received_city = 3;
+  int32 received_age = 4;
+}
