@@ -1,4 +1,4 @@
-# .NET 7 (8)
+# .NET 7 (9)
 
 Samples in this section require .NET 7 Preview 4. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -33,3 +33,7 @@ Samples in this section require .NET 7 Preview 4. You can download it from [here
 * [gRPC - 15](grpc-15)
 
   This sample shows how to make a POST HTTP call to a gRPC endpoint via gRPC JSON transcoding by combining route parameter and body.
+
+* [gRPC - 16](grpc-16)
+
+  This sample shows how to make a PUT HTTP call to a gRPC endpoint via gRPC JSON transcoding.
