@@ -3,13 +3,13 @@ using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder();
 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory()).AddIniFile("settings.ini");
 builder.Services.AddOptions();
-builder.Services.Configure<XmlOptions>(builder.Configuration);
+builder.Services.Configure<IniOptions>(builder.Configuration);
 
 var app = builder.Build();
 
 app.Run(async context =>
 {
-    var options = context.RequestServices.GetService<IOptions<XmlOptions>>().Value;
+    var options = context.RequestServices.GetService<IOptions<IniOptions>>().Value;
 
     var res = context.Response;
 
@@ -30,18 +30,18 @@ app.Run(async context =>
 
 app.Run();
 
-public class XmlOptions
+public class IniOptions
 {
-    public XmlOptionsWebPages WebPages { get; set; }
+    public IniOptionsWebPages WebPages { get; set; }
 
-    public class XmlOptionsWebPages
+    public class IniOptionsWebPages
     {
         public string Value { get; set; }
     }
 
-    public XmlOptionsConfig Config { get; set; }
+    public IniOptionsConfig Config { get; set; }
 
-    public class XmlOptionsConfig
+    public class IniOptionsConfig
     {
         public string Password { get; set; }
         public string Username { get; set; }
@@ -53,32 +53,32 @@ public class XmlOptions
 
     public string GoogleMap { get; set; }
 
-    public XmlOptionsApp App { get; set; }
+    public IniOptionsApp App { get; set; }
 
-    public class XmlOptionsApp
+    public class IniOptionsApp
     {
         public string Password { get; set; }
 
         public string User { get; set; }
 
-        public XmlOptionsAppPriorities Priorities { get; set; }
+        public IniOptionsAppPriorities Priorities { get; set; }
 
-        public class XmlOptionsAppPriorities
+        public class IniOptionsAppPriorities
         {
             public int Task { get; set; }
 
             public int Limit { get; set; }
         }
 
-        public XmlOptionsPrivacy Privacy { get; set; }
+        public IniOptionsPrivacy Privacy { get; set; }
 
-        public class XmlOptionsPrivacy
+        public class IniOptionsPrivacy
         {
-            public XmlOptionsPrivacyKeys Individual { get; set; }
+            public IniOptionsPrivacyKeys Individual { get; set; }
 
             public string Organization { get; set; }
 
-            public class XmlOptionsPrivacyKeys
+            public class IniOptionsPrivacyKeys
             {
                 public string SharedKey { get; set; }
 
