@@ -11,7 +11,7 @@
     </PackageReference>
     <PackageReference Include="Google.Protobuf" Version="3.21.0-rc2" />
     <PackageReference Include="Grpc.AspNetCore.Server" Version="2.46.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="7.0.0-preview.4.22251.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="7.0.0-preview.5.22303.8" />
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="billboard.proto" GrpcServices="Server"/>
