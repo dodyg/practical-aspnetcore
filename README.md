@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 (402)
+# Samples for ASP.NET Core 6.0 (403)
 
 **WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's almost done (tm).
 
@@ -34,7 +34,7 @@ Samples for ASP.NET Core 7.0 Preview 5 is available [here](/projects/.net7) (10)
 | [Minimal  API](/projects/minimal-api)                           | 33  | Routing, Parameter Bindings, etc                                             |
 | [Minimal Hosting](/projects/minimal-hosting)                    | 23  |                                                                              |
 | [MVC](/projects/mvc)                                            | 47  | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
-| [Open Telemetry](/projects/open-telemetry/)                     | 1   |                                                                              |
+| [Open Telemetry](/projects/open-telemetry/)                     | 2   |                                                                              |
 | [Orchard Core](/projects/orchard-core)                          | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](/projects/path-string) | 1   |                                                                              |
 | [Razor Pages](/projects/razor-pages)                            | 9   |                                                                              |
