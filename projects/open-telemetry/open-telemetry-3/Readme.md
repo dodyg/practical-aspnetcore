@@ -3,14 +3,14 @@
 Start creating `ActivitySource`, start a span (`Activity`) with it and record attributes in the span.
 
 ```
-Activity.TraceId:          042a24143870570039c50f3a44f8a0d9
-Activity.SpanId:           18dff77ab7508b0e
+Activity.TraceId:          d96b296d7783e5f1f17dcdb0c476e0b9
+Activity.SpanId:           6f57ceb582a36727
 Activity.TraceFlags:           Recorded
 Activity.ActivitySourceName: OpenTelemetry.Instrumentation.AspNetCore
 Activity.DisplayName: /
 Activity.Kind:        Server
-Activity.StartTime:   2022-06-23T08:10:25.6581553Z
-Activity.Duration:    00:00:04.0630876
+Activity.StartTime:   2022-06-23T08:17:01.8251609Z
+Activity.Duration:    00:00:04.2195936
 Activity.Tags:
     http.host: localhost:5000
     http.method: GET
@@ -21,11 +21,7 @@ Activity.Tags:
     location: Cairo
     http.status_code: 200
    StatusCode : UNSET
-Activity.Events:
-    Getting trace id [6/23/2022 8:10:27 AM +00:00]
-    After showing trace id [6/23/2022 8:10:27 AM +00:00]
-    After showing hello world [6/23/2022 8:10:29 AM +00:00]
 Resource associated with Activity:
     service.name: open-telemetry-3
-    service.instance.id: 09ce9038-822e-4733-8e20-b184f83b193c
+    service.instance.id: 2fed6f53-4558-4878-a1b8-fcdbd626a087
 ```
