@@ -1,6 +1,6 @@
-# Start a Span and record event
+# Record events into a current OTel span
 
-Start creating `ActivitySource`, start a span (`Activity`) with it and record events in the span.
+Use existing ASP.NET Core OTel span to record events.
 
 ```
 Activity.TraceId:          5e1f4ddfeecde7b52a3d7823fd2256a3
