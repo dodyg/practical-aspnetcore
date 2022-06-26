@@ -1,6 +1,6 @@
-# Start a Span and record open telemetry attributes
+# Record OTel attributes 
 
-Start creating `ActivitySource`, start a span (`Activity`) with it and record attributes in the span.
+Record OTel attributes into a current span.
 
 ```
 Activity.TraceId:          d96b296d7783e5f1f17dcdb0c476e0b9
