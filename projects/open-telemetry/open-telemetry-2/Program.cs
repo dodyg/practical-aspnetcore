@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder();
 builder.Services.AddOpenTelemetryTracing(b =>
 {
     b
-     .AddSource(builder.Environment.ApplicationName)
      .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(builder.Environment.ApplicationName))
      .AddAspNetCoreInstrumentation()
      .AddConsoleExporter( options => options.Targets = ConsoleExporterOutputTargets.Console);
