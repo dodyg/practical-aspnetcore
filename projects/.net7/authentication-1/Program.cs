@@ -1,8 +1,9 @@
 using System.Security.Claims;
-using System.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Authentication.AddJwtBearer(options => {
@@ -16,15 +17,16 @@ builder.Authentication.AddJwtBearer(options => {
         ValidIssuer = "practical aspnetcore",
         ValidAudience = "https://localhost:5001/",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is custom key for practical aspnetcore sample"))
-    };});
+    };});;
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-app.MapGet("/", (HttpRequest request) => Results.Text("""
+app.MapGet("/", (HttpRequest request) => Results.Text($$"""
 <html>
 <body>
-Hello, World!
-
+Hello, World! Authentication Scheme: {{ JwtBearerDefaults.AuthenticationScheme }}
 JWT:<br/>
 <div id="jwt_content"></div>
 <br/><br/>
@@ -33,7 +35,6 @@ Response from <a href="/secret">/secret</a>
 <br/><br/>
 
 <button id="jwt">Get Secret</button>
-
 
 <script>
  let btn = document.getElementById('jwt');
@@ -62,7 +63,7 @@ Response from <a href="/secret">/secret</a>
 
 
 app.MapGet("/secret", (ClaimsPrincipal user) => $"Hello {user.Identity?.Name}. This is a secret!")
-    .RequireAuthorization( m => m.RequireAuthenticatedUser);
+    .RequireAuthorization();
 
 app.MapGet("/jwt", () => Results.Json(GenerateJSONWebToken()));
 
@@ -73,7 +74,10 @@ string GenerateJSONWebToken()
 
     var token = new JwtSecurityToken(issuer:"practical aspnetcore",    
         audience:"https://localhost:5001/",    
-        claims: null,
+        claims: new List<Claim> 
+        { 
+            new Claim(ClaimTypes.Name, "Anne"), 
+        },
         notBefore: null,    
         expires: DateTime.Now.AddMinutes(120),    
         signingCredentials: credentials);    
