@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteDebuggerWeb", "route-debugger-web\RouteDebuggerWeb.csproj", "{303D8353-89B8-461D-8088-04038C3C9A3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteDebugger", "RouteDebugger\RouteDebugger.csproj", "{A45BDD95-7810-45D5-B00B-CCB7E1A27F3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{303D8353-89B8-461D-8088-04038C3C9A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303D8353-89B8-461D-8088-04038C3C9A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303D8353-89B8-461D-8088-04038C3C9A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303D8353-89B8-461D-8088-04038C3C9A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A45BDD95-7810-45D5-B00B-CCB7E1A27F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A45BDD95-7810-45D5-B00B-CCB7E1A27F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A45BDD95-7810-45D5-B00B-CCB7E1A27F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A45BDD95-7810-45D5-B00B-CCB7E1A27F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E12AB8E5-71EE-41BF-B3E7-DC64A6D024EB}
+	EndGlobalSection
+EndGlobal

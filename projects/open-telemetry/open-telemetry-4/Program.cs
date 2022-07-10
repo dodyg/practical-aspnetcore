@@ -5,8 +5,10 @@ using OpenTelemetry.Resources;
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddOpenTelemetryTracing(b =>
 {
-    b.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(builder.Environment.ApplicationName));
+    b.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(builder.Environment.ApplicationName))
+     .AddHttpClientInstrumentation();
 });
+
 builder.Services.AddHttpClient();
 builder.Logging.SetMinimumLevel(LogLevel.Information);
 
@@ -19,7 +21,7 @@ app.MapGet("/", async (HttpRequest request, IHttpClientFactory clientFactory) =>
         var baggage = string.Join(",", Activity.Current.Baggage.ToDictionary(b => b.Key, b => b.Value).Select(x => x.Key + "=" + x.Value));  
 
         var client = clientFactory.CreateClient();
-        client.DefaultRequestHeaders.Add("baggage", baggage);
+        //client.DefaultRequestHeaders.Add("baggage", baggage);
 
         var url = request.Scheme + "://" + request.Host + "/baggage";
         app.Logger.LogInformation("REQUEST URL " + url);

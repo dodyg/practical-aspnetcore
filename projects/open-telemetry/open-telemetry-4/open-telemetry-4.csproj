@@ -8,5 +8,6 @@
     <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.3.0" />
     <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.0.0-rc9.4" />
     <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc9.4" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.http" Version="1.0.0-rc9.4" />
   </ItemGroup>
 </Project>
