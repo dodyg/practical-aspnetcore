@@ -1,4 +1,4 @@
-# .NET 7 (10)
+# .NET 7 (11)
 
 Samples in this section require .NET 7 Preview 5. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -41,3 +41,7 @@ Samples in this section require .NET 7 Preview 5. You can download it from [here
 * [gRPC - 17](grpc-17)
 
   This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
+
+* [Authentication - JWT]
+
+  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddJwtBearer();`.

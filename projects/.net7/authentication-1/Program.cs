@@ -45,15 +45,16 @@ Response from <a href="/secret">/secret</a>
     });
 
     const json = await response.json();
-    document.getElementById('jwt_content').textContent = json;
+    document.getElementById('jwt_content').textContent = json.token;
 
     const url2 = window.location.protocol + '//' + window.location.host  + "/secret";
     const response2 = await fetch(url2,  {
-        headers: { 'Accept': 'text/plain', 'Authentication': 'Bearer ' + json, }
+        headers: { 'Accept': 'text/plain', 'Authorization': 'Bearer ' + json.token, }
     });
 
-    const text =  await response.text();
-    alert(text);
+    const text =  await response2.text();
+
+    document.getElementById('message').textContent = text;
  });
 </script>
 
@@ -65,7 +66,7 @@ Response from <a href="/secret">/secret</a>
 app.MapGet("/secret", (ClaimsPrincipal user) => $"Hello {user.Identity?.Name}. This is a secret!")
     .RequireAuthorization();
 
-app.MapGet("/jwt", () => Results.Json(GenerateJSONWebToken()));
+app.MapGet("/jwt", () => Results.Json(new { token = GenerateJSONWebToken()}));
 
 string GenerateJSONWebToken()    
 {    
