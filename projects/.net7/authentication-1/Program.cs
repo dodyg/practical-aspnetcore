@@ -19,8 +19,6 @@ builder.Authentication.AddJwtBearer(options => {
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is custom key for practical aspnetcore sample"))
     };});;
 
-builder.Services.AddAuthorization();
-
 var app = builder.Build();
 
 app.MapGet("/", (HttpRequest request) => Results.Text($$"""
