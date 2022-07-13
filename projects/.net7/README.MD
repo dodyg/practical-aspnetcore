@@ -42,11 +42,11 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
   This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
 
-* [Authentication - JWT]
+* [Authentication - JWT](authentication-1)
 
   This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddJwtBearer();`.
 
-* [Authentication - Cookie]
+* [Authentication - Cookie](authentication-2)
 
   This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
 
