@@ -1,0 +1,12 @@
+dotnet build authentication-1
+dotnet build authentication-2
+dotnet build grpc-13
+dotnet build grpc-14
+dotnet build grpc-15
+dotnet build grpc-16
+dotnet build grpc-17
+dotnet build map-group-1
+dotnet build mvc-infer-dependency-from-action
+dotnet build open-api-1
+dotnet build open-api-2
+dotnet build typed-results-1

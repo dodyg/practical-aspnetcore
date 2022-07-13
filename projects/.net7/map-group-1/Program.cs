@@ -25,7 +25,7 @@ app.Run();
 
 public static class AboutApi
 {
-    public static GroupRouteBuilder MapAboutApi(this GroupRouteBuilder group)
+    public static RouteGroupBuilder MapAboutApi(this RouteGroupBuilder group)
     {
         group.MapGet("/", () => Results.Ok("about"));
         group.MapGet("/us", () => Results.Ok("Us"));
