@@ -1,4 +1,4 @@
-# .NET 7 (12)
+# .NET 7 (13)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -50,3 +50,6 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
   This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
 
+* [Output Cache - 1](output-cache-1)
+
+  This sample shows how to use the `OutputCache` middleware.
