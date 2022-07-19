@@ -54,6 +54,6 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
   This sample shows how to use the `OutputCache` middleware using basic options.
 
-* [Output Cache - 2](output-cache-1)
+* [Output Cache - 2](output-cache-2)
 
   This sample shows how to use the `OutputCache` middleware and vary them by one or more query string.
