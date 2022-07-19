@@ -1,4 +1,4 @@
-# .NET 7 (13)
+# .NET 7 (14)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -52,4 +52,8 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
 * [Output Cache - 1](output-cache-1)
 
-  This sample shows how to use the `OutputCache` middleware.
+  This sample shows how to use the `OutputCache` middleware using basic options.
+
+* [Output Cache - 2](output-cache-1)
+
+  This sample shows how to use the `OutputCache` middleware and vary them by one or more query string.
