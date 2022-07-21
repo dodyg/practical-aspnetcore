@@ -1,3 +1,3 @@
-# Simplified cookie authentication
+# Mixed authentication
 
-This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
+This sample shows how to combine the usage of cookie based authentication with token bearer authentication (JWT) in the same application.

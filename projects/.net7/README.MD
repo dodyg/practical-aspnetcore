@@ -1,4 +1,4 @@
-# .NET 7 (14)
+# .NET 7 (15)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -49,6 +49,10 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 * [Authentication - Cookie](authentication-2)
 
   This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
+
+* [Authentication - Mixed](authentication-3)
+
+  This sample shows how to use both JWT and Cookie authentications in the same application.
 
 * [Output Cache - 1](output-cache-1)
 
