@@ -19,6 +19,13 @@ builder.Authentication.AddJwtBearer(options => {
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is custom key for practical aspnetcore sample"))
     };});;
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+});
+
+
 var app = builder.Build();
 
 app.MapGet("/", (HttpRequest request) => Results.Text($$"""
