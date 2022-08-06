@@ -1,4 +1,4 @@
-# .NET 7 (18)
+# .NET 7 (19)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -22,7 +22,11 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
 * [Endpoint Filter - 1](endpoint-filter-1)
 
-  This sample shows how to use an Endpoint filter to your minimal API.
+  This sample shows how to apply an Endpoint filter to your minimal API.
+
+* [Endpoint Filter - 2](endpoint-filter-2)
+
+  This sample shows how to apply multiple Endpoint filters to your minimal APIs.
 
 ## Route Group
 
