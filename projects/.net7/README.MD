@@ -1,4 +1,4 @@
-# .NET 7 (16)
+# .NET 7 (17)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -25,6 +25,10 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 * [Route Group - 2](map-group-2)
 
   Use `.WithTags()`, `.WithDescription()`, `.WithSummary()` to enrich OpenAPI information for all the endpoints in the group.
+
+* [Route Group - 3](map-group-3)
+
+  Use `.ExcludeFromDescription` to exclude endpoints from OpenAPI description.
 
 * [gRPC - 13](grpc-13)
 
