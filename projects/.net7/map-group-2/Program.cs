@@ -30,8 +30,7 @@ app.MapGroup("/about")
     .MapAboutApi()
     .WithTags("about_apis")
     .WithDescription("This is a group of API related to About")
-    .WithSummary("This is a summary of the API groups")
-    .WithOpenApi();
+    .WithSummary("This is a summary of the API groups");
 
 app.Run();
 
