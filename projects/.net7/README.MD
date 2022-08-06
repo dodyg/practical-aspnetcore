@@ -1,4 +1,4 @@
-# .NET 7 (17)
+# .NET 7 (18)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -18,6 +18,14 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
   `Results<TResult1, TResult2, TResultN>` provides better description of the result of the operation that OpenAPI/Swagger can use in describing the API.
 
+## Endpoint Filter
+
+* [Endpoint Filter - 1](endpoint-filter-1)
+
+  This sample shows how to use an Endpoint filter to your minimal API.
+
+## Route Group
+
 * [Route Group - 1](map-group-1)
 
   `MapGroup()` extension methods allow grouping of endpoints with a common prefix. It also allow group metadata to be attached to the group.
@@ -29,6 +37,32 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 * [Route Group - 3](map-group-3)
 
   Use `.ExcludeFromDescription` to exclude endpoints from OpenAPI description.
+
+## Authentication
+
+* [Authentication - JWT](authentication-1)
+
+  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddJwtBearer();`.
+
+* [Authentication - Cookie](authentication-2)
+
+  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
+
+* [Authentication - Mixed](authentication-3)
+
+  This sample shows how to use both JWT and Cookie authentications in the same application.
+
+## Output cache
+
+* [Output Cache - 1](output-cache-1)
+
+  This sample shows how to use the `OutputCache` middleware using basic options.
+
+* [Output Cache - 2](output-cache-2)
+
+  This sample shows how to use the `OutputCache` middleware and vary them by one or more query string.
+
+## gRPC
 
 * [gRPC - 13](grpc-13)
 
@@ -49,23 +83,3 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 * [gRPC - 17](grpc-17)
 
   This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
-
-* [Authentication - JWT](authentication-1)
-
-  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddJwtBearer();`.
-
-* [Authentication - Cookie](authentication-2)
-
-  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
-
-* [Authentication - Mixed](authentication-3)
-
-  This sample shows how to use both JWT and Cookie authentications in the same application.
-
-* [Output Cache - 1](output-cache-1)
-
-  This sample shows how to use the `OutputCache` middleware using basic options.
-
-* [Output Cache - 2](output-cache-2)
-
-  This sample shows how to use the `OutputCache` middleware and vary them by one or more query string.
