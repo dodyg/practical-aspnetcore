@@ -1,4 +1,4 @@
-# .NET 7 (19)
+# .NET 7 (20)
 
 Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -27,6 +27,10 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 * [Endpoint Filter - 2](endpoint-filter-2)
 
   This sample shows how to apply multiple Endpoint filters to your minimal APIs.
+
+* [Endpoint Filter - 3](endpoint-filter-3)
+
+  This examples shows the sequence of code execution before `RouteHandlerFilterDelegate ` and after `RouteHandlerFilterDelegate` in multiple endpoint filters.
 
 ## Route Group
 
