@@ -13,21 +13,21 @@ app.MapGet("/", (HttpContext context) => Results.Content($$"""
     </body>
 </html>
 """, "text/html"))
-    .AddRouteHandlerFilter((context, next) =>
+    .AddEndpointFilter((context, next) =>
     {
        context.HttpContext.Items["message"] = "filter 1";
        var result = next(context); 
        context.HttpContext.Response.Headers["x-application"] += "filter 1 ";
        return result;
     })
-    .AddRouteHandlerFilter((context, next) =>
+    .AddEndpointFilter((context, next) =>
     {
        context.HttpContext.Items["message"] += " filter 2";
        var result = next(context); 
        context.HttpContext.Response.Headers["x-application"] += "filter 2 ";
        return result;
     })
-    .AddRouteHandlerFilter((context, next) =>
+    .AddEndpointFilter((context, next) =>
     {
        context.HttpContext.Items["message"] += " filter 3";
        var result = next(context);
