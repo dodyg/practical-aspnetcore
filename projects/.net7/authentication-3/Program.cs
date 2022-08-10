@@ -7,9 +7,11 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Authentication.AddCookie();
-
-builder.Authentication.AddJwtBearer(options => {
+builder.Services.AddAuthorization();
+builder.Services
+    .AddAuthentication()
+    .AddCookie()
+    .AddJwtBearer(options => {
     options.IncludeErrorDetails = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -23,7 +25,7 @@ builder.Authentication.AddJwtBearer(options => {
     };});;
 
 var app = builder.Build();
-
+app.UseAuthorization();
 app.MapGet("/", (HttpRequest request) => Results.Text($$"""
 <!doctype html>
 <html lang="en">
