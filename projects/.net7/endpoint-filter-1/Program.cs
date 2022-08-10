@@ -13,7 +13,7 @@ app.MapGet("/", (HttpContext context) => Results.Content($$"""
 </body>
 </html>
 """, "text/html"))
-    .AddRouteHandlerFilter((context, next) =>
+    .AddEndpointFilter((context, next) =>
     {
        context.HttpContext.Items["message"] = "hello from filter";
        return next(context); 
