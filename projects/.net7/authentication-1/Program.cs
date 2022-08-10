@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -26,6 +27,8 @@ builder.Services.AddAuthentication(options =>
 
 
 var app = builder.Build();
+
+app.UseAuthorization();
 
 app.MapGet("/", (HttpRequest request) => Results.Text($$"""
 <html>
