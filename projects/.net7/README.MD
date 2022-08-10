@@ -1,6 +1,6 @@
 # .NET 7 (20)
 
-Samples in this section require .NET 7 Preview 6. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 * [Infer dependency from action parameter](mvc-infer-dependency-from-action)
 
@@ -50,11 +50,11 @@ Samples in this section require .NET 7 Preview 6. You can download it from [here
 
 * [Authentication - JWT](authentication-1)
 
-  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddJwtBearer();`.
+  This sample shows the usage of the simplified authentication and authorization via `builder.AddAuthentication().AddJwtBearer();`.
 
 * [Authentication - Cookie](authentication-2)
 
-  This sample shows the usage of the simplified authentication and authorization via `builder.Authentication.AddCookie();`.
+  This sample shows the usage of the simplified authentication and authorization via `builder.AddAuthentication().AddCookie();`.
 
 * [Authentication - Mixed](authentication-3)
 
