@@ -1,4 +1,4 @@
-# .NET 7 (20)
+# .NET 7 (21)
 
 Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -31,6 +31,10 @@ Samples in this section require .NET 7 Preview 7. You can download it from [here
 * [Endpoint Filter - 3](endpoint-filter-3)
 
   This examples shows the sequence of code execution before `RouteHandlerFilterDelegate ` and after `RouteHandlerFilterDelegate` in multiple endpoint filters.
+
+* [Endpoint Filter - 4](endpoint-filter-4)
+
+  Use `IStatusCodeHttpResult` to detect return result in filter.
 
 ## Route Group
 
