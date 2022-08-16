@@ -1,4 +1,4 @@
-# .NET 7 (21)
+# .NET 7 (22)
 
 Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -17,6 +17,10 @@ Samples in this section require .NET 7 Preview 7. You can download it from [here
 * [Results<> Union Type](open-api-2)
 
   `Results<TResult1, TResult2, TResultN>` provides better description of the result of the operation that OpenAPI/Swagger can use in describing the API.
+
+* [IFormFile](iform-file)
+  
+  This sample demonstrates the usage of `IFormFile` to upload a file in Minimal API.
 
 ## Endpoint Filter
 
