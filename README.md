@@ -1,8 +1,8 @@
-# Samples for ASP.NET Core 6.0 (416)
+# Samples for ASP.NET Core 6.0 (417)
 
 **WIP**. We are converting samples to adapt to new features of C# 10 and .NET 6 here. It's almost done (tm).
 
-Samples for ASP.NET Core 7.0 Preview 7 is available [here](/projects/.net7) (22).
+Samples for ASP.NET Core 7.0 Preview 7 is available [here](/projects/.net7) (23).
 
 ## Previous versions
 

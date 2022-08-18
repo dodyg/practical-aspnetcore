@@ -1,4 +1,4 @@
-# .NET 7 (22)
+# .NET 7 (23)
 
 Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -21,6 +21,10 @@ Samples in this section require .NET 7 Preview 7. You can download it from [here
 * [IFormFile](iform-file)
   
   This sample demonstrates the usage of `IFormFile` to upload a file in Minimal API.
+
+* [IFormFileCollection](iform-file-collection)
+  
+  This sample demonstrates the usage of `IFormFileCollection` to upload multiple files in Minimal API.
 
 ## Endpoint Filter
 
