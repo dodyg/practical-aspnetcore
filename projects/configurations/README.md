@@ -43,4 +43,10 @@
 
     Read from XML file and use IOptions. 
 
+  * [Configuration - Bind Option]
+
+    Read related configuration values using the options pattern
+
+    Thanks to [@khusroohayat](https://twitter.com/mangopaki).
+
 dotnet6
