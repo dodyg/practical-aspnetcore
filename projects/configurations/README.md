@@ -1,4 +1,4 @@
-# Configurations (7)
+# Configurations (8)
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 
@@ -43,7 +43,7 @@
 
     Read from XML file and use IOptions. 
 
-  * [Configuration - Bind Option]
+  * [Configuration - Bind Option](/project/configurations/configuration-bind-option)
 
     Read related configuration values using the options pattern
 
