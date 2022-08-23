@@ -1,4 +1,4 @@
-# Minimal API (33)
+# Minimal API (34)
 
 * [Hello World](hello-world)
   
@@ -101,3 +101,9 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 *  [Custom binding - full control](parameter-binding-custom-bind-async)
 
    This shows how to take full control of the binding process by implementing `BindAsync` static method in your type.
+
+## Antiforgery
+
+* [Antiforgery Token using IAntiforgery](anti-forgery-1)
+  
+  This shows how to use the IAntiforgery interface to generate a token for use in a web form.
