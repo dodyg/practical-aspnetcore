@@ -1,4 +1,4 @@
-# Minimal API (34)
+# Minimal API (35)
 
 * [Hello World](hello-world)
   
@@ -104,6 +104,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 
 ## Antiforgery
 
-* [Antiforgery Token using IAntiforgery](anti-forgery-1)
+* [Antiforgery Token on HTML form](anti-forgery-1)
   
-  This shows how to use the IAntiforgery interface to generate a token for use in a web form.
+  This shows how to use the IAntiforgery interface to generate a token for use in an HTML form.
+
+* [Antiforgery Token on AJAX call](anti-forgery-2)
+  
+  This shows how to use the IAntiforgery interface to generate a token for use in AJAX call.

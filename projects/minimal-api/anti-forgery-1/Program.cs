@@ -17,8 +17,7 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
                     <input type=""submit"" />
                 </form> 
             </body>
-        </body>
-        <html>
+        </html>
     ";
 
     return Results.Content(html, "text/html");
