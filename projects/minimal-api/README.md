@@ -1,4 +1,4 @@
-# Minimal API (35)
+# Minimal API (36)
 
 * [Hello World](hello-world)
   
@@ -111,3 +111,7 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 * [Antiforgery Token on AJAX call](anti-forgery-2)
   
   This shows how to use the IAntiforgery interface to generate a token for use in AJAX call.
+
+* [Cross site antiforgery](anti-forgery-3)
+  
+  This shows how to implement cross site antiforgery (e.g. the API is located in a different domain).

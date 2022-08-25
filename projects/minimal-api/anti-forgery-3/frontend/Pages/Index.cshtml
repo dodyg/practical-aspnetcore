@@ -1,0 +1,69 @@
+@page
+@inject IConfiguration Config;
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Implement Antiforgery on AJAX call </h1>
+        <button id="test">Test CORS</button><br/><br/>
+        <button id="fetchName">Fetch</button>
+        <script>
+            async function getToken(){
+                const response = await fetch("@Config["endpoint"]/antiforgery", {
+                    method: "GET",
+                    credentials: 'include'
+                });
+
+                if (response.ok){
+                        const xsrfToken = document.cookie
+                                        .split("; ")
+                                        .find(row => row.startsWith("XSRF-TOKEN="))
+                                        .split("=")[1];
+
+                        return xsrfToken;
+                }
+                else {
+                    return null;
+                }
+            }
+
+            async function getName(){
+                var antiforgery = await getToken();
+                const response = await fetch("@Config["endpoint"]/validate", {
+                    method : "POST",
+                    headers : { 
+                    "X-XSRF-TOKEN" : antiforgery,
+                    "Content-Type": "application/json"
+                    },
+                    credentials: 'include' 
+                });
+
+                const result = await response.json();
+                alert(result.name);
+            }
+
+            async function testCors(){
+                const response = await fetch("@Config["endpoint"]/test-cors", {
+                    method : "GET",
+                    headers : { 
+                    "Content-Type": "application/json"
+                    }
+                });
+                
+                const result = await response.json();
+                alert(result.message);
+            }
+
+            const btn = document.getElementById("fetchName");
+            btn.addEventListener("click", async () => {
+                await getName();
+            });
+
+            const btn2 = document.getElementById("test");
+            btn2.addEventListener("click", async () => {
+                await testCors();
+            });
+
+        </script>
+    </body>
+</html>
