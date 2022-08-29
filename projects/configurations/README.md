@@ -49,4 +49,10 @@
 
     Thanks to [@khusroohayat](https://twitter.com/mangopaki).
 
+  * [Configuration - IOption](/project/configurations/configuration-IOption)
+
+    Read related configuration values using the IOptions interface
+
+    Thanks to [@khusroohayat](https://twitter.com/mangopaki).
+
 dotnet6
