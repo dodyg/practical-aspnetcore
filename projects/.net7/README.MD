@@ -1,4 +1,4 @@
-# .NET 7 (23)
+# .NET 7 (24)
 
 Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -81,6 +81,10 @@ Samples in this section require .NET 7 Preview 7. You can download it from [here
 * [Output Cache - 2](output-cache-2)
 
   This sample shows how to use the `OutputCache` middleware and vary them by one or more query string.
+
+* [Output Cache - 2](output-cache-3)
+
+  This sample shows how to tagged cache items and evict them by tag using `IOutputCacheStore.EvictByTagAsync`.
 
 ## gRPC
 
