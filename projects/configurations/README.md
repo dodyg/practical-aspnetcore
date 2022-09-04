@@ -1,4 +1,4 @@
-# Configurations (8)
+# Configurations (9)
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 

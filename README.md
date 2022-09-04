@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 (421)
+# Samples for ASP.NET Core 6.0 (422)
 
 Samples for ASP.NET Core 7.0 Preview 7 is available [here](/projects/.net7) (23).
 
@@ -13,7 +13,7 @@ Samples for ASP.NET Core 7.0 Preview 7 is available [here](/projects/.net7) (23)
 | [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 22  | Components, Data Binding                                                     |
 | [Blazor Server Side](/projects/blazor-ss)                       | 15  | Localization                                                                 |
 | [Caching](/projects/caching)                                    | 5   |                                                                              |
-| [Configurations](/projects/configurations)                      | 8   |                                                                              |
+| [Configurations](/projects/configurations)                      | 9   |                                                                              |
 | [CoreWCF](/projects/corewcf)                                    | 1   |                                                                              |
 | [Dependency Injection](/projects/dependency-injection/)         | 4   |                                                                              |
 | [Diagnostics](/projects/diagnostics)                            | 6   |                                                                              |
