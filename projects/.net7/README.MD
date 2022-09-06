@@ -1,4 +1,4 @@
-# .NET 7 (25)
+# .NET 7 (26)
 
 Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -88,6 +88,9 @@ Samples in this section require .NET 7 Preview 7. You can download it from [here
 
 * [Output Cache - 4](output-cache-4)
   This sample shows how to enable output cache for every single endpoint. 
+
+* [Output Cache - 5](output-cache-5)
+  This sample shows how to setup a global Output Cache policy to cache any request with "cache" query string parameter.
 
 ## gRPC
 
