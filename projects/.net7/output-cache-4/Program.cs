@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOutputCache(options =>
 {
-    options.AddBasePolicy(builder => builder.With(c => c.EnableOutputCaching = true));
+    options.AddBasePolicy(builder => builder.With(c => true));
 });
 
 var app = builder.Build();
