@@ -15,7 +15,7 @@ app.MapGet("/", () =>
             <ul>
                 <li><a href="/now">DateTime.UtcNow()</a></li>
                 <li><a href="/cached/now">DateTime.UtcNow() cached</a></li>
-                <li><a href="/time/cached/now">DateTime.UtcNow() cached 2</a></li>
+                <li><a href="/time/cached/now">DateTime.UtcNow() not cached</a></li>
             </ul>
         </body>
     </html>
