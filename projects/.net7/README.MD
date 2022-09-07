@@ -93,7 +93,7 @@ Samples in this section require .NET 7 Preview 7. You can download it from [here
   This sample shows how to setup a global Output Cache policy to cache any request with "cache" query string parameter.
 
 * [Output Cache - 6](output-cache-6)
-  This sample demonstrates on how to setup a global Output Cache policy to cache any request with "/cache" in the url.
+  This sample demonstrates on how to setup a global Output Cache policy to cache any request that start with "/cache" in the url segments.
 
 ## gRPC
 
