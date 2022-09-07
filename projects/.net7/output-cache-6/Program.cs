@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOutputCache(options =>
 {
