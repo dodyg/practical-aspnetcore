@@ -54,7 +54,7 @@ Samples for ASP.NET Core 7.0 RC1 is available [here](/projects/.net7) (29).
 | [Xml](/projects/xml)                                            | 1   |                                                                              |
 | [YARP](/projects/yarp)                                          | 1   |                                                                              |
 
-For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook).
+For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/Grauenwolf/DotNet-ORM-Cookbook). .NET team also has [a sample repository](https://github.com/dotnet/samples).
 
 ## How to run these samples
 
