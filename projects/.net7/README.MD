@@ -1,6 +1,6 @@
 # .NET 7 (28)
 
-Samples in this section require .NET 7 Preview 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 * [Infer dependency from action parameter](mvc-infer-dependency-from-action)
 

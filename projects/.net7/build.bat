@@ -4,11 +4,14 @@ dotnet build authentication-3
 dotnet build endpoint-filter-1
 dotnet build endpoint-filter-2
 dotnet build endpoint-filter-3
+dotnet build endpoint-filter-4
 dotnet build grpc-13
 dotnet build grpc-14
 dotnet build grpc-15
 dotnet build grpc-16
 dotnet build grpc-17
+dotnet build iform-file
+dotnet build iform-file-collection
 dotnet build map-group-1
 dotnet build map-group-2
 dotnet build map-group-3
@@ -17,4 +20,9 @@ dotnet build open-api-1
 dotnet build open-api-2
 dotnet build output-cache-1
 dotnet build output-cache-2
+dotnet build output-cache-3
+dotnet build output-cache-4
+dotnet build output-cache-5
+dotnet build output-cache-6
+dotnet build output-cache-7
 dotnet build typed-results-1
