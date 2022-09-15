@@ -1,4 +1,4 @@
-# .NET 7 (28)
+# .NET 7 (29)
 
 Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -96,7 +96,10 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
   This sample demonstrates on how to setup a global Output Cache policy to cache any request that start with "/cache" in the url segments.
 
 * [Output Cache - 7](output-cache-7)
-* This sample demonstrates on how to setup a cache policy and use it. Specific policy override the global base policy.
+  This sample demonstrates on how to setup a cache policy and use it. Specific policy override the global base policy.
+
+* [Output Cache - 8](output-cache-8)
+  This sample demonstrates on how to setup a cache policy that set an expiration time of 10 minutes.
 
 ## gRPC
 
