@@ -1,0 +1,21 @@
+﻿@page "/"
+
+<h1>bind:after example</h1>
+
+@Message <br/>
+
+<input @bind="SearchText" @bind:after="PerformSearch" placeholder="Please type and press tab" />
+
+@code
+{
+    string SearchText { get; set; }
+
+    string Message { get; set; }
+
+    int _count;
+
+    void PerformSearch()
+    {
+        Message = "Performing search " + _count++;
+    }
+}

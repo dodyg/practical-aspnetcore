@@ -1,4 +1,4 @@
-# .NET 7 (29)
+# .NET 7 (30)
 
 Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -122,3 +122,9 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
 * [gRPC - 17](grpc-17)
 
   This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
+
+## Blazor
+
+* [Component - 18](ComponentEighteen) 
+
+  This sample demonstrate @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
