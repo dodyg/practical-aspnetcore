@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder();
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+builder.Services.AddMvc();
 
 var app = builder.Build();
 
