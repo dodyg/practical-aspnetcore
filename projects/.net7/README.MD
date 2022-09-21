@@ -1,4 +1,4 @@
-# .NET 7 (30)
+# .NET 7 (31)
 
 Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -128,3 +128,7 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
 * [Component - 18](ComponentEighteen) 
 
   This sample demonstrate @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
+
+* [Component - 19](ComponentNineteen) 
+
+  This sample demonstrate @bind:get @bind:set modifier that simplify two-way data binding. 

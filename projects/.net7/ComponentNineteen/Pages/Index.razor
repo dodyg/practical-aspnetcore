@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<h1>bind:get and bind:set example</h1>
+
+<a href="https://www.thrillist.com/eat/nation/funny-fortune-cookies-in-bed">Thanks for the inspiration</a>. Type in input field and press tab.<br/><br/>
+
+@Message <br/>
+
+<Form Value="@Message" ValueChanged="@MessageChanged" />
+
+@code
+{
+    public string Message { get; set; } = "Pass the bill to the person your left.";
+
+    public void MessageChanged(string value)
+    {
+        Message = value + " in bed";
+    }
+}
