@@ -1,4 +1,4 @@
-# Request (14)
+# Request (15)
 
   This section shows all the different ways you capture input and examine request to your web application.
 
@@ -60,7 +60,7 @@
     
     Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
 
-* **Cookies (2)**
+* **Cookies (3)**
         
     * [Cookies](/projects/request/cookies-1)
 
@@ -69,5 +69,9 @@
     * [Removing cookies](/projects/request/cookies-2)
 
       Simply demonstrates on how to remove cookies.
+
+    * [Accessing cookie issues by remote API via AJAX call](/projects/request/cookies-3)
+
+      Demonstrates on how to access cookie values issued by remote API via AJAX call.
 
 dotnet6
