@@ -1,4 +1,4 @@
-# .NET 7 (31)
+# .NET 7 (32)
 
 Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -132,3 +132,9 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
 * [Component - 19](ComponentNineteen) 
 
   This sample demonstrate @bind:get @bind:set modifier that simplify two-way data binding. 
+
+## Problem Details
+
+* [Problem Details - 1](problem-details)
+
+  This sample shows how to enable returning [Problem Details](https://www.rfc-editor.org/rfc/rfc7807) in unhandled exception responses.
