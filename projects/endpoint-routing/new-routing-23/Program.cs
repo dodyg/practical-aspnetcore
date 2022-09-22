@@ -1,5 +1,4 @@
 var builder = WebApplication.CreateBuilder();
-builder.Services.AddRazorPages();
 
 builder.WebHost.ConfigureKestrel(k =>
 {

@@ -1,6 +1,6 @@
 var app = WebApplication.Create();
 
-app.UseDeveloperExceptionPage(); //Don't use this in production
-app.Run(context => throw new ApplicationException("Hello World Exception"));
+app.UseDeveloperExceptionPage();
+app.Run(_ => throw new ApplicationException("Fake exception"));
 
 app.Run();
