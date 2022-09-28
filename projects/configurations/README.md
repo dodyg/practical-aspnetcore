@@ -1,4 +1,4 @@
-# Configurations (9)
+# Configurations (10)
 
   This section is all about configuration, from memory configuration to INI, JSON and XML.
 
@@ -54,5 +54,8 @@
     Read related configuration values using the IOptions interface
 
     Thanks to [@khusroohayat](https://twitter.com/mangopaki).
+
+ * [Configuration - IOption Array](/projects/configurations/configuration-IOption-array)
+   Bind array values from appsettings.json and read them using the IOptions interface 
 
 dotnet6
