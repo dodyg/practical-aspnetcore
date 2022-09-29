@@ -1,6 +1,6 @@
-# Samples for ASP.NET Core 6.0 (435)
+# Samples for ASP.NET Core 6.0 (436)
 
-Samples for ASP.NET Core 7.0 RC1 is available [here](/projects/.net7) (34).
+Samples for ASP.NET Core 7.0 RC1 is available [here](/projects/.net7) (35).
 
 ## Previous versions
 
