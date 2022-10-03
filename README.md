@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 (436)
+# Samples for ASP.NET Core 6.0 (437)
 
 Samples for ASP.NET Core 7.0 RC1 is available [here](/projects/.net7) (35).
 
@@ -35,7 +35,7 @@ Samples for ASP.NET Core 7.0 RC1 is available [here](/projects/.net7) (35).
 | [Open Telemetry](/projects/open-telemetry/)                     | 3   |                                                                              |
 | [Orchard Core](/projects/orchard-core)                          | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](/projects/path-string) | 1   |                                                                              |
-| [Razor Pages](/projects/razor-pages)                            | 9   |                                                                              |
+| [Razor Pages](/projects/razor-pages)                            | 10  | TempData                                                                             |
 | [Request](/projects/request)                                    | 15  | Form, Cookies, Query String, Headers                                         |
 | [Response](/projects/response)                                  | 3   |                                                                              |
 | [SignalR](/projects/signalr)                                    | 1   |                                                                              |

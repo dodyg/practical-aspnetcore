@@ -1,0 +1,23 @@
+@page
+@model IndexModel
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Hello, world!</h1>
+      Click <a href="SetTempData">here</a> to set TempData.
+
+    @if (TempData.Peek("Message") != null)
+    {
+        <h3>Message: @TempData["Message"]</h3>
+    }
+    </main>
+  </body>
+</html>
