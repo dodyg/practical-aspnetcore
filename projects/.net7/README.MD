@@ -1,4 +1,4 @@
-# .NET 7 (35)
+# .NET 7 (36)
 
 Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -136,6 +136,10 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
 * [Component - 20](ComponentTwenty)
 
   This sample shows how to implement a HTML custom element using Blazor Web Assembly.
+
+* [Component - 21](ComponentTwentyOne)
+
+  This sample shows how set and get a property of a HTML custom element implemented using Blazor Web Assembly.
 
 ## Problem Details
 

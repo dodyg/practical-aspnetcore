@@ -1,0 +1,26 @@
+﻿@page
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Blazor Custom Element</h1>
+      <pa-interaction id="interactive"></pa-interaction>
+    </main>
+    <script src="_content/Microsoft.AspNetCore.Components.CustomElements/BlazorCustomElements.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script>
+      window.addEventListener('load', (event) => {
+        const interactive = document.getElementById("interactive");
+        interactive.setAttribute("content", "Hello Anne");
+        alert("content of custom element: " + interactive.getAttribute("content"));
+      });
+    </script> 
+  </body>
+</html>

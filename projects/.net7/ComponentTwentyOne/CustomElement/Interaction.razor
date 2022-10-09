@@ -1,0 +1,13 @@
+﻿<p>
+@Content
+</p>
+
+Count: @_count 
+
+<button class="btn btn-primary" @onclick="()=> _count++">Click</button>
+
+@code {
+    private int _count = 0;
+    
+    [Parameter] public string Content { get; set; } = string.Empty;
+}
