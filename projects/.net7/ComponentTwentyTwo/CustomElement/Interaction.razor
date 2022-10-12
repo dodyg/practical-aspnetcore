@@ -1,0 +1,21 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+
+Count: @Count 
+
+<button class="btn btn-primary"@ref="_buttonRef" @onclick="HandleClick">Click</button>
+
+
+@code {
+    private ElementReference _buttonRef;
+
+    [Parameter] public int Count { get; set; }
+    
+    [Parameter] public string Content { get; set; } = string.Empty;
+
+    async Task HandleClick()
+    {
+      await JS.InvokeVoidAsync("interaction.triggerEvent", _buttonRef);
+    }
+}

@@ -1,0 +1,38 @@
+﻿@page
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Blazor Custom Element raising event</h1>
+      <pa-interaction id="interactive"></pa-interaction>
+    </main>
+    <script src="_content/Microsoft.AspNetCore.Components.CustomElements/BlazorCustomElements.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+  <script>
+      window.interaction = (function () {
+      return {
+          triggerEvent: function (el) {
+              el.parentElement.dispatchEvent(new CustomEvent("onInteractionClicked"));
+          }
+      };
+  })();
+  </script>
+
+    <script>
+      window.addEventListener('load', (event) => {
+        const interactive = document.getElementById("interactive");
+        let count = interactive.getAttribute("count");
+        interactive.addEventListener("onInteractionClicked", function (e) {
+          interactive.setAttribute("count", ++count);
+        });
+      });
+    </script> 
+  </body>
+</html>

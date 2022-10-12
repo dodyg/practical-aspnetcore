@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.0-rc.1.22427.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CustomElement\CustomElement.csproj" />
+    </ItemGroup>
+
+</Project>
