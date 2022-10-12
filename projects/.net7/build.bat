@@ -25,4 +25,8 @@ dotnet build output-cache-4
 dotnet build output-cache-5
 dotnet build output-cache-6
 dotnet build output-cache-7
+dotnet build output-cache-8
+dotnet build problem-details
+dotnet build problem-details-2
+dotnet build problem-details-3
 dotnet build typed-results-1

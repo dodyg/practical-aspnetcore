@@ -21,6 +21,6 @@ app.MapGet("/", () =>
 
 app.UseOutputCache();
 app.MapGet("/now", () => DateTime.UtcNow.ToString());
-app.MapGet("/cached-now", () => DateTime.UtcNow.ToString()).CacheOutput(p => p.VaryByQuery("version", "culture"));
+app.MapGet("/cached-now", () => DateTime.UtcNow.ToString()).CacheOutput(p => p.SetVaryByQuery("version", "culture"));
 
 app.Run();
