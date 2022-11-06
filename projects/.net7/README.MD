@@ -1,4 +1,4 @@
-# .NET 7 (37)
+# .NET 7 (38)
 
 Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -158,3 +158,9 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
 * [Problem Details - 3](problem-details-3)
 
   This example shows how customize [Problem Details](https://www.rfc-editor.org/rfc/rfc7807) by manipulating `IProblemDetailsService`.
+
+## System.Text.Json
+
+* [JSON - 23](json-23)
+
+  Show how to customize serialization using `DefaultJsonTypeInfoResolver`.
