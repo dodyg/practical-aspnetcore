@@ -1,6 +1,6 @@
-# .NET 7 (38)
+# .NET 7 (39)
 
-Samples in this section require .NET 7 RC1. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+Samples in this section require .NET 7 RC2. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 * [Infer dependency from action parameter](mvc-infer-dependency-from-action)
 
@@ -164,3 +164,7 @@ Samples in this section require .NET 7 RC1. You can download it from [here](http
 * [JSON - 23](json-23)
 
   Show how to customize serialization using `DefaultJsonTypeInfoResolver`.
+
+* [JSON - 24](json-24)
+
+  Customize serialization by writing `number` as `string` in JSON for `Age` values. 
