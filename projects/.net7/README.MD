@@ -1,4 +1,4 @@
-# .NET 7 (39)
+# .NET 7 (40)
 
 Samples in this section require .NET 7 RC2. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -168,3 +168,7 @@ Samples in this section require .NET 7 RC2. You can download it from [here](http
 * [JSON - 24](json-24)
 
   Customize serialization by writing `number` as `string` in JSON for `Age` values. 
+
+* [JSON - 25](json-25)
+
+  In this case we add one extra `timestamp` property to the serialization process. 

@@ -3,6 +3,7 @@ using System.Text.Json;
 
 var options = new JsonSerializerOptions
 {
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     TypeInfoResolver = new DefaultJsonTypeInfoResolver
     {
         Modifiers = { IgnoreNegativeValues }

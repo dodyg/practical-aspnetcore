@@ -6,20 +6,19 @@ var options = new JsonSerializerOptions
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     TypeInfoResolver = new DefaultJsonTypeInfoResolver
     {
-        Modifiers = { NumberAsString }
+        Modifiers = { AddTimeStamp }
     }
 };
 
-static void NumberAsString (JsonTypeInfo typeInfo)
+static void AddTimeStamp (JsonTypeInfo typeInfo)
 {
-    if (typeInfo.Type != typeof(People))
+    if (typeInfo.Kind != JsonTypeInfoKind.Object && 
+        typeInfo.Properties.All(prop => prop.Name == "timestamp"))
         return;
 
-    foreach(JsonPropertyInfo propInfo in typeInfo.Properties)
-    {
-        if (propInfo.PropertyType == typeof(int) && propInfo.Name == "age")
-            propInfo.NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.WriteAsString;
-    }
+    var timestamp = typeInfo.CreateJsonPropertyInfo(typeof(DateTime), "timestamp");
+    timestamp.Get = x => DateTime.UtcNow;
+    typeInfo.Properties.Add(timestamp);
 }
 
 var app = WebApplication.Create();
