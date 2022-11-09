@@ -1,6 +1,6 @@
 # .NET 7 (40)
 
-Samples in this section require .NET 7 RC2. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+Samples in this section require .NET 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 * [Infer dependency from action parameter](mvc-infer-dependency-from-action)
 
@@ -127,11 +127,11 @@ Samples in this section require .NET 7 RC2. You can download it from [here](http
 
 * [Component - 18](ComponentEighteen) 
 
-  This sample demonstrates @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
+  **BROKEN on GA** This sample demonstrates @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
 
 * [Component - 19](ComponentNineteen) 
 
-  This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
+  **BROKEN on GA** This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
 
 * [Component - 20](ComponentTwenty)
 

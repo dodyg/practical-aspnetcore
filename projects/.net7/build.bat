@@ -1,6 +1,11 @@
 dotnet build authentication-1
 dotnet build authentication-2
 dotnet build authentication-3
+dotnet build ComponentEighteen
+dotnet build ComponentNineteen
+dotnet build ComponentTwenty
+dotnet build ComponentTwentyOne
+dotnet build ComponentTwentyTwo
 dotnet build endpoint-filter-1
 dotnet build endpoint-filter-2
 dotnet build endpoint-filter-3
@@ -12,6 +17,9 @@ dotnet build grpc-16
 dotnet build grpc-17
 dotnet build iform-file
 dotnet build iform-file-collection
+dotnet build json-23
+dotnet build json-24
+dotnet build json-25
 dotnet build map-group-1
 dotnet build map-group-2
 dotnet build map-group-3
