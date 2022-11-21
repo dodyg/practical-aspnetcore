@@ -128,10 +128,14 @@ Samples in this section require .NET 7. You can download it from [here](https://
 * [Component - 18](ComponentEighteen) 
 
   **BROKEN on GA** This sample demonstrates @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
+  
+  https://github.com/dotnet/aspnetcore/issues/44957
 
 * [Component - 19](ComponentNineteen) 
 
   **BROKEN on GA** This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
+  
+  https://github.com/dotnet/aspnetcore/issues/44957
 
 * [Component - 20](ComponentTwenty)
 
