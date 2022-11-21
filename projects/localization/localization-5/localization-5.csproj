@@ -4,6 +4,6 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Localization.Core" Version="1.5.0" />
   </ItemGroup>
 </Project>
