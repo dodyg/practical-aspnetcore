@@ -1,4 +1,4 @@
-# .NET 7 (40)
+# .NET 7 (41)
 
 Samples in this section require .NET 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -176,3 +176,10 @@ Samples in this section require .NET 7. You can download it from [here](https://
 * [JSON - 25](json-25)
 
   In this case we add one extra `timestamp` property to the serialization process. 
+
+
+## Orleans 7
+
+* [Orleans - 1](orleans-1)
+
+  This sample shows how to use Orleans 7 in a minimal API application. It shows the new way on how to configure an Orleans server.
