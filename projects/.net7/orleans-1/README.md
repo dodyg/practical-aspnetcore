@@ -2,7 +2,7 @@
 
 This sample shows how to use Orleans 7 with ASP.NET Core 7. Orleans 7 comes with simplification of the client and server setup and various enhancements. 
 
-In this sample we demonstrates:
+In this sample we demonstrates several new changes in Orleans 7:
 
 - Simplified configuration of just linking to [Microsoft.Orleans.Server](https://www.nuget.org/packages/Microsoft.Orleans.Server).
 - Using the new serializer using `GenerateSerializer` and `Id` attributes.
