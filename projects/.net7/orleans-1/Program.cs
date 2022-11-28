@@ -19,14 +19,15 @@ builder.Host.UseOrleans(b =>
 
 var app = builder.Build();
 
-app.MapGet("/", async (HttpContext context) =>
+app.MapGet("/", async (IGrainFactory client) =>
 {
-    IGrainFactory client = context.RequestServices.GetService<IGrainFactory>()!;
-    IHelloArchive grain = client.GetGrain<IHelloArchive>(0)!;
-    await grain.SayHello("Hello world");
-    await context.Response.WriteAsync("Keep refreshing your browser \n");
-    var res2 = await grain.GetGreetings();
-    await context.Response.WriteAsync(string.Join("\n", res2));
+    IHelloArchive grain = client.GetGrain<IHelloArchive>(0);
+    var _ = await grain.SayHello("Hello world");
+    var greetings = await grain.GetGreetings();
+    return $""" 
+    Keep refreshing your browser  
+    {string.Join("\n", greetings)}
+    """;
 });
 
 app.Run();
