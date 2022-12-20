@@ -28,7 +28,7 @@ Functionalities required:
 
 * Make sure you follow the **C# coding standard**.
 * Create the project as a public project on your github account.
-* Use C# 10.
+* Use C# 11.
 * Keep your daily progress on the log. 
 * Make sure to test your project thoroughly. 
 * Make sure your application is nice to use.
