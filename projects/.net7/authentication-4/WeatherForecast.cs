@@ -1,5 +1,3 @@
-namespace authentication_4;
-
 public class WeatherForecast
 {
     public DateOnly Date { get; set; }
