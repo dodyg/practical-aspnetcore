@@ -1,8 +1,8 @@
-# Samples for ASP.NET Core 6.0 (444)
+# Samples for ASP.NET Core 6.0 (445)
 
 Samples for ASP.NET Core 7.0 is available [here](/projects/.net7) (42).
 
-You can [sponsor](https://github.com/sponsors/dodyg) this largest ASP.NET Core sample repository in the world [here](https://github.com/sponsors/dodyg). 
+You can [sponsor](https://github.com/sponsors/dodyg) this largest ASP.NET Core sample repository in the world [here](https://github.com/sponsors/dodyg).
 
 ## Previous versions
 
@@ -31,13 +31,13 @@ You can [sponsor](https://github.com/sponsors/dodyg) this largest ASP.NET Core s
 | [Localization and Globalization](/projects/localization)        | 6   |                                                                              |
 | [Middleware](/projects/middleware)                              | 14  |                                                                              |
 | [Mini Apps](/projects/mini)                                     | 2   |                                                                              |
-| [Minimal  API](/projects/minimal-api)                           | 36  | Routing, Parameter Bindings, etc                                             |
+| [Minimal API](/projects/minimal-api)                            | 36  | Routing, Parameter Bindings, etc                                             |
 | [Minimal Hosting](/projects/minimal-hosting)                    | 23  |                                                                              |
 | [MVC](/projects/mvc)                                            | 47  | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
 | [Open Telemetry](/projects/open-telemetry/)                     | 3   |                                                                              |
 | [Orchard Core](/projects/orchard-core)                          | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](/projects/path-string) | 1   |                                                                              |
-| [Razor Pages](/projects/razor-pages)                            | 10  | TempData                                                                             |
+| [Razor Pages](/projects/razor-pages)                            | 10  | TempData                                                                     |
 | [Request](/projects/request)                                    | 15  | Form, Cookies, Query String, Headers                                         |
 | [Response](/projects/response)                                  | 3   |                                                                              |
 | [SignalR](/projects/signalr)                                    | 1   |                                                                              |
@@ -50,7 +50,7 @@ You can [sponsor](https://github.com/sponsors/dodyg) this largest ASP.NET Core s
 | [URL Redirect/Rewrite](/projects/rewrite)                       | 6   |                                                                              |
 | [Uri Helper](/projects/uri-helper)                              | 5   |                                                                              |
 | [Windows Service](/projects/windows-service)                    | 1   |                                                                              |
-| [Web Sockets](/projects/web-sockets)                            | 5   |                                                                              |
+| [Web Sockets](/projects/web-sockets)                            | 6   |                                                                              |
 | [Web Utilities](/projects/web-utilities)                        | 3   |                                                                              |
 | [Orleans](/projects/orleans)                                    | 12  |                                                                              |
 | [Xml](/projects/xml)                                            | 1   |                                                                              |
@@ -62,86 +62,85 @@ For Data Access samples, go to the excellent [ORM Cookbook](https://github.com/G
 
 To run these samples, simply open your command line console, go to each folder and execute `dotnet watch run`.
 
-
 ### Misc (6)
 
-- [Application Environment](/projects/application-environment)
+-   [Application Environment](/projects/application-environment)
 
-  This sample shows how to obtain application environment information (target framework, etc).
+    This sample shows how to obtain application environment information (target framework, etc).
 
-- [Show Connection info](/projects/connection-info)
+-   [Show Connection info](/projects/connection-info)
 
-  Enumerate the connection information of a HTTP request.
+    Enumerate the connection information of a HTTP request.
 
-- [Keeping track of anonymous users](/projects/anonymous-id)
+-   [Keeping track of anonymous users](/projects/anonymous-id)
 
-  Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
+    Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
-- [Password Hasher server](/projects/password-hasher)
+-   [Password Hasher server](/projects/password-hasher)
 
-  Give it a string and it will generate a secure hash for you, e.g. `localhost:5000?password=mypassword`.
+    Give it a string and it will generate a secure hash for you, e.g. `localhost:5000?password=mypassword`.
 
-- [Version info](/projects/version)
+-   [Version info](/projects/version)
 
-  Show various version info of the framework your system is running on.
+    Show various version info of the framework your system is running on.
 
-- [IApplicationLifetime](/projects/i-application-lifetime)
+-   [IApplicationLifetime](/projects/i-application-lifetime)
 
-  Responds to application startup and shutdown.
+    Responds to application startup and shutdown.
 
-  We are using `IApplicationLifetime` that trigger events during application startup and shutdown.
+    We are using `IApplicationLifetime` that trigger events during application startup and shutdown.
 
 ### Server-Sent Events (1)
 
-- [Forever Server](/projects/sse)
+-   [Forever Server](/projects/sse)
 
-  This server will send a 'hello world' greeting forever.
+    This server will send a 'hello world' greeting forever.
 
 ### Markdown (2)
 
-- [Markdown server](/projects/markdown-server)
+-   [Markdown server](/projects/markdown-server)
 
-  Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
+    Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
-  We take `"Markdig"` as dependency.
+    We take `"Markdig"` as dependency.
 
-- [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
+-   [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
 
-  Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
+    Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
 
-  We take `"Markdig"` as dependency.
+    We take `"Markdig"` as dependency.
 
 ### Utils (3)
 
-- [Status Codes](/projects/utils/http-status-codes)
+-   [Status Codes](/projects/utils/http-status-codes)
 
-  Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
+    Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
 
-- [MediaTypeNames](/projects/utils/media-type-names)
+-   [MediaTypeNames](/projects/utils/media-type-names)
 
-  This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.
+    This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.
 
-- [MediaTypeNames - 2](/projects/utils/media-type-names-2)
+-   [MediaTypeNames - 2](/projects/utils/media-type-names-2)
 
-  Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
+    Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
 
 ### Device Detection (1)
 
 The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
 
-- [Device Detection](/projects/device-detection)
+-   [Device Detection](/projects/device-detection)
 
-  This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
+    This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
 ### Image Sharp (1)
 
 All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
 
-- [Image-Sharp](/projects/image-sharp)
+-   [Image-Sharp](/projects/image-sharp)
 
-  This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
+    This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
 
 ## Misc
 
-- [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
-- [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
+-   [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
+-   [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
