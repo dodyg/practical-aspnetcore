@@ -2,6 +2,8 @@
 
 Samples for ASP.NET Core 7.0 is available [here](/projects/.net7) (42).
 
+You can [sponsor](https://github.com/sponsors/dodyg) this largest ASP.NET Core sample repository in the world [here](https://github.com/sponsors/dodyg). 
+
 ## Previous versions
 
 [5.0](https://github.com/dodyg/practical-aspnetcore/tree/net5.0/), [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
