@@ -1,4 +1,4 @@
-# .NET 7 (42)
+# .NET 7 (43)
 
 Samples in this section require .NET 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -184,6 +184,12 @@ Samples in this section require .NET 7. You can download it from [here](https://
 
   This sample shows how to use Orleans 7 in a minimal API application. It shows the new way on how to configure an Orleans server.
 
-* [Orelans - 2](orleans-2)
+* [Orleans - 2](orleans-2)
 
   This is a sample project that shows how to use Redis as a persistence provider for Orleans.
+
+* [Orleans - 3](orleans-3)
+
+  This sample demonstrates the functionality of Orleans' Timer via Grain.RegisterTimer. It's useful to trigger actions to be repeated frequently (less than every minute).
+
+
