@@ -16,7 +16,11 @@
 
 * [Echo Server 4](/projects/web-sockets/web-sockets-4)
 
-  We improve upon the previous sample by handling closing event intiated by the web client.
+  We improve upon the previous sample by handling closing event initiated by the web client.
+
+* [Echo Server 5](/projects/web-sockets/web-sockets-6)
+
+  Use Mvc Controller to handle websocket request
 
 * [Chat Server](/projects/web-sockets/web-sockets-5)
 
