@@ -71,6 +71,7 @@ public class HomeController : Controller
             ContentType = "text/html"
         };
     }
+    
     [HttpGet("/ws")]
     public async Task<IActionResult> Websocket(CancellationToken token)
     {
