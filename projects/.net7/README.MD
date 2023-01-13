@@ -1,4 +1,4 @@
-# .NET 7 (43)
+# .NET 7 (44)
 
 Samples in this section require .NET 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
@@ -192,4 +192,6 @@ Samples in this section require .NET 7. You can download it from [here](https://
 
   This sample demonstrates the functionality of Orleans' Timer via Grain.RegisterTimer. It's useful to trigger actions to be repeated frequently (less than every minute).
 
+* [Orleans - 4](orleans-4)
 
+  This sample demonstrates the functionality of Orleans' Reminder via Grain.RegisterOrUpdateReminder. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days). This is a persistent timer that survives grain restarts. [Reminder is much expensive than Timer](https://github.com/dotnet/orleans/issues/4218#issuecomment-373162275).
