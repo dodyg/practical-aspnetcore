@@ -8,8 +8,6 @@ It is included in this ASP.NET Core samples repository because I believe that a 
     
     This sample demonstrates a very simple workflow Activity that writes a line to the console.
 
-## Workflow
+- [Sequence Activity](sequence-activity)
 
-- [Workflow-1](workflow-1)
-
-    This sample demonstrates a very basic custom workflow.
+    This sample demonstrates the `Sequence` activity. The `Sequence` activity is a container activity that contains other activities. The `Sequence` activity executes the activities in the order they are added to the workflow.
