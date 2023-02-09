@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0 (448)
+# Samples for ASP.NET Core 6.0 (449)
 
 Samples for ASP.NET Core 7.0 is available [here](/projects/.net7) (45).
 
@@ -21,6 +21,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Diagnostics](/projects/diagnostics)                            | 6   |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                  | 32  |                                                                              |
 | [Email](/projects/mailkit)                                      | 2   |                                                                              |
+| [Elsa Workflow]                                                 | 1   |                                                                              |
 | [Features](/projects/features)                                  | 11  |                                                                              |
 | [Generic Hosting](/projects/generic-host)                       | 9   |                                                                              |
 | [gRPC](/projects/grpc) (including grpc-Web)                     | 12  |                                                                              |
