@@ -21,7 +21,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Diagnostics](/projects/diagnostics)                            | 6   |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                  | 32  |                                                                              |
 | [Email](/projects/mailkit)                                      | 2   |                                                                              |
-| [Elsa Workflow]                                                 | 1   |                                                                              |
+| [Elsa Workflow](/projects/elsa)                                 | 1   |                                                                              |
 | [Features](/projects/features)                                  | 11  |                                                                              |
 | [Generic Hosting](/projects/generic-host)                       | 9   |                                                                              |
 | [gRPC](/projects/grpc) (including grpc-Web)                     | 12  |                                                                              |
