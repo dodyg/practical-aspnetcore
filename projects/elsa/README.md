@@ -1,4 +1,4 @@
-# ELSA Workflow (5)
+# ELSA Workflow (6)
 
 ELSA is a workflow engine for .NET Core. It is a library that can be used to build workflow applications. It is also a standalone application that can be used to run workflows.
 
@@ -18,8 +18,12 @@ It is included in this ASP.NET Core samples repository because I believe that a 
 
 - [While Activity](while-activity)
 
-    This sample demonstrates the `While` activity.  The `While` activity has a `Condition` property that is used to specify the condition. The `While` activity also has a `Body` property that is used to specify the body of the `While` activity. The `Body` property will continue to be executed while the `Condition` is true.
+    This sample demonstrates the `While` activity.  The `While` activity has a `Condition` property that is used to specify the condition  on when the workflow continues to be executed. 
 
 - [For Activity](for-activity)
 
-    This samples demonstrates the `For` activity. We use `For` activity to execute a workflow in loop within specified parameters. 
+    This samples demonstrates the `For` activity. We use `For` activity to execute a workflow in a loop within specified parameters. 
+
+- [ForEach Activity](foreach-activity)
+
+    This samples demonstrates the use of `ForEach` activity. We use `ForEach` activity to execute a workflow in a loop based on a given collection. 
