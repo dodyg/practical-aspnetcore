@@ -1,4 +1,4 @@
-# ELSA Workflow (6)
+# ELSA Workflow (7)
 
 ELSA is a workflow engine for .NET Core. It is a library that can be used to build workflow applications. It is also a standalone application that can be used to run workflows.
 
@@ -15,6 +15,10 @@ It is included in this ASP.NET Core samples repository because I believe that a 
 - [If Activity](if-activity)
 
     This sample demonstrates the `If` activity. The `If` activity is a container activity that contains two activities. The first activity is executed if the condition is true. The second activity is executed if the condition is false.
+
+- [SetVariable Activity](setvariable-activity)
+
+    This sample demonstrates the `SetVariable` activity. The `SetVariable` activity is used to set a variable in the workflow.
 
 - [While Activity](while-activity)
 
