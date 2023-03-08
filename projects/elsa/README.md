@@ -1,4 +1,4 @@
-# ELSA Workflow (11)
+# ELSA Workflow (12)
 
 ELSA is a workflow engine for .NET Core. It is a library that can be used to build workflow applications. It is also a standalone application that can be used to run workflows.
 
@@ -51,3 +51,7 @@ It is included in this ASP.NET Core samples repository because I believe that a 
 - [Workflow that return result](workflow-3)
 
     This sample demonstrates on how to create a workflow that returns result.
+
+- [Workflow with runtime inputs](workflow-4)
+
+    This sample demonstrates on how to create a workflow that take runtime inputs.
