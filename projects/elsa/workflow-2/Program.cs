@@ -9,7 +9,13 @@ var serviceProvider = services.BuildServiceProvider();
 var workflow = new MessageWorkflow();
 var runner = serviceProvider.GetRequiredService<IWorkflowRunner>();
 
-await runner.RunAsync(workflow);
+var result = await runner.RunAsync(workflow);
+
+Console.WriteLine($"Workflow Name: {result.Workflow.WorkflowMetadata.Name}");
+Console.WriteLine($"Worfklow DefinitionId: { result.Workflow.Identity.DefinitionId }");
+Console.WriteLine($"Workflow Description: {result.Workflow.WorkflowMetadata.Description}");
+Console.WriteLine($"Workflow Property[workflow]: { result.Workflow.CustomProperties["workflow"]}");
+Console.WriteLine($"Workflow Property[created on]: { Convert.ToDateTime(result.Workflow.CustomProperties["created on"]) }");
 
 public class MessageWorkflow : WorkflowBase
 {
@@ -21,14 +27,7 @@ public class MessageWorkflow : WorkflowBase
         builder.WithCustomProperty("created on", DateTime.UtcNow);
         builder.Root = new Sequence
         {
-            Activities =
-            {
-                new WriteLine($"Workflow Name: { builder.Name } "),
-                new WriteLine($"Worfklow DefinitionId: { builder.DefinitionId }"),
-                new WriteLine($"Workflow Description: { builder.Description }"),
-                new WriteLine($"Workflow Property[workflow]: { builder.CustomProperties["workflow"] as string }"),
-                new WriteLine($"Workflow Property[created on]: { Convert.ToDateTime(builder.CustomProperties["created on"]) }")
-            } 
+            Activities = { }
         };
     }
 }
