@@ -1,4 +1,4 @@
-# ELSA Workflow (12)
+# ELSA Workflow (13)
 
 ELSA is a workflow engine for .NET Core. It is a library that can be used to build workflow applications. It is also a standalone application that can be used to run workflows.
 
@@ -37,6 +37,10 @@ It is included in this ASP.NET Core samples repository because I believe that a 
 - [Composite Activity](composite-activity)
 
     Composite Activity is a way to encapsulate a set of activities into a single activity.
+
+- [Fork Activity](fork-activity)
+
+    Fork Activity allows you to split a workflow into two or more branches, each with its own set of actions. All the branches in the workflow must be completed before the worfklow con continue to the next step after the fork.
 
 ## Workflow
 
