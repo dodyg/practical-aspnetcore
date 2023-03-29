@@ -1,6 +1,6 @@
-# ASP.NET 8.0 Preview 2
+# ASP.NET 8.0 Preview 3
 
-These samples require [.NET 8.0 Preview 2](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/blob/main/docs/DailyBuilds.md). You will have to install the daily build since Preview 3 is not officially released yet. 
 
 
 * [QuickGrid One](QuickGridOne)
