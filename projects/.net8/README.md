@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 3 (2)
+# ASP.NET 8.0 Preview 3 (3)
 
 These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/blob/main/docs/DailyBuilds.md). You will have to install the daily build since Preview 3 is not officially released yet. 
 
@@ -9,4 +9,8 @@ These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/
 
 * [RazorComponentOne](RazorComponentOne)
 
-  This sample demonstrates a simple usage of RazorComponent component.
+  This sample demonstrates a simple usage of Razor Component component.
+
+* [RazorComponentTwo](RazorComponentTwo)
+
+  This sample demonstrates rendering a Razor Component from Minimal API via  `RazorComponentResult`.
