@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 3 (4)
+# ASP.NET 8.0 Preview 3 (5)
 
 These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/blob/main/docs/DailyBuilds.md). You will have to install the daily build since Preview 3 is not officially released yet. 
 
@@ -17,4 +17,8 @@ These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/
 
 * [RazorComponentThree](RazorComponentThree)
 
-  This samples demonstrates rendering a Razor Component from Minimal API via `RazorComponentResult` and passing data via anonymous object.
+  This sample demonstrates rendering a Razor Component from Minimal API via `RazorComponentResult` and passing data via anonymous object.
+
+* [RazorComponentFour](RazorComponentFour)
+
+  This sample demonstrates rendering a Razor Component using `Html.RenderComponentAsync` and passing data via anonymous object.
