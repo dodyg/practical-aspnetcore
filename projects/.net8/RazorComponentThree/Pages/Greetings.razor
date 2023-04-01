@@ -1,0 +1,13 @@
+@layout RazorComponentThree.Shared.MainLayout
+
+<h1>@Message</h1>
+@Date
+
+@code{
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [Parameter]
+    public DateOnly Date { get; set; }
+}
