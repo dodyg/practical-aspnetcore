@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 3 (6)
+# ASP.NET 8.0 Preview 3 (7)
 
 These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/blob/main/docs/DailyBuilds.md). You will have to install the daily build since Preview 3 is not officially released yet. 
 
@@ -26,3 +26,7 @@ These samples require [.NET 8.0 Preview 3](https://github.com/dotnet/aspnetcore/
 * [RazorComponentFive](RazorComponentFive)
 
   This sample demonstrates rendering a Razor Component from a MVC Controller via `RazorComponentResult` and passing data via a dictionary.
+
+* [RazorComponentSix](RazorComponentSix)
+
+  This sample demonstrates the new section functionality using `SectionOutlet` to mark a section and `SectionContent` to supply the content to a section.

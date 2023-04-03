@@ -1,0 +1,16 @@
+@layout RazorComponentSix.Shared.MainLayout
+
+<h1>@Message</h1>
+
+<Microsoft.AspNetCore.Components.Sections.SectionContent SectionName="sidebar" >
+This is a section @Date
+</Microsoft.AspNetCore.Components.Sections.SectionContent>
+
+@code{
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [Parameter]
+    public DateOnly Date { get; set; }
+}
