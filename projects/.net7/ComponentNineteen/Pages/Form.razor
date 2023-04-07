@@ -1,6 +1,12 @@
-<input @bind:get="Value" @bind:set="ValueChanged" style="width:500px;" />
+<input @bind:get="Value" @bind:set="ValueChangedHandler" style="width:500px;" />
 
 @code {
     [Parameter] public string Value { get; set; }
+
     [Parameter] public EventCallback<string> ValueChanged { get; set; }
+
+    private async Task ValueChangedHandler(string value)
+    {
+        await  ValueChanged.InvokeAsync(value);
+    }
 }
