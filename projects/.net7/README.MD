@@ -131,10 +131,8 @@ Samples in this section require .NET 7. You can download it from [here](https://
 
 * [Component - 19](ComponentNineteen) 
 
-  **BROKEN on GA** This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
+  This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
   
-  https://github.com/dotnet/aspnetcore/issues/44957
-
 * [Component - 20](ComponentTwenty)
 
   This sample shows how to implement a HTML custom element using Blazor Web Assembly.
