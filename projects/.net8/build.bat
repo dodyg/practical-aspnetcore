@@ -1,0 +1,7 @@
+dotnet build QuickGridOne
+dotnet build RazorComponentFive
+dotnet build RazorComponentFour
+dotnet build RazorComponentOne
+dotnet build RazorComponentSix
+dotnet build RazorComponentThree
+dotnet build RazorComponentTwo
