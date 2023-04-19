@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 3 (8)
+# ASP.NET 8.0 Preview 3 (9)
 
 These samples require [.NET 8.0 Preview 3](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). 
 
@@ -34,3 +34,7 @@ These samples require [.NET 8.0 Preview 3](https://dotnet.microsoft.com/en-us/do
 * [Request Timeout](request-timeout)
 
   This sample demonstrates how to configure a request timeout.
+
+* [Short Circuit](map-short-circuit)
+
+  Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run. 
