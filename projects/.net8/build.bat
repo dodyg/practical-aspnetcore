@@ -5,3 +5,4 @@ dotnet build RazorComponentOne
 dotnet build RazorComponentSix
 dotnet build RazorComponentThree
 dotnet build RazorComponentTwo
+dotnet build request-timeout

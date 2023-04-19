@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 3 (7)
+# ASP.NET 8.0 Preview 3 (8)
 
 These samples require [.NET 8.0 Preview 3](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). 
 
@@ -30,3 +30,7 @@ These samples require [.NET 8.0 Preview 3](https://dotnet.microsoft.com/en-us/do
 * [RazorComponentSix](RazorComponentSix)
 
   This sample demonstrates the new section functionality using `SectionOutlet` to mark a section and `SectionContent` to supply the content to a section.
+
+* [Request Timeout](request-timeout)
+
+  This sample demonstrates how to configure a request timeout.

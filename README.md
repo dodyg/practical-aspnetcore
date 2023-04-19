@@ -1,6 +1,6 @@
-# Samples for ASP.NET Core 6.0 (469)
+# Samples for ASP.NET Core 6.0 (470)
 
-Samples for ASP.NET Core **8.0 Preview 3** is available [here](/projects/.net8) (7).
+Samples for ASP.NET Core **8.0 Preview 3** is available [here](/projects/.net8) (8).
 
 Samples for ASP.NET Core **7.0** is available [here](/projects/.net7) (45).
 
