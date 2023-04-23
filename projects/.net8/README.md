@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 4 (10)
+# ASP.NET 8.0 Preview 4 (11)
 
 These samples require [.NET 8.0 Preview 4](https://github.com/dotnet/installer#table). 
 
@@ -38,6 +38,10 @@ These samples require [.NET 8.0 Preview 4](https://github.com/dotnet/installer#t
 * [Request Timeout Policy](request-timeout-2)
 
   Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a timeout that was specified using a named policy.
+
+* [Request Timeout Policy](request-timeout-3)
+
+  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a default timeout policy.
 
 * [Short Circuit](map-short-circuit)
 
