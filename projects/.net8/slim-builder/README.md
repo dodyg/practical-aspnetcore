@@ -1,5 +1,5 @@
 # WebApplication.CreateSlimBuilder
 
-`WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
+`WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal defaults.
 
 
