@@ -6,4 +6,7 @@ dotnet build RazorComponentSix
 dotnet build RazorComponentThree
 dotnet build RazorComponentTwo
 dotnet build request-timeout
+dotnet build request-timeout-2
+dotnet build request-timeout-3
 dotnet build map-short-circuit
+dotnet build slim-builder
