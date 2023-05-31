@@ -1,6 +1,6 @@
-# ASP.NET 8.0 Preview 4 (12)
+# ASP.NET 8.0 Preview 6 (12)
 
-These samples require [.NET 8.0 Preview 4](https://github.com/dotnet/installer#table). 
+These samples require [.NET 8.0 Preview 6](https://github.com/dotnet/installer#table). 
 
 
 * [QuickGrid One](QuickGridOne)
@@ -9,7 +9,7 @@ These samples require [.NET 8.0 Preview 4](https://github.com/dotnet/installer#t
 
 * [RazorComponentOne](RazorComponentOne)
 
-  This sample demonstrates a simple usage of Razor Component component.
+  This sample demonstrates a simple usage of Razor Component component. **current this is broken**.
 
 * [RazorComponentTwo](RazorComponentTwo)
 
@@ -50,3 +50,5 @@ These samples require [.NET 8.0 Preview 4](https://github.com/dotnet/installer#t
 * [SlimBuilder](slim-builder)
 
   `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
+
+<!-- https://github.com/dotnet/aspnetcore/tree/main/src/Components/Samples/BlazorUnitedApp -->
