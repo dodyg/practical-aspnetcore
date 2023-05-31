@@ -3,8 +3,7 @@ builder.Services.AddRazorComponents();
 
 var app = builder.Build();
 
-app.MapRazorComponents<RazorComponentOne.Shared.MainLayout>()
-    .AddServerRenderMode();
+app.MapRazorComponents<RazorComponentOne.Shared.MainLayout>();
 
 app.Run();
 
