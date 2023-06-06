@@ -1,0 +1,17 @@
+@using System.Net.Http
+@using Microsoft.AspNetCore.Components.Forms
+
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Authorization
+
+<Router AppAssembly="typeof(Program).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="routeData" />
+    </Found>
+    <NotFound>
+        <h1>Page not found</h1>
+        <p>Sorry, but there's nothing here!</p>
+    </NotFound>
+</Router>
