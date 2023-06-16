@@ -1,0 +1,32 @@
+@page "/"
+
+<h1>Blazor Multi Render</h1>
+
+@_message
+
+<div class="row">
+    <div class="col-md-4">
+        <p class="mb-3">
+            This button will not work because this Razor component is statically rendered
+        </p>
+        <button type="button" class="btn btn-primary" @onclick="ShowMessage">Show Message</button>
+    </div>
+    <div class="col-md-4">
+        <Numbers />
+    </div>
+    <div class="col-md-4">
+        <p class="mb-3">
+            This button will work because this Razor component is powered by Server Side Blazor
+        </p>
+        <Interactive />
+    </div>
+</div>
+
+@code {
+    string _message = string.Empty;
+
+    void ShowMessage()
+    {
+        _message = "This won't work";
+    }
+}

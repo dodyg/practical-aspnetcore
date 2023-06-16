@@ -3,7 +3,7 @@ builder.Services.AddRazorComponents();
 
 var app = builder.Build();
 
-app.MapRazorComponents<RazorComponentOne.Shared.MainLayout>();
+app.MapRazorComponents<RazorComponentOne.Pages.App>();
 app.Run();
 
 

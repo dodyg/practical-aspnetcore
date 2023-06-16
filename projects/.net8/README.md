@@ -1,7 +1,6 @@
-# ASP.NET 8.0 Preview 6 (12)
+# ASP.NET 8.0 Preview 6 (13)
 
 These samples require [.NET 8.0 Preview 6](https://github.com/dotnet/installer#table). 
-
 
 * [QuickGrid One](QuickGridOne)
   
@@ -31,6 +30,9 @@ These samples require [.NET 8.0 Preview 6](https://github.com/dotnet/installer#t
 
   This sample demonstrates the new section functionality using `SectionOutlet` to mark a section and `SectionContent` to supply the content to a section.
 
+* [RazorComponentSeven](RazorComponentSeven)
+  This sample demonstrates a Razor Component Page SSR (Server Side Render) hosting Razor Component with Blazor Server Side (interactive) and Blazor Streaming Rendering.
+
 * [Request Timeout](request-timeout)
 
   This sample demonstrates how to configure a request timeout.
@@ -50,5 +52,3 @@ These samples require [.NET 8.0 Preview 6](https://github.com/dotnet/installer#t
 * [SlimBuilder](slim-builder)
 
   `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
-
-<!-- https://github.com/dotnet/aspnetcore/tree/main/src/Components/Samples/BlazorUnitedApp -->
