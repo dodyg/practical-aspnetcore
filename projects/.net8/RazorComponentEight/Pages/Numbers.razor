@@ -1,0 +1,28 @@
+@attribute [StreamRendering(true)]
+
+@if (_numbers is null)
+{
+    <p>Loading numbers (wait for 6 seconds) ...</p>
+}
+else
+{
+    <ul>
+        @foreach(var i in _numbers)
+        {
+            <li>@i</li>
+        }
+    </ul>
+}
+
+@code 
+{
+    List<int> _numbers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(6_000); //six seconds
+
+        _numbers = Enumerable.Range(0,100).ToList();
+    }
+}
+
