@@ -6,5 +6,7 @@ builder.Services.AddRazorComponents()
     .AddWebAssemblyComponents();
 
 var app = builder.Build();
-app.MapRazorComponents<RazorComponentEight.App>();
+app.MapRazorComponents<RazorComponentEight.App>()
+    .AddWebAssemblyRenderMode();
+    
 app.Run();

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.001.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorComponentEight", "RazorComponentEight.csproj", "{4A88192B-260A-487F-82F7-B50B754807EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorComponentEight", "RazorComponentEight.csproj", "{33202159-04F6-45D8-8FE4-6B8295ED3D7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4A88192B-260A-487F-82F7-B50B754807EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A88192B-260A-487F-82F7-B50B754807EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A88192B-260A-487F-82F7-B50B754807EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A88192B-260A-487F-82F7-B50B754807EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33202159-04F6-45D8-8FE4-6B8295ED3D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33202159-04F6-45D8-8FE4-6B8295ED3D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33202159-04F6-45D8-8FE4-6B8295ED3D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33202159-04F6-45D8-8FE4-6B8295ED3D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D6C869D1-140D-41B1-9E53-6B32E2B94A80}
+		SolutionGuid = {53976FD1-D62F-414E-B219-4E458CACC51A}
 	EndGlobalSection
 EndGlobal
