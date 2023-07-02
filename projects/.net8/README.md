@@ -1,6 +1,6 @@
-# ASP.NET 8.0 Preview 6 (13)
+# ASP.NET 8.0 Preview 7 (14)
 
-These samples require [.NET 8.0 Preview 6](https://github.com/dotnet/installer#table). 
+These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
 * [QuickGrid One](QuickGridOne)
   
@@ -52,3 +52,9 @@ These samples require [.NET 8.0 Preview 6](https://github.com/dotnet/installer#t
 * [SlimBuilder](slim-builder)
 
   `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
+
+## Blazor SSR Form Handling
+
+ * [RazorFormHandling](RazorFormHandling)
+   
+   This example shows how to perfom manual data binding for a form `POST` request using `FormDataProvider`.

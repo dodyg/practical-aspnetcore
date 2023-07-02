@@ -1,0 +1,37 @@
+@page "/"
+@inject FormDataProvider FormData
+
+@_showMessage
+
+<br/><br/>
+<EditForm method="POST" Model="_person" OnValidSubmit="HandleSubmit">
+    <label>Please enter your name</label><br/>
+    <InputText @bind-Value="_person.Name" />
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code 
+{
+    public class Person
+    {
+        public string Name { get; set;}
+    }
+
+    Person _person = new();
+
+    string _showMessage = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        // Manually model bind the form data using the FormDataProvider service
+        if (FormData.Entries.TryGetValue("Name", out var nameValues))
+        {
+            _person.Name = nameValues.First();
+        }
+    }
+
+    void HandleSubmit()
+    {
+        _showMessage = "Hello " + _person.Name;
+    }
+}
