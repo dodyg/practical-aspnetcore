@@ -1,3 +1,4 @@
 {
-    "gitdoc.enabled": false
+    "gitdoc.enabled": false,
+    "dotnet.defaultSolution": "disable"
 }
