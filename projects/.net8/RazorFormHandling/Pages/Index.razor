@@ -24,7 +24,7 @@
     protected override void OnInitialized()
     {
         // Manually model bind the form data using the FormDataProvider service
-        if (FormData.Entries.TryGetValue("Name", out var nameValues))
+        if (FormData.Entries.TryGetValue("_person.Name", out var nameValues))
         {
             _person.Name = nameValues.First();
         }
