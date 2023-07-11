@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (14)
+# ASP.NET 8.0 Preview 7 (15)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -31,7 +31,12 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
   This sample demonstrates the new section functionality using `SectionOutlet` to mark a section and `SectionContent` to supply the content to a section.
 
 * [RazorComponentSeven](RazorComponentSeven)
+
   This sample demonstrates a Razor Component Page SSR (Server Side Render) hosting Razor Component with Blazor Server Side (interactive) and Blazor Streaming Rendering.
+
+* [RazorComponentNine](RazorComponentNine)
+
+  This sample demostrates the new attribute `[SupplyParameterFromQuery]` that allows Blazor component to get values directly from query string.
 
 * [Request Timeout](request-timeout)
 

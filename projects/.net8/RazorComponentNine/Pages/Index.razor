@@ -1,0 +1,19 @@
+@page "/"
+
+<h1>[Parameter] and [SupplyParameterFromQuery]</h1>
+
+
+<div class="row">
+    <div class="col-md-6">
+        Greet component supplied via [Parameter] attribute
+        <br/>
+        <Greet Message="Hello World" />
+    </div>
+    <div class="col-md-6">
+        Greet component supplied via [SupplyParameterFromQuery] attribute
+        <br/>
+        <a href="/?Message=Hello%20World">Click here to show the message /?Message=Hello%20World</a>
+        <br/>            
+        <Greet />
+    </div>
+</div>
