@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components.Web;
-
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddRazorComponents()
     .AddServerComponents()
@@ -7,6 +5,5 @@ builder.Services.AddRazorComponents()
 
 var app = builder.Build();
 app.MapRazorComponents<RazorComponentEight.App>()
-    .AddWebAssemblyRenderMode();
-    
+    .AddWebAssemblyRenderMode();    
 app.Run();
