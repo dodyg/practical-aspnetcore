@@ -64,6 +64,6 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
    
    This example shows how to perfom manual data binding for a form `POST` request using `FormDataProvider`.
   
- * [RazorFormHandling2](RazorFormHandlingTwo)
+ * [RazorFormHandlingTwo](RazorFormHandlingTwo)
 
    This example shows how to perform automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`.
