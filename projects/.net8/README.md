@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (15)
+# ASP.NET 8.0 Preview 7 (16)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -63,3 +63,7 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
  * [RazorFormHandling](RazorFormHandling)
    
    This example shows how to perfom manual data binding for a form `POST` request using `FormDataProvider`.
+  
+ * [RazorFormHandling2](RazorFormHandlingTwo)
+
+   This example shows how to perform automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`.
