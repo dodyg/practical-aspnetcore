@@ -53,6 +53,16 @@
 
 @code
 {
+    [SupplyParameterFromForm]
+    public Person PersonInfo  { get; set; } = new();
+
+    string _showMessage = string.Empty;
+
+    void HandleSubmit()
+    {
+        _showMessage = $"Name: {PersonInfo.Name}<br />Description: {PersonInfo.Description}<br />Hobby: {PersonInfo.Hobby}<br />Is married: {PersonInfo.IsMarried}<br />Nationality: {PersonInfo.Nationality}<br/><br/>";
+    }
+
     public class Person
     {
         public string Name { get; set; } = string.Empty;
@@ -64,15 +74,5 @@
         public bool IsMarried { get; set; }
 
         public string Nationality { get; set; } = string.Empty;
-    }
-
-    [SupplyParameterFromForm]
-    public Person PersonInfo  { get; set; } = new();
-
-    string _showMessage = string.Empty;
-
-    void HandleSubmit()
-    {
-        _showMessage = $"Name: {PersonInfo.Name}<br />Description: {PersonInfo.Description}<br />Hobby: {PersonInfo.Hobby}<br />Is married: {PersonInfo.IsMarried}<br />Nationality: {PersonInfo.Nationality}<br/><br/>";
     }
 }
