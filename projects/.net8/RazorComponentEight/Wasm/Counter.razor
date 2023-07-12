@@ -1,0 +1,13 @@
+<button type="button" @onclick="IncrementCount">Current count: @_currentCount</button>
+
+@code {
+    int _currentCount = 0;
+
+    [Parameter]
+    public int IncrementAmount { get; set; } = 1;
+
+    void IncrementCount()
+    {
+        _currentCount += IncrementAmount;
+    }
+}

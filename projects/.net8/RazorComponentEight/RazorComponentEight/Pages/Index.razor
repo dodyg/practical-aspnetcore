@@ -12,10 +12,13 @@
         <button type="button" class="btn btn-primary" @onclick="ShowMessage">Show Message</button>
     </div>
     <div class="col-md-4">
+        <Numbers />
+    </div>
+    <div class="col-md-4">
         <p class="mb-3">
-            This button will work because this Razor component is powered by Server Side Blazor
+            This button will work because this Razor component is powered by Blazor WASM
         </p>
-        <Wasm.Interactive @rendermode="@RenderMode.WebAssembly" />
+               <Wasm.Interactive @rendermode="@RenderMode.WebAssembly" />
     </div>
 </div>
 
@@ -27,3 +30,4 @@
         _message = "This won't work";
     }
 }
+

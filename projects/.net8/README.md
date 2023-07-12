@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (16)
+# ASP.NET 8.0 Preview 7 (17)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -33,6 +33,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 * [RazorComponentSeven](RazorComponentSeven)
 
   This sample demonstrates a Razor Component Page SSR (Server Side Render) hosting Razor Component with Blazor Server Side (interactive) and Blazor Streaming Rendering.
+
+* [RazorComponentEight](RazorComponentEight)
+
+  This sample demonstrates a Razor Component Page SSR (Server Side Render) hosting Razor Component with Blazor Web Assembly (interactive) and Blazor Streaming Rendering.
 
 * [RazorComponentNine](RazorComponentNine)
 
