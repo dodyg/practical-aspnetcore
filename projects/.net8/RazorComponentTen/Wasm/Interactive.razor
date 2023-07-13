@@ -1,0 +1,12 @@
+@_message
+
+<button type="button" class="btn btn-primary" @onclick="ShowMessage">Show Message</button>
+
+@code {
+    string _message = string.Empty;
+
+    void ShowMessage()
+    {
+        _message = "Current Time UTC " + DateTime.UtcNow;
+    }
+}  

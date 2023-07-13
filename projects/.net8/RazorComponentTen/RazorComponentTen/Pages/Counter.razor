@@ -1,0 +1,12 @@
+@_currentCount
+<br/><br/>
+<button type="button" @onclick="IncrementCount" class="btn btn-primary">Increment</button>
+
+@code {
+    int _currentCount = 0;
+
+    void IncrementCount()
+    {
+        _currentCount++;
+    }
+}

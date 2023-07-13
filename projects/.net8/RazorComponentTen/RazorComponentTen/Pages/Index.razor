@@ -1,0 +1,45 @@
+@page "/"
+
+<h1>Blazor Multi Render</h1>
+
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>SSR</h2>
+        @_message
+        <EditForm method="POST" EditContext="_editContext" OnValidSubmit="ShowMessage">
+            <button class="btn btn-primary">Show Message</button>
+        </EditForm>
+    </div>
+    <div class="col-md-3">
+        <h2>Streaming</h2>
+        <Numbers />
+    </div>
+    <div class="col-md-3">
+        <h2>WASM</h2>
+        <p class="mb-3">
+            This button will work because this Razor component is powered by Blazor WASM
+        </p>
+               <Wasm.Interactive @rendermode="@RenderMode.WebAssembly" />
+    </div>
+    <div class="col-md-3">
+        <h2>Server</h2>
+        <p class="mb-3">
+            This button will work because this Razor component is powered by Blazor Server Side
+        </p>
+               <Counter @rendermode="@RenderMode.Server" />
+    </div>
+</div>
+
+@code {
+
+    EditContext _editContext = new(string.Empty);
+
+    string _message = string.Empty;
+
+    void ShowMessage()
+    {
+        _message = "Hello world";
+    }
+}
+

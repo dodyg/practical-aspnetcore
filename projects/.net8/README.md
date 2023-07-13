@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (17)
+# ASP.NET 8.0 Preview 7 (18)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -41,6 +41,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 * [RazorComponentNine](RazorComponentNine)
 
   This sample demostrates the new attribute `[SupplyParameterFromQuery]` that allows Blazor component to get values directly from query string.
+
+* [RazorComponentTen](RazorComponentTen)
+
+  This sample demonstrates a Razor Component Page SSR that handle a POST form, hosts "number" component with with Streaming rendering and hosts "interactive" components backed by Blazor Web Assembly and Blazor Server.
 
 * [Request Timeout](request-timeout)
 
