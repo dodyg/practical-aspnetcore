@@ -79,6 +79,6 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 
 ## Mix and Match
 
-  * [RazorMixMatchOne](RazorMixMatch)
+  * [RazorMixMatchOne](RazorMixMatchOne)
 
     This example shows how to use Blazor SSR with MVC in the same system.
