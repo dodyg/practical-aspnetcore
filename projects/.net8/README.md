@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (20)
+# ASP.NET 8.0 Preview 7 (21)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -86,3 +86,9 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
   * [RazorMixMatchTwo](RazorMixMatchTwo)
 
     This example shows how to use Blazor SSR with Razor Pages in the same system.
+
+  * [RazorMixMatchThree](RazorMixMatchThree)
+
+    This example shows how to use Blazor SSR with Minimal API in the same system.
+
+  
