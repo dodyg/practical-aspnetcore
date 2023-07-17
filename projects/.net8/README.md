@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (18)
+# ASP.NET 8.0 Preview 7 (19)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -75,3 +75,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
  * [RazorFormHandlingTwo](RazorFormHandlingTwo)
 
    This example shows how to perform automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`.
+
+
+## Mix and Match
+
+  * [RazorMixMatchOne](RazorMixMatch)
+
+    This example shows how to use Blazor SSR with MVC in the same system.
