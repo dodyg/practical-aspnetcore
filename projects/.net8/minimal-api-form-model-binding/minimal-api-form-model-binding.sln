@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "minimal-api-form-model-binding", "minimal-api-form-model-binding.csproj", "{9F6FC559-2A87-4F9F-BFF5-1E340B790048}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F6FC559-2A87-4F9F-BFF5-1E340B790048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6FC559-2A87-4F9F-BFF5-1E340B790048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6FC559-2A87-4F9F-BFF5-1E340B790048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6FC559-2A87-4F9F-BFF5-1E340B790048}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1D5D49B-74DE-4DE6-9327-C9BA5F19073B}
+	EndGlobalSection
+EndGlobal

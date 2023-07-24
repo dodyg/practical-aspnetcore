@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (22)
+# ASP.NET 8.0 Preview 7 (23)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -94,3 +94,9 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
   * [RazorMixMatchFour](RazorMixMatchFour)
 
     This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
+
+## Minimal API
+
+  * [Minimal API Form Model Binding](minimal-api-form-model-binding)
+
+    This sample demonstrates the ability to use `[FromForm]` binding in Minimal API.
