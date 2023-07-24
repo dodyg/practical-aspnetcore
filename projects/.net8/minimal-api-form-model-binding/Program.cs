@@ -28,10 +28,11 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
     """), "text/html");
 });
 
-app.MapPost("/", ([FromForm] BlogPostInput input, HttpContext context) =>
+app.MapPost("/", async ([FromForm] BlogPostInput input, HttpContext context, IAntiforgery antiforgery) =>
 {
     try
     {
+        await antiforgery.ValidateRequestAsync(context);
         return Results.Content(Template($$"""
         <div class="row">
             <div class="col-md-6">
