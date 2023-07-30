@@ -8,7 +8,7 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 
 * [RazorComponentOne](RazorComponentOne)
 
-  This sample demonstrates a simple usage of Razor Component component.
+  This sample demonstrates a simple usage of Razor Component component in SSR (Server Side Rendering).
 
 * [RazorComponentTwo](RazorComponentTwo)
 
