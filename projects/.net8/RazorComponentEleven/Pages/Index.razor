@@ -1,0 +1,36 @@
+@page "/"
+@attribute [StreamRendering(true)]
+
+@if (_numbers is null)
+{
+    <p>Loading numbers (wait for 3 seconds) ...</p>
+}
+else
+{
+    <ul>
+        @foreach(var i in _numbers)
+        {
+            <li>@i</li>
+        }
+    </ul>
+}
+
+@code 
+{
+    List<int> _numbers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(3_000); //three seconds
+        _numbers = Enumerable.Range(0,100).ToList();
+        this.StateHasChanged();
+        
+        await Task.Delay(3_000); //three seconds
+        _numbers = Enumerable.Range(101,100).ToList();
+        this.StateHasChanged();
+
+        await Task.Delay(3_000); //three seconds
+        _numbers = Enumerable.Range(201,100).ToList();
+    }
+}
+

@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (23)
+# ASP.NET 8.0 Preview 7 (24)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -45,6 +45,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 * [RazorComponentTen](RazorComponentTen)
 
   This sample demonstrates a Razor Component Page SSR that handle a POST form, hosts "number" component with with Streaming rendering and hosts "interactive" components backed by Blazor Web Assembly and Blazor Server.
+
+* [RazorComponentElevent](RazorComponentEleven)
+
+  This sample shows how to update the UI multiple times using `StateHasChanged();` while in streaming rendering mode.
 
 * [Request Timeout](request-timeout)
 
