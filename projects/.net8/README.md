@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (24)
+# ASP.NET 8.0 Preview 7 (23)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -72,10 +72,6 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 
 ## Blazor SSR Form Handling
 
- * [RazorFormHandling](RazorFormHandling)
-   
-   This example shows how to perfom manual data binding for a form `POST` request using `FormDataProvider`.
-  
  * [RazorFormHandlingTwo](RazorFormHandlingTwo)
 
    This example shows how to perform automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`.
