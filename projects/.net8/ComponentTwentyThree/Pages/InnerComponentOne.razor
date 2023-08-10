@@ -1,0 +1,10 @@
+<h2>Inner Component One</h2>
+
+@Message.Message
+
+<InnerComponentTwo />
+
+@code {
+    [CascadingParameter]
+    protected MessageCascade Message { get; set; } = default!;
+}

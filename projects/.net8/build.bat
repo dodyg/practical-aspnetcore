@@ -10,7 +10,6 @@ dotnet build RazorComponentSix
 dotnet build RazorComponentTen
 dotnet build RazorComponentThree
 dotnet build RazorComponentTwo
-dotnet build RazorFormHandling
 dotnet build RazorFormHandlingTwo
 dotnet build RazorMixMatchFour
 dotnet build RazorMixMatchOne

@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (23)
+# ASP.NET 8.0 Preview 7 (24)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -94,6 +94,12 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
   * [RazorMixMatchFour](RazorMixMatchFour)
 
     This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
+
+## Component
+
+  * [ComponentTwentyThree](ComponentTwentyThree)
+
+    This sample shows how to set root level cascading values without using `<CascadingValue/>` component. 
 
 ## Minimal API
 
