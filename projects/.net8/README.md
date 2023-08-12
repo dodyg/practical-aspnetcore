@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (26)
+# ASP.NET 8.0 Preview 7 (27)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -71,6 +71,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
   `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
 
 ## Blazor SSR Form Handling
+
+ * [RazorFormHandlingOne](RazorFormHandlingOne)
+   
+   This example shows how to perform automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`. We will use normal `<form>` tag in this case.
 
  * [RazorFormHandlingTwo](RazorFormHandlingTwo)
 
