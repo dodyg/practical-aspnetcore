@@ -1,0 +1,8 @@
+<h2>Inner Component One</h2>
+
+@HelloMessage.Message
+
+@code {
+    [CascadingParameter(Name="hello")]
+    protected MessageCascade HelloMessage { get; set; } = default!;
+}
