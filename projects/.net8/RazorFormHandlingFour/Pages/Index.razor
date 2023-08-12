@@ -1,0 +1,101 @@
+@page "/"
+
+<h1>Automatic Model Binding using EditForm</h1>
+
+<div class="container">
+    @((MarkupString)_showMessage)
+
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <EditForm method="POST" Model="PersonInfo" FormName="info" OnValidSubmit="HandleSubmit">
+                <div class="mb-3">
+                    <label class="form-label" for="PersonInfo.Name">Please enter your name</label><br />
+                    <InputText @bind-Value="PersonInfo.Name" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label for="PersonInfo.Description" class="form-label">Describe yourself</label>
+                    <InputTextArea @bind-Value="PersonInfo.Description" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label for="PersonInfo.Hobby" class="form-label">Hobby</label>
+                    <InputSelect @bind-Value="PersonInfo.Hobby" class="form-select">
+                        <option>Football</option>
+                        <option>Basketball</option>
+                        <option>Tennis</option>
+                    </InputSelect>
+                </div>
+                <div class="mb-3 form-check">
+                    <InputCheckbox @bind-Value="PersonInfo.IsMarried" class="form-check-input" />
+                    <label for="PersonInfo.IsMarried" class="form-check-label">Is married?</label>
+                </div>
+                <div class="mb-3 form-check">
+                    @{ var idx = 0;}
+                    <InputRadioGroup @bind-Value="PersonInfo.Nationality">
+                        @foreach(var val in new string[] { "USA", "Indonesia", "Egypt"})
+                        {
+                            var id = "nationality" + idx;
+                            <InputRadio class="formcheck-input" Value="@val" id="@id"/>
+                            <label class="form-check-label" for="@id">@val</label>
+                            <br/>
+                            idx++;
+                        }
+                    </InputRadioGroup> 
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                  </EditForm>
+        </div>
+        <div class="col-md-6">
+             <EditForm method="POST" Model="PersonInfo" FormName="info2" OnValidSubmit="HandleSubmit2">
+                <div class="mb-3">
+                    <label class="form-label" for="JobInfo.Title">Please enter your job title</label><br />
+                    <InputText @bind-Value="JobInfo.Title" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                  </EditForm>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    [SupplyParameterFromForm(Handler="info")]// matches @formname="info" 
+    public Person PersonInfo  { get; set; } = new();
+
+    [SupplyParameterFromForm(Handler="info2")]// matches @formname="info2" 
+    public Job JobInfo  { get; set; } = new();
+
+    string _showMessage = string.Empty;
+
+    void HandleSubmit()
+    {
+        _showMessage = $"Name: {PersonInfo.Name}<br />Description: {PersonInfo.Description}<br />Hobby: {PersonInfo.Hobby}<br />Is married: {PersonInfo.IsMarried}<br />Nationality: {PersonInfo.Nationality}<br/><br/>";
+    }
+
+    void HandleSubmit2()
+    {
+        _showMessage = $"Title: {JobInfo.Title}<br/><br/>";
+    }
+
+    public class Person
+    {
+        public string Name { get; set; } = string.Empty;
+
+        public string Description { get; set; } = string.Empty;
+
+        public string Hobby { get; set; } = string.Empty;
+
+        public bool IsMarried { get; set; }
+
+        public string Nationality { get; set; } = string.Empty;
+    }
+
+    public class Job
+    {
+        public string Title { get; set; } = string.Empty;
+    }
+}

@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (28)
+# ASP.NET 8.0 Preview 7 (29)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -83,6 +83,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
  * [RazorFormHandlingThree](RazorFormHandlingThree)
 
    This example shows how to perform **multiple** automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`. We will use normal `<form>` tag in this case.
+
+ * [RazorFormHandlingFour](RazorFormHandlingFour)
+
+   This example shows how to perform **multiple** automatic data binding for a form `POST` request using `<EditForm/>` and `[SupplyParameterFromForm]`. 
 
 ## Mix and Match
 
