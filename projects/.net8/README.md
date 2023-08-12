@@ -78,8 +78,7 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 
  * [RazorFormHandlingTwo](RazorFormHandlingTwo)
 
-   This example shows how to perform automatic data binding for a form `POST` request using `[SupplyParameterFromForm]`.
-
+   This example shows how to perform automatic data binding for a form `POST` request using `<EditForm/>` and `[SupplyParameterFromForm]`.
 
 ## Mix and Match
 

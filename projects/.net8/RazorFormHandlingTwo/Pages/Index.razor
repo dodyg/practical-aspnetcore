@@ -1,5 +1,4 @@
 @page "/"
-@inject FormDataProvider FormData
 
 <h1>Automatic Model Binding</h1>
 
@@ -9,7 +8,7 @@
     <br />
     <div class="row">
         <div class="col-md-6">
-            <EditForm method="POST" Model="PersonInfo" OnValidSubmit="HandleSubmit">
+            <EditForm method="POST" Model="PersonInfo" FormName="info" OnValidSubmit="HandleSubmit">
                 <div class="mb-3">
                     <label class="form-label" for="PersonInfo.Name">Please enter your name</label><br />
                     <InputText @bind-Value="PersonInfo.Name" class="form-control" />
@@ -53,7 +52,7 @@
 
 @code
 {
-    [SupplyParameterFromForm]
+    [SupplyParameterFromForm(Handler = "info")] // matches FormName="info"
     public Person PersonInfo  { get; set; } = new();
 
     string _showMessage = string.Empty;
