@@ -1,0 +1,9 @@
+
+<h3>Inner Component Two</h3>
+
+@GoodbyeMessage.Message
+
+@code {
+    [CascadingParameter(Name = "goodbye")]
+    protected MessageCascade GoodbyeMessage { get; set; } = default!;
+}
