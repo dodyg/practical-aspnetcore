@@ -3,7 +3,7 @@ builder.Services.AddRazorComponents();
 
 var app = builder.Build();
 
-app.MapRazorComponents<RazorFormHandlingFive.Pages.App>();
+app.MapRazorComponents<RazorFormHandlingSix.Pages.App>();
 app.Run();
 
 
