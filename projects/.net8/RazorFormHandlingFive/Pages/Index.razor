@@ -1,0 +1,85 @@
+@page "/"
+@using System.ComponentModel.DataAnnotations;
+
+<h1>Form Validation using DataAnnotationsValidator and EditForm</h1>
+
+<div class="container">
+    @((MarkupString)_showMessage)
+
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <EditForm method="POST" Model="PersonInfo" FormName="info" OnValidSubmit="HandleSubmit">
+                <DataAnnotationsValidator />
+                <div class="mb-3">
+                    <label class="form-label" for="PersonInfo.Name">Please enter your name</label><br />
+                    <InputText @bind-Value="PersonInfo.Name" class="form-control" />
+                    <ValidationMessage For="() => PersonInfo.Name" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="PersonInfo.Description" class="form-label">Describe yourself</label>
+                    <InputTextArea @bind-Value="PersonInfo.Description" class="form-control" />
+                    <ValidationMessage For="() => PersonInfo.Description" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="PersonInfo.Hobby" class="form-label">Hobby</label>
+                    <InputSelect @bind-Value="PersonInfo.Hobby" class="form-select">
+                        <option>Football</option>
+                        <option>Basketball</option>
+                        <option>Tennis</option>
+                    </InputSelect>
+                </div>
+                <div class="mb-3 form-check">
+                    <InputCheckbox @bind-Value="PersonInfo.IsMarried" class="form-check-input" />
+                    <label for="PersonInfo.IsMarried" class="form-check-label">Is married?</label>
+                </div>
+                <div class="mb-3 form-check">
+                    @{ var idx = 0;}
+                    <InputRadioGroup @bind-Value="PersonInfo.Nationality">
+                        @foreach(var val in new string[] { "USA", "Indonesia", "Egypt"})
+                        {
+                            var id = "nationality" + idx;
+                            <InputRadio class="formcheck-input" Value="@val" id="@id"/>
+                            <label class="form-check-label" for="@id">@val</label>
+                            <br/>
+                            idx++;
+                        }
+                    </InputRadioGroup>
+                     <ValidationMessage For="() => PersonInfo.Nationality" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    [SupplyParameterFromForm(Handler="info")]// matches @fornname"info" 
+    public Person PersonInfo  { get; set; } = new();
+
+    string _showMessage = string.Empty;
+
+    void HandleSubmit()
+    {
+        _showMessage = $"Name: {PersonInfo.Name}<br />Description: {PersonInfo.Description}<br />Hobby: {PersonInfo.Hobby}<br />Is married: {PersonInfo.IsMarried}<br />Nationality: {PersonInfo.Nationality}<br/><br/>";
+    }
+
+    public class Person
+    {
+        [Required]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        public string Description { get; set; } = string.Empty;
+
+        public string Hobby { get; set; } = string.Empty;
+
+        public bool IsMarried { get; set; }
+
+        [Required]
+        public string Nationality { get; set; } = string.Empty;
+    }
+}

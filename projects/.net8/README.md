@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (29)
+# ASP.NET 8.0 Preview 7 (30)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -87,6 +87,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
  * [RazorFormHandlingFour](RazorFormHandlingFour)
 
    This example shows how to perform **multiple** automatic data binding for a form `POST` request using `<EditForm/>` and `[SupplyParameterFromForm]`. 
+
+ * [RazorFormHandlingFive](RazorFormHandlingFive)
+
+   This example shows how to perform data validation using `DataAnnotationsValidator` and `EditForm`.
 
 ## Mix and Match
 
