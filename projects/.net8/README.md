@@ -118,15 +118,15 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
   
   * [ComponentTwentyFour](ComponentTwentyFour)
 
-    This sample shows how to set root level **named** cascading **values without using `<CascadingValue/>` component. 
+    This sample shows how to set root level **named** cascading values without using `<CascadingValue/>` component. 
 
   * [ComponentTwentyFive](ComponentTwentyFive)
 
-    This sample shows how to set root level **dynamic** cascading **values using `CascadingValueSource`.
+    This sample shows how to set root level **dynamic** cascading values using `CascadingValueSource`.
 
   * [ComponentTwentySix](ComponentTwentySix)
 
-    This sample shows how to set root level **named dynamic** cascading **values using `CascadingValueSource`.
+    This sample shows how to set root level **named dynamic** cascading values using `CascadingValueSource`.
 
 ## Minimal API
 
