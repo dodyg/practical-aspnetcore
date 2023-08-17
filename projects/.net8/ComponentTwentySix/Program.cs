@@ -4,10 +4,10 @@ using ComponentTwentySix;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("app");
-builder.Services.AddCascadingValue("hello", sp => 
+builder.Services.AddCascadingValue(sp => 
 {
     var msg = new MessageCascade("Hello World! " + DateTime.Now);
-    var source = new CascadingValueSource<MessageCascade>(msg, isFixed: false);
+    var source = new CascadingValueSource<MessageCascade>("hello", msg, isFixed: false);
     return source;
 });
 
