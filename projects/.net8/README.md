@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (31)
+# ASP.NET 8.0 Preview 7 (32)
 
 These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
 
@@ -69,6 +69,10 @@ These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#t
 * [SlimBuilder](slim-builder)
 
   `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
+
+* [EmptyBuilder](empty-builder)
+
+  `WebApplication.CreateEmptyBuilder` creates `WebApplicationBuilder` with no built-in behavior.
 
 ## Blazor SSR Form Handling
 
