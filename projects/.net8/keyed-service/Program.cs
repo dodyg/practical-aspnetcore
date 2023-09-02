@@ -7,7 +7,7 @@ builder.Services.AddKeyedSingleton<IGreeting, EveningGreeting>("evening");
 
 var app = builder.Build();
 
-app.MapGet("/", (IKeyedServiceProvider provider) => 
+app.MapGet("/", (IServiceProvider provider) => 
 {
     string GetServiceKey()
     {
