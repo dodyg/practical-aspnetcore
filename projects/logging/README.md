@@ -1,4 +1,4 @@
-# Logging (3)
+# Logging (4)
 
 * [Basic Logging](/projects/logging/logging-1)
 
@@ -11,5 +11,9 @@
 * [JSON Console Logger](/projects/logging/logging-3)
 
   This example shows how to display log to console in structured JSON logs.
+
+* [Logging to Grafana Loki](/projects/logging/logging-Loki)
+
+  This example shows how to log to [Grafana Loki](https://grafana.com/oss/loki/).
 
   dotnet6
