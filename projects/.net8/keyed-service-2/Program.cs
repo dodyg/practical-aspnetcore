@@ -39,10 +39,10 @@ public class HomeController: ControllerBase
         var key = GetServiceKey();
         var greeting = _keyProvider.GetRequiredKeyedService<IGreeting>(key);
 
-        return Content("""
+        return Content($$"""
         <html>
         <body>
-            {{ greeting.Message }}}
+            {{ greeting.Message }}
         </body>
         </html>
         """, "text/html");

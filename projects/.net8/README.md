@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (33)
+# ASP.NET 8.0 Preview 7 (34)
 
 These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table). 
 
@@ -140,6 +140,10 @@ These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table)
 
 ## Keyed Services
 
-  * [Keyed Services in Minimal API]
+  * [Keyed Services in Minimal API](keyed-service)
 
     Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in Minimal API
+
+  * [Keyed Services in MVC](keyed-service-2)
+
+    Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in MVC
