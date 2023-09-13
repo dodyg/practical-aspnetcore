@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (32)
+# ASP.NET 8.0 Preview 7 (33)
 
 These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table). 
 
@@ -137,3 +137,9 @@ These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table)
   * [Minimal API Form Model Binding](minimal-api-form-model-binding)
 
     This sample demonstrates the ability to use `[FromForm]` binding in Minimal API.
+
+## Keyed Services
+
+  * [Keyed Services in Minimal API]
+
+    Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in Minimal API
