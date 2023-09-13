@@ -1,6 +1,15 @@
+dotnet build ComponentTwentyFive
+dotnet build ComponentTwentyFour
+dotnet build ComponentTwentySix
+dotnet build ComponentTwentyThree
+dotnet build empty-builder
+dotnet build keyed-service
+dotnet build keyed-service-2
 dotnet build map-short-circuit
+dotnet build minimal-api-form-model-binding
 dotnet build QuickGridOne
 dotnet build RazorComponentEight
+dotnet build RazorComponentEleven
 dotnet build RazorComponentFive
 dotnet build RazorComponentFour
 dotnet build RazorComponentNine
@@ -10,6 +19,10 @@ dotnet build RazorComponentSix
 dotnet build RazorComponentTen
 dotnet build RazorComponentThree
 dotnet build RazorComponentTwo
+dotnet build RazorFormHandlingFive
+dotnet build RazorFormHandlingFour
+dotnet build RazorFormHandlingOne
+dotnet build RazorFormHandlingThree
 dotnet build RazorFormHandlingTwo
 dotnet build RazorMixMatchFour
 dotnet build RazorMixMatchOne
