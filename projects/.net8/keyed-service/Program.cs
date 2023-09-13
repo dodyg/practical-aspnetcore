@@ -23,10 +23,10 @@ app.MapGet("/", (IServiceProvider provider) =>
     var key = GetServiceKey();
     var greeting = provider.GetRequiredKeyedService<IGreeting>(key);
 
-    return Results.Content("""
+    return Results.Content($$"""
     <html>
     <body>
-        {{ greeting.Message }}}
+        {{ greeting.Message }}
     </body>
     </html>
     """, "text/html");
