@@ -1,6 +1,6 @@
 # ASP.NET 8.0 Preview 7 (32)
 
-These samples require [.NET 8.0 Preview 7](https://github.com/dotnet/installer#table). 
+These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table). 
 
 * [QuickGrid One](QuickGridOne)
   
