@@ -1,0 +1,29 @@
+version: '3.7'
+
+volumes:
+    grafana: ~
+    loki: ~
+
+services:
+    loki:
+        image: "grafana/loki:latest"
+        hostname: logs
+        command: -config.file=/etc/loki/local-config.yaml
+        volumes:
+            - loki:/loki
+        ports:
+            - "3100:3100" # http and Grafana data source
+            - "9095:9095" # grpc
+    grafana:
+        image: grafana/grafana-oss:latest-ubuntu
+        hostname: grafana
+        ports: 
+            - "3000:3000" #UI
+        volumes:
+            - grafana:/var/lib/grafana
+        environment:
+            - GF_AUTH_ANONYMOUS_ENABLED=true
+            - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+            - GF_AUTH_DISABLE_LOGIN_FORM=true
+        depends_on:
+            - loki
