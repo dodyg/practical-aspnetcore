@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (34)
+# ASP.NET 8.0 Preview 7 (36)
 
 These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table). 
 
@@ -49,18 +49,6 @@ These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table)
 * [RazorComponentElevent](RazorComponentEleven)
 
   This sample shows how to update the UI multiple times using `StateHasChanged();` while in streaming rendering mode.
-
-* [Request Timeout](request-timeout)
-
-  This sample demonstrates how to configure a request timeout.
-
-* [Request Timeout Policy](request-timeout-2)
-
-  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a timeout that was specified using a named policy.
-
-* [Request Timeout Policy](request-timeout-3)
-
-  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a default timeout policy.
 
 * [Short Circuit](map-short-circuit)
 
@@ -137,6 +125,30 @@ These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table)
   * [Minimal API Form Model Binding](minimal-api-form-model-binding)
 
     This sample demonstrates the ability to use `[FromForm]` binding in Minimal API.
+
+
+## Request Timeout
+
+* [Request Timeout](request-timeout)
+
+  This sample demonstrates how to configure a request timeout in Minimal API.
+
+* [Request Timeout Policy](request-timeout-2)
+
+  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a timeout that was specified using a named policy in Minimal API.
+
+* [Request Timeout Policy](request-timeout-3)
+
+  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a default timeout policy in Minimal API.
+
+* [Request Timeout](request-timeout-4)
+
+  Use `RequestTimeout` attribute in an MVC controller to specify when timeout is trigerred. 
+
+* [Request Timeout](request-timeout-5)
+
+  Use `RequestTimeout` attribute in an MVC controller to use a named policy. 
+
 
 ## Keyed Services
 
