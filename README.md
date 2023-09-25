@@ -1,6 +1,6 @@
-# Samples for ASP.NET Core 6.0, 7.0 and 8.0 RC 1 (499)
+# Samples for ASP.NET Core 6.0, 7.0 and 8.0 RC 1 (500)
 
-- Samples for ASP.NET Core **8.0 RC 1** is available [here](/projects/.net8) (36).
+- Samples for ASP.NET Core **8.0 RC 1** is available [here](/projects/.net8) (37).
 - Samples for ASP.NET Core **7.0** is available [here](/projects/.net7) (45).
 - Samples for ASP.NET Core **8.0 Preview 6** using EdgeDB.NET is [here](https://github.com/edgedb/edgedb-net).
 

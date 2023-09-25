@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (36)
+# ASP.NET 8.0 Preview 7 (37)
 
 These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table). 
 
@@ -129,26 +129,31 @@ These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table)
 
 ## Request Timeout
 
-* [Request Timeout](request-timeout)
+  * [Request Timeout](request-timeout)
 
-  This sample demonstrates how to configure a request timeout in Minimal API.
+    This sample demonstrates how to configure a request timeout in Minimal API.
 
-* [Request Timeout Policy](request-timeout-2)
+  * [Request Timeout Policy](request-timeout-2)
 
-  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a timeout that was specified using a named policy in Minimal API.
+    Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a timeout that was specified using a named policy in Minimal API.
 
-* [Request Timeout Policy](request-timeout-3)
+  * [Request Timeout Policy](request-timeout-3)
 
-  Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a default timeout policy in Minimal API.
+    Trigger exception on a timeout using `HttpContext.RequestAborted.ThrowIfCancellationRequested()` on a default timeout policy in Minimal API.
 
-* [Request Timeout](request-timeout-4)
+  * [Request Timeout](request-timeout-4)
 
-  Use `RequestTimeout` attribute in an MVC controller to specify when timeout is trigerred. 
+    Use `RequestTimeout` attribute in an MVC controller to specify when timeout is trigerred. 
 
-* [Request Timeout](request-timeout-5)
+  * [Request Timeout](request-timeout-5)
 
-  Use `RequestTimeout` attribute in an MVC controller to use a named policy. 
+    Use `RequestTimeout` attribute in an MVC controller to use a named policy. 
 
+## IExceptionHandler
+
+  * [IExceptionHandler](iexception-handler)
+  
+    Implement `IExceptionHandler` to handle ASP.NET Core exceptions.
 
 ## Keyed Services
 
