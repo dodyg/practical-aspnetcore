@@ -1,4 +1,4 @@
-# Samples for ASP.NET Core 6.0, 7.0 and 8.0 RC 1 (496)
+# Samples for ASP.NET Core 6.0, 7.0 and 8.0 RC 1 (497)
 
 - Samples for ASP.NET Core **8.0 RC 1** is available [here](/projects/.net8) (34).
 - Samples for ASP.NET Core **7.0** is available [here](/projects/.net7) (45).
@@ -30,7 +30,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Health Check](/projects/health-check)                          | 6   |                                                                              |
 | [IHttpClientFactory](/projects/httpclientfactory)               | 4   |                                                                              |
 | [IHostedService](/projects/ihosted-service)                     | 2   |                                                                              |
-| [Logging](/projects/logging)                                    | 3   |                                                                              |
+| [Logging](/projects/logging)                                    | 4   |                                                                              |
 | [Localization and Globalization](/projects/localization)        | 6   |                                                                              |
 | [Middleware](/projects/middleware)                              | 14  |                                                                              |
 | [Mini Apps](/projects/mini)                                     | 2   |                                                                              |

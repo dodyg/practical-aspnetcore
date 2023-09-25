@@ -23,6 +23,8 @@ int resetCount = 8;
 
 app.Run(async context =>
 {
+    if (context.Request.Path == "/favicon.ico") return;//skip favicon request
+
     var log = context.RequestServices.GetService<ILoggerFactory>().CreateLogger("app");
     var cache = context.RequestServices.GetService<IMemoryCache>();
     var greeting = cache.Get(CACHE_KEY) as string;
