@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Http.Timeouts;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder();
+builder.Services.AddControllers();
 builder.Services.AddRequestTimeouts(options =>
 {
     options.DefaultPolicy = new Microsoft.AspNetCore.Http.Timeouts.RequestTimeoutPolicy
     {
-        Timeout = TimeSpan.FromSeconds(1),
+        Timeout = TimeSpan.FromMilliseconds(1),
         TimeoutStatusCode = 200,
         WriteTimeoutResponse = async (HttpContext context) => 
         {
@@ -15,19 +19,17 @@ builder.Services.AddRequestTimeouts(options =>
 
 var app = builder.Build();
 app.UseRequestTimeouts();
-
-app.MapGet("/", async (HttpContext context) => {
-    await Task.Delay(TimeSpan.FromSeconds(2));
-
-    context.RequestAborted.ThrowIfCancellationRequested();
-
-    return Results.Content("""
-    <html>
-    <body>
-        hello world
-    </body>
-    </html>
-    """, "text/html");
-});
+app.MapControllers();
 
 app.Run();
+
+public class HomeController : ControllerBase
+{
+    [HttpGet("/")]
+    public async Task<IActionResult> Index()
+    {
+        await Task.Delay(100);
+        HttpContext.RequestAborted.ThrowIfCancellationRequested();
+        return Ok("Hello World!");
+    }
+}

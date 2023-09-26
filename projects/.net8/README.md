@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (37)
+# ASP.NET 8.0 Preview 7 (38)
 
 These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table). 
 
@@ -148,6 +148,10 @@ These samples require [.NET 8.0 RC 1](https://github.com/dotnet/installer#table)
   * [Request Timeout](request-timeout-5)
 
     Use `RequestTimeout` attribute in an MVC controller to use a named policy. 
+    
+  * [Request Timeout](request-timeout-6)
+
+    Use default timeout policy in an MVC controller. 
 
 ## IExceptionHandler
 
