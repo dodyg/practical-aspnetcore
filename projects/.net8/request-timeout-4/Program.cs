@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddControllers();
+builder.Services.AddRequestTimeouts();
 
 var app = builder.Build();
 app.UseRequestTimeouts();
