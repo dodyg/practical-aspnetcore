@@ -3,6 +3,8 @@ dotnet build ComponentTwentyFour
 dotnet build ComponentTwentySix
 dotnet build ComponentTwentyThree
 dotnet build empty-builder
+dotnet build iexception-handler
+dotnet build iexception-handler-2
 dotnet build keyed-service
 dotnet build keyed-service-2
 dotnet build map-short-circuit
@@ -31,4 +33,7 @@ dotnet build RazorMixMatchTwo
 dotnet build request-timeout
 dotnet build request-timeout-2
 dotnet build request-timeout-3
+dotnet build request-timeout-4
+dotnet build request-timeout-5
+dotnet build request-timeout-6
 dotnet build slim-builder

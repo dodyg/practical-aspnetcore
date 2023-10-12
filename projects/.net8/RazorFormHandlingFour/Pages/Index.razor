@@ -63,10 +63,10 @@
 
 @code
 {
-    [SupplyParameterFromForm(Handler="info")]// matches @formname="info" 
+    [SupplyParameterFromForm(FormName="info")]// matches @formname="info" 
     public Person PersonInfo  { get; set; } = new();
 
-    [SupplyParameterFromForm(Handler="info2")]// matches @formname="info2" 
+    [SupplyParameterFromForm(FormName="info2")]// matches @formname="info2" 
     public Job JobInfo  { get; set; } = new();
 
     string _showMessage = string.Empty;

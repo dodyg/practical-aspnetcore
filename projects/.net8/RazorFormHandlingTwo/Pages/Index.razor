@@ -52,7 +52,7 @@
 
 @code
 {
-    [SupplyParameterFromForm(Handler = "info")] // matches FormName="info"
+    [SupplyParameterFromForm(FormName = "info")] // matches FormName="info"
     public Person PersonInfo  { get; set; } = new();
 
     string _showMessage = string.Empty;

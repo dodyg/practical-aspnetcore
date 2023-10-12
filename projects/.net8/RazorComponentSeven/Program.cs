@@ -1,9 +1,12 @@
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddRazorComponents()
-    .AddServerComponents();
+    .AddInteractiveServerComponents();
+builder.Services.AddAntiforgery();
 
 var app = builder.Build();
-app.MapRazorComponents<RazorComponentSeven.App>();
+app.UseAntiforgery();
+app.MapRazorComponents<RazorComponentSeven.App>()
+    .AddInteractiveServerRenderMode();
 app.Run();
 
 

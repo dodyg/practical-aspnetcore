@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Components.Endpoints;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddRazorComponents();

@@ -2,7 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddWebAssemblyComponents();
+    .AddInteractiveWebAssemblyComponents();
+builder.Services.AddAntiforgery();
 
 var app = builder.Build();
 
@@ -17,8 +18,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+app.UseAntiforgery();
 
 app.MapRazorComponents<RazorComponentEight.App>()
-    .AddWebAssemblyRenderMode();
+    .AddInteractiveWebAssemblyRenderMode();
 
 app.Run();
