@@ -3,4 +3,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Net.Compilers.Razor.Toolset" Version="7.0.0-preview.23512.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>

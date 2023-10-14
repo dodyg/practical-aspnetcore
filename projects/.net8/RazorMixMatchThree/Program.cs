@@ -1,8 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorComponents();
+builder.Services.AddAntiforgery();
 
 var app = builder.Build();
+app.UseAntiforgery();
 
 app.MapGet("/", () => 
 {

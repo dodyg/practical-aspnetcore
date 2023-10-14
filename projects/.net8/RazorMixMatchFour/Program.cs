@@ -3,9 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
 builder.Services.AddMvc();
 builder.Services.AddRazorPages();
+builder.Services.AddAntiforgery();
 
 var app = builder.Build();
-
+app.UseAntiforgery();
 app.MapGet("/", () => 
 {
     return Results.Text("""
