@@ -73,9 +73,4 @@ public class BlogPostInput(string? title, string body)
 {
     public string? Title { get; set; } = title;
     public string Body { get; set; } = body;
-
-    public BlogPostInput() : this(null, string.Empty)
-    {
-
-    }
 }
