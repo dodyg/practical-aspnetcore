@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddAntiforgery();
 var app = builder.Build();
-
+app.UseAntiforgery();
 app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
 {
     var token = antiforgery.GetAndStoreTokens(context);
