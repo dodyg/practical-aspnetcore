@@ -1,9 +1,9 @@
 using System.Security.Cryptography;
-using Elsa.Expressions.Models;
 using Elsa.Extensions;
+using Elsa.Workflows.Core;
 using Elsa.Workflows.Core.Activities;
-using Elsa.Workflows.Core.Models;
-using Elsa.Workflows.Core.Services;
+using Elsa.Workflows.Core.Contracts;
+using Elsa.Workflows.Core.Memory;
 
 var services = new ServiceCollection();
 services.AddElsa();
@@ -11,7 +11,7 @@ services.AddElsa();
 var serviceProvider = services.BuildServiceProvider();
 var runner = serviceProvider.GetRequiredService<IWorkflowRunner>();
 
-var magicNumber = new Variable<int>("magic-number");
+var magicNumber = new Variable<int>("magic-number", 0);
 
 var workflow = new Sequence
 {
@@ -31,7 +31,6 @@ var workflow = new Sequence
 };
 
 await runner.RunAsync(workflow);
-
 
 class GetRandom : Composite<int>
 {
@@ -55,10 +54,10 @@ class GetRandom : Composite<int>
         };
     }
 
-    protected override void OnCompleted(ActivityExecutionContext context, ActivityExecutionContext childContext)
+    protected override void OnCompleted(ActivityCompletedContext context)
     {
-        var random = _random.Get<int>(context);
-        context.Set(Result, random);
+        var random = _random.Get<int>(context.ChildContext);
+        context.ChildContext.Set(Result, random);
     }
 }
 

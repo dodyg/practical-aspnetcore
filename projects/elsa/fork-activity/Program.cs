@@ -1,9 +1,7 @@
-using System.Security.Cryptography;
-using Elsa.Expressions.Models;
 using Elsa.Extensions;
 using Elsa.Workflows.Core.Activities;
-using Elsa.Workflows.Core.Models;
-using Elsa.Workflows.Core.Services;
+using Elsa.Workflows.Core.Contracts;
+using Elsa.Workflows.Core.Memory;
 
 var services = new ServiceCollection();
 services.AddElsa();
@@ -11,7 +9,7 @@ services.AddElsa();
 var serviceProvider = services.BuildServiceProvider();
 var runner = serviceProvider.GetRequiredService<IWorkflowRunner>();
 
-var magicNumber = new Variable<int>("magic-number");
+var magicNumber = new Variable<int>("magic-number", 0);
 
 var workflow = new Sequence
 {

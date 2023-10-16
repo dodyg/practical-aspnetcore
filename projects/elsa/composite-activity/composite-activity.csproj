@@ -4,6 +4,6 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Elsa" Version="3.0.0-preview.18" />
+    <PackageReference Include="Elsa" Version="3.0.0-preview-preview-3.0.0-740-hotfix-1.771" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 using Elsa.Extensions;
 using Elsa.Workflows.Core.Activities;
-using Elsa.Workflows.Core.Models;
-using Elsa.Workflows.Core.Services;
+using Elsa.Workflows.Core.Contracts;
+using Elsa.Workflows.Core.Memory;
 
 var services = new ServiceCollection();
 services.AddElsa();
@@ -17,11 +17,11 @@ var workflow = new Sequence
     Variables = { msg },
     Activities =
     {
-        new WriteLine(context => msg.Get(context)),
+        new WriteLine(msg.Get),
         new SetVariable<string>(msg, "hello world"),
-        new WriteLine(context => msg.Get(context)),
+        new WriteLine(msg.Get),
         new SetVariable<string>(msg, "hello world from Cairo"),
-        new WriteLine(context => msg.Get(context)),
+        new WriteLine(msg.Get),
     }
 };
 

@@ -1,5 +1,7 @@
 using Elsa.Extensions;
 using Elsa.Workflows.Core.Activities;
+using Elsa.Workflows.Core.Contracts;
+using Elsa.Workflows.Core.Memory;
 using Elsa.Workflows.Core.Models;
 using Elsa.Workflows.Core.Services;
 
@@ -9,7 +11,7 @@ services.AddElsa();
 var serviceProvider = services.BuildServiceProvider();
 var runner = serviceProvider.GetRequiredService<IWorkflowRunner>();
 
-var counter = new Variable<int>("counter");
+var counter = new Variable<int>("counter", 0);
 counter.Value = 1;
 
 var workflow = new Sequence

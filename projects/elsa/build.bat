@@ -1,0 +1,17 @@
+dotnet build composite-activity
+dotnet build for-activity
+dotnet build foreach-activity
+dotnet build fork-activity
+dotnet build fork-activity-2
+dotnet build if-activity
+dotnet build readline-activity
+dotnet build sequence-activity
+dotnet build setname-activity
+dotnet build setvariable-activity
+dotnet build while-activity
+dotnet build workflow
+dotnet build workflow-2
+dotnet build workflow-3
+dotnet build workflow-4
+dotnet build workflow-5
+dotnet build writeline-activity
