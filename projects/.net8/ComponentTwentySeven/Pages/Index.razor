@@ -1,0 +1,16 @@
+﻿@page "/"
+
+@Msg1.Message <br/>
+@Msg2.Message
+
+@code 
+{
+    [Inject(Key = "msg1")]
+    public IMessage Msg1 { get; set; }
+
+    
+    [Inject(Key = "msg2")]
+    public IMessage Msg2 { get; set; }
+}
+
+

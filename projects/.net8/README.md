@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (40)
+# ASP.NET 8.0 Preview 7 (41)
 
 These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table). 
 
@@ -123,6 +123,10 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
   * [ComponentTwentySix](ComponentTwentySix)
 
     This sample shows how to set root level **named dynamic** cascading values using `CascadingValueSource`.
+
+  * [ComponentTwentySeven](ComponentTwentySeven)
+
+    This sample shows how to use `[Inject(Key)]` in consuming keyed services.
 
 ## Minimal API
 
