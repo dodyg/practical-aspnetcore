@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (39)
+# ASP.NET 8.0 Preview 7 (40)
 
 These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table). 
 
@@ -46,9 +46,13 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
 
   This sample demonstrates a Razor Component Page SSR that handle a POST form, hosts "number" component with with Streaming rendering and hosts "interactive" components backed by Blazor Web Assembly and Blazor Server.
 
-* [RazorComponentElevent](RazorComponentEleven)
+* [RazorComponentEleven](RazorComponentEleven)
 
   This sample shows how to update the UI multiple times using `StateHasChanged();` while in streaming rendering mode.
+
+* [RazorComponentTwelve](RazorComponentTwelve)
+
+  This sample shows how to access `HttpContext` from a static Razor component.
 
 * [Short Circuit](map-short-circuit)
 

@@ -1,0 +1,20 @@
+@page "/"
+
+@_message
+
+<br/>
+
+HttpContext.Request.Path @HttpContext!.Request.Path
+
+@code 
+{
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
+    string _message = string.Empty;
+    protected override void OnInitialized()
+    {
+        _message = HttpContext is object ? "HttpContext exists at OnInitialized" : "HttpContext is null";
+    }
+}
+
