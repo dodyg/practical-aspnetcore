@@ -1,4 +1,4 @@
-# ASP.NET 8.0 Preview 7 (41)
+# ASP.NET 8.0 Preview 7 (42)
 
 These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table). 
 
@@ -70,6 +70,10 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
 * [RazorComponentTwelve](RazorComponentTwelve)
 
   This sample shows how to access `HttpContext` from a static Razor component.
+
+* [RazorComponentThirteen](RazorComponentThirteen)
+
+  This sample shows how to use `.AddAdditionalAssemblies` to allow the a host project to discover Page components in a separate WASM project. 
 
 ## Blazor SSR Form Handling
 
