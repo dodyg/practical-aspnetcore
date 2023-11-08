@@ -2,6 +2,23 @@
 
 These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table). 
 
+## Misc New Features
+
+* [Short Circuit](map-short-circuit)
+
+  Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run. 
+
+* [SlimBuilder](slim-builder)
+
+  `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
+
+* [EmptyBuilder](empty-builder)
+
+  `WebApplication.CreateEmptyBuilder` creates `WebApplicationBuilder` with no built-in behavior.
+
+
+## What's new in Blazor 8
+
 * [QuickGrid One](QuickGridOne)
   
   This sample demonstrates a simple usage of QuickGrid component displaying int, string, date, and boolean data types.
@@ -54,18 +71,6 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
 
   This sample shows how to access `HttpContext` from a static Razor component.
 
-* [Short Circuit](map-short-circuit)
-
-  Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run. 
-
-* [SlimBuilder](slim-builder)
-
-  `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
-
-* [EmptyBuilder](empty-builder)
-
-  `WebApplication.CreateEmptyBuilder` creates `WebApplicationBuilder` with no built-in behavior.
-
 ## Blazor SSR Form Handling
 
  * [RazorFormHandlingOne](RazorFormHandlingOne)
@@ -88,7 +93,7 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
 
    This example shows how to perform data validation using `DataAnnotationsValidator` and `EditForm`.
 
-## Mix and Match
+## Mix and Match Blazor SSR with existing tech
 
   * [RazorMixMatchOne](RazorMixMatchOne)
 
@@ -106,7 +111,7 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
 
     This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
 
-## Component
+## Blazor Component Model Improvements
 
   * [ComponentTwentyThree](ComponentTwentyThree)
 
@@ -128,12 +133,11 @@ These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table)
 
     This sample shows how to use `[Inject(Key)]` in consuming keyed services.
 
-## Minimal API
+## Minimal API Improvements
 
   * [Minimal API Form Model Binding](minimal-api-form-model-binding)
 
     This sample demonstrates the ability to use `[FromForm]` binding in Minimal API.
-
 
 ## Request Timeout
 
