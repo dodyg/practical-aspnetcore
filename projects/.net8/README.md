@@ -1,6 +1,4 @@
-# ASP.NET 8.0 Preview 7 (42)
-
-These samples require [.NET 8.0 RC 2](https://github.com/dotnet/installer#table). 
+# ASP.NET 8.0 (42)
 
 ## Misc New Features
 

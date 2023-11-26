@@ -1,6 +1,6 @@
 @attribute [StreamRendering(true)]
 
-@if (_numbers is null)
+@if (_numbers.Count == 0)
 {
     <p>Loading numbers (wait for 6 seconds) ...</p>
 }
@@ -16,7 +16,7 @@ else
 
 @code 
 {
-    List<int> _numbers;
+    List<int> _numbers = [];
 
     protected override async Task OnInitializedAsync()
     {
