@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using Elsa.Extensions;
-using Elsa.Workflows.Core;
-using Elsa.Workflows.Core.Activities;
-using Elsa.Workflows.Core.Contracts;
+using Elsa.Workflows;
+using Elsa.Workflows.Activities;
+using Elsa.Workflows.Contracts;
 
 var services = new ServiceCollection();
 services.AddElsa();
@@ -26,7 +26,7 @@ public class RandomWorkflow : WorkflowBase<int>
         builder.Root = new SetVariable
         {
             Variable = Result,
-            Value = new Elsa.Workflows.Core.Models.Input<object>(ctx => result)
+            Value = new Elsa.Workflows.Models.Input<object>(ctx => result)
         };
     }
 }
