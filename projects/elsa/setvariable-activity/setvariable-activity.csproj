@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>true</ImplicitUsings>
+    <NoWarn>ASP0000</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-      <PackageReference Include="Elsa" Version="3.0.0-preview-preview-3.0.0-740-hotfix-1.771" />
+      <PackageReference Include="Elsa" Version="3.0.0" />
   </ItemGroup>
 </Project>

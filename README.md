@@ -1,7 +1,5 @@
 # Samples for ASP.NET Core 8.0 
 
-> [!NOTE]
-> This branch is still work in progress. I am restructuring the whole repository to work better for beginners and experts alike.
 
 Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg) this project [here](https://github.com/sponsors/dodyg). 
 
@@ -22,7 +20,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Diagnostics](/projects/diagnostics)                            | 6   |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                  | 32  |                                                                              |
 | [Email](/projects/mailkit)                                      | 2   |                                                                              |
-| [Elsa Workflow](/projects/elsa)                                 | 14  |                                                                              |
+| [Elsa Workflow - .NET8](/projects/elsa)                         | 14  |                                                                              |
 | [Features](/projects/features)                                  | 11  |                                                                              |
 | [Generic Hosting](/projects/generic-host)                       | 9   |                                                                              |
 | [gRPC](/projects/grpc) (including grpc-Web)                     | 12  |                                                                              |

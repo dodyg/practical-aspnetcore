@@ -1,7 +1,7 @@
 using Elsa.Extensions;
-using Elsa.Workflows.Core;
-using Elsa.Workflows.Core.Activities;
-using Elsa.Workflows.Core.Contracts;
+using Elsa.Workflows;
+using Elsa.Workflows.Activities;
+using Elsa.Workflows.Contracts;
 
 var services = new ServiceCollection();
 services.AddElsa();
@@ -29,9 +29,10 @@ public class SetNameWorkflow : WorkflowBase
 
 public class ShowName : Activity
 {
-    protected override async ValueTask ExecuteAsync(ActivityExecutionContext context)
+    protected override ValueTask ExecuteAsync(ActivityExecutionContext context)
     {
         var instanceName = context.WorkflowExecutionContext.GetProperty<string>("WorkflowInstanceName");
         Console.WriteLine($"WorkflowInstanceName {instanceName}");
+        return ValueTask.CompletedTask;
     }
 }
