@@ -1,7 +1,5 @@
-# Samples for ASP.NET Core 8.0, 7.0 and 6.0 (505)
+# Samples for ASP.NET Core 8.0 
 
-- Samples for new features of ASP.NET Core **8.0** are available [here](/projects/.net8) (42).
-- Samples for new features of ASP.NET Core **7.0** are available [here](/projects/.net7) (45).
 
 Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg) this project [here](https://github.com/sponsors/dodyg). 
 
