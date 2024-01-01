@@ -1,11 +1,16 @@
 # Samples for ASP.NET Core 8.0 
 
+- Samples for new features of ASP.NET Core **8.0** are available [here](/projects/.net8) (42).
+- Samples for new features of ASP.NET Core **7.0** are available [here](/projects/.net7) (45).
+
+> [!NOTE]
+> This repository is WIP. I am updating all the previous samples from .NET 6/7 to .NET 8. Check the previous stable branch ([6.0](https://github.com/dodyg/practical-aspnetcore/tree/net6.0/)) if you want to browse the existings samples.
 
 Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg) this project [here](https://github.com/sponsors/dodyg). 
 
 ## Previous versions
 
-[5.0](https://github.com/dodyg/practical-aspnetcore/tree/net5.0/), [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
+[6.0](https://github.com/dodyg/practical-aspnetcore/tree/net6.0/), [5.0](https://github.com/dodyg/practical-aspnetcore/tree/net5.0/), [3.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS/), [2.1 LTS](https://github.com/dodyg/practical-aspnetcore/tree/2.1-LTS)
 
 ## Sections
 
