@@ -1,9 +1,31 @@
-# Microsoft Orleans (12)
+# Microsoft Orleans (5)
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
-This section is very early in development. My experience in using an Actor framework is ZERO. Welcome to the world of Grains and Silo.
+## Orleans 8
 
+* [Orleans - 1](orleans-1)
+
+  This sample shows how to use Orleans 7 in a minimal API application. It shows the new way on how to configure an Orleans server.
+
+* [Orleans - 2](orleans-2)
+
+  This is a sample project that shows how to use Redis as a persistence provider for Orleans.
+
+* [Orleans - 3](orleans-3)
+
+  This sample demonstrates the functionality of Orleans' Timer via Grain.RegisterTimer. It's useful to trigger actions to be repeated frequently (less than every minute).
+
+* [Orleans - 4](orleans-4)
+
+  This sample demonstrates the functionality of Orleans' Reminder via Grain.RegisterOrUpdateReminder. It's useful to trigger actions to be repeated infrequently (more than every minute, hours or days). This is a persistent timer that survives grain restarts. [Reminder is much expensive than Timer](https://github.com/dotnet/orleans/issues/4218#issuecomment-373162275).
+
+
+- [Orleans - 5](orleans-5)
+
+  This sample demonstrates using HttpClient in a `grain` and also introduces the concept of a Stateless Worker `grain`. 
+
+<!--
 ## Samples
 
 - [Hello World](hello-world)
@@ -54,4 +76,4 @@ This section is very early in development. My experience in using an Actor frame
 
   This is an RSS reader that read RSS feed sources from an OPML subscription list and publish it into a single stream with a single channel. The data then processed by implicit susbcriber. 
 
-dotnet6
+-->
