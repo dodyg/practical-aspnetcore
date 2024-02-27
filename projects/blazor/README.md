@@ -80,6 +80,26 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     This sample demonstrates cascading value by name feature. In contrast to cascading value by type, only parameters that match the type and name will receive the value.
 
+  * [Component Eighteen](ComponentEighteen) 
+
+    This sample demonstrates @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
+
+  * [Component Nineteen](ComponentNineteen) 
+
+    This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
+    
+  * [Component Twenty](ComponentTwenty)
+
+    This sample shows how to implement a HTML custom element using Blazor Web Assembly.
+
+  * [Component Twenty One](ComponentTwentyOne)
+
+    This sample shows how set and get a property of a HTML custom element implemented using Blazor Web Assembly.
+
+  * [Component Twenty Two](ComponentTwentyTwo)
+
+    This sample shows how to raise an event from HTML custom element implemented using Blazor Web Assembly.
+
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
     Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
@@ -96,5 +116,4 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     Show an example of `RadioButton` handling.
 
-    dotnet6
 

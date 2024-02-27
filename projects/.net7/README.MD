@@ -123,28 +123,6 @@ Samples in this section require .NET 7. You can download it from [here](https://
 
   This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
 
-## Blazor
-
-* [Component - 18](ComponentEighteen) 
-
-  This sample demonstrates @bind:after modifier that allows to execute async code after a binding event has been completed (value has changed).
-
-* [Component - 19](ComponentNineteen) 
-
-  This sample demonstrates @bind:get @bind:set modifier that simplify two-way data binding. 
-  
-* [Component - 20](ComponentTwenty)
-
-  This sample shows how to implement a HTML custom element using Blazor Web Assembly.
-
-* [Component - 21](ComponentTwentyOne)
-
-  This sample shows how set and get a property of a HTML custom element implemented using Blazor Web Assembly.
-
-* [Component - 22](ComponentTwentyTwo)
-
-  This sample shows how to raise an event from HTML custom element implemented using Blazor Web Assembly.
-
 ## Problem Details
 
 * [Problem Details - 1](problem-details)
