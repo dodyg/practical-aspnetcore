@@ -1,4 +1,4 @@
-# Blazor (22)
+# Blazor Wasm (22)
 
 You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. Make sure you pay attention which port Kestrel is running on.
 
