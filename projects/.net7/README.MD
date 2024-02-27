@@ -56,28 +56,6 @@ Samples in this section require .NET 7. You can download it from [here](https://
   This sample shows how to use both JWT and Cookie authentications in the same application.
 
 
-## gRPC
-
-* [gRPC - 13](grpc-13)
-
-  This sample shows how to make a GET HTTP call to a gRPC endpoint via gRPC JSON transcoding.
-
-* [gRPC - 14](grpc-14)
-
-  This sample shows how to make a POST HTTP call to a gRPC endpoint via gRPC JSON transcoding.
-
-* [gRPC - 15](grpc-15)
-
-  This sample shows how to make a POST HTTP call to a gRPC endpoint via gRPC JSON transcoding by combining route parameter and body.
-
-* [gRPC - 16](grpc-16)
-
-  This sample shows how to make a PUT HTTP call to a gRPC endpoint via gRPC JSON transcoding.
-
-* [gRPC - 17](grpc-17)
-
-  This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
-
 ## Problem Details
 
 * [Problem Details - 1](problem-details)

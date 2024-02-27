@@ -53,7 +53,28 @@
 * [Server Streaming - Message Server - Blazor Web Assembly](/projects/grpc/grpc-12)
 
   This sample shows how to do simple gRPC sever streaming with Blazor Web Assembly client.
-  
+
+* [gRPC - 13](grpc-13)
+
+  This sample shows how to make a GET HTTP call to a gRPC endpoint via gRPC JSON transcoding.
+
+* [gRPC - 14](grpc-14)
+
+  This sample shows how to make a POST HTTP call to a gRPC endpoint via gRPC JSON transcoding.
+
+* [gRPC - 15](grpc-15)
+
+  This sample shows how to make a POST HTTP call to a gRPC endpoint via gRPC JSON transcoding by combining route parameter and body.
+
+* [gRPC - 16](grpc-16)
+
+  This sample shows how to make a PUT HTTP call to a gRPC endpoint via gRPC JSON transcoding.
+
+* [gRPC - 17](grpc-17)
+
+  This sample shows how to make a PATCH HTTP call to a gRPC endpoint via gRPC JSON transcoding.
+
+
 ## Other collections of gRPC samples
 
 * [grpc-dotnet examples](https://github.com/grpc/grpc-dotnet/tree/master/examples)
