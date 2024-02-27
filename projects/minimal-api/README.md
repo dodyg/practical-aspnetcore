@@ -148,3 +148,10 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 * [Route Group - 3](map-group-3)
 
   Use `.ExcludeFromDescription` to exclude endpoints from OpenAPI description.
+
+
+## Minimal API Improvements
+
+  * [Minimal API Form Model Binding](minimal-api-form-model-binding)
+
+    This sample demonstrates the ability to use `[FromForm]` binding in Minimal API.

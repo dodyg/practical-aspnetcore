@@ -113,12 +113,6 @@
 
     This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
 
-## Minimal API Improvements
-
-  * [Minimal API Form Model Binding](minimal-api-form-model-binding)
-
-    This sample demonstrates the ability to use `[FromForm]` binding in Minimal API.
-
 ## IExceptionHandler
 
   * [IExceptionHandler](iexception-handler)
