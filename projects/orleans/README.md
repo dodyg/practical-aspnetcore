@@ -6,7 +6,7 @@ These are simple samples to play with [Microsoft Orleans](https://github.com/dot
 
 * [Orleans - 1](orleans-1)
 
-  This sample shows how to use Orleans 7 in a minimal API application. It shows the new way on how to configure an Orleans server.
+  This sample shows how to use Orleans 8 in a minimal API application. It shows the new way on how to configure an Orleans server.
 
 * [Orleans - 2](orleans-2)
 
@@ -27,22 +27,6 @@ These are simple samples to play with [Microsoft Orleans](https://github.com/dot
 
 <!--
 ## Samples
-
-- [Hello World](hello-world)
-
-  This sample is a sample from Orleans that I simplify and port to C# 9. You need to run two executables.
-
-- [Hello World with Redis storage](hello-world-2)
-
-  In the previous Hello World sample, once you stop the `silo`, the messages are gone. In this sample we use Redis to store the Grain between `silo` restarts so we won't lose the messages.
-
-- [ASP.NET Core and Orleans](hello-world-3)
-
-  Co-host Orleans and ASP.NET Core together. Everything in a single `Program.cs` file. This sample is the simplest.
-
-- [ASP.NET Core and Orleans with Redis storage](hello-world-4)
-
-  Co-host Orleans and ASP.NET Core together with Redis storage. Everything in a single `Program.cs` file. This sample also use C# 9 records.
 
 - [Timer](timer)
 

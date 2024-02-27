@@ -1,8 +1,7 @@
 using System.Net;
-using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
-using Orleans.Hosting;
+using Microsoft.Extensions.Logging.Console;
 
 var builder = WebApplication.CreateBuilder();
 builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
@@ -17,13 +16,14 @@ builder.Host.UseOrleans(builder =>
                 options.ServiceId = "HelloWorldApp";
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloReminderGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage("redis-reminder", optionsBuilder => optionsBuilder.Configure(options =>
+            .AddRedisGrainStorage("redis-reminder", options =>
             {
-                options.ConnectionString = "localhost:6379"; 
-                options.UseJson = true;
-                options.DatabaseNumber = 1;
-            }));
+                options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+                {
+                    EndPoints = { { "localhost", 6379 } },
+                    AbortOnConnectFail = false
+                };
+            });
     });
 
 var app = builder.Build();
@@ -94,6 +94,7 @@ public class HelloReminderGrain : Grain, IHelloArchive, IRemindable
 
     public async Task ReceiveReminder(string reminderName, TickStatus status)
     {
+        _log.Info($"Receive reminder {reminderName} on { DateTime.UtcNow } with status { status }");
         _log.Info($"Receive reminder {reminderName} on { DateTime.UtcNow } with status { status }");
         var g = new Greeting(_greeting, DateTime.UtcNow);
         _archive!.State.Greetings.Insert(0, g);

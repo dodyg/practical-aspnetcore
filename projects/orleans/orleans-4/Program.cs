@@ -14,11 +14,14 @@ builder.Host.UseOrleans(b =>
                 options.ServiceId = "orleans-2";
             })
             .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .AddRedisGrainStorage("redis-reminder", optionsBuilder => optionsBuilder.Configure(options =>
+            .AddRedisGrainStorage("redis-reminder", options =>
             {
-                options.ConnectionString = "localhost:6379";
-                options.DatabaseNumber = 1;
-            }))
+                options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+                {
+                    EndPoints = { { "localhost", 6379 } },
+                    AbortOnConnectFail = false
+                };
+            })
             .UseInMemoryReminderService();
     });
 
