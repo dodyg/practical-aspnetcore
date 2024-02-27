@@ -70,17 +70,3 @@ Samples in this section require .NET 7. You can download it from [here](https://
 
   This example shows how customize [Problem Details](https://www.rfc-editor.org/rfc/rfc7807) by manipulating `IProblemDetailsService`.
 
-## System.Text.Json
-
-* [JSON - 23](json-23)
-
-  Show how to customize serialization using `DefaultJsonTypeInfoResolver`.
-
-* [JSON - 24](json-24)
-
-  Customize serialization by writing `number` as `string` in JSON for `Age` values. 
-
-* [JSON - 25](json-25)
-
-  In this case we add one extra `timestamp` property to the serialization process. 
-

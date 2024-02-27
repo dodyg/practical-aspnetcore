@@ -95,4 +95,15 @@ All about the new `System.Text.Json` namespace.
   
   This example shows how to add items at the first position of an array and at the last position.
 
-  dotnet6
+* [JSON - 23](json-23)
+
+  Show how to customize serialization using `DefaultJsonTypeInfoResolver`.
+
+* [JSON - 24](json-24)
+
+  Customize serialization by writing `number` as `string` in JSON for `Age` values. 
+
+* [JSON - 25](json-25)
+
+  In this case we add one extra `timestamp` property to the serialization process. 
+
