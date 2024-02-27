@@ -18,4 +18,12 @@
 
     This shows how to register [Lazy](https://docs.microsoft.com/en-us/dotnet/api/system.lazy-1?view=net-5.0) types in the built in Dependency Injection. 
 
-dotnet6
+## Keyed Services
+
+  * [Keyed Services in Minimal API](keyed-service)
+
+    Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in Minimal API
+
+  * [Keyed Services in MVC](keyed-service-2)
+
+    Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in MVC

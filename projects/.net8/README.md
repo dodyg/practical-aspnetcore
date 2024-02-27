@@ -128,13 +128,3 @@
   * [Multiple IExceptionHandler](iexception-handler-2)
   
     Implement multiple `IExceptionHandler` to handle ASP.NET Core exceptions.
-
-## Keyed Services
-
-  * [Keyed Services in Minimal API](keyed-service)
-
-    Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in Minimal API
-
-  * [Keyed Services in MVC](keyed-service-2)
-
-    Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in MVC
