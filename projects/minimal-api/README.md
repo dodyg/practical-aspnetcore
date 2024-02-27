@@ -133,3 +133,18 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 * [Endpoint Filter - 4](endpoint-filter-4)
 
   Use `IStatusCodeHttpResult` to detect return result in filter.
+
+
+## Route Group
+
+* [Route Group - 1](map-group-1)
+
+  `MapGroup()` extension methods allow grouping of endpoints with a common prefix. It also allow group metadata to be attached to the group.
+
+* [Route Group - 2](map-group-2)
+
+  Use `.WithTags()`, `.WithDescription()`, `.WithSummary()` to enrich OpenAPI information for all the endpoints in the group.
+
+* [Route Group - 3](map-group-3)
+
+  Use `.ExcludeFromDescription` to exclude endpoints from OpenAPI description.
