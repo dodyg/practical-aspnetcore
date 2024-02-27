@@ -6,28 +6,6 @@ Samples in this section require .NET 7. You can download it from [here](https://
 
   There is no need for `[FromServices]` attribute anymore to inject a dependency to your action method.
 
-* [Typed Results - 1](typed-results-1)
-  
-  `Microsoft.AspNetCore.Http.TypedResults` static class is the “typed” equivalent of the existing `Microsoft.AspNetCore.Http.Results` class.
-
-* [WithOpenApi - 1](open-api-1)
-
-  This sample demonstrate the usage of `WithOpenApi` extension method available in  `Microsoft.AspNetCore.OpenApi` to customize OpenAPI operation information.
-
-* [Results<> Union Type](open-api-2)
-
-  `Results<TResult1, TResult2, TResultN>` provides better description of the result of the operation that OpenAPI/Swagger can use in describing the API.
-
-* [IFormFile](iform-file)
-  
-  This sample demonstrates the usage of `IFormFile` to upload a file in Minimal API.
-
-* [IFormFileCollection](iform-file-collection)
-  
-  This sample demonstrates the usage of `IFormFileCollection` to upload multiple files in Minimal API.
-
-
-
 ## Authentication
 
 * [Authentication - JWT](authentication-1)
