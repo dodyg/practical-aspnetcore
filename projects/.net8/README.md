@@ -113,28 +113,6 @@
 
     This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
 
-## Blazor Component Model Improvements
-
-  * [ComponentTwentyThree](ComponentTwentyThree)
-
-    This sample shows how to set root level cascading values without using `<CascadingValue/>` component. 
-  
-  * [ComponentTwentyFour](ComponentTwentyFour)
-
-    This sample shows how to set root level **named** cascading values without using `<CascadingValue/>` component. 
-
-  * [ComponentTwentyFive](ComponentTwentyFive)
-
-    This sample shows how to set root level **dynamic** cascading values using `CascadingValueSource`.
-
-  * [ComponentTwentySix](ComponentTwentySix)
-
-    This sample shows how to set root level **named dynamic** cascading values using `CascadingValueSource`.
-
-  * [ComponentTwentySeven](ComponentTwentySeven)
-
-    This sample shows how to use `[Inject(Key)]` in consuming keyed services.
-
 ## Minimal API Improvements
 
   * [Minimal API Form Model Binding](minimal-api-form-model-binding)

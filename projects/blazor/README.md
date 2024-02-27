@@ -100,6 +100,26 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     This sample shows how to raise an event from HTML custom element implemented using Blazor Web Assembly.
 
+  * [ComponentTwentyThree](ComponentTwentyThree)
+
+    This sample shows how to set root level cascading values without using `<CascadingValue/>` component. 
+  
+  * [ComponentTwentyFour](ComponentTwentyFour)
+
+    This sample shows how to set root level **named** cascading values without using `<CascadingValue/>` component. 
+
+  * [ComponentTwentyFive](ComponentTwentyFive)
+
+    This sample shows how to set root level **dynamic** cascading values using `CascadingValueSource`.
+
+  * [ComponentTwentySix](ComponentTwentySix)
+
+    This sample shows how to set root level **named dynamic** cascading values using `CascadingValueSource`.
+
+  * [ComponentTwentySeven](ComponentTwentySeven)
+
+    This sample shows how to use `[Inject(Key)]` in consuming keyed services.
+
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
     Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
