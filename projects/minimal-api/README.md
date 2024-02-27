@@ -115,3 +115,21 @@ In these examples we are using the familiar `Host.CreateDefaultBuilder(args)` ho
 * [Cross site antiforgery](anti-forgery-3)
   
   This shows how to implement cross site antiforgery (e.g. the API is located in a different domain).
+
+## Endpoint Filter
+
+* [Endpoint Filter - 1](endpoint-filter-1)
+
+  This sample shows how to apply an Endpoint filter to your minimal API.
+
+* [Endpoint Filter - 2](endpoint-filter-2)
+
+  This sample shows how to apply multiple Endpoint filters to your minimal APIs.
+
+* [Endpoint Filter - 3](endpoint-filter-3)
+
+  This examples shows the sequence of code execution before `RouteHandlerFilterDelegate ` and after `RouteHandlerFilterDelegate` in multiple endpoint filters.
+
+* [Endpoint Filter - 4](endpoint-filter-4)
+
+  Use `IStatusCodeHttpResult` to detect return result in filter.

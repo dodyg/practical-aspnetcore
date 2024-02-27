@@ -26,23 +26,6 @@ Samples in this section require .NET 7. You can download it from [here](https://
   
   This sample demonstrates the usage of `IFormFileCollection` to upload multiple files in Minimal API.
 
-## Endpoint Filter
-
-* [Endpoint Filter - 1](endpoint-filter-1)
-
-  This sample shows how to apply an Endpoint filter to your minimal API.
-
-* [Endpoint Filter - 2](endpoint-filter-2)
-
-  This sample shows how to apply multiple Endpoint filters to your minimal APIs.
-
-* [Endpoint Filter - 3](endpoint-filter-3)
-
-  This examples shows the sequence of code execution before `RouteHandlerFilterDelegate ` and after `RouteHandlerFilterDelegate` in multiple endpoint filters.
-
-* [Endpoint Filter - 4](endpoint-filter-4)
-
-  Use `IStatusCodeHttpResult` to detect return result in filter.
 
 ## Route Group
 
