@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>true</ImplicitUsings>
-    <LangVersion>preview</LangVersion>
-    <PreviewFeatures>true</PreviewFeatures>
+    
+    
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
