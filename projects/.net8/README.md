@@ -6,14 +6,6 @@
 
   Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run. 
 
-* [SlimBuilder](slim-builder)
-
-  `WebApplication.CreateSlimBuilder` creates `WebApplicationBuilder` with minimal configuration defaults.
-
-* [EmptyBuilder](empty-builder)
-
-  `WebApplication.CreateEmptyBuilder` creates `WebApplicationBuilder` with no built-in behavior.
-
 
 ## What's new in Blazor 8
 
