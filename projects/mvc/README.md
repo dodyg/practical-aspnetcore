@@ -10,7 +10,12 @@
 |                                                                | 33  |
 
 * [Hello World](/projects/mvc/hello-world)
+
   A "hello world" MVC app.
+
+* [Infer dependency from action parameter](mvc-infer-dependency-from-action)
+
+  There is no need for `[FromServices]` attribute anymore to inject a dependency to your action method.
 
 ## Authentication/Authorization (1)
 
