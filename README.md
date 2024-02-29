@@ -42,6 +42,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Open Telemetry](/projects/open-telemetry/)                         | 3   |                                                                              |
 | [Orchard Core](/projects/orchard-core)                              | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](/projects/path-string)     | 1   |                                                                              |
+| [Problem Details Middleware](/projects/problem-details-middleware/) | 3   |                                                                              |
 | [Razor Pages](/projects/razor-pages)                                | 10  | TempData                                                                     |
 | [Request](/projects/request)                                        | 15  | Form, Cookies, Query String, Headers                                         |
 | [Request Timeouts Middleware](/projets/request-timeouts-middleware) | 6   |                                                                              |

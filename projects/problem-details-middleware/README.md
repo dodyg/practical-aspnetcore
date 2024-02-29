@@ -1,8 +1,4 @@
-# .NET 7 
-
-Samples in this section require .NET 7. You can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
-
-## Problem Details
+# Problem Details
 
 * [Problem Details - 1](problem-details)
 
