@@ -13,25 +13,6 @@
   
   This sample demonstrates a simple usage of QuickGrid component displaying int, string, date, and boolean data types.
 
-
-## Mix and Match Blazor SSR with existing tech
-
-  * [RazorMixMatchOne](RazorMixMatchOne)
-
-    This example shows how to use Blazor SSR with MVC in the same system.
-  
-  * [RazorMixMatchTwo](RazorMixMatchTwo)
-
-    This example shows how to use Blazor SSR with Razor Pages in the same system.
-
-  * [RazorMixMatchThree](RazorMixMatchThree)
-
-    This example shows how to use Blazor SSR with Minimal API in the same system.
-
-  * [RazorMixMatchFour](RazorMixMatchFour)
-
-    This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
-
 ## IExceptionHandler
 
   * [IExceptionHandler](iexception-handler)
