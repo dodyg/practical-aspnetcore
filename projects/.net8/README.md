@@ -13,12 +13,3 @@
   
   This sample demonstrates a simple usage of QuickGrid component displaying int, string, date, and boolean data types.
 
-## IExceptionHandler
-
-  * [IExceptionHandler](iexception-handler)
-  
-    Implement `IExceptionHandler` to handle ASP.NET Core exceptions.
-
-  * [Multiple IExceptionHandler](iexception-handler-2)
-  
-    Implement multiple `IExceptionHandler` to handle ASP.NET Core exceptions.
