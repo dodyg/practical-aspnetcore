@@ -20,3 +20,6 @@ dotnet build json-19
 dotnet build json-20
 dotnet build json-21
 dotnet build json-22
+dotnet build json-23
+dotnet build json-24
+dotnet build json-25

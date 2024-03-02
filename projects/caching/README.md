@@ -22,4 +22,4 @@
 
     This sample uses the `Microsoft.Extensions.Caching.StackExchangeRedis` to store caching value in Redis.
 
-dotnet6
+dotnet8

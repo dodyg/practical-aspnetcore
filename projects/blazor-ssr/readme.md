@@ -1,3 +1,7 @@
+# Blazor Server Side Rendering (22)
+
+## Basics
+
 * [RazorComponentOne](RazorComponentOne)
 
   This sample demonstrates a simple usage of Razor Component component in SSR (Server Side Rendering).

@@ -7,5 +7,4 @@
 
 The clients are built with the WCF Client libraries available [here](https://github.com/dotnet/wcf).
 
-
 dotnet6

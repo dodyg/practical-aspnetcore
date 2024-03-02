@@ -1,3 +1,25 @@
 {
-    "dotnet.defaultSolution": "RazorComponentTen.sln"
+    "dotnet.defaultSolution": "RazorComponentTen.sln",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#de3597",
+        "activityBar.background": "#de3597",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#35520d",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#de3597",
+        "statusBar.background": "#c11f7d",
+        "statusBar.debuggingBackground": "#1fc163",
+        "statusBar.debuggingForeground": "#15202b",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#de3597",
+        "statusBarItem.remoteBackground": "#c11f7d",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#c11f7d",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#c11f7d99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#c11f7d"
 }

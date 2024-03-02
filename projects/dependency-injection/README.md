@@ -1,4 +1,4 @@
-# Dependency Injection (4)
+# Dependency Injection (6)
 
   ASP.NET Core lives and dies by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. 
 
@@ -27,3 +27,5 @@
   * [Keyed Services in MVC](keyed-service-2)
 
     Use `IServiceProvider.GetRequiredKeyedService<T>(key)` to get different type of implementation instances based on string key in MVC
+
+  

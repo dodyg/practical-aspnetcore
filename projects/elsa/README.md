@@ -63,3 +63,7 @@ It is included in this ASP.NET Core samples repository because I believe that a 
 - [Workflow with runtime inputs](workflow-4)
 
     This sample demonstrates on how to create a workflow that take runtime inputs.
+
+- [Workflow data via constructor](workflow-5)
+    
+    This sample demonstrates on how to pass values to a workflow via constructor. 

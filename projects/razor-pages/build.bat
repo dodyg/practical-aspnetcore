@@ -1,4 +1,9 @@
 dotnet build custom-html-generator
+dotnet build handler
 dotnet build hello-world
+dotnet build razor
+dotnet build razor-pages-basic
+dotnet build razor-pages-mvc
 dotnet build routing
 dotnet build routing-2
+dotnet build temp-data

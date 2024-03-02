@@ -22,3 +22,8 @@ dotnet build grpc-11/client
 dotnet build grpc-11/server
 dotnet build grpc-12/client
 dotnet build grpc-12/server
+dotnet build grpc-13
+dotnet build grpc-14
+dotnet build grpc-15
+dotnet build grpc-16
+dotnet build grpc-17

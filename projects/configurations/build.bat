@@ -1,0 +1,10 @@
+dotnet build configuration-1
+dotnet build configuration-bind-option
+dotnet build configuration-environment-variables
+dotnet build configuration-ini
+dotnet build configuration-ini-options
+dotnet build configuration-IOption
+dotnet build configuration-IOption-array
+dotnet build configuration-options
+dotnet build configuration-xml
+dotnet build configuration-xml-options

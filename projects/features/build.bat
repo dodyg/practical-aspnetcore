@@ -1,0 +1,11 @@
+dotnet build features-connection
+dotnet build features-http-body-response
+dotnet build features-max-request-body-size
+dotnet build features-request-culture
+dotnet build features-server-addresses
+dotnet build features-server-addresses-2
+dotnet build features-server-custom
+dotnet build features-server-custom-override
+dotnet build features-server-request
+dotnet build features-session
+dotnet build features-session-redis-2
