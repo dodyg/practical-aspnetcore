@@ -76,4 +76,4 @@ All the samples in this section runs on SSL. If you have not gotten your local s
     `RenderTreeBuilder` shows a Blazor (server) component implemented without Razor syntax.
 
 
-dotnet6
+dotnet8

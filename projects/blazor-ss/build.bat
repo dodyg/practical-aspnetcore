@@ -9,6 +9,7 @@ dotnet build Localization
 dotnet build Localization-2
 dotnet build Localization-3
 dotnet build Localization-4
+dotnet build RenderTreeBuilder
 dotnet build RssReader
 dotnet build RssReader-2
 dotnet build StartingVariation

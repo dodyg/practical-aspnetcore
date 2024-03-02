@@ -1,7 +1,7 @@
 var app = WebApplication.Create();
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
     await context.Response.WriteAsync($"Application Name: {System.Reflection.Assembly.GetEntryAssembly().GetName().Name}<br/>");
     await context.Response.WriteAsync($"Application Base Path: {System.AppContext.BaseDirectory}<br/>");
 
