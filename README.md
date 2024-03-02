@@ -80,10 +80,6 @@ To run these samples, simply open your command line console, go to each folder a
 
     Enumerate the connection information of a HTTP request.
 
--   [Keeping track of anonymous users](/projects/anonymous-id)
-
-    Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
-
 -   [Password Hasher server](/projects/password-hasher)
 
     Give it a string and it will generate a secure hash for you, e.g. `localhost:5000?password=mypassword`.
