@@ -98,6 +98,10 @@ To run these samples, simply open your command line console, go to each folder a
 
     We are using `IApplicationLifetime` that trigger events during application startup and shutdown.
 
+- [Short Circuit](map-short-circuit)
+
+  Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run. 
+
 ### Server-Sent Events (1)
 
 -   [Forever Server](/projects/sse)
