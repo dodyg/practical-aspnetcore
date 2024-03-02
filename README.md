@@ -13,7 +13,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 
 | Section                                                                 |     |                                                                              |
 | ----------------------------------------------------------------------- | --- | ---------------------------------------------------------------------------- |
-| [Authentication](/projects/authentication)                              |     |                                                                              |
+| [Authentication](/projects/authentication)                              | 4   |                                                                              |
 | [Blazor Client Side (Web Assembly)](/projects/blazor-wasm)              | 22  | .NET8 (WIP), Components, Data Binding                                        |
 | [Blazor Server](/projects/blazor-ss)                                    | 15  | Localization                                                                 |
 | [Blazor Server Side Render](/projects/blazor-ssr)                       |     |                                                                              |
