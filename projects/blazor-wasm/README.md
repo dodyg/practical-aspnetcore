@@ -136,4 +136,6 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     Show an example of `RadioButton` handling.
 
-
+* [QuickGrid One](QuickGridOne)
+  
+  This sample demonstrates a simple usage of QuickGrid component displaying int, string, date, and boolean data types.

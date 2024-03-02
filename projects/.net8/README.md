@@ -9,7 +9,4 @@
 
 ## What's new in Blazor 8
 
-* [QuickGrid One](QuickGridOne)
-  
-  This sample demonstrates a simple usage of QuickGrid component displaying int, string, date, and boolean data types.
 
