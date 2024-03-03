@@ -1,9 +1,9 @@
-# Samples for ASP.NET Core 8.0 
+# Samples for ASP.NET Core 8.0
 
 > [!NOTE]
 > This repository is WIP. I am updating all the previous samples from .NET 6/7 to .NET 8. Check the previous stable branch ([6.0](https://github.com/dodyg/practical-aspnetcore/tree/net6.0/)) if you want to browse the existing stable samples that contains also .NET 7/8 samples.
 
-Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg) this project [here](https://github.com/sponsors/dodyg). 
+Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg) this project [here](https://github.com/sponsors/dodyg).
 
 ## Previous versions
 
@@ -13,7 +13,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 
 | Section                                                                 |     |                                                                              |
 | ----------------------------------------------------------------------- | --- | ---------------------------------------------------------------------------- |
-| [Authentication](/projects/authentication)                              | 4   |                                                                              |
+| [Authentication](/projects/authentication)                              | 5   |                                                                              |
 | [Blazor Client Side (Web Assembly)](/projects/blazor-wasm)              | 22  | .NET8 (WIP), Components, Data Binding                                        |
 | [Blazor Server](/projects/blazor-ss)                                    | 16  | Localization                                                                 |
 | [Blazor Server Side Render](/projects/blazor-ssr)                       | 22  |                                                                              |
@@ -72,83 +72,83 @@ To run these samples, simply open your command line console, go to each folder a
 
 ### Misc (6)
 
--   [Application Environment](/projects/application-environment)
+- [Application Environment](/projects/application-environment)
 
-    This sample shows how to obtain application environment information (target framework, etc).
+  This sample shows how to obtain application environment information (target framework, etc).
 
--   [Show Connection info](/projects/connection-info)
+- [Show Connection info](/projects/connection-info)
 
-    Enumerate the connection information of a HTTP request.
+  Enumerate the connection information of a HTTP request.
 
--   [Password Hasher server](/projects/password-hasher)
+- [Password Hasher server](/projects/password-hasher)
 
-    Give it a string and it will generate a secure hash for you, e.g. `localhost:5000?password=mypassword`.
+  Give it a string and it will generate a secure hash for you, e.g. `localhost:5000?password=mypassword`.
 
--   [Version info](/projects/version)
+- [Version info](/projects/version)
 
-    Show various version info of the framework your system is running on.
+  Show various version info of the framework your system is running on.
 
--   [IApplicationLifetime](/projects/i-application-lifetime)
+- [IApplicationLifetime](/projects/i-application-lifetime)
 
-    Responds to application startup and shutdown.
+  Responds to application startup and shutdown.
 
-    We are using `IApplicationLifetime` that trigger events during application startup and shutdown.
+  We are using `IApplicationLifetime` that trigger events during application startup and shutdown.
 
 - [Short Circuit](map-short-circuit)
 
-  Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run. 
+  Use `MapShortCircuit` or `.ShortCircuit()` to efficiently respond to a request without going through a middleware pipeline run.
 
 ### Server-Sent Events (1)
 
--   [Forever Server](/projects/sse)
+- [Forever Server](/projects/sse)
 
-    This server will send a 'hello world' greeting forever.
+  This server will send a 'hello world' greeting forever.
 
 ### Markdown (2)
 
--   [Markdown server](/projects/markdown-server)
+- [Markdown server](/projects/markdown-server)
 
-    Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
+  Serve markdown file as html file. You will see how you can create useful app using a few basic facilities in aspnetcore.
 
-    We take `"Markdig"` as dependency.
+  We take `"Markdig"` as dependency.
 
--   [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
+- [Markdown server - implemented as middleware component](/projects/markdown-server-middleware)
 
-    Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
+  Serve markdown file as html file. It has the same exact functionality as [Markdown server](/projects/markdown-server) but implemented using middleware component.
 
-    We take `"Markdig"` as dependency.
+  We take `"Markdig"` as dependency.
 
 ### Utils (3)
 
--   [Status Codes](/projects/utils/http-status-codes)
+- [Status Codes](/projects/utils/http-status-codes)
 
-    Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
+  Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
 
--   [MediaTypeNames](/projects/utils/media-type-names)
+- [MediaTypeNames](/projects/utils/media-type-names)
 
-    This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.
+  This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.
 
--   [MediaTypeNames - 2](/projects/utils/media-type-names-2)
+- [MediaTypeNames - 2](/projects/utils/media-type-names-2)
 
-    Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
+  Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
 
 ### Device Detection (1)
 
 The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
 
--   [Device Detection](/projects/device-detection)
+- [Device Detection](/projects/device-detection)
 
-    This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
+  This is the most basic device detection. You will be able to detect whether the client is a desktop or a mobile client.
 
 ### Image Sharp (1)
 
 All these samples require `SixLabors.ImageSharp.Web` middleware package. This middleware is an excelent tool to process your day to day image processing need.
 
--   [Image-Sharp](/projects/image-sharp)
+- [Image-Sharp](/projects/image-sharp)
 
-    This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
+  This example shows how to enable image resizing functionality to your site. It's super easy and the middleware takes care of caching, etc.
 
 ## Misc
 
--   [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
--   [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
+- [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
+- [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
