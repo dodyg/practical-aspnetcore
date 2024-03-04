@@ -93,3 +93,5 @@
   * [RazorMixMatchFour](RazorMixMatchFour)
 
     This example shows how to use Blazor SSR with MVC, Razor Pages and Minimal API in the same system.
+
+dotnet8

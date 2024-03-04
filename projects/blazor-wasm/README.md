@@ -139,3 +139,5 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 * [QuickGrid One](QuickGridOne)
   
   This sample demonstrates a simple usage of QuickGrid component displaying int, string, date, and boolean data types.
+
+dotnet8
