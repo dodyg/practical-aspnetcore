@@ -1,4 +1,4 @@
-# Web Sockets (5)
+# Web Sockets (6)
 
 **Warning**: These samples are low level websocket code. For production, use [SignalR](https://github.com/aspnet/signalr). Yes I will work on SignalR samples soon.
 

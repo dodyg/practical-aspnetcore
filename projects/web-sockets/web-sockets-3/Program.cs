@@ -85,7 +85,7 @@ app.Use(async (context, next) =>
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
     await context.Response.WriteAsync(@"
 <html>                
     <head>
