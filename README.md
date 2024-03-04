@@ -21,7 +21,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Configurations](/projects/configurations)                              | 10  |                                                                              |
 | [CoreWCF](/projects/corewcf)                                            | 1   |                                                                              |
 | [Dependency Injection](/projects/dependency-injection/)                 | 4   |                                                                              |
-| [Diagnostics](/projects/diagnostics)                                    | 6   |                                                                              |
+| [Diagnostics](/projects/diagnostics)                                    | 5   |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                          | 32  |                                                                              |
 | [Email](/projects/mailkit)                                              | 2   |                                                                              |
 | [Elsa Workflow](/projects/elsa)                                         | 14  | .NET8                                                                        |

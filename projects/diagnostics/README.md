@@ -1,4 +1,4 @@
-# Diagnostics (6)
+# Diagnostics (5)
 
   * [Welcome Page](/projects/diagnostics/diagnostics-1)
 
@@ -20,12 +20,4 @@
 
     Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
-  * [Middleware Analysis](/projects/diagnostics/diagnostics-6)
-
-    Here we go into the weeds of analysing middlewares in your request pipeline. This is a bit complicated. It requires the following packages:
-
-    * ```Microsoft.AspNetCore.MiddlewareAnalysis```
-    * ```Microsoft.Extensions.DiagnosticAdapter```
-    * ```Microsoft.Extensions.Logging.Console```
-
-dotnet6
+dotnet8
