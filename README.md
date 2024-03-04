@@ -134,7 +134,7 @@ To run these samples, simply open your command line console, go to each folder a
 
 ### Device Detection (1)
 
-The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/Detection) library.
+The samples in this section rely on [Wangkanai.Detection](https://github.com/wangkanai/wangkanai/tree/main/Detection) library.
 
 -   [Device Detection](/projects/device-detection)
 

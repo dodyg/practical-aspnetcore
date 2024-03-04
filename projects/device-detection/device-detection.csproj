@@ -4,6 +4,6 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Wangkanai.Detection.Device" Version="2.0.1" />
+    <PackageReference Include="Wangkanai.Detection" Version="8.11.0" />
   </ItemGroup>
 </Project>

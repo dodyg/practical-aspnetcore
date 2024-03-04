@@ -58,4 +58,4 @@
  * [Configuration - IOption Array](/projects/configurations/configuration-IOption-array)
    Bind array values from appsettings.json and read them using the IOptions interface 
 
-dotnet6
+dotnet8
