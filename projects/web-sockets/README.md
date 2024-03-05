@@ -26,4 +26,4 @@
 
   Implement a rudimentary single channel chat server.
 
-dotnet6
+dotnet8
