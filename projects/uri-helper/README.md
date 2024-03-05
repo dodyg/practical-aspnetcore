@@ -23,4 +23,4 @@
     `UriHelper.BuildAbsolute` combines the given URI components into a string that is properly encoded for use in HTTP headers. This sample
     shows 9 ways on how to use it.
 
-dotnet6
+dotnet8

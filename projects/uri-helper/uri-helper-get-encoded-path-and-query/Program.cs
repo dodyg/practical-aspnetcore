@@ -4,7 +4,7 @@ var app = WebApplication.Create();
 
 app.Run(context =>
 {
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
 
     var requestUrl = context.Request.GetEncodedPathAndQuery();
     return context.Response.WriteAsync($@"<html>
