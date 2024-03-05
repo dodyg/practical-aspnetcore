@@ -12,7 +12,7 @@ static List<FieldInfo> GetConstants(Type type)
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
     await context.Response.WriteAsync(@"<html>
                 <head>
                     <link rel=""stylesheet"" href=""https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"" />

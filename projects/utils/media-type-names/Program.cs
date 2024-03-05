@@ -13,7 +13,7 @@ static List<FieldInfo> GetConstants(Type type)
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add(HeaderNames.ContentType, MediaTypeNames.Text.Html);
+    context.Response.Headers.Append(HeaderNames.ContentType, MediaTypeNames.Text.Html);
 
     await context.Response.WriteAsync("<html><body>");
 

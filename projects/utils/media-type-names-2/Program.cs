@@ -15,7 +15,7 @@ string GetMime(string ext)
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add(HeaderNames.ContentType, MediaTypeNames.Text.Html);
+    context.Response.Headers.Append(HeaderNames.ContentType, MediaTypeNames.Text.Html);
 
     await context.Response.WriteAsync("<html><body>");
     await context.Response.WriteAsync("<h1>Geting MIME type based on a file extension</h1>");
