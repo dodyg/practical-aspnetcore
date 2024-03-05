@@ -1,4 +1,4 @@
-# Server Size Blazor (16)
+# Server Side Blazor (16)
 
 This is an amazing piece of technology where your interactive web UI is handled via C# and streamed back and forth using web socket via SignalR.
 
