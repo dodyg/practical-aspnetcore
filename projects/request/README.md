@@ -74,4 +74,4 @@
 
       Demonstrates on how to access cookie values issued by remote API via AJAX call.
 
-dotnet6
+dotnet8

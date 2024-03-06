@@ -1,0 +1,15 @@
+dotnet build anti-forgery
+dotnet build cookies-1
+dotnet build cookies-2
+dotnet build cookies-3
+dotnet build form-upload-file
+dotnet build form-url-encoded-content
+dotnet build form-values
+dotnet build query-string-1
+dotnet build query-string-2
+dotnet build query-string-3
+dotnet build query-string-create
+dotnet build request-headers
+dotnet build request-headers-names
+dotnet build request-headers-typed
+dotnet build request-verb

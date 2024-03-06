@@ -22,7 +22,7 @@ app.MapHealthChecks("/IsUp", new HealthCheckOptions
 {
     ResponseWriter = async (context, health) =>
     {
-        context.Response.Headers.Add("Content-Type", "text/plain");
+        context.Response.Headers.Append("Content-Type", "text/plain");
 
         if (health.Status == HealthStatus.Healthy)
             await context.Response.WriteAsync("Everything is good");

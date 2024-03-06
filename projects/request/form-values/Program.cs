@@ -2,7 +2,7 @@ var app = WebApplication.Create();
 
 app.MapGet("", async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
 
     var body = $@"
 <html><body>
@@ -33,7 +33,7 @@ app.MapGet("", async context =>
 
 app.MapPost("Upload", async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
 
     if (context.Request.HasFormContentType)
     {

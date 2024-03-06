@@ -2,7 +2,7 @@ var app = WebApplication.Create();
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
 
     await context.Response.WriteAsync("<html><body>");
     await context.Response.WriteAsync("<h1>All query string</h1>");

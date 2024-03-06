@@ -12,7 +12,7 @@ var app = WebApplication.Create();
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add(HeaderNames.ContentType, "text/html");
+    context.Response.Headers.Append(HeaderNames.ContentType, "text/html");
 
     await context.Response.WriteAsync("<html><body>");
     await context.Response.WriteAsync("<h1>Request Headers from Microsoft.Net.Http.Headers.HeaderNames</h1>");

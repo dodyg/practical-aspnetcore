@@ -13,7 +13,7 @@ app.MapWhen(context => context.Request.Path.Value.Contains("/hello"),
 
 app.Run(context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
     return context.Response.WriteAsync(@"<a href=""/hello"">/hello</a> <a href=""/hello/world"">/hello/world</a>");
 });
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 var app = WebApplication.Create();
 app.Run(context =>
 {
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
 
     var url1 = UriHelper.BuildAbsolute(scheme: " http", host: new HostString("localhost:5000"));
     var url2 = UriHelper.BuildAbsolute(scheme: "http", host: new HostString("localhost:5000"), pathBase: new PathString("/admin"));

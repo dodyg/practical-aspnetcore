@@ -23,4 +23,4 @@
 
   This example shows how to issue trailing HTTP headers. Normal HTTP headers must be issued before body of the HTTP Response starts being written. Trailing headers allows you to issue headers after the HTTP body has been written. 
 
-  dotnet6
+  dotnet8

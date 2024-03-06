@@ -15,7 +15,7 @@ app.UseStaticFiles();
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
     await context.Response.WriteAsync($@"
     <html>
     <body>

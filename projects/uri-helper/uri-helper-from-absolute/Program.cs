@@ -4,7 +4,7 @@ var app = WebApplication.Create();
 
 app.Run(context =>
 {
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
 
     var requestUrl = context.Request.GetEncodedUrl();
     UriHelper.FromAbsolute(requestUrl, out string scheme, out HostString host, out PathString path, out QueryString queryString, out FragmentString fragment);

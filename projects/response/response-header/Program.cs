@@ -1,11 +1,11 @@
 var app = WebApplication.Create();
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
     await context.Response.WriteAsync("<b>Hello world</b>");
     try
     {
-        context.Response.Headers.Add("my-header", "awesome");
+        context.Response.Headers.Append("my-header", "awesome");
     }
     catch (Exception ex)
     {

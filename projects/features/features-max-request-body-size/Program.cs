@@ -15,7 +15,7 @@ app.Run(context =>
     var str = "<html><body>";
     str += $"Max Request Body Size {bodySize.MaxRequestBodySize}(Is Read Only: {bodySize.IsReadOnly}) You can <strong>also</strong> set this value at KestrelServerOptions.Limits.MaxRequestBodySize";
     str += "</body></html>";
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
     return context.Response.WriteAsync($"{str}");
 });
 

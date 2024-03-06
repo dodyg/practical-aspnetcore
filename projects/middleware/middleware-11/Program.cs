@@ -19,7 +19,7 @@ public class TerminalMiddleware : IMiddleware
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         _log.LogDebug($"Request: {context.Request.Path}");
-        context.Response.Headers.Add("Content-Type", "text/plain");
+        context.Response.Headers.Append("Content-Type", "text/plain");
         await context.Response.WriteAsync($"This Middleware is transient. Keep refreshing your page. The date will keep changing: {_date}.");
     }
 }

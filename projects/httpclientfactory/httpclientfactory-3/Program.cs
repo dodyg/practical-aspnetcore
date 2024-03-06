@@ -9,7 +9,7 @@ app.Run(async context =>
         var rss = context.RequestServices.GetService<RssReader>();
         var result = await rss.Get("http://scripting.com/rss.xml");
 
-        context.Response.Headers.Add("Content-Type", "application/rss+xml");
+        context.Response.Headers.Append("Content-Type", "application/rss+xml");
         await context.Response.WriteAsync(result);
     });
 

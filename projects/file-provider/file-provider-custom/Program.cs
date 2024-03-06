@@ -9,7 +9,7 @@ var app = builder.Build();
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
 
     using (var stream = app.Environment.ContentRootFileProvider.GetFileInfo("").CreateReadStream())
     {

@@ -2,7 +2,7 @@ var app = WebApplication.Create();
 
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type","text/html");
+    context.Response.Headers.Append("content-type","text/html");
     var deleteCookie = context.Request.Query["delete"];
 
     if(!string.IsNullOrWhiteSpace(deleteCookie))

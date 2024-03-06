@@ -57,7 +57,7 @@ app.Run(async context =>
 
     var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
 
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
     await context.Response.WriteAsync("<html><body>");
     await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}<br/><br/>");
     await context.Response.WriteAsync($@"<a href=""/greet-friend"">Greet Friend</a><br/>");

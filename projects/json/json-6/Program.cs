@@ -29,7 +29,7 @@ app.MapGet("/", async context =>
         Indented = true
     };
 
-    context.Response.Headers.Add(HeaderNames.ContentType, "application/json");
+    context.Response.Headers.Append(HeaderNames.ContentType, "application/json");
 
     await using (var writer = new Utf8JsonWriter(context.Response.Body, options))
     {

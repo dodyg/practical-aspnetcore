@@ -23,7 +23,7 @@ public class MiddlewareHtml
         await _next.Invoke(context);
         context.Items["Content"] += "</body></html>";
 
-        context.Response.Headers.Add("content-type", "text/html");
+        context.Response.Headers.Append("content-type", "text/html");
         await context.Response.WriteAsync(context.Items["Content"] as string);
     }
 }

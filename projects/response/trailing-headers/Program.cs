@@ -34,7 +34,7 @@ app.Run(async context =>
 
     using var response = await httpClient.GetStreamAsync("http://histo.io/");
 
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
     await response.CopyToAsync(context.Response.Body);
 
     watch?.Stop();

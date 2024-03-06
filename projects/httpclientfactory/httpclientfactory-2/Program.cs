@@ -14,7 +14,7 @@ app.Run(async context =>
         var client = httpClient.CreateClient("rss"); // use the preconfigured http client
         var result = await client.GetStringAsync("http://scripting.com/rss.xml");
 
-        context.Response.Headers.Add("Content-Type", "application/rss+xml");
+        context.Response.Headers.Append("Content-Type", "application/rss+xml");
         await context.Response.WriteAsync(result);
     });
 

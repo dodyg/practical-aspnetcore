@@ -15,7 +15,7 @@ app.Run(async context =>
 
     var queryString = QueryString.Create(dicts);
     
-    context.Response.Headers.Add("Content-Type", "text/html");
+    context.Response.Headers.Append("Content-Type", "text/html");
     await context.Response.WriteAsync($@"<html>
     <head>
         <link rel=""stylesheet"" href=""https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"" />

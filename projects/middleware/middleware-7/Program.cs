@@ -24,7 +24,7 @@ app.UseMiddleware<MapMiddleware>(mapOption);
 
 app.Run(context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
     return context.Response.WriteAsync(@"<a href=""/hello"">/hello</a> <a href=""/greetings"">/greetings</a>");
 });
 

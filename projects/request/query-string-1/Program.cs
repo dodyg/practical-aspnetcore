@@ -3,7 +3,7 @@ var app = WebApplication.Create();
 //These are the three default services available at Configure
 app.Run(async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
 
     StringValues queryString = context.Request.Query["message"];
 
