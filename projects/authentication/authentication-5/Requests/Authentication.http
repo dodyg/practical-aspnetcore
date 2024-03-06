@@ -1,0 +1,28 @@
+@host = http://localhost:5033
+
+GET {{host}}/weatherforecast/
+Accept: application/json
+
+### Register a new user
+POST {{host}}/account/register
+Content-Type: application/json
+
+{
+  "username": "test@test.com",
+  "password": "Test@12345",
+  "email": "test@test.com"
+}
+
+### Login and retrieve tokens
+POST {{host}}/account/login
+Content-Type: application/json
+
+{
+  "username": "test@test.com",
+  "password": "Test@12345",
+  "email": "test@test.com"
+}
+
+### Call Forecast API with bearer token
+GET {{host}}/weatherforecast
+Authorization: Bearer {{token received from the login API endpoint}}
