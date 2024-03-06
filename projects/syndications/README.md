@@ -14,4 +14,4 @@
 
      RSS reader demo using ```Microsoft.ServiceModel.Syndication```.
 
-dotnet6
+dotnet8

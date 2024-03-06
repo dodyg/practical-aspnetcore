@@ -32,4 +32,4 @@
 
     This custom redirection logic allows us to simply specify the image file names without worrying about their exact path e.g.'xx.jpg' and 'yy.png'.
 
-dotnet6
+dotnet8

@@ -9,7 +9,7 @@ app.UseRewriter(options);
 
 app.MapGet("/", (context) =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
     var path = context.Request.Query["Path"];
     var ext = context.Request.Query["Ext"];
     return context.Response.WriteAsync($@"

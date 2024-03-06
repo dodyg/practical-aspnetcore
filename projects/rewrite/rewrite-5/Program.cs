@@ -13,7 +13,7 @@ app.UseStaticFiles();
 
 app.MapGet("", async context =>
 {
-    context.Response.Headers.Add("content-type", "text/html");
+    context.Response.Headers.Append("content-type", "text/html");
 
     await context.Response.WriteAsync($"<h1>Extension Based Redirection</h1><img src=\"ryan-wong-25025.jpg\" /> <br/> <img src=\"Acorn_PNG744.png\" />");
 });
