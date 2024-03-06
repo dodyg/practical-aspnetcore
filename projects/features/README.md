@@ -46,4 +46,4 @@
 
     This new Feature interface consolidate previous version's three response body APIs into one
 
-dotnet6
+dotnet8

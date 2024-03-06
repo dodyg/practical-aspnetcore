@@ -5,7 +5,7 @@ var app = WebApplication.Create();
 app.Use(async (context, next) =>
 {
     var request = context.Features.Get<IHttpRequestFeature>();
-    request.Headers.Add("greetings", "hello world");
+    request.Headers.Append("greetings", "hello world");
     await next.Invoke();
 });
 
