@@ -24,4 +24,4 @@
 
     Similar to the previous example except that one of the check reports "Degraded" status by using `context.Registration.FailureStatus = HealthStatus.Degraded;`.
 
-dotnet6
+dotnet8
