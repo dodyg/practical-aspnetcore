@@ -79,4 +79,4 @@
 
 * [grpc-dotnet examples](https://github.com/grpc/grpc-dotnet/tree/master/examples)
 
-dotnet6
+dotnet8

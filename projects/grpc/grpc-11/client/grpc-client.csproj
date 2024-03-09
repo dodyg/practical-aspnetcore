@@ -8,9 +8,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Google.Protobuf" Version="3.19.1" />
-     <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
-    <PackageReference Include="Grpc.Net.Client.Web" Version="2.40.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.25.3" />
+     <PackageReference Include="Grpc.Net.Client" Version="2.61.0" />
+    <PackageReference Include="Grpc.Net.Client.Web" Version="2.61.0" />
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="billboard.proto" GrpcServices="Client" />
