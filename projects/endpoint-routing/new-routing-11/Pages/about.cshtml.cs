@@ -7,7 +7,7 @@ namespace PracticalAspNetCore
     [Message(Content = "Hello world message from attribute")]
     public class AboutModel : PageModel
     {
-        public async Task OnGetAsync()
+        public void OnGet()
         {
 
         }

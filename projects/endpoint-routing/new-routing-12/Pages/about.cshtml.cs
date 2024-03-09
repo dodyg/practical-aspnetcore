@@ -9,12 +9,12 @@ namespace PracticalAspNetCore
     {
         public string Message { get; set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
             Message = HttpContext.Items["GreetingFromMiddleWare"] as string;
         }
 
-        public async Task OnPostAsync()
+        public void OnPost()
         {
             Message = HttpContext.Items["GreetingFromMiddleWare"] as string;
         }

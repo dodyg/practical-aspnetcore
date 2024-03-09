@@ -130,4 +130,4 @@
      
   Use Parameter Transformer to control the creation of route token `[area]`, `[controller]` and `[action]`. In this example we use it on `[controller]` and `[action]`.
    
-dotnet6
+dotnet8
