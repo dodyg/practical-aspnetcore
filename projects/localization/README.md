@@ -27,4 +27,4 @@
     This is a continuation of previous sample but with context, which allows the same translation key to return different strings.
 
 
-dotnet6
+dotnet8

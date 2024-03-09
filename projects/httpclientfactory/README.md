@@ -15,3 +15,5 @@
   * [HttpClientFactory - 4](httpclientfactory-4)
 
     Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for interface-implementing classes.
+
+dotnet8

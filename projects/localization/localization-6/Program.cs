@@ -26,29 +26,27 @@ var option = new RequestLocalizationOptions
 app.UseRequestLocalization(option);
 
 app.UseRouting();
-app.UseEndpoints(endpoints =>
+
+app.MapGet("greet-friend", async context =>
 {
-    endpoints.MapGet("greet-friend", async context =>
-    {
-        var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
-        var local = fac.Create("Greet Friend", string.Empty);
+    var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
+    var local = fac.Create("Greet Friend", string.Empty);
 
-        var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
+    var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
 
-        await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
-    });
-
-    endpoints.MapGet("greet-lover", async context =>
-    {
-        var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
-        var local = fac.Create("Greet Lover", string.Empty);
-
-        var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
-
-        await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
-    });
-
+    await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
 });
+
+app.MapGet("greet-lover", async context =>
+{
+    var fac = context.RequestServices.GetService<IStringLocalizerFactory>();
+    var local = fac.Create("Greet Lover", string.Empty);
+
+    var requestCulture = context.Features.Get<IRequestCultureFeature>().RequestCulture;
+
+    await context.Response.WriteAsync($"Request Culture `{requestCulture.UICulture}` = {local["Hello"]}");
+});
+
 
 app.Run(async context =>
 {

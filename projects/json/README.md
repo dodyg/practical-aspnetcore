@@ -107,3 +107,4 @@ All about the new `System.Text.Json` namespace.
 
   In this case we add one extra `timestamp` property to the serialization process. 
 
+dotnet8
