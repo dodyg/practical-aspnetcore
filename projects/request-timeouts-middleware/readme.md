@@ -23,3 +23,5 @@
   * [Request Timeout](request-timeout-6)
 
     Use default timeout policy in an MVC controller. 
+
+    dotnet8

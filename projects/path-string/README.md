@@ -4,4 +4,4 @@
  
   This shows different results that `HttpContext.Request.Path` returns when handling different url requests.
 
-  dotnet6
+  dotnet8

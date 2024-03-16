@@ -26,3 +26,5 @@
 
 * [Output Cache - 8](output-cache-8)
   This sample demonstrates on how to setup a cache policy that set an expiration time of 10 minutes.
+
+dotnet8

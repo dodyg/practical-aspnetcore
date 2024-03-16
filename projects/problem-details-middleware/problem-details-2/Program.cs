@@ -21,7 +21,7 @@ app.MapGet("/", (HttpContext context) => Results.Content($$"""
 </html>
 """, "text/html"));
 
-app.MapGet("/problems", async (HttpContext context) =>
+app.MapGet("/problems", (HttpContext context) =>
 {
     throw new ApplicationException("We got problems");
 });

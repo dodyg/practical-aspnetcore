@@ -93,4 +93,4 @@
 
     Use `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to have MVC use `Newtonsoft.Json` instead of `System.Text.Json`.
 
-dotnet6
+dotnet8
