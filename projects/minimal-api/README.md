@@ -1,4 +1,4 @@
-# Minimal API (36)
+# Minimal API (39)
 
 * [Hello World](hello-world)
   

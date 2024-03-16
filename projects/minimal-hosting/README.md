@@ -1,6 +1,6 @@
-# Minimal Hosting (23)
+# Minimal Hosting (25)
 
-## Alternative Builders
+## Alternative Builders (2)
 
 * [SlimBuilder](slim-builder)
 
@@ -120,3 +120,5 @@ In most cases using ```WebApplication``` isn't enough because you need to config
   * [WebApplicationOptions - change the content root path](web-application-options-change-content-root-path)
 
     This sample shows how to change the content root path of the application.
+
+dotnet8
