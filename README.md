@@ -39,7 +39,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 | [Minimal API](/projects/minimal-api)                                    | 36  | Routing, Parameter Bindings, etc                                             |
 | [Minimal Hosting](/projects/minimal-hosting)                            | 23  |                                                                              |
 | [MVC](/projects/mvc)                                                    | 47  | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
-| [Output Cache Middleware](/projets/output-cache-middleware)             |     |                                                                              |
+| [Output Cache Middleware](/projects/output-cache-middleware)             |     |                                                                              |
 | [Open Telemetry](/projects/open-telemetry/)                             | 3   |                                                                              |
 | [Orchard Core](/projects/orchard-core)                                  | 4   |                                                                              |
 | [Path String (HttpContext.Request.Path)](/projects/path-string)         | 1   |                                                                              |
