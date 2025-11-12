@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>true</ImplicitUsings>
+    
     <UserSecretsId>9adce06a-fec2-402b-acba-28a6852ca7c1</UserSecretsId>
-    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 </Project>

@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>true</ImplicitUsings>
-    <LangVersion>preview</LangVersion>
+    <TargetFramework>net8.0</TargetFramework>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.4.0" />

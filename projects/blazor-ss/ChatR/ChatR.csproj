@@ -1,12 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>true</ImplicitUsings>
-    <LangVersion>preview</LangVersion>
+    <TargetFramework>net8.0</TargetFramework>
+      <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
+
   <ItemGroup>
+
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.4" />
     <Watch Include="**\*.cshtml" />
     <Watch Include="**\*.razor" />
   </ItemGroup>
+
 </Project>

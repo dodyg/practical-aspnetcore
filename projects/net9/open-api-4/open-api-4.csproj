@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
@@ -8,4 +8,3 @@
     <PackageReference Include="NSwag.AspNetCore" Version="14.0.8" />
   </ItemGroup>
 </Project>
-

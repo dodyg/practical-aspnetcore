@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
       <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
@@ -8,4 +8,3 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.4" />
   </ItemGroup>
 </Project>
-

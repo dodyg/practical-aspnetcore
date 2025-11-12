@@ -94,47 +94,43 @@ public class HelloReminderGrain : Grain, IHelloArchive, IRemindable
 
     public async Task ReceiveReminder(string reminderName, TickStatus status)
     {
-    _log.LogInformation("Receive reminder {ReminderName} on {Timestamp} with status {Status}", reminderName, DateTime.UtcNow, status);
-    _log.LogInformation("Receive reminder {ReminderName} on {Timestamp} with status {Status}", reminderName, DateTime.UtcNow, status);
+        _log.Info($"Receive reminder {reminderName} on { DateTime.UtcNow } with status { status }");
+        _log.Info($"Receive reminder {reminderName} on { DateTime.UtcNow } with status { status }");
         var g = new Greeting(_greeting, DateTime.UtcNow);
         _archive!.State.Greetings.Insert(0, g);
         await _archive!.WriteStateAsync();
 
-    _log.LogInformation("`{Message}` added at {Timestamp}", g.Message, g.TimestampUtc);
+        _log.Info($"`{g.Message}` added at {g.TimestampUtc}");
     }
 
     public async Task AddReminder(string reminder, TimeSpan repeatEvery)
     {
         if (string.IsNullOrWhiteSpace(reminder))
             throw new ArgumentNullException(nameof(reminder));
-        var r = await this.GetReminder(reminder);
-        if (r is null)
-        {
-            _log.LogInformation("RegisterOrUpdateReminder {Reminder}", reminder);
-            await this.RegisterOrUpdateReminder(reminder, TimeSpan.FromSeconds(1), repeatEvery);
-        }
+
+        var r = await GetReminder(reminder);
+
+        if (r is not object)
+            await RegisterOrUpdateReminder(reminder, TimeSpan.FromSeconds(1), repeatEvery);
     }
 
     public async Task RemoveReminder(string reminder)
     {
         if (string.IsNullOrWhiteSpace(reminder))
             throw new ArgumentNullException(nameof(reminder));
-        var r = await this.GetReminder(reminder);
+
+        var r = await GetReminder(reminder);
+
         if (r is object)
-        {
-            _log.LogInformation("UnregisterReminder {Reminder}", reminder);
-            await this.UnregisterReminder(r);
-        }
+            await UnregisterReminder(r);
     }
 }
- 
-[GenerateSerializer]
+
 public record GreetingArchive
 {
     public List<Greeting> Greetings { get; } = new List<Greeting>();
 }
 
-[GenerateSerializer]
 public record Greeting(string Message, DateTime TimestampUtc);
 
 public interface IHelloArchive : Orleans.IGrainWithIntegerKey

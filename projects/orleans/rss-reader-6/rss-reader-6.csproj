@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
 
     <Nullable>enable</Nullable>
       <ImplicitUsings>true</ImplicitUsings>
@@ -19,4 +19,3 @@
     <PackageReference Include="Orleans.Persistence.Redis" Version="3.2.1" />
   </ItemGroup>
 </Project>
-

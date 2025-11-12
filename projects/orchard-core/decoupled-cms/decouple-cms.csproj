@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
@@ -9,4 +9,3 @@
     <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.8.2" />
   </ItemGroup>
 </Project>
-
