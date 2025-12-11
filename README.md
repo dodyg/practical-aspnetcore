@@ -45,6 +45,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Health Check](/projects/health-check)                                  | 6   |                                                                              |
 | [HTMX](/projects/htmx)                                                  | 40  |                                                                              |
 | [IHttpClientFactory](/projects/httpclientfactory)                       | 4   |                                                                              |
+| [IHostedLifeCycleService](/projects/i-hosted-lifecycle-service)         | 1   | .NET8                                                                        | 
 | [IHostedService](/projects/ihosted-service)                             | 2   |                                                                              |
 | [Logging](/projects/logging)                                            | 6   |                                                                              |
 | [Localization and Globalization](/projects/localization)                | 6   |                                                                              |
