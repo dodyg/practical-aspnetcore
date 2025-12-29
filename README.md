@@ -64,6 +64,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Request](/projects/request)                                            | 15  | Form, Cookies, Query String, Headers                                         |
 | [Request Timeouts Middleware](/projets/request-timeouts-middleware)     | 6   |                                                                              |
 | [Response](/projects/response)                                          | 3   |                                                                              |
+| [RSS](/projects/rss-reader)                                             | 1   |                                                                              |
 | [SignalR](/projects/signalr)                                            | 1   |                                                                              |
 | [Security](/projects/security)                                          | 7   |                                                                              |
 | [Single File Application](/projects/sfa)                                | 2   |                                                                              |

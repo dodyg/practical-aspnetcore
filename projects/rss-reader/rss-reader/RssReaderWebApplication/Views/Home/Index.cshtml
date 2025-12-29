@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<RssReaderWebApplication.Models.RssItem>
+
+<h2>RSS Feed</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="@item.Link">@item.Title</a>
+            <p>@item.Description</p>
+        </li>
+    }
+</ul>
