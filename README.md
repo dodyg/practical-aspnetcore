@@ -50,7 +50,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Localization and Globalization](/projects/localization)                | 6  |                                                                              |
 | [Middleware](/projects/middleware)                                      | 14 |                                                                              |
 | [Mini Apps](/projects/mini)                                             | 2  |                                                                              |
-| [Minimal API](/projects/minimal-api)                                    | 36 | Routing, Parameter Bindings, etc                                             |
+| [Minimal API](/projects/minimal-api)                                    | 37 | Routing, Parameter Bindings, etc                                             |
 | [Minimal Hosting](/projects/minimal-hosting)                            | 23 |                                                                              |
 | [MVC](/projects/mvc)                                                    | 47 | Localization, Routing, Razor Class Library, Tag Helpers, View Component, etc |
 | [Output Cache Middleware](/projects/output-cache-middleware)            |    |                                                                              |
@@ -72,7 +72,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Syndications](/projects/syndications)                                  | 3  |                                                                              |
 | [Testing](/projects/testing)                                            | 1  |                                                                              |
 | [Unpoly](/projects/unpoly)                                              | 5  |                                                                              |
-| [URL Redirect/Rewrite](/projects/rewrite)                               | 6  |                                                                              |
+| https://weblogs.asp.net/owscott/rewrite-vs-redirect-what-s-the-difference(/projects/rewrite)                               | 6  |                                                                              |
 | [Uri Helper](/projects/uri-helper)                                      | 5  |                                                                              |
 | [Windows Service](/projects/windows-service)                            | 1  |                                                                              |
 | [Web Sockets](/projects/web-sockets)                                    | 6  |                                                                              |
@@ -84,6 +84,12 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 ## How to run these samples
 
 To run these samples, simply open your command line console, go to each folder and execute `dotnet watch run`.
+
+### Minimal API (37)
+
+- [Primitive Obsession Prevention](./projects/minimal-api/primitive-obsession)
+
+  This sample demonstrates how to prevent **Primitive Obsession** by using **Value Objects** and the `static TryParse` pattern for automatic parameter binding in Minimal APIs.
 
 ### Misc (6)
 
@@ -167,5 +173,3 @@ All these samples require `SixLabors.ImageSharp.Web` middleware package. This mi
 
 -   [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
 -   [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
-
-
