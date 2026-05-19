@@ -5,7 +5,7 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scriban" Version="6.6.0" />
+    <PackageReference Include="Scriban" Version="7.2.0" />
     <PackageReference Include="Markdig" Version="0.37.0" />
     <PackageReference Include="LiteDB" Version="5.0.19" />
     <PackageReference Include="HtmlBuilders" Version="7.2.0" />
