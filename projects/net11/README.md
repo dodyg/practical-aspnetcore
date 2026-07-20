@@ -1,6 +1,6 @@
 # ASP.NET Core 11 (1)
 
-These samples require SDK [11.0.100-preview.5](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
+These samples require SDK [11.0.100-preview.6](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
 - [open-api-12](open-api-12)
 
