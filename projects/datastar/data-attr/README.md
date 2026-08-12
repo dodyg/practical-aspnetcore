@@ -5,13 +5,13 @@ This example shows how to use `data-attr` to set HTML attribute to an expression
 Make sure that you use a single quote `'` when you are assigning string value otherwise you will get an error.
 
 ``` html
- <h1 data-attr-title="'Data Atttribute Page'">data-atttr</h1>
+ <h1 data-attr:title="'Data Atttribute Page'">data-atttr</h1>
  ```
 
  ``` html
    <body class="container" data-signals="{btn1 : 'Normal Button', btn2 : true}">
 
-   <div><button data-attr-disabled="$btn2">Disabled Button</button></div>
+   <div><button data-attr:disabled="$btn2">Disabled Button</button></div>
 ```   
 
 ``` html 

@@ -1,3 +1,3 @@
-# data-on-click
+# data-on:click
 
-This example shows to use `data-on-click` to respond to a `click` event.
+This example shows to use `data-on:click` to respond to a `click` event.

@@ -4,5 +4,5 @@ This sample shows how to use `data-on-signal-patch` to run an expression whether
 
 
 ``` html  
-    <h1 data-on-load="@get('/sse')" data-on-signal-patch="alert(JSON.stringify(patch))">data-on-signal-patch</h1>
+    <h1 data-init__delay.100ms="@get('/sse')" data-on-signal-patch="alert(JSON.stringify(patch))">data-on-signal-patch</h1>
 ```

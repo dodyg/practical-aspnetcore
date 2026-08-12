@@ -34,11 +34,11 @@ app.MapGet("/", async context =>
     await context.Response.WriteAsync($$"""
     <html>
         <head>
-          <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@main/bundles/datastar.js"></script>
+          <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.2/bundles/datastar.js"></script>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
         </head>
         <body class="container">
-            <h1 data-on-load="@get('/sse')" data-indicator-fetching>data-indicator</h1>
+            <h1 data-init__delay.100ms="@get('/sse')" data-indicator:fetching>data-indicator</h1>
             <div data-show="$fetching" aria-busy="true"></div>
             <div class="grid">
                 <div data-text="$greeting"></div>

@@ -1,10 +1,10 @@
-# Datastar (20)
+# Datastar (21)
 
 The following samples show how to use [Datastar](https://data-star.dev/) hypermedia framework using .NET 10 and [pico](https://picocss.com) CSS framework.
 
 * [Hello World](hello-world)
   
-  Use `data-on-load` attribute with `@get` action to receive SSE event from a Minimal API endpoint that returns `datastar-patch-elements` SSE event type.
+  Use `data-init` attribute with `@get` action to receive SSE event from a Minimal API endpoint that returns `datastar-patch-elements` SSE event type.
 
 * [Backend SSE patch-signals](backend-patch-signals)
 
@@ -44,7 +44,7 @@ The following samples show how to use [Datastar](https://data-star.dev/) hyperme
 
 * [data-on-click](data-on-click)
 
-  This example shows to use `data-on-click` to update other signals or perform operations.
+  This example shows to use `data-on:click` to update other signals or perform operations.
 
 * [data-on-custom-event](data-on-custom-event)
 
@@ -73,6 +73,10 @@ The following samples show how to use [Datastar](https://data-star.dev/) hyperme
 * [data-on-signal-patch-filter](data-on-signal-patch-filter)
 
   This sample shows how to use `data-on-signal-patch-filter` together with `data-on-signal-patch` to run an expression whether one or more **specific** signal patched. `patch` variable is available and contains the details of the patched signals.
+
+* [data-patch-elements-outer](data-patch-elements-outer)
+
+  This example shows to use `data-init` with `@get` action to patch an element using `datastar-patch-elements` SSE event type (outer mode).
 
 * [data-ignore](data-ignore)
 
