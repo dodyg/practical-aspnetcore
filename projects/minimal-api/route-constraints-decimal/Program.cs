@@ -42,7 +42,7 @@ app.MapGet("/", () =>
 });
 
 app.MapGet("decimal/{id:decimal}", (decimal id) => id.ToString());
-app.MapGet("float/{yid:float}", (float id) => id.ToString());
+app.MapGet("float/{id:float}", (float id) => id.ToString());
 app.MapGet("double/{id:double}", (double id) => id.ToString());
 
 app.Run();

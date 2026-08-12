@@ -1,6 +1,7 @@
 dotnet build anti-forgery-1
 dotnet build anti-forgery-2
-dotnet build anti-forgery-3
+dotnet build anti-forgery-3/api
+dotnet build anti-forgery-3/frontend
 dotnet build endpoint-filter-1
 dotnet build endpoint-filter-2
 dotnet build endpoint-filter-3
