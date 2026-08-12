@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder();
@@ -10,26 +11,34 @@ var app = builder.Build();
 
 app.UseAntiforgery();
 
-app.MapGet("/", () =>
+app.MapGet("/", async (IAntiforgery anti, HttpContext context) =>
 {
-    var html = """
+    var token = anti.GetAndStoreTokens(context);
+
+    var html = $"""
     <html>
+        <head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        </head>
     <body>
-        <h1>Form Validation - Nested Objects</h1>
-        <form method="post" action="/submit">
-            <fieldset>
-                <legend>Customer Info</legend>
-                <input name="Customer.Name" placeholder="Name (min 2 chars)" required /><br>
-                <input name="Customer.Email" type="email" placeholder="Email" required />
-            </fieldset>
-            <fieldset>
-                <legend>Order Item</legend>
-                <input name="Items[0].ProductName" placeholder="Product Name" required /><br>
-                <input name="Items[0].Quantity" type="number" placeholder="Quantity (1-10)" min="1" max="10" />
-            </fieldset>
-            <button type="submit">Submit Order</button>
-        </form>
-        <p><a href="/submit?Customer.Name=J&Customer.Email=invalid&Items[0].ProductName=X&Items[0].Quantity=20">Test invalid data</a></p>
+        <main class="container">
+            <h1>Form Validation - Nested Objects</h1>
+            <form method="post" action="/submit">
+                <input name="{token.FormFieldName}" type="hidden" value="{token.RequestToken}" />
+                <fieldset>
+                    <legend>Customer Info</legend>
+                    <input name="Customer.Name" placeholder="Name (min 2 chars)" required /><br>
+                    <input name="Customer.Email" type="email" placeholder="Email" required />
+                </fieldset>
+                <fieldset>
+                    <legend>Order Item</legend>
+                    <input name="Items[0].ProductName" placeholder="Product Name" required /><br>
+                    <input name="Items[0].Quantity" type="number" placeholder="Quantity (1-10)" min="1" max="10" />
+                </fieldset>
+                <button type="submit">Submit Order</button>
+            </form>
+            <p><a href="/submit?Customer.Name=J&Customer.Email=invalid&Items[0].ProductName=X&Items[0].Quantity=20">Test invalid data</a></p>
+        </main>
     </body>
     </html>
     """;
@@ -37,15 +46,17 @@ app.MapGet("/", () =>
     return TypedResults.Content(html, "text/html");
 });
 
-app.MapPost("/submit", ([FromForm] Order order) =>
+app.MapPost("/submit", async ([FromForm] Order order, IAntiforgery antiforgery, HttpContext context) =>
 {
+    await antiforgery.ValidateRequestAsync(context);
+
     return TypedResults.Ok(new
     {
         Message = "Order submitted successfully!",
         Customer = order.Customer,
         Items = order.Items
     });
-}).DisableAntiforgery();
+});
 
 app.Run();
 
