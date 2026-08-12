@@ -5,6 +5,17 @@ namespace RssReader.Services
 {
     public class RssNews
     {
+        private static readonly HttpClient httpClient = CreateHttpClient();
+
+        // hnrss.org and some other feeds reject requests without a User-Agent header,
+        // so fetch the feed with an explicit UA instead of letting XmlReader do it
+        private static HttpClient CreateHttpClient()
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (compatible; practical-aspnetcore-rss-sample/1.0)");
+            return client;
+        }
+
         public async IAsyncEnumerable<List<SyndicationItem>> GetMultipleNewsAsync(params string[] news)
         {
             foreach (var x in news)
@@ -17,7 +28,8 @@ namespace RssReader.Services
         {
             var items = new List<SyndicationItem>();
 
-            using (var xmlReader = XmlReader.Create(url, new XmlReaderSettings { Async = true }))
+            using (var stream = await httpClient.GetStreamAsync(url))
+            using (var xmlReader = XmlReader.Create(stream, new XmlReaderSettings { Async = true }))
             {
                 var feedReader = new RssFeedReader(xmlReader);
 

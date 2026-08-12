@@ -1,22 +1,23 @@
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Endpoints;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Html;
-using System.Text.Encodings.Web;
 
-// converts an IHtmlContent to a string
-static string GetString(IHtmlContent htmlContent)
+// converts an IHtmlAsyncContent to a string.
+// must run on the renderer's dispatcher
+async Task<string> GetStringAsync(IHtmlAsyncContent htmlContent)
 {
     using (var writer = new StringWriter())
     {
-        htmlContent.WriteTo(writer, HtmlEncoder.Default);
+        await htmlContent.WriteToAsync(writer);
         return writer.ToString();
     }
 }
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMvc(); // for IHtmlHelper
 builder.Services.AddServerSideBlazor();
+builder.Services.AddRazorComponents(); // registers IComponentPrerenderer
 
 var app = builder.Build();
 
@@ -28,13 +29,12 @@ app.MapGet("/",
     {
         ctx.Response.ContentType = "text/html";
 
-        var htmlHelper = ctx.RequestServices.GetRequiredService<IHtmlHelper>();
-        ((IViewContextAware)htmlHelper).Contextualize(new ViewContext { HttpContext = ctx });
+        var prerenderer = ctx.RequestServices.GetRequiredService<IComponentPrerenderer>();
 
-                // all of this could be done with a Razor Page,
-                // but this sample uses C# instead
+        // all of this could be done with a Razor Page,
+        // but this sample uses C# instead
 
-                await ctx.Response.WriteAsync("<html lang=\"en\">");
+        await ctx.Response.WriteAsync("<html lang=\"en\">");
 
         await ctx.Response.WriteAsync("<head>");
         await ctx.Response.WriteAsync("<meta charset=\"utf-8\" />");
@@ -46,8 +46,11 @@ app.MapGet("/",
 
         await ctx.Response.WriteAsync("<div>");
         {
-            var htmlContent = await htmlHelper.RenderComponentAsync<ListNames>(RenderMode.Server);
-            await ctx.Response.WriteAsync(GetString(htmlContent));
+            var htmlContent = await prerenderer.PrerenderComponentAsync(ctx, typeof(ListNames), RenderMode.InteractiveServer, ParameterView.Empty);
+
+            // the prerendered html must be written on the renderer's dispatcher
+            var htmlString = await prerenderer.Dispatcher.InvokeAsync(() => GetStringAsync(htmlContent));
+            await ctx.Response.WriteAsync(htmlString);
         }
         await ctx.Response.WriteAsync("</div>");
 
@@ -59,4 +62,3 @@ app.MapGet("/",
     );
 
 app.Run();
-
