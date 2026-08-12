@@ -1,10 +1,14 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder();
 
 builder.Services.AddValidation();
+builder.Services.AddAntiforgery();
 
 var app = builder.Build();
+
+app.UseAntiforgery();
 
 app.MapGet("/", () =>
 {
@@ -33,7 +37,7 @@ app.MapGet("/", () =>
     return TypedResults.Content(html, "text/html");
 });
 
-app.MapPost("/submit", ([AsParameters] Order order) =>
+app.MapPost("/submit", ([FromForm] Order order) =>
 {
     return TypedResults.Ok(new
     {
@@ -41,7 +45,7 @@ app.MapPost("/submit", ([AsParameters] Order order) =>
         Customer = order.Customer,
         Items = order.Items
     });
-});
+}).DisableAntiforgery();
 
 app.Run();
 

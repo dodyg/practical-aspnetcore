@@ -8,6 +8,7 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.MapOpenApi();
+app.MapOpenApi("/openapi/{documentName}.yaml");
 
 app.MapGet("/", () =>
 {
