@@ -9,7 +9,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseStaticFiles();
+app.MapStaticAssets();
 app.UseAntiforgery();
 app.MapRazorComponents<RazorComponentThirteen.App>()
     .AddInteractiveWebAssemblyRenderMode()
