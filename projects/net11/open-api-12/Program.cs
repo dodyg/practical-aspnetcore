@@ -34,7 +34,7 @@ app.MapGet("/", () =>
 }).ExcludeFromDescription(); //This is not an API endpoint
 
 
-app.MapMethods("/search", ["QUERY"], Hello);
+app.MapMethods("/search", ["QUERY"], Hello).WithName("Search");
     
 app.Run();
 
