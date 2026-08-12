@@ -1,6 +1,6 @@
 # Orleans  Hello World with ASP.NET Core
 
-This sample shows how to use Orleans 8 with ASP.NET Core 8. 
+This sample shows how to use Orleans 10 with ASP.NET Core 10. 
 
 The changes in Orleans 7 or above compared to previous version of Orleans.
 - Simplified configuration of just linking to [Microsoft.Orleans.Server](https://www.nuget.org/packages/Microsoft.Orleans.Server).

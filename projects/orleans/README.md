@@ -2,11 +2,11 @@
 
 These are simple samples to play with [Microsoft Orleans](https://github.com/dotnet/orleans), a cross-platform framework for building robust, scalable distributed applications.
 
-## Orleans 8
+## Orleans 10
 
 * [Orleans - 1](orleans-1)
 
-  This sample shows how to use Orleans 8 in a minimal API application. It shows the new way on how to configure an Orleans server.
+  This sample shows how to use Orleans 10 in a minimal API application. It shows the new way on how to configure an Orleans server.
 
 * [Orleans - 2](orleans-2)
 

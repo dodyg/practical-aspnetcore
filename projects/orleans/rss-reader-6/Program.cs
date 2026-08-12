@@ -2,36 +2,37 @@ using System.Net;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
-using Orleans.Hosting;
 using System.Xml;
 using Microsoft.SyndicationFeed.Atom;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
 using Orleans.Streams;
+using Orleans.Providers;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddHttpClient();
 builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
-builder.Host.UseOrleans(builder =>
+builder.Host.UseOrleans(silo =>
 {
-    builder
+    silo
         .UseLocalhostClustering()
         .UseInMemoryReminderService()
         .Configure<ClusterOptions>(options =>
         {
             options.ClusterId = "dev";
-            options.ServiceId = "http-client";
+            options.ServiceId = "rss-reader-6";
         })
         .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-        .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-        .AddRedisGrainStorage(Config.RedisStorage, optionsBuilder => optionsBuilder.Configure(options =>
+        .AddRedisGrainStorage(Config.RedisStorage, options =>
         {
-            options.ConnectionString = "localhost:6379";
-            options.UseJson = true;
-            options.DatabaseNumber = 1;
-        }))
+            options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+            {
+                EndPoints = { { "localhost", 6379 } },
+                AbortOnConnectFail = false
+            };
+        })
         .AddMemoryGrainStorage("PubSubStore")
-        .AddSimpleMessageStreamProvider(Config.StreamProvider);
+        .AddMemoryStreams<DefaultMemoryMessageBodySerializer>(Config.StreamProvider);
 });
 
 var app = builder.Build();
@@ -67,8 +68,8 @@ app.MapGet("/", async context =>
     foreach (var s in sources)
     {
         var feedFetcherReminderGrain = client.GetGrain<IFeedFetcherReminder>(s.Url);
-                    // AddReminder is indempotent
-                    await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
+        // AddReminder is indempotent
+        await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
     }
 
     var feedResultsGrain = client.GetGrain<IFeedItemResults>(0);
@@ -179,15 +180,15 @@ class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
         if (string.IsNullOrWhiteSpace(reminder))
             throw new ArgumentNullException(nameof(reminder));
 
-        var r = await GetReminder(reminder);
+        var r = await this.GetReminder(reminder);
 
         if (r is not object)
-            await RegisterOrUpdateReminder(reminder, dueTime: TimeSpan.FromSeconds(1), period: TimeSpan.FromMinutes(repeatEveryMinute));
+            await this.RegisterOrUpdateReminder(reminder, dueTime: TimeSpan.FromSeconds(1), period: TimeSpan.FromMinutes(repeatEveryMinute));
     }
 
     public async Task ReceiveReminder(string reminderName, TickStatus status)
     {
-        _logger.Info($"Receive {reminderName} reminder");
+        _logger.LogInformation("Receive {ReminderName} reminder", reminderName);
 
         var feedSourceGrain = _grainFactory.GetGrain<IFeedSource>(0)!;
 
@@ -195,7 +196,7 @@ class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
 
         if (feedSource is object)
         {
-            _logger.Info($"Fetching {feedSource.Url}");
+            _logger.LogInformation("Fetching {FeedUrl}", feedSource.Url);
             var feedFetcherGrain = _grainFactory.GetGrain<IFeedFetcher>(feedSource.Url);
             await feedFetcherGrain.FetchAsync(feedSource);
         }
@@ -215,15 +216,15 @@ class FeedStreamReaderGrain : Grain, IFeedStreamReader
         _grainFactory = grainFactory;
     }
 
-    public override async Task OnActivateAsync()
+    public override async Task OnActivateAsync(CancellationToken cancellationToken)
     {
-        var streamProvider = GetStreamProvider(Config.StreamProvider);
-        var stream = streamProvider.GetStream<List<FeedItem>>(Config.StreamId, Config.StreamChannel);
+        var streamProvider = this.GetStreamProvider(Config.StreamProvider);
+        var stream = streamProvider.GetStream<List<FeedItem>>(Config.StreamChannel, Config.StreamId);
 
         var feedItemResultGrain = _grainFactory.GetGrain<IFeedItemResults>(0);
         await stream.SubscribeAsync<List<FeedItem>>(async (data, token) =>
         {
-            _logger.Info($"Feed Items {data.Count}");
+            _logger.LogInformation("Feed Items {Count}", data.Count);
             await feedItemResultGrain.AddAsync(data);
         });
     }
@@ -233,7 +234,7 @@ class FeedItemResultGrain : Grain, IFeedItemResults
 {
     private readonly IPersistentState<FeedItemStore> _storage;
 
-    public FeedItemResultGrain([PersistentState("feed-item-results-5", Config.RedisStorage)] IPersistentState<FeedItemStore> storage) => _storage = storage;
+    public FeedItemResultGrain([PersistentState("feed-item-results-6", Config.RedisStorage)] IPersistentState<FeedItemStore> storage) => _storage = storage;
 
     public async Task AddAsync(List<FeedItem> items)
     {
@@ -255,8 +256,10 @@ class FeedItemResultGrain : Grain, IFeedItemResults
     }
 }
 
+[GenerateSerializer]
 record FeedItemStore
 {
+    [Id(0)]
     public List<FeedItem> Results { get; set; } = new List<FeedItem>();
 }
 
@@ -264,7 +267,7 @@ class FeedSourceGrain : Grain, IFeedSource
 {
     private readonly IPersistentState<FeedSourceStore> _storage;
 
-    public FeedSourceGrain([PersistentState("feed-source-5", Config.RedisStorage)] IPersistentState<FeedSourceStore> storage) => _storage = storage;
+    public FeedSourceGrain([PersistentState("feed-source-6", Config.RedisStorage)] IPersistentState<FeedSourceStore> storage) => _storage = storage;
 
     public async Task AddAsync(FeedSource source)
     {
@@ -296,8 +299,10 @@ class FeedSourceGrain : Grain, IFeedSource
     }
 }
 
+[GenerateSerializer]
 record FeedSourceStore
 {
+    [Id(0)]
     public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
 }
 
@@ -320,8 +325,8 @@ class FeedFetchGrain : Grain, IFeedFetcher
     {
         var results = await ReadFeedAsync(source);
 
-        var streamProvider = GetStreamProvider(Config.StreamProvider);
-        var stream = streamProvider.GetStream<List<FeedItem>>(Config.StreamId, Config.StreamChannel);
+        var streamProvider = this.GetStreamProvider(Config.StreamProvider);
+        var stream = streamProvider.GetStream<List<FeedItem>>(Config.StreamChannel, Config.StreamId);
 
         await stream.OnNextAsync(results);
     }
@@ -338,7 +343,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
         FeedType feedType = FeedType.Rss;
         try
         {
-            _logger.LogInformation($"Fetching {source.Url}");
+            _logger.LogInformation("Fetching {FeedUrl}", source.Url);
 
             var client = _httpClientFactory.CreateClient();
             client.Timeout = TimeSpan.FromSeconds(10);
@@ -407,7 +412,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
         }
         catch (Exception ex)
         {
-            _logger.LogError($"({feedType}) {source.Url} Exception: {ex.Message}");
+            _logger.LogError("({FeedType}) {FeedUrl} Exception: {Message}", feedType, source.Url, ex.Message);
 
             // Mark feed as invalid
             var feedSource = _grainFactory.GetGrain<IFeedSource>(0)!;

@@ -61,7 +61,7 @@ public class TimeKeeperGrain : Grain, ITimeKeeper
     {
         var client = _httpFactory.CreateClient();
 
-        var result = await client.GetAsync($"http://worldtimeapi.org/api/timezone/{timeZone}");
+        var result = await client.GetAsync($"https://timeapi.io/api/Time/current/zone?timeZone={timeZone}");
         var worldClock = await result.Content.ReadFromJsonAsync<WorldTime>();
 
         return (worldClock!.DateTime, timeZone);
@@ -75,6 +75,6 @@ public interface ITimeKeeper : IGrainWithStringKey
 
 public class WorldTime
 {
-    [JsonPropertyName("datetime")]
+    [JsonPropertyName("dateTime")]
     public DateTimeOffset DateTime { get; set; }
 }

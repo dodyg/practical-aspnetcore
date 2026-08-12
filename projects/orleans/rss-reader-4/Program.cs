@@ -2,7 +2,6 @@ using System.Net;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
-using Orleans.Hosting;
 using System.Xml;
 using Microsoft.SyndicationFeed.Atom;
 using Microsoft.SyndicationFeed;
@@ -11,30 +10,32 @@ using Microsoft.SyndicationFeed.Rss;
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddHttpClient();
 builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
-builder.Host.UseOrleans(builder =>
-    {
-        builder
-            .UseLocalhostClustering()
-            .UseInMemoryReminderService()
-            .Configure<ClusterOptions>(options =>
+builder.Host.UseOrleans(silo =>
+{
+    silo
+        .UseLocalhostClustering()
+        .UseInMemoryReminderService()
+        .Configure<ClusterOptions>(options =>
+        {
+            options.ClusterId = "dev";
+            options.ServiceId = "rss-reader-4";
+        })
+        .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
+        .AddRedisGrainStorage(Config.RedisStorage, options =>
+        {
+            options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
             {
-                options.ClusterId = "dev";
-                options.ServiceId = "http-client";
-            })
-            .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-            .AddRedisGrainStorage(Config.RedisStorage, optionsBuilder => optionsBuilder.Configure(options =>
-            {
-                options.ConnectionString = "localhost:6379";
-                options.UseJson = true;
-                options.DatabaseNumber = 1;
-            }));
-    });
+                EndPoints = { { "localhost", 6379 } },
+                AbortOnConnectFail = false
+            };
+        });
+});
 
 var app = builder.Build();
-
 app.MapGet("/", async context =>
 {
+    var logger = context.RequestServices.GetService<ILoggerFactory>()!.CreateLogger("rss-reader");
+
     var httpClientFactory = context.RequestServices.GetService<IHttpClientFactory>();
     var httpClient = httpClientFactory.CreateClient();
 
@@ -44,8 +45,6 @@ app.MapGet("/", async context =>
 
     var client = context.RequestServices.GetService<IGrainFactory>()!;
     var feedSourceGrain = client.GetGrain<IFeedSource>(0)!;
-
-    var logger = context.RequestServices.GetService<ILoggerFactory>()!.CreateLogger("rss-reader");
 
     foreach (var source in subscriptionList.Items)
     {
@@ -63,9 +62,9 @@ app.MapGet("/", async context =>
 
     foreach (var s in sources)
     {
+        // AddReminder is indempotent
         var feedFetcherReminderGrain = client.GetGrain<IFeedFetcherReminder>(s.Url);
-                    // AddReminder is indempotent
-                    await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
+        await feedFetcherReminderGrain.AddReminder(s.Url, s.UpdateFrequencyInMinutes);
     }
 
     var feedResultsGrain = client.GetGrain<IFeedItemResults>(0);
@@ -171,15 +170,15 @@ class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
         if (string.IsNullOrWhiteSpace(reminder))
             throw new ArgumentNullException(nameof(reminder));
 
-        var r = await GetReminder(reminder);
+        var r = await this.GetReminder(reminder);
 
         if (r is not object)
-            await RegisterOrUpdateReminder(reminder, dueTime: TimeSpan.FromSeconds(1), period: TimeSpan.FromMinutes(repeatEveryMinute));
+            await this.RegisterOrUpdateReminder(reminder, dueTime: TimeSpan.FromSeconds(1), period: TimeSpan.FromMinutes(repeatEveryMinute));
     }
 
     public async Task ReceiveReminder(string reminderName, TickStatus status)
     {
-        _logger.Info($"Receive {reminderName} reminder");
+        _logger.LogInformation("Receive {ReminderName} reminder", reminderName);
 
         var feedSourceGrain = _grainFactory.GetGrain<IFeedSource>(0)!;
 
@@ -187,7 +186,7 @@ class FeedFetcherReminder : Grain, IRemindable, IFeedFetcherReminder
 
         if (feedSource is object)
         {
-            _logger.Info($"Fetching {feedSource.Url}");
+            _logger.LogInformation("Fetching {FeedUrl}", feedSource.Url);
             var feedFetcherGrain = _grainFactory.GetGrain<IFeedFetcher>(feedSource.Url);
             await feedFetcherGrain.FetchAsync(feedSource);
         }
@@ -225,8 +224,10 @@ class FeedItemResultGrain : Grain, IFeedItemResults
     }
 }
 
+[GenerateSerializer]
 record FeedItemStore
 {
+    [Id(0)]
     public List<FeedItem> Results { get; set; } = new List<FeedItem>();
 }
 
@@ -276,8 +277,10 @@ class FeedSourceGrain : Grain, IFeedSource
     }
 }
 
+[GenerateSerializer]
 record FeedSourceStore
 {
+    [Id(0)]
     public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
 }
 
@@ -331,7 +334,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
         FeedType feedType = FeedType.Rss;
         try
         {
-            _logger.LogInformation($"Fetching {source.Url}");
+            _logger.LogInformation("Fetching {FeedUrl}", source.Url);
 
             var client = _httpClientFactory.CreateClient();
             client.Timeout = TimeSpan.FromSeconds(10);
@@ -400,7 +403,7 @@ class FeedFetchGrain : Grain, IFeedFetcher
         }
         catch (Exception ex)
         {
-            _logger.LogError($"({feedType}) {source.Url} Exception: {ex.Message}");
+            _logger.LogError("({FeedType}) {FeedUrl} Exception: {Message}", feedType, source.Url, ex.Message);
 
             // Mark feed as invalid
             var feedSource = _grainFactory.GetGrain<IFeedSource>(0)!;

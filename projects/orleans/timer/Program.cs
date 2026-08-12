@@ -2,27 +2,27 @@ using System.Net;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
-using Orleans.Hosting;
 
 var builder = WebApplication.CreateBuilder();
 builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
-builder.Host.UseOrleans(builder =>
+builder.Host.UseOrleans(silo =>
 {
-    builder
+    silo
         .UseLocalhostClustering()
         .Configure<ClusterOptions>(options =>
         {
             options.ClusterId = "dev";
-            options.ServiceId = "HelloWorldApp";
+            options.ServiceId = "timer";
         })
         .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-        .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloTimerGrain).Assembly).WithReferences())
-        .AddRedisGrainStorage("redis-timer", optionsBuilder => optionsBuilder.Configure(options =>
+        .AddRedisGrainStorage("redis-timer", options =>
         {
-            options.ConnectionString = "localhost:6379";
-            options.UseJson = true;
-            options.DatabaseNumber = 1;
-        }));
+            options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+            {
+                EndPoints = { { "localhost", 6379 } },
+                AbortOnConnectFail = false
+            };
+        });
 });
 
 var app = builder.Build();
@@ -64,22 +64,27 @@ public class HelloTimerGrain : Grain, IHelloArchive
         _log = log;
     }
 
-    public override Task OnActivateAsync()
+    public override Task OnActivateAsync(CancellationToken cancellationToken)
     {
-        _timerDisposable = this.RegisterTimer(async (object data) =>
+        _timerDisposable = this.RegisterGrainTimer(async (object? data) =>
         {
             var archive = data as IPersistentState<GreetingArchive>;
             var g = new Greeting(_greeting, DateTime.UtcNow);
             archive!.State.Greetings.Insert(0, g);
             await archive!.WriteStateAsync();
 
-            _log.Info($"`{g.Message}` added at {g.TimestampUtc}");
-        }, _archive, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(5));
+            _log.LogInformation($"`{g.Message}` added at {g.TimestampUtc}");
+        }, _archive, new GrainTimerCreationOptions
+        {
+            DueTime = TimeSpan.FromSeconds(1),
+            Period = TimeSpan.FromSeconds(5),
+            Interleave = true
+        });
 
         return Task.CompletedTask;
     }
 
-    public override Task OnDeactivateAsync()
+    public override Task OnDeactivateAsync(DeactivationReason reason, CancellationToken token)
     {
         _timerDisposable?.Dispose();
         return Task.CompletedTask;
@@ -94,11 +99,14 @@ public class HelloTimerGrain : Grain, IHelloArchive
     public Task<IEnumerable<Greeting>> GetGreetings() => Task.FromResult<IEnumerable<Greeting>>(_archive.State.Greetings);
 }
 
+[GenerateSerializer]
 public record GreetingArchive
 {
+    [Id(0)]
     public List<Greeting> Greetings { get; } = new List<Greeting>();
 }
 
+[GenerateSerializer]
 public record Greeting(string Message, DateTime TimestampUtc);
 
 public interface IHelloArchive : Orleans.IGrainWithIntegerKey

@@ -2,7 +2,6 @@ using System.Net;
 using Orleans;
 using Orleans.Runtime;
 using Orleans.Configuration;
-using Orleans.Hosting;
 using System.Xml;
 using Microsoft.SyndicationFeed.Atom;
 using Microsoft.SyndicationFeed;
@@ -11,24 +10,24 @@ using Microsoft.SyndicationFeed.Rss;
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddHttpClient();
 builder.Logging.SetMinimumLevel(LogLevel.Information).AddConsole();
-builder.Host.UseOrleans(builder =>
+builder.Host.UseOrleans(silo =>
 {
-    builder
+    silo
         .UseLocalhostClustering()
-        .UseInMemoryReminderService()
         .Configure<ClusterOptions>(options =>
         {
             options.ClusterId = "dev";
-            options.ServiceId = "http-client";
+            options.ServiceId = "rss-reader";
         })
         .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-        .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(FeedSourceGrain).Assembly).WithReferences())
-        .AddRedisGrainStorage("redis-rss-reader", optionsBuilder => optionsBuilder.Configure(options =>
+        .AddRedisGrainStorage("redis-rss-reader", options =>
         {
-            options.ConnectionString = "localhost:6379";
-            options.UseJson = true;
-            options.DatabaseNumber = 1;
-        }));
+            options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+            {
+                EndPoints = { { "localhost", 6379 } },
+                AbortOnConnectFail = false
+            };
+        });
 });
 
 var app = builder.Build();
@@ -119,8 +118,10 @@ class FeedItemResultGrain : Grain, IFeedItemResults
     }
 }
 
+[GenerateSerializer]
 record FeedItemStore
 {
+    [Id(0)]
     public List<FeedItem> Results { get; set; } = new List<FeedItem>();
 }
 
@@ -151,8 +152,10 @@ class FeedSourceGrain : Grain, IFeedSource
     public Task<List<FeedSource>> GetAllAsync() => Task.FromResult(_storage.State.Sources);
 }
 
+[GenerateSerializer]
 record FeedSourceStore
 {
+    [Id(0)]
     public List<FeedSource> Sources { get; set; } = new List<FeedSource>();
 }
 
@@ -240,31 +243,44 @@ class FeedFetchGrain : Grain, IFeedFetcher
     }
 }
 
+[GenerateSerializer]
 record FeedChannel
 {
+    [Id(0)]
     public string? Title { get; set; }
 
+    [Id(1)]
     public string? Website { get; set; }
 
+    [Id(2)]
     public Uri? Url { get; set; }
 
+    [Id(3)]
     public bool HideTitle { get; set; }
 
+    [Id(4)]
     public bool HideDescription { get; set; }
 }
 
+[GenerateSerializer]
 class FeedSource
 {
+    [Id(0)]
     public string Url { get; set; } = string.Empty;
 
+    [Id(1)]
     public string Title { get; set; } = string.Empty;
 
+    [Id(2)]
     public string? Website { get; set; }
 
+    [Id(3)]
     public FeedType Type { get; set; }
 
+    [Id(4)]
     public bool HideTitle { get; set; }
 
+    [Id(5)]
     public bool HideDescription { get; set; }
 
     public FeedChannel ToChannel()
@@ -279,18 +295,25 @@ class FeedSource
     }
 }
 
+[GenerateSerializer]
 record FeedItem
 {
+    [Id(0)]
     public FeedChannel? Channel { get; set; }
 
+    [Id(1)]
     public string? Id { get; set; }
 
+    [Id(2)]
     public string? Title { get; set; }
 
+    [Id(3)]
     public string? Description { get; set; }
 
+    [Id(4)]
     public Uri? Url { get; set; }
 
+    [Id(5)]
     public DateTimeOffset PublishedOn { get; set; }
 
     public FeedItem()
@@ -315,6 +338,7 @@ record FeedItem
     }
 }
 
+[GenerateSerializer]
 enum FeedType
 {
     Atom,

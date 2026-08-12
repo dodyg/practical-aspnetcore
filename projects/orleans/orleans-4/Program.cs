@@ -139,6 +139,7 @@ public class HelloReminderGrain : Grain, IHelloArchive, IRemindable
 [GenerateSerializer]
 public record GreetingArchive
 {
+    [Id(0)]
     public List<Greeting> Greetings { get; } = new List<Greeting>();
 }
 

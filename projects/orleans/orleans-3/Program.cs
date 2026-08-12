@@ -70,7 +70,7 @@ public class HelloTimerGrain : Grain, IHelloArchive
 
     public override Task OnActivateAsync(CancellationToken cancellationToken)
     {
-        _timerDisposable = this.RegisterTimer(async (object data) =>
+        _timerDisposable = this.RegisterGrainTimer(async (object? data) =>
         {
             var archive = data as IPersistentState<GreetingArchive>;
             var g = new Greeting(_greeting, DateTime.UtcNow);
@@ -78,7 +78,12 @@ public class HelloTimerGrain : Grain, IHelloArchive
             await archive!.WriteStateAsync();
 
             _log.LogInformation($"`{g.Message}` added at {g.TimestampUtc}");
-        }, _archive, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(5));
+        }, _archive, new GrainTimerCreationOptions
+        {
+            DueTime = TimeSpan.FromSeconds(1),
+            Period = TimeSpan.FromSeconds(5),
+            Interleave = true
+        });
 
         return Task.CompletedTask;
     }
@@ -101,6 +106,7 @@ public class HelloTimerGrain : Grain, IHelloArchive
 [GenerateSerializer]
 public record GreetingArchive
 {
+    [Id(0)]
     public List<Greeting> Greetings { get; } = new List<Greeting>();
 }
 
