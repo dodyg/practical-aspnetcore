@@ -22,12 +22,11 @@ var workflow = new Sequence
 
         new WriteLine("Start workflow before"),
         new Fork {
-            JoinMode = ForkJoinMode.WaitAny,
+            JoinMode = ForkJoinMode.WaitAll,
             Branches = 
             {
                 new Sequence 
                 {
-                    Variables = { msg1 },
                     Activities = 
                     {
                         new WriteLine("Branch 1 Step 1"),
@@ -36,7 +35,6 @@ var workflow = new Sequence
                 },
                 new Sequence
                 {
-                    Variables = { msg2 },
                     Activities = 
                     {
                         new WriteLine("Branch 2 Step 1"),

@@ -1,6 +1,7 @@
 using Elsa.Extensions;
 using Elsa.Workflows;
 using Elsa.Workflows.Activities;
+using Elsa.Workflows.Models;
 
 var services = new ServiceCollection();
 services.AddElsa();
@@ -19,7 +20,7 @@ public class SetNameWorkflow : WorkflowBase
         {
             Activities = 
             {
-                new SetName("My Simple Workflow"),
+                new SetName { Value = new Input<string>("My Simple Workflow") },
                 new ShowName()
             }
         };
@@ -30,7 +31,7 @@ public class ShowName : Activity
 {
     protected override ValueTask ExecuteAsync(ActivityExecutionContext context)
     {
-        var instanceName = context.WorkflowExecutionContext.GetProperty<string>("WorkflowInstanceName");
+        var instanceName = context.WorkflowExecutionContext.Name;
         Console.WriteLine($"WorkflowInstanceName {instanceName}");
         return ValueTask.CompletedTask;
     }

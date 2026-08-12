@@ -41,7 +41,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Diagnostics](/projects/diagnostics)                                    | 5  |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                          | 32 |                                                                              |
 | [Email](/projects/mailkit)                                              | 2  |                                                                              |
-| [Elsa Workflow](/projects/elsa)                                         | 14 | .NET8                                                                        |
+| [Elsa Workflow](/projects/elsa)                                         | 17 | .NET10                                                                       |
 | [Exception Handler Middleware](/projects/exception-handler-middleware/) | 2  |                                                                              |
 | [Features](/projects/features)                                          | 11 |                                                                              |
 | [Generic Hosting](/projects/generic-host)                               | 9  |                                                                              |

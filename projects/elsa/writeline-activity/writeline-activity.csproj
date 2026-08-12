@@ -6,6 +6,6 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Elsa" Version="3.4.2" />
+    <PackageReference Include="Elsa" Version="3.7.1" />
   </ItemGroup>
 </Project>

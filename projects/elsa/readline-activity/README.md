@@ -1,5 +1,5 @@
 # ReadLine Activity
 
-This sample demonstrate a simple use of the ReadLine activity that reads a line from the console.
+This sample demonstrates a simple use of the ReadLine activity that reads a line from the console.
 
-Note: not working. Needs fixing.
+Run it with piped input, e.g. `echo "Anne" | dotnet run`.
