@@ -4,10 +4,16 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
 
+var location = Assembly.GetEntryAssembly().Location;
+// Find the "bin" segment of the build output path. This is a cross-platform
+// alternative to the Windows-only "bin\\" separator.
+var binIndex = location.LastIndexOf($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.Ordinal);
+var projectDirectory = location.Substring(0, binIndex);
+
 var options = new WebApplicationOptions
 {
     // Here we are trying to get the path to the root of the project. This is just useful for this sample;it's not really applicable for general purpose use.
-    ContentRootPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin\\"))), "root")
+    ContentRootPath = Path.Combine(projectDirectory, "root")
 };
 
 var builder = WebApplication.CreateBuilder(options);
