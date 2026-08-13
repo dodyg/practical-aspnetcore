@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-13
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-14
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-15
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-16
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-17
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-18
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-19
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-2
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-20
-/mnt/d/GitHub/practical-aspnetcore/projects/json/json-21
 /mnt/d/GitHub/practical-aspnetcore/projects/json/json-22
 /mnt/d/GitHub/practical-aspnetcore/projects/json/json-23
 /mnt/d/GitHub/practical-aspnetcore/projects/json/json-24
