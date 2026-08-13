@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-10
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-11
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-12
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-13
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-14
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-15
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-16
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-17
-/mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-2
 /mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-3
 /mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-4
 /mnt/d/GitHub/practical-aspnetcore/projects/grpc/grpc-5
