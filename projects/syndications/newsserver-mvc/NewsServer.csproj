@@ -4,7 +4,7 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="10.0.11" />
   </ItemGroup>
 </Project>
 

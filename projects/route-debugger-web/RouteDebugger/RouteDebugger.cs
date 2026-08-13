@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Routing;
 
 namespace RouteSpy;
@@ -23,7 +22,7 @@ public static class RouteDebugger
             Next = next;
         }
 
-        public async Task Invoke(HttpContext context, IActionDescriptorCollectionProvider )
+        public async Task Invoke(HttpContext context)
         {
             // set header info
             context.Response.OnStarting(static state =>

@@ -7,5 +7,12 @@
     <RootNamespace>route_debugger_web</RootNamespace>
   </PropertyGroup>
 
-</Project>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RouteDebugger\RouteDebugger.csproj" />
+  </ItemGroup>
+
+</Project>

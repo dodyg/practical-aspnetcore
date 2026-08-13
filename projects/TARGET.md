@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-5
-/mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-6
-/mnt/d/GitHub/practical-aspnetcore/projects/route-debugger-web/RouteDebugger
-/mnt/d/GitHub/practical-aspnetcore/projects/route-debugger-web/route-debugger-web
-/mnt/d/GitHub/practical-aspnetcore/projects/security/authentication-with-identity
-/mnt/d/GitHub/practical-aspnetcore/projects/security/dataprotection
-/mnt/d/GitHub/practical-aspnetcore/projects/sfa/remaining-time
-/mnt/d/GitHub/practical-aspnetcore/projects/sfa/wiki
-/mnt/d/GitHub/practical-aspnetcore/projects/signalr/signalr-1
-/mnt/d/GitHub/practical-aspnetcore/projects/syndications/newsserver-mvc
 /mnt/d/GitHub/practical-aspnetcore/projects/syndications/syndication-1
 /mnt/d/GitHub/practical-aspnetcore/projects/syndications/syndication-2
 /mnt/d/GitHub/practical-aspnetcore/projects/testing/nunit-1

@@ -9,6 +9,8 @@ project.lock.json
 *.cache
 *.docstates
 *.db
+*.db-shm
+*.db-wal
 
 .vs/
 Properties/
