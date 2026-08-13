@@ -1,5 +1,4 @@
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/razor-pages-basic
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/razor-pages-mvc
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/routing
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/routing-2
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/temp-data

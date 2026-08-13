@@ -7,7 +7,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="RazorSlices" Version="0.8.1" />
+    <PackageReference Include="RazorSlices" Version="0.11.2" />
   </ItemGroup>
 </Project>
 
