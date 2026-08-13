@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/request/request-headers-names
-/mnt/d/GitHub/practical-aspnetcore/projects/request/request-headers-typed
-/mnt/d/GitHub/practical-aspnetcore/projects/request/request-verb
-/mnt/d/GitHub/practical-aspnetcore/projects/response/compression-response
-/mnt/d/GitHub/practical-aspnetcore/projects/response/response-header
-/mnt/d/GitHub/practical-aspnetcore/projects/response/trailing-headers
-/mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-1
-/mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-2
-/mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-3
-/mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-4
 /mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-5
 /mnt/d/GitHub/practical-aspnetcore/projects/rewrite/rewrite-6
 /mnt/d/GitHub/practical-aspnetcore/projects/route-debugger-web/RouteDebugger
