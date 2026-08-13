@@ -1,16 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout-6
-/mnt/d/GitHub/practical-aspnetcore/projects/request/anti-forgery
-/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-1
-/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-2
-/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-3
-/mnt/d/GitHub/practical-aspnetcore/projects/request/form-upload-file
-/mnt/d/GitHub/practical-aspnetcore/projects/request/form-url-encoded-content
-/mnt/d/GitHub/practical-aspnetcore/projects/request/form-values
-/mnt/d/GitHub/practical-aspnetcore/projects/request/query-string-1
-/mnt/d/GitHub/practical-aspnetcore/projects/request/query-string-2
-/mnt/d/GitHub/practical-aspnetcore/projects/request/query-string-3
-/mnt/d/GitHub/practical-aspnetcore/projects/request/query-string-create
-/mnt/d/GitHub/practical-aspnetcore/projects/request/request-headers
 /mnt/d/GitHub/practical-aspnetcore/projects/request/request-headers-names
 /mnt/d/GitHub/practical-aspnetcore/projects/request/request-headers-typed
 /mnt/d/GitHub/practical-aspnetcore/projects/request/request-verb
@@ -60,3 +47,6 @@
 /mnt/d/GitHub/practical-aspnetcore/projects/xml/xml-validation
 /mnt/d/GitHub/practical-aspnetcore/projects/yarp/basic-demo
 /mnt/d/GitHub/practical-aspnetcore/projects/caching/redis-cache
+/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-1
+/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-2
+/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-3
