@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/syndications/syndication-1
-/mnt/d/GitHub/practical-aspnetcore/projects/syndications/syndication-2
-/mnt/d/GitHub/practical-aspnetcore/projects/testing/nunit-1
-/mnt/d/GitHub/practical-aspnetcore/projects/unpoly/up-flashes
-/mnt/d/GitHub/practical-aspnetcore/projects/unpoly/up-hungry
-/mnt/d/GitHub/practical-aspnetcore/projects/unpoly/up-poll
-/mnt/d/GitHub/practical-aspnetcore/projects/unpoly/up-target
-/mnt/d/GitHub/practical-aspnetcore/projects/unpoly/up-target-2
-/mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-build-absolute
-/mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-from-absolute
 /mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-get-display-url
 /mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-get-encoded-path-and-query
 /mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-get-encoded-url
