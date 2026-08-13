@@ -4,8 +4,8 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Polly.Core" Version="8.4.2" />
-    <PackageReference Include="Polly.Extensions" Version="8.4.2" />
-    <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="8.10.0" />
+    <PackageReference Include="Polly.Core" Version="8.7.0" />
+    <PackageReference Include="Polly.Extensions" Version="8.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="10.9.0" />
   </ItemGroup>
 </Project>

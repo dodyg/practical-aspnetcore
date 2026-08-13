@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-8
-/mnt/d/GitHub/practical-aspnetcore/projects/path-string/path-string-1
-/mnt/d/GitHub/practical-aspnetcore/projects/polly/rate-limiter-http-client
-/mnt/d/GitHub/practical-aspnetcore/projects/problem-details-middleware/problem-details
-/mnt/d/GitHub/practical-aspnetcore/projects/problem-details-middleware/problem-details-2
-/mnt/d/GitHub/practical-aspnetcore/projects/problem-details-middleware/problem-details-3
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/custom-html-generator
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/handler
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/hello-world
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/razor
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/razor-pages-basic
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/razor-pages-mvc
 /mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/routing
