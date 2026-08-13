@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ss/Layout
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ss/Localization
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ss/RssReader
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ss/StartingVariation
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ss/WallOfCounters
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentEleven
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentFive
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentFour
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentOne
-/mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentSeven
 /mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentSix
 /mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentThree
 /mnt/d/GitHub/practical-aspnetcore/projects/blazor-ssr/RazorComponentTwelve
