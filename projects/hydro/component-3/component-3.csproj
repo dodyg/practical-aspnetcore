@@ -6,6 +6,6 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Hydro" Version="1.2.0" />
+    <PackageReference Include="Hydro" Version="1.3.0" />
   </ItemGroup>
 </Project>

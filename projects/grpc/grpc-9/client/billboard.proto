@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package Billboard;
-import "google/protobuf/Empty.proto";
+import "google/protobuf/empty.proto";
 
 service Board {
   rpc ShowMessage (google.protobuf.Empty) returns (stream MessageReply) {}
