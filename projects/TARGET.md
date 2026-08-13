@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/razor-pages-basic
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/routing
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/routing-2
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-pages/temp-data
-/mnt/d/GitHub/practical-aspnetcore/projects/razor-slices/hello-world
-/mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout
-/mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout-2
-/mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout-3
-/mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout-4
-/mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout-5
 /mnt/d/GitHub/practical-aspnetcore/projects/request-timeouts-middleware/request-timeout-6
 /mnt/d/GitHub/practical-aspnetcore/projects/request/anti-forgery
 /mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-1
