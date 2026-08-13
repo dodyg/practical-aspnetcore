@@ -6,7 +6,7 @@
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="3.0.1" />
   </ItemGroup>
 </Project>
 

@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Targets" Version="1.8.2" />
-    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Application.Targets" Version="3.0.1" />
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
