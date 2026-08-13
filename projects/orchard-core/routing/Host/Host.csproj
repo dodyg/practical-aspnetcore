@@ -5,7 +5,7 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="3.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForumModule\ForumModule.csproj" />

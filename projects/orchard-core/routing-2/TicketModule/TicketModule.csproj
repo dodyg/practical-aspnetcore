@@ -5,7 +5,7 @@
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="3.0.1" />
   </ItemGroup>
 </Project>
 

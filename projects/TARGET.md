@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/orchard-core/routing
-/mnt/d/GitHub/practical-aspnetcore/projects/orchard-core/routing-2
-/mnt/d/GitHub/practical-aspnetcore/projects/orchard-core/static-files
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-1
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-2
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-3
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-4
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-5
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-6
-/mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-7
 /mnt/d/GitHub/practical-aspnetcore/projects/output-cache-middleware/output-cache-8
 /mnt/d/GitHub/practical-aspnetcore/projects/path-string/path-string-1
 /mnt/d/GitHub/practical-aspnetcore/projects/polly/rate-limiter-http-client
