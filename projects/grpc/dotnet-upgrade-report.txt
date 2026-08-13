@@ -1,0 +1,178 @@
+══════════════════════════════════════════════════════════════
+dotnet upgrade & test report — /mnt/d/GitHub/practical-aspnetcore/projects/grpc
+══════════════════════════════════════════════════════════════
+Projects scanned:       29
+Projects with updates:  25
+Package upgrades ok:    82
+Package upgrades failed:0
+Tests run:              0 (0 passed, 0 failed)
+Projects with errors:   0
+
+• grpc-10/client/grpc-client.csproj  [UP-TO-DATE]
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-10/server/grpc-server.csproj  [UP-TO-DATE]
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-11/client/grpc-client.csproj  [UP-TO-DATE]
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-11/server/grpc-server.csproj  [UP-TO-DATE]
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-12/client/GrpcClient.csproj  [UPGRADED]
+    ✓ Grpc.Net.Client.Web  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    ✓ Microsoft.AspNetCore.Components.WebAssembly  8.0.4 → 10.0.11
+    ✓ Microsoft.AspNetCore.Components.WebAssembly.DevServer  8.0.4 → 10.0.11
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-12/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.AspNetCore.Web  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-13/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    ✓ Microsoft.AspNetCore.Grpc.JsonTranscoding  8.0.4 → 10.0.11
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-14/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    ✓ Microsoft.AspNetCore.Grpc.JsonTranscoding  8.0.4 → 10.0.11
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-15/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    ✓ Microsoft.AspNetCore.Grpc.JsonTranscoding  8.0.4 → 10.0.11
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-16/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    ✓ Microsoft.AspNetCore.Grpc.JsonTranscoding  8.0.4 → 10.0.11
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-17/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    ✓ Microsoft.AspNetCore.Grpc.JsonTranscoding  8.0.4 → 10.0.11
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-2/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-2/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-3/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-3/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-4/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-4/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-5/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-5/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-6/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-6/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-7/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-7/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-8/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-8/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-9/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc-9/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc/client/grpc-client.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.Net.Client  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)
+
+• grpc/server/grpc-server.csproj  [UPGRADED]
+    ✓ Google.Protobuf  3.26.1 → 3.35.1
+    ✓ Grpc.AspNetCore.Server  2.62.0 → 2.83.0
+    ✓ Grpc.Tools  2.62.0 → 2.83.0
+    test: skipped (No test framework detected; test skipped.)

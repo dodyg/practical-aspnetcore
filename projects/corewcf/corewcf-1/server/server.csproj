@@ -5,7 +5,7 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CoreWCF.Http" Version="0.4.0" />
-    <PackageReference Include="CoreWCF.Primitives" Version="0.4.0" />
+    <PackageReference Include="CoreWCF.Http" Version="1.9.1" />
+    <PackageReference Include="CoreWCF.Primitives" Version="1.9.1" />
   </ItemGroup>
 </Project>

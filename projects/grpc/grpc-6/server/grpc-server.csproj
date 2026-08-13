@@ -7,12 +7,12 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Grpc.Tools" Version="2.62.0">
+    <PackageReference Include="Grpc.Tools" Version="2.83.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Google.Protobuf" Version="3.26.1" />
-    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.62.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.35.1" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.83.0" />
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="billboard.proto" GrpcServices="Server" />
