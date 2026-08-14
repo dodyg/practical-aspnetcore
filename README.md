@@ -2,17 +2,9 @@
 
 Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg) this project [here](https://github.com/sponsors/dodyg). 
 
-## What's new on ASP.NEt Core 11
+## What's new on ASP.NET Core 11
 
 You can find samples on new features available in ASP.NET Core 11(1) [here](/projects/net11). 
-
-## Whats' new on ASP.NET Core 10
-
-You can find samples on new features available in ASP.NET Core 10(12) [here](/projects/net10). Datastar examples (21) can be found [here](/projects/datastar).
-
-## ASP.NET Core 9
-
-You can find samples on new features available in ASP.NET Core 9(3) [here](/projects/net9).
 
 ## Previous versions
 
