@@ -14,7 +14,9 @@ app.Run(async context =>
 
     var cookie = context.Request.Cookies["MyCookie"];
 
-    await context.Response.WriteAsync("<html><body>");
+    // The cookie must be set before the response body starts - writing
+    // Set-Cookie after WriteAsync throws "Headers are read-only, response
+    // has already started" and aborts the response mid-body.
     if (string.IsNullOrWhiteSpace(cookie) && context.Request.Path == "/")  //read https://github.com/aspnet/HttpAbstractions/issues/743
     {
         context.Response.Cookies.Append
@@ -26,7 +28,11 @@ app.Run(async context =>
                 Expires = DateTimeOffset.Now.AddDays(1)
             }
         );
+    }
 
+    await context.Response.WriteAsync("<html><body>");
+    if (string.IsNullOrWhiteSpace(cookie) && context.Request.Path == "/")
+    {
         await context.Response.WriteAsync($"Writing a new cookie <br/>Refresh page to see cookie value.<br/>");
     }
     else
