@@ -23,7 +23,7 @@ You can find samples on new features available in ASP.NET Core 11(1) [here](/pro
 | Section                                                                 |    |                                                                              |
 |-------------------------------------------------------------------------|----|------------------------------------------------------------------------------|
 | [Authentication](/projects/authentication)                              | 5  |                                                                              |
-| [Blazor Client Side (Web Assembly)](/projects/blazor-wasm)              | 22 | .NET8 (WIP), Components, Data Binding                                        |
+| [Blazor Client Side (Web Assembly)](/projects/blazor-wasm)              | 22 | Components, Data Binding                                                     |
 | [Blazor Server](/projects/blazor-ss)                                    | 16 | Localization                                                                 |
 | [Blazor Server Side Render](/projects/blazor-ssr)                       | 22 |                                                                              |
 | [Caching](/projects/caching)                                            | 5  |                                                                              |
