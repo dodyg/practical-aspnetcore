@@ -1,12 +1,2 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-5
-/mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-6
-/mnt/d/GitHub/practical-aspnetcore/projects/web-utilities/web-utilities-query-helpers
-/mnt/d/GitHub/practical-aspnetcore/projects/web-utilities/web-utilities-query-helpers-2
-/mnt/d/GitHub/practical-aspnetcore/projects/web-utilities/web-utilities-reason-phrases
-/mnt/d/GitHub/practical-aspnetcore/projects/windows-service/windows-service-1
-/mnt/d/GitHub/practical-aspnetcore/projects/xml/xml-validation
-/mnt/d/GitHub/practical-aspnetcore/projects/yarp/basic-demo
-/mnt/d/GitHub/practical-aspnetcore/projects/caching/redis-cache
-/mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-1
 /mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-2
 /mnt/d/GitHub/practical-aspnetcore/projects/request/cookies-3
