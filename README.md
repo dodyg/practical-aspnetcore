@@ -41,7 +41,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Diagnostics](/projects/diagnostics)                                    | 5  |                                                                              |
 | [Endpoint Routing](/projects/endpoint-routing)                          | 32 |                                                                              |
 | [Email](/projects/mailkit)                                              | 2  |                                                                              |
-| [Elsa Workflow](/projects/elsa)                                         | 17 | .NET10                                                                       |
+| [Elsa Workflow](/projects/elsa)                                         | 17 |                                                                              |
 | [Exception Handler Middleware](/projects/exception-handler-middleware/) | 2  |                                                                              |
 | [Features](/projects/features)                                          | 11 |                                                                              |
 | [Generic Hosting](/projects/generic-host)                               | 9  |                                                                              |
@@ -81,7 +81,7 @@ You can find samples on new features available in ASP.NET Core 9(3) [here](/proj
 | [Windows Service](/projects/windows-service)                            | 1  |                                                                              |
 | [Web Sockets](/projects/web-sockets)                                    | 6  |                                                                              |
 | [Web Utilities](/projects/web-utilities)                                | 3  |                                                                              |
-| [Orleans](/projects/orleans)                                            | 5  | .NET.8                                                                       |
+| [Orleans](/projects/orleans)                                            | 5  |                                                                              |
 | [Xml](/projects/xml)                                                    | 1  |                                                                              |
 | [YARP](/projects/yarp)                                                  | 1  |                                                                              |
 
