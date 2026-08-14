@@ -1,13 +1,3 @@
-/mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-get-display-url
-/mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-get-encoded-path-and-query
-/mnt/d/GitHub/practical-aspnetcore/projects/uri-helper/uri-helper-get-encoded-url
-/mnt/d/GitHub/practical-aspnetcore/projects/utils/http-status-codes
-/mnt/d/GitHub/practical-aspnetcore/projects/utils/media-type-names
-/mnt/d/GitHub/practical-aspnetcore/projects/utils/media-type-names-2
-/mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-1
-/mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-2
-/mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-3
-/mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-4
 /mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-5
 /mnt/d/GitHub/practical-aspnetcore/projects/web-sockets/web-sockets-6
 /mnt/d/GitHub/practical-aspnetcore/projects/web-utilities/web-utilities-query-helpers
