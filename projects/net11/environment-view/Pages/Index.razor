@@ -1,0 +1,36 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Web
+
+<h1>EnvironmentView</h1>
+
+<p>
+    The <code>EnvironmentView</code> component renders its content only in
+    the specified environments. Matching is case-insensitive.
+</p>
+
+Environment: @EnvironmentName
+
+<EnvironmentView Include="Development">
+    <div class="alert alert-warning">
+        <strong>Development only.</strong> This block renders only when the
+        hosting environment is <code>Development</code>
+    </div>
+</EnvironmentView>
+
+<EnvironmentView Include="Development,Staging">
+    <p class="text-info">Shown in Development or Staging.</p>
+</EnvironmentView>
+
+<EnvironmentView Exclude="Production">
+    <p class="text-secondary">
+        Shown everywhere except Production — handy for "generated at" timestamps.
+        Current environment: <strong>@EnvironmentName</strong>
+    </p>
+</EnvironmentView>
+
+@code {
+    [Inject]
+    private IHostEnvironment HostEnvironment { get; set; } = default!;
+
+    private string EnvironmentName => HostEnvironment.EnvironmentName;
+}
