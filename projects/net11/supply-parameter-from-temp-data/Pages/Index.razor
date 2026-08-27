@@ -1,0 +1,58 @@
+@page "/"
+@inject NavigationManager Navigation
+
+<h1>[SupplyParameterFromTempData]</h1>
+
+<p>
+    <code>[SupplyParameterFromTempData]</code> reads and writes TempData values directly on component properties. It is ideal for status messages
+    that survive a redirect-after-post.
+</p>
+
+@if (!string.IsNullOrEmpty(_message))
+{
+    <div class="alert alert-success">@_message</div>
+}
+
+<EditForm Model="Input" FormName="account" OnValidSubmit="Save" method="post">
+    <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <InputText @bind-Value="Input.Name" id="name" class="form-control" style="max-width: 300px" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</EditForm>
+
+@code {
+    private string? _message;
+
+    [SupplyParameterFromTempData]
+    public string? StatusMessage { get; set; }
+
+    [SupplyParameterFromForm]
+    private AccountModel Input { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        // [SupplyParameterFromTempData] reads the value but the framework writes the
+        // property back to TempData at the end of every request, so a status message
+        // would otherwise survive on every reload. Snapshot it for display and clear
+        // the property so the write-back stores an empty value after it is read.
+        if (!string.IsNullOrEmpty(StatusMessage))
+        {
+            _message = StatusMessage;
+            StatusMessage = null;
+        }
+    }
+
+    private void Save()
+    {
+        // Setting the property writes through to TempData so the next request
+        // (e.g. after a redirect) can read the message back.
+        StatusMessage = $"Your changes were saved with value { Input.Name}";
+        Navigation.NavigateTo("/");
+    }
+
+    public class AccountModel
+    {
+        public string? Name { get; set; }
+    }
+}
