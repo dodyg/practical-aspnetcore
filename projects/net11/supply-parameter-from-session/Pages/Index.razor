@@ -1,0 +1,39 @@
+@page "/"
+
+<h1>[SupplyParameterFromSession]</h1>
+
+<p>
+    <code>[SupplyParameterFromSession]</code> reads and writes HTTP session values directly on component properties, like a shopping-cart id
+    or multi-step form progress. Values are serialized with <code>System.Text.Json</code> and written back before the response is sent.
+</p>
+
+<div class="alert alert-info">
+    Current step: <strong>@CurrentStep</strong> / 3
+</div>
+
+<div class="progress mb-3" style="max-width: 400px">
+    <div class="progress-bar" style="width: @(CurrentStep * 33)%;">
+        Step @CurrentStep of 3
+    </div>
+</div>
+
+<EditForm Model="Input" FormName="checkout" OnSubmit="NextStep" method="post">
+    <button type="submit" class="btn btn-primary">Next step</button>
+</EditForm>
+
+@code {
+    // The session key is "checkout-step" rather than the property name.
+    [SupplyParameterFromSession(Name = "checkout-step")]
+    public int CurrentStep { get; set; }
+
+    private object Input { get; } = new();
+
+    private void NextStep()
+    {
+        // Writing the property writes through to the session.
+        if (CurrentStep < 3)
+        {
+            CurrentStep++;
+        }
+    }
+}
