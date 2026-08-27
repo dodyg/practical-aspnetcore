@@ -1,0 +1,28 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<h1>QuickGrid in static SSR</h1>
+
+<p>
+    Sorting and pagination work in statically rendered SSR pages. Sortable headers and the paginator render as forms that update the URL query string.
+    Refresh or share the URL to reproduce the same sort/pagination.
+</p>
+
+<QuickGrid Items="Orders" Pagination="pagination" class="table">
+    <PropertyColumn Property="@(o => o.Id)" Sortable="true" />
+    <PropertyColumn Property="@(o => o.Customer)" Sortable="true" />
+    <PropertyColumn Property="@(o => o.Total)" Sortable="true" />
+    <PropertyColumn Property="@(o => o.Shipped)" Sortable="true" />
+</QuickGrid>
+
+<Paginator State="pagination" />
+
+@code {
+    private PaginationState pagination = new() { ItemsPerPage = 5 };
+
+    private IQueryable<Order> Orders => Enumerable.Range(1, 42)
+        .Select(i => new Order(i, $"Customer {i}", i * 12.5m, i % 3 == 0))
+        .AsQueryable();
+
+    public record Order(int Id, string Customer, decimal Total, bool Shipped);
+}
