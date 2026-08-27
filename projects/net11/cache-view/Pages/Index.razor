@@ -1,0 +1,37 @@
+@page "/"
+@using Microsoft.AspNetCore.Components
+
+<h1>CacheView</h1>
+
+<p>
+    <code>CacheView</code> caches the rendered output of an SSR
+    subtree. On a cache hit, the child components are <em>not</em> instantiated
+    or rendered again — the previously captured HTML is replayed directly.
+</p>
+
+<p>
+    Vary by query string:
+    <a href="/?page=1">?page=1</a> |
+    <a href="/?page=2">?page=2</a> each page value gets its own cache entry.
+    Watch the server log: <code>ExpensiveWidget</code>'s
+    <code>OnInitializedAsync</code> runs once per (page, 10-minute window).
+    Note the "Generated at" timestamp is frozen while the cache serves hits.
+</p>
+
+<CacheView ExpiresAfter="TimeSpan.FromMinutes(10)" VaryByQuery="page">
+    <ExpensiveWidget Page="PageNumber" />
+</CacheView>
+
+<p class="text-muted small">
+    Also see <a href="/violation">/violation</a> — putting a
+    <code>Virtualize</code> component inside a <code>CacheView</code> throws,
+    because its output depends on per-request state
+    (<code>[CacheBehavior(CacheBehavior.Throw)]</code>).
+</p>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int? Page { get; set; }
+
+    private int PageNumber => Page ?? 1;
+}

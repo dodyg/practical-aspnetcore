@@ -1,0 +1,22 @@
+@page "/violation"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+
+<h1>[CacheBehavior] violation</h1>
+
+<p>
+    <code>Virtualize</code> is annotated
+    <code>[CacheBehavior(CacheBehavior.Throw)]</code> — its output depends on
+    per-request state and must not be baked into cached HTML. Rendering this
+    page throws with a message that names the component and the fix.
+</p>
+
+<CacheView ExpiresAfter="TimeSpan.FromMinutes(10)">
+    <Virtualize Items="Items" Context="item">
+        <p>@item</p>
+    </Virtualize>
+</CacheView>
+
+@code {
+    private List<string> Items = ["one", "two", "three"];
+}

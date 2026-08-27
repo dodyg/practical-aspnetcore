@@ -1,0 +1,35 @@
+@* A component that is expensive to render. While inside a CacheView, this
+   component is instantiated once and its HTML is replayed on cache hits. *@
+<div class="card mb-3" style="max-width: 480px">
+    <div class="card-body">
+        <h5 class="card-title">Expensive widget <span class="badge bg-secondary">instance #@InstanceId</span></h5>
+        <p class="card-text">
+            Simulated work in <code>OnInitializedAsync</code> (1 second).
+            Rendered at:
+        </p>
+        <p class="card-text"><code>@GeneratedAt</code></p>
+        <p class="text-muted small">
+            The timestamp is fixed while the CacheView replays cached HTML.
+        </p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int Page { get; set; }
+
+    private static int _instances;
+    private int InstanceId = Interlocked.Increment(ref _instances);
+
+    private string GeneratedAt = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine($"ExpensiveWidget #{InstanceId} initialized (page {Page}).");
+
+        // Simulate expensive work (DB query, report, ...).
+        await Task.Delay(1000);
+
+        GeneratedAt = DateTime.UtcNow.ToString("O");
+    }
+}
