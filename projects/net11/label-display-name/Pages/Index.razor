@@ -1,0 +1,83 @@
+@page "/"
+@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+
+<style>
+    h3 {
+        margin-top:50px;
+    }
+</style>
+
+<h1>Label and DisplayName components</h1>
+
+<p>
+    The <code>Label</code> component now renders accessible labels with
+    support for both nested and non-nested patterns, extracting the display name
+    from <code>[Display]</code>/<code>[DisplayName]</code> attributes.
+    The <code>DisplayName</code> component displays a property's display name
+    anywhere (parity with MVC's <code>Html.DisplayNameFor()</code>).
+</p>
+
+<h3>Nested pattern</h3>
+<p>
+    <code>&lt;Label&gt;</code> wraps the input. The label text comes from
+    <code>[Display(Name = "Full Name")]</code> on <code>Name</code>.
+</p>
+
+<EditForm Model="model" FormName="nested">
+    <Label For="() => model.Name">
+        <InputText @bind-Value="model.Name" class="form-control" style="max-width: 300px" />
+    </Label>
+</EditForm>
+
+<h3>Non-nested pattern for/id association</h3>
+<p>
+    <code>&lt;Label For="() => model.Email" /&gt;</code> renders
+    <code>&lt;label for="Email"&gt;</code>; the input gets <code>id="Email"</code>
+    automatically. The label text comes from <code>[DisplayName("Email Address")]</code>.
+</p>
+<EditForm Model="model" FormName="non-nested">
+    <Label For="() => model.Email" />
+    <InputText @bind-Value="model.Email" class="form-control" style="max-width: 300px" />
+</EditForm>
+
+<h3>DisplayName component</h3>
+<table class="table" style="max-width: 400px">
+    <thead>
+        <tr>
+            <th><DisplayName For="() => product.Name" /></th>
+            <th><DisplayName For="() => product.Price" /></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Price.ToString("C")</td>
+        </tr>
+    </tbody>
+</table>
+
+@code {
+    private CustomerModel model = new();
+    private Product product = new("Running shoes", 49.99m);
+
+    public class CustomerModel
+    {
+        [Display(Name = "Full Name")]
+        public string? Name { get; set; }
+
+        [DisplayName("Email Address")]
+        public string? Email { get; set; }
+    }
+
+    public class Product
+    {
+        public Product(string name, decimal price) => (Name, Price) = (name, price);
+
+        [Display(Name = "Product Name")]
+        public string Name { get; set; }
+
+        [Display(Name = "Price (USD)")]
+        public decimal Price { get; set; }
+    }
+}
