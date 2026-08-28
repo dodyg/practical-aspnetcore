@@ -1,10 +1,10 @@
-# Listen to htmx:responseError event to obtain AJAX error message
+# Listen to htmx:response:error event to obtain AJAX error message
 
-This example shows how to listen to `htmx:responseError` to obtain AJAX error message from the server([doc](https://htmx.org/events/#htmx:responseError))
+This example shows how to listen to `htmx:response:error` to obtain AJAX error message from the server([doc](https://htmx.org/events/#htmx:response:error))
 
 ```js
-    document.addEventListener("htmx:responseError", (evt) => {
+    document.addEventListener("htmx:response:error", (evt) => {
         console.log("event", evt);
-        alert(evt.detail.xhr.status + ":" + evt.detail.xhr.statusText);
+        alert(evt.detail.ctx.response.status + ":" + evt.detail.ctx.response.statusText);
     });
 ```

@@ -3,7 +3,7 @@
 This example shows how to use `hx-select-oob` to pick up a specific element from server response and swap it with element of the same selection criteria ([doc](https://htmx.org/attributes/hx-select-oob/))
 
 ```html
-  <ul hx-select="#result,#result2,.results">
+  <ul hx-select:inherited="#result,#result2,.results">
       <li hx-get="/htmx" hx-select-oob="#result-get">GET</li>
       <li hx-post="/htmx" hx-select-oob="#result-post">POST</li>
       <li hx-put="/htmx" hx-select-oob="#result-put">PUT</li>

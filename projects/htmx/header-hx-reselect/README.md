@@ -5,10 +5,7 @@ This example shows how to use HTTP Response `HX-Reselect` to select which part o
 ```csharp
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.Reselect("#get");
-    });
+    response.Headers.Append("HX-Reselect", "#get");
 
     return Results.Content($"""
     GET => {DateTime.UtcNow}

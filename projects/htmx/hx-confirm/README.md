@@ -3,7 +3,7 @@
 This example shows how to use `hx-confirm` to ask for user confirmation before making a request ([doc](https://htmx.org/docs/#confirming))
 
 ```html
-<ul hx-confirm="are you sure?">
+<ul hx-confirm:inherited="are you sure?">
     <li hx-get="/htmx">GET</li>
     <li hx-post="/htmx">POST</li>
     <li hx-put="/htmx">PUT</li>

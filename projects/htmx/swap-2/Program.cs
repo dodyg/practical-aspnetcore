@@ -23,7 +23,7 @@ app.MapGet("/", () =>
                         <div id="oob-target">This will be replaced once you click above</div>
                     </div>
                 </div>
-                <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
             </body>
         </html>
     """;

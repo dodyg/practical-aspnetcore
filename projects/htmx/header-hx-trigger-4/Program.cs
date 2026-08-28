@@ -33,7 +33,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <li hx-patch="/htmx">PATCH</li>
                 <li hx-delete="/htmx">DELETE</li>
             </ul>
-            <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
             <script>
                 document.addEventListener("show-me", (evt) => {
                     alert(evt.detail.message);
@@ -43,22 +43,22 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                     alert(evt.detail.message);
                 });
 
-                document.addEventListener("htmx:configRequest", (evt) => {
-                    let httpVerb = evt.detail.verb.toUpperCase();
+                document.addEventListener("htmx:config:request", (evt) => {
+                    let httpVerb = evt.detail.ctx.request.method.toUpperCase();
                     if (httpVerb === 'GET') return;
                     
                     let antiForgery = htmx.config.antiForgery;
                     if (antiForgery) {
                         // already specified on form, short circuit
-                        if (evt.detail.parameters[antiForgery.formFieldName])
+                        if (evt.detail.ctx.request.body.has(antiForgery.formFieldName))
                             return;
                         
                         if (antiForgery.headerName) {
-                            evt.detail.headers[antiForgery.headerName]
-                                = antiForgery.requestToken;
+                            evt.detail.ctx.request.headers[antiForgery.headerName] = antiForgery.requestToken;
+
                         } else {
-                            evt.detail.parameters[antiForgery.formFieldName]
-                                = antiForgery.requestToken;
+                            evt.detail.ctx.request.body.set(antiForgery.formFieldName, antiForgery.requestToken);
+
                         }
                     }
                 });

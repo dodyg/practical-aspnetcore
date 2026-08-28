@@ -1,6 +1,6 @@
 # HTMX (40)
 
-This example shows various examples on how to integrate [HTMX](https://htmx.org/) with ASP.NET Core Minimal API. We will be using [HTMX Nuget Package](https://www.nuget.org/packages/Htmx). We are using [HTMX 2](https://htmx.org/) in all samples.
+This example shows various examples on how to integrate [HTMX 4](https://four.htmx.org/) with ASP.NET Core Minimal API. The samples use the HTMX 4 browser library directly from jsDelivr and do not require an HTMX NuGet package.
 
 ## AJAX
 
@@ -130,15 +130,15 @@ This example shows various examples on how to integrate [HTMX](https://htmx.org/
 
 * [htmx-config-request](htmx-config-request)
 
-  This examples shows how to listen to `htmx:configRequest` event to modify parameters to be sent to the server. 
+  This examples shows how to listen to `htmx:config:request` event to modify parameters to be sent to the server.
 
 * [htmx-response-error](htmx-response-error)
 
-  This examples shows how to listen to `htmx:responseError` event to obtain AJAX response error information.
+  This examples shows how to listen to `htmx:response:error` event to obtain AJAX response error information.
 
 * [htmx-after-on-load](htmx-after-on-load)
 
-  This example shows how to listen to `htmx:afterOnLoad` event, which is trigerred after the AJAX response has finished. 
+  This example shows how to listen to `htmx:after:init` event after an element has been initialized by HTMX.
 
 ## Response Headers
 
@@ -172,4 +172,4 @@ This example shows various examples on how to integrate [HTMX](https://htmx.org/
 
 * [HX-Reselect](header-hx-reselect)
 
-  This example demonstrates how to use `HX-Reselect` response header to select which part of the response to swap using CSS selector and override `hx-select` in on the triggering element. 
+  This example demonstrates how to use `HX-Reselect` response header to select which part of the response to swap using CSS selector and override `hx-select` in on the triggering element.

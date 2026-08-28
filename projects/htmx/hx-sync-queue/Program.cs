@@ -30,7 +30,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <div class="col-md-4">
                     <h2>hx-sync="this:queue first"</h2>
                     <p>queue first: Processes only the first click in a rapid succession.</p>
-                    <ul hx-sync="this:queue first" hx-trigger="increment">
+                    <ul hx-sync:inherited="this:queue first" hx-trigger="increment">
                         <li><a hx-get="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#first-get">GET</a> <span id="first-get"></li>
                         <li><a hx-post="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#first-post">POST</a> <span id="first-post"></li>
                         <li><a hx-put="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#first-put">PUT</a> <span id="first-put"></li>
@@ -41,7 +41,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <div class="col-md-4">
                     <h2>hx-sync="this:queue last"</h2>
                     <p>queue last: Processes the first click and the last click in a rapid succession, dropping intermediate ones.</p>
-                    <ul hx-sync="this:queue last" hx-trigger="increment">
+                    <ul hx-sync:inherited="this:queue last" hx-trigger="increment">
                         <li><a hx-get="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#last-get">GET</a> <span id="last-get"></li>
                         <li><a hx-post="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#last-post">POST</a> <span id="last-post"></li>
                         <li><a hx-put="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#last-put">PUT</a>  <span id="last-put"></li>
@@ -52,7 +52,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <div class="col-md-4">
                     <h2>hx-sync="this:queue all"</h2>
                     <p>queue all: Processes every click, but with a delay.</p>
-                    <ul hx-sync="this:queue all" hx-trigger="increment">
+                    <ul hx-sync:inherited="this:queue all" hx-trigger="increment">
                         <li><a hx-get="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#all-get">GET</a> <span id="all-get"></span></li>
                         <li><a hx-post="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#all-post">POST</a> <span id="all-post"></span></li>
                         <li><a hx-put="/htmx" hx-on:click="incrementCount(this, event)" hx-vals='{"count" : 1}' hx-target="#all-put">PUT</a> <span id="all-put"></span></li>
@@ -62,7 +62,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 </div>
             </div>
 
-            <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
             <script>
                 function incrementCount(target, event) {
                     event.preventDefault();
@@ -85,22 +85,22 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                     return 'GET';
                 }
 
-                document.addEventListener("htmx:configRequest", (evt) => {
-                    let httpVerb = evt.detail.verb.toUpperCase();
+                document.addEventListener("htmx:config:request", (evt) => {
+                    let httpVerb = evt.detail.ctx.request.method.toUpperCase();
                     if (httpVerb === 'GET') return;
                     
                     let antiForgery = htmx.config.antiForgery;
                     if (antiForgery) {
                         // already specified on form, short circuit
-                        if (evt.detail.parameters[antiForgery.formFieldName])
+                        if (evt.detail.ctx.request.body.has(antiForgery.formFieldName))
                             return;
                         
                         if (antiForgery.headerName) {
-                            evt.detail.headers[antiForgery.headerName]
-                                = antiForgery.requestToken;
+                            evt.detail.ctx.request.headers[antiForgery.headerName] = antiForgery.requestToken;
+
                         } else {
-                            evt.detail.parameters[antiForgery.formFieldName]
-                                = antiForgery.requestToken;
+                            evt.detail.ctx.request.body.set(antiForgery.formFieldName, antiForgery.requestToken);
+
                         }
                     }
                 });

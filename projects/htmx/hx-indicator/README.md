@@ -3,7 +3,7 @@
 This example demonstrats how to show spinning indicators waiting for AJAX requests to complete([doc](https://htmx.org/attributes/hx-indicator/))
 
 ```html
-<ul hx-indicator="#spinner">
+<ul hx-indicator:inherited="#spinner">
     <li hx-get="/htmx">GET</li>
     <li hx-post="/htmx">POST</li>
     <li hx-put="/htmx">PUT</li>

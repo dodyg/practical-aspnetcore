@@ -3,7 +3,7 @@
 This example shows how to use `hx-prompt` to ask a user for an input before making a request ([doc](https://htmx.org/attributes/hx-prompt/))
 
 ```html
-    <ul hx-prompt="what is your name?">
+    <ul hx-prompt:inherited="what is your name?">
         <li hx-get="/htmx">GET</li>
         <li hx-post="/htmx">POST</li>
         <li hx-put="/htmx">PUT</li>
@@ -22,4 +22,10 @@ You can see here that `hx-prompt`, like many HTMX attributes, support inheritanc
     <li hx-patch="/htmx" hx-prompt="what is your name?">PATCH</li>
     <li hx-delete="/htmx" hx-prompt="what is your name?">DELETE</li>
 </ul>
+```
+
+Load the HTMX 4 hx-prompt extension after the HTMX script:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/ext/hx-prompt.js"></script>
 ```

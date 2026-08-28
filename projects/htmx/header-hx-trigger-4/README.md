@@ -2,7 +2,7 @@
 
 This example demonstrates the usage of `HX-Trigger` response header to emit multiple custom events with JSON payload at the client([doc](https://htmx.org/headers/hx-trigger/)).
 
-[Htmx](https://www.nuget.org/packages/Htmx) package doesn't support this construct so we have to build the `HX-Trigger` response manually.
+The `HX-Trigger` response is built manually with standard ASP.NET Core response-header APIs.
 
 ```csharp
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
