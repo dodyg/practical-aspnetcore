@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -63,7 +62,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
 
 var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 {
-    if (context.HttpContext.Request.IsHtmx() is false)
+    if (context.HttpContext.Request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     if (context.HttpContext.Request.Method == "GET")
@@ -75,37 +74,37 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request) =>
 {
-    request.IsHtmx(out var headers);
+    var prompt = request.Headers["HX-Prompt"].ToString();
 
-    return Results.Content($"GET => {DateTime.UtcNow} hello {headers.Prompt}");
+    return Results.Content($"GET => {DateTime.UtcNow} hello {prompt}");
 });
 
 htmx.MapPost("/", (HttpRequest request) =>
 {
-    request.IsHtmx(out var headers);
+    var prompt = request.Headers["HX-Prompt"].ToString();
 
-    return Results.Content($"POST => {DateTime.UtcNow} hello {headers.Prompt}");
+    return Results.Content($"POST => {DateTime.UtcNow} hello {prompt}");
 });
 
 htmx.MapDelete("/", (HttpRequest request) =>
 {
-    request.IsHtmx(out var headers);
+    var prompt = request.Headers["HX-Prompt"].ToString();
 
-    return Results.Content($"DELETE => {DateTime.UtcNow} hello {headers.Prompt}");
+    return Results.Content($"DELETE => {DateTime.UtcNow} hello {prompt}");
 });
 
 htmx.MapPut("/", (HttpRequest request) =>
 {
-    request.IsHtmx(out var headers);
+    var prompt = request.Headers["HX-Prompt"].ToString();
 
-    return Results.Content($"PUT => {DateTime.UtcNow} hello {headers.Prompt}");
+    return Results.Content($"PUT => {DateTime.UtcNow} hello {prompt}");
 });
 
 htmx.MapPatch("/", (HttpRequest request) =>
 {
-    request.IsHtmx(out var headers);
+    var prompt = request.Headers["HX-Prompt"].ToString();
 
-    return Results.Content($"PATCH => {DateTime.UtcNow} hello {headers.Prompt}");
+    return Results.Content($"PATCH => {DateTime.UtcNow} hello {prompt}");
 });
 
 app.Run();

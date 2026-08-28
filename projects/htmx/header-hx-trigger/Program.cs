@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -67,7 +66,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
 
 var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 {
-    if (context.HttpContext.Request.IsHtmx() is false)
+    if (context.HttpContext.Request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     if (context.HttpContext.Request.Method == "GET")
@@ -79,50 +78,35 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.WithTrigger("show-me");
-    });
+response.Headers.Append("HX-Trigger", "show-me");
 
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.WithTrigger("show-me");
-    });
+response.Headers.Append("HX-Trigger", "show-me");
 
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.WithTrigger("show-me");
-    });
+response.Headers.Append("HX-Trigger", "show-me");
 
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.WithTrigger("show-me");
-    });
+response.Headers.Append("HX-Trigger", "show-me");
     
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
 {   
-    response.Htmx(x =>
-    {
-        x.WithTrigger("show-me");
-    });
+response.Headers.Append("HX-Trigger", "show-me");
 
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });

@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -79,7 +78,7 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.BadRequest();
@@ -87,7 +86,7 @@ htmx.MapGet("/", (HttpRequest request) =>
 
 htmx.MapPost("/", (HttpRequest request) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.BadRequest();
@@ -95,7 +94,7 @@ htmx.MapPost("/", (HttpRequest request) =>
 
 htmx.MapDelete("/", (HttpRequest request) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.BadRequest();
@@ -103,7 +102,7 @@ htmx.MapDelete("/", (HttpRequest request) =>
 
 htmx.MapPut("/", (HttpRequest request) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.BadRequest();
@@ -111,7 +110,7 @@ htmx.MapPut("/", (HttpRequest request) =>
 
 htmx.MapPatch("/", (HttpRequest request) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.BadRequest();

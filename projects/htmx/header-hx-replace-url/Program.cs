@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -63,7 +62,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
 
 var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 {
-    if (context.HttpContext.Request.IsHtmx() is false)
+    if (context.HttpContext.Request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     if (context.HttpContext.Request.Method == "GET")
@@ -75,50 +74,35 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.ReplaceUrl("/get");
-    });
+response.Headers.Append("HX-Replace-Url", "/get");
 
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.ReplaceUrl("/post");
-    });
+response.Headers.Append("HX-Replace-Url", "/post");
 
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.ReplaceUrl("/delete");
-    });
+response.Headers.Append("HX-Replace-Url", "/delete");
 
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.ReplaceUrl("/put");
-    });
+response.Headers.Append("HX-Replace-Url", "/put");
     
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
 {   
-    response.Htmx(x =>
-    {
-        x.ReplaceUrl("/patch");
-    });
+response.Headers.Append("HX-Replace-Url", "/patch");
 
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });

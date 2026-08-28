@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,3 @@
-using Htmx;
 
 var app = WebApplication.Create();
 app.MapGet("/", () =>
@@ -24,7 +23,7 @@ app.MapGet("/", () =>
 
 app.MapGet("/htmx/", (HttpRequest request) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.Content($"{DateTime.UtcNow}");

@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -82,7 +81,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
 
 var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 {
-    if (context.HttpContext.Request.IsHtmx() is false)
+    if (context.HttpContext.Request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     if (context.HttpContext.Request.Method == "GET")
@@ -94,50 +93,35 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.Retarget("#get");
-    });
+response.Headers.Append("HX-Retarget", "#get");
 
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.Retarget("#post");
-    });
+response.Headers.Append("HX-Retarget", "#post");
 
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.Retarget("#delete");
-    });
+response.Headers.Append("HX-Retarget", "#delete");
 
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-    response.Htmx(x =>
-    {
-        x.Retarget("#put");
-    });
+response.Headers.Append("HX-Retarget", "#put");
     
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
 {   
-    response.Htmx(x =>
-    {
-        x.Retarget("#patch");
-    });
+response.Headers.Append("HX-Retarget", "#patch");
 
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });

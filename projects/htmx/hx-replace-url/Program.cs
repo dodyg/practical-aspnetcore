@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -80,7 +79,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
 
 var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 {
-    if (context.HttpContext.Request.IsHtmx() is false)
+    if (context.HttpContext.Request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     if (context.HttpContext.Request.Method == "GET")

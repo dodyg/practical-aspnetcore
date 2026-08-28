@@ -1,4 +1,3 @@
-using Htmx;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,7 +45,7 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
 
 app.MapPost("/simple", (HttpRequest request, [FromForm] Input i) =>
 {
-    if (request.IsHtmx() is false)
+    if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
     return Results.Content($"""

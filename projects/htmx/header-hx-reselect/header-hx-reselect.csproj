@@ -5,6 +5,5 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Htmx" Version="1.12.0" />
   </ItemGroup>
 </Project>
