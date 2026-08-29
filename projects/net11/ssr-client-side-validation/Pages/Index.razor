@@ -10,10 +10,10 @@
 
 <p>
     With a <code>DataAnnotationsValidator</code> inside a static SSR
-    <code>EditForm</code> (Preview 5), the server renders the validation
+    <code>EditForm</code>, the server renders the validation
     metadata and Blazor's JavaScript enforces it in the browser — instant
     feedback with no round-trip. The .NET model stays the single source of
-    truth. Preview 7 also adds <code>valid</code> / <code>invalid</code> /
+    truth. It also adds <code>valid</code> / <code>invalid</code> /
     <code>modified</code> CSS classes on the inputs.
 </p>
 
@@ -44,19 +44,20 @@
 @if (Submitted)
 {
     <div class="alert alert-success mt-3">
-        Registered @model.Email — validated with
-        <code>EditContext.ValidateAsync()</code> (the synchronous
-        <code>Validate</code> is obsolete).
+        Registered @model.Email validated with
+        <code>EditContext.ValidateAsync()</code>
     </div>
 }
 
 @code {
-    private RegisterModel model = new();
+    [SupplyParameterFromForm]
+    private RegisterModel model { get; set; }
     private bool Submitted;
+
+    protected override void OnInitialized() => model ??= new();
 
     private async Task Submit(EditContext editContext)
     {
-        // ValidateAsync is the modern API (sync Validate() is obsolete).
         if (await editContext.ValidateAsync())
         {
             Submitted = true;
@@ -66,9 +67,9 @@
     public class RegisterModel
     {
         [Required, EmailAddress]
-        public string Email { get; set; } = "";
+        public string Email { get; set; } = string.Empty;
 
         [Required, StringLength(100, MinimumLength = 8)]
-        public string Password { get; set; } = "";
+        public string Password { get; set; } = string.Empty;
     }
 }

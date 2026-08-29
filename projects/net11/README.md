@@ -1,4 +1,4 @@
-# ASP.NET Core 11 (19)
+# ASP.NET Core 11 (20)
 
 These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
@@ -55,6 +55,10 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
   This sample demonstrates C# union types used as minimal API return types and JSON request bodies.
 
 ## Blazor SSR
+
+- [ssr-client-side-validation](ssr-client-side-validation)
+
+  This sample demonstrates client-side form validation for Blazor SSR forms using `DataAnnotationsValidator`.
 
 - [cache-view](cache-view)
 
