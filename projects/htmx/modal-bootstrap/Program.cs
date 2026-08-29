@@ -4,15 +4,14 @@ app.MapGet("/", () =>
     var html = """
         <html>
             <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     div[hx-trigger] {
                         cursor:pointer;
                     }
                 </style>
             </head>
-            <body class="container">
+            <body>
                 <div class="container">
                     <h1>Modal with Pico CSS</h1>
                     <p>A native dialog powered by htmx and Pico CSS.</p>
