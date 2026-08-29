@@ -1,6 +1,10 @@
-# ASP.NET Core 11 (18)
+# ASP.NET Core 11 (19)
 
 These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
+
+- [csrf-protection](csrf-protection)
+
+  This sample demonstrates automatic CSRF protection for unsafe cross-origin requests.
 
 - [open-api-12](open-api-12)
 
