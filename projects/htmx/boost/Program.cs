@@ -5,10 +5,11 @@ app.MapGet("/", () =>
         <!DOCTYPE html>
         <html>
             <head>
-                <title>hx-boost</title>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <title>hx-boost</title>
+                
             </head>
-            <body style="background-color:purple;">
+            <body class="container" style="background-color:purple;">
                 <div class="container">
                     <h1>hx-boost</h1>
                     <ul hx-boost:inherited="true">
