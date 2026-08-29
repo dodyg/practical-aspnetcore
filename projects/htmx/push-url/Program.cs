@@ -15,17 +15,18 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
                     }
                 </style>
-                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>Push URL to browser history</h1>
             <p>Click on the links below to see the URL change in the browser address bar.</p>
-            <ul hx-push-url="true">
+            <ul hx-push-url:inherited="true">
                 <li hx-get="/htmx/get">GET</li>
                 <li hx-post="/htmx/post">POST</li>
                 <li hx-put="/htmx/put">PUT</li>
