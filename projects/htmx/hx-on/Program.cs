@@ -29,7 +29,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <li hx-on:mouseover="alert('hover');">hx-on:mouseover</li>
                 <li hx-on:dblclick="alert('double click');">hx-on:dblclick</li>
             </ul>
-            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             </body>
         </html>
     """;

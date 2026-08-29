@@ -31,7 +31,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <li id="patch-trigger" hx-patch="/htmx">PATCH</li>
                 <li id="delete-trigger" hx-delete="/htmx"'>DELETE</li>
             </ul>
-            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             <script>
                 document.addEventListener("htmx:after:init", (evt) => {
                     let li = evt.target;

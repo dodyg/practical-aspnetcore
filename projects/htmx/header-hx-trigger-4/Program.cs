@@ -33,7 +33,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 <li hx-patch="/htmx">PATCH</li>
                 <li hx-delete="/htmx">DELETE</li>
             </ul>
-            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             <script>
                 document.addEventListener("show-me", (evt) => {
                     alert(evt.detail.message);

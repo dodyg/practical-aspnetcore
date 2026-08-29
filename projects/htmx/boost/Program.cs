@@ -16,7 +16,7 @@ app.MapGet("/", () =>
                         <li><a href="/htmx/two">two</a></li>
                     </ul>
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+                <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             </body>
         </html>
     """;
@@ -39,7 +39,7 @@ app.MapGet("/htmx/{key}", (HttpRequest request, string key) =>
                         <li><a href="/htmx/one">One</a></li>
                         <li><a href="/htmx/two">two</a></li>
                     </ul>
-                    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+                    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
                 </div>  
             """),
             "two" => Results.Content(
@@ -52,7 +52,7 @@ app.MapGet("/htmx/{key}", (HttpRequest request, string key) =>
                         <li><a href="/htmx/two">two</a></li>
                     </ul>
 
-                    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+                    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
                 </div>  
             """),
         _ => Results.Content("")

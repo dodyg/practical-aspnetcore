@@ -42,7 +42,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                     <div id="delete" hx-preserve="true">DELETE Preserved</div>
                 </li>
             </ul>
-            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js></script>
+            <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             <script>
                 document.addEventListener("htmx:config:request", (evt) => {
                     let httpVerb = evt.detail.ctx.request.method.toUpperCase();
