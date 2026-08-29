@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.Circuits;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseStaticWebAssets();
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
@@ -13,7 +14,9 @@ builder.Services.AddScoped<CircuitHandler>(sp => sp.GetRequiredService<CircuitTr
 
 var app = builder.Build();
 
-// Server-initiated circuit pause (Preview 4): pause every active circuit, e.g.
+app.MapStaticAssets();
+
+// Server-initiated circuit pause: pause every active circuit, e.g.
 // before a deployment or during load-balancer rebalancing.
 app.MapGet("/pause-all", async () =>
 {
@@ -37,7 +40,7 @@ app.MapRazorComponents<CircuitPause.App>()
     .AddInteractiveServerRenderMode()
     .WithBrowserOptions(options =>
     {
-        // Opt-in auto-pause (Preview 7): pause the circuit after the tab has
+        // Opt-in auto-pause: pause the circuit after the tab has
         // been hidden for a while, releasing server resources until the user
         // comes back.
         options.AddAutoPause(pause =>

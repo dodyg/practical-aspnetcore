@@ -1,4 +1,4 @@
-# ASP.NET Core 11 (21)
+# ASP.NET Core 11 (22)
 
 These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
@@ -57,6 +57,13 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 - [unions](unions)
 
   This sample demonstrates C# union types used as minimal API return types and JSON request bodies.
+
+
+## Blazor Server
+
+- [circuit-pause](circuit-pause)
+
+  This sample demonstrates server-initiated and opt-in automatic pausing of Blazor circuits.
 
 ## Blazor SSR
 
