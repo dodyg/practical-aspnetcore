@@ -1,0 +1,41 @@
+@page "/"
+@rendermode RenderMode.InteractiveServer
+
+<h1>Circuit pause</h1>
+
+<p>
+    This component runs in an interactive Server circuit. Two ways to pause it:
+</p>
+
+<ul>
+    <li>
+        <strong>Server-initiated (Preview 4):</strong>
+        <code>Circuit.RequestCircuitPauseAsync()</code> — open
+        <code>http://localhost:5000/pause-all</code> in another tab while this
+        page is open. The server asks the client to begin the graceful
+        circuit-pause flow (used to drain circuits during deployments).
+    </li>
+    <li>
+        <strong>Auto-pause (Preview 7, opt-in):</strong> hide this tab for
+        &gt; 30 seconds (<code>AddAutoPause</code> with
+        <code>HiddenDelay</code>). The circuit pauses itself and releases
+        server resources until you come back.
+    </li>
+</ul>
+
+<div class="card" style="max-width: 320px">
+    <div class="card-body">
+        <p class="card-text">
+            If the circuit is paused, clicking the button re-activates it
+            (state is preserved).
+        </p>
+        <p>
+            Count: <strong>@count</strong>
+        </p>
+        <button class="btn btn-primary" @onclick="() => count++">Increment</button>
+    </div>
+</div>
+
+@code {
+    private int count;
+}
