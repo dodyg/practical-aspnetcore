@@ -90,11 +90,11 @@ static string RenderPage(
         $"<option value=\"{value}\"{(value == lang ? " selected" : "")}>{label}</option>";
 
     var errorSummary = errors is { Count: > 0 }
-        ? $"<div class=\"errors\"><strong>{WebUtility.HtmlEncode(l["ErrorsTitle"])}</strong></div>"
+        ? $"<div class=\"errors\"><strong>{WebUtility.HtmlEncode(l["errors-title"])}</strong></div>"
         : string.Empty;
 
     var successHtml = success
-        ? $"<p class=\"success\">{WebUtility.HtmlEncode(l["Success"])}</p>"
+        ? $"<p class=\"success\">{WebUtility.HtmlEncode(l["success"])}</p>"
         : string.Empty;
 
     return $$"""
@@ -102,13 +102,13 @@ static string RenderPage(
         <html lang="{{lang}}">
         <head>
         <meta charset="utf-8" />
-        <title>{{WebUtility.HtmlEncode(l["PageTitle"])}}</title>
+        <title>{{WebUtility.HtmlEncode(l["page-title"])}}</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
         </head>
         <body>
         <header class="container">
           <form method="post" action="/culture">
-            <label for="culture">{{WebUtility.HtmlEncode(l["Language"])}}</label>
+            <label for="culture">{{WebUtility.HtmlEncode(l["language"])}}</label>
             <select id="culture" name="culture" onchange="this.form.submit()">
               {{SelectOption("en", "English")}}
               {{SelectOption("es", "Español")}}
@@ -117,21 +117,21 @@ static string RenderPage(
         </header>
         <main class="container">
           <div class="card">
-            <h1>{{WebUtility.HtmlEncode(l["PageTitle"])}}</h1>
+            <h1>{{WebUtility.HtmlEncode(l["page-title"])}}</h1>
             {{successHtml}}
             {{errorSummary}}
             <form method="post" action="/customers">
               <div class="field">
-                <label for="Name">{{WebUtility.HtmlEncode(l["CustomerName"])}}</label>
+                <label for="Name">{{WebUtility.HtmlEncode(l["customer-name"])}}</label>
                 <input id="Name" name="Name" value="{{WebUtility.HtmlEncode(name)}}" />
                 {{FieldError("Name")}}
               </div>
               <div class="field">
-                <label for="Email">{{WebUtility.HtmlEncode(l["CustomerEmail"])}}</label>
+                <label for="Email">{{WebUtility.HtmlEncode(l["customer-email"])}}</label>
                 <input id="Email" name="Email" value="{{WebUtility.HtmlEncode(email)}}" />
                 {{FieldError("Email")}}
               </div>
-              <button type="submit">{{WebUtility.HtmlEncode(l["Submit"])}}</button>
+              <button type="submit">{{WebUtility.HtmlEncode(l["submit"])}}</button>
             </form>
           </div>
         </main>
@@ -143,13 +143,13 @@ static string RenderPage(
 [ValidatableType]
 public class CustomerModel
 {
-    // "CustomerName" / "NameRequired" are localization keys, not literal strings.
-    [Display(Name = "CustomerName")]
-    [Required(ErrorMessage = "NameRequired")]
+    // "customer-name" / "name-required" are localization keys, not literal strings.
+    [Display(Name = "customer-name")]
+    [Required(ErrorMessage = "name-required")]
     public string? Name { get; set; }
 
-    [Display(Name = "CustomerEmail")]
-    [EmailAddress(ErrorMessage = "EmailInvalid")]
+    [Display(Name = "customer-email")]
+    [EmailAddress(ErrorMessage = "email-invalid")]
     public string? Email { get; set; }
 }
 
@@ -167,28 +167,28 @@ public sealed class InMemoryStringLocalizer : IStringLocalizer
 
     private static readonly IReadOnlyDictionary<string, string> En = new Dictionary<string, string>
     {
-        ["CustomerName"] = "Name",
-        ["CustomerEmail"] = "Email",
-        ["NameRequired"] = "The name is required.",
-        ["EmailInvalid"] = "The email address is not valid.",
-        ["PageTitle"] = "Customer registration",
-        ["Language"] = "Language",
-        ["Submit"] = "Submit",
-        ["ErrorsTitle"] = "Please fix the following:",
-        ["Success"] = "Customer saved.",
+        ["customer-name"] = "Name",
+        ["customer-email"] = "Email",
+        ["name-required"] = "The name is required.",
+        ["email-invalid"] = "The email address is not valid.",
+        ["page-title"] = "Customer registration",
+        ["language"] = "Language",
+        ["submit"] = "Submit",
+        ["errors-title"] = "Please fix the following:",
+        ["success"] = "Customer saved.",
     };
 
     private static readonly IReadOnlyDictionary<string, string> Es = new Dictionary<string, string>
     {
-        ["CustomerName"] = "Nombre",
-        ["CustomerEmail"] = "Correo",
-        ["NameRequired"] = "El nombre es obligatorio.",
-        ["EmailInvalid"] = "El correo no es válido.",
-        ["PageTitle"] = "Registro de clientes",
-        ["Language"] = "Idioma",
-        ["Submit"] = "Enviar",
-        ["ErrorsTitle"] = "Corrija lo siguiente:",
-        ["Success"] = "Cliente guardado.",
+        ["customer-name"] = "Nombre",
+        ["customer-email"] = "Correo",
+        ["name-required"] = "El nombre es obligatorio.",
+        ["email-invalid"] = "El correo no es válido.",
+        ["page-title"] = "Registro de clientes",
+        ["language"] = "Idioma",
+        ["submit"] = "Enviar",
+        ["errors-title"] = "Corrija lo siguiente:",
+        ["success"] = "Cliente guardado.",
     };
 
     public LocalizedString this[string name]
