@@ -1,4 +1,4 @@
-# ASP.NET Core 11 (16)
+# ASP.NET Core 11 (17)
 
 These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
@@ -17,6 +17,10 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 - [async-validation](async-validation)
 
   This sample demonstrates the new `Microsoft.Extensions.Validation` stack: `AddValidation()`, `[ValidatableType]`, `AsyncValidationAttribute` and `IAsyncValidatableObject`.
+
+- [validation-localization](validation-localization)
+
+  This sample demonstrates localized validation messages and display names using `AddValidation()` and `AddLocalization()`.
 
 - [short-circuit-attribute](short-circuit-attribute)
 
