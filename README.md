@@ -4,7 +4,7 @@ Greetings from Cairo, Egypt. You can [sponsor](https://github.com/sponsors/dodyg
 
 ## What's new on ASP.NET Core 11
 
-You can find samples on new features available in ASP.NET Core 11(20) [here](/projects/net11). 
+You can find samples on new features available in ASP.NET Core 11(21) [here](/projects/net11). 
 
 ## Previous versions
 

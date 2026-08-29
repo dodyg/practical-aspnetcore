@@ -1,4 +1,4 @@
-# ASP.NET Core 11 (20)
+# ASP.NET Core 11 (21)
 
 These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
@@ -13,6 +13,10 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 - [query-method](query-method)
 
   This sample demonstrates routing an HTTP QUERY endpoint with a structured JSON body, including output caching (QUERY is a safe method).
+
+- [output-cache-policy-provider](output-cache-policy-provider)
+
+  This sample demonstrates dynamic output cache policy selection with `IOutputCachePolicyProvider`, including tenant-specific cache keys.
 
 - [zstandard-compression](zstandard-compression)
 

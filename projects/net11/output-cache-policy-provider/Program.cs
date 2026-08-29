@@ -12,15 +12,69 @@ var app = builder.Build();
 
 app.UseOutputCache();
 
-app.MapGet("/", () => Results.Content($"""
-    <html><body>
+app.MapGet("/", () => Results.Content($$"""
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    </head>
+    <body class="container">
         <h1>Custom IOutputCachePolicyProvider</h1>
         <p>The base policy varies the cache key on the <code>X-Tenant</code> header.</p>
-        <p>Generated at: {DateTime.UtcNow:O}</p>
+        <p>Generated at: <time id="generated-at">{{DateTime.UtcNow:O}}</time></p>
         <p>
             Try: <code>curl -H "X-Tenant: a" http://localhost:5000/</code> twice,
-            then with <code>X-Tenant: b</code> — each tenant gets its own cached copy.
+            then with <code>X-Tenant: b</code>. Each tenant gets its own cached copy.
         </p>
+        <h2>Try it in the browser</h2>
+        <p>Click the button to make the same requests with JavaScript.</p>
+        <button id="run-test" type="button">Run tenant cache test</button>
+        <pre id="test-results" style="min-height:100px;white-space:pre-wrap !important;">Test results will appear here.</pre>
+        <script>
+            const results = document.querySelector('#test-results');
+
+            async function requestForTenant(tenant) {
+                const response = await fetch('/', {
+                    headers: { 'X-Tenant': tenant },
+                    cache: 'no-store'
+                });
+
+                if (!response.ok) {
+                    throw new Error(response.status + ' ' + response.statusText);
+                }
+
+                const html = await response.text();
+                const document = new DOMParser().parseFromString(html, 'text/html');
+                return document.querySelector('#generated-at')?.textContent ?? 'not found';
+            }
+
+            document.querySelector('#run-test').addEventListener('click', async () => {
+                results.textContent = 'Running...';
+
+                try {
+                    const tenantATimestamps = [
+                        await requestForTenant('a'),
+                        await requestForTenant('a')
+                    ];
+
+                    const tenantBTimestamps = [
+                        await requestForTenant('b'),
+                        await requestForTenant('b')
+                    ];
+
+                    results.textContent = [
+                        'Tenant a: ' + tenantATimestamps.join(' | '),
+                        'Tenant b: ' + tenantBTimestamps.join(' | '),
+                        '',
+                        tenantATimestamps[0] === tenantATimestamps[1] &&
+                        tenantBTimestamps[0] === tenantBTimestamps[1]
+                            ? 'Each tenant received a cached response.'
+                            : 'The timestamps did not match; try again.'
+                    ].join('\n');
+                } catch (error) {
+                    results.textContent = 'Request failed: ' + error.message;
+                }
+            });
+        </script>
     </body></html>
     """, "text/html")).CacheOutput();
 
