@@ -6,10 +6,6 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 
   This sample demonstrates automatic CSRF protection for unsafe cross-origin requests.
 
-- [open-api-12](open-api-12)
-
-  This sample demonstrates support for the new [HTTP Query method](https://httpwg.org/http-extensions/draft-ietf-httpbis-safe-method-w-body.html).
-
 - [query-method](query-method)
 
   This sample demonstrates routing an HTTP QUERY endpoint with a structured JSON body, including output caching (QUERY is a safe method).
@@ -34,18 +30,6 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 
   This sample demonstrates the `[ShortCircuit]` attribute, which runs an endpoint immediately after routing, skipping the middleware pipeline.
 
-- [open-api-13](open-api-13)
-
-  This sample demonstrates OpenAPI 3.2 as the default document version and the `itemSchema` description of Server-Sent Events responses.
-
-- [open-api-14](open-api-14)
-
-  This sample demonstrates binary file responses (`FileContentHttpResult`) described as `type: string, format: binary` in OpenAPI documents.
-
-- [open-api-15](open-api-15)
-
-  This sample demonstrates multiple `Produces<T>()` per status code producing separate content entries in the OpenAPI document.
-
 - [endpoint-filter-binding-failures](endpoint-filter-binding-failures)
 
   This sample demonstrates endpoint filters observing parameter-binding failures and writing their own 400 response.
@@ -58,6 +42,23 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 
   This sample demonstrates C# union types used as minimal API return types and JSON request bodies.
 
+## OpenAPI
+
+- [open-api-12](open-api-12)
+
+  This sample demonstrates support for the new [HTTP Query method](https://httpwg.org/http-extensions/draft-ietf-httpbis-safe-method-w-body.html).
+
+- [open-api-13](open-api-13)
+
+  This sample demonstrates OpenAPI 3.2 as the default document version and the `itemSchema` description of Server-Sent Events responses.
+
+- [open-api-14](open-api-14)
+
+  This sample demonstrates binary file responses (`FileContentHttpResult`) described as `type: string, format: binary` in OpenAPI documents.
+
+- [open-api-15](open-api-15)
+
+  This sample demonstrates multiple `Produces<T>()` per status code producing separate content entries in the OpenAPI document.
 
 ## Blazor Server
 
