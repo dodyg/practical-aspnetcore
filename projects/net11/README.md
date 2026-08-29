@@ -1,4 +1,4 @@
-# ASP.NET Core 11 (17)
+# ASP.NET Core 11 (18)
 
 These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
@@ -45,6 +45,10 @@ These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-u
 - [native-otel-tracing](native-otel-tracing)
 
   ASP.NET Core 11 populates OpenTelemetry semantic convention attributes on the `Microsoft.AspNetCore` activity source natively — no instrumentation package needed.
+
+- [unions](unions)
+
+  This sample demonstrates C# union types used as minimal API return types and JSON request bodies.
 
 ## Blazor SSR
 

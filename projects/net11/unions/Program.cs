@@ -1,6 +1,5 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,14 +16,57 @@ var app = builder.Build();
 app.MapOpenApi();
 
 app.MapGet("/", () => Results.Text("""
-    <html><body>
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    </head>
+    <body class="container">
         <h1>C# union types in minimal APIs</h1>
         <ul>
             <li><a href="/pets/0">GET /pets/0</a> -> a Dog</li>
             <li><a href="/pets/1">GET /pets/1</a> -> a Cat</li>
-            <li>POST /pets with a JSON body like {"name":"Rex"} or {"lives":9}</li>
             <li><a href="/openapi/v1.json">OpenAPI document</a> (anyOf schemas)</li>
         </ul>
+
+        <h2>POST /pets</h2>
+        <form data-pet-form="dog">
+            <label>
+                Dog name
+                <input name="name" value="Rex" required />
+            </label>
+            <button type="submit">Create dog</button>
+        </form>
+
+        <form data-pet-form="cat">
+            <label>
+                Cat lives
+                <input name="lives" type="number" value="9" min="1" required />
+            </label>
+            <button type="submit">Create cat</button>
+        </form>
+
+        <pre id="result" aria-live="polite"></pre>
+
+        <script>
+            for (const form of document.querySelectorAll("[data-pet-form]")) {
+                form.addEventListener("submit", async (event) => {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+                    const pet = form.dataset.petForm === "dog"
+                        ? { name: formData.get("name") }
+                        : { lives: Number(formData.get("lives")) };
+                    const response = await fetch("/pets", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(pet)
+                    });
+
+                    document.getElementById("result").textContent =
+                        `${response.status}: ${await response.text()}`;
+                });
+            }
+        </script>
     </body></html>
     """, "text/html")).ExcludeFromDescription();
 
