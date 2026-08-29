@@ -4,17 +4,18 @@ app.MapGet("/", () =>
     var html = """
         <html>
             <head>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
                 <style>
                     div[hx-trigger] {
                         cursor:pointer;
                     }
                 </style>
             </head>
-            <body>
+            <body class="container">
                 <div class="container">
                     <h1>Various hx-target options</h1>
-                    <p>You can find the full documentation <a href="https://htmx.org/docs/#targets">here</a></p>
+                    <p>You can find the full documentation <a href="https://four.htmx.org/docs/#targets">here</a></p>
                     <div class="row">
                         <div class="col-md-3">
                             <ul>
