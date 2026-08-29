@@ -4,27 +4,29 @@ app.MapGet("/", () =>
     var html = """
         <html>
             <head>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
                 <style>
                     div[hx-trigger] {
                         cursor:pointer;
                     }
                 </style>
             </head>
-            <body>
+            <body class="container">
                 <div class="container">
-                    <h1>Modal in Bootstrap 5</h1>
-                    <p>A port from this <a href="https://htmx.org/examples/modal-bootstrap/">HTMX example</a></p>
+                    <h1>Modal with Pico CSS</h1>
+                    <p>A native dialog powered by htmx and Pico CSS.</p>
 
-                    <button hx-get="/htmx" hx-target="#designated-modal" hx-trigger="click" data-bs-toggle="modal" data-bs-target="#designated-modal" class="btn btn-primary">Open Modal</button>
+                    <button hx-get="/htmx" hx-target="#designated-modal" hx-trigger="click">Open Modal</button>
 
-                    <div id="designated-modal" class="modal modal-blur fade" style="display: none" aria-hidden="false" tabindex="-1">
-                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                            <div class="modal-content"></div>
-                        </div>
-                    </div>
+                    <dialog id="designated-modal"></dialog>
                     <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                    <script>
+                        document.body.addEventListener("htmx:after:swap", (event) => {
+                            if (event.detail.ctx?.target?.id === "designated-modal")
+                                document.querySelector("#designated-modal").showModal();
+                        });
+                    </script>
             </body>
         </html>
     """;
@@ -38,19 +40,11 @@ app.MapGet("/htmx", (HttpRequest request, string key) =>
 
     return Results.Content(
         $$"""
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Greetings</h5>
-                </div>
-                <div class="modal-body">
-                    <p>The current UTC time is {{ DateTime.UtcNow }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+        <article>
+            <header><h2>Greetings</h2></header>
+            <p>The current UTC time is {{ DateTime.UtcNow }}</p>
+            <footer><button onclick="this.closest('dialog').close()">Close</button></footer>
+        </article>
         """);
 });
 
