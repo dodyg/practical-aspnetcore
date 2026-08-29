@@ -18,10 +18,9 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
         <!DOCTYPE html>
         <html>
             <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
             </head>
-            <body class="container">
+            <body>
                 <div class="container">
                     <div class="col-md-6">
                         <h1>Simple Form</h1>
