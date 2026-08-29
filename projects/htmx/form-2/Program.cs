@@ -18,59 +18,48 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
         <!DOCTYPE html>
         <html>
             <head>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
             </head>
             <body>
-                <div class="container">
-                    <div class="col-md-6">
-                        <h1>Simple Form</h1>
-                        <form hx-post="/simple" hx-swap="outerHTML">
-                            <input type="hidden" name="{ token.FormFieldName }" value="{token.RequestToken}" />
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" name="Name" id="name" class="form-control" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="bio" class="form-label">Bio</label>
-                                <textarea name="Bio" id="bio" rows="5" class="form-control">
-                                </textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="Gender" id="gender" class="form-label">Gender</label>
-                                <select name="Gender" id="gender" class="form-select">
-                                    <option>Non Binary</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input type="hidden" name="IsEmployed" value="false">
-                                <input class="form-check-input" name="IsEmployed" type="checkbox" value="true" id="isEmployed">
-                                <label class="form-check-label" for="isEmployed">
-                                    Is Employed
-                                </label>
-                            </div>
-                            <div>
-                                Preferred Transportation
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="Transportation" id="transportation1" value="car">
-                                <label class="form-check-label" for="transportation1">
-                                    Car
-                                </label>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="Transportation" id="transportation2" value="metro/subway" checked>
-                                <label class="form-check-label" for="transportation2">
-                                    Metro/Subway
-                                </label>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Post</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <main class="container">
+                    <h1>Simple Form</h1>
+                    <form hx-post="/simple" hx-swap="outerHTML">
+                        <input type="hidden" name="{ token.FormFieldName }" value="{token.RequestToken}" />
+
+                        <label for="name">Name</label>
+                        <input type="text" name="Name" id="name" />
+
+                        <label for="bio">Bio</label>
+                        <textarea name="Bio" id="bio" rows="5"></textarea>
+
+                        <label for="gender">Gender</label>
+                        <select name="Gender" id="gender">
+                            <option>Non Binary</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+
+                        <label>
+                            <input type="hidden" name="IsEmployed" value="false" />
+                            <input name="IsEmployed" type="checkbox" value="true" />
+                            Is Employed
+                        </label>
+
+                        <fieldset>
+                            <legend>Preferred Transportation</legend>
+                            <label>
+                                <input type="radio" name="Transportation" value="car" />
+                                Car
+                            </label>
+                            <label>
+                                <input type="radio" name="Transportation" value="metro/subway" checked />
+                                Metro/Subway
+                            </label>
+                        </fieldset>
+
+                        <button type="submit">Post</button>
+                    </form>
+                </main>
                 <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             </body>
         </html>
