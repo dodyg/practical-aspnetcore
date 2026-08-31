@@ -16,14 +16,15 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
                     }
                 </style>
-                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
+                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{token.HeaderName}}", "requestToken" : "{{token.RequestToken}}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>HX-Trigger</h1>
             <p>Click on the below links to see the response.</p>
             <ul>
@@ -121,7 +122,7 @@ htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
 {
     var showMe = JsonSerializer.Serialize(new { message = "PATCH from show-me" });
     var showYou = JsonSerializer.Serialize(new { message = "PATCH from show-you" });
-   
+
     response.Headers.Append("HX-Trigger", $$$"""{"show-me": {{{showMe}}}, "show-you": {{{showYou}}} }""");
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });
