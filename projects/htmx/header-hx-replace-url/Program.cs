@@ -15,14 +15,15 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
                     }
                 </style>
-                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
+                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{token.HeaderName}}", "requestToken" : "{{token.RequestToken}}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>HX-Replace-Url</h1>
             <p>Click on the below links to see the response. Don't forget to check your browser url.</p>
             <ul>
@@ -74,35 +75,33 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Replace-Url", "/get");
-
+    response.Headers.Append("HX-Replace-Url", "/get");
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Replace-Url", "/post");
-
+    response.Headers.Append("HX-Replace-Url", "/post");
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Replace-Url", "/delete");
+    response.Headers.Append("HX-Replace-Url", "/delete");
 
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Replace-Url", "/put");
-    
+    response.Headers.Append("HX-Replace-Url", "/put");
+
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
-{   
-response.Headers.Append("HX-Replace-Url", "/patch");
+{
+    response.Headers.Append("HX-Replace-Url", "/patch");
 
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });
