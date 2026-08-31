@@ -15,14 +15,15 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
                     }
                 </style>
-                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
+                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{token.HeaderName}}", "requestToken" : "{{token.RequestToken}}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>HX-Trigger</h1>
             <p>Click on the below links to see the response.</p>
             <ul>
@@ -78,35 +79,35 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Trigger", """{"show-me":{"message":"GET request"}}""");
+    response.Headers.Append("HX-Trigger", """{"show-me":{"message":"GET request"}}""");
 
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Trigger", """{"show-me":{"message":"POST request"}}""");
+    response.Headers.Append("HX-Trigger", """{"show-me":{"message":"POST request"}}""");
 
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Trigger", """{"show-me":{"message":"DELETE request"}}""");
+    response.Headers.Append("HX-Trigger", """{"show-me":{"message":"DELETE request"}}""");
 
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Trigger", """{"show-me":{"message":"PUT request"}}""");
-    
+    response.Headers.Append("HX-Trigger", """{"show-me":{"message":"PUT request"}}""");
+
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
-{   
-response.Headers.Append("HX-Trigger", """{"show-me":{"message":"PATCH request"}}""");
+{
+    response.Headers.Append("HX-Trigger", """{"show-me":{"message":"PATCH request"}}""");
 
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });
