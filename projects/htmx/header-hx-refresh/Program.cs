@@ -15,6 +15,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
@@ -22,7 +23,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 </style>
                 <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>HX-Refresh</h1>
             <p>Click on the below links. This page will be refreshed. Check the date changes {{ DateTime.Now }}</p>
             <ul>
@@ -74,36 +75,31 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Refresh", "true");
-
+    response.Headers.Append("HX-Refresh", "true");
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Refresh", "true");
-
+    response.Headers.Append("HX-Refresh", "true");
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Refresh", "true");
-
+    response.Headers.Append("HX-Refresh", "true");
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Refresh", "true");
-    
+    response.Headers.Append("HX-Refresh", "true");
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
 {   
-response.Headers.Append("HX-Refresh", "true");
-
+    response.Headers.Append("HX-Refresh", "true");
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });
 
