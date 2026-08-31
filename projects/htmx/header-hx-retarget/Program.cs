@@ -15,15 +15,15 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
                     }
                 </style>
-                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
+                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{token.HeaderName}}", "requestToken" : "{{token.RequestToken}}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>HX-Trigger</h1>
             <p>Click on the below links to see the response.</p>
             <div class="row">
@@ -93,35 +93,35 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Retarget", "#get");
+    response.Headers.Append("HX-Retarget", "#get");
 
     return Results.Content($"GET => {DateTime.UtcNow}");
 });
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Retarget", "#post");
+    response.Headers.Append("HX-Retarget", "#post");
 
     return Results.Content($"POST => {DateTime.UtcNow}");
 });
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Retarget", "#delete");
+    response.Headers.Append("HX-Retarget", "#delete");
 
     return Results.Content($"DELETE => {DateTime.UtcNow}");
 });
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Retarget", "#put");
-    
+    response.Headers.Append("HX-Retarget", "#put");
+
     return Results.Content($"PUT => {DateTime.UtcNow}");
 });
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
-{   
-response.Headers.Append("HX-Retarget", "#patch");
+{
+    response.Headers.Append("HX-Retarget", "#patch");
 
     return Results.Content($"PATCH => {DateTime.UtcNow}");
 });
