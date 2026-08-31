@@ -15,6 +15,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
@@ -22,7 +23,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 </style>
                 <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{token.HeaderName}}", "requestToken" : "{{token.RequestToken}}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>HX-Reselect header</h1>
             <p>Click on the below links to see the response</p>
             <ul>
@@ -74,7 +75,7 @@ var htmx = app.MapGroup("/htmx").AddEndpointFilter(async (context, next) =>
 
 htmx.MapGet("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Reselect", "#get");
+    response.Headers.Append("HX-Reselect", "#get");
 
     return Results.Content($"""
     GET => {DateTime.UtcNow}
@@ -84,7 +85,7 @@ response.Headers.Append("HX-Reselect", "#get");
 
 htmx.MapPost("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Reselect", "#post");
+    response.Headers.Append("HX-Reselect", "#post");
 
     return Results.Content($"""
         POST => {DateTime.UtcNow}
@@ -94,7 +95,7 @@ response.Headers.Append("HX-Reselect", "#post");
 
 htmx.MapDelete("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Reselect", "#delete");
+    response.Headers.Append("HX-Reselect", "#delete");
 
     return Results.Content($"""
         DELETE => {DateTime.UtcNow}
@@ -104,7 +105,7 @@ response.Headers.Append("HX-Reselect", "#delete");
 
 htmx.MapPut("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Reselect", "#put");
+    response.Headers.Append("HX-Reselect", "#put");
 
     return Results.Content($"""
         PUT => {DateTime.UtcNow}
@@ -114,7 +115,7 @@ response.Headers.Append("HX-Reselect", "#put");
 
 htmx.MapPatch("/", (HttpRequest request, HttpResponse response) =>
 {
-response.Headers.Append("HX-Reselect", "#patch");
+    response.Headers.Append("HX-Reselect", "#patch");
 
     return Results.Content($"""
         PATCH => {DateTime.UtcNow}
