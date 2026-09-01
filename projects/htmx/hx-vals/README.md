@@ -13,3 +13,5 @@ This example shows how to use `hx-vals` to pass parameters to all supported HTTP
 ```
 
 On `GET` and `DELETE`, the parameters are accessible via `Request.Query`. For the rest, you can access the parameters via `Request.Form`.
+
+Htmx 4 uses the `js:` prefix for computed values. The second panel sends `hx-vals="js:{ count: eventDetail() }"`; this replaces the removed `hx-vars` attribute.
