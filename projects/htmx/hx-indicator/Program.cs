@@ -16,6 +16,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
@@ -23,33 +24,47 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
 
                     .htmx-indicator{
                         opacity:0;
+                        visibility:hidden;
                         transition: opacity 500ms ease-in;
-                        position:absolute;
+                        position:fixed;
                         left:50%;
                         top:50%;
+                        transform:translate(-50%, -50%);
+                        z-index:1000;
+                        display:flex;
+                        align-items:center;
+                        gap:0.5rem;
+                        padding:1rem;
+                        background:grey;
                     }
                     
                     .htmx-request .htmx-indicator{
-                        opacity:1
+                        opacity:1;
+                        visibility:visible;
                     }
                     
                     .htmx-request.htmx-indicator{
-                        opacity:1
+                        opacity:1;
+                        visibility:visible;
                     }
                 </style>
-                <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
+                <meta name="htmx-config" content='{ "includeIndicatorCSS": false, "antiForgery": {"headerName" : "{{token.HeaderName}}", "requestToken" : "{{token.RequestToken}}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>hx-spinner</h1>
             <p>Click on the below links to see request spinner and the response</p>
+            <p>The sample supplies its own indicator CSS and disables htmx 4's generated stylesheet.</p>
             <ul hx-indicator:inherited="#spinner">
-                <li hx-get="/htmx">GET</li>
+                <li hx-get="/htmx" >GET</li>
                 <li hx-post="/htmx">POST</li>
                 <li hx-put="/htmx">PUT</li>
                 <li hx-patch="/htmx">PATCH</li>
                 <li hx-delete="/htmx">DELETE</li>
             </ul>
-            <img  id="spinner" class="htmx-indicator" src="/90-ring.svg"/>
+            <div id="spinner" class="htmx-indicator" role="status" aria-live="polite">
+                <img src="/90-ring.svg" width="90" height="90" alt=""/>
+                <span>Loading...</span>
+            </div>
             <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
             <script>
                 document.addEventListener("htmx:config:request", (evt) => {
