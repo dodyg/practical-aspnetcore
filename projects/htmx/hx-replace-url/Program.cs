@@ -15,13 +15,14 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
                     }
                 </style>
                 <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                
             </head>
             <body class="container">
             <h1>hx-replace-url</h1>
