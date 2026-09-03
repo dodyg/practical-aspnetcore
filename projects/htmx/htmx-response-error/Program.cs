@@ -14,6 +14,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
@@ -21,8 +22,9 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 </style>
                 <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
             </head>
-            <body>
-            <h1>Examine AJAX error response via htmx:response:error</h1>
+            <body class="container">
+            <h1>Examine HTTP error responses via htmx:response:error</h1>
+            <p><code>htmx:response:error</code> is for HTTP error responses. Network, timeout, swap, and target failures are consolidated into <code>htmx:error</code>; see the <a href="/htmx-error">htmx-error</a> sample.</p>
             <p>Click on the below links to see the response</p>
             <ul>
                 <li hx-get="/htmx">GET</li>
@@ -35,7 +37,9 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
             <script>
                 document.addEventListener("htmx:response:error", (evt) => {
                     console.log("event", evt);
-                    alert(evt.detail.ctx.response.status + ":" + evt.detail.ctx.response.statusText);
+                    let response = evt.detail.ctx.response;
+                    let message = evt.detail.ctx.text?.trim() || "Request failed";
+                    alert(`HTTP ${response.status}: ${message}`);
                 });
 
                 document.addEventListener("htmx:config:request", (evt) => {
@@ -81,7 +85,7 @@ htmx.MapGet("/", (HttpRequest request) =>
     if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
-    return Results.BadRequest();
+    return Results.BadRequest("The GET request was rejected.");
 });
 
 htmx.MapPost("/", (HttpRequest request) =>
@@ -89,7 +93,7 @@ htmx.MapPost("/", (HttpRequest request) =>
     if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
-    return Results.BadRequest();
+    return Results.BadRequest("The POST request was rejected.");
 });
 
 htmx.MapDelete("/", (HttpRequest request) =>
@@ -97,7 +101,7 @@ htmx.MapDelete("/", (HttpRequest request) =>
     if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
-    return Results.BadRequest();
+    return Results.BadRequest("The DELETE request was rejected.");
 });
 
 htmx.MapPut("/", (HttpRequest request) =>
@@ -105,7 +109,7 @@ htmx.MapPut("/", (HttpRequest request) =>
     if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
-    return Results.BadRequest();
+    return Results.BadRequest("The PUT request was rejected.");
 });
 
 htmx.MapPatch("/", (HttpRequest request) =>
@@ -113,7 +117,7 @@ htmx.MapPatch("/", (HttpRequest request) =>
     if (request.Headers.ContainsKey("HX-Request") is false)
         return Results.Content("");
 
-    return Results.BadRequest();
+    return Results.BadRequest("The PATCH request was rejected.");
 });
 
 app.Run();
