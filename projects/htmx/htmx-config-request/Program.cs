@@ -14,6 +14,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li{
                         cursor:pointer;
@@ -21,7 +22,7 @@ app.MapGet("/", (HttpContext context, [FromServices] IAntiforgery anti) =>
                 </style>
                 <meta name="htmx-config" content='{ "antiForgery": {"headerName" : "{{ token.HeaderName}}", "requestToken" : "{{token.RequestToken }}" } }'>
             </head>
-            <body>
+            <body class="container">
             <h1>Passing parameters via htmx:config:request</h1>
             <p>Click on the below links to see the response</p>
             <ul>
