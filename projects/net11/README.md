@@ -1,6 +1,6 @@
 # ASP.NET Core 11 (22)
 
-These samples require SDK [11.0.100-preview.7](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
+These samples require SDK [11 RC1](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)
 
 - [csrf-protection](csrf-protection)
 
