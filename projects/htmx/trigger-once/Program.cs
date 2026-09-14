@@ -6,13 +6,14 @@ app.MapGet("/", () =>
         <!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
                 <style>
                     li[hx-get]{
                         cursor:pointer;
                     }
                 </style>
             </head>
-            <body>
+            <body class="container">
                 <h1>Click once</h1>
                 <ul>
                     <li hx-get="/htmx/once" hx-trigger="click once">Click</li>
@@ -22,6 +23,7 @@ app.MapGet("/", () =>
             </body>
         </html>
     """;
+    
     return Results.Content(html, "text/html");
 });
 
